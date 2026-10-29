@@ -1,0 +1,21 @@
+# Shared specification repository: implementation and operational data do not belong here.
+__pycache__/
+*.pyc
+*.exe
+*.dll
+*.dat
+*.sqlite*
+*.db
+*.log
+.env*
+*.key
+*.pem
+*.py
+*.cs
+*.go
+*.rs
+*.java
+.env
+secrets/
+runtime/
+backups/
