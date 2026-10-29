@@ -1,0 +1,13 @@
+{
+  "implementation": "fill-in",
+  "spec_version": "0.1.0-draft",
+  "client_sha256": "fill-in",
+  "profiles": [],
+  "requirements": [],
+  "packets": [],
+  "scenarios": [],
+  "passed_vectors": [],
+  "manual_validation": [],
+  "deviations": [],
+  "custom_rules": []
+}

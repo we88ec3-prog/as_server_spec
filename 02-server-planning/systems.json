@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "systems": [
+    {
+      "id": "SYS-AUTH",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ],
+      "analysis_requests": [
+        "A-001",
+        "A-002",
+        "A-020"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-CHAR",
+      "requirements": [
+        "R-003"
+      ],
+      "analysis_requests": [
+        "A-003"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-WORLD",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "analysis_requests": [
+        "A-004"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-MOVE",
+      "requirements": [
+        "R-005"
+      ],
+      "analysis_requests": [
+        "A-005"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-LOOK",
+      "requirements": [
+        "R-006"
+      ],
+      "analysis_requests": [
+        "A-006"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-ITEM",
+      "requirements": [
+        "R-008"
+      ],
+      "analysis_requests": [
+        "A-007"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-STATS",
+      "requirements": [
+        "R-009"
+      ],
+      "analysis_requests": [
+        "A-008"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-COMBAT",
+      "requirements": [
+        "R-010"
+      ],
+      "analysis_requests": [
+        "A-009"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-SKILL",
+      "requirements": [
+        "R-011"
+      ],
+      "analysis_requests": [
+        "A-010"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-NPC",
+      "requirements": [
+        "R-012"
+      ],
+      "analysis_requests": [
+        "A-011"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-QUEST",
+      "requirements": [
+        "R-013"
+      ],
+      "analysis_requests": [
+        "A-012"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-ECONOMY",
+      "requirements": [
+        "R-014"
+      ],
+      "analysis_requests": [
+        "A-013"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-SOCIAL",
+      "requirements": [
+        "R-015"
+      ],
+      "analysis_requests": [
+        "A-014"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-CONTENT",
+      "requirements": [
+        "R-016"
+      ],
+      "analysis_requests": [
+        "A-015"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-PERSIST",
+      "requirements": [
+        "R-017"
+      ],
+      "analysis_requests": [
+        "A-016"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-OPS",
+      "requirements": [
+        "R-018",
+        "R-019",
+        "R-020",
+        "R-021"
+      ],
+      "analysis_requests": [
+        "A-017",
+        "A-018"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-AUDIO",
+      "requirements": [
+        "R-022"
+      ],
+      "analysis_requests": [
+        "A-019"
+      ],
+      "implementation_language": "independent",
+      "status": "planned"
+    },
+    {
+      "id": "SYS-SPEC",
+      "requirements": [
+        "R-023",
+        "R-024"
+      ],
+      "analysis_requests": [],
+      "implementation_language": "independent",
+      "status": "planned"
+    }
+  ]
+}

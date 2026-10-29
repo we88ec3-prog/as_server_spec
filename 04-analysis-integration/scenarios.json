@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "scenarios": [
+    {
+      "id": "SCN-001",
+      "title": "錯誤登入後成功交接與進圖",
+      "requirements": [
+        "R-001",
+        "R-002",
+        "R-004"
+      ],
+      "packets": [
+        "PKT-C62",
+        "PKT-C00",
+        "PKT-S00",
+        "PKT-C03",
+        "PKT-C6C",
+        "PKT-C0F",
+        "PKT-S18",
+        "PKT-C57",
+        "PKT-S56",
+        "PKT-C4B",
+        "PKT-S60",
+        "PKT-S02",
+        "PKT-S03",
+        "PKT-C10",
+        "PKT-C25",
+        "PKT-S05",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04",
+        "PKT-S33"
+      ],
+      "status": "manual-pass-subset",
+      "notes": "已補最小本機公告與清單路徑；其他metadata／Script種類待A-020，未納入的Client確認包仍須分別查核。"
+    },
+    {
+      "id": "SCN-002",
+      "title": "連續移動、序號環回及轉向",
+      "requirements": [
+        "R-005"
+      ],
+      "packets": [
+        "PKT-C33",
+        "PKT-S0B",
+        "PKT-C11"
+      ],
+      "status": "manual-pass-subset",
+      "notes": "正常步伐已驗證；障礙、速度裁定與校正失敗分支待A-005。"
+    },
+    {
+      "id": "SCN-003",
+      "title": "在線切圖及重登位置",
+      "requirements": [
+        "R-004",
+        "R-017"
+      ],
+      "packets": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04",
+        "PKT-S33",
+        "PKT-S19"
+      ],
+      "status": "manual-pass-subset",
+      "notes": "正常切圖已驗證；逾時與載入失敗回復待A-016。"
+    },
+    {
+      "id": "SCN-004",
+      "title": "換裝、髮色與衣色獨立",
+      "requirements": [
+        "R-006",
+        "R-008"
+      ],
+      "packets": [
+        "PKT-C1C",
+        "PKT-S37",
+        "PKT-S33",
+        "PKT-S05"
+      ],
+      "status": "server-tested-client-pending",
+      "notes": "既有衣服切換實機通過；最後一輪染色與置中修正尚未回報原客戶端通過。"
+    },
+    {
+      "id": "SCN-005",
+      "title": "兩玩家互見並離開",
+      "requirements": [
+        "R-007",
+        "R-006"
+      ],
+      "packets": [
+        "PKT-S33"
+      ],
+      "status": "analysis-required",
+      "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。"
+    },
+    {
+      "id": "SCN-006",
+      "title": "播放、停止與跨圖音樂",
+      "requirements": [
+        "R-022"
+      ],
+      "packets": [
+        "PKT-S19"
+      ],
+      "status": "manual-pass-subset",
+      "notes": "可聽見聲音已確認；原map→track對應未確認。"
+    }
+  ]
+}

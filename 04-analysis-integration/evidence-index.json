@@ -1,0 +1,1490 @@
+{
+  "schema_version": 1,
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "notice": "Evidence IDs identify historical local records. A different REA session cannot assume retrieval by ID; reproduce using the documented client identity and native addresses, or request a separately reviewed excerpt.",
+  "evidence": [
+    {
+      "evidence_id": "ev_0044683af79e09808ae1e3dd2468ba88bd6287f4579a7edf7e858d8f4c760fb0",
+      "legacy_documents": [
+        "intro-switch.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_021f78485a02015920d4644018473862c972c9b4d2f1280431e0cd0af03ca9e4",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_031179b54c92fccb1f1ef39d2b2f2c5d43d7a329e52933e709a0c292cb074d4e",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_05bd7dc3a837c180b194271dd9783f41b4daf26545409d50eb460bed3723d118",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_067274e31131a48c3a89113913ff32002a373feb5e2efff29860495f1efb2eba",
+      "legacy_documents": [
+        "clothing-colors.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_068a0d0fd5e1395e82b30d75022cbcc80500c5aa1fa4a4e1f5a912d62f643406",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_07039962aa47d1e1eeb01e496a00689a421ca1f02cef8c6a21832ff588cf1af7",
+      "legacy_documents": [
+        "world-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_08cb8ca4d00a6a9d5a618558734c29baa3e61cb88e6dfe719404b236b2846787",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_08f45301d5c17fcf09333f54c049442dd32a4a6f551c4eba162e87fdd9ea893a",
+      "legacy_documents": [
+        "screen-centering.md",
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_0ba64c056e9f9ef5003066219504b13b6a836b351304d5e145c24d19980dbdb0",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_0cefeb594da38769b26344b2452a07566fa5e72d3f40146fc5cb1cd9ff62242d",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_0da1c788f05c78b436e456d2802df35b8026055751ad7dfbd2fc062b4f74ee43",
+      "legacy_documents": [
+        "validation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_0ffe7cc1378f3e924404fa03b64ddd3c93d8f9c40d487219873f55375066b6dd",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_118f7890a0a4321dda8b83065142403499e707a3620831c41800a1b4164b4be1",
+      "legacy_documents": [
+        "assets.md",
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_12a5d0812cdc96c0a9b8637f63fe0cca1a47048a788ddee1924cbb22f22297db",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_14133d8b14d4b82eb4880160a5cb1b97ef033877f73790cf193b100a9923e7b8",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_14e214e9a842dad9080f5dd0e48305125a20698b6919a74979a49e8492a5e13e",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_15069c566e76d467d85fcdea4ccb91997109f38edbdcb0269d66fbc382bf95a1",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_17ab566f7ddbfe36aae7758f1bf8e1bc4583709ad5352be08b6ccba26046d598",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_188b87d043c6e8da2268c7267498d4a4482a58f6ad3f27ddb96261641c3d184b",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_1cefb28e6954655dc7adfe414592e365398d8a8bac2485780913d012c30ffdcf",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_1d34b77be856020cc95a73f2e65f300901747bda7d341429d52af2a4735f7e72",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_1d9507f57e8880cb7172fe7cfb13bc41008d01b4e607b38ff6e81c1eeb2dfab6",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_1e16b65a9e136f5f437dcca4b2bfd2f96d58014f2879db0857c743584ea2753a",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_21c127c8b1b6f9c5105d87ca5975fcf8a170a61f694df23892978e03eecf1e52",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_233717edcc71939d212d28d3815d285b441e081deadeedaf38fca8bd3bef0ebf",
+      "legacy_documents": [
+        "screen-centering.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_236e459b378ce4b38e60c1e639ce6fd23895492e5f668cf1b9483c31133eef9a",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_24fde8767e1430d34f629414098d8a40ac7da7f0b8ee88bd725488c54edd0deb",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_2504ebec3d33783709c0ee5b1831c183ec70eb4b8daf9bec7e325520396fe1b6",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_2517db1a1ed5af144c1caf40ed5d3950f98332ec4bede593921710a9e8d99a99",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_26329f59fb408885c1bf63d2650f557748afd1ca6df71c02cb9298596e9e2864",
+      "legacy_documents": [
+        "clothing-colors.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_2a786c432e25020497cabb0dc50b3de0723f8d0c8cfd5bbd1dafaf40585bf371",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_2b0d100b64859fb5d3b4d69a225f864ee4282c8bb67a175d14502a8d9c50380f",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_2d00a30086dd1fdb8beb2a834859b28938b2db021dc0d9086b706ce2bea8abb9",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_2e40660b7657ca90cb324c25e7c8a1bb095e3c1395b6335e1109c17f4740bcb0",
+      "legacy_documents": [
+        "clothing-colors.md",
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_2f5e65b416f1569fcd6a5a60e8796ffc7a9fdaaeb94adc5cfa45314f9546e731",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_311bcfd3586143a8a6f63f26049380dddabc391199ca1196154dd7df9f0171a0",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_32aeac7470d53d3c092be4197eaa14901b4f7f6f5d83387591f834b45d05a695",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_33feac3d5320b4ca8b94db7d5294fc7b7da0588d4f5ddd91669b70c0a740ccd5",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_35c9f809f33fa7da8e169fd00fce00b993507c6f335e2696c74af386fc76781e",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_35f09c02700d6ecd08cf373d899e498d79e531b2e9b8a1c57766b0853fd48420",
+      "legacy_documents": [
+        "intro-switch.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3672332a5f0300afb3a35835d88f1b892c46329bb2caeb21d460394f39df24c7",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3695e0fef7b195ee571c70e78e8ece8eade03b7f0ac3f974ebfcb6c509c7f9c7",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3754029bb7a256ae1dd4f79a2e41a67ad169c266a66c8e61c866028e1e1ede2a",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_38e7cf8c61832d4446fbcb15000748a6c76b7dea6fefec0dc702634709df3a63",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_38f0920413944e7e12796119e02004c224c8cd88b87127448deaa25497b8ace1",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_39c3dc010afa24198901d11bdb54d98de02468a66bf45ace04f2993566404cdf",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3a12b2fa1fb3b26f16d3026dfdfe58a4523747005a70ac6eb22819a319c85156",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3acbcea7fe012ec863ddd856d33a669087d52885d7974d85b727884def89737a",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3b61348d9f439c33f2767df5e0232286a252b64018128016b758c67cad2ba14a",
+      "legacy_documents": [
+        "intro-switch.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3c36d2ac6ee602f509aa4666529315f28d836d22a9fc87bf94636060690a8a09",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3c5725c2e469f4ba1549d5ef5eddb13c867524b5bf08db7b116be69ef0af0d06",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3c5db4819d031195f3d516358eb2e1542542cf7f56c1b717a714c72cda9ada6a",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3d1ec696a0779fc38c07d16ea384ad72549b8145577aa9078e7c17ad2189574a",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3dbe5d293e3589e04dcf97d89a5f63e1f7c84b7ab944ab5a2bd13f31832acbae",
+      "legacy_documents": [
+        "clothing-colors.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_3f1b397f588aed086cd43804b10a12982d7cc714b9efc543dff37da65bb047f0",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_412f6c86178398c31300c40bdc884afe41ad00fd5ada40893a232021355a1fb7",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_4136943eb5e4fe8f41cc8ca6c56ddc73d6e6fff2beab41dea6a0766e5195533b",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_41d1146044e6a5dc425e7762401ee93dc263f687b33090a30e10df1aa5377d4e",
+      "legacy_documents": [
+        "intro-switch.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_43dc4163fab0bb576eed804b13572d5288df0b08cac11c04182c14d6c4371092",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_485f06f725ab167f69c8d9cd4efd4cbf53e3aa48e395af62a6af28c62309d430",
+      "legacy_documents": [
+        "background-music.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_4874117cda53162816c23b7655c98477269df4a3abbe32cef1c06a1629970e26",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_48e7a03d5d45ac86a8d9bc9d871737de884f82c3739bc086f9accdac9eec0784",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_4b759d15070b55c9a8be2da89c5a95a412c98f2109e6ad27e217413dde2339f2",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_4bf1db51e34dd87a2c7b40fc33965765bff93109d7b629a211f09e67af3f6f4c",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_4cf8eec656242758e4c3c7a8147b3e4ab75e0641f60116fef47dd2b4cec70bba",
+      "legacy_documents": [
+        "equipment-flow.md",
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_4e7784abc8f9c1e089e57fd2a070c52cb3053b6139ca593f75b2e3aec0a5b0c1",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_51498c91080b1b28b53f52754afa73039010b115bd44e164c104c5528325c1ff",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_54fe1aaf2f1245fed79b260d63fe05c199eeffb6fb01615a1bf13994f56151c7",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_5521c762b36c7ae24d3d1cf0b1b46671fc555c76a7d81ee91009ebe2f92e2c07",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_566ff3b621214430eb1c47d01ef9d4ed68f30cfbf37f9518d8a863057c14e331",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_599bd67254170f1a06cf76b19690d670127462f0a700b2b40ef018d4004bf197",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_5b2c90713a48f1ea0b386365716f3a05f67b3160f24c74cc373a6c8fa8004755",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_5bcb75aeac6c09d74842f18c9478276aceb4bc90950060232ce25b1580af5510",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_5cb0281877fb86834ca4960df536cbf3b6f80292579f6b3a78a3f3cd2cf01d5f",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_5f526750a388b7eb4fe8c3320ada0f7876d4bbc2f176f5e2531fe1d3732055ac",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_610942d9b85a8041c7bcd11946b31d2a3d6fa3c7949221493e29f44d2b9959f0",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_61efe0619ab38971cbc04e7b3ba474da1f6ec4eb8b958f5f117c33778ed1723c",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_62b02ab0653e59563f820c7e3487b3a8020df6dd12c18f0423d338dfa1f23312",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_634df4fba53ef3e3ab5c603cdda64df8f4e212ad7edb9ebc319701425be2da96",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_6547a1b13dfe77d5e7653209670edc33d3a6c1b8d831d000a51a5e99bf9fc117",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_66c83925e545da0a9e8e8dff38b8c48ca08b72053653a8d40fc3d588ad20a346",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_684690662fb8731b72febe1b623977ac439df2e2ec8d1ef0c96af3eae186d330",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_69a7f128998b495871e6c49622b0fd79afddf5c6d5ee0f4efe37db3fb138a1da",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_6d7c1cbb3fa3802680a9e7924797521887f4ed373417e871feb53a5bf24c9aa2",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_6e345a411dead8a7492d2bb63a20b1bcfef9fbee4595133eb0ebd1c4a2cfb3da",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_6f4220185ced58b236c844978be25a428d075f4ea4812567312a6e7800c3b758",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_6f998e1dc4f148ac5c4f187dce988f46f0abb55d27c031cfa66be84a57549e99",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_706face123904fee6228ec7123dd6d6b7508587024546c3cce4b035fff075f11",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_72ddadf225be439d3428507e73927f50e66217ae7f5a4645f5ca3261705cc399",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_75d2a76510adc2c97a341510c29b57e5253e93a5722cf923d301671ef2ed61d4",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_7610f3bbac6efa19c9680b78a000feb6086db87586d6e19074aa75da149252ef",
+      "legacy_documents": [
+        "screen-centering.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_76dd70017042a022b580f0dec26dee605feb2e74620043d4617eb271740a62e2",
+      "legacy_documents": [
+        "clothing-colors.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_7831105879b610b5bca559b7584b0b628e667adb9d4102d6b75e20fa628861fd",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_792587952efbf7c46198c51fc3d922d9398beb4f7023c3c22575bd7550d5416c",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_79f393508dcf96b5e866527e68704a4d23163934765ec0bf1ec553e39e0de1b6",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_7d20da49f25d35d0c30ebe9862c7fa84e8dbc55733b7f3c3f135bdb935f2df4c",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_7e5e2c163340245636b2dbc4d351a3ab00e1d375ca32975bc8138cfabcd2b6d4",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_7e817d5a018485e8546f7d8c22c2d24d2539daef8e6efbafdfdda7d26e1d23e4",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_7ef42381f981f43d0445908032c8e49e53fae75cac4328784b83661e4bcb97a7",
+      "legacy_documents": [
+        "screen-centering.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_7f597da6eee4e4cdf556c0908276030ddf300f10fc98c0c20e8e308a4b05767d",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_7fb6300c4bd525b30fead744dc3c3181c23da9abf1981071aae4473b547a59fe",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_81b99b8d654ae2afc0525adc70b9e836f0651535896c0649ade06cbb5001ed7e",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_8236a3fd3c568fd8354ba7695081b6bc6b19192bbeee0fb4ee285ebfac55766f",
+      "legacy_documents": [
+        "map-transition-native.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_824b021a8fb3b1e4bace058b965a1e0dd40cc539736a0e884ae3ce1471ee40ac",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_84676ba9bda0cb34cdfd02accb6b253b51d75d49632e6cfe4d275a6b561c1313",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_8672b1868857afe6472174e7f9b53a333720958a55ce5064950c7383fdb6feef",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_88b3ff0bcaa9bc693f897597d6d7fcf503965d52d3bb9e30ac671dad47bf03ef",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_8a16251f4cd10dd5784ebfb98aa11634315dc6736c4ff1d76997850d6a199d8f",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_8a72e40e600e183e9549b9649246fa4573f9c8cc6a3acf2f6e0bb4aeeff32ec5",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_8ad566e301ab79fed9cc86f216b7274fd472e5474efcd59c23650645b7b638ab",
+      "legacy_documents": [
+        "intro-switch.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_8c01b039f51922945efdae0c2e01b02daf7c06d7421360f52e0582db763d72e8",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_8c76b7a2c00d10a056c55404b48a24816d8e935e20a4ae15759c7e3ad331f695",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_8d6b6bb6b7169fb7a7ae3cbce2c6e3647fce462108b2f05175637a49345a161c",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_8f82a9f02f73628ef414429305ca3f2ea55f4f9c3b152aaa5e79c37bebdeb2ee",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_91fdba3ebca5252c85a37f9785ef006866154e093300e131e75ad92eeb5c7bf8",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_92464768ae5fa8cb307be4e8e230547f45df901dc56b36c20707ff20d52a6602",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_929aabe6d5854f2ed4672d1f9a5ffd228e758a00e6aeb64b5ffbf9ef1f34d945",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_93a8a9eb071fcbc85b72c7775230a9aa363b7d4e2921cf45d11009a21aa7fc21",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_94004cc98fffd7dafff9861871cb943232b8715430e8b6c2fe6bc13762f1aa57",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9465200bc126c0c00fadba69055945408262bb3d343b94990bde6315dd1cd029",
+      "legacy_documents": [
+        "world-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_96cd2c4d4869fe21cce2b51d080d683592c333f1d92dae7e3e63cde88a5f21d8",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9789b264bb67d44e4277465404d3110845072a60ef949ad50158af6f775bc426",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_99cff7e47874ad6b0074e3843787a32a6bc36c5799166760eb3ae2dbad970cc5",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9a2a529d241e2fe63480aea779d8dbd31e772a96c9f7cd9dd20551490fc630a2",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9a4b272af410b37144480db9c9761b5761c12a70f643c0fd37692f97d4900b96",
+      "legacy_documents": [
+        "background-music.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9aa11fed76f672b83199086e2f8125d4ac26f51b4fdd8a8be151731515456eac",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9aa2ec4a1dc28356e80c620c33c97bb737c2e5b22603638c1964b4d7405ac76c",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9b71ed45088b8cd69f1ca89a4b48d0182548635a77574a0e22ca454fd995ca6f",
+      "legacy_documents": [
+        "map-transition-native.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9b8809783c36e26dc1db53722761919a4818fa0344b11706e59b1f3f71602554",
+      "legacy_documents": [
+        "screen-centering.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9e813043705898346d52acb4972b548a5c289c0b9d33ca6d2a0b5c9e1bd9bd74",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_9f65987fe987bbed469ae826eaa5b10e6b92791f05a1b4f966dc6f6e5365d14e",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_a033473332f0312458a60da2af382fea5077681062a56ea4c726a5a7dd2db178",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_a1615c2bf820c32b47979cf84c95f0285c768875fb3916f62a18f71feb94bc83",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_a279d545b4b0826db1ee9775e880576345eebabbeff69c41e812a55833eef2f7",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_a455a3b16c44a913eb287b5c22eba8cd14326670f2d125acb3f1db5390205ae5",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_a59806f89a62056300d44910a21af2e46425538d793dd10d411d8899283c1b35",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_a5b2c77917dc013ee796bdeeb79345f932387dee6916c3d71d1651d05684bb44",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_a7969f3e435bc1ca9aa8c05aed54a2f4f82dd7e6aef037cc35b2676dd75fdad5",
+      "legacy_documents": [
+        "clothing-colors.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_a9616b9b5418d23da5026960e5e56187746f59ce5c320ad4822490744c87ae88",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_ace8ddcb8c4f82ce6b2e250bf7dc3300b33606fa1e39414e9ff257270adf8a60",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_b0107eb3664ce5ae02f993197e971113ad415a54b1a8d0c630ec59b48dd707ed",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_b223ef224f6e29edbb5d2cdb425d010ca4c3fd320adbe383a080255c615f3d4a",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_b331f064ef046280fc6fc464319525637f4b9cd1c56a5f2efa6942efb89173ba",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_b74d392f1fcdcdd483a638d14088439287386c18c12dcf34983a82b666a54360",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_b87944056795dfae54db7b4dbb56b24f2d5ddaf2fe93da340822ca1a2a1c257b",
+      "legacy_documents": [
+        "clothing-colors.md",
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_b8bdd26af013fb6de02370c0541239681b824042a24a868fca9a0b3b5cb096e6",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_b946cf53c1160188b368bad3bad333947a115410feaafa754cf2e4854c816b67",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_ba6cac163af9db302242dae859cabc218db084d6f64ef788ee9b11b2900e99cd",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_bb00392589de53ef20db15e35dbd60591a802b13af666cd16737061c4f5219ac",
+      "legacy_documents": [
+        "map-transition-native.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_bb0491e4db712383cdc0fd14169dea11fb764e639c92ba05b3a3e5e8a3594b16",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_bc62df0644e73c3114a9e3839cadeca7dbdeb863f71b5a6de851e49e1861a408",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_be5f8450f5f2f41dc8601074b00cc4daad811ab2ff24138082c65161895e58be",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_bf12e50aa3ca81bca27d0fc5b4de29ac1202c4530d017743dec45c41c471a25f",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c0afb7dd783782b318420632dc772b2e3b811df67d4254d71173f3574fd2534e",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c0b8f0d6f7937c9c26b94bfe80a2282f9fd2475cf2557e0012382313237ae957",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c0c9aae0fec0512d0350e44781aa437705febcf4e6eac993011a64b6ff92c338",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c120e967b3d0fed693f78fb38ffcd88644fac2d6751003ac08fdbe2a66fe9d16",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c1e3250b5e805c8a09c8cf0f36bde74b88373997914e4b13d7a349f03ea64bfe",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c238a648583068de57ecea29258fd05b7bab9889f1b239501bac926016f04ed9",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c42f0af63f5428437c13f996e56d2cb4de95ce0349cb6af73eeb68b89f782cb3",
+      "legacy_documents": [
+        "clothing-colors.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c4a975e80d5074e00cf0156f714f4474002dd883afc71f82b9034be6ec4bc258",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c503cad7411653be60956cedb720e400047dd9513850521f9b1d39f58e3cb254",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c94032eee93858f98fff97eebb43401385f066a9878866e4e73495b35938a1bd",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_c9ea251464bcedbf93b554d36688df82fd3c2d0babfa30bc00ed042b46732ad8",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_cb68b8087ddaeef3f8698ff0100be939ece8950571bf7e9498d16db559e2fe44",
+      "legacy_documents": [
+        "clothing-colors.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_cc6f1ea155cadc76cabd361105a81eb559dc0de9d32469bed04502eec8d1b192",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_ccecda5f6d7e26a2932e571e206cca2e1e69c1bc596d3f9d2fc7f87206e9abe9",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_cfe90a179271db40ddb7f115ba91a0a2547eb6c3827911709fe5e36d85d521f5",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d189151848231e4794bc9ff0a19d532048e65313ae5e7a70adc468da1094633f",
+      "legacy_documents": [
+        "clothing-colors.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d2058363a0c517bee00902af65d228a17d92dcff7532763ac5659c41cd989c9c",
+      "legacy_documents": [
+        "map-transition-native.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d28bb2426bccd5f4f03389c263efbabfd7924f017d6e1edc40ed3f6ef5b7961c",
+      "legacy_documents": [
+        "login-flow.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d34ea40d97e557f32a9767fcbf6587fcf4171f54f98ef7aaa0d6eb81b58e4541",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d4756836df8963a7637013895d82dd6b8195d173743f2eec6c56c7dcbda68be0",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d47bb9db19e85ce31d249fc873358b2a9b9fb64d0a40191023523861874f39ca",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d5f3e040f57076b1f71f0130c803d9a67dfb3edf0f6ffda46da087e5df8add6a",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d8457b1b4648ba019a11a31319f7784596a204ef8b3837eb02ae66d76b7b8a3d",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d9c024f85496092a9ca5150282c111e1690a3d5685db63b709bc5e0b059bc4d2",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_d9eb13a424b218026032e1e61ba8ebc6b79d3a47a09b65037c8061634703a6b2",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_dcab8a92137cfd0e7d0aaa0bab4e0e1242974957c3720292a1378c093caaa596",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_dde510b4eaae87a09a605a8d0b3d1f37aa168471b06815f45671e480a6ba909e",
+      "legacy_documents": [
+        "background-music.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_deb20cf3b628465e820031b7214c13624d39518f88e077a1f999fcbdcd876c66",
+      "legacy_documents": [
+        "intro-switch.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_ded68cfe2308da974af88568273c21c113115392e6c81bc09ba4cbf87257c055",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_def71b443c29f9a895e3b1222a84e502163c74dbbf9e0dbce0f7a5c3e3ef1efc",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_e166a44f01c9de3b7eff7457a30e6279b8571b5a76afc7354812c14bf1331e27",
+      "legacy_documents": [
+        "evidence-index.md",
+        "maps.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_e236f51ad4545acbfcb4fd2a3849de5baac8b862643e1db09c15034862ce92f3",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_e2f06fcdcb427f967a18ee9215f75e3513718d9d126d445c36eee58462e4562a",
+      "legacy_documents": [
+        "background-music.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_e5e60a848ffed3ddab0748be6bebe1386819e1edae1bdd4ce6b68bc5bc27c1d3",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_e7c6d159156645088dd38967d5898d667ae6e1a40f82d06d521f6ee4380775a7",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_e89e93d1aa62ac5ebffb46021691464f98760a79227a3bfd19ba71efb02d32b6",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_e8bab92ce47970c8e9b5dd043e56e6a66127e9bd51bff46f716ac622f33f0730",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_e9ff80da9d2f68cae5f96f69915b76238f78b9ca66aaf8f1b05362d95b9386bd",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_ea1822d54fc19581c4f70b1f664557cd1110ebc437a23a5f096a9504027ca3b9",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_eb060fca73c4ba7aebca33b3e323b2a0090188dd281bcaa694376feecdebc8de",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_eb9ba5b23d51773888f535f5c1a3872dc4b2a23e61f6ece27e3818176ca6e8fd",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_ed53aa8334d44df497b355010512c6cd916458f671f8311bd4f6aeead0b4b95b",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_ef546ff5544a8eaf8913839b2d3a9349755c9ec774a661f9e2f757a5e2a1dc8d",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_f019a553fbe7c84a5458e05caf606a283186d7e224ca2657a0be530d308b8249",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_f2b074bad538853c34f11eb0a0c7049b9ea32299b97aed038115dffd6de7cf01",
+      "legacy_documents": [
+        "stability-investigation.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_f2b4d99b55d34685e41992b32f6a953c7e622bca5babe9a74b8207f505a48abd",
+      "legacy_documents": [
+        "map-transition-native.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_f636dd46e50f9e33a6e1a6de14bf7f669dd041e4be44b6b23f58c0e569cabf28",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_f63bf7d85f0d5157f7b01e503fdcaff8411f119dbe1e23b22ca31d505f03d947",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_f643008d48b6eb234efa73e264ff7fd6807162ec7f072ddc0e063a569652007a",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_f7b925cdcf6a1a978ca5060616b86e757ac65a4a22f97db3714cde0f6de7448e",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_f92ce7bbf62e28ee6bd38a67bdf57c38ae42ab9ff84e05aede880fbc35097d13",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_f9a798efead05c71e7a18c23fc8493aebc4ce0b30b7506a16c5a9a863cd5a8d8",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_fa573a32d4625c4fc67f3dd9e7992c07913c9ac336e13e0a06639ae82e90f2e7",
+      "legacy_documents": [
+        "screen-centering.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_fb405d21de2c26efaccf596fba23862b988295251ce8d02819333bf009652ca8",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_fbf1683b10967ecfc7f31950fceea61e81fe2513f4a98b4d45a2ebaa8def0343",
+      "legacy_documents": [
+        "clothing-colors.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_fc737f8170390b51ade7fe773a738011d2acbea452cacc396bc1df54fa6e4e3b",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_fd1ef9c51621f5e4b87e061f9a52d8e6b80ffe080fbc7b5551dbd718e1498d0f",
+      "legacy_documents": [
+        "evidence-index.md"
+      ],
+      "record_scope": "identity index only; original evidence record not copied"
+    }
+  ]
+}

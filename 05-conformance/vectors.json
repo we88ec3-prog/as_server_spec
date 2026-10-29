@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "vectors": [
+    {
+      "id": "CT-001",
+      "level": "raw-greeting",
+      "requirements": [
+        "R-001"
+      ],
+      "packet_ids": [],
+      "input_hex": "1b430a",
+      "expected": "Client enters binary transport; subsequent signature is framed"
+    },
+    {
+      "id": "CT-002",
+      "level": "framing-and-table0-decode",
+      "requirements": [
+        "R-001"
+      ],
+      "packet_ids": [
+        "PKT-C62"
+      ],
+      "input_hex": "aa000662002f171902",
+      "expected": {
+        "direction": "C2S",
+        "opcode": "0x62",
+        "ordinal": 0,
+        "body_hex": "6172616d"
+      },
+      "test_cases": [
+        "all single split points",
+        "coalesced copies"
+      ]
+    },
+    {
+      "id": "CT-003",
+      "level": "decoded-body",
+      "requirements": [
+        "R-004",
+        "R-006"
+      ],
+      "packet_ids": [
+        "PKT-S04"
+      ],
+      "input": {
+        "x": 10,
+        "y": 10
+      },
+      "expected_body_hex": "000a000a00080009",
+      "expected_world": [
+        10,
+        10
+      ],
+      "expected_screen_anchor": [
+        400,
+        300
+      ]
+    },
+    {
+      "id": "CT-004",
+      "level": "decoded-body",
+      "requirements": [
+        "R-005"
+      ],
+      "packet_ids": [
+        "PKT-C33",
+        "PKT-S0B"
+      ],
+      "input": {
+        "world": [
+          10,
+          10
+        ],
+        "move_body_hex": "017f01"
+      },
+      "expected_body_hex": "000b000aff",
+      "note": "success at unobstructed test tile; collision policy not established"
+    },
+    {
+      "id": "CT-005",
+      "level": "decoded-body",
+      "requirements": [
+        "R-022"
+      ],
+      "packet_ids": [
+        "PKT-S19"
+      ],
+      "input": {
+        "track": 18,
+        "repeat": 0
+      },
+      "expected_body_hex": "01000012"
+    },
+    {
+      "id": "CT-006",
+      "level": "decoded-body",
+      "requirements": [
+        "R-022"
+      ],
+      "packet_ids": [
+        "PKT-S19"
+      ],
+      "input": {
+        "track": 0,
+        "repeat": 0
+      },
+      "expected_body_hex": "01000000"
+    },
+    {
+      "id": "CT-007",
+      "level": "appearance-fields",
+      "requirements": [
+        "R-006"
+      ],
+      "packet_ids": [
+        "PKT-S05",
+        "PKT-S33"
+      ],
+      "input": {
+        "hair_rgb": "e66030",
+        "clothing_rgb": "2878c8"
+      },
+      "expected": {
+        "s05_hair_offset": 10,
+        "s05_clothing_offset": 25,
+        "s05_flags_hex": "00001000",
+        "s33_hair_offset": 15,
+        "s33_clothing_offset": 30
+      },
+      "note": "change only hair; clothing fields must remain 2878c8"
+    },
+    {
+      "id": "CT-008",
+      "level": "appearance-fields",
+      "requirements": [
+        "R-006"
+      ],
+      "packet_ids": [
+        "PKT-S05",
+        "PKT-S33"
+      ],
+      "input": {
+        "clothing_color": null
+      },
+      "expected": {
+        "s05_flags_hex": "00000000",
+        "clothing_rgb": "ff00ff"
+      },
+      "note": "native reserved 000000 is normalized to ff00ff; exact custom black not supported by this profile"
+    },
+    {
+      "id": "CT-009",
+      "level": "decoded-body-zlib",
+      "requirements": [
+        "R-001"
+      ],
+      "packet_ids": [
+        "PKT-S56"
+      ],
+      "input_body_hex": "001e789c6364606460a8b75ac4c0e5939f9c98a310925a5cc2c0000031440513",
+      "expected_uncompressed_hex": "01000100007f3aa2000a4c6f63616c20546573740000",
+      "note": "compare decompressed semantics; compressed representation need not be byte-identical"
+    },
+    {
+      "id": "CT-010",
+      "level": "string8",
+      "requirements": [
+        "R-001",
+        "R-003"
+      ],
+      "packet_ids": [],
+      "input_text": "測試",
+      "expected_hex": "04b4fab8d5",
+      "note": "prefix counts CP950 bytes, not Unicode characters"
+    }
+  ]
+}

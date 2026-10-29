@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-30",
+  "coverage_scope": "Organized historical analysis reports, not all raw discoveries or decompilations",
+  "legacy_documents": [
+    {
+      "legacy_document": "assets.md",
+      "source_sha256": "b3aa5be037b02a8f7ebec72ef09290335f3d5a548e82767bb34d7cae6258503d",
+      "coverage": "integrated-summary",
+      "integration_paths": [
+        "04-analysis-integration/resource-formats.md"
+      ],
+      "scope": "DAT、Script、Human/YPF與資源盤點；未整包複製抽取工具或素材。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "background-music.md",
+      "source_sha256": "2e1009e52f16fb1da308d6e99fd13eb0c1e55959262ddb5015cb6b62476ecd6c",
+      "coverage": "integrated-summary",
+      "integration_paths": [
+        "04-analysis-integration/packet-processing.md",
+        "04-analysis-integration/scenarios.md",
+        "05-conformance/vectors.json"
+      ],
+      "scope": "S19循環／停止、Client音量與原地圖曲目未知；有聲音已人工確認。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "clothing-colors.md",
+      "source_sha256": "dfa425f46110eb03774f9e78a5987f0fd14e77403b63cb83d105914f0bcba794",
+      "coverage": "integrated-detail-subset",
+      "integration_paths": [
+        "04-analysis-integration/appearance.md",
+        "05-conformance/vectors.json"
+      ],
+      "scope": "S05/S33獨立RGB、0x1000旗標及原始配色sentinel。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "cross-client-handoff.md",
+      "source_sha256": "0c0ff48de6a7a3f0290d2d434026afbfdffcc534f9d8387f98f2ba10662f2561",
+      "coverage": "superseded-collaboration",
+      "integration_paths": [
+        "00-governance/ai-analysis-handoff.md"
+      ],
+      "scope": "舊工具交接改用A任務、PKT／SCN／CT交付格式，不帶私有實作入口。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "equipment-flow.md",
+      "source_sha256": "8b68fce35c67b93a7e6a551fc06efd618e6e8410ce1542c4e6de9760ebbd915c",
+      "coverage": "integrated-detail-subset",
+      "integration_paths": [
+        "04-analysis-integration/items.md",
+        "04-analysis-integration/appearance.md"
+      ],
+      "scope": "C1C/C1E、S0F/S37、衣櫃與正式物品限制。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "evidence-index.md",
+      "source_sha256": "bc9675f11b5e927649de5d87fe7009104123ddb93b59b1aed7fffd04f679c694",
+      "coverage": "index-metadata-only",
+      "integration_paths": [
+        "04-analysis-integration/evidence-index.json"
+      ],
+      "scope": "整理Evidence ID與原生入口；沒有整包複製完整REA或偽碼。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "intro-switch.md",
+      "source_sha256": "1213a52a47ab1859c7a8fa5301cb64e5e72f909801284cf0e5b64c5b25915431",
+      "coverage": "integrated-summary",
+      "integration_paths": [
+        "04-analysis-integration/client-compatibility.md"
+      ],
+      "scope": "原生影片完成轉場與保留動畫選項；不分享改版EXE或私有建置工具。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "login-flow.md",
+      "source_sha256": "0b8acff2b9a70d33182fece1ff052570d46bd7d166e6c975bdd751e44cd2cfd7",
+      "coverage": "integrated-detail-subset",
+      "integration_paths": [
+        "04-analysis-integration/profile-login.md",
+        "04-analysis-integration/packet-processing.md"
+      ],
+      "scope": "metadata／清單／公告／登入／交接；已補SScript清快取副作用。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "map-transition-native.md",
+      "source_sha256": "384575d5cfa6ef04965262fb92b2d41df93b82aa2802b548651c13328e6767f8",
+      "coverage": "integrated-summary",
+      "integration_paths": [
+        "04-analysis-integration/scenarios.md",
+        "04-analysis-integration/packets.json"
+      ],
+      "scope": "S15清舊物件、保留本地玩家；C11原地轉向入口。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "maps.md",
+      "source_sha256": "102739d16fe110aa6d02ace3c0b2dc1ccb525fd28f603e8f491d157cbd1d3e47",
+      "coverage": "integrated-detail-subset",
+      "integration_paths": [
+        "04-analysis-integration/resource-formats.md"
+      ],
+      "scope": "MAP header／區塊／tile／尾區布局；碰撞語意仍未知。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "protocol.md",
+      "source_sha256": "1cc8acb361a132dc767045f3b66702cdcedc5be51616190dad2a995c81013175",
+      "coverage": "integrated-summary",
+      "integration_paths": [
+        "04-analysis-integration/transport.md",
+        "04-analysis-integration/packets.json"
+      ],
+      "scope": "binary、table0、byte序、CP950及雙向opcode；其他seed未完成。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "README.md",
+      "source_sha256": "c4b33ba20475f40e19ca49ea3680e84b1adfdcfdaec9de87fbf1d2708be4c850",
+      "coverage": "integrated-summary",
+      "integration_paths": [
+        "00-governance/baseline.md"
+      ],
+      "scope": "目前功能及限制已整合，舊歷程不直接當最新狀態。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "recovery-plan.md",
+      "source_sha256": "fc9b13ff24c46870f837d8b9a8901ac0e366827af3bb63e7bf66c17d5c10becf",
+      "coverage": "superseded-planning",
+      "integration_paths": [
+        "02-server-planning/roadmap.md",
+        "03-analysis-requests/requests.json"
+      ],
+      "scope": "舊四目標路線由共同Server規劃取代，保留歷史不重複作現行計畫。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "screen-centering.md",
+      "source_sha256": "9f9fbdb04252f7974aa1de44817a64d6ebc91e0f9e0aaf007eb99222636e42c1",
+      "coverage": "integrated-detail-subset",
+      "integration_paths": [
+        "04-analysis-integration/appearance.md",
+        "05-conformance/vectors.json"
+      ],
+      "scope": "鏡頭公式及48px差；靜態／測試通過，最後畫面驗收仍待回報。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "stability-investigation.md",
+      "source_sha256": "be9de38159ee49ac0d48be80e4709356f319c70b327fd7aa2fd560dd62f251e1",
+      "coverage": "integrated-summary",
+      "integration_paths": [
+        "04-analysis-integration/client-compatibility.md",
+        "04-analysis-integration/scenarios.md"
+      ],
+      "scope": "移動確認／時間檢查／提示懸停及延遲候選；原始執行緒與操作日誌不分享。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "startup-runtime.md",
+      "source_sha256": "3ff5e83494b0d6642c9c72cfe63c919a79f12240241533d597c7ad5cbf53ad11",
+      "coverage": "integrated-summary",
+      "integration_paths": [
+        "04-analysis-integration/client-compatibility.md",
+        "04-analysis-integration/transport.md"
+      ],
+      "scope": "HKCU隔離副本、啟動讀檔、raw問候與framed簽章。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "user-testing.md",
+      "source_sha256": "6915f458eecdf6e3ae75fae4c601688abfacc5ce3763d587170e50c2fbcc0064",
+      "coverage": "acceptance-summary",
+      "integration_paths": [
+        "00-governance/baseline.md",
+        "04-analysis-integration/scenarios.json"
+      ],
+      "scope": "人工通過與待驗收分開；私人測試紀錄、角色資料不附。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "validation.md",
+      "source_sha256": "646a9a12a2e21ae42c263cb72fba1d67eecb026eb68782153d4bfa942a0dce80",
+      "coverage": "acceptance-summary",
+      "integration_paths": [
+        "00-governance/baseline.md",
+        "04-analysis-integration/scenarios.json"
+      ],
+      "scope": "歷史正常路徑與限制整理；不把單人通過當成完整MMO通過。",
+      "full_source_copied": false
+    },
+    {
+      "legacy_document": "world-flow.md",
+      "source_sha256": "61d043c1674a6f91930c0849d46fb1282756ef2d18225e748f48612e8dd25982",
+      "coverage": "integrated-summary",
+      "integration_paths": [
+        "04-analysis-integration/scenarios.md",
+        "04-analysis-integration/appearance.md"
+      ],
+      "scope": "世界初始化先後、自己顯示、外觀與移動；採較晚鏡頭8/9校正。",
+      "full_source_copied": false
+    }
+  ],
+  "excluded": [
+    "Server implementation sources",
+    "raw REA bundles and full pseudocode",
+    "original or patched game binaries/assets",
+    "account databases, tokens, runtime logs and unreviewed screenshots"
+  ]
+}

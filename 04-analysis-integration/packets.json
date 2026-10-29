@@ -1,0 +1,753 @@
+{
+  "schema_version": 1,
+  "profile": "TW-seed0-local-v0.1",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "packets": [
+    {
+      "id": "PKT-C00",
+      "direction": "C2S",
+      "opcode": "0x00",
+      "name": "Version",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u16,u8,u8,u16,u16；欄位語意仍有未知",
+      "client_entry": "0x577e80",
+      "state_precondition": "首次簽章之後",
+      "related_packets": [
+        "PKT-S00"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-C02",
+      "direction": "C2S",
+      "opcode": "0x02",
+      "name": "NewUser",
+      "system": "SYS-CHAR",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "台灣profile為4個string8及flag；其他語系分支不可套用",
+      "client_entry": "0x5742b0",
+      "state_precondition": "公告／條款階段",
+      "related_packets": [
+        "PKT-S02"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-003"
+      ]
+    },
+    {
+      "id": "PKT-C03",
+      "direction": "C2S",
+      "opcode": "0x03",
+      "name": "Login",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "string8 name,string8 password,u8 flag",
+      "client_entry": "0x573110",
+      "state_precondition": "版本／公告完成",
+      "related_packets": [
+        "PKT-S02",
+        "PKT-S03"
+      ],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-C04",
+      "direction": "C2S",
+      "opcode": "0x04",
+      "name": "NewUserInfo",
+      "system": "SYS-CHAR",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 sex,u8 hair,RGB3",
+      "client_entry": "0x574420",
+      "state_precondition": "創角草稿成功之後",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-003"
+      ]
+    },
+    {
+      "id": "PKT-C10",
+      "direction": "C2S",
+      "opcode": "0x10",
+      "name": "TransferToken",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "raw opaque token，非string8",
+      "client_entry": "runtime-transfer",
+      "state_precondition": "轉服新連線首包",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-C11",
+      "direction": "C2S",
+      "opcode": "0x11",
+      "name": "ChangeDir",
+      "system": "SYS-MOVE",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 direction(0..7)",
+      "client_entry": "0x571960",
+      "state_precondition": "已進世界",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-005"
+      ]
+    },
+    {
+      "id": "PKT-C1C",
+      "direction": "C2S",
+      "opcode": "0x1c",
+      "name": "UseInventory",
+      "system": "SYS-ITEM",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 kind,u8 slot,u8 flag,u8 use_kind；本profile use_kind5無尾部",
+      "client_entry": "0x577800",
+      "state_precondition": "已進世界且格位有效",
+      "related_packets": [
+        "PKT-S37",
+        "PKT-S33"
+      ],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-008"
+      ]
+    },
+    {
+      "id": "PKT-C1E",
+      "direction": "C2S",
+      "opcode": "0x1e",
+      "name": "Wear",
+      "system": "SYS-ITEM",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 slot；遊戲實測換裝主要走C1C",
+      "client_entry": "0x578010",
+      "state_precondition": "已進世界",
+      "related_packets": [
+        "PKT-S37",
+        "PKT-S33"
+      ],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-008"
+      ]
+    },
+    {
+      "id": "PKT-C25",
+      "direction": "C2S",
+      "opcode": "0x25",
+      "name": "WorldEntryMetadata",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "原型接受但未完整解讀billing metadata",
+      "client_entry": "0x4a8370",
+      "state_precondition": "token交接完成",
+      "related_packets": [
+        "PKT-S02",
+        "PKT-S05",
+        "PKT-S15",
+        "PKT-S14"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ]
+    },
+    {
+      "id": "PKT-C33",
+      "direction": "C2S",
+      "opcode": "0x33",
+      "name": "Move",
+      "system": "SYS-MOVE",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 direction,u8 sequence7,u8 gait_flags",
+      "client_entry": "0x573bf0",
+      "state_precondition": "已進世界",
+      "related_packets": [
+        "PKT-S0B"
+      ],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-005"
+      ]
+    },
+    {
+      "id": "PKT-C35",
+      "direction": "C2S",
+      "opcode": "0x35",
+      "name": "MapCRC",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u16,BE u16；CRC算法／比較策略待補",
+      "client_entry": "0x573490",
+      "state_precondition": "收到S14(1)後",
+      "related_packets": [
+        "PKT-S04",
+        "PKT-S33",
+        "PKT-S14"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ]
+    },
+    {
+      "id": "PKT-C62",
+      "direction": "C2S",
+      "opcode": "0x62",
+      "name": "FramedSignature",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "decoded body=aram，ordinal0",
+      "client_entry": "0x53c846",
+      "state_precondition": "binary greeting之後",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-C75",
+      "direction": "C2S",
+      "opcode": "0x75",
+      "name": "CheckTimeReply",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32 challenge,BE u32 client_time",
+      "client_entry": "0x571e80",
+      "state_precondition": "已進世界",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-S00",
+      "direction": "S2C",
+      "opcode": "0x00",
+      "name": "VersionCheck",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "result u8後分支；result0: u32,seed u8,key string8,message_count u8",
+      "client_entry": "0x589b60",
+      "state_precondition": "C00後",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-S02",
+      "direction": "S2C",
+      "opcode": "0x02",
+      "name": "LoginOrCreateResult",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 status,string8 message；依會話狀態解讀",
+      "client_entry": "0x57dbc0",
+      "state_precondition": "登入／創角／進世界初始化",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-S03",
+      "direction": "S2C",
+      "opcode": "0x03",
+      "name": "TransferServer",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u32 address,u16 port,u8 token_size,raw token；位元序見情境",
+      "client_entry": "0x5886c0",
+      "state_precondition": "登入成功",
+      "related_packets": [
+        "PKT-C10"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-S04",
+      "direction": "S2C",
+      "opcode": "0x04",
+      "name": "UserPosition",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u16 x,y,viewport_x,viewport_y；本profile鏡頭8,9",
+      "client_entry": "0x589990",
+      "state_precondition": "世界／地圖已建立",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ]
+    },
+    {
+      "id": "PKT-S05",
+      "direction": "S2C",
+      "opcode": "0x05",
+      "name": "SelfAppearance",
+      "system": "SYS-LOOK",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "外觀與flags；詳細欄位見appearance.md",
+      "client_entry": "0x5895a0",
+      "state_precondition": "登入成功建立世界UI後",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-006"
+      ]
+    },
+    {
+      "id": "PKT-S0B",
+      "direction": "S2C",
+      "opcode": "0x0b",
+      "name": "MoveAck",
+      "system": "SYS-MOVE",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u16 x,BE u16 y,u8 sequence；bit7成功、低7bit回送",
+      "client_entry": "0x583150",
+      "state_precondition": "C33之後",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-005"
+      ]
+    },
+    {
+      "id": "PKT-S0F",
+      "direction": "S2C",
+      "opcode": "0x0f",
+      "name": "AddInventory",
+      "system": "SYS-ITEM",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "變長物品欄；詳細已知分支見items.md",
+      "client_entry": "0x57a3f0",
+      "state_precondition": "進圖初始化／背包變更",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-008"
+      ]
+    },
+    {
+      "id": "PKT-S14",
+      "direction": "S2C",
+      "opcode": "0x14",
+      "name": "MapLoadingControl",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 control：1請求CRC、2關閉載入；3錯誤分支未納入profile",
+      "client_entry": "0x4f2300",
+      "state_precondition": "地圖載入中",
+      "related_packets": [
+        "PKT-C35"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ]
+    },
+    {
+      "id": "PKT-S15",
+      "direction": "S2C",
+      "opcode": "0x15",
+      "name": "Map",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u16 map,width,height,u8 flags,u8 field,string8 title",
+      "client_entry": "0x57ff30",
+      "state_precondition": "已有MapPane與自身玩家",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ]
+    },
+    {
+      "id": "PKT-S19",
+      "direction": "S2C",
+      "opcode": "0x19",
+      "name": "PlaySound",
+      "system": "SYS-AUDIO",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "kind1:u8 kind=1,u8 repeat,BE u16 track；repeat0循環、track0停止",
+      "client_entry": "0x584ae0",
+      "state_precondition": "可播放音訊時",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-022"
+      ]
+    },
+    {
+      "id": "PKT-S33",
+      "direction": "S2C",
+      "opcode": "0x33",
+      "name": "PutHuman",
+      "system": "SYS-LOOK",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "玩家座標、面向、外觀及名稱；見appearance.md",
+      "client_entry": "0x585570",
+      "state_precondition": "玩家與地圖已建立",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-006"
+      ]
+    },
+    {
+      "id": "PKT-S37",
+      "direction": "S2C",
+      "opcode": "0x37",
+      "name": "AddEquipment",
+      "system": "SYS-ITEM",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "變長裝備欄；見items.md",
+      "client_entry": "0x579830",
+      "state_precondition": "穿戴成功／裝備恢復",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-008"
+      ]
+    },
+    {
+      "id": "PKT-S60",
+      "direction": "S2C",
+      "opcode": "0x60",
+      "name": "Stipulation",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 type,u16 compressed_size,zlib CP950 NUL文字",
+      "client_entry": "0x587190",
+      "state_precondition": "公告請求後；請求分支尚待逐項納入registry",
+      "related_packets": [],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-S66",
+      "direction": "S2C",
+      "opcode": "0x66",
+      "name": "CheckTime",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32 challenge",
+      "client_entry": "0x57dd30",
+      "state_precondition": "已進世界；5秒為本機政策",
+      "related_packets": [
+        "PKT-C75"
+      ],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-C0F",
+      "direction": "C2S",
+      "opcode": "0x0f",
+      "name": "MetadataRequest",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "body03；其他request種類待分析",
+      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "state_precondition": "see profile-login.md",
+      "related_packets": [
+        "PKT-S18"
+      ],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "observed-runtime-profile",
+        "designed-local-minimal-response"
+      ],
+      "manual_validation": "normal login path passed; not all metadata/script branches",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-C4B",
+      "direction": "C2S",
+      "opcode": "0x4b",
+      "name": "StipulationRequest",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "空body；已取得server list後",
+      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "state_precondition": "see profile-login.md",
+      "related_packets": [
+        "PKT-S60"
+      ],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "observed-runtime-profile",
+        "designed-local-minimal-response"
+      ],
+      "manual_validation": "normal login path passed; not all metadata/script branches",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-C57",
+      "direction": "C2S",
+      "opcode": "0x57",
+      "name": "ServerListOrSelection",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "body01請求清單；body0000選本機第一項",
+      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "state_precondition": "see profile-login.md",
+      "related_packets": [
+        "PKT-S56",
+        "PKT-S60"
+      ],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "observed-runtime-profile",
+        "designed-local-minimal-response"
+      ],
+      "manual_validation": "normal login path passed; not all metadata/script branches",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-C6C",
+      "direction": "C2S",
+      "opcode": "0x6c",
+      "name": "ScriptRequest",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "本profile觀察body03，原型不回覆；正式Script更新策略待分析",
+      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "state_precondition": "see profile-login.md",
+      "related_packets": [],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-runtime-profile",
+        "designed-local-minimal-response"
+      ],
+      "manual_validation": "normal login path passed; not all metadata/script branches",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-S18",
+      "direction": "S2C",
+      "opcode": "0x18",
+      "name": "Metadata",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "本profile最小body00030000；未還原其他metadata種類",
+      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "state_precondition": "see profile-login.md",
+      "related_packets": [],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-runtime-profile",
+        "designed-local-minimal-response"
+      ],
+      "manual_validation": "normal login path passed; not all metadata/script branches",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-S56",
+      "direction": "S2C",
+      "opcode": "0x56",
+      "name": "ServerList",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u16 BE compressed_size + zlib entry bytes；本profile只定義單項",
+      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "state_precondition": "see profile-login.md",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "observed-runtime-profile",
+        "designed-local-minimal-response"
+      ],
+      "manual_validation": "normal login path passed; not all metadata/script branches",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    },
+    {
+      "id": "PKT-S0A",
+      "direction": "S2C",
+      "opcode": "0x0a",
+      "name": "Message",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 status,string16 CP950 message；不能用來替代登入S02",
+      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "state_precondition": "see profile-login.md",
+      "related_packets": [],
+      "layout_status": "profile-documented",
+      "evidence_kinds": [
+        "observed-runtime-profile",
+        "designed-local-minimal-response"
+      ],
+      "manual_validation": "normal login path passed; not all metadata/script branches",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ]
+    }
+  ]
+}

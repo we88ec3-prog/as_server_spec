@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0-draft",
+  "requirements": [
+    {
+      "id": "R-001",
+      "system": "SYS-AUTH",
+      "priority": "P0",
+      "title": "連線與版本協商",
+      "acceptance": "分段／合併 frame、版本拒絕、錯誤長度和逾時均有明確行為。",
+      "baseline": "已知部分",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-002",
+      "system": "SYS-AUTH",
+      "priority": "P0",
+      "title": "登入與連線交接",
+      "acceptance": "密碼錯誤後可重試；交接憑證一次性、會過期、不能跨角色重用。",
+      "baseline": "原型已驗收",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-003",
+      "system": "SYS-CHAR",
+      "priority": "P0",
+      "title": "創角及角色保存",
+      "acceptance": "符合客戶端合法性別／髮型／顏色範圍，兩階段建立失敗不得留下半成品。",
+      "baseline": "所測選項已驗收",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-004",
+      "system": "SYS-WORLD",
+      "priority": "P0",
+      "title": "進圖及跨圖",
+      "acceptance": "初始化順序、載入確認、地圖失敗、切圖中斷及回復策略均有情境規格。",
+      "baseline": "正常路徑已驗收",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-005",
+      "system": "SYS-MOVE",
+      "priority": "P0",
+      "title": "移動及同步",
+      "acceptance": "伺服器裁定位置、障礙與速度；步伐確認、轉向、序號環回及校正可重現。",
+      "baseline": "確認已知；碰撞待分析",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-006",
+      "system": "SYS-LOOK",
+      "priority": "P0",
+      "title": "外觀與裝備顯示",
+      "acceptance": "髮型、髮色、衣服、染色、面向獨立；多人可見且重登一致。",
+      "baseline": "部分實機；最新顯示修正待驗收",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-007",
+      "system": "SYS-WORLD",
+      "priority": "P0",
+      "title": "多人可見性",
+      "acceptance": "兩個原客戶端互相看見進入、移動、換裝、離開與斷線；不殘留幽靈物件。",
+      "baseline": "待分析／開發",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-008",
+      "system": "SYS-ITEM",
+      "priority": "P0",
+      "title": "物品與背包",
+      "acceptance": "物品實例、堆疊、裝備槽、使用、脫裝與刪除均由伺服器驗證。",
+      "baseline": "目前只有測試衣櫃",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-009",
+      "system": "SYS-STATS",
+      "priority": "P1",
+      "title": "角色數值",
+      "acceptance": "等級、HP/MP、屬性、裝備修正及客戶端狀態欄同步。",
+      "baseline": "待分析",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-010",
+      "system": "SYS-COMBAT",
+      "priority": "P1",
+      "title": "戰鬥與死亡",
+      "acceptance": "命中／傷害／資源消耗／死亡／復活為可測試的權威狀態轉移。",
+      "baseline": "待分析",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-011",
+      "system": "SYS-SKILL",
+      "priority": "P1",
+      "title": "技能與效果",
+      "acceptance": "目標、距離、施法、冷卻、持續效果、取消及異常狀態有清楚規則。",
+      "baseline": "待分析",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-012",
+      "system": "SYS-NPC",
+      "priority": "P1",
+      "title": "怪物與NPC",
+      "acceptance": "生成、AI、仇恨、互動、掉落及重生；AI不阻塞網路迴圈。",
+      "baseline": "待分析",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-013",
+      "system": "SYS-QUEST",
+      "priority": "P2",
+      "title": "對話與任務",
+      "acceptance": "對話選擇、任務狀態、條件與獎勵可保存；重送不得重複領獎。",
+      "baseline": "待分析",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-014",
+      "system": "SYS-ECONOMY",
+      "priority": "P2",
+      "title": "金錢及交易",
+      "acceptance": "商店、玩家交易、倉庫及製作各有原子提交、取消與中斷測試。",
+      "baseline": "功能範圍及原規則待確認",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-015",
+      "system": "SYS-SOCIAL",
+      "priority": "P2",
+      "title": "聊天及組隊",
+      "acceptance": "頻道、密語、組隊、權限和離線情境；公會依客戶端證據擴充。",
+      "baseline": "待分析",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-016",
+      "system": "SYS-CONTENT",
+      "priority": "P0",
+      "title": "遊戲資料版本",
+      "acceptance": "資源存在與功能正確分開；地圖、物品、技能定義有版本、來源及校驗。",
+      "baseline": "已有資源清單",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-017",
+      "system": "SYS-PERSIST",
+      "priority": "P0",
+      "title": "持久化及一致性",
+      "acceptance": "角色和資產變更有交易邊界；重啟、重送及失敗回復不複製物品或遺失已承諾交易。",
+      "baseline": "單人位置／衣服已驗收",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-018",
+      "system": "SYS-OPS",
+      "priority": "P0",
+      "title": "管理及營運",
+      "acceptance": "管理操作身分、權限、稽核及限制與遊戲連線分離。",
+      "baseline": "目前僅本機測試管理",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-019",
+      "system": "SYS-OPS",
+      "priority": "P0",
+      "title": "觀測與診斷",
+      "acceptance": "可追 session／場景／opcode／狀態；不記明文密碼、token或完整敏感封包。",
+      "baseline": "已有最小 trace",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-020",
+      "system": "SYS-OPS",
+      "priority": "P1",
+      "title": "容量及可用性",
+      "acceptance": "先驗證2個客戶端，再設可量測負載目標；延遲、佇列、儲存耗時均有基線。",
+      "baseline": "容量目標待量測",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-021",
+      "system": "SYS-OPS",
+      "priority": "P1",
+      "title": "安全與濫用控制",
+      "acceptance": "封包長度、速率、狀態、權限及伺服器權威檢查不得以信任客戶端取代。",
+      "baseline": "待完善",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-022",
+      "system": "SYS-AUDIO",
+      "priority": "P1",
+      "title": "音樂與客戶端呈現",
+      "acceptance": "播放／停止與切圖順序可測；曲目對應未知時標本機設計。",
+      "baseline": "聲音已驗收；原曲目對應未知",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-023",
+      "system": "SYS-SPEC",
+      "priority": "P0",
+      "title": "獨立實作相容性",
+      "acceptance": "不同語言的Server可只依共享規格與向量實作；不得依賴私有原始碼。",
+      "baseline": "本次建立基線",
+      "status": "specified",
+      "stage": "requirement"
+    },
+    {
+      "id": "R-024",
+      "system": "SYS-SPEC",
+      "priority": "P0",
+      "title": "共同規格及變更",
+      "acceptance": "本作者的私有實作與其他實作採同一規格版本、測試與偏差登錄。",
+      "baseline": "本次建立基線",
+      "status": "specified",
+      "stage": "requirement"
+    }
+  ]
+}

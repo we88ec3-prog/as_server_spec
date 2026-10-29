@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "requests": [
+    {
+      "id": "A-001",
+      "system": "SYS-AUTH",
+      "requirements": [
+        "R-001"
+      ],
+      "priority": "P0",
+      "title": "種子表、版本分支與字串",
+      "method": "沿socket codec及語系分支補表0..9、長度單位與錯誤版本處理。",
+      "deliverable": "每個已支援profile給解碼向量，未解分支不得填猜測值。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-002",
+      "system": "SYS-AUTH",
+      "requirements": [
+        "R-002"
+      ],
+      "priority": "P0",
+      "title": "重複登入及斷線交接",
+      "method": "正常／錯誤密碼／token過期／同帳號兩連線／交接途中斷線。",
+      "deliverable": "雙客戶端實測與連線狀態機；確認原型政策和原生必要行為的差異。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-003",
+      "system": "SYS-CHAR",
+      "requirements": [
+        "R-003"
+      ],
+      "priority": "P0",
+      "title": "創角合法值與帳號角色模型",
+      "method": "查建立介面、C02/C04、重名、取消、名字編碼及一帳號多角色是否原生支持。",
+      "deliverable": "合法集合、失敗代碼、兩階段回復；不先假定現代帳號多角色UI。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-004",
+      "system": "SYS-WORLD",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "priority": "P0",
+      "title": "多人進出視野",
+      "method": "兩原客戶端與MapPane/object registry；追加入、移除、死亡、斷線與ID重用。",
+      "deliverable": "確定出生／更新／移除封包、ID生命週期、作用域與可見性情境。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-005",
+      "system": "SYS-MOVE",
+      "requirements": [
+        "R-005"
+      ],
+      "priority": "P0",
+      "title": "碰撞及移動權威",
+      "method": "追map tile/block位元與尋路；正常／阻擋／邊界／速度超限／重送序號。",
+      "deliverable": "碰撞資料語意及拒絕／校正向量；標記速度政策是否原服還原。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-006",
+      "system": "SYS-LOOK",
+      "requirements": [
+        "R-006"
+      ],
+      "priority": "P0",
+      "title": "螢幕置中及獨立染色驗收",
+      "method": "依8/9鏡頭及S05/S33已知RGB，批次站立、八向移動、更衣、切圖、重登。",
+      "deliverable": "原客戶端人工驗收；目前僅自動與靜態，不能先標通過。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-007",
+      "system": "SYS-ITEM",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "priority": "P0",
+      "title": "完整背包與裝備生命週期",
+      "method": "追CUseInventory、CWear、脫裝、物品刪減、數量、槽位、持久物品ID。",
+      "deliverable": "實體物品模型及非衣櫃情境：使用失敗／背包滿／斷線／重送。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-008",
+      "system": "SYS-STATS",
+      "requirements": [
+        "R-009"
+      ],
+      "priority": "P1",
+      "title": "數值／狀態面板",
+      "method": "由狀態UI讀取、封包parser、裝備修正追所有顯示與單位。",
+      "deliverable": "初始數值、更新、溢位與死亡邊界；未知公式獨立列出。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-009",
+      "system": "SYS-COMBAT",
+      "requirements": [
+        "R-010"
+      ],
+      "priority": "P1",
+      "title": "攻擊命中傷害死亡",
+      "method": "從輸入→C2S→動畫／傷害／HP→死亡→復活，查失敗與中斷。",
+      "deliverable": "完整收發時序、公式來源、權威裁定及同時死亡策略。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-010",
+      "system": "SYS-SKILL",
+      "requirements": [
+        "R-011"
+      ],
+      "priority": "P1",
+      "title": "技能施放與持續效果",
+      "method": "逐類：單體、範圍、治療、BUFF、召喚；查範圍、消耗、冷卻、取消。",
+      "deliverable": "技能型別表、效果更新及過期，原規則與設計補完分列。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-011",
+      "system": "SYS-NPC",
+      "requirements": [
+        "R-012"
+      ],
+      "priority": "P1",
+      "title": "怪物/NPC與掉落",
+      "method": "由資源、可見物件及互動UI追物件類別、外觀、AI動作與掉落。",
+      "deliverable": "生成／移動／消失／互動對話的最小可驗收鏈。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-012",
+      "system": "SYS-QUEST",
+      "requirements": [
+        "R-013"
+      ],
+      "priority": "P2",
+      "title": "任務腳本與對話協定",
+      "method": "查Script資料、執行環境、對話選項、任務條件、獎勵發放。",
+      "deliverable": "區分client呈現與server規則；不可把client腳本當全部Server邏輯。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-013",
+      "system": "SYS-ECONOMY",
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "priority": "P2",
+      "title": "商店／倉庫／玩家交易",
+      "method": "逐情境拆開追選擇、價格、堆疊、鎖定、確認、取消及斷線。",
+      "deliverable": "各情境交易邊界及防重領測試；金額上限與編碼來源。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-014",
+      "system": "SYS-SOCIAL",
+      "requirements": [
+        "R-015"
+      ],
+      "priority": "P2",
+      "title": "聊天／組隊／公會",
+      "method": "查各輸入通道、UI事件、權限及成員狀態；先確認功能存在。",
+      "deliverable": "各頻道收發路由、非法操作、離線及斷線情境。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-015",
+      "system": "SYS-CONTENT",
+      "requirements": [
+        "R-016"
+      ],
+      "priority": "P0",
+      "title": "資料檔語意及權利範圍",
+      "method": "盤點地圖、衣服、技能／物品定義；為每欄記原始位置與未知語意。",
+      "deliverable": "可驗證的資料格式和抽取步驟；不在共享repo附原始遊戲資產。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-016",
+      "system": "SYS-PERSIST",
+      "requirements": [
+        "R-017"
+      ],
+      "priority": "P0",
+      "title": "事件重送及崩潰回復",
+      "method": "登入狀態、移動確認及未完成切圖、交易、領獎跨斷線／重啟。",
+      "deliverable": "每項操作的冪等鍵、提交點、已確認成功的定義。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-017",
+      "system": "SYS-OPS",
+      "requirements": [
+        "R-018",
+        "R-019",
+        "R-021"
+      ],
+      "priority": "P0",
+      "title": "管理操作及可觀測性",
+      "method": "列出角色調整、生成物品、傳送、封鎖與追蹤的權限和記錄需求。",
+      "deliverable": "管理API與遊戲wire分離；無敏感body的診斷欄位。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-018",
+      "system": "SYS-OPS",
+      "requirements": [
+        "R-020"
+      ],
+      "priority": "P1",
+      "title": "負載與時序模型",
+      "method": "量測PBKDF2、DB寫入、tick、可見性與輸出佇列；不預設支援人數。",
+      "deliverable": "2客戶端正確性→可重現負載基準；再選tick與容量。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-019",
+      "system": "SYS-AUDIO",
+      "requirements": [
+        "R-022"
+      ],
+      "priority": "P2",
+      "title": "原地圖音樂配置",
+      "method": "追原資料是否含map→track對應；找不到時保持明示自訂配置。",
+      "deliverable": "原曲目對應有證據，或明確宣告未知；不可把測試曲1當官方配置。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    },
+    {
+      "id": "A-020",
+      "system": "SYS-AUTH",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ],
+      "priority": "P0",
+      "title": "完整登入前metadata／Script／清單分支",
+      "method": "以已知最小登入情境為基線，追C6C/C0F/C57/C4B與S18/S56/S60的種類、更新及失敗分支。",
+      "deliverable": "各封包入口、完整欄位與狀態轉移；最小本機回覆和原生必要語意分開。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": []
+    }
+  ]
+}

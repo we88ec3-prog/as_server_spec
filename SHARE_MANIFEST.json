@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0-draft",
+  "purpose": "reviewed specification only; this manifest is not a content-secrecy scanner",
+  "files": [
+    {
+      "path": "00-governance/ai-analysis-handoff.md",
+      "sha256": "841d057ca7cba544331e7889d9799ef9df4e122d7c7e7473d88b6de7c372c53f"
+    },
+    {
+      "path": "00-governance/baseline.md",
+      "sha256": "52515e853566242c6b41f9e5bc96da7fe3118646696d990854987fa10ad388db"
+    },
+    {
+      "path": "00-governance/CHANGELOG.md",
+      "sha256": "297d2ea028eead7158bc420c8546a853ba76bbe49af51e82a515ced0cea06b71"
+    },
+    {
+      "path": "00-governance/implementation-status-template.json",
+      "sha256": "106da95bda0b88b7fa7ba2a570997780ddf741a9e62e35aafad4097779717c36"
+    },
+    {
+      "path": "00-governance/record-contracts.md",
+      "sha256": "23482c0ef8e02b070b508cf076ddc18e4a9166b56b9b7e710522248e8e2f1950"
+    },
+    {
+      "path": "00-governance/sharing-and-license.md",
+      "sha256": "70706c0d6a0bb0d65d1470f355aa60bf143bdfe910ad44f99cc18d64ad566fe8"
+    },
+    {
+      "path": "00-governance/traceability.csv",
+      "sha256": "3e85ef89ba7b214d0fea4cd6dce7f74239de27c10df7c0a108b4d3bfc49b2d77"
+    },
+    {
+      "path": "00-governance/workflow.md",
+      "sha256": "a35a2caf8ef76571ddfc369b1a1377e37c859101d4db9541e602ade9d7a83b97"
+    },
+    {
+      "path": "01-server-requirements/README.md",
+      "sha256": "f5e9aa7ac50d64bd40628915ed0517ebbc37671f977ae4729a2df1fcbc984977"
+    },
+    {
+      "path": "01-server-requirements/requirements.json",
+      "sha256": "36a5821dea6c46b161f9e14b6476bf74f6cc35a351064275aa7c7fdc079dd3d1"
+    },
+    {
+      "path": "02-server-planning/architecture.md",
+      "sha256": "a81407f6ac8fa2089cf3e3846925e921238fadf8a177f374b62ec4094bd2cdf8"
+    },
+    {
+      "path": "02-server-planning/decisions.md",
+      "sha256": "ad2c168f6a819b958c520ffc10cbcf5c7a593d6cb50d3e88a30d4954c74e65c7"
+    },
+    {
+      "path": "02-server-planning/interfaces-and-data.md",
+      "sha256": "eeba734c045317dd25b5dd4be75a199549adc5b28ae62ead560c378f56611d16"
+    },
+    {
+      "path": "02-server-planning/roadmap.md",
+      "sha256": "c17f68f54acdddea3159ae1900bff3a2ac76925df6de472e7a19fc88fff02b0d"
+    },
+    {
+      "path": "02-server-planning/systems.json",
+      "sha256": "e3ba87d4e3a7c530c86bc36401ec3547b9f7f08525707b61a7bd92499ed3c57b"
+    },
+    {
+      "path": "03-analysis-requests/README.md",
+      "sha256": "5645c59881ac02f2f1bdb7e326fabf61b0cedb196900d4c78596223b90a967fb"
+    },
+    {
+      "path": "03-analysis-requests/request-template.md",
+      "sha256": "64368d8a459d4e88d0b48fc821d6e343cd6802d638b8470e683f454c900d2909"
+    },
+    {
+      "path": "03-analysis-requests/requests.json",
+      "sha256": "ad13f70fbe067d53e229a157045819493de417f7f52d5def1d1566888a2f8918"
+    },
+    {
+      "path": "04-analysis-integration/analysis-coverage.json",
+      "sha256": "33f6286230324ee0f6e72bc6914965ce1a4780ff3554000a4878b7f3593dce85"
+    },
+    {
+      "path": "04-analysis-integration/analysis-coverage.md",
+      "sha256": "b82850603a9466ecf0d047472255342e257ff6049f96a706c2233e26b269e410"
+    },
+    {
+      "path": "04-analysis-integration/appearance.md",
+      "sha256": "91aeaab9303e5d73067ec10cdac9b617f2a515884c1ef5ea8959f547e0afbd36"
+    },
+    {
+      "path": "04-analysis-integration/client-compatibility.md",
+      "sha256": "c8b7ab0a32ee178cb2c5dd5d11059435894593e35f4398a127ef73d156f940d6"
+    },
+    {
+      "path": "04-analysis-integration/evidence-index.json",
+      "sha256": "16818b1538ac4e63ebad2abf59f75a6c5888d649187931dc37836b70e4fa7371"
+    },
+    {
+      "path": "04-analysis-integration/game-systems.md",
+      "sha256": "4a271ed6328d9133fbd857149a6ad4989c707e3365fc721cc605fe4169e1e8ea"
+    },
+    {
+      "path": "04-analysis-integration/items.md",
+      "sha256": "f7615f76468131a51bd1232df5359ba3125341a27fdb63acecc2c19cbaea4a9b"
+    },
+    {
+      "path": "04-analysis-integration/packet-processing.md",
+      "sha256": "2f6f7ca42ddb5a734f75477040f0b6d57abe0f06e8d1a86f9715fc5027de8893"
+    },
+    {
+      "path": "04-analysis-integration/packets.json",
+      "sha256": "50c186e820002bc77a29e36c4b60461d8c348ad49dc5bf64cb2cb3d373115fe5"
+    },
+    {
+      "path": "04-analysis-integration/profile-login.md",
+      "sha256": "5da2ceb7035b925dc07576c6afad170f79c129ebffbb6e2a2371cdf61f1ff6e0"
+    },
+    {
+      "path": "04-analysis-integration/README.md",
+      "sha256": "c48a35e5d52a5bbbc1fb577070adb370556a5730c778253e7fd2fdb2868f31b3"
+    },
+    {
+      "path": "04-analysis-integration/resource-formats.md",
+      "sha256": "44a03ab4b9b2f527e0c4d056abced650821163ecad1c890fe4625fddb0368be5"
+    },
+    {
+      "path": "04-analysis-integration/scenarios.json",
+      "sha256": "96bc641c01e3a31ebf102923935e103394a60f74618d2502b221f5dcef67483f"
+    },
+    {
+      "path": "04-analysis-integration/scenarios.md",
+      "sha256": "4e13edcec1977057c44ce55465bf17a8b56d07cc339fd2a3f3f0cecc5f79dd75"
+    },
+    {
+      "path": "04-analysis-integration/transport.md",
+      "sha256": "5a2d03249cda2e854e8129a51e7be3346b62f028af6359db5c08a982ce44cf27"
+    },
+    {
+      "path": "05-conformance/implementer-guide.md",
+      "sha256": "9cd5a8dbe0cefc2bbe70e247a97dda6bf55ec389c90d87d01d1f6416585044a9"
+    },
+    {
+      "path": "05-conformance/vectors.json",
+      "sha256": "e2f4e25caa934532500a8ec383940026c71965d3bfd3c38cf5c905046fdbaef4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "7f0848fa74ec1d1ce0091992e076b660eb9f57f28a455e9f994101b2580deb1e"
+    }
+  ]
+}
