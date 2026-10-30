@@ -37,3 +37,7 @@ CT-029/031 若對已證據支持的 Client 靜態行為做 fixture，可以完�
 ## A-022 合併後 CT-016/017/018 變更
 
 CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4／structured checksum、S04 4×u16 寫 byte fixture；明確測錯序、錯版 CRC、延遲的舊 epoch C35。CT-017：重連/token/epoch 失效，不能重領資產或把入圖當教程完成。CT-018：等 A-015 原 MAP/spawn 被證實後再做真正教程 Client E2E。所有此處均屬 planned，不報 PASS。
+
+## A-002 C03/S03/C10 與重複登入 CT-037/CT-038（planned）
+
+[A-002 靜態分析](../03-analysis-requests/A-002-roy1-login-transfer.md) 已追 S03 addr/port/u8 token_len/raw token 與 C10 raw token；[合成 Domain fixture](../tools/a002_session_model.py) 實際測錯密不踢人、同帳號世代替換、一次性 token、跨角色拒絕、過期、login socket 在 transfer 中先斷、舊 World 清理不影響新 World，以及 crash fail closed。**這是 designed 測試，不是雙原版 Client 實機 passed**。CT-037/038 用以提醒 DEV 依真實 DB、mock wire 與 Client 再驗；S02 的原服重複登入錯誤碼未知，禁止拿錯密 status3 直接代用。

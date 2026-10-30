@@ -66,3 +66,8 @@ C2S：Client serializer → wire → Server解碼／狀態驗證 → Domain命�
 ## A-023 Script 通道：解析安全與首次導引的未知
 
 Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x575210`，subtype 0..4 分支）；S44 opcode 0x44（ctor `0x5862e0`、type1/subtype3 handler `0x52c8e5→0x5294e0`），其中本機 Script cache 作業**不是無副作用 ACK**，不得送未知合成 S44。另 Born.Main 顯示 PaperDialog 引導玩家去 (31,29) 找女性招募員，但不證首觸發、NPC ID 或 map/spawn。詳見 [A-023 分析](../task_a/roy2/A-023-analysis.md)。CT-033..035 為此分支的教學 Script CT；A-021 原 CT-029..032 不變。
+
+## A-001/A-023 更新後原生協定裁定（2026-10-31）
+
+- A-001：binary AA frame `payload_length:u16_be`，body seed0..9 mask + key/ordinal XOR（例外 opcode 不加 ordinal 依具體 profile）；C00 8-byte，S00 result0/1/2 parser 形態；只有 seed0/local 登入基線，seed1..9 synthetic fixtures 非 runtime。詳見 [A-001](../03-analysis-requests/A-001-roy1-seed-and-version.md)。
+- A-023：`S44(1,0)` Script named start，檢查 `name,context,text_crc32,deps,params`，Client 資源足夠則執行 Main；缺檔的 C6C0 → S44(1,1) 更新；Born/PaperDialog 無 SendReply 的 OK Dispose 送 C6C4 再 C6C2。**不代表 quest completion、原服 start 時間或 NPC binding 已確認**。詳細 schema、CRC/CP950 前提及清快取風險見 [A-023 Client 契約](../task_a/roy2/A-023-script-entry-contract.md)。

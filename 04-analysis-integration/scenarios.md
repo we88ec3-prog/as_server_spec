@@ -40,3 +40,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-022 / roy1：MAP/CRC 載圖及重連靜態證據
 
 [完整研究](../03-analysis-requests/A-022-roy1-bin-analysis.md) / [協定子集](A-022-map-loading-crc.md)。S15 3個 BE u16+flags u8+another u8+string8；S14(1) 要求 Client C35 的**MAP file header offset+4 u16 與 MapData 結構化 CRC**（第一欄不是 map ID）；S14(2) loading callback，3 延時異常。S04 4×BE u16 定位。Server 必須以 map identity+resource version+epoch 證實相同的 C35 再定位入圖；錯圖/斷線/舊 epoch 復原，tutorial_entry 與 completed 分離。原版教程 map/spawn 未從單一 EXE 證實，需 A-015 原版 MAP/Script/Born。
+
+## A-002 / roy1：登入、跨 TCP 轉服及重複登入邊界
+
+[完整分析](../03-analysis-requests/A-002-roy1-login-transfer.md) 和 [合成模型](../tools/a002_session_model.py)。C03 兩個 string8 + u8；S03 `0x5886C0`：u32 address、u16 port、u8 token_len、token raw bytes；`0x4A8370` 的 region3/4 handler 連 World 並送 C10，其 `0x5773E0` serializer 發 raw token，**不另帶 token_len prefix**。此函式不是 C25。Server-designed：成功認證後發一個綁 account/character/generation/destination 的短效一次性 grant；**舊登入 TCP 關閉不可直接令 grant 失效**；第二個合法登入原子換 generation、舊 socket 延遲斷線不可移除新世代。原服重複登入是 kick 或 reject 仍 unknown；CT-037/038 planned，Client 實測尚未進行。

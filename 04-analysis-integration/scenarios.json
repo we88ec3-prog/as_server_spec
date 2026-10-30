@@ -33,7 +33,10 @@
         "PKT-S33"
       ],
       "status": "manual-pass-subset",
-      "notes": "已補最小本機公告與清單路徑；其他metadata／Script種類待A-020，未納入的Client確認包仍須分別查核。"
+      "notes": "已補最小本機公告與清單路徑；其他metadata／Script種類待A-020，未納入的Client確認包仍須分別查核。 A-002 static: S03 0x5886c0 reads u32 address/u16 port/u8 len/raw token; region3/4 transfer 0x4a8370 creates plain C10 raw token without length prefix, via 0x577330/0x5773e0. Native duplicate-login outcome unknown.",
+      "analysis_evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
+      ]
     },
     {
       "id": "SCN-002",
@@ -134,10 +137,13 @@
         "帳號不存在/錯密/停權",
         "管理建帳並發/重送"
       ],
-      "notes": "管理員經獨立管理 API 預建帳號；Client 僅能登入既有帳號。C02 無 Account.Create 權限；原生空角色轉場待 A-021。 Security: do not treat C02 before login as authenticated Account/Character owner. A-027 must establish proof. This remains analysis-required.",
+      "notes": "管理員經獨立管理 API 預建帳號；Client 僅能登入既有帳號。C02 無 Account.Create 權限；原生空角色轉場待 A-021。 Security: do not treat C02 before login as authenticated Account/Character owner. A-027 must establish proof. This remains analysis-required. A-002 designed: failed C03 never evicts current World; successful account auth alone issues generation-bound one-use transfer grant; login-socket close must not immediately revoke pending grant.",
       "known_from_roy1": "C02 may be sent before C03; client C02 has no authority to create Account or claim admin-provisioned account",
       "analysis_blockers": [
         "A-027"
+      ],
+      "analysis_evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
       ]
     },
     {
@@ -212,21 +218,26 @@
       "a022_map_analysis_notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。 A-022 observed: S15 3*u16+2*u8+string8; S14(1) triggers C35(header file+4, structured checksum); S14(2) loading callback. Native tutorial map/spawn unknown pending A-015.",
       "script_entry": {
         "analysis": "A-023",
-        "finding": "C6C/S44 是原生 Script 通道但教程首事件映射不明",
+        "finding": "S44(1,0) named start invokes Main after resource/dependency checks; client.Dispose emits C6C4 then C6C2 unless replied",
         "candidate_packets": [
           "PKT-C6C",
           "PKT-S44"
         ],
-        "tutorial_opcode_mapping": "unknown",
+        "tutorial_opcode_mapping": "S44(1,0) script start and C6C lifecycle specified; original-server first-login schedule unknown",
         "first_npc": "unknown",
-        "born_trigger": "unknown",
+        "born_trigger": "S44(1,0) name=Born, dependency=PaperDialog; original first-login policy unknown",
         "evidence_ids": [
           "A023-E02",
           "A023-E03",
           "A023-E06",
           "A023-E07",
           "A023-E09",
-          "A023-E10"
+          "A023-E10",
+          "A023-E14",
+          "A023-E15",
+          "A023-E16",
+          "A023-E17",
+          "A023-E18"
         ],
         "analysis_gate": "integrated-partial",
         "ct": [
@@ -243,12 +254,13 @@
             "role": "female recruiter",
             "not_verified_spawn": true
           },
-          "auto_trigger": "unknown",
+          "auto_trigger": "packet-driven named Main invocation; original-server policy unknown",
           "npc_id": "unknown",
           "explicit_quest_mutation": false,
           "client_resource_release_match": "unverified"
         },
-        "validation_note": "Contains reported Born.dat offline validation, native tutorial trigger still unknown; source Born bytes not available in this review pass."
+        "validation_note": "Born/PaperDialog and original EXE bytes verified offline; native Client not-run; original NPC binding and quest policy unresolved",
+        "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
       }
     },
     {
@@ -277,9 +289,10 @@
         "舊世代操作",
         "雙連線"
       ],
-      "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。",
+      "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-002 designed: old World disconnect/packet cannot remove new World generation; World C10 atomic consume; expired/reused/wrong-owner grant and crash residue are rejected.",
       "analysis_evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a002_20261031_asgard_login_transfer_static"
       ],
       "a022_map_analysis_notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-022 designed: epoch/resource version binds expected C35; wrong or old checksums rejected, reconcile after crash/disconnect; tutorial_entry_committed distinct from tutorial_completed."
     },
@@ -303,8 +316,8 @@
         "資源缺失"
       ],
       "packet_mapping": "unknown",
-      "a023_script_notes": "已進教學且地圖載入成功後，根據原生內容證據實體化 NPC/怪物，進行有權限的可見性廣播、狀態更新及回收。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-023 只證 Script 通道存在；首 NPC/教學自動觸發及其教程專用 opcode 仍 unknown。 Born.Main 指向(31,29)女性招募員但不提供 NPC ID/spawn；須 A-024 確認。",
-      "script_onboarding_status": "channel-observed-static; first-event unknown"
+      "a023_script_notes": "Born UI start and C6C close lifecycle now specified; no NPC entity/map/spawn mapping in Born. nNewJoin01 STATE ACCEPT/REFUSE is a school-join candidate, not a verified recruiter binding. See A023-E14..E18.",
+      "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved"
     },
     {
       "id": "SCN-012",

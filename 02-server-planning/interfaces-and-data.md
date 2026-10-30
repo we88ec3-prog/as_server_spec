@@ -54,3 +54,7 @@ World.SelectInitialSpawn/CommitTutorialEntry：原版教學地圖與坐標待 A-
 ## C02 早於 C03 的信任邊界修訂（A-021 roy1）
 
 Game Client C02 可能在 C03 之前送出；C02 region 封包布局已由 BIN 確認，但其帳號名稱／憑證字段仍 unknown。Gateway 可以在 pre-auth 階段**解析**此封包，不代表有權呼叫 `Account.Create` 或 `Character.CompleteCreation`；未經帳號擁有者身份校驗，不得將其當成 `ClaimExistingAccount`，不得發行有效 transfer grant、授權 S02 success 以進入 C04 或寫入 Character。A-027 必須證明身份驗證／綁定時機，A-028 必須證明 C04 final response。詳見 [A-021 roy1 review](../04-analysis-integration/A-021-roy1-review.md)。
+
+## ScriptCatalog 與 ScriptRun 邊界（A-023 E14–E18）
+
+為 S44(1,0)/(1,1) 與 C6C(0/1/2/4) 建立 `ScriptCatalog(client_profile, codepage, resource_revision, script_name, sha256, decoded_text_crc32, dependencies)`、`ScriptRun(run_id, account_id, character_id, session_generation, map_epoch, context, resource_revision, lifecycle_state)`。所有 C6C 由 Server 確認 run/context 有效，Dispose/清理不觸發 quest 完成；重複／舊 session 不可重發獎勵。僅 S44 named start 及原 Client 已知子類可做原生 codec；資源錯 CRC 或 S44(1,3) 危險快取操作 fail closed。首次何時送 Born、首 NPC/entity/quest 綁定仍 A-012/015/024。詳見 [Script 生命週期](script-lifecycle-contract.md)。

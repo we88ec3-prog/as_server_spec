@@ -33,3 +33,7 @@ A-021 已交付且靜態驗證其 C02 region variants、C04 五 u8、S02 status/
 A-022 通用 Map/CRC 的部分可直接支援 DEV，但真正新手 map/spawn/C35 expected pair 仍無原版內容證明。A-023 有 Script C6C/S44 與 Born.Main PaperDialog 的靜態及 roy2 資源報告，**(31,29) 是文字導引而非 spawn**，首 NPC/自動觸發未知。CT-033/034/035 為 A-023 教學 Script 的測試（main 原 CT-029～032 保留給 A-021）；所有原生 Client CT 仍 not-run。
 
 正式序列與可並行項見 [分析優先順序](analysis-priority-after-A022-A023.md)。
+
+## 最新 A-001/A-023 分界（2026-10-31）
+
+**A-001 integrated/partial**：seed0..9 binary codec 可先做 unit fixtures；實際 region/版本選 seed/key、S00 錯誤狀態仍交 A-020，不能宣布十種模式都真 Client 登入成功。**A-023 integrated/partial**：S44(1,0) named start、缺檔 C6C0/S44(1,1) 更新、Main 及 C6C4→C6C2 Dispose 已有靜態契約；原服首次發送時機、NPC 位置與 quest flag 仍 unknown。ONB-05 的 Script transport/run registry 可先 DEV；ONB-03/05 的原生教程全程仍 blocked。詳見 [Script Lifecycle](script-lifecycle-contract.md) 與 [本輪證據核對](../04-analysis-integration/A-001-A-023-merge-verification.md)。

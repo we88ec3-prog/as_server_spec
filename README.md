@@ -51,3 +51,7 @@
 ## 2026-10-31 A-022/A-023 整合後的分析優先順序
 
 [下一輪分析順序與 DEV/CT 解鎖條件](02-server-planning/analysis-priority-after-A022-A023.md) | [BIN 靜態驗證與 Born 來源限制](04-analysis-integration/A-022-A-023-merge-validation.md)。A-027/A-015 為首批並行，A-028 隨後；Script 相關 CT 使用 033～035，保留原有 CT-029～032。
+
+## A-001/A-023 最新可實作交接
+
+[2026-10-31 roy1/roy2 新成果驗證](04-analysis-integration/A-001-A-023-merge-verification.md) · [Script 啟動/關閉 Server 規劃](02-server-planning/script-lifecycle-contract.md)。A-001 seed0..9 binary codec、A-023 S44(1,0) named start／C6C2/4 close 子集可先開發；原服 first-login policy／NPC mapping 未確認，原生 Client CT 均 not-run。

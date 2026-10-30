@@ -37,3 +37,7 @@
 ## A-022 merge：通用載圖的可實作邊界
 
 [完整 BIN-first 證據](../03-analysis-requests/A-022-roy1-bin-analysis.md)。進圖由 Server 先綁定 `character_id,map_id,map_revision,loading_epoch,spawn`；S15 → S14(1) → C35 驗兩個 BE u16（本機 MAP header +4 的 word 與 parse 後 structured checksum），只接受當次 epoch 的核對成功後才送 S04/S33/S14(2)。C35 第一欄非 map_id，checksum 不是 raw 檔案 CRC；錯版/超時/重連進 Reconcile，entry committed 不等於 tutorial completed。**A-015 的原生教學 MAP + 出生位置仍 unknown**；不得把 Born 指引座標 (31,29) 當初生點。原生 Client CT 尚未執行。
+
+## A-001/A-023 新證據：傳輸及 Script 啟動拆分
+
+A-001 補齊 seed0..9 的候選 binary mask/加密格式、C00/S00/string8 codec；只有 seed0/local profile 有既有人工登入基線，其他 seed 尚未原 Client CT。A-023 現已證 Client 能依 S44(1,0) 指定 Script 名稱、context、main/依賴文字 CRC 後呼叫 Main；缺資源會以 C6C0 請求更新；Born 正常關閉則在無 SendReply 時發 C6C4 後 C6C2。**原服是否/何時首次發 Born 仍 unknown，不應直接把 S14(2) 當已證實觸發點**。見 [生命週期規格](script-lifecycle-contract.md)。

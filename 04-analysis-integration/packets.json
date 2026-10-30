@@ -63,7 +63,7 @@
       "name": "Login",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "string8 name,string8 password,u8 flag",
+      "layout": "string8 account,string8 password,u8 client_flag; original serializer 0x573110 and Login UI 0x4a7d10; flag meaning unknown",
       "client_entry": "0x573110",
       "state_precondition": "版本／公告完成",
       "related_packets": [
@@ -78,7 +78,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
+      ],
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-C04",
@@ -111,7 +115,7 @@
       "name": "TransferToken",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "raw opaque token，非string8",
+      "layout": "raw opaque token bytes, no u8 length prefix or string8 wrapper; native constructor 0x577330, writer 0x5773e0 -> 0x45b4c0; C2S plaintext exception",
       "client_entry": "runtime-transfer",
       "state_precondition": "轉服新連線首包",
       "related_packets": [],
@@ -123,7 +127,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
+      ],
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-C11",
@@ -198,8 +206,8 @@
       "name": "WorldEntryMetadata",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "region 3/4 contain separate metadata handling at 0x4a8370; not universally empty body",
-      "client_entry": "0x4a8370",
+      "layout": "World entry metadata: region-specific layout partial; do NOT cite 0x4a8370 as C25, that VA is S03 transfer handler",
+      "client_entry": "unresolved; previously misattributed 0x4a8370 is S03 callback",
       "state_precondition": "token交接完成",
       "related_packets": [
         "PKT-S02",
@@ -217,9 +225,11 @@
         "R-007"
       ],
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a002_20261031_asgard_login_transfer_static"
       ],
-      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-C33",
@@ -350,7 +360,7 @@
       "name": "LoginOrCreateResult",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 status,string8 message；在MakeInfoDialog local_state=0x1d且status=0時發C04；錯誤碼意義未全解",
+      "layout": "u8 status,string8 message; LoginDialog wrong-password status3 is prior tested fixture, duplicate-login status UNKNOWN",
       "client_entry": "0x57dbc0",
       "state_precondition": "登入／創角／進世界初始化",
       "related_packets": [],
@@ -364,9 +374,11 @@
         "R-002"
       ],
       "evidence_ids": [
-        "ev_a021_20261031_asgard_static"
+        "ev_a021_20261031_asgard_static",
+        "ev_a002_20261031_asgard_login_transfer_static"
       ],
-      "native_static_report": "04-analysis-integration/A-021-native-flow.md"
+      "native_static_report": "04-analysis-integration/A-021-native-flow.md",
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-S03",
@@ -375,13 +387,13 @@
       "name": "TransferServer",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u32 address,u16 port,u8 token_size,raw token；位元序見情境",
+      "layout": "BE u32 address,BE u16 port,u8 token_length,raw token[token_length]; native 0x5886c0; region3/4 transfer handler 0x4a8370",
       "client_entry": "0x5886c0",
       "state_precondition": "登入成功",
       "related_packets": [
         "PKT-C10"
       ],
-      "layout_status": "partial",
+      "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
       ],
@@ -389,7 +401,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
+      ],
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-S04",
@@ -712,7 +728,7 @@
       "name": "ScriptRequest",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "opcode 0x6c；serializer 0x575210 依 subtype u8 0..4 分支，後續為條件式字串／數量／清單；已觀察 local login C6C body=03，但不可擴大成所有 subtype 的格式，wire offsets/長度/編碼仍 partial",
+      "layout": "opcode 0x6c; body subtype u8: 0=string8; 1=string8,u32,u16 count,count*(string8,string8); 2/4=string8,u32; 3=no further payload. string8 length counts encoded bytes, no wire NUL; integers BE (writer ctor flag=1); string codepage selected by LanguageMan, CP950 at index4; see A023-E13.",
       "client_entry": "0x575140 ctor / 0x575210 serializer",
       "state_precondition": "see profile-login.md",
       "related_packets": [],
@@ -729,9 +745,13 @@
       ],
       "evidence_ids": [
         "A023-E02",
-        "A023-E06"
+        "A023-E06",
+        "A023-E13",
+        "A023-E14",
+        "A023-E16"
       ],
-      "notes": "ScriptRunner SendReply 可建立 CScript；是否是新手教學必備 opcode 尚 unknown。"
+      "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
+      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
     },
     {
       "id": "PKT-S18",
@@ -806,9 +826,9 @@
       "name": "SScript",
       "system": "SYS-QUEST",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "constructor 固定 opcode 0x44；parser 內 type/subtype 依條件分支，type1/subtype0..4 為不同處理；type1/subtype3 進本機 Script 快取掃描/清除。物件欄位 +0x24/+0x25 非 wire offset；實際 packet byte offsets、string encoding/壓縮資料/長度仍 unknown",
-      "client_entry": "0x5862e0 constructor; 0x4e0b70 dispatch; 0x52c2a0 handler; 0x5294e0 local Script cache branch",
-      "state_precondition": "原生 Script/patch update 狀態未完整解析；不得假定是教程自動觸發",
+      "layout": "body starts type:u8, subtype:u8. 1/0=start: string8 name,u32 context,u32 textCRC,u8 dependencyCount,(string8,u32)*count,u16 parameterCount,(string8,string8)*count. 1/1=string8 name,u16 zlibLength,zlibBytes. 1/2=string8 name. 1/3=no payload, clears Script cache. 1/4=u16 count,(string8,u32)*count. Integers BE; strings use LanguageMan codepage. See full contract for type2 and limitations.",
+      "client_entry": "0x5862e0 constructor; 0x4e0b70 dispatch; 0x52c2a0 handler; 0x5294e0 local Script cache branch; parser 0x586410; Main 0x524fa0",
+      "state_precondition": "Script manager/Client UI context must exist; exact original-server first-login timing unknown; known hashes and matching codepage CRC required",
       "related_packets": [
         "PKT-C6C"
       ],
@@ -819,13 +839,17 @@
       ],
       "evidence_ids": [
         "A023-E03",
-        "A023-E04"
+        "A023-E04",
+        "A023-E14",
+        "A023-E15",
+        "A023-E17"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
         "R-013",
         "R-027"
-      ]
+      ],
+      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
     }
   ]
 }

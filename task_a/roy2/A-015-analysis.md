@@ -1,7 +1,7 @@
 # A-015／roy2 — 資料檔格式、語意與分享權利界線（BIN-first）
 
 - 日期：2026-10-31；來自最新 `main` c544af35ceb7；分析 branch `analysis/A-015-roy2`，提交目錄 `task_a/roy2`。
-- 問題：R-016/SYS-CONTENT；清點 MAP、外觀 Human/YPF、Script、技能／物品資料的格式／欄位，給可重現的 **metadata-only** 抽查方式，釐清素材分享限制；下游 A-022/A-023/A-024、ONB-03、CT-018/CT-038。
+- 問題：R-016/SYS-CONTENT；清點 MAP、外觀 Human/YPF、Script、技能／物品資料的格式／欄位，給可重現的 **metadata-only** 抽查方式，釐清素材分享限制；下游 A-022/A-023/A-024、ONB-03、CT-018/CT-040。
 - 原始檔：`Asgard.exe` PE32 i386, 3,235,840 bytes, SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`；`Born.dat` 589 bytes, SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`。**未收到** Map0/1/2、Human 及原版技能／物品資源庫，原始完整客戶端配對版本仍不足。
 - 報告依 `observed-static`、`observed-static-resource`、`prior-research`、`synthetic-test`、`unknown` 分層，不會將歷史 corpus 數量當作本輪實際重掃。
 
@@ -75,7 +75,7 @@ python tools/a015_content_probe.py /path/to/owned-client/Script/Born.dat
 |A-024/A-011|原版 `World*.dat`、`Monster*.dat` 或來源中對應 NPC 定義、招募員的原生 entity ID/生成/互動封包|Client 資源池的 World/Monster 命名證據、資料來源待追清單|
 |A-006/A-007|同版 Human/YPF 素材與全部 frame group、物品/裝備定義對照|YPF loader header/flag/palette 已證片段|
 |A-010/A-012|技能/物品與 Script 的真正定義檔/欄位、Client UI/原服權威責任的區隔|不得把 local UI 顯示誤當 Server公式；安全的空白 schema|
-|CT-037/038|只有 CT Owner 可宣布原版資源入圖/服端行為驗收；先做 offline/synthetic tests，再跑原生 Client E2E|可重現的對照步驟與驗收邊界|
+|CT-039/038|只有 CT Owner 可宣布原版資源入圖/服端行為驗收；先做 offline/synthetic tests，再跑原生 Client E2E|可重現的對照步驟與驗收邊界|
 
 **Gate 決議：`A-015.status=integrated`（已核對並整合的 EXE/Script/resource metadata 範圍），`handoff_status=partial`（原生教學資料與物品/技能語意未解），`implementation_ready=false`（整體遊戲內容），`content_format_probe_ready=true`（離線格式工具），`native_client_validation=not-run`。** 沒有因 Server 不存在而停工，但本次不把缺原始 Map/Human 資源的部分冒稱完成。
 

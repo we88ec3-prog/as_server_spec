@@ -37,3 +37,7 @@ SScript為S44（constructor 0x5862e0，handler 0x52c2a0），**不可當成通�
 ## A-001 更新：S00 資料型別與多 seed 支援邊界
 
 `0x589B60` 對 `S00.result=0` 的 parser 明確讀 `BE u32 opaque`、`u8 seed`、`u8 key_len`、`raw key bytes`、`u8 message_count`、逐項 `string8`。資料位元上相當於 `string8 key`，但 key 必須按 raw bytes 作 XOR，不可額外經文字轉碼。result=1/2 為不同數量欄位與訊息清單，不能把非零結果誤當作正常 seed 切換。原 Client `0x53B630` 有 seed0..9 的原生生成分支；**只有 seed0 屬已知可登入 TW fixture**，seed1..9 本次是可重現 codec 合成單元測試、不是已完成原 Client E2E。詳見 [A-001](../03-analysis-requests/A-001-roy1-seed-and-version.md) / [測試工具](../tools/a001_codec_vectors.py) / [transport](transport.md)。
+
+## A-002：S03/C10 的原生資料流與 Token 使用邊界
+
+S03 parser `0x5886C0` 依序讀 BE u32 address、BE u16 port、u8 token_len、**raw token bytes**；在 region3/4，`0x4A8370` 以 address/port 建立後續連線，再透過 `0x577330/0x5773E0` 將 token 原文放入 C10（body raw bytes，無 string8 前綴）。S03 和 C03 的 opcode 同為 0x03，但方向及解碼不同；C10 為既有 binary profile 的 C2S plain opcode0x10 + token，無 ordinal。登入 TCP 關閉與 World C10 交接期間的 token 有效性由 Server grant lease 控制。原版 duplicate-login error 未確認，**不推測 S02 status 值**。見 [A-002](../03-analysis-requests/A-002-roy1-login-transfer.md)。
