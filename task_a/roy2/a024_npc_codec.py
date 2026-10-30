@@ -60,3 +60,17 @@ class Projection:
     def change_map(self,epoch):
         self.epoch=epoch
         self.objects={}
+
+
+def encode_client_known(opcode, *fields):
+    """Native C13 attack or C43 object-info body only; UI target relation unproven."""
+    formats={0x13:('>I',1), 0x43:('>BIB',3)}
+    if opcode not in formats:
+        raise DecodeError("unsupported client request")
+    fmt, count = formats[opcode]
+    if len(fields) != count:
+        raise DecodeError("client field count mismatch")
+    try:
+        return struct.pack(fmt,*fields)
+    except (ValueError,struct.error,TypeError) as e:
+        raise DecodeError("client field out of range") from e

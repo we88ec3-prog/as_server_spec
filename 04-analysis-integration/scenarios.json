@@ -340,7 +340,9 @@
         "PKT-S64",
         "PKT-S5F",
         "PKT-S0E",
-        "PKT-S44"
+        "PKT-S44",
+        "PKT-C13",
+        "PKT-C43"
       ],
       "status": "analysis-required",
       "evidence_kind": "designed",

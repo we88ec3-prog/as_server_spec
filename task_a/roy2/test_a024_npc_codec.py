@@ -1,7 +1,7 @@
 """A-024 synthetic, private-free Client body/model tests."""
 import struct
 import unittest
-from a024_npc_codec import read_exact,read_path64,read_draw07_known_prefix,DecodeError,Projection
+from a024_npc_codec import read_exact,read_path64,read_draw07_known_prefix,DecodeError,Projection,encode_client_known
 
 class PacketTests(unittest.TestCase):
     def test_die_remove(self):
@@ -39,6 +39,12 @@ class PacketTests(unittest.TestCase):
         w.change_map(8)
         self.assertEqual(w.objects,{})
         self.assertFalse(w.spawn(7,333,'monster'))
+    def test_client_attack_and_info_request(self):
+        self.assertEqual(encode_client_known(0x13, 0x11223344), bytes.fromhex('11223344'))
+        self.assertEqual(encode_client_known(0x43, 1, 0x11223344, 4),bytes.fromhex('011122334404'))
+        for op, fields in ((0x13,()),(0x43,(256,1,1)),(0x43,(1,1)),(0xff,(1,))):
+            with self.assertRaises(DecodeError):encode_client_known(op,*fields)
+
     def test_unknown_opcode(self):
         with self.assertRaises(DecodeError):read_exact(0xff,b'')
 

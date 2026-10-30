@@ -434,7 +434,8 @@
         "PKT-S0C",
         "PKT-S64",
         "PKT-S5F",
-        "PKT-S0E"
+        "PKT-S0E",
+        "PKT-C13"
       ],
       "input": {
         "kind": "test-design",
@@ -717,7 +718,8 @@
       ],
       "packet_ids": [
         "PKT-S44",
-        "PKT-C6C"
+        "PKT-C6C",
+        "PKT-C43"
       ],
       "input": {
         "kind": "test-design",
@@ -726,9 +728,10 @@
       "expected": "首個教學 NPC/Script/任務 UI 在資源/原服證據確認後可定位，未互動對照組不假設任務已完成",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "script start/close specified; NPC click and original first-login policy unknown",
+      "packet_mapping": "A024 C43 object-info request client sends, recruiter-specific click trigger still unverified",
       "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge.",
-      "a024_note": "C43 object-info request only a potential click candidate; not verified NPC binding"
+      "a024_note": "C43 object-info request only a potential click candidate; not verified NPC binding",
+      "offline_test": "task_a/roy2/test_a024_npc_codec.py"
     },
     {
       "id": "CT-035",
