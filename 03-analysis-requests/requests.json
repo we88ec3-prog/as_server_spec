@@ -489,7 +489,14 @@
         "A023-E08",
         "A023-E09",
         "A023-E10",
-        "A023-E11"
+        "A023-E11",
+        "A023-E12",
+        "A023-E13",
+        "A023-E14",
+        "A023-E15",
+        "A023-E16",
+        "A023-E17",
+        "A023-E18"
       ],
       "dependencies": [
         "A-011",
@@ -502,17 +509,40 @@
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
       "native_client_validation": "not-run",
-      "analysis_report": "task_a/roy2/A-023-analysis.md",
+      "analysis_report": "task_a/roy2/A-023-script-entry-contract.md",
       "remaining_unknowns": [
-        "Born.Main 首次啟動時機/來源仍未知",
-        "招募員 NPC ID/地圖/真正位置及 spawn 設定（A-022/A-024）",
-        "首次任務或互動 opcode/quest flags（A-012/A-024/A-026）",
-        "Born.dat 與 Asgard.exe SHA 的發行版本對應未經獨立驗證"
+        "原服首次登入時送出 Born start 的角色/帳號旗標與相對入圖時序（Client 收包執行機制已解）",
+        "女性招募員 entity/map/spawn 與 nNewJoin01 等候選腳本的原服綁定",
+        "Server quest 初始化/完成權威旗標與重登政策",
+        "資源與 EXE 發行版配對身份（個別 hash 已確認）"
       ],
       "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
       "resource_client_version_binding": "unverified",
       "implementation_ready": false,
-      "implementation_ready_scope": "C6C/S44 script transport partial static evidence; Born.Main local paper-dialog content candidate only; native onboarding trigger/NPC/quest entry unverified"
+      "implementation_ready_scope": "S44(1,0) start / cache dependency request-update / Main entry / C6C Dispose and SendReply lifecycle specified; original first-login policy and NPC mapping unresolved",
+      "conformance": [
+        "CT-033",
+        "CT-034",
+        "CT-035"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "dependency_report": "task_a/roy2/entry-dependency-verification.json",
+      "client_script_entry_contract_ready": true,
+      "evidence_boundary": {
+        "local_static_paths_exhausted": [
+          "S44 parser and handler",
+          "ScriptRunner Main invocation",
+          "Dispose/SendReply native side effects",
+          "reader/writer endian and language codepage",
+          "Script XML checksum",
+          "316 Script resources and candidate join dialog",
+          "available prior evidence has no original-server capture"
+        ],
+        "required_external_evidence": [
+          "original-server first/returning login trace or onboarding handler",
+          "original-server NPC/spawn/script/quest mapping"
+        ]
+      }
     },
     {
       "id": "A-024",

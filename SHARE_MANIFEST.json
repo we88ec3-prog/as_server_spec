@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "bb5c669a81836ec16bbc34f1ed7eacaeecc0920c002ae97fcaf0e9b1ecdc643b"
+      "sha256": "96f154d219ecc2aa4d8e40a1889576f67488924e6e0b7286a1319a79c7c69127"
     },
     {
       "path": "00-governance/workflow.md",
@@ -93,7 +93,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "5ee04ca16a04ddf66961752df3e82c821991d51a2bebdb243816e52d7cf819c5"
+      "sha256": "2183c1808b7e546243436ac391184435a0d7008b17696a24e94221601a0adf90"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -129,7 +129,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "f17b75819394e344e31b2db42a5e1f3366b648d0f86929bdb4954152ab371cf1"
+      "sha256": "cc3c8e75bbc8596360bc367ce00da3b41293f203367d34928d77fc4992aed523"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
@@ -165,7 +165,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "b426c337312cbb36081cf957700204263c32d2024a315c0055b186e66fe5d958"
+      "sha256": "70bbe8a21a69733c9dd50eb6fe4b5c97957e684c6896b5820103555cda8d4a35"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -181,7 +181,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "8ad12f17a38b147484521122643a39e59aaf830270e82c2c988a88e9a157465d"
+      "sha256": "7d307fcfc0c2ee65137e79b5a18213d005bd9011f31052e213c806585c719f2a"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -197,7 +197,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "b1b5a45a8fc16cb901602fdb759dbc3c1c57e9e8ad8bb23ccd0199c27fa9b2a8"
+      "sha256": "78f3ba50fecc92c5445f7f9b8ab3b3bc08306557328272e4299e3a178e9b93e3"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -233,7 +233,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "fc84801f73103f83d61abe6cca5949ae6d2484333a05f964a91819f3d61fde45"
+      "sha256": "f0baf652f28f323e80954036b7729c3d8b28f3f2a9048bd83e40c28ac0d4a716"
     },
     {
       "path": "README.md",

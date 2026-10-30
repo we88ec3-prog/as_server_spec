@@ -1679,6 +1679,90 @@
         "ASCII mode full runtime framing not verified",
         "Result1/result2 refusal UI semantics remain unknown"
       ]
+    },
+    {
+      "evidence_id": "A023-E12",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "Script/PaperDialog.dat: PaperDialog_Create, ShowIndexedHelp, PaperDialogProc; Born.Main direct call; local UI close/pagination and frame dependency",
+      "evidence_kind": "observed-static-resource",
+      "resource_sha256": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+      "resource_client_version_binding": "unverified",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E13",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x575210 C6C serializer; writers 0x45ab00/0x45b1b0/0x45ab40/0x45ac40; REA ev_78de5bbeebab4156741f475aa2cced960617a78e69ae64287a9339ab013efe76",
+      "evidence_kind": "observed-static",
+      "resource_sha256": null,
+      "resource_client_version_binding": "n/a",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E14",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x586410 parser raw bytes / 0x5867bc jump table; 0x45ad70/0x45aac0 endian default; 0x498420 locale and 0x60855c CP950",
+      "evidence_kind": "observed-static",
+      "resource_sha256": null,
+      "resource_client_version_binding": "n/a",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-script-entry-contract.md"
+    },
+    {
+      "evidence_id": "A023-E15",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "S44 start/cache queue 0x52c2a0 -> 0x52bd30 -> 0x521c20; 0x52c014 -> 0x524fa0 -> Main at 0x525090",
+      "evidence_kind": "observed-static",
+      "resource_sha256": null,
+      "resource_client_version_binding": "n/a",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-script-entry-contract.md"
+    },
+    {
+      "evidence_id": "A023-E16",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "client.Dispose 0x526873 emits C6C4 then 0x519450 emits C6C2 unless replied; dialog.Dispose 0x5278b2; SendReply 0x51a9f0 emits C6C1",
+      "evidence_kind": "observed-static",
+      "resource_sha256": null,
+      "resource_client_version_binding": "n/a",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-script-entry-contract.md"
+    },
+    {
+      "evidence_id": "A023-E17",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x529060 reads BE u16 version + BE u32 units; 0x550910 codepage bytes; 0x58a210 standard CRC32; CP950 Born 1d87b0c0 / PaperDialog f870c574",
+      "evidence_kind": "observed-static",
+      "resource_sha256": null,
+      "resource_client_version_binding": "n/a",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-script-entry-contract.md"
+    },
+    {
+      "evidence_id": "A023-E18",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "316 Script corpus: 315 XML / NDW non-XML; nNewJoin01.dat candidate STATE ACCEPT/REFUSE; Basic.dat AlertFrame.ypf index presence",
+      "evidence_kind": "observed-static-resource",
+      "resource_sha256": null,
+      "resource_client_version_binding": "n/a",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-script-entry-contract.md"
     }
   ]
 }

@@ -650,9 +650,27 @@
         "result": "pass-local-offline",
         "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
         "validator": "task_a/roy2/verify_born.py",
-        "native_client_validation": "not-run"
+        "native_client_validation": "not-run",
+        "dependency_validator": "task_a/roy2/verify_entry_dependencies.py",
+        "dependency_result": "pass-local-offline",
+        "dependency_resource_sha256": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+        "verification_report": "task_a/roy2/entry-dependency-verification.json",
+        "entry_contract_validator": "task_a/roy2/verify_script_entry.py",
+        "entry_contract_result": "pass-local-offline",
+        "negative_body_cases_rejected": 37
       },
-      "review_merge_note": "Renamed from roy2 CT-029 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
+      "review_merge_note": "CT-033 replaces historical roy2 CT-029. Born and PaperDialog offline verification replayed on 2026-10-31; native CT remains not-run.",
+      "static_body_fixtures": {
+        "kind": "synthetic-from-static-parser",
+        "start_body_hex": "010004426f726e112233441d87b0c0010b50617065724469616c6f67f870c5740000",
+        "close_bodies_hex": [
+          "0404426f726e11223344",
+          "0204426f726e11223344"
+        ],
+        "codepage_condition": "LanguageMan index4 CP950",
+        "context_origin": "designed 0x11223344",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "CT-034",
@@ -662,7 +680,10 @@
         "R-027",
         "R-029"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-S44",
+        "PKT-C6C"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/A-023-tutorial-entry-test-plan.md"
@@ -670,7 +691,7 @@
       "expected": "首個教學 NPC/Script/任務 UI 在資源/原服證據確認後可定位，未互動對照組不假設任務已完成",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown",
+      "packet_mapping": "script start/close specified; NPC click and original first-login policy unknown",
       "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
     },
     {
@@ -681,15 +702,17 @@
         "R-013",
         "R-027"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-C6C"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/A-023-tutorial-entry-test-plan.md"
       },
-      "expected": "取消/重送/斷線/舊 session 不會使任務初始化或後續進度重複，原版拒絕碼未知",
+      "expected": "Born OK normal path invokes sends C6C4 then C6C2 (unless replied); script context/session must be validated; duplicate close or stale context must not advance tutorial twice (designed). Quest completion and original refusal policy remain unknown.",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown",
+      "packet_mapping": "script lifecycle C6C subtype1/2/4; NPC/quest state meaning unknown",
       "review_merge_note": "Renamed from roy2 CT-031 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
     },
     {
