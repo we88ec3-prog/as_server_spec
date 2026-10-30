@@ -54,3 +54,7 @@ python -m unittest discover -s task_a/roy2 -p 'test_a014_social.py'
 ```
 
 契約與負向測試詳見 [A-014-social-test-plan.md](../../05-conformance/A-014-social-test-plan.md)。**不要求先有新 Server 才研究**：A 逆向已證欄位可移交 DEV；原生 A-014 group/guild type/subtype 對照、收件路由與原服拒絕 status 需要後續 BIN UI crossrefs / 合法 Native traces。A-014 結論 `status=integrated, handoff_status=partial, native_client_validation=not-run`；可先實作純聊天/密語的已知 codec + 權威安全模型，群組/公會仍不可宣稱 native-compatible ready。
+
+## 主線核對更正：S0D string8，而非 string16（2026-10-31）
+
+獨立以此 SHA 的原始 Asgard.exe 反組譯核對：`0x5861D0` 的 S0D parser 先 `0x45ADB0` 讀 type u8，`0x45AEB0` 讀 source_id u32，`0x5861F2` 呼叫 **`0x45B7A0`（u8 encoded byte length 的 string8）** 讀 text；type4 額外的文字 `0x58620D` 亦呼叫 `0x45B7A0`，再 `0x586214` 讀 u32。舊版第 1 節把 S0D 標成 `string16` 的描述已撤回；與之不同的是 **S0A `0x582218` 呼叫 `0x45B890`，才是 string16**。Packet index、PKT-S0D 與 Server codec/CT-047 均以此勘誤為準。這是原始 EXE 靜態核對，非原服 channel/type 發送政策、亦非 GUI E2E。

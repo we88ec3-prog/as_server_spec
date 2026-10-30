@@ -3,7 +3,7 @@
   "id": "A-015-resource-schema-v1",
   "profile": "TW-seed0-local-v0.1",
   "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-  "status": "static-layout-partial",
+  "status": "format-inventory-reviewed",
   "rights_assumption": "No distribution rights implied; source files remain private",
   "source_matrix": [
     {
@@ -269,5 +269,13 @@
     "coordinate_semantic_confidence": "inferred-not-proven-NPC-or-spawn",
     "native_e2e": "not-run"
   },
-  "versioned_wrapper_correction": "Born.dat raw zlib 589B; decompressed 1154B header 00 01 00 00 02 3e is BE u16 version=1 and BE u32 count=574, not 4-byte constant plus u16."
+  "versioned_wrapper_correction": "Born.dat raw zlib 589B; decompressed 1154B header 00 01 00 00 02 3e is BE u16 version=1 and BE u32 count=574, not 4-byte constant plus u16.",
+  "a015_handoff_scope": "ready for resource format/metadata/provenance only; full tutorial/game content implementation_ready=false",
+  "a015_closure_report": "task_a/roy2/A-015-closure-review.md",
+  "a015_extended_evidence": [
+    "A015-E19",
+    "A015-E20",
+    "A015-E21"
+  ],
+  "server_only_content_gap": "Skill and item authoritative definitions/filename remain unknown; Basic.dat, Icon.dat, Locale.dat are candidates, not proven definition tables"
 }

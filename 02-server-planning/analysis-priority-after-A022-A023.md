@@ -58,3 +58,9 @@ A-002 已 `integrated/partial`，C03/S02/S03/C10 與原版 Client 跨 TCP 轉服
 |P1 後續|**A-025 → A-026**|先取得教學戰鬥/技能目標、再取任務完成／獎勵／出口；完成條件與傳輸回覆不可自行杜撰。|ONB-05/06、CT-021～028|
 
 **分析與實機 CT 分離**：上述 A-015/016/027/028 都已提交可再現的部分研究，不再標 not-started，也不要求先有 Server 實機才能交付；`native_client_validation` 仍是 `not-run`。最高優先可分兩人同步追 A-027 的「身份證明／無角 UI 可達性」和 A-015 的「教學地圖／實際 checksum」。缺原始 Human/Script 依賴資料時請明列檔名，不從地圖名猜 NPC 或角色外觀。
+
+## A-014 最新社交協定子集（2026-10-31）
+
+**A-014 integrated/partial（P2）**：C0E 聊天、C19 密語、C2E 群組、C12 成員、S0D 訊息、S58/S3A 成員回覆的 Client 靜態結構已定位；**S0D text 是 string8、S0A text 才是 string16**，此誤標已修正。原生聊天 type→頻道、組隊/公會 op/sub 對照、離線及權限回覆仍 unknown。Server 可先做 codec、來源身份以 Auth/World session 為權威、頻道範圍與群組成員 CAS、反重送與限速；但不能宣稱原版組隊/公會操作已完全實機互通。CT-047/048 planned、native not-run。社交工作應排在首登／教學 P0 關鍵路徑之後，或由另一位人員平行處理，不阻擋 ONB-01～03。詳見 [社交開發邊界](social-contract.md)。
+
+**A-015 最新交接**：`handoff_status=ready` 只限可驗證的 DAT/MAP/Script 格式、檔案庫盤點、hash/provenance 工具；原版新手 map/spawn/NPC/碰撞依舊 unknown，`implementation_ready=false`，不可將這個窄範圍 ready 誤當教程內容已完成。

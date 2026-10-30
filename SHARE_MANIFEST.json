@@ -57,7 +57,7 @@
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
-      "sha256": "a7767ff025f8400fc222d0889a3646d369bfef9d851d2aa5fabd2105e78c4e13"
+      "sha256": "b4fea6573859f302bda2aa46b889d3df080d134f4c236e8d7d7f089c9eb09286"
     },
     {
       "path": "02-server-planning/architecture.md",
@@ -94,6 +94,10 @@
     {
       "path": "02-server-planning/session-transfer-contract.md",
       "sha256": "520f1f45412869e1ff534e8422f16dad4b413c31a031206a8434a161f3aa5814"
+    },
+    {
+      "path": "02-server-planning/social-contract.md",
+      "sha256": "072900bc54b4cf0e9dbefba3a7cf51aac9947bce219233919e528b469240663d"
     },
     {
       "path": "02-server-planning/systems.json",
@@ -221,7 +225,7 @@
     },
     {
       "path": "04-analysis-integration/content-resource-catalog.json",
-      "sha256": "e386e3f1c67da7ec82630644e04673613df00fac14b5ec53a970194216851b78"
+      "sha256": "1b18f69ba4700b8ae0884f08d5af11751e0361699285b657301938127c2debad"
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
@@ -302,6 +306,14 @@
     {
       "path": "README.md",
       "sha256": "a007f78b79c6f44e3546898c7534a9c76e64a2a3fbfd01d9faaa4396f19bf179"
+    },
+    {
+      "path": "task_a/roy2/A-014-analysis.md",
+      "sha256": "3274236f3e9d148b867bda3d282bc159247c9f9c5496c2fbbdb7d798d75aba6e"
+    },
+    {
+      "path": "task_a/roy2/A-014-packet-index.json",
+      "sha256": "9f8bb169acc3a209dba64973a68574b85f246430fd3f0465a3179f08f0d0175b"
     },
     {
       "path": "task_a/roy2/A-015-analysis.md",
