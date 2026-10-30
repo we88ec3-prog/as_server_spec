@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "8b5d21a9df9d1f661c861a577c58e0ff06ae1f39f4776fee172d2b9d5dad17cc"
+      "sha256": "eb2fc6ec6c562d991b5b53b1973b29de07b655095a41c6225f6ab4c537698a67"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -133,7 +133,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "c4481a60409d294df0eb909a02e4339e57917bb80ad1fc87ca164a23fa10a943"
+      "sha256": "a434477773e5a6f6bf81cddb33a79cd2a549363bc0456595ebf019c3581c2d0c"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -141,7 +141,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "2d00da47b127d836504b04c796d9237b23093708ce5a289245c4336dcd210dd1"
+      "sha256": "03ae56c3a90f1484c1dafb7a689601ed8d11b718c2aa1aad3f9748e5c99aa2a0"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -189,11 +189,11 @@
     },
     {
       "path": "04-analysis-integration/content-resource-catalog.json",
-      "sha256": "660436c1891d517dd04256e9f1e5196e27417246638f9cdd12fae91870d5019e"
+      "sha256": "c17764b25541c23b7c80133b3babf067e1d0b920a3f14e6f52b019221cc66744"
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "a8a707b733ae9ef1cf2ecaf33c95a0265530a8a64563bcf13c645cf85983cb6e"
+      "sha256": "01efb1152e7180920742ae1e56551c9544c49eade464c57bc0530063d1ce16ca"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -221,7 +221,7 @@
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "66a2c30518e4613fa10f439ff949455c3fa695b85c25548e2def1693d2e7810a"
+      "sha256": "68e84e1f629efc02b24d80f5a6c2c445cf66071b2fdb19213dde83456241e471"
     },
     {
       "path": "04-analysis-integration/scenarios.json",
@@ -245,7 +245,7 @@
     },
     {
       "path": "05-conformance/A-015-content-test-plan.md",
-      "sha256": "ade0aa1b3f85ece38a3f3c21795c565b9f8e8fd8da742f3a7b1f1b32f820c5e0"
+      "sha256": "430e691ecd116c38645bf4a4c9835475cc102fa658d12039d67dd95b144419b1"
     },
     {
       "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
@@ -265,7 +265,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "017cf879c2a18fc47257d3cc67d05bab3c226d3d89c5333260c85b7713862d21"
+      "sha256": "7af6ed64f33e67f05390d10cb5cbea1bdd899f77df1e9a71eabd767e1e02ec16"
     },
     {
       "path": "README.md",
@@ -273,7 +273,11 @@
     },
     {
       "path": "task_a/roy2/A-015-analysis.md",
-      "sha256": "ccdbc771e465757db4334939e2af2f787653fb74691495d6abee8a5fbd155939"
+      "sha256": "a3636bf420565419bd938bfb38ba764997dcc8dd2b4bfead6d25fe5443d74c92"
+    },
+    {
+      "path": "task_a/roy2/A-015-closure-review.md",
+      "sha256": "eb1d95546cc13fd97258ffcf4b31a49a3da484f1fca56b1d042c13398207a0c9"
     },
     {
       "path": "task_a/roy2/A-015-field-audit-summary.json",
@@ -333,7 +337,7 @@
     },
     {
       "path": "tools/a015_content_probe.py",
-      "sha256": "5aef49b4460bc0b97e3ee7569c04a3dbe06623e1bb02a2d2521b74dbe239d985"
+      "sha256": "35fe2f349eac1c201cd234bbf2247ecd6fd6a1644f8f896ba23dd6c6a7376c22"
     },
     {
       "path": "tools/a015_map_corpus_verify.py",
@@ -341,7 +345,7 @@
     },
     {
       "path": "tools/test_a015_content_probe.py",
-      "sha256": "0f8964fe3c28a2df432bf4a51cefc515f0b68345a69ac2e88aed95e5d263b53b"
+      "sha256": "dc04a936216e08e8faea191e6eb104b42ebd401b286a1486ff3eee161a27161d"
     },
     {
       "path": "tools/test_a015_map_corpus_verify.py",

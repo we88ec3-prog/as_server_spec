@@ -31,3 +31,7 @@
 ## CT-039 補充 MAP 欄位級驗證
 
 `python task_a/roy2/a015_field_audit.py Map0.dat Map1.dat Map2.dat` 可再驗 494 張 MAP 的 7/8/16-byte 型別、標頭差異與候選 48×32 座標範圍；`python -m unittest discover -s task_a/roy2 -p 'test_a015_field_audit.py'` 是 4 個合成正反向測試。已 PASS 的是**離線原件結構與合成測試**，整體 CT-039 仍 planned，CT-040 原生 Client E2E 仍 not-run。禁止將候選像素座標直接當成官方 NPC 或角色出生點。
+
+## 研究交付與原生 CT 分離 — A-015 ready / CT still planned
+
+A-015 按明確的 metadata／格式／版權研究範圍交接就緒（[結案審查](../task_a/roy2/A-015-closure-review.md)）；本地原始檔驗證 494 MAP / Born 及合成 Script 長度 >65535 測試可重跑。不把此記為完整 CT-039：**CT-039 依然 planned**（缺其他原件／來源版配對），**CT-040 依然 planned、native_client_validation=not-run**。新 Script 長度 header = BE u16 version + BE u32 UTF-16LE code-unit count。任何 map ID、NPC、spawn、server-side skill/item 均留原專責 A / CT，不能因 A-015 ready 而宣告原生教學可玩。

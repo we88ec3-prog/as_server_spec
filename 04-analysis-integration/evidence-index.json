@@ -2065,6 +2065,45 @@
       "raw_content_shared": false,
       "release_binding": "unverified",
       "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E19",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource + synthetic-test",
+      "locator": "Native 0x529060 Script reader uses BE u16 version then BE u32 UTF16LE code-unit count; original Born.dat version1 units574 decompresses to 1154 bytes, 70017 units synthetic script passes; earlier BE16 length model corrected.",
+      "report_path": "task_a/roy2/A-015-closure-review.md",
+      "tool_path": "tools/a015_content_probe.py",
+      "asset_bytes_in_shared_repo": false,
+      "release_match": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E20",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "Asgard.exe original SHA UTF-16LE literal pool confirms 26 resource path selectors including Basic/Icon/Locale/Script/Map/World/Monster/Human; no explicit Skill*.dat/Item*.dat in these printable literals (negative scope only), original server/embedded definitions remain possible.",
+      "report_path": "task_a/roy2/A-015-closure-review.md",
+      "tool_path": "tools/a015_content_probe.py",
+      "asset_bytes_in_shared_repo": false,
+      "release_match": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E21",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource + synthetic-test + reviewed-scope",
+      "locator": "Locally obtained original Asgard.exe/Born.dat/Map0-2 hashes matched recorded SHA; 494/494 MAP member lengths/headers/tails validated, version provenance remains unverified; rights/metadata-only handoff finalized without raw assets or native E2E.",
+      "report_path": "task_a/roy2/A-015-closure-review.md",
+      "tool_path": "tools/a015_content_probe.py",
+      "asset_bytes_in_shared_repo": false,
+      "release_match": "unverified",
+      "native_client_validation": "not-run"
     }
   ]
 }

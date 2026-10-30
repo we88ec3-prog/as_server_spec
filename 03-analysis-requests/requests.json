@@ -310,10 +310,13 @@
         "A015-E15",
         "A015-E16",
         "A015-E17",
-        "A015-E18"
+        "A015-E18",
+        "A015-E19",
+        "A015-E20",
+        "A015-E21"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "partial",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
       "latest_merged_evidence_focus": "Roy2 reports available Map0/1/2.dat, Script and Basic resources in its own local analysis context; investigate and verify exact version linkage to Asgard.exe, tutorial map_id/spawn/orientation/content revision, MAP checksum and NPC/script map bindings. Born (31,29) is guide waypoint not player spawn; resource availability is not itself resolved semantics.",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
@@ -326,11 +329,11 @@
       "content_format_probe_ready": true,
       "original_tutorial_content_ready": false,
       "remaining_unknowns": [
-        "Map0/1/2 原件已取得並通過結構驗證，但與 Asgard.exe 是否同一官方發行版仍無版本 manifest；Human/MB/WB/髮型、Basic/Icon/Locale、技能物品原件仍未提供",
-        "原版教學 map_id、玩家出生 x/y/facing、招募員 NPC ID/生成來源與實際地圖資源欄位仍未知",
-        "地圖 block/tile 對應碰撞及尾段 7/8/16 bytes 語意、YPF group/DOI/完整動畫、技能/物品數值公式尚未解出",
-        "原始素材及 Client 分發授權不可由能解析格式的事實推論",
-        "雖然 494 筆 MAP 格式可解析，但 477 張圖的尺寸都能包含 (31,29)，無法由 Born 指示獨立確認新手地圖或招募員"
+        "原始技能／物品定義檔名和欄位尚未辨識：目前 EXE UTF-16LE 資源名稱沒有明示 Skill*.dat／Item*.dat；後續 A-007／A-010、或以 Basic.dat/Icon.dat/Locale.dat 原件排查，但不能假定它們含規則",
+        "原生 tutorial map_id、spawn(x/y/facing)、女性招募員 NPC/spawn、MAP collision 與 C35 structured checksum 尚未由本 A 證明：交 A-005/A-022/A-023/A-024/CT-040",
+        "Client、Born.dat 與 Map0/1/2.dat 的 SHA 已保存，但沒有官方 release manifest 證實同一版；需要版本綁定時不得靜默接受錯版",
+        "Human/YPF 完整動作與外觀 ID 範圍是 A-006/A-007 深入項；不要求提供整包美術資源",
+        "遊戲素材散布／公開營運權利未獲證明；格式可讀不構成使用權"
       ],
       "map_corpus_report": "04-analysis-integration/a015-map-corpus.json",
       "map_corpus_offline_validation": "pass-all-494",
@@ -342,7 +345,11 @@
       "map_field_audit_status": "native-static-extraction-and-original-494-corpus-verified",
       "map_field_coordinate_semantics": "inferred-only",
       "last_analysis_date": "2026-10-31",
-      "next_task_gate": "A-015 remains partial; do not start A-016 until A-015 source inventory is reviewed or explicitly scoped complete"
+      "next_task_gate": "A-015 bounded source-format-and-rights research completed; A-014 may proceed independently, but A-005/A-007/A-010/A-022/A-024/CT-040 unknowns remain separate blockers",
+      "analysis_scope_ready": "resource source inventory / static format+identity/provenance + metadata-only parser and rights boundary ONLY",
+      "analysis_completed_in_bounded_scope": true,
+      "release_match_to_client": "unverified",
+      "source_inventory_review": "task_a/roy2/A-015-closure-review.md"
     },
     {
       "id": "A-016",

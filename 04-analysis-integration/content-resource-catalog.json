@@ -3,7 +3,7 @@
   "id": "A-015-resource-schema-v1",
   "profile": "TW-seed0-local-v0.1",
   "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-  "status": "static-layout-partial",
+  "status": "format-inventory-reviewed",
   "rights_assumption": "No distribution rights implied; source files remain private",
   "source_matrix": [
     {
@@ -146,26 +146,27 @@
         {
           "offset": "compressed input",
           "type": "zlib",
-          "semantics": "decompress to wrapper"
+          "semantics": "decompress to native text reader wrapper"
         },
         {
-          "offset": "unpacked 0..3",
-          "type": "00 01 00 00",
-          "semantics": "header meaning unknown"
-        },
-        {
-          "offset": "unpacked 4..5",
+          "offset": "unpacked 0..1",
           "type": "BE u16",
-          "semantics": "UTF-16 code unit count"
+          "semantics": "format version; Born original=1"
+        },
+        {
+          "offset": "unpacked 2..5",
+          "type": "BE u32",
+          "semantics": "UTF-16LE code-unit count; Born=574; previously incorrectly modeled as BE u16"
         },
         {
           "offset": "unpacked 6..",
-          "type": "UTF-16LE",
-          "semantics": "script source text (XML for most, not all)"
+          "type": "UTF-16LE 2*n bytes",
+          "semantics": "XML or non-XML script; may be client-side presentation only"
         }
       ],
       "unresolved": [
-        "exact native activation hook / server quest logic"
+        "exact native first-login activation hook/server quest logic",
+        "script source not necessarily game authority"
       ]
     },
     {
@@ -209,7 +210,10 @@
     "A015-E15",
     "A015-E16",
     "A015-E17",
-    "A015-E18"
+    "A015-E18",
+    "A015-E19",
+    "A015-E20",
+    "A015-E21"
   ],
   "offline_tool": "tools/a015_content_probe.py",
   "asset_corpus_uploaded": {
@@ -265,5 +269,11 @@
     "coordinate_candidate_all_in_48x32_pixel_bounds": true,
     "coordinate_semantic_confidence": "inferred-not-proven-NPC-or-spawn",
     "native_e2e": "not-run"
-  }
+  },
+  "handoff_status": "ready",
+  "ready_scope": "DAT/MAP/Script format+metadata/provenance, binary resource selector inventory, rights boundary",
+  "skill_item_definition_source": "unknown",
+  "native_client_validation": "not-run",
+  "implementation_ready": false,
+  "source_review": "task_a/roy2/A-015-closure-review.md"
 }

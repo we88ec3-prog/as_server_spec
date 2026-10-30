@@ -820,7 +820,9 @@
         "report": "04-analysis-integration/a015-map-corpus.json",
         "native_client_validation": "not-run",
         "caveat": "Scope is structural map parser only, other CT-039 categories still untested"
-      }
+      },
+      "research_handoff": "ready-for-format-provenance-only",
+      "offline_script_parser_fix": "BE u16 version plus BE u32 UTF-16LE code-unit length, 70017 units synthetic PASS"
     },
     {
       "id": "CT-040",

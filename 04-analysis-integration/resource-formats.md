@@ -20,7 +20,7 @@
 
 **A023-E17 原生 reader 補正**：`00010000` + BE u16 n 是本批小檔案的外觀拆法；0x529060 實際依次讀 **BE u16 version=1、BE u32 UTF-16LE code-unit count**。校驗文字時將完整 UTF-16LE XML 依 LanguageMan codepage 轉 bytes，再做標準 CRC32，並非 raw DAT 的 CRC。Born/PaperDialog 在 CP950 的文字 CRC 分別為 `1d87b0c0`／`f870c574`。詳見 [A-023 完整契約](../task_a/roy2/A-023-script-entry-contract.md)。
 
-316個Script/*.dat均可zlib解壓：bytes0..3=00010000（語意未知），bytes4..5為BE u16 UTF-16 code-unit數n，offset6後為UTF-16LE，總長必須6+2*n。315個為可解析XML，NDW為純文字。CDATA含Client腳本與介面API，不能視為完整Server任務／獎勵／AI邏輯。
+316個Script/*.dat均可zlib解壓：解包 offset0..1 為 BE u16 version、offset2..5 為 BE u32 UTF-16 code-unit數 n，offset6 後為 UTF-16LE，總長必須 6+2*n；以先前的 BE u16 解讀僅偶然適用於長度小於 65536 的 Script。315個為可解析XML，NDW為純文字。CDATA含Client腳本與介面API，不能視為完整Server任務／獎勵／AI邏輯。
 
 BarberShopDialog的Gender、HairShape、HairColor與CreateHairShape/SetHairObject提供外觀預覽入口；Born為新手對話／座標導引，不能當登入或創角處理器。
 
@@ -58,7 +58,7 @@ Evidence：MAP ev_e166a44f01c9de3b7eff7457a30e6279b8571b5a76afc7354812c14bf1331e
 
 **2026-10-31 續查已在本地原件獨立重跑**：Born 與 PaperDialog hash／解析通過，並追通 S44(1,0)→Main 與關閉 C6C4/2 原生副作用。下段「本地只有 EXE」是早期 review 狀態，不再適用；目前缺的是原服 first-login 政策與 NPC/quest 綁定證據，非缺 Born 原件。重現工具及目前限制見上引完整契約。
 
-Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`；zlib 解包 1154 bytes、prefix `00010000` + BE u16 574 UTF-16LE units；唯一 `Main` 建立 PaperDialog，文字引導 (31,29) 女性招募員。未觀察到顯式 quest/SpawnNpc/SendReply；不能推論引擎沒有其他副作用，更不能把 (31,29) 當成出生點。此回合本地只有 Asgard.exe，原 Born.dat 尚不可獨立重跑；報告與 validator 已入版，日後以原件 SHA 重現，版本對應仍未驗證。
+Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`；zlib 解包 1154 bytes、header `BE u16 version=1` + `BE u32 units=574` UTF-16LE units；唯一 `Main` 建立 PaperDialog，文字引導 (31,29) 女性招募員。未觀察到顯式 quest/SpawnNpc/SendReply；不能推論引擎沒有其他副作用，更不能把 (31,29) 當成出生點。此回合本地只有 Asgard.exe，原 Born.dat 尚不可獨立重跑；報告與 validator 已入版，日後以原件 SHA 重現，版本對應仍未驗證。
 
 ## A-015 本輪 BIN-first 更新（2026-10-31，roy2）
 
@@ -75,3 +75,7 @@ Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9
 原版 `Asgard.exe` `0x4B2D70` 逐欄讀取 **7-byte** `u8(bool), LE u16, LE i16, LE i16`；`0x4B2DE0` 讀取 **8-byte** 四個 LE u16；`0x4B2E40` 讀取 **16-byte** `LE u16,u16,u32,u32,u16,u16`。這是 BIN 直接確認的 layout，而非以史料推測。
 
 494 張 MAP 實測：header 第一/第二 u16 皆相等，但第三 u16 在 **32 張**為例外 `(1,1,4)`；7B／8B／16B 尾段筆數為 **74,032／396／2,269**。後兩種 record 裡疑似 (x,y) 的 `(+2,+4)` 與 `(+12,+14)` **396/396、2269/2269** 全符合 `x < width*48, y < height*32`，僅能推斷為與圖形座標有關，**不能視為已確認原版 NPC 出生點、地圖阻擋、傳送或任務位置**。7B 首旗標的原始取值為 `0=72,577`／`1=1,455`。詳見 [A-015 欄位級報告](../task_a/roy2/A-015-field-audit.md)。
+
+## A-015 研究格式與來源交付結案（範圍限定，2026-10-31）
+
+Script 既有簡化 `BE u16 length` 的錯誤已更正為 **BE u16 version + BE u32 code units**；原 Born.dat 驗證通過，並加入大於 65535 code units 的合成回歸測試。原 EXE UTF-16LE 常值池的 resource selectors（Basic/Icon/Locale 等）可確認存在，但技能/物品定義的真正檔名 **unknown**，不能把候選檔案當成已解。完整資料盤點／來源／授權／下游邊界見 [A-015 結案審查](../task_a/roy2/A-015-closure-review.md)。
