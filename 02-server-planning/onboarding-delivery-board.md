@@ -5,7 +5,7 @@
 |工作|規格|分析|可先做的 Server 工作|原生 Client 出場門檻|
 |---|---|---|---|---|
 |ONB-01 管理建帳＋登入|已規劃 R-025|A-021/A-027 靜態子集已整合；A-027 原生認領驗證仍 blocked|管理 API、權限、稽核、憑證/停權、最小 C03 profile|預建帳號合法登入；Client 不可建 Account|
-|ONB-02 創角與保存|已規劃 R-026|A-021/A-027 部分研究已整合；A-003/A-028 待補，native owner 路由仍 blocked|原子建角、名稱/外觀驗證、草稿/重送|原 Client 正確創角/重登|
+|ONB-02 創角與保存|已規劃 R-026|A-021/A-027/A-028 靜態研究已部分整合；A-003 待補，native owner/commit 路由仍 blocked|原子建角、名稱/外觀驗證、草稿/重送|原 Client 正確創角/重登|
 |ONB-03 首次入教學|已規劃 R-027|A-022 通用 Map/CRC 已整合；原生 MAP/出生待 A-015|grant、Loading/CRC 狀態機、內容版本|原版教學地圖出生且可操作|
 |ONB-04 中斷恢復|已規劃 R-028|A-016/A-021/A-022 缺失分支|故障注入、幂等、重登入恢復|Client 中斷後無重複角色/錯誤進度|
 |ONB-05 教學 NPC/怪物/技能/目標|規劃 R-029/030|A-023 Script/Born 部分整合；A-024/025 未完成|場景生成、AI/戰鬥架構與目標 ledger|教學真實互動流程跑通|
@@ -41,3 +41,7 @@ A-022 通用 Map/CRC 的部分可直接支援 DEV，但真正新手 map/spawn/C3
 ## A-027 / roy1 狀態（2026-10-31）
 
 **研究 done within static scope**：C02 UI 字串來源、field1 本地長度檢查、field2/確認文字的 UTF-16 比較、region 尾欄及確認視窗已完成可稽核逆向，狀態 `integrated/handoff partial`。**並非 native account ownership 完成**：沒有原生 C02 身份綁定或 C03 無角帳號自動進 MakeInfoDialog 的證據，因此 `native_account_claim_ready=false`、首次建角授權入口仍 blocked；通用 codec / fail-closed guard 可先 DEV。CT-039/040 planned，原 Client CT not-run。[交接與證據](../04-analysis-integration/A-027-preauth-safety-contract.md)。
+
+## A-028 roy1 C04 終局回覆分析（2026-10-31）
+
+新增 [A-028](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)：原 Client 在 C04 後 state0x1e，收到 S02(status0) 進 local UI `0x4b206b`，**此 callback 不直接 S03/C10**；S02(nonzero) 則自動發 C15 CancelNewUser（opcode0x15, body0 bytes），state0x1f，焦點依 error status 分支。分析 `integrated/partial`，但 `implementation_ready=false/native_creation_commit_ready=false`（原生 C02 owner/Server DB commit 仍未知）。安全 Domain/Protocol 的 encoder、no-auth guard、transaction/undo/Idempotency 可先開發；CT-031/032/041/042 planned。

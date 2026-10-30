@@ -44,3 +44,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-002 / roy1：登入、跨 TCP 轉服及重複登入邊界
 
 [完整分析](../03-analysis-requests/A-002-roy1-login-transfer.md) 和 [合成模型](../tools/a002_session_model.py)。C03 兩個 string8 + u8；S03 `0x5886C0`：u32 address、u16 port、u8 token_len、token raw bytes；`0x4A8370` 的 region3/4 handler 連 World 並送 C10，其 `0x5773E0` serializer 發 raw token，**不另帶 token_len prefix**。此函式不是 C25。Server-designed：成功認證後發一個綁 account/character/generation/destination 的短效一次性 grant；**舊登入 TCP 關閉不可直接令 grant 失效**；第二個合法登入原子換 generation、舊 socket 延遲斷線不可移除新世代。原服重複登入是 kick 或 reject 仍 unknown；CT-037/038 planned，Client 實測尚未進行。
+
+## A-028 roy1：C04 後 S02、C15/CancelNewUser 與重登邊界
+
+[原生 S02 UI 深度分析](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)；[Server 安全交接](A-028-newuser-terminal-contract.md)。確認 C02→S02(status0 at local0x1d)→C04(五 u8)→local0x1e；再收 S02(status0) 走 local UI `0x4b206b`，**不是此回調直接發 S03**。非零 S02 建構/送出 C15（opcode0x15，empty body），state0x1f，特定錯誤碼影響本地焦點（不是已知原服錯誤文字）。A-028 integrated/handoff partial，**原 Server 角色持久提交時點與原生預建帳號 owner 驗證仍 unknown**，SCN-008/010 不可標為原生全程可實作。新 PKT-C15、CT-041/042 planned，Server 可先做 transaction/idempotency/pending cancellation 的 designed 模組。

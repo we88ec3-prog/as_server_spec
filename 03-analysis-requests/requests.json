@@ -706,19 +706,35 @@
       "title": "C04 後 S02 回覆、角色提交與轉服／重登終局",
       "method": "由 MakeInfoDialog C02(status0)→C04 與 UI state 0x1e 追全部後續 S02/其他回覆 parser、角色建立成功/拒絕/取消、關閉視窗、重登或 transfer to World 的轉場。不可由 0x1d 收到 status0 推定 C04 已建角成功。",
       "deliverable": "BIN/原資源證據、0x1e 後狀態機、Client response handler、字段/失敗碼/轉場、Server 角色原子提交的回覆時機、可執行 CT-031/CT-032 測試腳本；未知保持 partial，不要求先以新 Server 實機通過。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a028_20261031_asgard_c04_response_static"
+      ],
       "dependencies": [
         "A-021",
         "A-027"
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "analysis_test": "tools/a028_newuser_response.py",
+      "analysis_scope": "C04 success/failed S02 callback and C15 CancelNewUser packet incl native focus and UI state",
+      "implementation_ready": false,
+      "implementation_ready_scope": "C04/S02/C15 codecs, UI response state fixtures and designed DB idempotency are implementable. Native admin-preprovisioned account-claim and original Server final commit/transfer flow NOT implementable until A-027 proof and Client CT",
+      "native_creation_commit_ready": false,
+      "remaining_unknowns": [
+        "Native Server durable Character creation transaction point after C04 not observable from Client",
+        "Native secure C02 to admin pre-provisioned account ownership (A-027) missing",
+        "S02 failure codes exact native meanings and Server C15 semantics unconfirmed",
+        "C03 successful zero-character to MakeInfoDialog, and post-C04 successful UI navigation to login/World not proven",
+        "Original valid character fields/name/appearance and account character multiplicity (A-003) pending"
+      ],
+      "last_analysis_date": "2026-10-31"
     }
   ]
 }

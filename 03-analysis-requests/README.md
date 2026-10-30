@@ -76,3 +76,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-027 / roy1：C02 身份與 UI 字段靜態交付
 
 [A-027 逐位址研究](A-027-roy1-identity-ui-security.md) / [安全契約](../04-analysis-integration/A-027-preauth-safety-contract.md) / [合成測試](../tools/a027_pre_auth_contract.py)。新追 UI+0x26C/0x270/0x274 來源、0x4B1A30 的第一欄長度 gate、0x5B4A62 UTF-16 相等比較、region 尾欄。**C02 在 C03 前送出不能證明 pre-provisioned Account owner**，C03(no-character)→原生 MakeInfoDialog 仍 unknown；`A-027 integrated/partial` 僅限可證研究，`implementation_ready=false/native_account_claim_ready=false` 表示原版認領路由必須 fail-closed，不能憑 C02 建帳/建角色/發 S02(status0)。新 CT-039/040 為 planned、非實機通過。
+
+## A-028 / roy1 已完成 C04 後 Client S02/C15 的靜態分析
+
+[完整研究](A-028-roy1-c04-terminal-analysis.md) / [安全規格](../04-analysis-integration/A-028-newuser-terminal-contract.md) / [合成測試工具](../tools/a028_newuser_response.py)。0x4b205f 的 local state0x1e 後，S02 status0 走 `0x4b206b` UI，並非直接 World transfer；status 非0 送 C15 CancelNewUser（0x5715f0、serializer 0x5716a0 無 body）並進0x1f。已獨立核對 status 3/4/17/18/26/31 的焦點分流（不是原服 status 語意）。A-028 `integrated/handoff_status=partial/native_creation_commit_ready=false/native_client_validation=not-run`，原生 owner+角色 durable commit 未證；新增 PKT-C15、CT-041/042，更新 CT-032。

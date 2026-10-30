@@ -13,7 +13,7 @@
 ## 狀態與提交
 1. AuthorizedAdmin → AccountProvisioned；遊戲 Client 不接受 ProvisionAccount。
 2. LoginReady → C03 Authenticate → CharacterReady 或 NoCharacter（**Server 內部狀態**；不代表原 Client 有無角色選單）。
-3. NoCharacter → Client 原生 NewUser UI 的 C02（可能早於 C03；**在 A-027 證明身份與權限前不得認領任何預建 Account**）→ 尚未授權的解析階段／合法身份驗證（A-027 原生 owner 證據仍缺）→ 授權後才能回應可觸發 C04 的 S02 status0 → C04 → 最終回覆與角色原子提交時機待 A-028 → CharacterReady；C04 無前置/跨 Session/非法資料拒絕。C03 無角色不得直接進 World；是否能自動轉原 UI 仍 unknown，採 NewUser 入口作 designed 暫行流程。
+3. NoCharacter → Client 原生 NewUser UI 的 C02（可能早於 C03；**在 A-027 證明身份與權限前不得認領任何預建 Account**）→ 尚未授權的解析階段／合法身份驗證（A-027 原生 owner 證據仍缺）→ 授權後才能回應可觸發 C04 的 S02 status0 → C04 → **A-028 已證後續 S02(success) 在 local state0x1e 走 UI 0x4b206b，S02(error) 發 C15 CancelNewUser 並設0x1f**；原 Server 真正持久提交時點與身份認領仍 unknown，安全驗證前不可 CharacterReady；C04 無前置/跨 Session/非法資料拒絕。C03 無角色不得直接進 World；是否能自動轉原 UI 仍 unknown，採 NewUser 入口作 designed 暫行流程。
 4. CharacterReady → S03 IssueGrant → C10 ConsumeGrant（同一 token 只能使用一次）→ C25 Loading。
 5. S02、S05、S15、S14(1)、C35、S04、S33、必要背包裝備、S14(2) → InWorld。教學地圖出生點只用 A-022 證實的設定；C35 超時/CRC 失敗進 Reconcile，不亂標入圖成功。
 6. 首次成功提交 tutorial_entry_committed；**不**自動寫 tutorial_completed。重連時用已保存角色/位置/旗標恢復，可能的初始資產以唯一 ledger 防重。
@@ -45,3 +45,7 @@ A-001 補齊 seed0..9 的候選 binary mask/加密格式、C00/S00/string8 codec
 ## A-027 / roy1：原生 C02 輸入來源已查、帳號認領安全路由仍不可開放
 
 已靜態確認第一欄 UI+0x26C 長度 gate、第二欄 UI+0x270 與本地確認 UI+0x274 的 UTF-16 比較、region 相關額外 UI 欄位。**目前沒有證據證明 C02 內含已預建帳號的有效 AuthContext/token，亦未證明 C03 登入後無角帳號自動開 MakeInfoDialog**。因此管理員預建 Account 仍僅能由已認證身份操作；原版 Client 未取得可信 owner 時一律不得回 C02 的 S02 success（會直接觸發 C04），不能產生角色或 lease。A-027 `integrated/partial` 指研究交付，`native_account_claim_ready=false`；詳細 [A-027 安全規格](../04-analysis-integration/A-027-preauth-safety-contract.md) / [證據](../03-analysis-requests/A-027-roy1-identity-ui-security.md)。A-028 仍單獨追 C04 終局。
+
+## A-028 最新狀態：C04 後不會由同一 S02 callback 直接轉服
+
+[原版 EXE 逆向證據](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md) / [Server 安全契約](../04-analysis-integration/A-028-newuser-terminal-contract.md)：S02(status0) 在 state0x1d 促發 C04(五 u8) → state0x1e；之後 S02(status0) 執行本地 UI 操作（region3 有額外視窗）；**不是立即 S03 World transfer**。S02(status!=0) 在 CreateInfo UI 發 C15 `0x15` empty body → state0x1f。角色建立的 Server DB transaction 建議採先 durable commit 才回成功、同 intent 失敗重試/重送不重建、晚到 C15 不刪已提交角色，但這是設計不是原服已證。A-027 owner 與 A-003 原生合法值仍 blocked；A-028 `integrated/handoff partial/native_creation_commit_ready=false`。CT-032/041/042 planned。

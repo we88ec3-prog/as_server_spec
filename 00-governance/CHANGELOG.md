@@ -53,3 +53,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-027 BIN-first C02 身份/控制與安全修訂
 
 從指定 SHA Asgard.exe 的 0x4B2700 UI→0x5742B0 C02 writer 追出 field1 UI+0x26C 受 0x4B1A30 長度 gate、field2 UI+0x270 與確認 UI+0x274 經 0x5B4A62 UTF-16 相等檢查、region 0/2..4 額外字段，並核對 0x4B2360/0x4B21E0/S02 觸發 C04。預建帳號的 native owner 身份/credential 仍無 Server 或 Client 可信關聯證據、C03 零角色自動進 MakeInfoDialog 亦未證，故 A-027 研究 integrated/handoff partial，但 native account-claim **implementation_ready=false**、must fail closed；修正先前 A-021 建議裡「直接 claim 預建 Account」的危險解讀。新增 CT-039/040 合成契約，Client CT not-run。
+
+## task_a/roy1 — 2026-10-31 A-028：C04 終局/取消 C15 的 BIN-first 分析
+
+指定 SHA Asgard.exe 追 `0x4b1d60` 的 S02 callback、`0x4b205f` local0x1e、`0x4b206b` 第二次 S02(success) UI、`0x4b1f1b..0x4b1f34` 失敗 C15 CancelNewUser（constructor 0x5715f0，empty serializer 0x5716a0，debug CPP 0x6136a4），並還原 error code UI focus 3/4/17/18/26/31。A-028 標 integrated/handoff partial，原 Client E2E not-run；原 Server DB commit/owner/relogin/World 仍不可宣稱全解，新增 PKT-C15、CT-041/042 與可執行 synthetic Python fixture，更新 A-021/027 安全規格與首次創角場景。

@@ -19,3 +19,7 @@
 ## A-027 / roy1 重新校核 C02 的 UI 字段與權限（2026-10-31）
 
 [原始研究](../03-analysis-requests/A-027-roy1-identity-ui-security.md) / [04 安全交接](A-027-preauth-safety-contract.md)：C02 field1 對應 UI+0x26C、field2 對應 UI+0x270，另有 UI+0x274 作 UTF-16 確認相等比較，region2..4 的其他欄位源自區域控制；這是 Client 本地驗證，**不是** Server owner 憑證。原生預建帳號的認領驗證、C03 無角色後切入 MakeInfoDialog 尚未證實，因此 native account-claim route=blocked、A-027 static handoff=partial，Protocol/Domain 的 no-auth fail-closed 可開發。C02 收到 S02 success 會促發 C04，禁止無驗證成功。A-028 仍負責 C04 最後狀態/提交。
+
+## A-028 / roy1：C04 後 S02 與 CancelNewUser 終局（2026-10-31）
+
+[A-028 原生證據](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)／[可用 Server 安全交接](A-028-newuser-terminal-contract.md)：MakeInfoDialog 在 0x1d 收 S02(status0) 傳 C04 並進 0x1e；**在 0x1e 再收 S02(status0) 時走 0x4b206b 的 local UI 成功路徑，不會在這個 callback 立即發 C03/S03**。收到 S02(nonzero) 會呼叫 C15 CancelNewUser constructor 0x5715f0、發 opcode0x15 **空 body**（serializer 0x5716a0），state 改成 0x1f；code3/4/18/26/31 讓 first edit focus，code17 second edit focus，具體原服錯誤名稱仍 unknown。A-027 原生 owner route / 原服 DB durable commit / 之後重登轉服仍未證實，**不能因 A-028 integrated/partial 就授權 C02 或盲送 S03**。CT-031/032/041/042 planned。
