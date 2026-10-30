@@ -62,7 +62,3 @@ Game Client C02 可能在 C03 之前送出；C02 region 封包布局已由 BIN �
 ## A-002 S03/C10 AuthSession / TransferGrant
 
 `AuthSession(account_id, character_id, generation, status)`、`TransferGrant(token_hash, account_id, character_id, generation, destination, expires_at, consumed)`、`WorldBinding(account_id, generation, connection_id)`；S03 對 Client 含 addr/port/u8 token length+raw token，新 TCP C10 **僅 raw token**。old login socket close 不能清除合法尚未兌換 grant，stale generation disconnect 不能刪新 World。以 CAS 消費 grant/推進 generation。原服 duplicate 政策 unknown，latest-auth-wins 只作 Server designed。參見 [交接契約](session-transfer-contract.md)。
-
-## SYS-SOCIAL／A-014 Server 身分與權限邊界（designed）
-
-`SocialSession(character_id, world_generation, connection_id, map_epoch, group_id?, guild_id?)`、`Membership(group_id, revision, roles)`、`SocialMessage(sender_character_id, kind, recipient_scope, encoded_text)`。所有 C0E/C19 由已認證會話確定 sender，group/guild fanout 由 Server 權威 membership 投影；Client 自稱權限/群組的資料不能直接信任。邀請/退出/踢人使用 CAS/revision 並阻止已過期、重送、跨群、離線、舊 generation 更改。沒有真 group/guild op/subtype mapping 以前，原生 profile 的未知變體必須拒絕，不能虛構原版回覆欄位。此僅 Server **designed**，不是實機原服政策，詳見 [A-014](../task_a/roy2/A-014-analysis.md)。

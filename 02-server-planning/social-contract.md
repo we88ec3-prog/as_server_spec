@@ -26,3 +26,6 @@
 
 - 可先開發：C0E/C19 decoded-body parser/encoder、S0D/S0A 型別差異、Session/群組權威邊界、未知 subtype 拒絕、限速/惡意字元/跨帳號測試；在未證原版 type/op 的情況不對真 Client 任意發明群／公會回覆。
 - `CT-047`：聊天／密語格式與 sender spoof、禁言／跨世代拒絕；`CT-048`：群組／成員分支、原子 membership/security；均 `planned/native-client not-run`。專案最優先仍為 A-027 的預建帳號 owner 和 A-015/A-022 真正教程出生，不因社交子集可用而改變入門關鍵路徑。
+
+
+**CT-049** 專門追原版群組／公會頻道 Client E2E、S0D 真實類型及成員清單回覆。CT-047/048 的合成 codec/security 成功不能代替 CT-049；Native Client 驗收仍 `not-run`。

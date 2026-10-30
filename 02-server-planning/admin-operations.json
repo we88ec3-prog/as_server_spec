@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "scope": "DESIGNED management-side API, never original C2S opcode",
+  "base_path": "/admin/v1",
+  "source_analysis": "A-017",
+  "requirements": [
+    "R-018",
+    "R-019",
+    "R-021",
+    "R-025"
+  ],
+  "default_policy": "deny unless independently authenticated role + permission + validated state",
+  "network_allowlist_is_authentication": false,
+  "game_client_has_admin_authority": false,
+  "roles": {
+    "observer": [
+      "ops.read"
+    ],
+    "support": [
+      "ops.read",
+      "account.suspend",
+      "account.unsuspend"
+    ],
+    "game_master": [
+      "ops.read",
+      "character.teleport",
+      "character.adjust",
+      "item.grant"
+    ],
+    "admin": [
+      "ops.read",
+      "account.provision",
+      "account.suspend",
+      "account.unsuspend",
+      "character.teleport",
+      "character.adjust",
+      "item.grant"
+    ]
+  },
+  "operation_requirements": {
+    "mutations": [
+      "authenticated_actor",
+      "permission",
+      "reason_code",
+      "idempotency_key",
+      "target_id",
+      "expected_version",
+      "audit_on_allow_deny"
+    ],
+    "rate_limits": "configurable per actor/action; not native proven",
+    "outbox": "unique commit then notify; retry same key no duplicate side effect",
+    "password_and_token_redaction": "always, including exception logs"
+  },
+  "operations": [
+    {
+      "operation": "account.provision",
+      "method": "POST",
+      "path": "/accounts",
+      "permission": "account.provision",
+      "constraints": [
+        "account cannot be inserted from game C02",
+        "hash credential; never audit plaintext"
+      ]
+    },
+    {
+      "operation": "account.suspend",
+      "method": "POST",
+      "path": "/accounts/{id}/suspensions",
+      "permission": "account.suspend",
+      "constraints": [
+        "duration_days 1..3650 OR permanent",
+        "expires_at server UTC",
+        "revoke/suspend active world generation per session policy"
+      ]
+    },
+    {
+      "operation": "account.unsuspend",
+      "method": "DELETE",
+      "path": "/accounts/{id}/suspensions",
+      "permission": "account.unsuspend",
+      "constraints": [
+        "account version CAS",
+        "no privilege bypass"
+      ]
+    },
+    {
+      "operation": "character.teleport",
+      "method": "POST",
+      "path": "/characters/{id}/teleports",
+      "permission": "character.teleport",
+      "constraints": [
+        "valid map,coordinate,world instance",
+        "no two concurrent map loading epochs",
+        "world session generation CAS"
+      ]
+    },
+    {
+      "operation": "character.adjust",
+      "method": "POST",
+      "path": "/characters/{id}/adjustments",
+      "permission": "character.adjust",
+      "constraints": [
+        "validate bounds/expected_version",
+        "audit before/after versions"
+      ]
+    },
+    {
+      "operation": "item.grant",
+      "method": "POST",
+      "path": "/characters/{id}/item-grants",
+      "permission": "item.grant",
+      "constraints": [
+        "item valid/inventory capacity",
+        "unique grant ledger"
+      ]
+    },
+    {
+      "operation": "ops.read",
+      "method": "GET",
+      "path": "/sessions,/characters/{id},/audit,/metrics",
+      "permission": "ops.read",
+      "constraints": [
+        "page/filter",
+        "pseudonymized fields only"
+      ]
+    }
+  ],
+  "audit_fields": [
+    "audit_id",
+    "timestamp_utc",
+    "actor_type",
+    "actor_id",
+    "operation",
+    "target_id",
+    "request_id",
+    "idempotency_key_hash",
+    "correlation_id",
+    "decision",
+    "reason_code",
+    "committed",
+    "before_version",
+    "after_version",
+    "result_code",
+    "latency_ms",
+    "source_network_zone"
+  ],
+  "trace_fields": [
+    "connection_id",
+    "client_profile",
+    "session_generation",
+    "opcode",
+    "frame_length",
+    "parse_result",
+    "world_instance",
+    "map_id",
+    "loading_epoch",
+    "result_code"
+  ],
+  "never_log": [
+    "password",
+    "token",
+    "credential_hash",
+    "cookie",
+    "authorization_header",
+    "raw_packet_body",
+    "raw_chat_text",
+    "full_script_text"
+  ],
+  "native_client_validation": "not-run",
+  "analysis_status": "designed",
+  "conformance": [
+    "CT-050",
+    "CT-051"
+  ],
+  "analysis_handoff": "A-017 integrated/ready for designed management API and observability only; no original Client GM opcode nor deployed server verification"
+}

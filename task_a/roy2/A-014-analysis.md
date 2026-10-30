@@ -60,3 +60,7 @@ python -m unittest discover -s task_a/roy2 -p 'test_a014_social.py'
 ## 與最新 main 的 A-014 核對補正
 
 因其他分析者亦在 main 推入 A-014 部分證據，請以其已占用的 **CT-047／CT-048** 為正式索引；原本這份子分支對 CT-041～043 的暫定編號**作廢**（已被 A-027/A-028 等任務占用），不能再次分配。核心 S0D 文字欄已實際追 `0x5861F2 → 0x45B7A0`（第一條）與 type4 第二次 `0x58620D → 0x45B7A0`，證實 **string8**；S0A `0x582218 → 0x45B890` **string16**。所有原服頻道／公會權威仍 unknown。
+
+## 新增 Native CT-049
+
+與最新 main 的社交規格整合後，群組／公會頻道與原生 Client 端到端行為的專屬測試 ID 為 **CT-049**；CT-047（聊天/密語 codec）與 CT-048（群組/成員防護）為先行的合成與設計測試。CT-049 未執行，相關 native type/op/subtype、原服錯誤/離線行為仍未知。S0D text 應以 string8 解碼（0x45B7A0），S0A text 為 string16（0x45B890）。

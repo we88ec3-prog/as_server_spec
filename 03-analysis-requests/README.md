@@ -84,8 +84,3 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 ## A-015 task_a/roy2 續查（2026-10-31）
 
 在既有 `task_a/roy2` 分支續查 A-015（不另建分析分支）：取得 MAP 原件的 7／8／16-byte record 欄位型別原生 accessor、494 張地圖的標頭差異與疑似像素座標範圍，新增 [研究報告](../task_a/roy2/A-015-field-audit.md) 和 [metadata-only 重跑工具](../task_a/roy2/a015_field_audit.py)。A-015 仍 `integrated/partial`，尚無 Human/完整技能與物品定義；不提前轉做 A-016。
-
-
-## A-014／task_a/roy2 最新 BIN-first 核對與整合（2026-10-31）
-
-原版 Client SHA `db3df616...`：C0E/C19/C2E/C12、S0A/S0D/S58/S3A，經 RTTI→constructor/reader 定位；**S0D `0x45B7A0` 是 string8，S0A `0x45B890` 才是 string16**。5 個合成 codec/權限回歸測試 PASS。組隊/公會的 op/subtype、type→channel、原服拒絕/離線/重登策略尚無 native 直接證據；A-014 `integrated/partial`，CT-047/048 保留 planned。參照 [分析報告](../task_a/roy2/A-014-analysis.md) 及 [測試](../task_a/roy2/test_a014_social.py)。

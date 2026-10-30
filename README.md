@@ -59,3 +59,9 @@
 ## A-002 登入／轉服規劃
 
 [SessionTransfer 契約](02-server-planning/session-transfer-contract.md)／[A-002 新證據驗證](04-analysis-integration/A-002-merge-verification.md)：S03 addr/port/token 引導新 TCP，C10 只寫 raw token。已勘誤 0x4A8370 真正是 S03 handler 而非 C25。CT-037/038 native not-run。
+
+## task_a roy1/roy2 最新分析合併（2026-10-31）
+
+[A-015/A-016/A-027/A-028 首次登入、創角、恢復、地圖的 Server 整合規格](02-server-planning/merge-20261031-roy1-roy2.md) · [原始二進位與 MAP/Born 覆核報告](04-analysis-integration/A015-A016-A027-A028-validation.md) · [A-014 聊天／密語／組隊／公會安全開發契約](02-server-planning/social-contract.md) · [A-015 格式與盤點研究結案界線](task_a/roy2/A-015-closure-review.md)。保留原 client/S02/C15/Script 與 494 MAP 的部分已證成果，沒有將建角原生 owner proof、首次出生、群組 type/op 或 Client E2E 宣稱通過。CT-039～040 為地圖內容、041～046 為創角／恢復、047～049 為社交。
+
+[A-017 管理端 API／停權解封／去敏稽核](02-server-planning/admin-operations.json) · [A-017 原始報告](03-analysis-requests/A-017-roy1-admin-audit.md)。主線測試 CT-050/051 planned，不冒認實機通過。

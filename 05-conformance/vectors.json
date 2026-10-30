@@ -1073,7 +1073,6 @@
         "PKT-S0D"
       ],
       "expected": "C0E type/string8, C19 type/target/text string8 and S0D source_id+string8 native subset; Server binds origin to authenticated World, rejects illegal type/encoding and stale generation; S0A remains context-dependent; native channel type and error statuses unknown.",
-      "analysis_request": "A-014",
       "synthetic_test_file": "task_a/roy2/test_a014_social.py",
       "offline_subset_result": "5 synthetic A-014 tests PASS; decoded-body/CP950 and session guard checks, not native wire E2E"
     },
@@ -1097,9 +1096,101 @@
         "PKT-S3A"
       ],
       "expected": "Decode only evidence-backed op/subtype forms, reject unsupported values without changing membership; Server authoritative group/guild generation/CAS for invitations; native guild policy and member row format still unknown.",
-      "analysis_request": "A-014",
       "synthetic_test_file": "task_a/roy2/test_a014_social.py",
       "offline_subset_result": "Synthetic membership policy tests PASS; group/guild native op/subtype and source report still partial"
+    },
+    {
+      "id": "CT-049",
+      "status": "planned",
+      "level": "social-group-guild-native-e2e",
+      "requirements": [
+        "R-015"
+      ],
+      "packet_ids": [
+        "PKT-C0E",
+        "PKT-S0D",
+        "PKT-S0A",
+        "PKT-C12",
+        "PKT-C2E",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "expected": "Using original Client and authorized test Server, determine group/guild C0E type and S0D subtype/recipient set, S58/S3A member rows and native error codes; no assertion of original guild compatibility without captured evidence",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-014"
+      ]
+    },
+    {
+      "id": "CT-050",
+      "status": "planned",
+      "level": "management-rbac-and-atomic-replay",
+      "requirements": [
+        "R-018",
+        "R-021",
+        "R-025"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "designed-sqlite-fixture",
+        "reference": "tools/a017_ops_contract.py",
+        "cases": [
+          "unauthenticated actor and forbidden role",
+          "suspend N days/permanent and unsuspend",
+          "item grant one-shot",
+          "same idempotency key changed payload conflict",
+          "teleport/adjustment valid state"
+        ]
+      },
+      "expected": "Independent management authentication + RBAC + reason, target validation; denied actions no domain side effect; same key same body no duplicate item; changed body conflict; append-only sanitized audit for allow/deny/replay",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md",
+      "merge_source_id": "CT-045",
+      "merge_note": "A-017 branch CT-045 renumbered to CT-050 because CT-045/046 belong to A-016 in main"
+    },
+    {
+      "id": "CT-051",
+      "status": "planned",
+      "level": "admin-audit-redaction-observability",
+      "requirements": [
+        "R-019",
+        "R-021"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "designed-security-fixture",
+        "reference": "tools/a017_ops_contract.py",
+        "sensitive_fields": [
+          "password",
+          "transfer_token",
+          "authorization_header",
+          "raw_packet_body",
+          "cookie"
+        ],
+        "correlation_fields": [
+          "actor_id",
+          "request_id",
+          "operation",
+          "target_id",
+          "decision",
+          "session_generation",
+          "map_id",
+          "loading_epoch",
+          "opcode"
+        ]
+      },
+      "expected": "Only safe allowlisted audit/diagnostic fields stored; no passwords, token, auth headers, cookies, complete game packet body or private chat even on denial/error; received/committed/notified distinguished",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md",
+      "merge_source_id": "CT-046",
+      "merge_note": "A-017 branch CT-046 renumbered to CT-051 because CT-045/046 belong to A-016 in main"
     }
   ]
 }

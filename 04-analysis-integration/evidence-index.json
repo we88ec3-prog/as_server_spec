@@ -2231,6 +2231,24 @@
       "limits": "original server routing/op meaning unknown, native Client CT not-run"
     },
     {
+      "evidence_id": "ev_a017_20261031_management_contract",
+      "date": "2026-10-31",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "designed",
+      "method": "Review Asgard.exe SHA and UTF16 sblockclient.cpp debug path (not sufficient to establish admin semantics), correlate R-018/R-019/R-021/R-025 + A-002/A-016/A-027 and synthetic SQLite RBAC/idempotency tests",
+      "scope": "Independent Server admin API: provisioning, moderation, role actions, audit redaction and tracing; NOT original game Server admin protocol",
+      "report": "03-analysis-requests/A-017-roy1-admin-audit.md",
+      "contract": "04-analysis-integration/A-017-admin-observability-contract.md",
+      "test": "tools/a017_ops_contract.py",
+      "limits": [
+        "Original game's Server admin/GM wire, kick/ban statuses unproven",
+        "Actual online World teleport coordination with native Client requires DEV/CT",
+        "Production admin identity, deployment, secret rotation and retention remain DEV/OPS",
+        "Legal item/character bounds remain A-003/A-007/A-013",
+        "Measured load/latency capacity remains A-018"
+      ]
+    },
+    {
       "evidence_id": "A014-E01",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",

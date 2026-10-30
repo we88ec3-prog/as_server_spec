@@ -869,8 +869,7 @@
       "evidence_ids": [
         "ev_a014_20261031_asgard_social_static",
         "A014-E03"
-      ],
-      "social_analysis_note": "S0A uses string16 via 0x45B890, S0D uses string8 via 0x45B7A0; do not conflate."
+      ]
     },
     {
       "id": "PKT-S44",
@@ -972,8 +971,7 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ],
-      "contract_reference": "task_a/roy2/A-014-analysis.md"
+      ]
     },
     {
       "id": "PKT-C19",
@@ -1010,8 +1008,7 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ],
-      "contract_reference": "task_a/roy2/A-014-analysis.md"
+      ]
     },
     {
       "id": "PKT-C2E",
@@ -1048,8 +1045,7 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ],
-      "contract_reference": "task_a/roy2/A-014-analysis.md"
+      ]
     },
     {
       "id": "PKT-C12",
@@ -1086,8 +1082,7 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ],
-      "contract_reference": "task_a/roy2/A-014-analysis.md"
+      ]
     },
     {
       "id": "PKT-S0D",
@@ -1097,7 +1092,7 @@
       "system": "SYS-SOCIAL",
       "profile": "TW-seed0-local-v0.1",
       "layout": "u8 type, BE u32 source_id, string8 text (0x45B7A0); type4 additional string8 text2, BE u32 extra",
-      "client_entry": "0x586120/0x5861D0; string reader 0x45B7A0",
+      "client_entry": "0x5861d0",
       "layout_status": "partial",
       "evidence_kinds": [
         "observed-static"
@@ -1124,8 +1119,7 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ],
-      "contract_reference": "task_a/roy2/A-014-analysis.md"
+      ]
     },
     {
       "id": "PKT-S58",
@@ -1162,8 +1156,7 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ],
-      "contract_reference": "task_a/roy2/A-014-analysis.md"
+      ]
     },
     {
       "id": "PKT-S3A",
@@ -1200,8 +1193,7 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ],
-      "contract_reference": "task_a/roy2/A-014-analysis.md"
+      ]
     }
   ]
 }

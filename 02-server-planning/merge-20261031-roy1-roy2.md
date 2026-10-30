@@ -52,3 +52,7 @@ Admin.ProvisionAccount → Account(Provisioned)
 現在先分兩條人力：**A-027+ A-003/A-020（原生身份與可達 UI）**、**A-015+A-022（真教學 map/spawn/CRC）**；A-028 的 UI 回登入、A-012/A-024 的 Born 首次發送及 NPC 綁定可各自並行。A-016 的 Domain/DB/CT 不需等原版 UI 完整，直接開始設計級自動測試。
 
 **尚缺檔名/來源**：若要獨立驗證 Born 的完整視窗/造型與原版 Client 內容，需要 `PaperDialog.dat`、`Basic.dat`、`Human/*.dat`（如 `mb*`、`wb*`、`mh*`、`wh*`）；技能／物品的真實資料表檔名仍未知，須先 BIN-first 定位，不能憑空命名。原始 Server 的首次事件/身份授權政策需原服追蹤或服務端設定；**不可因沒有這些而停止已可進行的 Client/資源靜態分析**。
+
+## A-017 管理操作規格與 Native Client 封包的隔離（2026-10-31）
+
+A-017 已從 `task_a/roy1` 合併；其 `integrated / handoff_status=ready` 僅表示 **Server designed** Admin API/RBAC、審計及敏感資料遮蔽已可交 DEV，**不是**還原原服 GM/Admin opcode、也不是管理後台已部署。獨立的 `/admin/v1` 提供管理員建立帳號、停權 N 天／永久及解封；不可透過原版 Client C02 創建 Account。管理員調整角色、傳送及補發道具須 world/session version CAS、原子 ledger/outbox、權限與稽核驗證；只有 IP/URL 不等於身份驗證。測試 **CT-050** 管理員權限與冪等、副作用拒絕，**CT-051** 審計去敏和關聯追蹤；兩個 CT 均 planned，不得將合成 SQLite PASS 當原 Client/Server runtime 已驗收。參見 [管理操作機讀契約](admin-operations.json)／[A-017 分析](../03-analysis-requests/A-017-roy1-admin-audit.md)。
