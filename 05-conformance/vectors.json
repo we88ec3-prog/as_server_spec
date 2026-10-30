@@ -406,7 +406,12 @@
         "R-027",
         "R-029"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S0E"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -414,7 +419,9 @@
       "expected": "教學 NPC/怪物按原生內容合法生成、重連/重載不重複",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "A024 static Client body subset; S07 row variant/spawn map still unknown",
+      "analysis_request": "A-024",
+      "offline_test": "task_a/roy2/test_a024_npc_codec.py"
     },
     {
       "id": "CT-022",
@@ -423,7 +430,12 @@
       "requirements": [
         "R-029"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -431,7 +443,9 @@
       "expected": "AI 更新、死亡、移除有序，無幽靈物件",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "A024 static Client body subset; AI/respawn original server authority still unknown",
+      "analysis_request": "A-024",
+      "offline_test": "task_a/roy2/test_a024_npc_codec.py"
     },
     {
       "id": "CT-023",
@@ -713,7 +727,8 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "packet_mapping": "script start/close specified; NPC click and original first-login policy unknown",
-      "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
+      "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge.",
+      "a024_note": "C43 object-info request only a potential click candidate; not verified NPC binding"
     },
     {
       "id": "CT-035",

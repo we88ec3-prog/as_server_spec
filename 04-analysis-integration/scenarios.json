@@ -334,7 +334,14 @@
         "R-027",
         "R-029"
       ],
-      "packets": [],
+      "packets": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S5F",
+        "PKT-S0E",
+        "PKT-S44"
+      ],
       "status": "analysis-required",
       "evidence_kind": "designed",
       "profile": "TW-seed0-local-v0.1",
@@ -346,9 +353,19 @@
         "舊 instance AI",
         "資源缺失"
       ],
-      "packet_mapping": "unknown",
+      "packet_mapping": "native object S07/S0C/S64/S5F/S0E types/partial readers observed, actual tutorial spawn/interaction unknown",
       "a023_script_notes": "Born UI start and C6C close lifecycle now specified; no NPC entity/map/spawn mapping in Born. nNewJoin01 STATE ACCEPT/REFUSE is a school-join candidate, not a verified recruiter binding. See A023-E14..E18.",
-      "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved"
+      "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved",
+      "a024_report": "task_a/roy2/A-024-analysis.md",
+      "a024_evidence_ids": [
+        "A024-E01",
+        "A024-E02",
+        "A024-E03",
+        "A024-E04",
+        "A024-E05",
+        "A024-E06",
+        "A024-E07"
+      ]
     },
     {
       "id": "SCN-012",
