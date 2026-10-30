@@ -73,7 +73,7 @@
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
-      "sha256": "80f4aa9f39e65e84c763d750290326643dcf9fac91c01157ad2b19700b546251"
+      "sha256": "1825b92150a840744baad39e5f7377d492c90053b389957a9aa6d888970277db"
     },
     {
       "path": "02-server-planning/merge-20261031-roy1-roy2.md",
@@ -241,7 +241,7 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "04e1806fd69e34e479128cdbbdb16033298c7fcc02661a7f9b5304a9774fca83"
+      "sha256": "3f0f611f543cd966ed70498a894b7678698ca9542482fbd1ba2066376017d00f"
     },
     {
       "path": "04-analysis-integration/packets.json",
@@ -280,6 +280,10 @@
       "sha256": "5b09bd847fa7998fecc0a408f71a76a1e507d640a5672a3c67491b1ebfb72de0"
     },
     {
+      "path": "05-conformance/A-014-social-test-plan.md",
+      "sha256": "919c44175516cbb7e6c14bbcafb6dc78c02d54a586f5a79ab322d214e1e1bc92"
+    },
+    {
       "path": "05-conformance/A-015-content-test-plan.md",
       "sha256": "ade0aa1b3f85ece38a3f3c21795c565b9f8e8fd8da742f3a7b1f1b32f820c5e0"
     },
@@ -309,11 +313,11 @@
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
-      "sha256": "3274236f3e9d148b867bda3d282bc159247c9f9c5496c2fbbdb7d798d75aba6e"
+      "sha256": "c2dcec529c12abb32d1642b17173dd21c2d96c751fc4802abdda9ba083aa164c"
     },
     {
       "path": "task_a/roy2/A-014-packet-index.json",
-      "sha256": "9f8bb169acc3a209dba64973a68574b85f246430fd3f0465a3179f08f0d0175b"
+      "sha256": "3703bcead91ea9fc8cd7d9cb5a45135fbc348fc2f342ba2e949c26459ecf1d43"
     },
     {
       "path": "task_a/roy2/A-015-analysis.md",
@@ -336,6 +340,10 @@
       "sha256": "eb885e772fdc782c9f36b5b5731ec608ab95f9dabc7fd7325f87ecfa3bfd9611"
     },
     {
+      "path": "task_a/roy2/a014_social.py",
+      "sha256": "552fd70b4acf3cd83649927c7884cab86b6bef24b311a8d228279052edef2d4f"
+    },
+    {
       "path": "task_a/roy2/a015_field_audit.py",
       "sha256": "0e4945b33f244411ecb920a4b5086b1510378c274ee65024f4c162d6f49e4a3e"
     },
@@ -350,6 +358,10 @@
     {
       "path": "task_a/roy2/script-entry-verification.json",
       "sha256": "6c158301fbca7ee1d72cc86b597614a7127be06cc1b4a7ac0949b2ddd1272018"
+    },
+    {
+      "path": "task_a/roy2/test_a014_social.py",
+      "sha256": "4467b32d2324bb67fcdabda8acefd6d3f4f057818d02237280c096737336f7fe"
     },
     {
       "path": "task_a/roy2/test_a015_field_audit.py",
