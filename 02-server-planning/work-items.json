@@ -74,12 +74,14 @@
       "depends_on": [
         "ONB-02"
       ],
-      "readiness": "world-ready-map-blocked",
+      "readiness": "generic-world-loading-analysis-ready; native-tutorial-content-unresolved",
       "implementation_status": "not-reported",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
-      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff"
+      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
+      "analysis_handoff": "A-022 integrated/partial: Map CRC and loading ready; native tutorial content requires A-015",
+      "tutorial_content_ready": false
     },
     {
       "id": "ONB-04",

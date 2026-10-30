@@ -193,7 +193,10 @@
         "地圖缺失/CRC 異常/逾時",
         "載入中斷線"
       ],
-      "notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。"
+      "notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。 A-022 observed: S15 3*u16+2*u8+string8; S14(1) triggers C35(header file+4, structured checksum); S14(2) loading callback. Native tutorial map/spawn unknown pending A-015.",
+      "analysis_evidence_ids": [
+        "ev_a022_20261031_asgard_map_static"
+      ]
     },
     {
       "id": "SCN-010",
@@ -221,7 +224,10 @@
         "舊世代操作",
         "雙連線"
       ],
-      "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。"
+      "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-022 designed: epoch/resource version binds expected C35; wrong or old checksums rejected, reconcile after crash/disconnect; tutorial_entry_committed distinct from tutorial_completed.",
+      "analysis_evidence_ids": [
+        "ev_a022_20261031_asgard_map_static"
+      ]
     },
     {
       "id": "SCN-011",

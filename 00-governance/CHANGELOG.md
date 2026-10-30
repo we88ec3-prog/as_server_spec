@@ -25,3 +25,7 @@
 ## task_a/roy1 — 2026-10-31 A-021 分析整合
 
 依 Asgard.exe SHA 覆核 MakeInfoDialog、C02/C04/S02 與 UI 分支，完成靜態研究及可開發的 R-025 相容規格：Client C02 可在 C03 前認領管理員已預建的 Account，不得新增 Account，C04 再原子完成 Character；精確原生 UI 跳轉及部分錯誤碼保留 unknown。A-021 integrated/handoff partial、Server 可開始實作、Client CT 尚未執行。保留 main 新增的 phase-gates/CI 與分離 A/DEV/CT 完成定義。
+
+## task_a/roy1 — 2026-10-31 A-022 BIN-first Map/CRC 分析
+
+本輪使用原版 Asgard.exe 追 C25 region 分支、S14 control1/2/3、S15 3×u16 flags、C35 MAP header 檔案偏移+4/MapData 結構化 checksum、0x43E0A0 primitive、S04 位置及 MAP 最末 16-byte records；整合封包、時序/epoch 重連、CT 合成案例、證據索引與 ONB-03。A-022 integrated/handoff partial，通用 loading 可供 DEV；真實教學 map ID/出生因無 Map0/Map1/Map2/Script/Born 資源而 unknown，tutorial_content_ready=false；CT not-run。

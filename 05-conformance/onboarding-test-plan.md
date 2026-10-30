@@ -21,4 +21,8 @@
 
 請參閱 [逐位址分析](../03-analysis-requests/A-021-roy1-static-analysis.md) 和 [協定子集](../04-analysis-integration/A-021-native-flow.md)。現可用合成輸入為 `C02 016101620163016401`（region2..4）、`C02 016101620163`（其他 region）、`C04 0102112233`、`S02 0000`。**body only**、只檢查 parser/serializer 形狀，非原 Client 封包擷取；它們不能直接把 CT-011..014 標 passed。
 
-原 Client 必須額外核對以下測點：C03 已存在無角帳號是否開啟原生創角 UI、C02 4 欄 UI 語意、C02/S02/C04 的所有成功失敗/取消分支、C04 後是直接 transfer 或重新登入、網路重送/並發/斷線原生效果，以及任何 Client 發起新帳號的要求都不會讓 Server 建立 Account。沒有完整資源/可執行測服與去識別動態 trace，A-021 仍為 blocked。
+原 Client 必須額外核對以下測點：C03 已存在無角帳號是否開啟原生創角 UI、C02 4 欄 UI 語意、C02/S02/C04 的所有成功失敗/取消分支、C04 後是直接 transfer 或重新登入、網路重送/並發/斷線原生效果，以及任何 Client 發起新帳號的要求都不會讓 Server 建立 Account。A-021 靜態子集已交付，Client CT 屬 Server 開發後的獨立驗收，不因沒有實機而標 blocked。
+
+## A-022 / roy1 合成測試補充（未跑 Client）
+
+參見 [A-022](../03-analysis-requests/A-022-roy1-bin-analysis.md)。CT-016 檢查 S15 body 3×u16+2×u8+string8，S14(1)→C35(2×BE u16: MAP header offset+4 & structured checksum)、S14(2) loading callback、控制3異常；C35 截斷、錯序、錯 MAP、舊 epoch、重送不得假成功。CRC primitive synthetic `01 02 03→0x1222`、`ABC→0x1AA6`，**不是任何 MAP 的完整 C35**。CT-017 C35 前/後 crash、斷線、重連，不得留下 ghost 或重發初始物品；CT-018 等 A-015 有真實教學 MAP/Script/Born 證據，再用原版 Client 驗收。A-022 integrated/partial ≠ CT passed。
