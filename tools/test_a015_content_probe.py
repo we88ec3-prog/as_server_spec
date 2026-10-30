@@ -38,11 +38,28 @@ class ContentProbeTests(unittest.TestCase):
     def test_script(self):
         xml = '<script><function name="Main">test</function></script>'
         s = xml.encode("utf-16le")
-        blob = zlib.compress(b"\x00\x01\x00\x00" +
-                             struct.pack(">H", len(s) // 2) + s)
-        self.assertEqual(parse_script(blob)["function_names"], ["Main"])
-        with self.assertRaises(ValueError):
-            parse_script(b"bad")
+        blob = zlib.compress(struct.pack(">HI", 1, len(s)//2) + s)
+        res = parse_script(blob)
+        self.assertEqual(res["function_names"], ["Main"])
+        self.assertEqual(res["version_be_u16"], 1)
+        self.assertEqual(res["utf16_code_units_be_u32"], len(s)//2)
+        with self.assertRaises(ValueError): parse_script(b"bad")
+
+    def test_script_be_u32_longer_than_65535_code_units(self):
+        text = "<script>" + "x" * 70000 + "</script>"
+        blob = zlib.compress(struct.pack(">HI", 1, len(text)) +
+                             text.encode("utf-16le"))
+        obj = parse_script(blob)
+        self.assertEqual(obj["utf16_code_units_be_u32"], len(text))
+        self.assertEqual(obj["xml"], "valid")
+
+    def test_script_reject_bad_version_and_length(self):
+        for raw in [struct.pack(">HI", 2, 0),
+                    struct.pack(">HI", 1, 1) + b"\x00",
+                    struct.pack(">HI", 1, 0) + b"xx"]:
+            with self.assertRaises(ValueError):
+                parse_script(zlib.compress(raw))
+
 
 if __name__ == "__main__":
     unittest.main()

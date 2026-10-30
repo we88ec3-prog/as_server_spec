@@ -1,6 +1,6 @@
 # A-015／roy2 — 資料檔格式、語意與分享權利界線（BIN-first）
 
-- 日期：2026-10-31；來自最新 `main` c544af35ceb7；分析 branch `analysis/A-015-roy2`，提交目錄 `task_a/roy2`。
+- 日期：2026-10-31；來自最新 `main` c544af35ceb7；現行既有 branch `task_a/roy2`，提交目錄 `task_a/roy2`（早期誤用 branch 已關閉 PR）。
 - 問題：R-016/SYS-CONTENT；清點 MAP、外觀 Human/YPF、Script、技能／物品資料的格式／欄位，給可重現的 **metadata-only** 抽查方式，釐清素材分享限制；下游 A-022/A-023/A-024、ONB-03、CT-018/CT-040。
 - 原始檔：`Asgard.exe` PE32 i386, 3,235,840 bytes, SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`；`Born.dat` 589 bytes, SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`。**未收到** Map0/1/2、Human 及原版技能／物品資源庫，原始完整客戶端配對版本仍不足。
 - 報告依 `observed-static`、`observed-static-resource`、`prior-research`、`synthetic-test`、`unknown` 分層，不會將歷史 corpus 數量當作本輪實際重掃。
@@ -14,7 +14,7 @@
 |A015-E03|`0x4040B2..0x404340` 迴圈依次組合 `Human\\mb0%02d.dat`、`mb%03d.dat`、`wb0`、`wb`、`mh0/mh1`、`wh0/wh1`、`s`、`w` 類名稱，透過 `0x440720` 登記|存在多個外觀資源名稱／library ID 範圍；**不能**把 ID 範圍等同玩家可選衣服／原版掉落清單|
 |A015-E04|`0x4B33A0` 地圖 loader：`0x4B3466..0x4B3497` 取 header 3×u16、width/height；`0x4B3520..0x4B355C` 每 tile 取 3×u16 + u32、10 bytes；`0x4B3575` count×7、`0x4B35AD` count×8、`0x4B35BC` 開始 count×16|MAP 佈局與欄位**寬度**可靠；撞牆、區域、NPC spawn / 16B 段語意未由此證明|
 |A015-E05|`0x56EA20` YPF loader：`0x56EACD..0x56EAEF` 讀 2×u16+2×u32；`0x56EAFF` 檢查 flags bit0；`0x56EB07` 附帶讀 512-byte palette；`0x56EB15` 後讀 4-byte 影像位置|可復核 YPF header / optional palette；完整 DOI/動作組/角色圖層掛接 unknown|
-|A015-E06|`Born.dat` 當場 zlib 解壓：`00010000` + BE u16 574 + UTF-16LE Script XML `Main`，原始與解壓 SHA 如 catalog|證實 Script 格式可與資源版的真檔實測；**(31,29)** 文字導覽不代表出生點|
+|A015-E06|`Born.dat` 當場 zlib 解壓：BE u16 version=1 + BE u32 count=574 + UTF-16LE Script XML `Main`，原始與解壓 SHA 如 catalog|證實 Script 格式可與資源版的真檔實測；**(31,29)** 文字導覽不代表出生點|
 |A015-E07|既有 `resource-formats.md` 先前掃描 945 .dat、628 可索引、3407 成員、316 Script、Map0/1/2=288/184/22、YPF 首幀 RLE 樣本|prior-research，這些完整檔本輪不在場，不能說已重新驗證全量|
 |A015-E08|合成 4×4 map、索引 DAT、Script，與真 Born.dat 經 Python stdlib scanner 成功；截斷 MAP/DAT、DAT 內含損毀 MAP 與無效 zlib 拒絕|只驗證 **offline parser**、不是碰撞、出生、原生 E2E、技能物品功能|
 
@@ -36,7 +36,7 @@ strings -el -t x Asgard.exe
 |大多數 indexed `.dat`|file +0: LE u32 n slots **含末筆 sentinel**；+4 起 n×36-byte slots，每項 +0 LE u32 offset +4 raw filename[32]；第一個 member offset = 4+36n；最後 sentinel 指向 EOF|離線抽成 index/count/hash 和檢核單調偏移、EOF；非 ASCII 名稱保留原 raw bytes、不誤判一定 CP949|這種格式不適用獨立壓縮 Script/Server.dat；內部 ID 意義 unknown|
 |`Map0/1/2.dat` 成員 `%05d.map`|0..5: 3×LE u16；6,7: width/height u8；8 起 block = ceil(w/2)*ceil(h/4)*2；接 w*h×10 byte (3×u16 +u32)；3 尾段依序 u32 count + 7/8/16 bytes 每筆|可安全作 bounds/size/EOF 檢查；例如 w=20,h=20 => tiles start=108；124×185=>5836|三個 header u16 全部語意仍需個別證明；依 A-022 第三個可用於 C35 header 欄，但不代表 map_id；碰撞、出生、NPC、傳送、16B欄位未解|
 |Human/YPF|native `0x56EA20` u16 版本(既有樣本=17)、後兩個 u16、u32、flags u32；flags bit0 提供 512-byte RGB565 palette，後有 absolute image offset；frame bounds/RLE/alpha 見既有 resource-formats|可建立「version / flags / palette present」識別及本機版資源 identity|原版全部帧動作/DOI、雌雄及道具 wearable mapping、染色圖層意義不完整|
-|Script/*.dat|壓縮 zlib；解壓 +0..3 `00010000`；+4..5 BE u16 UTF-16 code units n；+6 起 UTF-16LE 長度 2n。部分 XML，NDW 可能非 XML|讀版本/長度/是否 XML，列 function name，不發布對話全文|Script 不是 Server quest/award/AI 原始資料的保證|
+|Script/*.dat|壓縮 zlib；解壓 +0..3 `00010000`；+2..5 BE u32 UTF-16 code units n；+6 起 UTF-16LE 長度 2n。部分 XML，NDW 可能非 XML|讀版本/長度/是否 XML，列 function name，不發布對話全文|Script 不是 Server quest/award/AI 原始資料的保證|
 |技能/物品定義|EXE 有 SpellSkill、Inventory 等 UI 路徑與 S0F/S37 packet parser，但**沒有驗證原始定義檔的名稱/結構**|先將檔案來源、欄位、功能關聯設 `unknown`；等待使用者本機內容盤點|不可把 Icon.dat、Basic.dat 或 Packet 裡的 icon ID 當官方 skill/item row id；Server-only 公式/掉落等不必然存在 Client|
 
 更完整 machine-readable schema：[`content-resource-catalog.json`](../../04-analysis-integration/content-resource-catalog.json)（相對請由 repo root 開啟）。
@@ -117,3 +117,7 @@ python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat --json /privat
 ## 2026-10-31 維持 A-015 深入分析，不切換 A-016
 
 原版地圖 tail accessor `0x4B2D70/0x4B2DE0/0x4B2E40` 的 7／8／16-byte 欄位型別已逆向核實。實際 494 張 MAP 的三尾段總數為 74,032／396／2,269；header 第三個 u16 在 32 張不是前兩個的值；8B 的候選位置 (+2,+4) 與 16B 的候選位置 (+12,+14) 均符合目前 48×32 的地圖像素範圍，但此為 **inferred**，**不是** NPC/spawn 或可通行點結論。新詳細資料在 [A-015-field-audit.md](A-015-field-audit.md)，附本機工具及單元測試。專案指定工作目錄與既有分支均為 `task_a/roy2`，未新建分支。**因 Human/技能物品原始定義來源未完成，A-015 仍 partial，A-016 未開工。**
+
+## 2026-10-31 研究範圍限定結案補正
+
+修正前面歷史文字中的「未收到 Map0/1/2」與「技能／物品與 Human 未研究完整」：三個 MAP 原件已全量通過 494/494；Human 全量圖片**不是 Server 資源格式交付的必要輸入**。技能/物品真正定義表與權威公式仍未知，交 A-007/A-010/A-011，不宣稱任何候選檔必含定義。Script 長度原先誤寫 `BE u16`，現更正為 `BE u32`（version `BE u16`）。A-015 的 **研究交接 ready 僅指來源盤點／格式／權利邊界**，完整遊戲內容 `implementation_ready=false`、原生 Client CT 尚未執行。正式完成條件／來源與待辦參照 [A-015-closure-review.md](A-015-closure-review.md)；舊段落保存為歷史分析記錄，不應引用其已被更新的缺檔／Script header 敘述。

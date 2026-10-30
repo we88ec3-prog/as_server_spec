@@ -64,21 +64,33 @@ def parse_archive(b):
                 name_codec="byte-oriented; non-ASCII uncertain")
 
 def parse_script(raw):
-    try: b=zlib.decompress(raw)
-    except zlib.error as e: raise ValueError("invalid zlib") from e
-    if not (6<=len(b)<=MAX_MEMBER) or b[:4]!=b"\x00\x01\x00\x00":
-        raise ValueError("invalid Script wrapper")
-    n=int.from_bytes(b[4:6],"big")
-    if len(b)!=6+2*n: raise ValueError("Script UTF16 size mismatch")
-    t=b[6:].decode("utf-16le","strict")
-    obj=dict(kind="zlib-script",inflated_bytes=len(b),inflated_sha256=sha(b),
-             prefix_hex=b[:4].hex(),utf16_code_units=n)
-    try: root=ET.fromstring(t)
-    except ET.ParseError: obj["xml"]="not-xml"
+    try:
+        b = zlib.decompress(raw)
+    except zlib.error as e:
+        raise ValueError("invalid zlib") from e
+    if not 6 <= len(b) <= MAX_MEMBER:
+        raise ValueError("invalid Script length")
+    # Native reader: BE u16 version, BE u32 UTF-16LE code-unit length.
+    version = int.from_bytes(b[0:2], "big")
+    n = int.from_bytes(b[2:6], "big")
+    if version != 1:
+        raise ValueError("unsupported Script version")
+    if n > (MAX_MEMBER - 6) // 2 or len(b) != 6 + 2 * n:
+        raise ValueError("Script UTF16 size mismatch")
+    t = b[6:].decode("utf-16le", "strict")
+    obj = dict(kind="zlib-script", inflated_bytes=len(b),
+               inflated_sha256=sha(b), version_be_u16=version,
+               utf16_code_units_be_u32=n, utf16_code_units=n)
+    try:
+        root = ET.fromstring(t)
+    except ET.ParseError:
+        obj["xml"] = "not-xml"
     else:
-        obj["xml"]="valid";obj["root"]=root.tag
-        obj["function_names"]=[f.get("name") for f in root.findall("function")]
+        obj["xml"] = "valid"
+        obj["root"] = root.tag
+        obj["function_names"] = [f.get("name") for f in root.findall("function")]
     return obj
+
 
 def inspect(path, base):
     size=path.stat().st_size
