@@ -33,3 +33,7 @@ S18 parser 0x582dc0：type0的清單為u16 count，每項string8 name及u32 CRC�
 SScript為S44（constructor 0x5862e0，handler 0x52c2a0），**不可當成通用空成功回應**：type1/subtype3會走0x5294e0清理安裝目錄Script快取，具有刪檔副作用；其他subtype還有清單／壓縮文字分支。既有最小profile暫不回C6C，是明示相容策略。此項已知觀察不代表S44全部分支已解析；A-020仍須補完整狀態與作用。
 
 登入失敗必須使用此畫面的S02/status3/string8；LoginDialog對S0A走default，不能用一般SMessage替代。成功路徑及錯誤後重試已人工通過；歷史文件內早期「待驗證」不能蓋過這個較晚驗收。
+ 
+## A-001 更新：S00 資料型別與多 seed 支援邊界
+
+`0x589B60` 對 `S00.result=0` 的 parser 明確讀 `BE u32 opaque`、`u8 seed`、`u8 key_len`、`raw key bytes`、`u8 message_count`、逐項 `string8`。資料位元上相當於 `string8 key`，但 key 必須按 raw bytes 作 XOR，不可額外經文字轉碼。result=1/2 為不同數量欄位與訊息清單，不能把非零結果誤當作正常 seed 切換。原 Client `0x53B630` 有 seed0..9 的原生生成分支；**只有 seed0 屬已知可登入 TW fixture**，seed1..9 本次是可重現 codec 合成單元測試、不是已完成原 Client E2E。詳見 [A-001](../03-analysis-requests/A-001-roy1-seed-and-version.md) / [測試工具](../tools/a001_codec_vectors.py) / [transport](transport.md)。

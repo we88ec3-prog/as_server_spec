@@ -691,6 +691,40 @@
       "native_client_validation": "not-run",
       "packet_mapping": "unknown",
       "review_merge_note": "Renamed from roy2 CT-031 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
+    },
+    {
+      "id": "CT-036",
+      "status": "planned",
+      "level": "codec-synthetic-binary-seeds",
+      "requirements": [
+        "R-001"
+      ],
+      "packet_ids": [
+        "PKT-C00",
+        "PKT-S00",
+        "PKT-C62"
+      ],
+      "input": {
+        "kind": "native-BIN-derived-synthetic-fixtures",
+        "reference": "tools/a001_codec_vectors.py",
+        "seed_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "known_seed0_wire": "aa000662002f171902"
+      },
+      "expected": "Seed0..9 each generate 256-byte mask with listed SHA256; ordinal2 encoded vectors and 60 encode/decode roundtrips; original Client E2E deliberately unclaimed",
+      "evidence_kind": "observed-static",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-001-roy1-seed-and-version.md"
     }
   ]
 }

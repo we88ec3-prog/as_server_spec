@@ -11,12 +11,35 @@
       "title": "種子表、版本分支與字串",
       "method": "沿socket codec及語系分支補表0..9、長度單位與錯誤版本處理。",
       "deliverable": "每個已支援profile給解碼向量，未解分支不得填猜測值。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a001_20261031_asgard_seed_tables_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "evidence_kind": "observed-static",
+      "implementation_ready": true,
+      "analysis_report": "03-analysis-requests/A-001-roy1-seed-and-version.md",
+      "codec_test": "tools/a001_codec_vectors.py",
+      "static_scope_completed": [
+        "256-element seed tables for all 0..9 by switch 0x53B630",
+        "Key length and x4 repetition 0x53BB30",
+        "Binary body-only XOR encoder/decoder 0x53BE70/0x53BD90",
+        "AA frame and ASCII branch presence",
+        "C00 packet 8-byte fields",
+        "S00 result0/1/2 parser branch shapes",
+        "string8 encoded byte length and maximum"
+      ],
+      "remaining_unknowns": [
+        "original server's seed/key selection for regional clients",
+        "nonzero S00 result semantics and exact rejection UI",
+        "C00 field identities beyond width",
+        "full ASCII mode codec and regional codepage settings"
+      ],
+      "analysis_scope": "BIN-first seed0..9 mask algorithms + binary codec, S00/C00 field widths, string8; partial original Server selection/rejection UI",
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-002",

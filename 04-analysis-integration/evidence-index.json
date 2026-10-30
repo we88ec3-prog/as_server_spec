@@ -1649,6 +1649,36 @@
       "resource_client_version_binding": "n/a",
       "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
       "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "ev_a001_20261031_asgard_seed_tables_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "method": "objdump -D -M intel on original PE32 Asgard.exe; reconstructed seed switch and codec, synthetic Python vectors executed locally",
+      "scope": "A-001 seed0..9 256-entry mask generation, XOR encode/decode, binary/ASCII framing, C00/S00 branches and string8 length; no fresh original Client E2E",
+      "functions": [
+        "0x53B630",
+        "0x53B734",
+        "0x53BB30",
+        "0x53B8B0",
+        "0x53BD90",
+        "0x53BE70",
+        "0x53C130",
+        "0x53C460",
+        "0x53C800",
+        "0x577E80",
+        "0x589B60",
+        "0x45B1B0",
+        "0x45B7A0"
+      ],
+      "report": "03-analysis-requests/A-001-roy1-seed-and-version.md",
+      "test": "tools/a001_codec_vectors.py",
+      "limits": [
+        "Regional native S00 seed/key selection is not captured",
+        "ASCII mode full runtime framing not verified",
+        "Result1/result2 refusal UI semantics remain unknown"
+      ]
     }
   ]
 }

@@ -10,7 +10,7 @@
       "name": "Version",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u16,u8,u8,u16,u16；欄位語意仍有未知",
+      "layout": "u16 BE opaque_f0,u8 opaque_f1,u8 opaque_f2,u16 BE opaque_f3,u16 BE opaque_f4 (8-byte body); native 0x577E80",
       "client_entry": "0x577e80",
       "state_precondition": "首次簽章之後",
       "related_packets": [
@@ -24,7 +24,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a001_20261031_asgard_seed_tables_static"
+      ],
+      "analysis_document": "03-analysis-requests/A-001-roy1-seed-and-version.md"
     },
     {
       "id": "PKT-C02",
@@ -275,7 +279,7 @@
       "name": "FramedSignature",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "decoded body=aram，ordinal0",
+      "layout": "known seed0 binary C62: opcode0x62,ordinal0,decoded body ASCII 'aram'; wire aa000662002f171902; other seed fixtures synthetic only",
       "client_entry": "0x53c846",
       "state_precondition": "binary greeting之後",
       "related_packets": [],
@@ -287,7 +291,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a001_20261031_asgard_seed_tables_static"
+      ],
+      "analysis_document": "03-analysis-requests/A-001-roy1-seed-and-version.md"
     },
     {
       "id": "PKT-C75",
@@ -317,7 +325,7 @@
       "name": "VersionCheck",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "result u8後分支；result0: u32,seed u8,key string8,message_count u8",
+      "layout": "result:u8; result0: u32 BE opaque,u8 seed,u8 key_len,raw key[key_len],u8 message_count,string8[message_count]; result1/2 have distinct string/list branches at 0x589C2D/0x589B8F (semantics partial)",
       "client_entry": "0x589b60",
       "state_precondition": "C00後",
       "related_packets": [],
@@ -329,7 +337,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a001_20261031_asgard_seed_tables_static"
+      ],
+      "analysis_document": "03-analysis-requests/A-001-roy1-seed-and-version.md"
     },
     {
       "id": "PKT-S02",

@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "e103a3c6be5a25d9091585dbc8c4539e269e87d225779265f730edd9fc2dc32d"
+      "sha256": "8e174af21f9439910af44cc3cc9cf18f6ee591463799dafa975a748d96dcc0c6"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -96,6 +96,10 @@
       "sha256": "5ee04ca16a04ddf66961752df3e82c821991d51a2bebdb243816e52d7cf819c5"
     },
     {
+      "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
+      "sha256": "b3e6f413c03a073b9b77eb87c26aca5dab39bcb217a6851af53827a14547f7f3"
+    },
+    {
       "path": "03-analysis-requests/A-021-acceptance.md",
       "sha256": "fb7fd0d702a5de08af98126f02f889ad68dc99f2ee4fee2a04cbe893102e21b3"
     },
@@ -117,7 +121,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "dac8ed860b525f16302335637b46bfb13fec9a5b2d723b30537e0484e3e81cba"
+      "sha256": "1dcfbda972b32a95a5e08b8e9dcf5944b4f1bf379279961a2fe31d882af91192"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -125,7 +129,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "2e49178a4ecec1dddf06429a05ef982ab9b48670dec5ec8b89e9483766412249"
+      "sha256": "f17b75819394e344e31b2db42a5e1f3366b648d0f86929bdb4954152ab371cf1"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
@@ -161,7 +165,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "df3edc86078d13d49967e6b32dd7181468134a78ed085da78e4d9fbad59912b2"
+      "sha256": "b426c337312cbb36081cf957700204263c32d2024a315c0055b186e66fe5d958"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -177,11 +181,11 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "d539b032688a7d8240cf729561f8ab89020a5f2807740b6453872b07f5935c3b"
+      "sha256": "8ad12f17a38b147484521122643a39e59aaf830270e82c2c988a88e9a157465d"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
-      "sha256": "5da2ceb7035b925dc07576c6afad170f79c129ebffbb6e2a2371cdf61f1ff6e0"
+      "sha256": "6b7e6f0bc2c676f7f2c3e887dddd390e1bb3a16ece33528c79607499e3e41d4a"
     },
     {
       "path": "04-analysis-integration/README.md",
@@ -205,7 +209,7 @@
     },
     {
       "path": "04-analysis-integration/transport.md",
-      "sha256": "5a2d03249cda2e854e8129a51e7be3346b62f028af6359db5c08a982ce44cf27"
+      "sha256": "360fd89ecd63f9ed5bda4fb5d8738e4e14823f2a6f9277b04472e2ddb28f49c0"
     },
     {
       "path": "04-analysis-integration/tutorial-born-resource.json",
@@ -229,7 +233,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "b8b19037c799912ed9f634c54f2682092ae95a136f4116e5c3b5660ddd8dd8a4"
+      "sha256": "fc84801f73103f83d61abe6cca5949ae6d2484333a05f964a91819f3d61fde45"
     },
     {
       "path": "README.md",
@@ -242,6 +246,10 @@
     {
       "path": "task_a/roy2/verify_born.py",
       "sha256": "2b860e6461186e909cb24113ec24a5895272e4abf1c286bf4a0d7dff2272e873"
+    },
+    {
+      "path": "tools/a001_codec_vectors.py",
+      "sha256": "1222f53df32357f6251b24b048e30aab59f6d7287af0729206f488c9b7473365"
     },
     {
       "path": "tools/validate-phase-gates.py",
