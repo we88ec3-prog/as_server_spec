@@ -17,4 +17,4 @@ Wire：string8 byte-length 0..255、TW CP950 profile；C04 sex,hair,r,g,b each u
 
 重名、字元合法性、UTF-8/CP950 跨區、帳號與角色名稱是否相同、原服 S02 非零錯誤碼、單帳角色數：全部 unknown，Server 自訂策略與原服行為分開版本管理，發現原服確證再修改。
 
-測試：`tools/a003_create_contract.py`（已用 stdlib unittest 合成通過）；`CT-047` 針對 color table、region、CP950、wire；`CT-048` 針對 pending owner、重名、CAS、C15、斷線/重送。都 `planned/native_client_validation=not-run`。SCN-008 保持 analysis-required（完整 native 身份+轉場未證）。A-003 `integrated/handoff_status=partial` 只表示已證靜態子集整合、不是原服角色完整創建兼容已完成。
+測試：`tools/a003_create_contract.py`（已用 stdlib unittest 合成通過）；`CT-052` 針對 color table、region、CP950、wire；`CT-053` 針對 pending owner、重名、CAS、C15、斷線/重送。都 `planned/native_client_validation=not-run`。SCN-008 保持 analysis-required（完整 native 身份+轉場未證）。A-003 `integrated/handoff_status=partial` 只表示已證靜態子集整合、不是原服角色完整創建兼容已完成。

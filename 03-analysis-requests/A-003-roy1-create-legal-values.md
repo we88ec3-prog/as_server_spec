@@ -88,7 +88,7 @@
 
 新增 `tools/a003_create_contract.py`（5項 unittest）：C02 region2..4/else layouts、CP950 byte count、第一欄 UI narrow-length gate、十色表及 C04 RGB bytes、pre-auth 無權建角、同帳/同名唯一與 C15 不撤銷已提交角色。此為 **bin-derived synthetic + designed** 模型，不代表真實原版 Server/Client 執行。
 
-新增 `CT-047`（原版 C04 色盤、CP950 與區域 codec）和 `CT-048`（同名、同帳、C15、重送、無憑證拒絕）。原有 `CT-011～014`、`CT-029～032` 更新 A-003 對照；原生 E2E 仍 not-run。
+新增 `CT-052`（原版 C04 色盤、CP950 與區域 codec）和 `CT-053`（同名、同帳、C15、重送、無憑證拒絕）。原有 `CT-011～014`、`CT-029～032` 更新 A-003 對照；原生 E2E 仍 not-run。
 
 重現命令：
 ```sh

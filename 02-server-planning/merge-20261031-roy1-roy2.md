@@ -56,3 +56,7 @@ Admin.ProvisionAccount → Account(Provisioned)
 ## A-017 管理操作規格與 Native Client 封包的隔離（2026-10-31）
 
 A-017 已從 `task_a/roy1` 合併；其 `integrated / handoff_status=ready` 僅表示 **Server designed** Admin API/RBAC、審計及敏感資料遮蔽已可交 DEV，**不是**還原原服 GM/Admin opcode、也不是管理後台已部署。獨立的 `/admin/v1` 提供管理員建立帳號、停權 N 天／永久及解封；不可透過原版 Client C02 創建 Account。管理員調整角色、傳送及補發道具須 world/session version CAS、原子 ledger/outbox、權限與稽核驗證；只有 IP/URL 不等於身份驗證。測試 **CT-050** 管理員權限與冪等、副作用拒絕，**CT-051** 審計去敏和關聯追蹤；兩個 CT 均 planned，不得將合成 SQLite PASS 當原 Client/Server runtime 已驗收。參見 [管理操作機讀契約](admin-operations.json)／[A-017 分析](../03-analysis-requests/A-017-roy1-admin-audit.md)。
+
+## A-003 創角合法集合新增 Client 靜態證據（2026-10-31）
+
+A-003 最新 `integrated/handoff_status=partial`：C02 第一 UI 欄位的 region1..4 原生本地 narrow byte length gate >=12（region0 走不同判斷），不能把它推作原服角色名稱的全域合法長度；C04 只送 5 個 u8，沒有獨立姓名欄位。原 Client 在 VA `0x66422c` 的 **10 色 RGB palette** 已提取，可做 native-color 子集 fixture，但 Server 可接受的 sex/hair/RGB、同帳可建幾角、角色名來源及原生錯誤碼仍 unknown，不能把 Client UI gate 當伺服器授權。R-025 Account admin-only 與 A-027 preauth fail-closed 完全不變。官方新測試：**CT-052** 十色/CP950/region 欄位，**CT-053** owner/同名/唯一性/C15 重送；roy1 原 CT-047/048 與 main A-014 社交衝突，已保留社交並重編。參閱 [A-003 原始分析](../03-analysis-requests/A-003-roy1-create-legal-values.md)／[創角合約](../04-analysis-integration/A-003-character-create-contract.md)。
