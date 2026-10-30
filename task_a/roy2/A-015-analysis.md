@@ -113,3 +113,7 @@ python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat --json /privat
 ### 原始三庫驗證器／合成回歸檢查
 
 `python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat` 會以索引、MAP dimensions、tile 與尾段作嚴格完整性檢查，並統計 identical-map alias、位置邊界。報告不包含任何原始地圖或完整內容。合成失敗案例由 `python -m unittest discover -s tools -p 'test_a015_map_corpus_verify.py'` 執行；**執行離線 parser 不是 Client 原生 CT**。
+
+## 2026-10-31 維持 A-015 深入分析，不切換 A-016
+
+原版地圖 tail accessor `0x4B2D70/0x4B2DE0/0x4B2E40` 的 7／8／16-byte 欄位型別已逆向核實。實際 494 張 MAP 的三尾段總數為 74,032／396／2,269；header 第三個 u16 在 32 張不是前兩個的值；8B 的候選位置 (+2,+4) 與 16B 的候選位置 (+12,+14) 均符合目前 48×32 的地圖像素範圍，但此為 **inferred**，**不是** NPC/spawn 或可通行點結論。新詳細資料在 [A-015-field-audit.md](A-015-field-audit.md)，附本機工具及單元測試。專案指定工作目錄與既有分支均為 `task_a/roy2`，未新建分支。**因 Human/技能物品原始定義來源未完成，A-015 仍 partial，A-016 未開工。**

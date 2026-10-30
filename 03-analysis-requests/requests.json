@@ -305,7 +305,12 @@
         "A015-E10",
         "A015-E11",
         "A015-E12",
-        "A015-E13"
+        "A015-E13",
+        "A015-E14",
+        "A015-E15",
+        "A015-E16",
+        "A015-E17",
+        "A015-E18"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -330,7 +335,14 @@
       "map_corpus_report": "04-analysis-integration/a015-map-corpus.json",
       "map_corpus_offline_validation": "pass-all-494",
       "map_corpus_assets_provided_in_analysis_context": true,
-      "map_corpus_unique_payloads": 330
+      "map_corpus_unique_payloads": 330,
+      "map_field_audit": "task_a/roy2/A-015-field-audit.md",
+      "map_field_audit_metadata": "task_a/roy2/A-015-field-audit-summary.json",
+      "map_field_audit_tool": "task_a/roy2/a015_field_audit.py",
+      "map_field_audit_status": "native-static-extraction-and-original-494-corpus-verified",
+      "map_field_coordinate_semantics": "inferred-only",
+      "last_analysis_date": "2026-10-31",
+      "next_task_gate": "A-015 remains partial; do not start A-016 until A-015 source inventory is reviewed or explicitly scoped complete"
     },
     {
       "id": "A-016",

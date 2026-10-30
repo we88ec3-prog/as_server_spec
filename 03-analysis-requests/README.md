@@ -80,3 +80,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-015 補充原始地圖檔已收齊（2026-10-31）
 
 Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖結構全部通過**；330 個 unique binary map payload、33 組重複；`Born` 的 (31,29) 可位於 477 張圖尺寸內，無法據此判定真正新手地圖。詳細來源、hash 與方法見 [A-015 報告](../task_a/roy2/A-015-analysis.md)／[map corpus metadata](../04-analysis-integration/a015-map-corpus.json)。完整 Native Client CT-040 仍須找原版觸發與 spawn，A-015 handoff partial 不變。
+
+## A-015 task_a/roy2 續查（2026-10-31）
+
+在既有 `task_a/roy2` 分支續查 A-015（不另建分析分支）：取得 MAP 原件的 7／8／16-byte record 欄位型別原生 accessor、494 張地圖的標頭差異與疑似像素座標範圍，新增 [研究報告](../task_a/roy2/A-015-field-audit.md) 和 [metadata-only 重跑工具](../task_a/roy2/a015_field_audit.py)。A-015 仍 `integrated/partial`，尚無 Human/完整技能與物品定義；不提前轉做 A-016。

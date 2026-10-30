@@ -204,7 +204,12 @@
     "A015-E10",
     "A015-E11",
     "A015-E12",
-    "A015-E13"
+    "A015-E13",
+    "A015-E14",
+    "A015-E15",
+    "A015-E16",
+    "A015-E17",
+    "A015-E18"
   ],
   "offline_tool": "tools/a015_content_probe.py",
   "asset_corpus_uploaded": {
@@ -226,5 +231,39 @@
   "map_corpus_evidence": "04-analysis-integration/a015-map-corpus.json",
   "map_corpus_entry_count": 494,
   "map_corpus_unique_payloads": 330,
-  "map_corpus_original_assets_shared_in_repo": false
+  "map_corpus_original_assets_shared_in_repo": false,
+  "map_tail_field_audit": {
+    "report": "task_a/roy2/A-015-field-audit.md",
+    "machine_metadata": "task_a/roy2/A-015-field-audit-summary.json",
+    "offline_tool": "task_a/roy2/a015_field_audit.py",
+    "tested_map_count": 494,
+    "native_accessor_addresses": [
+      "0x4B2D70",
+      "0x4B2DE0",
+      "0x4B2E40"
+    ],
+    "tail7_types": [
+      "u8 bool",
+      "LE u16",
+      "LE i16",
+      "LE i16"
+    ],
+    "tail8_types": [
+      "LE u16",
+      "LE u16",
+      "LE u16",
+      "LE u16"
+    ],
+    "tail16_types": [
+      "LE u16",
+      "LE u16",
+      "LE u32",
+      "LE u32",
+      "LE u16",
+      "LE u16"
+    ],
+    "coordinate_candidate_all_in_48x32_pixel_bounds": true,
+    "coordinate_semantic_confidence": "inferred-not-proven-NPC-or-spawn",
+    "native_e2e": "not-run"
+  }
 }

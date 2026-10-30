@@ -1995,6 +1995,76 @@
         "Native tutorial map/coordinates/NPC identity remain unknown",
         "Native Client E2E not run"
       ]
+    },
+    {
+      "evidence_id": "A015-E14",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "MapData native accessor 0x4B2D70 reads 7-byte tail: +0 u8 normalized to boolean, +1 LE u16, +3 LE signed i16, +5 LE signed i16; 0x4B2FDC..0x4B3083 checksum processes fields",
+      "source_kind": "Asgard.exe-static-disassembly",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E15",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x4B2DE0 reads 8-byte record four LE u16 at offsets 0,2,4,6; 0x4B2E40 reads 16-byte record LE u16,u16,u32,u32,u16,u16 at offsets 0,2,4,8,12,14",
+      "source_kind": "Asgard.exe-static-disassembly",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E16",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "All 494 original MAPs: header u16[0]==u16[1]; 32 MAPs have u16[2]!=u16[1], all tuple (1,1,4). Map0=30, Map1=2, Map2=0",
+      "source_kind": "user-provided-local-map-corpus",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E17",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource + inferred",
+      "locator": "494-map corpus: tail7=74032 (flag0=72577 flag1=1455), tail8=396, tail16=2269. Every tail8 field(+2,+4) and tail16(+12,+14) fits width*48,height*32; candidate pixel-coordinate semantics inferred, not native proof of spawn",
+      "source_kind": "user-provided-local-map-corpus",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E18",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test",
+      "locator": "4 synthetic field audit regression tests passed; valid records, out-of-bounds coordinate candidates, malformed MAP, malformed archive; original Map0/1/2 494/494 aggregate metadata audit passed, no original binaries shared",
+      "source_kind": "synthetic-and-user-provided-local-MAP",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
     }
   ]
 }

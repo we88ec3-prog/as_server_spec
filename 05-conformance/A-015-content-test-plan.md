@@ -27,3 +27,7 @@
 本輪用上傳原件執行 Map0/Map1/Map2 全庫校驗，**494/494 靜態解析 PASS**；以原始 SHA 鎖定三份檔案，保留 330 unique payload、33 duplicate groups、477 coordinate-in-bounds 的負面定位結論。這是 **CT-039 的本機資源離線檢查部分已執行**，但 CT-039 整體仍 planned（YPF/技能物品/來源權利尚無全量原檔）。CT-040 原生 Client 仍 not-run；絕不可因 494 MAP 可讀而將教學 spawn / NPC / C35 視為通過。
 
 原始 3 庫的可重現離線工具：`python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat`；內建合成測試：`python -m unittest discover -s tools -p 'test_a015_map_corpus_verify.py'`。只處理有權合法持有的個人本機遊戲資源，不把資源 bytes 輸出到 repo。
+
+## CT-039 補充 MAP 欄位級驗證
+
+`python task_a/roy2/a015_field_audit.py Map0.dat Map1.dat Map2.dat` 可再驗 494 張 MAP 的 7/8/16-byte 型別、標頭差異與候選 48×32 座標範圍；`python -m unittest discover -s task_a/roy2 -p 'test_a015_field_audit.py'` 是 4 個合成正反向測試。已 PASS 的是**離線原件結構與合成測試**，整體 CT-039 仍 planned，CT-040 原生 Client E2E 仍 not-run。禁止將候選像素座標直接當成官方 NPC 或角色出生點。
