@@ -104,6 +104,10 @@
       "sha256": "b3e6f413c03a073b9b77eb87c26aca5dab39bcb217a6851af53827a14547f7f3"
     },
     {
+      "path": "03-analysis-requests/A-002-roy1-login-transfer.md",
+      "sha256": "90a34aa37e8fdc57416579144d82543139af71cc8a4ed737e7886d1e6eb08a23"
+    },
+    {
       "path": "03-analysis-requests/A-021-acceptance.md",
       "sha256": "fb7fd0d702a5de08af98126f02f889ad68dc99f2ee4fee2a04cbe893102e21b3"
     },
@@ -117,7 +121,7 @@
     },
     {
       "path": "03-analysis-requests/A-022-roy1-bin-analysis.md",
-      "sha256": "79aa83c7e2103f692dbc89963efac1d5280aa7b51e129644ea18e3b552eb79cc"
+      "sha256": "1b54aa79d8ef5880741c550d7203ac65c75e0ae43387dcaabf06a6520190fe6c"
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
@@ -125,7 +129,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "1dcfbda972b32a95a5e08b8e9dcf5944b4f1bf379279961a2fe31d882af91192"
+      "sha256": "ddadbe3893acdabc8a382ef8a688c8124debfa43259d8a6257302b5b81065069"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -153,7 +157,7 @@
     },
     {
       "path": "04-analysis-integration/A-022-map-loading-crc.md",
-      "sha256": "a6115e2875e2de8bf9eae8accba216b4210ed6a849203e744380ce800c388753"
+      "sha256": "f54bfdca49310c5301565c0b963f2b9808cb73660694b03584b4e579865628ee"
     },
     {
       "path": "04-analysis-integration/analysis-coverage.json",
@@ -193,7 +197,7 @@
     },
     {
       "path": "04-analysis-integration/profile-login.md",
-      "sha256": "6b7e6f0bc2c676f7f2c3e887dddd390e1bb3a16ece33528c79607499e3e41d4a"
+      "sha256": "425bb8567a267cb5d9cc866da376ca762b32fc54cb6b67560cb46f5f24af3cc5"
     },
     {
       "path": "04-analysis-integration/README.md",
@@ -209,7 +213,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "819bff1da093f00dda77a06bd5ebec51f453a75bada01d752bbfa1e4643abac9"
+      "sha256": "6d83cb2c0b2b5fc509dd1bf82464ca5792798074a41efb05f8391cf92a218635"
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
@@ -233,7 +237,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "6dc2f39a1d2a6cdeeb7517e81cfb27d1b7a62189d969c4ef3b421a39e3a1fc15"
+      "sha256": "64f85771a304fb37c2375a7d742139d911814437a9d7b2fa3745457724a8ef74"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
@@ -282,6 +286,10 @@
     {
       "path": "tools/a001_codec_vectors.py",
       "sha256": "1222f53df32357f6251b24b048e30aab59f6d7287af0729206f488c9b7473365"
+    },
+    {
+      "path": "tools/a002_session_model.py",
+      "sha256": "1b5ce8336b83bff995467642fde693fe66e3b9a64a6533c365c02030ebbd7a13"
     },
     {
       "path": "tools/validate-phase-gates.py",

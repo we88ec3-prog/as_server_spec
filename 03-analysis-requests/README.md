@@ -68,3 +68,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-001 / roy1：十張 seed mask 的 BIN-first 靜態整合（2026-10-31）
 
 原本 A-001 open 且未有獨立交付；本輪已從同 SHA 的原版 `Asgard.exe` `0x53B630` 分支追出 **seed0..9 每張 256 項遮罩公式**，連同 `0x53BE70/0x53BD90` body XOR、C00/S00 version/result 分支、string8 encoded byte 長度、ASCII alternate mode 範圍，整理成 [研究報告](A-001-roy1-seed-and-version.md) 和 [可執行合成測試](../tools/a001_codec_vectors.py)。更新 `04-analysis-integration/transport.md`、封包欄位與 CT-036。狀態 `integrated/handoff_status=partial/implementation_ready=true/native_client_validation=not-run`：binary seed0..9 算法可開發，原服各 region seed/key 選擇、非零 S00 拒絕 UI 與 ASCII 全相容仍 unknown。原版 E2E 屬 DEV/CT，未實機不阻擋已證靜態交付。
+
+## A-002 / roy1：重複登入／C03→S03→C10 交接研究（2026-10-31）
+
+[完整 BIN-first 研究](A-002-roy1-login-transfer.md)、[可執行 Server 狀態機合成測試](../tools/a002_session_model.py)。A-002 `integrated/handoff_status=partial/implementation_ready=true/native_client_validation=not-run`。靜態證實 C03 string8/string8/u8、S02 status+message、S03 addr/port/u8 token_len/raw bytes，以及地區3/4 S03 handler `0x4A8370` 連 World 後發送不帶額外長度的 C10 raw token；**此地址先前被 A-022 誤認成 C25 入口，已修正**。重複登入原服 kick/reject 策略仍 unknown；Server 先採帶 generation 的單一 World 狀態與 once-only grant，CT-037/038 留待下游驗證，不因沒有實機停工。
