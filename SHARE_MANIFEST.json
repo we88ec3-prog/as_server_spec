@@ -193,7 +193,7 @@
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "2d76e90f3f72901d59bd2ecd0d66d9f5130cfa5b57264e10f5270e237051e6f1"
+      "sha256": "2276a2be11f914ef7bc13338eba065e73ae0528c44c5db6d8c7f1eaf46422b09"
     },
     {
       "path": "04-analysis-integration/scenarios.json",
@@ -205,7 +205,7 @@
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
-      "sha256": "2bc2f97b973003fc1d559ef812f5e3e6235574bc75f30c1a293d0e4542c87301"
+      "sha256": "7dd39e00b86f7908d08f9938f13ba272b4d5695e6abddd84a8c6baf1aedc3a48"
     },
     {
       "path": "04-analysis-integration/transport.md",
@@ -213,11 +213,11 @@
     },
     {
       "path": "04-analysis-integration/tutorial-born-resource.json",
-      "sha256": "4cfc03d882273fc4e69c29588dd1fd6979ac0519275377910f530f44daa21864"
+      "sha256": "5b09bd847fa7998fecc0a408f71a76a1e507d640a5672a3c67491b1ebfb72de0"
     },
     {
       "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
-      "sha256": "701a47b93dd192bf26e98d8699d035ea9382ff5f5e5bfd05603813534151209a"
+      "sha256": "ce76a643a9a55342784217152f0d673ccf4bcf5438379dc48afadaded6de7b13"
     },
     {
       "path": "05-conformance/implementer-guide.md",
@@ -241,11 +241,35 @@
     },
     {
       "path": "task_a/roy2/A-023-analysis.md",
-      "sha256": "79da0083b0ce21e2884e9ebf0c1fab5124fef78c16a86c332df8ff6d953c23af"
+      "sha256": "156fdb39b9b3a2af8f2368c321b42361ea98c1cbe624c6f7057da024ff1fc619"
+    },
+    {
+      "path": "task_a/roy2/A-023-script-entry-contract.md",
+      "sha256": "eb885e772fdc782c9f36b5b5731ec608ab95f9dabc7fd7325f87ecfa3bfd9611"
+    },
+    {
+      "path": "task_a/roy2/corpus-entry-audit.json",
+      "sha256": "f1ac49cd2fff97cb41773f04338307c76f0bde7a62782831669f59a788ad1ccf"
+    },
+    {
+      "path": "task_a/roy2/entry-dependency-verification.json",
+      "sha256": "1888670fb2a76e4853e096c60e067ba4260d5ec604250a35ed313ca9bf59dc91"
+    },
+    {
+      "path": "task_a/roy2/script-entry-verification.json",
+      "sha256": "6c158301fbca7ee1d72cc86b597614a7127be06cc1b4a7ac0949b2ddd1272018"
     },
     {
       "path": "task_a/roy2/verify_born.py",
       "sha256": "2b860e6461186e909cb24113ec24a5895272e4abf1c286bf4a0d7dff2272e873"
+    },
+    {
+      "path": "task_a/roy2/verify_entry_dependencies.py",
+      "sha256": "13707e3531636d7587c52bde737cf5a16e9a204abe0bcbcfd42cd6f67f127fb6"
+    },
+    {
+      "path": "task_a/roy2/verify_script_entry.py",
+      "sha256": "2a1adf17dde6c651ef831bbaac3ac99bc367e0305c26a7c24c02173c1a46e974"
     },
     {
       "path": "tools/a001_codec_vectors.py",
