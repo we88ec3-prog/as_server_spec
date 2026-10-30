@@ -45,3 +45,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-001 seed0..9 / 版本/字串分析
 
 發現 A-001 尚無正式分析，採提供的 Asgard.exe SHA 做 BIN-first 復核，解得 `0x53B630` 十種 256 項 seed 遮罩公式、`0x53BB30` key、`0x53BE70/0x53BD90` XOR、`0x53C460/0x53C130` binary/ASCII framing、`0x577E80` C00 與 `0x589B60` S00 0/1/2 分支及 `0x45B1B0/0x45B7A0` string8 byte 長度。新增可執行無外部依賴 Python golden vectors，原本 seed0 C62 fixture 不變。A-001 `integrated/handoff=partial`，十個 binary seed 算法可交付，region/version/error/ASCII 的原生未知維持 partial，Client CT not-run。
+
+## task_a/roy1 — 2026-10-31 A-002 重複登入與交接逆向分析
+
+原版 Asgard.exe SHA 對照 C03 `0x573110`、S02 `0x57DBC0`、S03 `0x5886C0`、轉服 handler `0x4A8370`、C10 `0x5773E0`，明確證明 S03 帶 addr/port/u8 token_len/raw token，C10 body 僅 raw token。訂立 designed 的單 active World generation、合法新登入取代舊、失敗認證不踢舊、token one-shot、登入 socket 關閉仍可有效交接與崩潰回復；新增 CT-037/038 和純 Python 模擬測試。原服 duplicate policy 和 status remain unknown；A-002 integrated/handoff partial、Client CT not-run。另修正 A-022 對 `0x4A8370` 為 C25 的錯誤標記。

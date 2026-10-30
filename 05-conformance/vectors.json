@@ -725,6 +725,50 @@
       "evidence_kind": "observed-static",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-001-roy1-seed-and-version.md"
+    },
+    {
+      "id": "CT-037",
+      "status": "planned",
+      "level": "auth-transfer-recovery",
+      "requirements": [
+        "R-002"
+      ],
+      "packet_ids": [
+        "PKT-C03",
+        "PKT-S02",
+        "PKT-S03",
+        "PKT-C10",
+        "PKT-C25"
+      ],
+      "input": {
+        "kind": "designed-domain-synthetic-test",
+        "reference": "tools/a002_session_model.py"
+      },
+      "expected": "Credentials checked before grant; prior wrong-password fixture retry; S03 token bytes exactly C10 raw body; login socket disconnect preserves pending grant until TTL; token owner/character/generation/destination binding, atomic one-shot consume and expiry rejection",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-002-roy1-login-transfer.md"
+    },
+    {
+      "id": "CT-038",
+      "status": "planned",
+      "level": "duplicate-login-generation-concurrency",
+      "requirements": [
+        "R-002"
+      ],
+      "packet_ids": [
+        "PKT-C03",
+        "PKT-S03",
+        "PKT-C10"
+      ],
+      "input": {
+        "kind": "designed-domain-synthetic-test",
+        "reference": "tools/a002_session_model.py"
+      },
+      "expected": "One World generation/account; latest successfully authenticated login wins by policy; wrong password cannot evict old; stale commands/tokens and delayed old socket disconnect must not affect new generation",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-002-roy1-login-transfer.md"
     }
   ]
 }

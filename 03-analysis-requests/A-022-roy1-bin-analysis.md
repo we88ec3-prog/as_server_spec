@@ -16,7 +16,7 @@
 
 | VA | 由 BIN 確認的行為 | Server 影響 |
 |---|---|---|
-| `0x4A8370` | C25 入口依 `0x66D0D0 → 0x498000` 的 region 分派；region 3/4 存在不同元資料路徑 | C25 不可默認為全部版本的空 body；欄位仍 partial |
+| `0x4A8370` | **A-002 交叉復核更正：這是 S03 交接 handler**；依 region 3/4 取 S03 的 address/port/token、建立連線並送 C10 | **不是 C25 的入口證據**；C25 實際 serializer/地區欄位仍 partial |
 | `0x57FD20` / `0x57FDD0` | S14 建構 opcode `0x14`，parser 讀 1×u8 到內部 +0x18 | body=`u8 control` |
 | `0x4F2300` | S14 handler 依控制 1/2/3 分支 | 1 發 C35；2 loading 回呼；3 異常處理 |
 | `0x4F23CB..0x4F2428` | 控制 1 建 C35，分別呼叫 `0x4B4850`、`0x4B4890` 取得兩欄 | 不可把第一欄誤認 map ID |
@@ -122,3 +122,7 @@ objdump -D -M intel --start-address=0x589990 --stop-address=0x5899c0 Asgard.exe
 ```
 
 只提交研究文字及精簡的原生位址，不提交原始 EXE、MAP/DAT 資產或遊戲帳號資料。
+
+## A-002 交叉驗證勘誤（2026-10-31）
+
+先前把 `0x4A8370` 的 S03 區域路由誤稱成 C25 metadata。已由 [A-002](A-002-roy1-login-transfer.md) 確認：S03 parser `0x5886C0` 讀 addr/port/token，`0x4A8370` 的 region3/4 分支把 token 傳給 C10 constructor `0x577330` 並送出；它不是 C25 codec。**此前對 C25 的此一行不能再作為 observed-static 證據**。其餘 A-022 的 S14/S15/C35/MAP 研究不因本次更正而更動。

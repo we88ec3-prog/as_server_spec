@@ -54,3 +54,7 @@ World.SelectInitialSpawn/CommitTutorialEntry：原版教學地圖與坐標待 A-
 ## C02 早於 C03 的信任邊界修訂（A-021 roy1）
 
 Game Client C02 可能在 C03 之前送出；C02 region 封包布局已由 BIN 確認，但其帳號名稱／憑證字段仍 unknown。Gateway 可以在 pre-auth 階段**解析**此封包，不代表有權呼叫 `Account.Create` 或 `Character.CompleteCreation`；未經帳號擁有者身份校驗，不得將其當成 `ClaimExistingAccount`，不得發行有效 transfer grant、授權 S02 success 以進入 C04 或寫入 Character。A-027 必須證明身份驗證／綁定時機，A-028 必須證明 C04 final response。詳見 [A-021 roy1 review](../04-analysis-integration/A-021-roy1-review.md)。
+
+## A-002：重複登入及 World 世代保護（designed）
+
+[原版 C03/S03/C10 研究](../03-analysis-requests/A-002-roy1-login-transfer.md)。Auth 把有效的帳密認證與 generation CAS 分離：錯密/停權不踢舊玩家；最新合法 C03 採專案暫定 policy 成為唯一 active World generation。S03 發出 one-time Grant；**Login socket disconnect 本身不能撤銷尚未過期的合法轉服 Grant**，因原 Client S03 會轉到新 TCP 並發 C10 原始 token。C10 必須原子 consume，綁 account/character/destination/generation；舊 World socket cleanup 只針對同 generation+connection_id，不能清掉新世代。這是設計不是原服的重複登入政策已被證明。
