@@ -280,6 +280,52 @@
         "ONB-06"
       ],
       "a024_report": "task_a/roy2/A-024-analysis.md"
+    },
+    {
+      "id": "FLOW-VISIBILITY",
+      "label": "兩名玩家互見、移動、轉向與離視野",
+      "client_trigger": "已在 World 並進入同一可見場景；玩家操作方向/移動會送 C11/C33（已知）；Server 按自身選擇的 AOI 送遠端 S33/S06/S11/S0E",
+      "client_send": [
+        "PKT-C33",
+        "PKT-C11"
+      ],
+      "server_to_client": [
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0E",
+        "PKT-S0B"
+      ],
+      "client_reaction": "S33 PutHuman 讀玩家座標/外觀/名稱；S06 讀 u32/u16/u16；S11 讀 u32/u8；S0E 讀 u32。原生 MapPane registry、實際視野/影像效果未用兩 Client 證明",
+      "evidence": [
+        "A-004",
+        "A-005",
+        "A-006",
+        "A-024"
+      ],
+      "scenarios": [
+        "SCN-005"
+      ],
+      "tests": [
+        "CT-054",
+        "CT-055"
+      ],
+      "server_decisions": [
+        "Server 認證與 world/map instance/epoch 確立 sender / fanout；視野半徑、廣播範圍自訂，不冒充原服",
+        "個別觀察者集合去重，已離視野物件 tombstone 防舊回包，退出/切圖先 fence 舊 epoch（designed）",
+        "S0B 自身 Ack 沒有 object ID，不向其他玩家廣播；遠端用 S33/S06/S11 子集（原生 handler ID 關聯待 CT）"
+      ],
+      "readiness": "native-constructors-and-decoded-body-ready; native-MapPane-registry-and-two-client-E2E-pending",
+      "unknowns": [
+        "S06/S11/S0E 首 u32 是否 native ObjectRegistry same-key 查找",
+        "S33 可選 flags 變體、原生本地 UI/MapPane add/remove 成功效果",
+        "原服 AOI/死亡/斷線/epoch 和 ID recycle policy"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-04"
+      ],
+      "analysis_report": "task_a/roy2/A-004-analysis.md"
     }
   ]
 }

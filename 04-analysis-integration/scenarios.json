@@ -101,10 +101,40 @@
         "R-006"
       ],
       "packets": [
-        "PKT-S33"
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0E",
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B",
+        "PKT-S04"
       ],
       "status": "analysis-required",
-      "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。"
+      "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。",
+      "native_client_validation": "not-run",
+      "client_IO_mapping": "S33 PutHuman initial profile, S06 MoveHumanAck, S11 ChangeDirection, S0E RemoveObjects; C33/C11 send and self S0B ACK are distinct",
+      "a004_evidence_ids": [
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
+      ],
+      "a004_report": "task_a/roy2/A-004-analysis.md",
+      "failure_cases": [
+        "duplicate S33 same visible entity",
+        "S0E then delayed S06/S11/S33",
+        "same actor id across map epoch",
+        "two actors in different map instances",
+        "S0B self ACK mistakenly used for remote actor",
+        "conditional S33 flags and truncated name",
+        "disconnect and reenter"
+      ],
+      "note_addendum": "Static client parser verified, native MapPane registry/visual result and original AOI radius unknown; Server cohort/epoch/tombstone are designed, not native observed."
     },
     {
       "id": "SCN-006",

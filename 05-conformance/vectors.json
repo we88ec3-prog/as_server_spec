@@ -1268,6 +1268,62 @@
       "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md",
       "source_ct_renumbered_from": "CT-048",
       "merge_note": "CT CT-048 in source roy1 A-003 was renamed to CT-053; main CT-047/048 are A-014 social"
+    },
+    {
+      "id": "CT-054",
+      "status": "planned",
+      "level": "world-visibility-decoded-body-and-synthetic-lifecycle",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0E",
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "synthetic",
+        "reference": "05-conformance/A-004-visibility-test-plan.md"
+      },
+      "expected": "S33 profile flags0 CP950, S06/S11/S0E/S0B strict BE body lengths; duplicate, removal, stale map epoch and invalid options fail closed",
+      "evidence_kind": "observed-static-plus-designed-synthetic",
+      "offline_subset_result": "9 synthetic tests PASS and 5 original constructors + 5 reader sequences static probe PASS; native Client NOT RUN",
+      "offline_test": "task_a/roy2/test_a004_visibility.py",
+      "original_probe": "task_a/roy2/a004_native_probe.py",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-004"
+    },
+    {
+      "id": "CT-055",
+      "status": "planned",
+      "level": "native-two-client-AOI-and-ID-lifecycle",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0E",
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "two-native-clients-required",
+        "reference": "05-conformance/A-004-visibility-test-plan.md"
+      },
+      "expected": "Two clients join same validated world map, receive third-party S33 and S06/S11 on movement/turn, S0E on leave/disconnect, observe no ghost actor after reconnect or late packet; record packet/body and GUI evidence before claiming passed",
+      "evidence_kind": "designed-test",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-004"
     }
   ]
 }
