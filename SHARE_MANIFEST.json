@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "59ebce9e9de66901e1e7924b6296cac8fcf2db11283cc3eb05cad4144757b8c5"
+      "sha256": "e103a3c6be5a25d9091585dbc8c4539e269e87d225779265f730edd9fc2dc32d"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -57,7 +57,7 @@
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
-      "sha256": "6c5ec62b924dc502342f9d7a1d60566ea9a8268997036f2f273b6815a6b41393"
+      "sha256": "c11cd9556bc17db1594377dd713d325f050d0d7d7c7685a808ee30cd7c574db9"
     },
     {
       "path": "02-server-planning/architecture.md",
@@ -77,7 +77,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "b354a73ead8e29a23596966092fd647c4fe123f09de2df3494e22691aadf73b9"
+      "sha256": "f4f019faf9ce867865cd9b421ce2a9bb92255e910d013e2be9988f60d616ae8b"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -93,7 +93,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "a7b2a314fa169b5a138382218ecfda2207011fe8bca0111975d79b96c6d60713"
+      "sha256": "5ee04ca16a04ddf66961752df3e82c821991d51a2bebdb243816e52d7cf819c5"
     },
     {
       "path": "03-analysis-requests/A-021-acceptance.md",
@@ -113,7 +113,7 @@
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
-      "sha256": "24af5699a5367a0dc9463a5bfdc49c9882d8f08ecf70a285aacf59ab66daa6c7"
+      "sha256": "07a8ca2548bfa9d5a710d61d5a6c9ed0959203efc863e494f07e5b821fa82385"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -137,7 +137,7 @@
     },
     {
       "path": "04-analysis-integration/A-022-A-023-merge-validation.md",
-      "sha256": "a48cab5310a24c407a353a51cfad195399700f935790480cdf6b6fb6cf80f913"
+      "sha256": "e9d3f2882c5e80b8fcf51061aa6392ee53e22b92e7fe9670d904f9b979708be4"
     },
     {
       "path": "04-analysis-integration/A-022-map-loading-crc.md",
@@ -201,7 +201,7 @@
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
-      "sha256": "631a44003d6aee7922cdf3f0ddb2c25bc9acb87c57239d1148b88dc5a30fa21b"
+      "sha256": "2bc2f97b973003fc1d559ef812f5e3e6235574bc75f30c1a293d0e4542c87301"
     },
     {
       "path": "04-analysis-integration/transport.md",
@@ -213,7 +213,7 @@
     },
     {
       "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
-      "sha256": "fe4bccea8c3532851ff80f1bf36be2d60943876c43ec520cac8599057c790f85"
+      "sha256": "701a47b93dd192bf26e98d8699d035ea9382ff5f5e5bfd05603813534151209a"
     },
     {
       "path": "05-conformance/implementer-guide.md",
@@ -233,11 +233,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "830c4362d35e24a588576814de0fef295a327adb145531ea5fdf72e7f1cd4534"
+      "sha256": "2042601a4c0bd7b1717aa0deabbbf232d3d56d83c23db468fa51714f9178c336"
     },
     {
       "path": "task_a/roy2/A-023-analysis.md",
-      "sha256": "88946df0c6c1f5871889579ce240517e828474bba51f9b0eb8f6265302160faa"
+      "sha256": "79da0083b0ce21e2884e9ebf0c1fab5124fef78c16a86c332df8ff6d953c23af"
     },
     {
       "path": "task_a/roy2/verify_born.py",
