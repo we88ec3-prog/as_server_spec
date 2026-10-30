@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "72434b3183befbd822c45fe751aadcf3f539c294f5fd50d5498cb8902f7b1ebb"
+      "sha256": "e258fc23281e4acab256c76d83d87c60477e5694498799bf58568e865f27c5a0"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "22323eb909b0860d13239b4cec99aec80b2257766ba2f10a35c776e9b97911f2"
+      "sha256": "c9529807faf4b1e4e8219d5ee7aa9590d7b0318e17a928debdc1c32cd506faaa"
     },
     {
       "path": "00-governance/workflow.md",
@@ -185,7 +185,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "9bb8ff2ae604e76fb7c6a5af75fa0ae02d245a2e7aab07de5716a20cf96e82d1"
+      "sha256": "4270ba5e13cf9212e4adb1c08346d167f1b7758f47401478b449fe9e6de4ad86"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -281,7 +281,7 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "895b802510c194d874c9ed353d5eaf72d99f713028a78fe73655f54fa9687330"
+      "sha256": "256eaf042fe78a563740c2fd863993bd76e80f2585192ef53dfa4ff7ba0fac70"
     },
     {
       "path": "04-analysis-integration/packets.json",
@@ -318,6 +318,10 @@
     {
       "path": "04-analysis-integration/tutorial-born-resource.json",
       "sha256": "5b09bd847fa7998fecc0a408f71a76a1e507d640a5672a3c67491b1ebfb72de0"
+    },
+    {
+      "path": "05-conformance/A-004-visibility-test-plan.md",
+      "sha256": "28a8333b4b0d4fa167e13f340bfccfb178a86b87ace1ce4c65896d130138d07a"
     },
     {
       "path": "05-conformance/A-014-social-test-plan.md",
