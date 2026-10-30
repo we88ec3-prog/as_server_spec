@@ -32,12 +32,57 @@
   "explicit_send_reply": false,
   "explicit_quest_mutation": false,
   "explicit_npc_spawn": false,
-  "auto_trigger": "unknown",
+  "auto_trigger": "not hardcoded in analyzed entry path; S44(1,0) named start invokes Main; original-server scheduling unknown",
   "npc_entity_id": "unknown",
   "map_id": "unknown",
   "native_client_validation": "not-run",
   "evidence": [
     "A023-E09",
-    "A023-E10"
-  ]
+    "A023-E10",
+    "A023-E15",
+    "A023-E16",
+    "A023-E17"
+  ],
+  "direct_script_dependency": {
+    "filename": "PaperDialog.dat",
+    "raw_size": 1639,
+    "raw_sha256": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+    "unpacked_size": 9196,
+    "unpacked_sha256": "491021376f9500c2a32a3c3ab56439bb302b39c660147903dcc4ba4b5c6f526a",
+    "utf16_code_units": 4595
+  },
+  "dependency_evidence": [
+    "A023-E12"
+  ],
+  "dialog_contract": {
+    "page_count": 1,
+    "initial_page": 0,
+    "prev_visible": false,
+    "next_visible": false,
+    "default_control": "OK",
+    "cancel_control": "OK",
+    "close_calls": [
+      "dialog.Dispose",
+      "client.Dispose"
+    ],
+    "explicit_send_reply": false,
+    "client_dispose_native_semantics": "C6C4 then cleanup C6C2 unless replied; no quest-complete implication"
+  },
+  "presentation_dependencies": [
+    "Basic.dat/AlertFrame.ypf",
+    "image button objects 11/12/13"
+  ],
+  "presentation_dependencies_verified": false,
+  "native_close_emits_c6c_subtypes": [
+    4,
+    2
+  ],
+  "native_close_condition": "no prior SendReply (Born + PaperDialog normal OK path)",
+  "close_is_quest_completion": "unproven",
+  "native_wrapper": {
+    "version": "BE u16 = 1",
+    "length": "BE u32 UTF-16LE code units"
+  },
+  "text_crc32_cp950": "1d87b0c0",
+  "latest_contract": "task_a/roy2/A-023-script-entry-contract.md"
 }

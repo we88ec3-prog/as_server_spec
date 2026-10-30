@@ -275,12 +275,36 @@
       "title": "資料檔語意及權利範圍",
       "method": "盤點地圖、衣服、技能／物品定義；為每欄記原始位置與未知語意。",
       "deliverable": "可驗證的資料格式和抽取步驟；不在共享repo附原始遊戲資產。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A015-E01",
+        "A015-E02",
+        "A015-E03",
+        "A015-E04",
+        "A015-E05",
+        "A015-E06",
+        "A015-E07",
+        "A015-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "observed-static-client + observed-resource-Born + prior-research + synthetic-tests",
+      "analysis_report": "task_a/roy2/A-015-analysis.md",
+      "resource_catalog": "04-analysis-integration/content-resource-catalog.json",
+      "offline_probe": "tools/a015_content_probe.py",
+      "implementation_ready": false,
+      "content_format_probe_ready": true,
+      "original_tutorial_content_ready": false,
+      "remaining_unknowns": [
+        "相同發行版的完整 Map0/1/2、Human/MB/WB/髮型、Basic/Icon/Locale、技能物品定義檔的原始 SHA 與檔案內容未取得",
+        "原版教學 map_id、玩家出生 x/y/facing、招募員 NPC ID/生成來源與實際地圖資源欄位仍未知",
+        "地圖 block/tile 對應碰撞及尾段 7/8/16 bytes 語意、YPF group/DOI/完整動畫、技能/物品數值公式尚未解出",
+        "原始素材及 Client 分發授權不可由能解析格式的事實推論"
+      ]
     },
     {
       "id": "A-016",
@@ -489,7 +513,14 @@
         "A023-E08",
         "A023-E09",
         "A023-E10",
-        "A023-E11"
+        "A023-E11",
+        "A023-E12",
+        "A023-E13",
+        "A023-E14",
+        "A023-E15",
+        "A023-E16",
+        "A023-E17",
+        "A023-E18"
       ],
       "dependencies": [
         "A-011",
@@ -502,17 +533,40 @@
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
       "native_client_validation": "not-run",
-      "analysis_report": "task_a/roy2/A-023-analysis.md",
+      "analysis_report": "task_a/roy2/A-023-script-entry-contract.md",
       "remaining_unknowns": [
-        "Born.Main 首次啟動時機/來源仍未知",
-        "招募員 NPC ID/地圖/真正位置及 spawn 設定（A-022/A-024）",
-        "首次任務或互動 opcode/quest flags（A-012/A-024/A-026）",
-        "Born.dat 與 Asgard.exe SHA 的發行版本對應未經獨立驗證"
+        "原服首次登入時送出 Born start 的角色/帳號旗標與相對入圖時序（Client 收包執行機制已解）",
+        "女性招募員 entity/map/spawn 與 nNewJoin01 等候選腳本的原服綁定",
+        "Server quest 初始化/完成權威旗標與重登政策",
+        "資源與 EXE 發行版配對身份（個別 hash 已確認）"
       ],
       "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
       "resource_client_version_binding": "unverified",
       "implementation_ready": false,
-      "implementation_ready_scope": "C6C/S44 script transport partial static evidence; Born.Main local paper-dialog content candidate only; native onboarding trigger/NPC/quest entry unverified"
+      "implementation_ready_scope": "S44(1,0) start / cache dependency request-update / Main entry / C6C Dispose and SendReply lifecycle specified; original first-login policy and NPC mapping unresolved",
+      "conformance": [
+        "CT-033",
+        "CT-034",
+        "CT-035"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "dependency_report": "task_a/roy2/entry-dependency-verification.json",
+      "client_script_entry_contract_ready": true,
+      "evidence_boundary": {
+        "local_static_paths_exhausted": [
+          "S44 parser and handler",
+          "ScriptRunner Main invocation",
+          "Dispose/SendReply native side effects",
+          "reader/writer endian and language codepage",
+          "Script XML checksum",
+          "316 Script resources and candidate join dialog",
+          "available prior evidence has no original-server capture"
+        ],
+        "required_external_evidence": [
+          "original-server first/returning login trace or onboarding handler",
+          "original-server NPC/spawn/script/quest mapping"
+        ]
+      }
     },
     {
       "id": "A-024",

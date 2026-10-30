@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "evidence_kind": "observed-static-resource",
+  "resources": [
+    {
+      "filename": "Born.dat",
+      "raw_size": 589,
+      "raw_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+      "unpacked_size": 1154,
+      "unpacked_sha256": "a33d271e4f71e9958f59060b1aba01430919752a357b9615d60271b26c933546",
+      "utf16_code_units": 574
+    },
+    {
+      "filename": "PaperDialog.dat",
+      "raw_size": 1639,
+      "raw_sha256": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+      "unpacked_size": 9196,
+      "unpacked_sha256": "491021376f9500c2a32a3c3ab56439bb302b39c660147903dcc4ba4b5c6f526a",
+      "utf16_code_units": 4595
+    }
+  ],
+  "checks": {
+    "born_single_page": true,
+    "callback_registered": true,
+    "initial_page_zero": true,
+    "cancel_and_default_ok": true,
+    "prev_hidden_at_zero": true,
+    "next_hidden_at_last": true,
+    "close_disposes": true,
+    "frame_dependency": true,
+    "no_explicit_quest_or_reply": true
+  },
+  "other_dependencies": [
+    "Basic.dat/AlertFrame.ypf",
+    "image button objects 11/12/13"
+  ],
+  "other_dependencies_verified": false,
+  "auto_trigger": "unknown",
+  "resource_client_version_binding": "unverified",
+  "native_client_validation": "not-run"
+}

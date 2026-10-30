@@ -68,3 +68,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-001 / roy1：十張 seed mask 的 BIN-first 靜態整合（2026-10-31）
 
 原本 A-001 open 且未有獨立交付；本輪已從同 SHA 的原版 `Asgard.exe` `0x53B630` 分支追出 **seed0..9 每張 256 項遮罩公式**，連同 `0x53BE70/0x53BD90` body XOR、C00/S00 version/result 分支、string8 encoded byte 長度、ASCII alternate mode 範圍，整理成 [研究報告](A-001-roy1-seed-and-version.md) 和 [可執行合成測試](../tools/a001_codec_vectors.py)。更新 `04-analysis-integration/transport.md`、封包欄位與 CT-036。狀態 `integrated/handoff_status=partial/implementation_ready=true/native_client_validation=not-run`：binary seed0..9 算法可開發，原服各 region seed/key 選擇、非零 S00 拒絕 UI 與 ASCII 全相容仍 unknown。原版 E2E 屬 DEV/CT，未實機不阻擋已證靜態交付。
+
+## A-015 roy2／資源檔與分享界線（2026-10-31）
+
+已完成原始 EXE 對資源池、MAP/YPF loader 的 BIN 核對，Born.dat 實際重跑與 synthetic DAT/MAP/Script 結構測試；新增 [A-015 報告](../task_a/roy2/A-015-analysis.md)、[結構化資源欄位](../04-analysis-integration/content-resource-catalog.json)、[可在個人資源目錄執行的無素材輸出檢查](../tools/a015_content_probe.py) 和 [CT-037/038 計畫](../05-conformance/A-015-content-test-plan.md)。`status=integrated/handoff_status=partial` 指已證的格式/來源子集，**不代表原版教學地圖/技能物品/碰撞/授權已全部解出**。

@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "id": "A-015-resource-schema-v1",
+  "profile": "TW-seed0-local-v0.1",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "status": "static-layout-partial",
+  "rights_assumption": "No distribution rights implied; source files remain private",
+  "source_matrix": [
+    {
+      "family": "DAT indexed archive",
+      "known_locator": "04-analysis-integration/resource-formats.md; earlier corpus",
+      "file_selector": "Map?.dat / Human/*.dat / other indexed .dat",
+      "layout": [
+        {
+          "offset": 0,
+          "type": "LE u32",
+          "meaning": "slot count including EOF sentinel",
+          "confidence": "prior-research"
+        },
+        {
+          "offset": 4,
+          "type": "slot_count * 36 B",
+          "meaning": "each LE u32 data_offset + raw 32-byte filename, final sentinel",
+          "confidence": "prior-research"
+        },
+        {
+          "offset": "4+36*n",
+          "type": "variable",
+          "meaning": "each member [offset[i],offset[i+1])",
+          "confidence": "prior-research"
+        }
+      ],
+      "unresolved": [
+        "member content semantics",
+        "non-ASCII filename decoding",
+        "per-version archive identities"
+      ]
+    },
+    {
+      "family": "MAP",
+      "file_selector": "Map0/1/2.dat member %05d.map",
+      "native_entry": "0x4B33A0",
+      "known_structure": [
+        {
+          "offset": "0..5",
+          "type": "3 * LE u16",
+          "semantics": "raw fields; third used as C35 header token, full meaning unknown"
+        },
+        {
+          "offset": "6,7",
+          "type": "u8,u8",
+          "semantics": "width,height"
+        },
+        {
+          "offset": 8,
+          "type": "ceil(w/2)*ceil(h/4)*2 bytes",
+          "semantics": "block data bit meaning unknown"
+        },
+        {
+          "offset": "after block",
+          "type": "w*h * (3 u16 + u32) = 10 bytes",
+          "semantics": "grid fields not mapped to collision"
+        },
+        {
+          "offset": "after grid",
+          "type": "LE u32 n7 + n7*7B",
+          "semantics": "unknown"
+        },
+        {
+          "offset": "next",
+          "type": "LE u32 n8 + n8*8B",
+          "semantics": "unknown"
+        },
+        {
+          "offset": "next",
+          "type": "LE u32 n16 + n16*16B",
+          "semantics": "unknown"
+        }
+      ],
+      "unresolved": [
+        "tutorial map id/spawn/facing",
+        "block and grid collision flags",
+        "7/8/16 record meaning",
+        "C35 structured CRC concrete tutorial vector"
+      ]
+    },
+    {
+      "family": "Human / YPF",
+      "file_selector": "Human\\mb*, wb*, mh*, wh*, s*, w*",
+      "native_entry": "0x56EA20",
+      "known_structure": [
+        {
+          "offset": 0,
+          "type": "u16",
+          "semantics": "observed format version 17 in prior sample"
+        },
+        {
+          "offset": 2,
+          "type": "u16,u16",
+          "semantics": "header dimensions; meaning beyond width unknown"
+        },
+        {
+          "offset": 6,
+          "type": "u32,u32",
+          "semantics": "header values and flags"
+        },
+        {
+          "offset": "after flags if bit0=1",
+          "type": "512 B",
+          "semantics": "RGB565 palette"
+        },
+        {
+          "offset": "after optional palette",
+          "type": "u32",
+          "semantics": "image payload absolute offset"
+        }
+      ],
+      "unresolved": [
+        "complete animation groups and DOI",
+        "per-frame bounds and indices to actions",
+        "complete model-to-clothing matching",
+        "all observed IDs per Client version"
+      ]
+    },
+    {
+      "family": "Script zlib",
+      "file_selector": "Script/*.dat, Born.dat",
+      "native_entry": "0x5290BC,0x529351; A-023",
+      "known_structure": [
+        {
+          "offset": "compressed input",
+          "type": "zlib",
+          "semantics": "decompress to wrapper"
+        },
+        {
+          "offset": "unpacked 0..3",
+          "type": "00 01 00 00",
+          "semantics": "header meaning unknown"
+        },
+        {
+          "offset": "unpacked 4..5",
+          "type": "BE u16",
+          "semantics": "UTF-16 code unit count"
+        },
+        {
+          "offset": "unpacked 6..",
+          "type": "UTF-16LE",
+          "semantics": "script source text (XML for most, not all)"
+        }
+      ],
+      "unresolved": [
+        "exact native activation hook / server quest logic"
+      ]
+    },
+    {
+      "family": "Skill / Item definitions",
+      "file_selector": "unknown (may be in Basic/Icon/Locale, EXE structures or server-side content)",
+      "native_entry": "only UI/network observations so far",
+      "known_structure": [],
+      "unresolved": [
+        "exact resource names",
+        "all data fields and offsets",
+        "skill coefficients/cooldowns",
+        "item type/stack limits/drops",
+        "which rules live exclusively on original server"
+      ]
+    },
+    {
+      "family": "World/Monster/Effect/Sound and static pack registries",
+      "file_selector": "World%02d.dat, Monster%02d.dat, Effect%d.dat, Sound%d.dat, Basic.dat, Icon.dat, Locale.dat, Script.dat",
+      "native_entry": "0x403FA4..0x4043B0",
+      "known_structure": [],
+      "unresolved": [
+        "archive contents, schemas and semantic link to entity definitions"
+      ]
+    }
+  ],
+  "evidence_ids": [
+    "A015-E01",
+    "A015-E02",
+    "A015-E03",
+    "A015-E04",
+    "A015-E05",
+    "A015-E06",
+    "A015-E07",
+    "A015-E08"
+  ],
+  "offline_tool": "tools/a015_content_probe.py",
+  "asset_corpus_uploaded": {
+    "AsgardExe": true,
+    "BornDat": true,
+    "MapDat": false,
+    "HumanDat": false,
+    "SkillAndItemTables": false
+  },
+  "assertions_not_proven": [
+    "Resource format readability does not grant rights to share files",
+    "Born waypoint (31,29) is not character spawn",
+    "Map parser structural success does not prove collision or NPC spawn",
+    "No original server-only skill/quest rules were recovered"
+  ]
+}
