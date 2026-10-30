@@ -64,3 +64,24 @@ def has_cycle(nodes, edges):
 require(not has_cycle(aid, {x["id"]: x.get("dependencies", []) for x in a}), "A→A dependency cycle")
 require(not has_cycle(wid, {x["id"]: x.get("depends_on", []) for x in w}), "ONB→ONB dependency cycle")
 print(f"Phase gates valid: {len(a)} A tasks, {len(w)} DEV work items, {len(ct)} CT vectors; native Client tests remain independent.")
+
+
+# v2 work ownership and Client I/O handoff checks
+TRACK_REQUIRED = {
+    "client-io": ["trigger", "client_sends", "client_receives", "client_reaction", "evidence", "unknowns"],
+    "resource-analysis": ["format", "provenance", "client_usage", "unknowns"],
+    "server-design": ["policy", "invariants", "failure_modes", "validation"],
+}
+require((ROOT / "00-governance/task-ownership-and-client-io.md").is_file(), "missing work ownership standard")
+require((ROOT / "03-analysis-requests/client-io-handoff-standard.md").is_file(), "missing Client I/O standard")
+for item in a:
+    key = item["id"]
+    track = item.get("handoff_track")
+    require(track in TRACK_REQUIRED, key + " missing/invalid handoff_track")
+    require(item.get("handoff_requirements") == TRACK_REQUIRED[track], key + " missing required "+str(track)+" handoff fields")
+    document = item.get("handoff_document")
+    require(isinstance(document, str) and document.endswith(".md") and (ROOT / document).is_file(), key + " missing handoff document")
+    require(bool(item.get("client_server_boundary")), key + " missing Client/Server responsibility gate")
+require({x["id"] for x in a if x["handoff_track"] == "server-design"} == {"A-016", "A-017", "A-018"}, "Server-designed analyses must remain explicitly separate")
+require({x["id"] for x in a if x["handoff_track"] == "resource-analysis"} == {"A-015"}, "A-015 must remain resource research")
+print("Client I/O boundary valid: every A-XX has an explicit research track, deliverable schema and owner.")

@@ -39,7 +39,18 @@
         "full ASCII mode codec and regional codepage settings"
       ],
       "analysis_scope": "BIN-first seed0..9 mask algorithms + binary codec, S00/C00 field widths, string8; partial original Server selection/rejection UI",
-      "last_analysis_date": "2026-10-31"
+      "last_analysis_date": "2026-10-31",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-002",
@@ -70,7 +81,18 @@
         "C03 flag native meaning",
         "native token timeout/reconnection policy"
       ],
-      "last_analysis_date": "2026-10-31"
+      "last_analysis_date": "2026-10-31",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-003",
@@ -118,7 +140,18 @@
         "CT-048"
       ],
       "client_io_scope_correction": "原 Client NewUser 的各 UI input、長度/字元門檻及可選 sex/hair/RGB；操作後發 C02/C04 的 wire、收到 S02 後的成功/拒絕/取消狀態。重名、一帳幾角色、DB commit 是 Server policy，不作 Client A 完工必要條件。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-004",
@@ -136,7 +169,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-005",
@@ -153,7 +197,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-006",
@@ -170,7 +225,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-007",
@@ -188,7 +254,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-008",
@@ -205,7 +282,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-009",
@@ -222,7 +310,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-010",
@@ -239,7 +338,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-011",
@@ -256,7 +366,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-012",
@@ -276,7 +397,18 @@
       "native_client_validation": "not-run",
       "latest_merged_evidence_focus": "A-023 confirms S44(1,0) starts named Main with dependencies, C6C(0) requests missing script, C6C(4) close and C6C(2) no-reply cleanup. Focus on original-server first-login send condition, PaperDialog lifecycle, quest authoritative meaning and recruiter/NPC script binding. No unsupported quest completion inference.",
       "client_io_scope_correction": "Client 收 Script/NPC/quest 包後所呈現 UI 及其 C→S 回應；Server 首次派送條件、任務完成判定與獎勵策略獨立規劃。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-013",
@@ -294,7 +426,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-014",
@@ -331,7 +474,18 @@
         "CT-047",
         "CT-048",
         "CT-049"
-      ]
+      ],
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-015",
@@ -405,7 +559,16 @@
       "source_inventory_review": "task_a/roy2/A-015-closure-review.md",
       "scope_boundary": "A-015 handoff=ready for resource formats/inventory/provenance ONLY; actual tutorial MapID, spawn, collision, NPC and C35 checksum still blocked. CT-040 not-run.",
       "client_io_scope_correction": "資源檔格式、MAP 解析、C35 checksum 與 Client 如何選/載入資源是 A 研究；伺服器選擇教學 map_id/spawn 屬 Server，未知原服固定座標不妨礙 A 限定資源格式交付。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "resource-analysis",
+      "handoff_document": "00-governance/task-ownership-and-client-io.md",
+      "handoff_requirements": [
+        "format",
+        "provenance",
+        "client_usage",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-016",
@@ -440,7 +603,16 @@
         "actual World re-login and failure UI paths not validated with original Client",
         "native tutorial content/first map spawn pending A-015"
       ],
-      "last_analysis_date": "2026-10-31"
+      "last_analysis_date": "2026-10-31",
+      "handoff_track": "server-design",
+      "handoff_document": "02-server-planning/client-server-responsibility.md",
+      "handoff_requirements": [
+        "policy",
+        "invariants",
+        "failure_modes",
+        "validation"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-017",
@@ -487,7 +659,16 @@
       "source_ct_renumbered_from": [
         "CT-045",
         "CT-046"
-      ]
+      ],
+      "handoff_track": "server-design",
+      "handoff_document": "02-server-planning/client-server-responsibility.md",
+      "handoff_requirements": [
+        "policy",
+        "invariants",
+        "failure_modes",
+        "validation"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-018",
@@ -504,7 +685,16 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "server-design",
+      "handoff_document": "02-server-planning/client-server-responsibility.md",
+      "handoff_requirements": [
+        "policy",
+        "invariants",
+        "failure_modes",
+        "validation"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-019",
@@ -521,7 +711,18 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-020",
@@ -540,7 +741,18 @@
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
       "native_client_validation": "not-run",
-      "latest_merged_evidence_focus": "A-001 has resolved seed0..9 mask codec, C00 width and S00 result0/1/2 parser structure; focus on actual regional seed/key selection, nonzero S00 UI results, metadata/Script timing and account proof handoff. Do not mark client region login confirmed solely from synthetic codec tests."
+      "latest_merged_evidence_focus": "A-001 has resolved seed0..9 mask codec, C00 width and S00 result0/1/2 parser structure; focus on actual regional seed/key selection, nonzero S00 UI results, metadata/Script timing and account proof handoff. Do not mark client region login confirmed solely from synthetic codec tests.",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-021",
@@ -589,7 +801,18 @@
         "A-028"
       ],
       "client_io_scope_correction": "以 UI→C02→S02→C04→S02/C15 為唯一可證流程目標，逐個狀態列原生 handler/資料來源；C03 登入無角是否會開 NewUser 應以 Client UI 路徑查，無依據標 unknown。不得要求原服預建帳號認領政策。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-022",
@@ -640,7 +863,18 @@
       ],
       "last_analysis_date": "2026-10-31",
       "client_io_scope_correction": "追 Client 收 S15/S14/S04/S33 後的 parser、顯示/載圖順序、何時回 C35 的兩個校驗值及錯序/錯版行為。地圖 ID、spawn、朝向由 Server 選，分析只需確認合法資源格式與可呈現限制，無需還原原服的新手出生點。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-023",
@@ -720,7 +954,18 @@
         ]
       },
       "client_io_scope_correction": "查 Client 收 S44(1,0)/(1,1) 如何解資源、執行 Main，UI 關閉如何送 C6C(4/2)、缺檔如何送 C6C(0)；原服首次登入何時主動發 Born 與 quest flags 非 Client A 完工條件。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-024",
@@ -751,7 +996,18 @@
       "native_client_validation": "not-run",
       "latest_merged_evidence_focus": "A-023 nNewJoin01 merchant school-join script is an inferred candidate only, with no verified NPC entity/map binding. Identify recruiter spawn, entity id, interaction packet and A-011 NPC visibility/actions using original MAP/NPC assets or observed packet/event evidence, not name similarity.",
       "client_io_scope_correction": "Client 收到 NPC/怪物生成/動作/消失包的解析與渲染、點擊 NPC/攻擊會送的 opcode；Server NPC AI、固定出生數量與權威策略不作 A 完成門檻。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-025",
@@ -783,7 +1039,18 @@
       "handoff_status": "not-started",
       "native_client_validation": "not-run",
       "client_io_scope_correction": "Client 使用技能/攻擊時的送包、收到效果/HP/狀態包後的 UI/動畫及取消重送；Server 計算傷害/冷卻和任務計數的策略獨立設計。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-026",
@@ -814,7 +1081,18 @@
       "handoff_status": "not-started",
       "native_client_validation": "not-run",
       "client_io_scope_correction": "Client 看到的任務完成提示／獎勵/轉圖接收封包與玩家交回動作的送包；Server 何時判完成、發獎及保存獨立設計。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-027",
@@ -861,7 +1139,18 @@
       "security_decision": "fail-closed: C02 parser may run but cannot claim existing Account, issue S02 success, create pending owner or Character unless independent authenticated credential or verified bound C03 session path is demonstrated",
       "last_analysis_date": "2026-10-31",
       "client_io_scope_correction": "查哪個 UI 入口送 C02/C03、前二字串來自何處、本地 confirm/region 規則及 S02 的 Client 狀態轉移；只需提供已證 Client 觸發/回包路由，不以原服帳號 owner 認證算法作研究完工條件。Server R-025 必須自行驗證身分。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     },
     {
       "id": "A-028",
@@ -905,7 +1194,18 @@
       ],
       "last_analysis_date": "2026-10-31",
       "client_io_scope_correction": "查 Client 在 state0x1d/0x1e 收到各 S02 時的畫面、C04/C15 自動發包與回 Login 的實際路徑；不要求從 Client 證明原版 Server 的 durable Character commit 或 grant 時機。",
-      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate"
+      "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
     }
   ]
 }

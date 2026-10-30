@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
-      "sha256": "90797399448e604c5fea5d87e6820433769d5fcead369b0512032e4ee01dd72f"
+      "sha256": "a90bf038477f227bd1a3d4173716f3387fd4051967f049a3874432abf49a7d0c"
     },
     {
       "path": "00-governance/baseline.md",
@@ -25,15 +25,19 @@
     },
     {
       "path": "00-governance/phase-gates.md",
-      "sha256": "a25be5bd1f41f493009ea6ad90dc0976d3315640074be607eaff301f8c4cdafc"
+      "sha256": "46d579e08b2cedee4f12d5fd636235b36803dbb45f00bd7582a083b32d20f60a"
     },
     {
       "path": "00-governance/record-contracts.md",
-      "sha256": "d6e303d7b20d613ed53b161503e157b8c35b4030c25523650ff707b505b4d1ed"
+      "sha256": "d6bbb44169d1b6a1b14dc1077e24010e109c52e43a30197e221cfd0b6879fdde"
     },
     {
       "path": "00-governance/sharing-and-license.md",
       "sha256": "70706c0d6a0bb0d65d1470f355aa60bf143bdfe910ad44f99cc18d64ad566fe8"
+    },
+    {
+      "path": "00-governance/task-ownership-and-client-io.md",
+      "sha256": "9c768e8d70f4a04d9b6f33b8c0a42481fa7d2a884e3e51d798ec426a0399abe4"
     },
     {
       "path": "00-governance/traceability.csv",
@@ -41,7 +45,7 @@
     },
     {
       "path": "00-governance/workflow.md",
-      "sha256": "8f4f7e48d9eebf293e0b6e80285bb976d85a5cdd950f6a093828222f56d853b5"
+      "sha256": "d40371667ed606b993a5c0c337a89abdd63508e4b59378725d7c306d8549224a"
     },
     {
       "path": "01-server-requirements/first-login-onboarding.md",
@@ -177,11 +181,11 @@
     },
     {
       "path": "03-analysis-requests/request-template.md",
-      "sha256": "b77c0b1fe2dbe3567589211111d49bce563cd186ff2e27e2f4725a0d8e9e42fe"
+      "sha256": "783a530d608ad0626be2e0f4683681bd1f9973deec1c136708989c3d81a20506"
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "31d8afe69643d4e2a536ab393a3a4be401fd612cfdcbcc107ba564991bd1392b"
+      "sha256": "6814f97db554f319d025feec11428b25672ded50d05d69755c45b9107c96b049"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -457,7 +461,7 @@
     },
     {
       "path": "tools/validate-phase-gates.py",
-      "sha256": "c290cd701dbdb52494594db0a3c5b4501c53889c1d56995d119ec0335a7987be"
+      "sha256": "d299fc9f11a5bdb08b13f7f4929c4d5d814112dcd959e145d7f32857f2ee3a38"
     }
   ]
 }

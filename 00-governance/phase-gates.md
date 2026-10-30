@@ -60,3 +60,7 @@
 ## Client I/O 範圍防偏移（2026-10-31）
 
 本規則對 **全部 A-XX** 生效：必要研究成果是「玩家/收包觸發 → Client 送包 → Client 必要收包 → UI/下一個送包」及原始 EXE/資源證據；**原版 Server 的帳號認證、資料庫提交、出生點選擇、任務初派政策、NPC AI/獎勵決策一律不是 A 必備結案條件**。原服未見行為標 server-policy-unknown，責任轉 DEV；如 Client 路徑本身不明才保留該 Client 子分支 partial。明確執行範本見 [Client I/O 標準](../03-analysis-requests/client-io-handoff-standard.md)。
+
+## v2 Client I/O 範圍的 CI 支援
+
+全體 A-XX 先分類工作軌；Client I/O 研究以操作→送包→收包→畫面/再送包為核心，不以原服帳號/出生點/任務/DB 政策作完成門檻。A-015 資源格式、A-016/017/018 Server 設計是獨立工作軌，不強迫填不存在的 Client 封包；人工審核仍不得用原服不可見決策卡住已證 Client 研究。參考 [全員規範](task-ownership-and-client-io.md)。
