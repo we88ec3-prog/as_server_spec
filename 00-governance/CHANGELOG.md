@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## task_a/roy2 — 2026-10-31 A-023 首觸發與關閉回送續查
+
+追通 S44(1,0)→資源／依賴檢查→ScriptRunner→Main，補出 start wire、BE 整數、語系 codepage、文字 CRC 與缺檔佇列；修正「Born 無顯式 SendReply 所以無回包」的錯誤外推：client.Dispose 送 C6C4，未 replied 的清理再送 C6C2。追加原件 bytes／合成 body 驗證、316 Script 語料盤點與 nNewJoin01 候選，更新 CT-033～035。原服 first-login 發送政策、NPC entity 綁定與 quest 旗標確實未在可得 Client／資源證據中解出，沒有將全任務標 ready 或 native CT 標 passed。詳見 task_a/roy2/A-023-script-entry-contract.md。
+
 ## task_a/roy2 — 2026-10-31 A-023 直接依賴交付
 
 追加 A023-E12：核查 Born 所呼叫 PaperDialog.dat 的函式、單頁 UI、翻頁與關閉分支及未驗證的視覺資產引用，提供雙資源離線驗證工具與機讀結果。修正報告／測試計畫的舊 CT 編號至主線 CT-033～035。保留 A integrated/partial、版本配對與首觸發/NPC/quest unknown，原生 CT not-run；未提交原始遊戲資產。

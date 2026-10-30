@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "bf50f80614440b77b79582899f8ff7e75c71e89112ad2eb311e8d71d7b44f284"
+      "sha256": "3dd10f3a9a1e53da9c691fb60baff87f597818ea3c690130d2e517aa10617930"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "bb5c669a81836ec16bbc34f1ed7eacaeecc0920c002ae97fcaf0e9b1ecdc643b"
+      "sha256": "df483c3d30bff0c96f0bef88625a8a4762a0e48a9fd3e2dd2e168d852dcb6b50"
     },
     {
       "path": "00-governance/workflow.md",
@@ -89,7 +89,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "5f1c346977e289ddfbb995cf8072af1af2a86215ed744b9910362dfc00c3746f"
+      "sha256": "b904c90817c624eea64df48ffc7a7c92e4db1b739c36390c356ae5e85efadc15"
     },
     {
       "path": "03-analysis-requests/A-021-acceptance.md",
@@ -121,7 +121,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "a75aac0be506dc92133d4052181a66547d5222e1980bfa5dc630a9050bff71fe"
+      "sha256": "77b6fc37d0f52cc76929cb1a82c40d70b89a21e44c4b876d44b94b785d206f83"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
@@ -153,7 +153,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "041ccf344905584e45006efde7ed2e43557cc490c32ee07b06721a032d4927eb"
+      "sha256": "e68c7e4beaee04b98c6b16687a12463f21fd5e25bd3e96be52f942df5a1d4b7b"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -169,7 +169,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "d65611e3dc309cfd9b432f59c8b195d3cc031dfc9d47af21586971c663662ec6"
+      "sha256": "76308d1dbfe742318b6879a9a2c757ad47e5fa6664a25bc05f8f9b5e3e37dfc3"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -181,11 +181,11 @@
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "2d76e90f3f72901d59bd2ecd0d66d9f5130cfa5b57264e10f5270e237051e6f1"
+      "sha256": "2276a2be11f914ef7bc13338eba065e73ae0528c44c5db6d8c7f1eaf46422b09"
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "b1b5a45a8fc16cb901602fdb759dbc3c1c57e9e8ad8bb23ccd0199c27fa9b2a8"
+      "sha256": "78f3ba50fecc92c5445f7f9b8ab3b3bc08306557328272e4299e3a178e9b93e3"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -193,7 +193,7 @@
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
-      "sha256": "a82b1549ee33178409fbc77b0a2c97ea0de73f77db734d3d0afef29d6d834c30"
+      "sha256": "7dd39e00b86f7908d08f9938f13ba272b4d5695e6abddd84a8c6baf1aedc3a48"
     },
     {
       "path": "04-analysis-integration/transport.md",
@@ -201,11 +201,11 @@
     },
     {
       "path": "04-analysis-integration/tutorial-born-resource.json",
-      "sha256": "3762d358600fdd980ea7f79d8e000afd7b3210189d9d143f0b9c214a0acfab05"
+      "sha256": "5b09bd847fa7998fecc0a408f71a76a1e507d640a5672a3c67491b1ebfb72de0"
     },
     {
       "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
-      "sha256": "c93c5bf538a1910d3583b5178d818af853543a82c0b9bfe273dcc57da8caaa88"
+      "sha256": "ce76a643a9a55342784217152f0d673ccf4bcf5438379dc48afadaded6de7b13"
     },
     {
       "path": "05-conformance/implementer-guide.md",
@@ -221,7 +221,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "55d6acf311dd47fb4647dd9a408709d4afa4275000c44e2dfca1d6a99e592c65"
+      "sha256": "3c232b744b23c21a759a9d310269938e6957218ec1d725e8e91bf5d20c2b97fb"
     },
     {
       "path": "README.md",
@@ -229,7 +229,7 @@
     },
     {
       "path": "task_a/roy2/A-023-analysis.md",
-      "sha256": "782210c85bcfe02f9a732d2dc19f5343c9558b4a82508c00bf3ea2a527ed663e"
+      "sha256": "156fdb39b9b3a2af8f2368c321b42361ea98c1cbe624c6f7057da024ff1fc619"
     },
     {
       "path": "task_a/roy2/verify_born.py",
@@ -246,6 +246,22 @@
     {
       "path": "task_a/roy2/entry-dependency-verification.json",
       "sha256": "1888670fb2a76e4853e096c60e067ba4260d5ec604250a35ed313ca9bf59dc91"
+    },
+    {
+      "path": "task_a/roy2/A-023-script-entry-contract.md",
+      "sha256": "eb885e772fdc782c9f36b5b5731ec608ab95f9dabc7fd7325f87ecfa3bfd9611"
+    },
+    {
+      "path": "task_a/roy2/corpus-entry-audit.json",
+      "sha256": "f1ac49cd2fff97cb41773f04338307c76f0bde7a62782831669f59a788ad1ccf"
+    },
+    {
+      "path": "task_a/roy2/script-entry-verification.json",
+      "sha256": "6c158301fbca7ee1d72cc86b597614a7127be06cc1b4a7ac0949b2ddd1272018"
+    },
+    {
+      "path": "task_a/roy2/verify_script_entry.py",
+      "sha256": "2a1adf17dde6c651ef831bbaac3ac99bc367e0305c26a7c24c02173c1a46e974"
     }
   ]
 }

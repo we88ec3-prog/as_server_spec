@@ -1,5 +1,7 @@
 # A-023／roy2 — 教學入口最小 NPC、Script 與任務初始化依賴（BIN-first）
 
+> 本文保留 E01～E13 的歷史分析；最新已追通的 S44→Main、精確 wire、資源 CRC 與 Dispose 回送，請以 [完整 Client 契約](A-023-script-entry-contract.md)（E14～E18）為準。本文「首次觸發 unknown」現僅適用原服發送政策，不再適用 Client 封包啟動機制；「沒有顯式 SendReply」也不代表關閉時沒有 C6C。
+
 - 日期：2026-10-31；工作路徑：`task_a/roy2`；分析分支：`task_a/roy2`
 - 範圍：R-027、SYS-QUEST、ONB-03/05、SCN-009/011；對照 A-011、A-012、A-022。不追教學完成、獎勵、怪物 AI 或技能細節（A-024～026）。
 - Client：`Asgard.exe` PE32 x86、ImageBase `0x00400000`、檔案 3,235,840 bytes、SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，匹配 `TW-seed0-local-v0.1` 的既有身份。
@@ -85,7 +87,7 @@ writer `0x45ab00` 寫一 byte；`0x45b1b0` 以 `WideCharToMultiByte` 和全域 c
 4. `SScript` 的快取更新/刪除不是純 UI 彈窗；未掌握安全 schema 和必要條件前不主動發，尤其不發 type1/subtype3 清快取；拒絕路徑不擬造 opcode。
 5. NPC/初始任務僅從經確認的 profile/content revision 載入；若缺官方資源就「native-content-unresolved」，勿使用假 NPC id/座標在官方 profile。
 6. 未來任務觸發與初始 grant 應由 Server 權威、原子性/冪等 ledger 實作；現階段這只是安全設計，不當作原服協定。
-7. UI/Client 事件需等 World/MapPane 有效；**不代表**確認了某個 Born 自動啟動時點。不可因缺 CT-033/030 就抹掉 E02～E06 的靜態證據。
+7. UI/Client 事件需等 World/MapPane 有效；**不代表**確認了某個 Born 自動啟動時點。不可因缺 CT-033/034 就抹掉 E02～E06 的靜態證據。
 
 ## 5. 下游 CT 計畫（尚未原生測試）
 
@@ -130,4 +132,4 @@ writer `0x45ab00` 寫一 byte；`0x45b1b0` 以 `WideCharToMultiByte` 和全域 c
 1. **已證**：存在一個只顯示教學紙張對話並引導玩家去 (31,29) 點選招募員的 `Born.Main` 資源；原生 Client 的 C6C/S44 script 通道存在且有危險清快取分支。
 2. **仍未證**：是否首次登入自動呼叫 Born.Main、首個不可省略的 NPC、招募員身分及原生初始任務/互動 wire、原服回覆。單憑 Born 沒有這些欄位，不能在正式 profile 填猜測值。
 3. **DEV 交接**：ScriptCatalog 可登記 SHA256 驗證的 Born 候選，Dialog 可按內容資源發生但不得自稱原版已觸發；WorldReady、EntryCommitted、TutorialCompleted 分開；不主動發未知 S44，拒絕 stale/未載圖的互動。
-4. **A gate**：`status=integrated`、`handoff_status=partial`、`native_client_validation=not-run`。完成本次實際可取得的資源與 BIN 證據整合，原生首次觸發/必要 NPC 缺口交 A-022/A-024、quest/對話分支交 A-012/A-026，實機由 CT-034/031；不是等新 Server 才停止分析。舊段落的「沒有 Born 檔」敘述屬先前階段，以本節為準。
+4. **A gate**：`status=integrated`、`handoff_status=partial`、`native_client_validation=not-run`。完成本次實際可取得的資源與 BIN 證據整合，原生首次觸發/必要 NPC 缺口交 A-022/A-024、quest/對話分支交 A-012/A-026，實機由 CT-034/035；不是等新 Server 才停止分析。舊段落的「沒有 Born 檔」敘述屬先前階段，以本節為準。

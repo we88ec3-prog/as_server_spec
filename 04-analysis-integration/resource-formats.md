@@ -18,6 +18,8 @@
 
 ## Script
 
+**A023-E17 原生 reader 補正**：`00010000` + BE u16 n 是本批小檔案的外觀拆法；0x529060 實際依次讀 **BE u16 version=1、BE u32 UTF-16LE code-unit count**。校驗文字時將完整 UTF-16LE XML 依 LanguageMan codepage 轉 bytes，再做標準 CRC32，並非 raw DAT 的 CRC。Born/PaperDialog 在 CP950 的文字 CRC 分別為 `1d87b0c0`／`f870c574`。詳見 [A-023 完整契約](../task_a/roy2/A-023-script-entry-contract.md)。
+
 316個Script/*.dat均可zlib解壓：bytes0..3=00010000（語意未知），bytes4..5為BE u16 UTF-16 code-unit數n，offset6後為UTF-16LE，總長必須6+2*n。315個為可解析XML，NDW為純文字。CDATA含Client腳本與介面API，不能視為完整Server任務／獎勵／AI邏輯。
 
 BarberShopDialog的Gender、HairShape、HairColor與CreateHairShape/SetHairObject提供外觀預覽入口；Born為新手對話／座標導引，不能當登入或創角處理器。
@@ -53,5 +55,7 @@ Evidence：MAP ev_e166a44f01c9de3b7eff7457a30e6279b8571b5a76afc7354812c14bf1331e
 同 SHA Client `0x4B4850` 讀 MAP header +4 的 LE u16；`0x4B4890→0x4B3650→0x4B2EC0` 對解析後 block、10-byte tiles、7/8/16-byte records 做結構化 checksum，部分值正規化。`0x43E0A0` 查表 `0x664720`（table[1]=0x1021），單元 primitive 合成 `01 02 03→0x1222`。無原版教學 MAP/Script/Born bytes，真 tutorial map ID、出生與完整 C35 checksum 仍 unknown。參見 [A-022 證據](../03-analysis-requests/A-022-roy1-bin-analysis.md)。
 
 ## A-023 Born.dat 原件報告（roy2，獨立重現尚需來源檔）
+
+**2026-10-31 續查已在本地原件獨立重跑**：Born 與 PaperDialog hash／解析通過，並追通 S44(1,0)→Main 與關閉 C6C4/2 原生副作用。下段「本地只有 EXE」是早期 review 狀態，不再適用；目前缺的是原服 first-login 政策與 NPC/quest 綁定證據，非缺 Born 原件。重現工具及目前限制見上引完整契約。
 
 Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`；zlib 解包 1154 bytes、prefix `00010000` + BE u16 574 UTF-16LE units；唯一 `Main` 建立 PaperDialog，文字引導 (31,29) 女性招募員。未觀察到顯式 quest/SpawnNpc/SendReply；不能推論引擎沒有其他副作用，更不能把 (31,29) 當成出生點。此回合本地只有 Asgard.exe，原 Born.dat 尚不可獨立重跑；報告與 validator 已入版，日後以原件 SHA 重現，版本對應仍未驗證。

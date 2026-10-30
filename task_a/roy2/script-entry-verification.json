@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "kind": "offline-static-and-synthetic",
+  "binary": {
+    "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+    "verified_byte_spans": 18,
+    "literal_Born_ascii_or_utf16": false
+  },
+  "codepage_condition": "LanguageMan index 4 / CP950",
+  "born_crc32_cp950": "1d87b0c0",
+  "paper_crc32_cp950": "f870c574",
+  "synthetic_s44_start_body_hex": "010004426f726e112233441d87b0c0010b50617065724469616c6f67f870c5740000",
+  "decoded_start": {
+    "script": "Born",
+    "context": 287454020,
+    "crc32": 495431872,
+    "dependencies": [
+      {
+        "script": "PaperDialog",
+        "crc32": 4168140148
+      }
+    ],
+    "parameters": []
+  },
+  "synthetic_close_bodies_hex": [
+    "0404426f726e11223344",
+    "0204426f726e11223344"
+  ],
+  "negative_body_cases_rejected": 37,
+  "native_client_validation": "not-run",
+  "original_server_first_login_policy": "unknown"
+}

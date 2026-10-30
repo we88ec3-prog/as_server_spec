@@ -147,7 +147,8 @@
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
-      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff"
+      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
+      "analysis_handoff": "A-023 S44 named Main start/dependencies and C6C lifecycle contract ready for development; original-server first-login policy/NPC binding remains partial. See task_a/roy2/A-023-script-entry-contract.md"
     },
     {
       "id": "ONB-06",

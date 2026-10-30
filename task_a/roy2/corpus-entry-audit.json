@@ -1,0 +1,34 @@
+{
+  "resource_count": 316,
+  "xml_count": 315,
+  "non_xml": [
+    "NDW.dat"
+  ],
+  "born_literal_reference_files": [],
+  "identity_list_sha256": "5917f7fbff11bda7e4a08239fea3f41de859283e16e5d359ae7d965a90cfc34f",
+  "candidate": {
+    "filename": "nNewJoin01.dat",
+    "sha256": "8410064a564e381bfe941c71af3fc70598ea2325df69c3d216d7fbba1c7f79ae",
+    "binding_to_born_recruiter": "unverified",
+    "reply_key": "STATE",
+    "accept": "ACCEPT",
+    "refuse": "REFUSE",
+    "merchant_main": {
+      "filename": "Merchant.dat",
+      "sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+      "parameters_read": [
+        "TILE",
+        "MNAME",
+        "UGOLD",
+        "UBAL",
+        "UAGOLD",
+        "UABAL",
+        "UCOLOR",
+        "GREETING",
+        "TYPE"
+      ],
+      "native_binding_to_recruiter": "unverified"
+    }
+  },
+  "native_client_validation": "not-run"
+}

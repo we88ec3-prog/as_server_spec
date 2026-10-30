@@ -1,5 +1,11 @@
 # A-023 Script／教學入口：可供 Server 設計採用的受限證據
 
+## 最新核查：封包啟動與關閉回送
+
+已追通 S44(1,0) 指定名稱／context／文字 CRC／依賴／參數，資源齊備後 0x52c2a0→0x52bd30→0x524fa0 呼叫 Main；缺檔由 C6C(0) 請求、S44(1,1) 更新後重試。Born.Main 需 PaperDialog 函式依賴。原服首次登入何時發送、使用何種帳號／任務旗標仍未知，與 Client 機制分開。
+
+PaperDialog 關閉時的 client.Dispose 會送 C6C(4,name,context)，並在尚未 SendReply 時再送 C6C(2,name,context)；因此舊段落「Main 無顯式 SendReply」不得被當作沒有回包。這些是 script lifecycle，不能直接等同教學完成。精確 schema、位元組序／CP950 條件、CRC、清快取與 mismatch 風險、原始位址和合成向量見 [A-023 完整 Client 契約](../task_a/roy2/A-023-script-entry-contract.md)。後續與本段衝突的早期 unknown 敘述以此段及完整契約為準。
+
 參考 [BIN-first 全文](../task_a/roy2/A-023-analysis.md)。日期 2026-10-31；原版台灣 Client SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`。本頁屬部分研究整合，不是經原生 E2E 驗證的教學初始腳本契約。
 
 ## 已確認的 Client 層（observed-static）
@@ -14,7 +20,7 @@
 - `WorldReady`、`TutorialEntryCommitted`、`TutorialCompleted` 分開；登入/載圖不可默默寫入完成。
 - 首個 NPC、Script、任務 UI 是否為必要初始條件、觸發條件、map/npc/script/quest id、payload／拒絕碼全部 unknown：需資源與 A-022/A-011/A-012/A-024 補齊。禁止用測試值冒稱原版。
 - 只有取得來源與精確 schema 時才能向 Client 傳送對應 S44；不能以 C6C(03) 最小登入 fixture 取代所有 script 互動。封包重送、stale session、跨 instance 的任務進度須伺服器權威處理。
-- 完整 BIN 觀察、失敗路徑、CT 重現腳本見報告。CT-033～031 的 `native_client_validation` 均 `not-run`。
+- 完整 BIN 觀察、失敗路徑、CT 重現腳本見報告。CT-033～035 的 `native_client_validation` 均 `not-run`。
 
 **A gate**：`integrated`／`handoff_status=partial`，因真正的首教學觸發/任務封包尚缺必要證據。這不是因新 Server 未建立而 blocked。
 
