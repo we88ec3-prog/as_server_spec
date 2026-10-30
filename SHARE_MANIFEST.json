@@ -77,7 +77,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "b228a718b7114b4091e88d877b969283060be1ddceb1e24d565bf6f6a6514c82"
+      "sha256": "d98997d714fb1b4b79f8ce08862ef0b696ebd9886dfd2277f339760947b67467"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -193,7 +193,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "11be05a8d7d52bdbfda21a4383abb0bbd1c543fb4b413da0da688fde6f22508a"
+      "sha256": "ec726358cb99828a7408aad91191e4de75aae139d82c5c61242c23149b5ec237"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -269,7 +269,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "aebf33a229052c381955f81021e7bfb24e63fa4952d34952ee1afea4dabeeae9"
+      "sha256": "7b3f16919ee266f088cc8938919931dd7c802c26baa4de9ee31bde28f5e522ae"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -285,7 +285,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "ead5a0cd7a3468b34c9c357fe8daa9796f99240059eb3b18a3ede3d7c2de816f"
+      "sha256": "b114fcedcdbccc01bb8f588cc1fe6c8068c1271392136be3da316232afeb3f97"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -301,7 +301,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "316d62284f9207118a02ab31f6ad70bbf32539ddad7147ce350aee5bd854aacd"
+      "sha256": "92fb0987a97ac4f5851e5a987e37280b54d4b9cbf86fc6fe1a29eafacd326ad5"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -353,7 +353,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "76aa5c57cd4c21935d9c507252033cc6ce4b650b62ff32375055f0da08ea2580"
+      "sha256": "594b6663b0fecfdb1169d545c89348330a2d331329b9947661710a4b828524d4"
     },
     {
       "path": "README.md",
