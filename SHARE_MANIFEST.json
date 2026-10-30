@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "d7d7a8b78129739038d62a985c8277333e216605f89c820595b27513b3bc6071"
+      "sha256": "6f5bc52378aae01d6995e0800ac1787e60328c2008a7b4634f82aa88076d4273"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -69,7 +69,7 @@
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
-      "sha256": "0d2897253b35d63ac7eaa6731327601e025338d6ca39d4cf2ea921fceef648f0"
+      "sha256": "989791c1ef8560ae4a08df1aaf15c9f11a89b73a5e5668f2aea7dd3e38dadf51"
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
@@ -77,7 +77,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "c41a9943f5b3a7dd02c2da59dd203b26829ec2a6a2adbb95d123fc843f2d1dc2"
+      "sha256": "7c9d7dfd7d334c9befcf095715f30f1b743747473908255c252173436f81528d"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -113,7 +113,7 @@
     },
     {
       "path": "03-analysis-requests/A-021-roy1-followup.md",
-      "sha256": "30a5c65de22f8ab347d8d074ba0c848f70afd0cf2fd5b95c7aac76e1491de8b2"
+      "sha256": "d50223db64cf407d8479d3b556f5ae2f161012db1f3ba651ce6b89d7514de087"
     },
     {
       "path": "03-analysis-requests/A-021-roy1-static-analysis.md",
@@ -128,12 +128,16 @@
       "sha256": "0412ac99a9cd6bffcd926efa4600051aa7e1b2450875fd52c03f2651a2226478"
     },
     {
+      "path": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "sha256": "c25b5c322eacd3935111da182d3c1e11910f8bed2e72476f1729a35914f23d49"
+    },
+    {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
       "sha256": "711e371105a9f8c87a1469b05b799c53129a54c38bed2da741021bd05ecacacc"
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "a5e17d4b7f67f48c7a43afe66fe7fcefbb6b5d65b11d75b1eab7274c823e304e"
+      "sha256": "7790bc2ff6ad6de852b65ff05a0e2616e69714ee1cdf00c74adb5732ea80d207"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -141,7 +145,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "55501250937a528b1d966de865639fc2ae1f288506475bfc60004d4665ef9f54"
+      "sha256": "801ba1dbc169f8b239529ab31b98aa3321f2bd15943faba711f71b8bebaf1ceb"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -149,7 +153,7 @@
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
-      "sha256": "1c66df3df2863abfcfcb03a5b26f5962f6a38ca4f4c7cb4731f23e45a9dfe7ed"
+      "sha256": "89c93e0e50169e118da44dae7e94eb956c240955d8c37183b8388fbb786d5bb3"
     },
     {
       "path": "04-analysis-integration/A-021-roy1-review.md",
@@ -166,6 +170,10 @@
     {
       "path": "04-analysis-integration/A-027-preauth-safety-contract.md",
       "sha256": "50aead306f19280f6400502050566cf65a3e30f5adae81dbe0601f3a5e490157"
+    },
+    {
+      "path": "04-analysis-integration/A-028-newuser-terminal-contract.md",
+      "sha256": "62073156a360ff3dc1417b21f4ce3aadb09ab2b3098834c657455d5fffc3570d"
     },
     {
       "path": "04-analysis-integration/analysis-coverage.json",
@@ -185,7 +193,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "cb12387f59edf3c0122460d14634987f7c5c2001a142ceb924ec4653929fcf68"
+      "sha256": "450e0726c46cb2d264cff83a77f2db7e0e5e87436189b4e5c300f6ad9716e232"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -201,7 +209,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "46bec28fbd48f2ef3b28ed808368f5160d7bdc7cbe414bf3687d5c3466e7f8d0"
+      "sha256": "f2c596a791cea2b25f4cd1e17bfb8226a23c842f2ba0457af227fe196d7b580d"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -217,11 +225,11 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "a8ee40e67e4bb2802c756013375e4e8deffe5c50ec8d698c45dac3ddc4cfa89b"
+      "sha256": "36360e58a182747db402b84f59685a3418f5ceaa61ba0df12662269a6e08c8f1"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "6d83cb2c0b2b5fc509dd1bf82464ca5792798074a41efb05f8391cf92a218635"
+      "sha256": "4de64bfd647e18a37c4fa60ff7a4006ae67be5fa22e3880518ef3eddd3224258"
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
@@ -245,7 +253,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "955abc3a9557a3b7efd49dadfca270337d477efe2b4438fb63f07403df263eaa"
+      "sha256": "f1dabed25edb43f77a28b62c3752f7f82dcc76e4c770dd74725911bc01b0387d"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
@@ -253,7 +261,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "84e654854cfe0293ce90410fe06f351eeab388acb2f83e1c557cf24653c7a4bb"
+      "sha256": "4d394c885c8a7492faf69f31bd597708f4c5d2f221deb1e0cd5ec98b238cea3b"
     },
     {
       "path": "README.md",
@@ -302,6 +310,10 @@
     {
       "path": "tools/a027_pre_auth_contract.py",
       "sha256": "a487c5795eed6ba82ee3af66151ee1835a31943586180d06e882bbd2564facf1"
+    },
+    {
+      "path": "tools/a028_newuser_response.py",
+      "sha256": "900f6d08befd177fceb436a4724f0d30f565b9b1ff62f1bf39ed95279be02fc8"
     },
     {
       "path": "tools/validate-phase-gates.py",
