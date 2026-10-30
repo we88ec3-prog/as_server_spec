@@ -18,3 +18,7 @@ ONB-01 管理後台建帳和安全登入 → ONB-02 Client 創角（需 A-021）
 ## 首次玩家到完整教學的新階段（2026-10-31）
 
 M1/ONB-01～04 定義「管理員建帳→玩家登入→創角→進入原生教學→故障恢復」；M2/M3/ONB-05～06 定義「教學 NPC/怪物→技能/目標→完成與退出」。見 [ONB 進度板](onboarding-delivery-board.md)、[機讀開發批次](work-items.json)、[教學 Server 規劃](tutorial-runtime-plan.md)。規劃完成不等於 Server 已實作或原 Client 驗收。
+
+## Client I/O → Server 實作分段路線（v2）
+
+依 [Client I/O 縱切開發計畫](client-io-delivery-plan.md) 分 DEV-IO-01～06（正式追蹤仍用 ONB-01～06）。與其等待原服帳號驗證、固定出生點或首次任務派送政策，先按已證 C03/S03/C10、C02/S02/C04/C15、S15/S14/C35/S04/S33、S44/C6C 實作對應 Adapter/Domain；由 Server 自行決策 account owner、map/spawn、Script 派送、NPC AI 和 Quest。Client UI 下一步尚未知仍須 A 定點查（尤其 C03 無角進 NewUser），CT 只在原 Client 實測後標 passed。參照 [機讀矩陣](client-io-flow-matrix.json)。

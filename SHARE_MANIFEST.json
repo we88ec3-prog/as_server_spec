@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "30c7e514173b809e1c32b27c9bdb2bf9828fc3a4d1c4e97574291448432756cc"
+      "sha256": "a87a9a194f0a2fefa500aae077350d05a010d74a312e8b76b40941ecd05973ee"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -72,6 +72,14 @@
       "sha256": "adc208a7c36fdbe17659c6207f597a4a86f362fc7fdf7e9e9fd29ba2d32f78be"
     },
     {
+      "path": "02-server-planning/client-io-delivery-plan.md",
+      "sha256": "5375895ad5d001f9af16a24c04704ca11f6a1d4678b6fae0ff37deac567ba99b"
+    },
+    {
+      "path": "02-server-planning/client-io-flow-matrix.json",
+      "sha256": "aff34014f6304b05de569f6395421d2a42554171007da26a8f7f8623c3e756f8"
+    },
+    {
       "path": "02-server-planning/client-server-responsibility.md",
       "sha256": "3f40e3ddb73105409a2df75424a7b0261a85e1a02efc73025b5863751ca60653"
     },
@@ -93,11 +101,11 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "797023df6e59f362e4ee09896eea5ff8085fe968b96cd6856be16c303d8f3d80"
+      "sha256": "085c888f613e3f8e65c8db58243b74e214bd5b03031b2f740b958934e208f663"
     },
     {
       "path": "02-server-planning/roadmap.md",
-      "sha256": "28ce42c9c879782455ce4c6a23c9abce774758737bac34a2054e122f32bfffd6"
+      "sha256": "fadd4db5501a2d2df7331437f713e7d8fe5a5d783c44a2f2ad89fc3b8dc33c6f"
     },
     {
       "path": "02-server-planning/script-lifecycle-contract.md",
@@ -121,7 +129,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "e93fad9378c77486268815c83bd84929df62e3346e0de061274d10f949d4bdce"
+      "sha256": "a8f50c0b8eeee33c1f233890d9129b8b84248745f22f1052981b5cdab20b61d1"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -177,7 +185,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "c4481a60409d294df0eb909a02e4339e57917bb80ad1fc87ca164a23fa10a943"
+      "sha256": "6d2dfdfde884e9a329379e86b992a5df771c6dcf279cfcdb916340b1086df600"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -324,6 +332,10 @@
       "sha256": "ce76a643a9a55342784217152f0d673ccf4bcf5438379dc48afadaded6de7b13"
     },
     {
+      "path": "05-conformance/client-io-verification-plan.md",
+      "sha256": "ef248818861f88d753cfad9d1434c8fc6b8fa3b598522199ef9aa59e7ef0c9cb"
+    },
+    {
       "path": "05-conformance/implementer-guide.md",
       "sha256": "82672a871be350d4da3e1c870a1c2eeb801b9d23a86b0747ca1c3f631556ebbf"
     },
@@ -341,7 +353,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "5462c7df8d9d14a84c283759fffd27fcd96d859a44cdf3a12ebcfce788bd2e2f"
+      "sha256": "7b13ba7cc49bcbbdc9abdc9175f89feed8e737c28dc8e29a07e2a25b3b1112b5"
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
@@ -461,7 +473,7 @@
     },
     {
       "path": "tools/validate-phase-gates.py",
-      "sha256": "d299fc9f11a5bdb08b13f7f4929c4d5d814112dcd959e145d7f32857f2ee3a38"
+      "sha256": "a1f840457eee6e8c33dd2b6cad830f59df8b16df1d9108373abce30d7d073f07"
     }
   ]
 }

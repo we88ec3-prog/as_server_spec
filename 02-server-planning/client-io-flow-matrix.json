@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "client_profile": "TW-seed0-local-v0.1",
+  "target_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "as_of": "2026-10-31",
+  "semantics": "Client I/O evidence and Server authority policies are independent; these are not observed-original-server traces",
+  "flows": [
+    {
+      "id": "FLOW-LOGIN",
+      "label": "玩家登入",
+      "client_trigger": "玩家在既有登入 UI 輸入帳密並提交",
+      "client_send": [
+        "PKT-C03"
+      ],
+      "server_to_client": [
+        "PKT-S02",
+        "PKT-S03"
+      ],
+      "client_reaction": "S02 路徑顯示錯誤；S03 令 Client 重建 TCP，後續 C10 raw token",
+      "evidence": [
+        "A-001",
+        "A-002",
+        "A-020"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-007"
+      ],
+      "tests": [
+        "CT-019",
+        "CT-037",
+        "CT-038"
+      ],
+      "server_decisions": [
+        "只驗證管理員預建 Account 的合法憑證與停權",
+        "選擇登入拒絕/成功以及一次性 TransferGrant；不以未知原服碼推測新錯誤 status"
+      ],
+      "readiness": "wire-subset-ready",
+      "unknowns": [
+        "非 seed0 region/版本對應",
+        "全部 S02 status 語意"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-01"
+      ]
+    },
+    {
+      "id": "FLOW-NEWUSER",
+      "label": "原生 NewUser 兩階段表單",
+      "client_trigger": "玩家開啟 NewUser UI，提交本地檢查過的輸入欄位；不是已證 C03 無角色後自動切入",
+      "client_send": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C15"
+      ],
+      "server_to_client": [
+        "PKT-S02"
+      ],
+      "client_reaction": "state 0x1d 收 S02(0) 發 C04/進0x1e；0x1e 成功走 UI；非零錯誤可觸發 C15 空 body/0x1f",
+      "evidence": [
+        "A-003",
+        "A-021",
+        "A-027",
+        "A-028"
+      ],
+      "scenarios": [
+        "SCN-007",
+        "SCN-008"
+      ],
+      "tests": [
+        "CT-011",
+        "CT-029",
+        "CT-030",
+        "CT-031",
+        "CT-032",
+        "CT-041",
+        "CT-042",
+        "CT-043",
+        "CT-044",
+        "CT-052",
+        "CT-053"
+      ],
+      "server_decisions": [
+        "R-025: Client 不建立 Account，C02 不可無認證認領其他預建帳號",
+        "合法 owner + PendingCharacterIntent 才能回引發 C04 的 S02(0)；C04 原子保存後再依合法 UI 回覆"
+      ],
+      "readiness": "wire-and-ui-partial-auth-route-unproven",
+      "unknowns": [
+        "C03 無角是否可到 NewUser UI",
+        "C02 各 region 真正欄位語意與安全認證條件",
+        "錯誤碼的原服文字含義"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-01",
+        "ONB-02"
+      ]
+    },
+    {
+      "id": "FLOW-TRANSFER",
+      "label": "Login TCP 轉 World TCP",
+      "client_trigger": "Client 收到 S03，依地址/port 建立新連線",
+      "client_send": [
+        "PKT-C10",
+        "PKT-C25"
+      ],
+      "server_to_client": [
+        "PKT-S03"
+      ],
+      "client_reaction": "向 World TCP 發 C10 body raw token（不含 string8 長度），再進入 C25 等 World 流程",
+      "evidence": [
+        "A-002",
+        "A-016"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-010"
+      ],
+      "tests": [
+        "CT-037",
+        "CT-038",
+        "CT-045",
+        "CT-046"
+      ],
+      "server_decisions": [
+        "只允許一次消費且有期限的 token；登入 TCP 關閉不應直接撤銷合法轉服",
+        "generation/owner/destination 由 Server 校驗；重複登入採明示設計策略"
+      ],
+      "readiness": "wire-subset-ready",
+      "unknowns": [
+        "原服重複登入策略與 S02 拒絕碼",
+        "C25 全區域分支"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-01",
+        "ONB-03",
+        "ONB-04"
+      ]
+    },
+    {
+      "id": "FLOW-MAP",
+      "label": "世界地圖載入與座標呈現",
+      "client_trigger": "Client 收到 S15/S14 地圖載入/控制回覆",
+      "client_send": [
+        "PKT-C35"
+      ],
+      "server_to_client": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-S04",
+        "PKT-S33"
+      ],
+      "client_reaction": "讀取本地對應 MAP，回 C35 的 2 個 BE u16；在恰當的 S04/S33/S14 狀態更新角色和地圖",
+      "evidence": [
+        "A-015",
+        "A-022"
+      ],
+      "scenarios": [
+        "SCN-009",
+        "SCN-010"
+      ],
+      "tests": [
+        "CT-016",
+        "CT-017",
+        "CT-018",
+        "CT-039",
+        "CT-040"
+      ],
+      "server_decisions": [
+        "自行選合法 map_id、可呈現 spawn/朝向、版本和校驗配對",
+        "載入單一 pending epoch；重連/錯版/重送 fail closed；入圖不等於教學完成"
+      ],
+      "readiness": "loading-codec-ready-content-mapping-partial",
+      "unknowns": [
+        "目前驗證過的 494 MAP 之 map_id/相容版本與原生顯示完整映射",
+        "合法出生點、碰撞與 C35 配對需要對具體選定地圖完成測試"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-03",
+        "ONB-04"
+      ]
+    },
+    {
+      "id": "FLOW-SCRIPT",
+      "label": "Client Script 執行與關閉",
+      "client_trigger": "Client 收到合法 S44(1,0) 指定 script/context 及依賴",
+      "client_send": [
+        "PKT-C6C"
+      ],
+      "server_to_client": [
+        "PKT-S44"
+      ],
+      "client_reaction": "資源足夠執行 Main／PaperDialog；缺資源 C6C(0) 請求補檔；關閉 C6C(4)／條件下 C6C(2)",
+      "evidence": [
+        "A-012",
+        "A-023"
+      ],
+      "scenarios": [
+        "SCN-011"
+      ],
+      "tests": [
+        "CT-033",
+        "CT-034",
+        "CT-035"
+      ],
+      "server_decisions": [
+        "WorldReady 或指定受控事件觸發一次合法 ScriptRun（Server 自訂教學政策）",
+        "資源 revision/CRC/依賴相符才送 S44；C6C close 只表示生命周期，不等於任務完成"
+      ],
+      "readiness": "script-client-lifecycle-ready-dispatch-policy-designed",
+      "unknowns": [
+        "原服首次派發 Born 的時刻不是 Client 研究必答",
+        "當前缺完整 PaperDialog.dat 原件可作獨立依賴驗證"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-05"
+      ]
+    },
+    {
+      "id": "FLOW-GAMEPLAY",
+      "label": "NPC／怪物／技能／任務操作",
+      "client_trigger": "玩家在世界中點擊 NPC、攻擊或施放技能、完成任務操作",
+      "client_send": [],
+      "server_to_client": [],
+      "client_reaction": "尚缺具體事件與 opcode 的逐項 Client writer/parser/動畫/任務 UI 證據；禁止以設計任務數值代替原生 wire",
+      "evidence": [
+        "A-004",
+        "A-005",
+        "A-009",
+        "A-010",
+        "A-011",
+        "A-012",
+        "A-024",
+        "A-025",
+        "A-026"
+      ],
+      "scenarios": [
+        "SCN-011",
+        "SCN-012",
+        "SCN-013"
+      ],
+      "tests": [
+        "CT-021",
+        "CT-022",
+        "CT-023",
+        "CT-024",
+        "CT-025",
+        "CT-026",
+        "CT-027",
+        "CT-028"
+      ],
+      "server_decisions": [
+        "Server 自訂 NPC/怪物 spawn、AI、技能判定與 QuestGoal/RewardLedger；以已證 wire adapter 映射到 Client",
+        "無已證 NPC/技能/任務 opcode 時保留 mock-only 子域測試，不向原 Client 送猜測回包"
+      ],
+      "readiness": "requires-client-io-evidence",
+      "unknowns": [
+        "實際 NPC 點擊 C→S、物件生成 S→C、技能 C→S/效果 S→C、任務完成/獎勵 UI 封包待分析"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-05",
+        "ONB-06"
+      ]
+    }
+  ]
+}

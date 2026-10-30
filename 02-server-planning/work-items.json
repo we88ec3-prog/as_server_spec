@@ -32,7 +32,15 @@
       "client_acceptance_owner": "DEV/CT",
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
       "analysis_handoff": "A-002 integrated/partial: C03/S02/S03/C10 static Client codec and cross-TCP handoff; original duplicate login policy unknown",
-      "latest_evidence_gate": "Pre-C03 C02 cannot claim preprovisioned Account without separately verified owner/session; A-027 static research completed but native claim blocked."
+      "latest_evidence_gate": "Pre-C03 C02 cannot claim preprovisioned Account without separately verified owner/session; A-027 static research completed but native claim blocked.",
+      "client_io_flows": [
+        "FLOW-LOGIN",
+        "FLOW-NEWUSER",
+        "FLOW-TRANSFER"
+      ],
+      "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
+      "authority_policy_source": "02-server-planning/client-server-responsibility.md",
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
     },
     {
       "id": "ONB-02",
@@ -70,7 +78,13 @@
       "client_acceptance_owner": "DEV/CT",
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
       "blocked_native_scope": "C02 pre-C03 cannot grant character creation authority until A-027 proves owner binding. C04 reply and final transition require A-028.",
-      "latest_evidence_gate": "C02 S02(status0)→C04; C04 S02(status0)→local UI not S03; status!=0→empty C15/state1f; original preprovisioned owner route still blocked."
+      "latest_evidence_gate": "C02 S02(status0)→C04; C04 S02(status0)→local UI not S03; status!=0→empty C15/state1f; original preprovisioned owner route still blocked.",
+      "client_io_flows": [
+        "FLOW-NEWUSER"
+      ],
+      "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
+      "authority_policy_source": "02-server-planning/client-server-responsibility.md",
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
     },
     {
       "id": "ONB-03",
@@ -109,7 +123,14 @@
       "blocked_native_scope": "A-027/A-028 authenticated creation, A-015 native MAP/spawn and A-023 Born-trigger/NPC content still unknown. A-022 generic loading (S14/S15/C35/S04) evidence is ready only for partial implementation; CT-018/034 native Client not-run.",
       "analysis_handoff": "A-022 integrated/partial: Map CRC and loading ready; native tutorial content requires A-015",
       "tutorial_content_ready": false,
-      "latest_evidence_gate": "494 MAP structure verified, but native tutorial map/spawn and C35 structured checksum pair not yet proven; C35 has no client-visible epoch."
+      "latest_evidence_gate": "494 MAP structure verified, but native tutorial map/spawn and C35 structured checksum pair not yet proven; C35 has no client-visible epoch.",
+      "client_io_flows": [
+        "FLOW-TRANSFER",
+        "FLOW-MAP"
+      ],
+      "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
+      "authority_policy_source": "02-server-planning/client-server-responsibility.md",
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
     },
     {
       "id": "ONB-04",
@@ -143,7 +164,14 @@
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
-      "latest_evidence_gate": "Offline recovery/idempotency model ready; native resource or World E2E not-run."
+      "latest_evidence_gate": "Offline recovery/idempotency model ready; native resource or World E2E not-run.",
+      "client_io_flows": [
+        "FLOW-TRANSFER",
+        "FLOW-MAP"
+      ],
+      "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
+      "authority_policy_source": "02-server-planning/client-server-responsibility.md",
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
     },
     {
       "id": "ONB-05",
@@ -185,7 +213,14 @@
       "analysis_handoff": "A-023 S44 named Main start/dependencies and C6C lifecycle contract ready for development; original-server first-login policy/NPC binding remains partial. See task_a/roy2/A-023-script-entry-contract.md",
       "script_contract_ready": true,
       "native_tutorial_policy_ready": false,
-      "script_contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
+      "script_contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
+      "client_io_flows": [
+        "FLOW-SCRIPT",
+        "FLOW-GAMEPLAY"
+      ],
+      "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
+      "authority_policy_source": "02-server-planning/client-server-responsibility.md",
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
     },
     {
       "id": "ONB-06",
@@ -215,7 +250,13 @@
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
-      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff"
+      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
+      "client_io_flows": [
+        "FLOW-GAMEPLAY"
+      ],
+      "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
+      "authority_policy_source": "02-server-planning/client-server-responsibility.md",
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
     }
   ]
 }
