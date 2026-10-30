@@ -261,7 +261,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "41edfc0156951ee19459692151fa94699940ab996a15572e7fcf7d576219213d"
+      "sha256": "bcded4112635f3b2d10dc7a2322b9741f949a1a3b4e15618410fb9c2556acc30"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -305,7 +305,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "0e092ef5eb8ecd91d8968c20ac6b59f436e9bfabe86d667b0cfe7c0d3934cb67"
+      "sha256": "c0aefbae5e5e8aff2eda91d1dab302b5e56858000e126d4cfcbbe5278d6f120b"
     },
     {
       "path": "README.md",

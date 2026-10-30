@@ -396,6 +396,48 @@
         "重啟"
       ],
       "packet_mapping": "unknown"
+    },
+    {
+      "id": "SCN-014",
+      "title": "獨立管理API：帳號停權／角色調整／發放道具與去敏稽核",
+      "requirements": [
+        "R-018",
+        "R-019",
+        "R-021",
+        "R-025"
+      ],
+      "packets": [],
+      "status": "analysis-required",
+      "evidence_kind": "designed",
+      "analysis_evidence_ids": [
+        "ev_a017_20261031_management_contract"
+      ],
+      "management_api": "02-server-planning/admin-operations.json",
+      "analysis_contract": "04-analysis-integration/A-017-admin-observability-contract.md",
+      "preconditions": [
+        "authenticated operator actor",
+        "explicit permission for command",
+        "reason_code/idempotency_key/target/version checks",
+        "game Client C2S cannot access admin commands"
+      ],
+      "success_flow": "transaction commit unique effect and outbox then API response; audit sanitized allow/deny/replay",
+      "failure_cases": [
+        "unauthenticated allowlisted IP",
+        "observer item grant",
+        "same request ID changed body",
+        "duplicate item grant same key",
+        "suspended user auth",
+        "invalid permanent/duration arguments",
+        "teleport while loading with World generation mismatch",
+        "password/transfer token in diagnostics",
+        "API reply lost after DB commit"
+      ],
+      "native_client_validation": "not-run",
+      "notes": "Designed admin API contract only, not recovered original GM opcode, original Server roles or deployed admin web UI",
+      "conformance": [
+        "CT-050",
+        "CT-051"
+      ]
     }
   ]
 }
