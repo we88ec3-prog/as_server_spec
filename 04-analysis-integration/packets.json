@@ -37,9 +37,9 @@
       "name": "NewUser",
       "system": "SYS-CHAR",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "region code 2..4: string8×4 + u8；其他region: string8×3；欄位語意未確認，不可用於Client建帳",
+      "layout": "4xstring8+u8 when region2..4; 3xstring8 otherwise; field1 from MakeInfoDialog UI+0x26c (minimum length gate), field2 from UI+0x270 (compared against non-wire UI+0x274), region2..4 extra inputs from UI IDs 0x17/0x18 (region4) or 0x0f/0x10 (other nonzero); pre-provisioned ownership NOT proven",
       "client_entry": "0x5742b0",
-      "state_precondition": "公告／條款階段",
+      "state_precondition": "NewUser/MakeInfoDialog possible pre-C03; may decode only, no Account/Character mutation without proven owner",
       "related_packets": [
         "PKT-S02"
       ],
@@ -52,9 +52,14 @@
         "R-003"
       ],
       "evidence_ids": [
-        "ev_a021_20261031_asgard_static"
+        "ev_a021_20261031_asgard_static",
+        "ev_a027_20261031_asgard_identity_static",
+        "ev_a028_20261031_asgard_c04_response_static"
       ],
-      "native_static_report": "04-analysis-integration/A-021-native-flow.md"
+      "native_static_report": "04-analysis-integration/A-021-native-flow.md",
+      "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
+      "ownership_authorization": "unverified; MUST deny pre-auth claim and S02(success) until independent Server credential verification and native route known",
+      "native_account_claim_ready": false
     },
     {
       "id": "PKT-C03",
@@ -93,8 +98,11 @@
       "profile": "TW-seed0-local-v0.1",
       "layout": "u8 sex,u8 hair,u8 R,u8 G,u8 B；實測合法值仍待確認",
       "client_entry": "0x574420",
-      "state_precondition": "創角草稿成功之後",
-      "related_packets": [],
+      "state_precondition": "MakeInfoDialog local state0x1d received S02(status0); Server must independently verify Account owner and valid pending generation before accepting C04",
+      "related_packets": [
+        "PKT-S02",
+        "PKT-C15"
+      ],
       "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
@@ -104,9 +112,16 @@
         "R-003"
       ],
       "evidence_ids": [
-        "ev_a021_20261031_asgard_static"
+        "ev_a021_20261031_asgard_static",
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a016_20261031_asgard_replay_static"
       ],
-      "native_static_report": "04-analysis-integration/A-021-native-flow.md"
+      "native_static_report": "04-analysis-integration/A-021-native-flow.md",
+      "response_flow": "After C04 Client local state0x1e; S02(status0) enters 0x4b206b UI branch, not immediate S03/World; S02(nonzero) emits empty C15 and state0x1f",
+      "native_character_commit_proven": false,
+      "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "a016_recovery_note": "Five u8, no request id; Server must bind verified owner/session/pending intent and commit once before reporting success (designed)."
     },
     {
       "id": "PKT-C10",
@@ -129,9 +144,12 @@
         "R-002"
       ],
       "evidence_ids": [
-        "ev_a002_20261031_asgard_login_transfer_static"
+        "ev_a002_20261031_asgard_login_transfer_static",
+        "ev_a016_20261031_asgard_replay_static"
       ],
-      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
+      "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "a016_recovery_note": "Opaque raw token, no extra len; Server designed one-shot consumption cannot infer original expiration from Client."
     },
     {
       "id": "PKT-C11",
@@ -251,7 +269,12 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-005"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "a016_recovery_note": "C33 3*u8 direction/sequence7/gait; sequence is modulo128 and only session-scoped, no global idempotency request ID. Server short-window dedup + generation fencing (designed)."
     },
     {
       "id": "PKT-C35",
@@ -278,9 +301,12 @@
         "R-007"
       ],
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a016_20261031_asgard_replay_static"
       ],
-      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
+      "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "a016_recovery_note": "C35 two BE u16 only; no map_id/map_epoch/request_id; same revision map checksum pair is wire-identical across loads, Server epoch cannot distinguish late identical C35."
     },
     {
       "id": "PKT-C62",
@@ -363,7 +389,11 @@
       "layout": "u8 status,string8 message; LoginDialog wrong-password status3 is prior tested fixture, duplicate-login status UNKNOWN",
       "client_entry": "0x57dbc0",
       "state_precondition": "登入／創角／進世界初始化",
-      "related_packets": [],
+      "related_packets": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C15"
+      ],
       "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
@@ -375,10 +405,15 @@
       ],
       "evidence_ids": [
         "ev_a021_20261031_asgard_static",
-        "ev_a002_20261031_asgard_login_transfer_static"
+        "ev_a002_20261031_asgard_login_transfer_static",
+        "ev_a027_20261031_asgard_identity_static",
+        "ev_a028_20261031_asgard_c04_response_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
-      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
+      "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
+      "a028_newuser_status_flow": "MakeInfoDialog local state0x1d and status0 -> send C04/state0x1e; state0x1e/status0 -> UI 0x4b206b, not direct S03; status!=0 -> C15 CancelNewUser with empty body/state0x1f; status code textual meanings unknown",
+      "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md"
     },
     {
       "id": "PKT-S03",
@@ -470,7 +505,12 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-005"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "a016_recovery_note": "S0B BE u16 x/y + u8 sequence/status; movement ACK does not imply durable character position database commit."
     },
     {
       "id": "PKT-S0F",
@@ -515,9 +555,12 @@
         "R-007"
       ],
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a016_20261031_asgard_replay_static"
       ],
-      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
+      "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "a016_recovery_note": "control1 Client emits C35; control2 UI callback; control3 Sleep(3000ms) special path. None is original Server durable commit ack."
     },
     {
       "id": "PKT-S15",
@@ -850,6 +893,39 @@
         "R-027"
       ],
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
+    },
+    {
+      "id": "PKT-C15",
+      "direction": "C2S",
+      "opcode": "0x15",
+      "name": "CancelNewUser",
+      "system": "SYS-CHAR",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "empty body (0 bytes); normal C2S binary codec with opcode and ordinal, NOT plaintext exception; native serializer 0x5716a0 ret, constructor 0x5715f0",
+      "client_entry": "0x5715f0; triggered by MakeInfoDialog S02 nonzero at 0x4b1f1b..0x4b1f34",
+      "state_precondition": "MakeInfoDialog received nonzero S02; Client sets local state0x1f",
+      "related_packets": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-S02"
+      ],
+      "layout_status": "observed-static",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "manual_validation": "Native Client E2E not-run; BIN constructor/vtable/handler verified",
+      "requirements": [
+        "R-003",
+        "R-026"
+      ],
+      "evidence_ids": [
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "native_static_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "server_handling": "Designed: cancel only uncommitted matching owner+generation pending operation; never rollback already durable Character, cannot grant account ownership",
+      "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "a016_recovery_note": "Empty body has no original intent/owner ID; late cancel cannot safely undo committed Character; designed cancel pending only."
     }
   ]
 }

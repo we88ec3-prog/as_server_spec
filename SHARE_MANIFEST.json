@@ -233,7 +233,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "64a629735db0b545344ac049a3362f8d1715c05ef39153bc5190c7bdfd3d4858"
+      "sha256": "637cfafd8c463037bc73a3dcef7b797e63c833ab3e1751841e71e27852b6c804"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -249,7 +249,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "200d6f7097ff84a87fc7d28fec910d0d7e1c32625a1ca58b571cc6d0152b4c5f"
+      "sha256": "41edfc0156951ee19459692151fa94699940ab996a15572e7fcf7d576219213d"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
