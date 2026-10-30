@@ -16,7 +16,7 @@
 |A015-E05|`0x56EA20` YPF loader：`0x56EACD..0x56EAEF` 讀 2×u16+2×u32；`0x56EAFF` 檢查 flags bit0；`0x56EB07` 附帶讀 512-byte palette；`0x56EB15` 後讀 4-byte 影像位置|可復核 YPF header / optional palette；完整 DOI/動作組/角色圖層掛接 unknown|
 |A015-E06|`Born.dat` 當場 zlib 解壓：`00010000` + BE u16 574 + UTF-16LE Script XML `Main`，原始與解壓 SHA 如 catalog|證實 Script 格式可與資源版的真檔實測；**(31,29)** 文字導覽不代表出生點|
 |A015-E07|既有 `resource-formats.md` 先前掃描 945 .dat、628 可索引、3407 成員、316 Script、Map0/1/2=288/184/22、YPF 首幀 RLE 樣本|prior-research，這些完整檔本輪不在場，不能說已重新驗證全量|
-|A015-E08|合成 4×4 map、索引 DAT、Script，與真 Born.dat 經 Python stdlib scanner 成功；截斷 MAP/DAT 與無效 zlib 拒絕|只驗證 **offline parser**、不是碰撞、出生、原生 E2E、技能物品功能|
+|A015-E08|合成 4×4 map、索引 DAT、Script，與真 Born.dat 經 Python stdlib scanner 成功；截斷 MAP/DAT、DAT 內含損毀 MAP 與無效 zlib 拒絕|只驗證 **offline parser**、不是碰撞、出生、原生 E2E、技能物品功能|
 
 重現原始定位：
 
@@ -78,3 +78,11 @@ python tools/a015_content_probe.py /path/to/owned-client/Script/Born.dat
 |CT-037/038|只有 CT Owner 可宣布原版資源入圖/服端行為驗收；先做 offline/synthetic tests，再跑原生 Client E2E|可重現的對照步驟與驗收邊界|
 
 **Gate 決議：`A-015.status=integrated`（已核對並整合的 EXE/Script/resource metadata 範圍），`handoff_status=partial`（原生教學資料與物品/技能語意未解），`implementation_ready=false`（整體遊戲內容），`content_format_probe_ready=true`（離線格式工具），`native_client_validation=not-run`。** 沒有因 Server 不存在而停工，但本次不把缺原始 Map/Human 資源的部分冒稱完成。
+
+### 自包含測試
+
+```sh
+python -m unittest discover -s tools -p 'test_a015_content_probe.py'
+```
+
+此測試全部自造 4×4 地圖、索引及 Script，不需要遊戲資產；檢查 **DAT 封包內壞掉的 MAP 也必須整體判定為不合法**，不得報成功再悄悄忽略。另可另行用合法本機 Born.dat 做原件版對照；本項僅證明格式解析不證明 Server／原生 Client 行為。

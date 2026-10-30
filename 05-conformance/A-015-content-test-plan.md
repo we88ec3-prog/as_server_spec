@@ -17,3 +17,7 @@
 4. 實際成功/失敗、截圖/trace 在私有測試留存，公開共用資料只保留經審查的必要結果；一律區分 `observed-runtime` 和 `designed`。
 
 此頁是測試**計畫**，不是 CT-037/038 真正執行後的 E2E 驗收。
+
+## 內建合成測試
+
+`python -m unittest discover -s tools -p 'test_a015_content_probe.py'`：合成 map 4×4、DAT sentinel、zlib Script 的成功及失敗例；損壞的 DAT 嵌入地圖應直接失敗，不能混入合法 metadata。此為開發者離線單元測試，不得冒稱 CT-038 原版 Client E2E 完成。

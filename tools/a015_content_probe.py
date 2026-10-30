@@ -57,7 +57,8 @@ def parse_archive(b):
         extensions[ext] = extensions.get(ext,0) + 1
         if re.fullmatch(r"[0-9]{5}\.map",name,re.I):
             try: maps.append(dict(name=name, status="valid", **parse_map(b[st:en])))
-            except ValueError as e: maps.append(dict(name=name, status="invalid", reason=str(e)))
+            except ValueError as e:
+                raise ValueError("embedded MAP " + name + " invalid: " + str(e)) from e
     return dict(kind="indexed-dat",slots_including_sentinel=n,members=n-1,
                 extension_counts=extensions,map_members=maps,
                 name_codec="byte-oriented; non-ASCII uncertain")

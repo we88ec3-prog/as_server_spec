@@ -221,7 +221,7 @@
     },
     {
       "path": "05-conformance/A-015-content-test-plan.md",
-      "sha256": "5a0ded6969caa944ee70980538ac0f009a80e76e7a611f71c679e53e95666b5a"
+      "sha256": "6efa6a8272b2455d431bd0ad36f125de206698a34d4d63f4ed4c11ce3a5ebd19"
     },
     {
       "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
@@ -249,7 +249,7 @@
     },
     {
       "path": "task_a/roy2/A-015-analysis.md",
-      "sha256": "01c5cdb3337d3bd642a70761ea6b476451e288490bac44b41dc5960b800c8d48"
+      "sha256": "2fe30bcf21a73c8ddeba5994c2c33795b1bb1b7d401942af0c15f049e878ee04"
     },
     {
       "path": "task_a/roy2/A-023-analysis.md",
@@ -289,7 +289,11 @@
     },
     {
       "path": "tools/a015_content_probe.py",
-      "sha256": "d2bdcc8dcc8babf882657425ae25ccc9fcb731bc5bdda505822a48d0cf1d072a"
+      "sha256": "5aef49b4460bc0b97e3ee7569c04a3dbe06623e1bb02a2d2521b74dbe239d985"
+    },
+    {
+      "path": "tools/test_a015_content_probe.py",
+      "sha256": "0f8964fe3c28a2df432bf4a51cefc515f0b68345a69ac2e88aed95e5d263b53b"
     },
     {
       "path": "tools/validate-phase-gates.py",
