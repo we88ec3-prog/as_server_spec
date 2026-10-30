@@ -64,12 +64,28 @@
       "sha256": "813af661c600f5b8a8f56bd884052b95a46ee0237c2929f44ef83f23f1d4b5ce"
     },
     {
+      "path": "02-server-planning/onboarding-delivery-board.md",
+      "sha256": "75efdd60061ae93fd441b0fad131e18f029296fadc80ce38a20d26ebed28363e"
+    },
+    {
       "path": "02-server-planning/roadmap.md",
       "sha256": "b4e7852cfee5525afac0c2dd203a1520bda89a2e844b4fb3d366a1e7feafff1f"
     },
     {
       "path": "02-server-planning/systems.json",
       "sha256": "6d4a8973cd40f118f7232dcd3d7797ce2c5dd4ad0eb67af820e154fcdf5c683c"
+    },
+    {
+      "path": "02-server-planning/tutorial-runtime-plan.md",
+      "sha256": "d3f1f69a56caf41e353db6fa2101357cc85ad2d9908d27df0377707d4e29b810"
+    },
+    {
+      "path": "02-server-planning/work-items.json",
+      "sha256": "ed88d2433434a0719dddb8f62cdec3255356ed854c74823777a240f3c8689082"
+    },
+    {
+      "path": "03-analysis-requests/onboarding-assignment-pack.md",
+      "sha256": "6075717ef47382e2be0148843e51a10a9411da9b3a40a438b09e8ceb3656b5a8"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -150,6 +166,10 @@
     {
       "path": "05-conformance/onboarding-test-plan.md",
       "sha256": "8f7d6185a94545b4760131ff3f7bba60cb8da2954c2765a2b378de0408f7f87d"
+    },
+    {
+      "path": "05-conformance/tutorial-test-plan.md",
+      "sha256": "a44fdfc22a30b7b06864dbcf344845f9828e9401ddcd4b9b58056081597932cd"
     },
     {
       "path": "05-conformance/vectors.json",

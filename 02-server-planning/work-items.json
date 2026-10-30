@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-31",
+  "note": "共用規格尚未取得私有 Server 最新實作/測試；not-reported != not-implemented",
+  "work_items": [
+    {
+      "id": "ONB-01",
+      "title": "管理建帳／登入",
+      "requirements": [
+        "R-025"
+      ],
+      "analysis_requests": [
+        "A-002",
+        "A-020",
+        "A-021"
+      ],
+      "scenarios": [
+        "SCN-007"
+      ],
+      "conformance": [
+        "CT-019"
+      ],
+      "depends_on": [],
+      "readiness": "design-ready-minimal-profile",
+      "implementation_status": "not-reported",
+      "client_acceptance": "not-run"
+    },
+    {
+      "id": "ONB-02",
+      "title": "創角／保存",
+      "requirements": [
+        "R-026"
+      ],
+      "analysis_requests": [
+        "A-003",
+        "A-021"
+      ],
+      "scenarios": [
+        "SCN-008"
+      ],
+      "conformance": [
+        "CT-012",
+        "CT-014"
+      ],
+      "depends_on": [
+        "ONB-01"
+      ],
+      "readiness": "domain-ready-native-blocked",
+      "implementation_status": "not-reported",
+      "client_acceptance": "not-run"
+    },
+    {
+      "id": "ONB-03",
+      "title": "教學入圖",
+      "requirements": [
+        "R-027"
+      ],
+      "analysis_requests": [
+        "A-022"
+      ],
+      "scenarios": [
+        "SCN-009"
+      ],
+      "conformance": [
+        "CT-016",
+        "CT-018"
+      ],
+      "depends_on": [
+        "ONB-02"
+      ],
+      "readiness": "world-ready-map-blocked",
+      "implementation_status": "not-reported",
+      "client_acceptance": "not-run"
+    },
+    {
+      "id": "ONB-04",
+      "title": "故障恢復",
+      "requirements": [
+        "R-028"
+      ],
+      "analysis_requests": [
+        "A-016",
+        "A-022"
+      ],
+      "scenarios": [
+        "SCN-010"
+      ],
+      "conformance": [
+        "CT-015",
+        "CT-017"
+      ],
+      "depends_on": [
+        "ONB-03"
+      ],
+      "readiness": "core-ready-client-blocked",
+      "implementation_status": "not-reported",
+      "client_acceptance": "not-run"
+    },
+    {
+      "id": "ONB-05",
+      "title": "教學 NPC/怪物/戰鬥",
+      "requirements": [
+        "R-029",
+        "R-030"
+      ],
+      "analysis_requests": [
+        "A-023",
+        "A-024",
+        "A-025"
+      ],
+      "scenarios": [
+        "SCN-011",
+        "SCN-012"
+      ],
+      "conformance": [
+        "CT-021",
+        "CT-022",
+        "CT-023",
+        "CT-024",
+        "CT-025"
+      ],
+      "depends_on": [
+        "ONB-03"
+      ],
+      "readiness": "framework-ready-native-blocked",
+      "implementation_status": "not-reported",
+      "client_acceptance": "not-run"
+    },
+    {
+      "id": "ONB-06",
+      "title": "教學完成/出口",
+      "requirements": [
+        "R-031"
+      ],
+      "analysis_requests": [
+        "A-026"
+      ],
+      "scenarios": [
+        "SCN-013"
+      ],
+      "conformance": [
+        "CT-026",
+        "CT-027",
+        "CT-028"
+      ],
+      "depends_on": [
+        "ONB-04",
+        "ONB-05"
+      ],
+      "readiness": "progress-domain-ready-native-blocked",
+      "implementation_status": "not-reported",
+      "client_acceptance": "not-run"
+    }
+  ]
+}
