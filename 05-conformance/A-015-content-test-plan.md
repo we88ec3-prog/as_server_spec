@@ -11,13 +11,17 @@
 
 ## CT-040 原生教學內容鏈／地圖（planned）
 
-1. 先取得合法的相符 `Map0/1/2.dat`、依 `A-022` map loader 找實際新手 map id；取得真 C35 header(+4) 和 parsed checksum（不可用 raw CRC），確認 Server 送的 S15/S14(1)→C35→S04/S33→S14(2)。
+1. 本輪已取得 3 庫 MAP 並完成靜態解析；後續須先確認它們與原 Client 發行版本相符，再取得真實教程 map id、依 `A-022` map loader 找實際新手 map id；取得真 C35 header(+4) 和 parsed checksum（不可用 raw CRC），確認 Server 送的 S15/S14(1)→C35→S04/S33→S14(2)。
 2. 進圖後記真出生 x/y/facing 和 map id、招募員可見性的 NPC entity ID、是否觸發 Born.Main、第一次互動對話與 Script/C6C/S44 真 bytes。**Born 的 (31,29) 是對話目標不是出生座標**。
 3. 驗證錯版 / 缺 map、checksum 不符、載圖中斷、重登、斷線不誤標任務完成、不重領。任何不確定的客戶端行為標 `unknown`，不可填合成 NPC 或自編教程 map 假冒原版。
 4. 實際成功/失敗、截圖/trace 在私有測試留存，公開共用資料只保留經審查的必要結果；一律區分 `observed-runtime` 和 `designed`。
 
-此頁是測試**計畫**，不是 CT-039/038 真正執行後的 E2E 驗收。
+此頁是測試**計畫**，不是 CT-039/040 真正執行後的 E2E 驗收。
 
 ## 內建合成測試
 
 `python -m unittest discover -s tools -p 'test_a015_content_probe.py'`：合成 map 4×4、DAT sentinel、zlib Script 的成功及失敗例；損壞的 DAT 嵌入地圖應直接失敗，不能混入合法 metadata。此為開發者離線單元測試，不得冒稱 CT-040 原版 Client E2E 完成。
+
+## 補充：真實 MAP 索引結構驗證（A015-E09～E13）
+
+本輪用上傳原件執行 Map0/Map1/Map2 全庫校驗，**494/494 靜態解析 PASS**；以原始 SHA 鎖定三份檔案，保留 330 unique payload、33 duplicate groups、477 coordinate-in-bounds 的負面定位結論。這是 **CT-039 的本機資源離線檢查部分已執行**，但 CT-039 整體仍 planned（YPF/技能物品/來源權利尚無全量原檔）。CT-040 原生 Client 仍 not-run；絕不可因 494 MAP 可讀而將教學 spawn / NPC / C35 視為通過。

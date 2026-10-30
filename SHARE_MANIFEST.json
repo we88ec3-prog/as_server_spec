@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "0e428e15d49b7012057f54f96460e651978b9126823cfdfd7066577c10aa68ee"
+      "sha256": "01efb1cdc292a6d0569dc5fa1c1a855360fef37ad0fcd87472f867fca0718778"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -129,7 +129,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "c4b34f3bc9a614cca81728cb614b5b7be93e0dab03ea54a84ca9df8270483561"
+      "sha256": "b4fb68b3c13216903b21442f8ba0cbaa483ae25fdcbeaef07df8521ad18f9017"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -137,7 +137,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "e2a5735eca5952c9f33362da8a9d139e6fdadb2877cb7d160d8660b9c8700165"
+      "sha256": "90fd659589ff6baa52c254fe38f5f95822433e6116a5149645ea76dec0fc052f"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -160,6 +160,10 @@
       "sha256": "f54bfdca49310c5301565c0b963f2b9808cb73660694b03584b4e579865628ee"
     },
     {
+      "path": "04-analysis-integration/a015-map-corpus.json",
+      "sha256": "d983914bd3c06999110cb40628b17623602fb9e3056fe7288504c94e13d16cb0"
+    },
+    {
       "path": "04-analysis-integration/analysis-coverage.json",
       "sha256": "33f6286230324ee0f6e72bc6914965ce1a4780ff3554000a4878b7f3593dce85"
     },
@@ -177,11 +181,11 @@
     },
     {
       "path": "04-analysis-integration/content-resource-catalog.json",
-      "sha256": "f9eb77ba251d3655ff7f0cfc988e446be43504e1ace48cdd800388c732c68a55"
+      "sha256": "10250c406bb00d3f26c0e1ffedff5bde7d1bc76fd22eb01d4a6f2ecfe30d4976"
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "908191ee89291868d718da04f04bac95d721f479e370569adb04ac6e16030f82"
+      "sha256": "9ccbb56c39b3f54f4bfc7e625211f85ff599defd8407effcad18accc4e0e5c93"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -209,7 +213,7 @@
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "aa20ba2410c15176ae7d02d4c797e9ae1c337c1f7fa2168d7a8cb3942b235cde"
+      "sha256": "40ca149ab21c56a8c5031a1dc4f702a749da1e0537631e21cc36079d1d02f6c0"
     },
     {
       "path": "04-analysis-integration/scenarios.json",
@@ -233,7 +237,7 @@
     },
     {
       "path": "05-conformance/A-015-content-test-plan.md",
-      "sha256": "d4fcb6e1533d9372d9ed7cd070f5f0ac8dca3ade01747f423cb930ad4d346c2f"
+      "sha256": "bf673c11c6673142fb2e33c7ed247c3d47febc0806a3d40b5fdd1829533c730b"
     },
     {
       "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
@@ -253,7 +257,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "0318c7f1d930f9e59cf3b018df9bc94e0e0bb87d2c470714d3e72c62fd21b217"
+      "sha256": "017cf879c2a18fc47257d3cc67d05bab3c226d3d89c5333260c85b7713862d21"
     },
     {
       "path": "README.md",
@@ -261,7 +265,7 @@
     },
     {
       "path": "task_a/roy2/A-015-analysis.md",
-      "sha256": "f76c8c7de9632991978a2ba2fb9faf2a676e21b4e1e8f80c33fd1a61eac97831"
+      "sha256": "21e081491bbbcaf71a001279e4d110f694e76ba73c698af69c6923d015ea10f4"
     },
     {
       "path": "task_a/roy2/A-023-analysis.md",

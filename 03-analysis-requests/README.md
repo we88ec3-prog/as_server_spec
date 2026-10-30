@@ -76,3 +76,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-015 roy2／資源檔與分享界線（2026-10-31）
 
 已完成原始 EXE 對資源池、MAP/YPF loader 的 BIN 核對，Born.dat 實際重跑與 synthetic DAT/MAP/Script 結構測試；新增 [A-015 報告](../task_a/roy2/A-015-analysis.md)、[結構化資源欄位](../04-analysis-integration/content-resource-catalog.json)、[可在個人資源目錄執行的無素材輸出檢查](../tools/a015_content_probe.py) 和 [CT-039/038 計畫](../05-conformance/A-015-content-test-plan.md)。`status=integrated/handoff_status=partial` 指已證的格式/來源子集，**不代表原版教學地圖/技能物品/碰撞/授權已全部解出**。
+
+## A-015 補充原始地圖檔已收齊（2026-10-31）
+
+Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖結構全部通過**；330 個 unique binary map payload、33 組重複；`Born` 的 (31,29) 可位於 477 張圖尺寸內，無法據此判定真正新手地圖。詳細來源、hash 與方法見 [A-015 報告](../task_a/roy2/A-015-analysis.md)／[map corpus metadata](../04-analysis-integration/a015-map-corpus.json)。完整 Native Client CT-040 仍須找原版觸發與 spawn，A-015 handoff partial 不變。

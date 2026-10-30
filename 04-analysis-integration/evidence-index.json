@@ -1910,6 +1910,91 @@
         "No Map/Human/skill/item original archive files available for this run",
         "No native Client E2E"
       ]
+    },
+    {
+      "evidence_id": "A015-E09",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "Map0/1/2.dat raw SHA-256 and byte sizes directly verified: Map0=dcaf8ab5.../44863691 B; Map1=8681dc75.../30817997 B; Map2=5320a095.../3856650 B",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
+    },
+    {
+      "evidence_id": "A015-E10",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "Index 289/185/23 slots including EOF sentinel; map members 288/184/22 all 494 match 3 LE u16+u8 width/height+block+10B tiles+tail count/strides 7/8/16, exact EOF, zero structural rejects",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
+    },
+    {
+      "evidence_id": "A015-E11",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "SHA256 each MAP payload: 494 named entries, 330 unique payload hashes, 164 aliases in 33 same-byte duplicate groups; 00006.map=10000.map across Map0/1",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
+    },
+    {
+      "evidence_id": "A015-E12",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "Map bounds width>31,height>29: Map0 284/288, Map1 171/184, Map2 22/22, total 477/494; (31,29) text clue cannot identify tutorial map or spawn",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
+    },
+    {
+      "evidence_id": "A015-E13",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "Actual tail 7/8/16 record totals: Map0 39481/0/4, Map1 30523/306/523, Map2 4028/90/1742; counts are binary records not established NPC definitions",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
     }
   ]
 }

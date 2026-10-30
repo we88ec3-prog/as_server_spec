@@ -809,7 +809,18 @@
       "expected": "DAT member sentinel, MAP 7/8/16 tail bounds, Script zlib UTF-16 verified; hash/version/provenance recorded without publishing raw assets; synthetic subset tested only",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_request": "A-015"
+      "analysis_request": "A-015",
+      "offline_actual_archive_validation": {
+        "status": "pass-494-of-494",
+        "files": [
+          "Map0.dat",
+          "Map1.dat",
+          "Map2.dat"
+        ],
+        "report": "04-analysis-integration/a015-map-corpus.json",
+        "native_client_validation": "not-run",
+        "caveat": "Scope is structural map parser only, other CT-039 categories still untested"
+      }
     },
     {
       "id": "CT-040",

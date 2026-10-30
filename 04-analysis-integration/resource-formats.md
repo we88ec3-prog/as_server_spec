@@ -64,4 +64,8 @@ Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9
 
 與已記錄的舊 corpus 相比，本輪直接以原始 EXE SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 重查：`0x403FA4..0x40401D` 為 Basic/Font/Icon/Locale/Video/Portrait/MSO/Script 註冊，`0x404022..0x404050` 為 Map0/1/2 → library9/10/11；`0x4040B2..0x404340` 為 Human 各系列；Map loader `0x4B33A0` 與 `0x4B35BC` 讀 10B tiles /7/8/16B 尾段；YPF `0x56EAFF` flags bit0 條件 512B palette。這些是讀檔格式和資源池，不代表遊戲功能/素材授權。
 
-本輪有 Born.dat 原始 589B（SHA `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`）可實際重跑 Script 格式；未取得 Map0/1/2、Human/YPF、技能/物品定義全量資產，因此原新手 map_id、spawn、NPC、collision 與 item/skill schema **仍為 unknown**。新增 [A-015 來源分析](../task_a/roy2/A-015-analysis.md)、[結構化欄位目錄](content-resource-catalog.json)、[本機 metadata 探針](../tools/a015_content_probe.py) 與 [CT-039/038](../05-conformance/A-015-content-test-plan.md)。
+本輪有 Born.dat 原始 589B（SHA `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`）可實際重跑 Script 格式；未取得 Map0/1/2、Human/YPF、技能/物品定義全量資產，因此原新手 map_id、spawn、NPC、collision 與 item/skill schema **仍為 unknown**。新增 [A-015 來源分析](../task_a/roy2/A-015-analysis.md)、[結構化欄位目錄](content-resource-catalog.json)、[本機 metadata 探針](../tools/a015_content_probe.py) 與 [CT-039/040](../05-conformance/A-015-content-test-plan.md)。
+
+## A-015 原始三庫 MAP 實證補充（2026-10-31）
+
+這次獨立收到 Map0.dat（44,863,691 B；SHA256 dcaf8ab5...）、Map1.dat（30,817,997 B；SHA256 8681dc75...）、Map2.dat（3,856,650 B；SHA256 5320a095...）。直接解析 288／184／22=**494** 個 MAP，完整索引、block/tiles/7/8/16 尾段與 EOF 皆通過。**494 個檔名只對應 330 個不同的 SHA256 地圖實體內容**（33 個重複群、164 個別名）；00006.map 與 10000.map 是跨庫同內容案例。**477 張地圖**尺寸涵蓋 Born 的 (31,29) 引導點，因此無法單靠該文字決定教學地圖或出生位置。原版版號配對、C35 第二欄 structured checksum 和 NPC/碰撞/遊戲語意依然 unknown；[機讀結果](a015-map-corpus.json)。

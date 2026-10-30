@@ -75,7 +75,7 @@ python tools/a015_content_probe.py /path/to/owned-client/Script/Born.dat
 |A-024/A-011|原版 `World*.dat`、`Monster*.dat` 或來源中對應 NPC 定義、招募員的原生 entity ID/生成/互動封包|Client 資源池的 World/Monster 命名證據、資料來源待追清單|
 |A-006/A-007|同版 Human/YPF 素材與全部 frame group、物品/裝備定義對照|YPF loader header/flag/palette 已證片段|
 |A-010/A-012|技能/物品與 Script 的真正定義檔/欄位、Client UI/原服權威責任的區隔|不得把 local UI 顯示誤當 Server公式；安全的空白 schema|
-|CT-039/038|只有 CT Owner 可宣布原版資源入圖/服端行為驗收；先做 offline/synthetic tests，再跑原生 Client E2E|可重現的對照步驟與驗收邊界|
+|CT-039/040|只有 CT Owner 可宣布原版資源入圖/服端行為驗收；先做 offline/synthetic tests，再跑原生 Client E2E|可重現的對照步驟與驗收邊界|
 
 **Gate 決議：`A-015.status=integrated`（已核對並整合的 EXE/Script/resource metadata 範圍），`handoff_status=partial`（原生教學資料與物品/技能語意未解），`implementation_ready=false`（整體遊戲內容），`content_format_probe_ready=true`（離線格式工具），`native_client_validation=not-run`。** 沒有因 Server 不存在而停工，但本次不把缺原始 Map/Human 資源的部分冒稱完成。
 
@@ -86,3 +86,26 @@ python -m unittest discover -s tools -p 'test_a015_content_probe.py'
 ```
 
 此測試全部自造 4×4 地圖、索引及 Script，不需要遊戲資產；檢查 **DAT 封包內壞掉的 MAP 也必須整體判定為不合法**，不得報成功再悄悄忽略。另可另行用合法本機 Born.dat 做原件版對照；本項僅證明格式解析不證明 Server／原生 Client 行為。
+
+## 補收原始 Map0.dat／Map1.dat／Map2.dat — 全量離線驗證（2026-10-31）
+
+本節取代本檔先前的「未收到 MAP」描述；**原件已取得並實際解析**。只儲存大小、SHA/結構摘要，不推送任何原始 MAP bytes。
+
+|原始檔|大小(bytes)|SHA256|MAP 數量|全部嚴格 EOF|尾段 count 合計（7／8／16-byte）|
+|---|---:|---|---:|---|---|
+|Map0.dat|44,863,691|`dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761`|288|288 PASS|39,481／0／4|
+|Map1.dat|30,817,997|`8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b`|184|184 PASS|30,523／306／523|
+|Map2.dat|3,856,650|`5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb`|22|22 PASS|4,028／90／1,742|
+
+**A015-E09～E13：observed-static-resource**。494 名稱索引全數符合既有外層 DAT slot / `%05d.map` 及內層 MAP 版面：無重複檔名、無 offset/長度失配、無缺失三尾段、494/494 結尾精確落於 EOF。Map0/1/2 檔首 slot 含 EOF sentinel 分別為 289/185/23。實際 `Map2.dat` sentinel 的 name bytes 有非空殘留，證明 sentinel **不能**當正式資源名稱。
+
+- 逐個 MAP payload 計算 SHA：**494 筆名稱索引、330 份不同 bytes**；有 164 個額外相同內容別名，分布在 33 組。跨庫相同例：`Map0.dat:00006.map` 與 `Map1.dat:10000.map` 內容 SHA 一致；這**不是**證明兩個地圖 ID 遊戲身分相同、互通或同一 NPC 配置。
+- `Born.Main` 文字提示 `(31,29)`；**477/494** 張 MAP 的寬高都足以包含它（Map0 284、Map1 171、Map2 22）。這只證實尺寸範圍並不能靠這個座標鎖定教程 MAP、出生點或招募員。並非檢查過 477 張的該位置可通行。
+- MAP offset `+4`（第三個 LE u16）在 A-022 已證是 C35 第一欄來源。這次可直接從任一已知檔取得該欄原始值，**第二欄 structured checksum 仍須依原 Client 演算法計算**，不得把 MAP SHA 或一般 raw CRC 當 C35 的正式 expected pair。
+- 7／8／16-byte record 只能確認數量與寬度，**目前不能叫它們 NPC、事件、物件或怪物出生表**；用影像/名稱比對、引擎存取交叉引用與原版封包再補語意。
+
+可在持有資源的本機重新執行：
+```sh
+python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat --json /private/a015-map-metadata.json
+```
+工具只輸出 metadata，不匯出任何 MAP 原始資料。合成 4×4 地圖及截斷/尾段錯誤負向測試 PASS；494/494 原件結構驗證 PASS。**A-015 仍 integrated / handoff partial，Native Client CT-040 not-run**；A-022/A-024 的真 tutorial map/spawn/NPC 與 A-005 碰撞語意仍需其他證據。機讀摘要 [`a015-map-corpus.json`](../../04-analysis-integration/a015-map-corpus.json)（請由 repo root 開啟）。

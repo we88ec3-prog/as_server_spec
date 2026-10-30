@@ -82,7 +82,23 @@
         "block and grid collision flags",
         "7/8/16 record meaning",
         "C35 structured CRC concrete tutorial vector"
-      ]
+      ],
+      "observed_real_archive_validation": {
+        "status": "pass",
+        "archives": [
+          "Map0.dat",
+          "Map1.dat",
+          "Map2.dat"
+        ],
+        "member_counts": [
+          288,
+          184,
+          22
+        ],
+        "rejects": 0,
+        "coverage": "all 494 archived maps",
+        "client_release_match": "unverified"
+      }
     },
     {
       "family": "Human / YPF",
@@ -183,20 +199,32 @@
     "A015-E05",
     "A015-E06",
     "A015-E07",
-    "A015-E08"
+    "A015-E08",
+    "A015-E09",
+    "A015-E10",
+    "A015-E11",
+    "A015-E12",
+    "A015-E13"
   ],
   "offline_tool": "tools/a015_content_probe.py",
   "asset_corpus_uploaded": {
     "AsgardExe": true,
     "BornDat": true,
-    "MapDat": false,
+    "MapDat": true,
     "HumanDat": false,
-    "SkillAndItemTables": false
+    "SkillAndItemTables": false,
+    "Map0Dat": true,
+    "Map1Dat": true,
+    "Map2Dat": true
   },
   "assertions_not_proven": [
     "Resource format readability does not grant rights to share files",
     "Born waypoint (31,29) is not character spawn",
     "Map parser structural success does not prove collision or NPC spawn",
     "No original server-only skill/quest rules were recovered"
-  ]
+  ],
+  "map_corpus_evidence": "04-analysis-integration/a015-map-corpus.json",
+  "map_corpus_entry_count": 494,
+  "map_corpus_unique_payloads": 330,
+  "map_corpus_original_assets_shared_in_repo": false
 }
