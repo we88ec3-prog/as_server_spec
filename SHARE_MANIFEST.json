@@ -161,7 +161,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "77f2bf412fba3282182ccfd01666d93e2bd8ee8c02959ed6d0d18396de309359"
+      "sha256": "007176b0cbf9675a6840353ca13c8c2c7c4f19bd77f63211d6360e5301a12973"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -229,7 +229,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "8f75d8f6c9f51bbefc216dfb35ca298ddb745f92e285bf907a7d246c33f0ec38"
+      "sha256": "8c1dc4fb1b05f7fc4617938f784eb16769930889eee77d376762212ab745b1cf"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
