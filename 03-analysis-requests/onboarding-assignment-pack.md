@@ -32,3 +32,7 @@
 本交接包中所有 A-021～026 的「Client 實測」若需要尚未開發的 Server，**只要求分析者交出待跑的重現步驟與預期，不要求分析者先做出 Server 或先讓 CT 通過**。有證據的原 Client 靜態觀察、封包欄位、腳本/資源語意可先交付且經審查。若必要字段仍 unknown，將 `handoff_status=partial`，不能自稱整段流程完整可實作；只有原始證據不可取得才真正 blocked。
 
 分析工作審查和原 Client E2E 驗收要各自標記狀態。A-021 的交付清單與 CT-018 分工見 [A-021-acceptance.md](A-021-acceptance.md)，所有接案者必須遵循 [通用關卡](../00-governance/phase-gates.md)。
+
+## A-027/A-028 優先分派：解除原生預建帳號創角阻塞
+
+roy1 的 A-021 static subset 已完成 review，但是 **C02 在 C03 前的帳號擁有者證明未知**。交付 A-027 給 Auth/Client UI 研究者，要求明確驗證 C02 欄位來源、身份校驗方式及如何預防他人帳號被冒用；交付 A-028 給 Client state/packet 研究者，要求完成 C04 後 state0x1e 的回覆、角色提交/失敗與轉服或重登。兩者都**不需要先把 Server 做出來才算分析完成**；缺證據必須保持 partial，不能以安全性不足的 provisional claim 取代。

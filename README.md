@@ -43,3 +43,7 @@
 ## 分析交付與開發／實機驗收分離（所有新舊任務）
 
 為防止 A-021 類「逆向分析等新 Server 的實機驗收、Server 又等逆向分析」的循環依賴，**所有 A/DEV/CT 接案者都需按 [phase-gates.md](00-governance/phase-gates.md) 的獨立出場條件工作**。A-021 有專用 [交付清單](03-analysis-requests/A-021-acceptance.md)；共用要求由機讀 requests.json、work-items.json 以及 CI [validate-phase-gates.py](tools/validate-phase-gates.py) 驗證。分析可完成並保留 CT=not-run，前提是證據支持範圍與未解事項如實交代。
+
+## roy1 A-021 合併後 review（2026-10-31）
+
+`task_a/roy1` 已 fast-forward merge 並經 Asgard.exe BIN 靜態核對；已確認 C02 region variants、C04 五 u8、S02 status/string 及 UI 0x1d→0x1e。**A-021 只達靜態 partial handoff**，新開 A-027（前認證身份／帳號權限）及 A-028（C04 最終回覆/轉場），CT-029～032 計畫中。詳見 [roy1 review](04-analysis-integration/A-021-roy1-review.md)。未經認證的 C02 絕不能認領管理員已建立的帳號。

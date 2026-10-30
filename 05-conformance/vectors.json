@@ -529,6 +529,103 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "packet_mapping": "unknown"
+    },
+    {
+      "id": "CT-029",
+      "status": "planned",
+      "level": "onboarding-security-and-wire",
+      "title": "C02 地區差異 codec fixture",
+      "requirements": [
+        "R-003",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "指定 Client profile 根據 region 分開處理 3-string8 與 4-string8+flag layouts；拒絕跨區錯布局，不賦予 Account 權限",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-021"
+      ]
+    },
+    {
+      "id": "CT-030",
+      "status": "planned",
+      "level": "onboarding-security-and-wire",
+      "title": "Pre-C03 C02 不得未授權認領帳號",
+      "requirements": [
+        "R-025",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C03"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "未知/偽造/他人預建帳號不能單憑 C02 字串取得 owner、角色建立許可或 World grant，直到 A-027 確認有效 credential proof",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-027"
+      ]
+    },
+    {
+      "id": "CT-031",
+      "status": "planned",
+      "level": "onboarding-security-and-wire",
+      "title": "0x1d→0x1e UI 回覆狀態",
+      "requirements": [
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C04"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "S02 status0 在 Create Info state 0x1d 可觸發 C04 並進 0x1e，但不得把此跳轉視為已完成角色建立",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-021"
+      ]
+    },
+    {
+      "id": "CT-032",
+      "status": "planned",
+      "level": "onboarding-security-and-wire",
+      "title": "C04 最終回覆、錯誤與轉服",
+      "requirements": [
+        "R-026",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C04",
+        "PKT-S02",
+        "PKT-S03",
+        "PKT-C10"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "在 A-028 證明的後續回覆與提交時序下建立單一角色，失敗/重登/轉服一致；目前 Client E2E blocked",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-028"
+      ]
     }
   ]
 }

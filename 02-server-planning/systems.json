@@ -12,7 +12,8 @@
         "A-001",
         "A-002",
         "A-020",
-        "A-021"
+        "A-021",
+        "A-027"
       ],
       "implementation_language": "independent",
       "status": "planned"
@@ -25,7 +26,9 @@
       ],
       "analysis_requests": [
         "A-003",
-        "A-021"
+        "A-021",
+        "A-027",
+        "A-028"
       ],
       "implementation_language": "independent",
       "status": "planned"
@@ -43,7 +46,8 @@
         "A-004",
         "A-022",
         "A-024",
-        "A-026"
+        "A-026",
+        "A-028"
       ],
       "implementation_language": "independent",
       "status": "planned"

@@ -134,7 +134,11 @@
         "帳號不存在/錯密/停權",
         "管理建帳並發/重送"
       ],
-      "notes": "管理員經獨立管理 API 預建帳號；Client 僅能登入既有帳號。C02 無 Account.Create 權限；原生空角色轉場待 A-021。"
+      "notes": "管理員經獨立管理 API 預建帳號；Client 僅能登入既有帳號。C02 無 Account.Create 權限；原生空角色轉場待 A-021。 Security: do not treat C02 before login as authenticated Account/Character owner. A-027 must establish proof. This remains analysis-required.",
+      "known_from_roy1": "C02 may be sent before C03; client C02 has no authority to create Account or claim admin-provisioned account",
+      "analysis_blockers": [
+        "A-027"
+      ]
     },
     {
       "id": "SCN-008",
@@ -159,7 +163,11 @@
         "同名競爭",
         "C02/C04 中斷"
       ],
-      "notes": "原生 C02/C04 與 S02 成功/失敗轉場待 A-021；Character 原子保存，不創建 Account。"
+      "notes": "原生 C02/C04 與 S02 成功/失敗轉場待 A-021；Character 原子保存，不創建 Account。 Roy1 static evidence shows state0x1d + S02(status0) triggers C04 then state0x1e; this is not final character creation. Account binding must be proven by A-027, C04 final status by A-028.",
+      "analysis_blockers": [
+        "A-027",
+        "A-028"
+      ]
     },
     {
       "id": "SCN-009",
@@ -193,7 +201,11 @@
         "地圖缺失/CRC 異常/逾時",
         "載入中斷線"
       ],
-      "notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。"
+      "notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。",
+      "analysis_blockers": [
+        "A-028",
+        "A-022"
+      ]
     },
     {
       "id": "SCN-010",

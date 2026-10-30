@@ -58,3 +58,7 @@ C2S：Client serializer → wire → Server解碼／狀態驗證 → Domain命�
 |---|---|---|---|
 
 詳見 [原生創角靜態矩陣](A-021-native-flow.md)。C02 不能直接等同於已登入後的 CreateCharacter，R-025 禁止 Client 建立 Account。
+
+## roy1 A-021 協定回顧與不信任前認證資料（2026-10-31）
+
+已核對 Asgard.exe 靜態證據：C02 writer 依 region 分支，region 2～4 為四個 length-prefixed string8 + flag，其他為三個 string8；C04 writer 五個 u8；S02 status u8 + string8；CreateInfo UI state 0x1d 收到 status0 時送 C04/轉 0x1e。**C02 有可能在 C03 之前出現**。這並不證明字串欄位包含有效密碼，也不證明某預建帳號已被授權認領。R-025 僅管理員創建 Account 的規範不變；PreAuth C02 只可解析與安全拒絕／等待能被證實的 identity proof（A-027）。C04 的 S02 終局與 World 轉服待 A-028。來源與信任標記詳見 [A-021 review](A-021-roy1-review.md)。

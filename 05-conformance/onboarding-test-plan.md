@@ -22,3 +22,14 @@
 請參閱 [逐位址分析](../03-analysis-requests/A-021-roy1-static-analysis.md) 和 [協定子集](../04-analysis-integration/A-021-native-flow.md)。現可用合成輸入為 `C02 016101620163016401`（region2..4）、`C02 016101620163`（其他 region）、`C04 0102112233`、`S02 0000`。**body only**、只檢查 parser/serializer 形狀，非原 Client 封包擷取；它們不能直接把 CT-011..014 標 passed。
 
 原 Client 必須額外核對以下測點：C03 已存在無角帳號是否開啟原生創角 UI、C02 4 欄 UI 語意、C02/S02/C04 的所有成功失敗/取消分支、C04 後是直接 transfer 或重新登入、網路重送/並發/斷線原生效果，以及任何 Client 發起新帳號的要求都不會讓 Server 建立 Account。沒有完整資源/可執行測服與去識別動態 trace，A-021 仍為 blocked。
+
+## roy1 合併後新增安全／協定 CT-029～032（planned）
+
+|CT|測試標的|目前可用證據／阻塞|
+|---|---|---|
+|CT-029|C02 region-specific 3-string8 vs 4-string8+flag；不接受跨區錯誤 layout|A-021 observed-static，codec fixture 可先執行|
+|CT-030|C02 在 C03 前出現，驗證未取得合法帳號 owner proof 絕不可認領別人的預建帳號、創角色或取 grant|A-027 必須證明 Client 使用何種憑證或安全授權方式|
+|CT-031|UI local 0x1d 收到 S02(status0) 導向 C04 並轉 0x1e；不可把此跳轉當作建角已成功|A-021 observed-static；可先寫 Client-parser/sequence fixture|
+|CT-032|C04 後續的 S02 終局、Character commit、合法重登或 World handoff|A-028 尚未完成前屬 native-compatibility blocked|
+
+CT-029/031 若對已證據支持的 Client 靜態行為做 fixture，可以完成該子集測試；**不代表 CT-030/032 或原始 Client 創角進圖 E2E 通過**。
