@@ -173,7 +173,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "b32821421239acaa3abcd49728361d03887a1eb5d573cb39075987b142502450"
+      "sha256": "fb54f63820e9ddff5521fd38f5957d5270f67dc881c4fbfea648e40656bf857e"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -249,7 +249,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "8a4e905e14f465bf60502b05fe59bd045694859c0bd15f8523d11108e3248b27"
+      "sha256": "e8a77d9d187af3b25bb03a4cfbd12c056ff3a08d3f9df965924730a9673cfdaa"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -333,7 +333,7 @@
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
-      "sha256": "3274236f3e9d148b867bda3d282bc159247c9f9c5496c2fbbdb7d798d75aba6e"
+      "sha256": "c2dcec529c12abb32d1642b17173dd21c2d96c751fc4802abdda9ba083aa164c"
     },
     {
       "path": "task_a/roy2/A-014-packet-index.json",
