@@ -668,20 +668,26 @@
       "name": "ScriptRequest",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "本profile觀察body03，原型不回覆；正式Script更新策略待分析",
-      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "layout": "opcode 0x6c；serializer 0x575210 依 subtype u8 0..4 分支，後續為條件式字串／數量／清單；已觀察 local login C6C body=03，但不可擴大成所有 subtype 的格式，wire offsets/長度/編碼仍 partial",
+      "client_entry": "0x575140 ctor / 0x575210 serializer",
       "state_precondition": "see profile-login.md",
       "related_packets": [],
       "layout_status": "partial",
       "evidence_kinds": [
         "observed-runtime-profile",
-        "designed-local-minimal-response"
+        "designed-local-minimal-response",
+        "observed-static"
       ],
       "manual_validation": "normal login path passed; not all metadata/script branches",
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "A023-E02",
+        "A023-E06"
+      ],
+      "notes": "ScriptRunner SendReply 可建立 CScript；是否是新手教學必備 opcode 尚 unknown。"
     },
     {
       "id": "PKT-S18",
@@ -747,6 +753,34 @@
       "requirements": [
         "R-001",
         "R-002"
+      ]
+    },
+    {
+      "id": "PKT-S44",
+      "direction": "S2C",
+      "opcode": "0x44",
+      "name": "SScript",
+      "system": "SYS-QUEST",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "constructor 固定 opcode 0x44；parser 內 type/subtype 依條件分支，type1/subtype0..4 為不同處理；type1/subtype3 進本機 Script 快取掃描/清除。物件欄位 +0x24/+0x25 非 wire offset；實際 packet byte offsets、string encoding/壓縮資料/長度仍 unknown",
+      "client_entry": "0x5862e0 constructor; 0x4e0b70 dispatch; 0x52c2a0 handler; 0x5294e0 local Script cache branch",
+      "state_precondition": "原生 Script/patch update 狀態未完整解析；不得假定是教程自動觸發",
+      "related_packets": [
+        "PKT-C6C"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static",
+        "prior-research"
+      ],
+      "evidence_ids": [
+        "A023-E03",
+        "A023-E04"
+      ],
+      "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
+      "requirements": [
+        "R-013",
+        "R-027"
       ]
     }
   ]

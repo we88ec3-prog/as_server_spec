@@ -412,9 +412,18 @@
       "title": "教學入口最小 NPC、腳本與任務初始化依賴",
       "method": "追新手教學首次可操作時是否需要立即啟動的 NPC、腳本、任務 UI/事件；與 A-011/A-012 對照，不擴展至教學完成。",
       "deliverable": "確認不可省略的首個教學觸發與資料、Client 效果和相關 opcode；保留未完成教學規則清單。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "review",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A023-E01",
+        "A023-E02",
+        "A023-E03",
+        "A023-E04",
+        "A023-E05",
+        "A023-E06",
+        "A023-E07",
+        "A023-E08"
+      ],
       "dependencies": [
         "A-011",
         "A-012",
@@ -422,10 +431,16 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static-plus-prior-research",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-023-analysis.md",
+      "remaining_unknowns": [
+        "必需首個 NPC/腳本或 Born 自動觸發與任務初始化無原始資源/原服證據",
+        "教學入口 S44/C6C subtype 與精確 wire 欄位",
+        "首 NPC ID/位置/任務 UI/quest flag/拒絕與重登"
+      ]
     },
     {
       "id": "A-024",

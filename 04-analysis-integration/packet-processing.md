@@ -49,3 +49,14 @@ C2S：Client serializer → wire → Server解碼／狀態驗證 → Domain命�
 - S15：Client清理舊圖其他物件、保留本地玩家並載新地圖；S04定位及S14關閉loading。
 - S19 kind1：Client依音樂設定播放Music/%05d.mp3；不代表Server已知道官方map曲目。
 - S66/C75：Server檢查challenge的對應及期限；client_time語意更深用途待分析，不因單一時差直接認定作弊。
+
+## A-023 Script 初始事件：安全但有限的已證封包子集
+
+以下來自指定 SHA 的 Asgard.exe 靜態 BIN，本輪未在原生教學地圖上抓包；不能宣稱教程必需或已可實作整段任務。
+
+|ID|方向|原生定位|分支與效果|限制|
+|---|---|---|---|---|
+|PKT-C6C|C2S 0x6C|ctor 0x575140 / serializer 0x575210|subtype u8 分支 0..4；ScriptRunner 的 `SendReply` 會走 CScript 送出流程（0x526626→0x51a9f0→0x575140）|曾有 login local-profile C6C body03；教學首次事件/其他 subtype 的逐欄 wire 未證|
+|PKT-S44|S2C 0x44|ctor 0x5862e0 / handler 0x52c2a0|type1/subtype 0..4 各有不同操作；type1/subtype3 在 0x52c8e5 呼叫 0x5294e0 觸及本機 Script 快取|該分支有檔案清理副作用，不是空 ACK；無確認的教程專屬 opcode|
+
+局部結論與研究缺口見 [A-023 分析全文](../task_a/roy2/A-023-analysis.md) 和 [教學 Script 整合](script-and-tutorial-entry.md)。World 既有 S15/S14/C35 時序只能定位安全前置狀態，不能推論首個 Born/NPC 自動執行。下游 CT-029～031 均未原生 Client 驗收。

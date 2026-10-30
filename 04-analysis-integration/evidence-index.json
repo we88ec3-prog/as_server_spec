@@ -1485,6 +1485,86 @@
         "evidence-index.md"
       ],
       "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "A023-E01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x00400000; sha256 original PE32 identity",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E02",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x575140,0x575210 CScript opcode and subtype dispatch",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E03",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x5862e0,0x4e0b70,0x52c2a0 SScript dispatch",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E04",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x52c8df,0x52c8e5,0x5294e0,0x52951d cache scan branch",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E05",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x5290bc,0x5292c6,0x529351 Script file path logic",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E06",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x521d32,0x521d84,0x526626,0x51a9f0 SendReply/ScriptRunner",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E07",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "04-analysis-integration/resource-formats.md prior Born/Script structure",
+      "evidence_kind": "prior-research",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E08",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "04-analysis-integration/profile-login.md and scenarios.md local profile",
+      "evidence_kind": "prior-research",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
     }
   ]
 }

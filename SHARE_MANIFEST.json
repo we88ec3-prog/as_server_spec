@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "9b37ea6e26e3764dddf50c31c91892ef1f059e5e7f671770d6530886eea07970"
+      "sha256": "2f0a11f195cef6de7b494242594d77a44412e1a742032847e884a44271c39eb1"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "413530f1179f0d2bf71f14189cde04e0da9b4ad531ea4c967f4d3dfe2a444801"
+      "sha256": "a64edd5fab94cae49e774b03f8b246a2d87c3bf06b4d80685441a2c907b6e232"
     },
     {
       "path": "00-governance/workflow.md",
@@ -101,7 +101,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "63ee30f2e6bbfef6fa8ed3cd0d0878221fb43ca841989de5fd4aae74d3dea2f1"
+      "sha256": "de7d850000e43d1a8e1c5d3317003f93f1771890d8bc329bab6b429dfb442630"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -109,7 +109,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "26694d2032260f256dfa13a04c1aec6abe01b8f1213b0c12032409c1ced49502"
+      "sha256": "5dcd14faa4229765e483c494ac1f134f186a49ea48d75e0d795586fa5aad9c4f"
     },
     {
       "path": "04-analysis-integration/analysis-coverage.json",
@@ -129,7 +129,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "16818b1538ac4e63ebad2abf59f75a6c5888d649187931dc37836b70e4fa7371"
+      "sha256": "1c4ccc1b98f4479bc9dffb1891234f99c758042db5a9a8b7a97eef77450cef78"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -141,11 +141,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "2f6f7ca42ddb5a734f75477040f0b6d57abe0f06e8d1a86f9715fc5027de8893"
+      "sha256": "155a1d1fb87f049220182035676dd384cb483509dad3a073b4ef47a08cf88f57"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "50c186e820002bc77a29e36c4b60461d8c348ad49dc5bf64cb2cb3d373115fe5"
+      "sha256": "73882662a5679e83a7db6e076f2b2296d6d0726b5213d7a0fc18e235345f7703"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -161,15 +161,23 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "70aa920721fa7acac1cff50af89f2e50216a2d5be8f0169a3610fe6fe46aae9e"
+      "sha256": "2694524ae6ffc34cb8a5bb73658d2046f4cacb58cff261a3a41eaa78de75362b"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
       "sha256": "848cb31732c851970a6785c7dae7800338b1fefca7ca2300633afe2c8bd61d36"
     },
     {
+      "path": "04-analysis-integration/script-and-tutorial-entry.md",
+      "sha256": "eb914e4f52177c3fd211e149765fe0aeb9036238b8eb42464f93eb74dec892c0"
+    },
+    {
       "path": "04-analysis-integration/transport.md",
       "sha256": "5a2d03249cda2e854e8129a51e7be3346b62f028af6359db5c08a982ce44cf27"
+    },
+    {
+      "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
+      "sha256": "965c9f6aeb114b763f3768ae333490bb9989dd28db679d2efa1a8402b4aa079b"
     },
     {
       "path": "05-conformance/implementer-guide.md",
@@ -185,11 +193,15 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "ac1b998f43738342ad065fa208eb167e7faddf3f5ef2369f7065cf7ed98da785"
+      "sha256": "ab842f168987863741c0ed33be6bdf3e4b9beb605e5a924b917d3b33aa96a698"
     },
     {
       "path": "README.md",
       "sha256": "476189cb1ce977a612038520e0f858c7663390a729bd7533e0c77f5d1244e94c"
+    },
+    {
+      "path": "task_a/roy2/A-023-analysis.md",
+      "sha256": "728fa42f1185871cc969bc9fc1979bd4a64c90647bc49494f3d466ce8c5ead16"
     },
     {
       "path": "tools/validate-phase-gates.py",

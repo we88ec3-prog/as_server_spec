@@ -21,3 +21,7 @@
 ## 0.1.0-draft 補充 — 2026-10-31／所有接案者的分階段驗收
 
 新增通用「A 研究證據交付 → DEV 實作 → CT 原生 Client 驗收」分離契約、A-021 專屬交付清單、通用任務模板與 AI handoff 規則；更新所有 A 紀錄與 ONB 工作的機讀 gate 欄位，並增加 GitHub Actions 結構檢查。A-021/A-022 的表述不再以新 Server 的實機測試作為分析完成的必要條件；重要 unknown 仍依 partial/blocked 誠實記錄。未改變任何 A 的實際 open 狀態或 CT 的 not-run 結果。
+
+## 0.1.0-draft 補充 — 2026-10-31／A-023 roy2 BIN-first Script 研究
+
+新增 `task_a/roy2/A-023-analysis.md`、原始 Client SHA 的靜態證據 E01～E08 與教學入口 Script 整合；C6C serializer 確認 0..4 分支、補 PKT-S44（含 type1/subtype3 的本機 Script 快取清理風險），更新 SCN-009/011、CT-029～031、追蹤與 manifest。教學第一個必需 NPC、Born 自動執行、任務 UI/flag 與首次 Script 封包仍無資源/原服證據；A-023 進 review／handoff partial，CT 未執行，未宣稱完整教程還原。

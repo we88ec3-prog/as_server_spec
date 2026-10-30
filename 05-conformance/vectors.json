@@ -529,6 +529,62 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "packet_mapping": "unknown"
+    },
+    {
+      "id": "CT-029",
+      "status": "planned",
+      "level": "script-opcode-safety",
+      "requirements": [
+        "R-013",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C6C",
+        "PKT-S44"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-023-tutorial-entry-test-plan.md"
+      },
+      "expected": "按 C6C/S44 已知 subtype 分流；未知欄位不偽裝成功；S44 type1/subtype3 在隔離沙盒檢查快取變更，不視為純 ACK",
+      "evidence_kind": "observed-static-plus-designed-test",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-030",
+      "status": "planned",
+      "level": "tutorial-first-interaction",
+      "requirements": [
+        "R-027",
+        "R-029"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-023-tutorial-entry-test-plan.md"
+      },
+      "expected": "首個教學 NPC/Script/任務 UI 在資源/原服證據確認後可定位，未互動對照組不假設任務已完成",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "packet_mapping": "unknown"
+    },
+    {
+      "id": "CT-031",
+      "status": "planned",
+      "level": "tutorial-script-idempotency",
+      "requirements": [
+        "R-013",
+        "R-027"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-023-tutorial-entry-test-plan.md"
+      },
+      "expected": "取消/重送/斷線/舊 session 不會使任務初始化或後續進度重複，原版拒絕碼未知",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "packet_mapping": "unknown"
     }
   ]
 }
