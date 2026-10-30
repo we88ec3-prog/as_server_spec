@@ -457,7 +457,15 @@
         "R-011",
         "R-030"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-C3D",
+        "PKT-S3D",
+        "PKT-S52",
+        "PKT-S1E"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -465,7 +473,11 @@
       "expected": "非法目標、超距離、資源不足或冷卻不能成功且不增加任務進度",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "Native attack/spell/battle format partial, original tutorial combat objective not established. Keep native_client_validation=not-run and status=planned",
+      "analysis_evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "a025_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
     },
     {
       "id": "CT-024",
@@ -475,7 +487,15 @@
         "R-010",
         "R-030"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-C3D",
+        "PKT-S3D",
+        "PKT-S52",
+        "PKT-S1E"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -483,7 +503,11 @@
       "expected": "合法技能或攻擊結果、傷害、死亡與 Client 畫面一致",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "Native attack/spell/battle format partial, original tutorial combat objective not established. Keep native_client_validation=not-run and status=planned",
+      "analysis_evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "a025_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
     },
     {
       "id": "CT-025",
@@ -493,7 +517,15 @@
         "R-013",
         "R-030"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-C3D",
+        "PKT-S3D",
+        "PKT-S52",
+        "PKT-S1E"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -501,7 +533,11 @@
       "expected": "同一已提交有效事件僅計一次，重送/舊 generation 不重複",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "Native attack/spell/battle format partial, original tutorial combat objective not established. Keep native_client_validation=not-run and status=planned",
+      "analysis_evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "a025_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
     },
     {
       "id": "CT-026",
@@ -1206,6 +1242,98 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
+    },
+    {
+      "id": "CT-051",
+      "status": "planned",
+      "level": "bin-derived-attack-skill-codec",
+      "requirements": [
+        "R-010",
+        "R-011",
+        "R-030"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-S52",
+        "PKT-S1E"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic",
+        "reference": "tools/a025_tutorial_combat_model.py",
+        "expected_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+        "opcode_byte_signatures": 14,
+        "body_fixtures": {
+          "C13": "12345678",
+          "C4D": "1234",
+          "C56": "07",
+          "S52": "1122334403",
+          "S1E": "12345678"
+        }
+      },
+      "expected": "Client original opcode/codec signatures match C13 u32 BE,C4D u16 BE,C56 u8, S52 u32 BE+u8,S1E u32 BE. Not proof of original quest kill count or Server success result; native E2E not-run",
+      "evidence_kind": "observed-static-plus-synthetic",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
+    },
+    {
+      "id": "CT-052",
+      "status": "planned",
+      "level": "battle-variant-dispatch-and-failclosed",
+      "requirements": [
+        "R-010",
+        "R-011",
+        "R-030"
+      ],
+      "packet_ids": [
+        "PKT-C3D",
+        "PKT-S3D"
+      ],
+      "input": {
+        "kind": "bin-derived-variant-boundary",
+        "reference": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+        "subtype_range": "0..15",
+        "pending": "Full per-subtype wire schema and actual Client result UI mapping must be established before enabling those variants"
+      },
+      "expected": "Both native C3D writer and S3D parser branch on subtype u8 0..15; unsupported or unknown variants cannot produce damage/skill success/quest completion. Native full battle subtype E2E not-run",
+      "evidence_kind": "observed-static-plus-designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
+    },
+    {
+      "id": "CT-053",
+      "status": "planned",
+      "level": "tutorial-combat-quest-idempotency-negative",
+      "requirements": [
+        "R-009",
+        "R-010",
+        "R-011",
+        "R-030"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-S52",
+        "PKT-S1E"
+      ],
+      "input": {
+        "kind": "designed-sqlite-synthetic",
+        "reference": "tools/a025_tutorial_combat_model.py",
+        "cases": [
+          "wrong World generation",
+          "no target or off-map target",
+          "out-of-range/dead/unlearned skill/insufficient resource/cooldown",
+          "event replay before and after SQLite reopen",
+          "no verified tutorial objective means no progress even after valid attack",
+          "S1E disappear does not itself count quest"
+        ]
+      },
+      "expected": "Only server-authoritative verified combat result can produce an objective event; duplicate event once only with durable unique ledger; unverified Born tutorial requirement never invented",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
     }
   ]
 }

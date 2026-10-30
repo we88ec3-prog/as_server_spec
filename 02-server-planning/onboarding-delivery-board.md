@@ -61,3 +61,7 @@ A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/hando
 ## A-020 登入前最小 Profile 分支交接（2026-10-31）
 
 [A-020 報告](../03-analysis-requests/A-020-roy1-prelogin-branches.md)、[Contract](../04-analysis-integration/A-020-prelogin-contract.md)。原生 C0F/S18、C57/S56、C4B/S60 各 selector/reader 已交付；原本本機 local profile C0F3/S18 kind0(count0)/C57 1+0/S56/S60 可維持，但新揭露的 kind1 及其他 type 僅能先做 codec 和負面測試，不能直接宣稱原服 timing/credential。S44(1,3) 清理 Script cache 風險沿用 A-023。A-020 `integrated/handoff partial`，最小 Server 子集 implementable，region seed/key 和官方清單/Script 首次啟動仍 unknown；CT-049/050 not-run。
+
+## A-025 / roy1：ONB-05 可實作的技能/攻擊子集（2026-10-31）
+
+[A-025 BIN-first](../03-analysis-requests/A-025-roy1-tutorial-combat.md) / [安全交接](../04-analysis-integration/A-025-tutorial-combat-contract.md)：已追 C13 Attack u32、C4D StartCastSpell u16、C56 CastSpell u8、C3D/S3D 0..15 多態、S52 CastSpell u32+u8 與 S1E DieObjects u32；Client C13 實際輸入觸發/本地 timer gate 具地址。可 DEV：typed codec、未授權/非法對象的 fail-closed、Server authoritative combat resolution / unique event ledger。**但原服傷害公式、技能 catalog/魔力/冷卻參數、NPC/怪物 entity、教學是否需要攻擊、任務目標映射都還未知**，不能直接標 ONB-05 native-ready。Born.dat 僅有 PaperDialog 導引，不能因 script 沒戰鬥指令就斷言全部教程無戰鬥。A-025 integrated/handoff partial；CT-051..053 planned、Client native not-run。

@@ -361,7 +361,10 @@
       ],
       "packet_mapping": "unknown",
       "a023_script_notes": "Born UI start and C6C close lifecycle now specified; no NPC entity/map/spawn mapping in Born. nNewJoin01 STATE ACCEPT/REFUSE is a school-join candidate, not a verified recruiter binding. See A023-E14..E18.",
-      "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved"
+      "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved",
+      "analysis_evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ]
     },
     {
       "id": "SCN-012",
@@ -371,12 +374,20 @@
         "R-011",
         "R-030"
       ],
-      "packets": [],
+      "packets": [
+        "PKT-C13",
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-C3D",
+        "PKT-S3D",
+        "PKT-S52",
+        "PKT-S1E"
+      ],
       "status": "analysis-required",
       "evidence_kind": "designed",
       "profile": "TW-seed0-local-v0.1",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "notes": "合法施放/攻擊經 Server 驗證目標、資源、冷卻與狀態，再產生效果與可去重的任務進度事件；原版是否要求攻擊待 A-025。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+      "notes": "合法施放/攻擊經 Server 驗證目標、資源、冷卻與狀態，再產生效果與可去重的任務進度事件；原版是否要求攻擊待 A-025。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-025: Born.dat only recruiter PaperDialog, no explicit battle task; entire tutorial combat requirement unknown. Client C13 and C4D are intents, S1E is not quest ACK. Only independently verified Server objective mapping may count combat event.",
       "failure_cases": [
         "非法目標",
         "資源不足",
@@ -385,7 +396,13 @@
         "亂序",
         "死亡中斷"
       ],
-      "packet_mapping": "unknown"
+      "packet_mapping": "observed-static: C13 u32 attack target, C4D u16 spell, C56 u8, C3D/S3D battle subtype0..15 partial, S52 u32+u8, S1E u32. No original/tutorial objective event protocol or mandatory-combat condition verified.",
+      "analysis_evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "native_tutorial_combat_requirement_proven": false,
+      "native_quest_progress_mapping_ready": false,
+      "a025_contract": "04-analysis-integration/A-025-tutorial-combat-contract.md"
     },
     {
       "id": "SCN-013",
@@ -400,7 +417,7 @@
       "evidence_kind": "designed",
       "profile": "TW-seed0-local-v0.1",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "notes": "已確認的教程條件成立後持久化完成進度，任何原版有的獎勵僅授予一次，按原生證據轉入一般地圖並可重登。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+      "notes": "已確認的教程條件成立後持久化完成進度，任何原版有的獎勵僅授予一次，按原生證據轉入一般地圖並可重登。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-025: do not auto-complete tutorial on S1E/CBattle or Script C6C close. Combat requirement remains unverified; verify A-026 original objective policy first.",
       "failure_cases": [
         "未完成提前請求",
         "回覆丟失",
@@ -408,7 +425,10 @@
         "切圖失敗",
         "重啟"
       ],
-      "packet_mapping": "unknown"
+      "packet_mapping": "unknown",
+      "analysis_evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ]
     },
     {
       "id": "SCN-014",

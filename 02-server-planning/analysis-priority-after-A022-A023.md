@@ -49,3 +49,7 @@ A-027 已追完可核對的 C02 UI 欄位來源（field1 名稱候選；field2 �
 ## A-016 交付進度（2026-10-31）
 
 重送/崩潰恢復的 BIN-first 子集已整理成 [A-016](../03-analysis-requests/A-016-roy1-replay-recovery.md)；既有 C33/S0B/C35/S14/C10/C04/C15 的回覆邊界、同版 C35 無 epoch 的不可辨識性與 designed 的 durable commit/unique ledger/outbox 皆可交 DEV。研究 `integrated/handoff partial` 不等於原版 Server 的交易/Quest/登入恢復 policy 已證明，亦不解除 A-015 教程 map/spawn、A-027 帳號 owner 的必要資料條件。CT-043/044 planned，原版 Client not-run。
+
+## A-025 / roy1 後續研究依賴更新（2026-10-31）
+
+原版 C13/C4D/C56/C3D 與 S52/S1E/S3D 的 Client 最小互動與 packet schema 已由 [A-025](../03-analysis-requests/A-025-roy1-tutorial-combat.md) 查通受限子集，新增 CT-051/052/053。**第一個導引 Born.dat 不含殺怪條件 ≠ 全部原服教程不要求戰鬥**。接下來 A-024 要找到實際 NPC/怪物 map/entity/spawn/interaction，A-008/009/010 要完成所有原版技能合法值、Battle subtype0..15 與狀態變化；A-012/026 必須從原服事件或資源確認是否有戰鬥任務目標、何時完成/發獎，否則只可擴充通用 Domain，不可強制新帳號先擊殺指定怪物。A-025 integrated/handoff partial，原生教學 requirement 和 quest mapping 未 ready。

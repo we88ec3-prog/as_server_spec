@@ -681,9 +681,11 @@
       "title": "教學首個技能或攻擊與任務目標事件",
       "method": "追原 Client 教學必要的技能/攻擊 C2S、S2C 效果、目標/距離/冷卻/消耗、傷害/死亡及任務進度；若教程並不要求技能需提出證據並調整情境。",
       "deliverable": "交付逐欄 opcode、權威驗證、效果/計數、非法目標與重送案例，公式未知明示，附 Client 重現和 CT 提案。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
       "dependencies": [
         "A-008",
         "A-009",
@@ -693,10 +695,27 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C13 attack-u32, C4D start-spell-u16, C56 cast-u8, C3D/S3D Battle subtype0..15 discriminator, S52 u32+u8 and S1E u32 codec plus designed fail-closed combat authority/event ledger. NOT full battle variant/skill/quest implementation",
+      "native_tutorial_combat_requirement_proven": false,
+      "native_quest_progress_mapping_ready": false,
+      "native_combat_e2e_ready": false,
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "analysis_contract": "04-analysis-integration/A-025-tutorial-combat-contract.md",
+      "analysis_test": "tools/a025_tutorial_combat_model.py",
+      "analysis_scope": "Native Client attack/spell intent sender and packet type, selected server effect readers, combat variant discriminator, Born.dat limited no-combat-condition observation; designed objective event idempotency",
+      "remaining_unknowns": [
+        "A-024 actual tutorial NPC/monster entity IDs, spawn map, action and target bindings unknown",
+        "A-008/009/010 full skill catalog, damage and cooldown/resource formula, C56 stage, C3D/S3D subtype0..15 layouts and successful result enum not completed",
+        "A-012/A-026 original tutorial quest prerequisite and whether combat mandatory unproven; Born script only gives recruiter paper guide",
+        "Native original Server hit/kill authority and quest trigger/complete/award event unavailable from Client EXE",
+        "Native Client interaction capture/World login to first fight and back, packet failure/retry cases not-run"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-026",

@@ -64,3 +64,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-020 / roy1：SCN-001 登入前已知多分支
 
 [完整資料流](../03-analysis-requests/A-020-roy1-prelogin-branches.md) / [Contract](A-020-prelogin-contract.md)。C0F type3 body03 → S18 kind0 subtype3 count0（00030000），C57 type1 list、type0 selected id，S56 多記錄 zlib，C4B empty 與 S60 type0/u32、type1 compressed 可由原本 Client reader/writer 支持。**原版 Client code 並不證明原伺服器在所有 region 依這個順序發公告或要求 Script；最小本機 SCN-001 通過的測試數據和全原生服務需分開**。C6C3 local no-op 並非 Born start；未經授權 S44(1,3) 會影響本機檔案。CT-049/050 planned，Client E2E not-run。
+
+## A-025：SCN-012 教學技能/攻擊到任務目標（條件式；非原服必需戰鬥已證）
+
+[詳細研究](../03-analysis-requests/A-025-roy1-tutorial-combat.md)。Client C13 攻擊 target u32、C4D 開始施法 u16、C56 CastSpell u8；S52 CastSpell u32+u8、S1E DieObjects u32，C3D/S3D Battle 的 u8 subtype 0..15 多態（每個 subtype 尚未完整）。**不能把 S1E 消失、C13 攻擊指令或 Script C6C 關閉直接算 quest success**。Born 引導找 (31,29) 女性招募員、未宣告殺怪需求，但其他未知任務 Script/原服可能另有戰鬥。Server 對已驗證目標/怪物/原服任務 mapping 才可生成 unique event 並計進度；目前 `native_tutorial_combat_requirement_proven=false`、`native_quest_progress_mapping_ready=false`，SCN-012 維持 `analysis-required`。A-024、A-008/009/010、A-012/026 接續；CT-051/052/053 planned。

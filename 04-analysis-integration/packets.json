@@ -988,6 +988,206 @@
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "a016_recovery_note": "Empty body has no original intent/owner ID; late cancel cannot safely undo committed Character; designed cancel pending only.",
       "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md"
+    },
+    {
+      "id": "PKT-C13",
+      "direction": "C2S",
+      "opcode": "0x13",
+      "name": "Attack",
+      "system": "SYS-COMBAT",
+      "layout": "body BE u32 opaque_target_ref, no damage/quest flag; exact original writer 0x570ac0 using 0x45ac40; Client UI sender 0x55709c and 0x557a5d",
+      "client_entry": "0x570a10 ctor; 0x570ac0 writer; Client 0x55709c..0x5570b7 and 0x557a5d..0x557a78",
+      "state_precondition": "Client selected object and passed local flags/time gates; Server must validate authenticated World/target/version and authority",
+      "related_packets": [
+        "PKT-S3D",
+        "PKT-S1E"
+      ],
+      "layout_status": "observed-static",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-010",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+    },
+    {
+      "id": "PKT-C4D",
+      "direction": "C2S",
+      "opcode": "0x4d",
+      "name": "StartCastSpell",
+      "system": "SYS-SKILL",
+      "layout": "BE u16 spell_value from Client selected object word [ebx+0x80e]; native 0x5755c0",
+      "client_entry": "0x575510 ctor; 0x5755c0 writer; sender 0x402034..0x402052",
+      "state_precondition": "Client has selected nonzero spell value; Server validates learned/allowed spell and current World generation independently",
+      "related_packets": [
+        "PKT-S52"
+      ],
+      "layout_status": "observed-static",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-011",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+    },
+    {
+      "id": "PKT-C56",
+      "direction": "C2S",
+      "opcode": "0x56",
+      "name": "CastSpell",
+      "system": "SYS-SKILL",
+      "layout": "u8 opaque_cast_parameter; native writer 0x571800; full UI sender/semantic sequencing not established",
+      "client_entry": "0x571750 ctor; 0x571800 writer; UI sender pending further trace",
+      "state_precondition": "Original phase and value meaning UNKNOWN; do not accept as standalone damage/quest completion",
+      "related_packets": [
+        "PKT-S52"
+      ],
+      "layout_status": "observed-static",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-011",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+    },
+    {
+      "id": "PKT-C3D",
+      "direction": "C2S",
+      "opcode": "0x3d",
+      "name": "Battle",
+      "system": "SYS-COMBAT",
+      "layout": "u8 subtype first (0..15 dispatch table in writer at 0x570de0); variable subtype-specific additional fields, potentially u8/string8/u32; exact full per-case layout UNKNOWN",
+      "client_entry": "0x5711b0 ctor (opcode push at 0x5711cb); 0x570de0 writer",
+      "state_precondition": "World session; original subtype command authority/method unproven; reject unsupported variants",
+      "related_packets": [
+        "PKT-S3D"
+      ],
+      "layout_status": "partial",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-010",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+    },
+    {
+      "id": "PKT-S3D",
+      "direction": "S2C",
+      "opcode": "0x3d",
+      "name": "Battle",
+      "system": "SYS-COMBAT",
+      "layout": "u8 subtype first, 0..15 jump dispatch (0x57c8c2); variant-specific payload and effect semantics UNKNOWN",
+      "client_entry": "0x57c6d0 ctor (push opcode at 0x57c6ec); 0x57c890 parser",
+      "state_precondition": "Original Client battle state; do not invent result/damage status or broadcast unsupported subtypes",
+      "related_packets": [
+        "PKT-C13",
+        "PKT-C3D"
+      ],
+      "layout_status": "partial",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-010",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+    },
+    {
+      "id": "PKT-S52",
+      "direction": "S2C",
+      "opcode": "0x52",
+      "name": "CastSpell",
+      "system": "SYS-SKILL",
+      "layout": "BE u32 opaque_object_ref, u8 opaque_state_or_result; reader 0x57d600 calls 0x45aeb0 then 0x45adb0; enum meanings UNKNOWN",
+      "client_entry": "0x57d550 ctor (0x57d569 opcode 0x52); 0x57d600 parser",
+      "state_precondition": "Client spell UI/world state; do not interpret u8 as confirmed quest success",
+      "related_packets": [
+        "PKT-C4D",
+        "PKT-C56"
+      ],
+      "layout_status": "observed-static",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-011",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+    },
+    {
+      "id": "PKT-S1E",
+      "direction": "S2C",
+      "opcode": "0x1e",
+      "name": "DieObjects",
+      "system": "SYS-COMBAT",
+      "layout": "BE u32 opaque object ref, native reader 0x57e260; object presentation removal/death candidate only; NOT an authoritative quest event",
+      "client_entry": "0x57e030 ctor (0x57e049 opcode 0x1e); 0x57e260 parser",
+      "state_precondition": "Client world entity exists; Server death/visibility/quest authority separately verified",
+      "related_packets": [
+        "PKT-C13",
+        "PKT-S3D"
+      ],
+      "layout_status": "observed-static",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-010",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
     }
   ]
 }

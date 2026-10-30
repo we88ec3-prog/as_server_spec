@@ -1987,6 +1987,45 @@
         "C4B empty body does NOT itself prove Server sends S60; local profile compatibility mapping is designed",
         "S44(1,3) has destructive local Script cache side effect, so no live test without isolated sandbox"
       ]
+    },
+    {
+      "evidence_id": "ev_a025_20261031_attack_skill_bin_static",
+      "date": "2026-10-31",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+      "evidence_kind": "observed-static",
+      "method": "BIN-first objdump on original Asgard.exe; native C/S constructor opcode+vtable, writer/reader and selected sender callsites, 14 opcode/call byte signatures and Python synthetic sqlite Domain tests; Born.dat zlib UTF16 XML inspection; A-023 Script dependency cross-reference",
+      "scope": "A-025 client combat/skill packet entry and UI local gating, limited S2C effects/disappearance, negative result Born alone cannot establish mandatory combat. Original Server combat and tutorial quest mapping unknown",
+      "functions": [
+        "0x570a10",
+        "0x570ac0",
+        "0x55709c",
+        "0x557a5d",
+        "0x575510",
+        "0x5755c0",
+        "0x401fb8",
+        "0x402052",
+        "0x571750",
+        "0x571800",
+        "0x5711cb",
+        "0x570de0",
+        "0x57c6ec",
+        "0x57c890",
+        "0x57d569",
+        "0x57d600",
+        "0x57e049",
+        "0x57e260",
+        "0x57a980"
+      ],
+      "report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "contract": "04-analysis-integration/A-025-tutorial-combat-contract.md",
+      "synthetic_test": "tools/a025_tutorial_combat_model.py",
+      "limits": [
+        "C3D/S3D battle subtype field shapes not fully recovered; do not construct unknown variants",
+        "C56 real caster stage, u8 result meanings, native range/cooldown/MP/hit/damage/death formulas unknown",
+        "Born single script no combat API does not disprove later tutorial battle requirements",
+        "Original Server combat→objective/quest linkage and first monster NPC/map binding unknown; native Client E2E not run"
+      ]
     }
   ]
 }

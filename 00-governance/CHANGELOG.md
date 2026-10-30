@@ -73,3 +73,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-020 完整登入前 Metadata／Script／選服
 
 原版 Asgard.exe SHA256 核對，原生 CMetaData/C0F 0x573a70、SMetaData/S18 0x582dc0、CMultiServer/C57 0x573f40、SMultiServer/S56 0x584190、CStipulation/C4B 0x575720、SStipulation/S60 0x587190 的分支及 RTTI/vtable 正確對照，保留已實測 local profile；S18(0,3,count0) 為原生空 metadata list，S60 type0/1 不同形態，Script 清快取依 A-023。新 A-020 BIN-first 報告、安全交接、Python synthetic negative/codec fixture、CT-049/050，更新封包、SCN-001、profile 和版本治理。A-020 integrated/handoff partial，原服時序/地區 key/unverified Script policy 仍 unknown，Client not-run。
+
+## task_a/roy1 — 2026-10-31 A-025 新手教學攻擊／施法與目標事件
+
+用原版 Asgard.exe BIN-first 核對 CAttack 0x13/u32 BE (0x570a10/0x570ac0; sender 0x55709c/0x557a5d)、CStartCastSpell 0x4d/u16 BE (0x575510/0x5755c0; sender 0x402034)、CCastSpell 0x56/u8 (0x571750/0x571800)、CBattle/SBattle 0x3d subtype0..15 (0x570de0/0x57c890)、SCastSpell 0x52/u32+u8、SDieObjects 0x1e/u32。用同版 Born.dat 驗證只含導引紙張，不能推論全教程是否需戰鬥。新增 A-025 完整靜態/未知分級、Server designed 權威/quest event ledger、安全合成測試（14 原件 signature、7 unittest）、七個原生 PKT、CT-051～053、SCN-012 對應、共用 Manifest。A-025 integrated/partial，Client native not-run；不推測原版 damage/cooldown/kill quest。

@@ -75,3 +75,7 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## A-020 / roy1：Metadata、MultiServer、Stipulation 原始收發分流（2026-10-31）
 
 以上早期矩陣的 C0F/C57/C4B/S18/S56/S60 只列本機最小 profile；**本節為較新的原件 BIN-first 補充**。詳見 [完整研究](../03-analysis-requests/A-020-roy1-prelogin-branches.md)。C0F type3 單 u8，其他 type 多 u8+string8；S18 kind0 先 u8 kind+u8 subtype+u16 count，逐項 string8+u32；kind1 不同壓縮內容分支；C57 type1 list/type0 selected_id；S56 壓縮多項；C4B empty；S60 type0 u32/type1 compressed string。原生 packet class/debug RTTI 與 ctor/reader/writer 相互確認，不能以鄰近類別的 vtable 誤指 opcode。C6C/S44 詳見 A-023，尤其 S44 type1/subtype3 清快取風險。local `C4B→S60` 公告回應與所有先後次序是自訂相容方案，不宣稱原 Server；CT-049/050 planned、Client E2E not-run。
+
+## A-025 / roy1：Client 如何發攻擊/施法封包及原生回覆（2026-10-31）
+
+[原始函式/逐欄證據](../03-analysis-requests/A-025-roy1-tutorial-combat.md) / [Server 契約](A-025-tutorial-combat-contract.md)：原 Client `0x55709c/0x557a5d` 選取對象並通過本地狀態/時間閘後送 C13 `BE u32 target_ref`（writer `0x570ac0`）；`0x402034` 從被選技能 `[ebx+0x80e]` 送 C4D `BE u16 spell_value`（writer `0x5755c0`）；C56 `u8`（`0x571800`，完整發送 stage 未確認）。C3D/S3D Battle `0x3d` 先 subtype `u8`、0..15 多態，不可把全部分支編成同一 layout。原 S52 `0x52` reader `BE u32,u8`、S1E `0x1e` reader `BE u32`，**這些並非「任務已完成」封包**。Server 必須先判定目標/同場景/距離/資源/冷卻/世代，再提交戰鬥結果；只有獨立核對原服目標 mapping 才可由 server_event_id 唯一紀錄更新任務。Born.dat 本身沒有殺怪條件，但不證明全部教程都沒有；SCN-012/CT-023～025 保持分析/驗收未完成，新增 CT-051～053。

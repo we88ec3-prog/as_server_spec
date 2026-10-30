@@ -96,3 +96,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-020 / roy1：Metadata／Script／清單分支（2026-10-31）
 
 [原版 BIN-first 分支研究](A-020-roy1-prelogin-branches.md) / [Server profile 交接](../04-analysis-integration/A-020-prelogin-contract.md) / [合成測試](../tools/a020_prelogin_contract.py)。核對 C0F type3/other、S18 kind0/list vs kind1 compressed、C57 type0/type1、S56 inflated multi-entry、C4B empty、S60 type0 u32/type1 compressed text，A-023 C6C/S44 branch 不重複猜測。原本 S18 body00030000 的原生語意為 kind0、subtype3、count0；local C4B→S60 不等於原 Server 原版必定如此。A-020 `integrated/handoff partial/implementation_ready=true` 限原生 codec 與 fail-closed local subset；region key/真正官方 metadata/Script 時序與錯誤碼待原服證據；CT-049/050 planned，native Client not-run。
+
+## A-025 / roy1：教學首次攻擊、技能與目標事件（2026-10-31）
+
+[完整 BIN-first 報告](A-025-roy1-tutorial-combat.md)、[Server 安全交接](../04-analysis-integration/A-025-tutorial-combat-contract.md)、[14 條原件 byte signatures／7 項測試](../tools/a025_tutorial_combat_model.py)。原 Client C13 Attack BE u32（0x55709C/0x557A5D sender）、C4D StartCastSpell BE u16（0x402034）、C56 CastSpell u8，C3D/S3D Battle subtype0..15（不同多態 payload），S52 CastSpell u32+u8、S1E DieObjects u32 已確證。**Born.dat 只有招募員紙張導引，不含證明必須殺怪/施法的條件；不能推及整個教程不需戰鬥**。A-025 `integrated/handoff partial`，可交 DEV 的是 codec、Server 攻擊/技能權威輸入檢查和 **conditional** quest event unique-ledger 方案；原服戰鬥公式、首 NPC、教學目標必需性 unknown。SCN-012 仍 analysis-required；CT-051～053 planned、native Client not-run。
