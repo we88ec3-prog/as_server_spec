@@ -45,3 +45,7 @@ A-022 通用 Map/CRC 的部分可直接支援 DEV，但真正新手 map/spawn/C3
 ## A-028 roy1 C04 終局回覆分析（2026-10-31）
 
 新增 [A-028](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)：原 Client 在 C04 後 state0x1e，收到 S02(status0) 進 local UI `0x4b206b`，**此 callback 不直接 S03/C10**；S02(nonzero) 則自動發 C15 CancelNewUser（opcode0x15, body0 bytes），state0x1f，焦點依 error status 分支。分析 `integrated/partial`，但 `implementation_ready=false/native_creation_commit_ready=false`（原生 C02 owner/Server DB commit 仍未知）。安全 Domain/Protocol 的 encoder、no-auth guard、transaction/undo/Idempotency 可先開發；CT-031/032/041/042 planned。
+
+## A-016 恢復與防重交接（2026-10-31）
+
+[A-016 研究](../03-analysis-requests/A-016-roy1-replay-recovery.md) `integrated/handoff partial`，通用 Session/World/Movement/Character 的 Server 防重骨架可實作（`implementation_ready=true`）；原始原服 commit/transaction 故障政策仍 unknown。新增 CT-043/044：SQLite crash/reopen、成功回覆遺失、C10 one-use、C33 seq7 replay/127→0、C35 同 pair 不可辨識 epoch；交易領獎僅 designed Domain/ledger，不代表原生 opcode 已分析。A-015 真教程內容、A-027 帳號認領安全、A-028 角色最終原生 UI 等路徑不能因 A-016 狀態而解除限制。[詳細](../04-analysis-integration/A-016-idempotency-recovery.md)。

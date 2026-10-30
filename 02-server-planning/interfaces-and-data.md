@@ -58,3 +58,7 @@ Game Client C02 可能在 C03 之前送出；C02 region 封包布局已由 BIN �
 ## ScriptCatalog 與 ScriptRun 邊界（A-023 E14–E18）
 
 為 S44(1,0)/(1,1) 與 C6C(0/1/2/4) 建立 `ScriptCatalog(client_profile, codepage, resource_revision, script_name, sha256, decoded_text_crc32, dependencies)`、`ScriptRun(run_id, account_id, character_id, session_generation, map_epoch, context, resource_revision, lifecycle_state)`。所有 C6C 由 Server 確認 run/context 有效，Dispose/清理不觸發 quest 完成；重複／舊 session 不可重發獎勵。僅 S44 named start 及原 Client 已知子類可做原生 codec；資源錯 CRC 或 S44(1,3) 危險快取操作 fail closed。首次何時送 Born、首 NPC/entity/quest 綁定仍 A-012/015/024。詳見 [Script 生命週期](script-lifecycle-contract.md)。
+
+## A-016：持久化與事件重送的一致性邊界（designed）
+
+[A-016 靜態資料流](../03-analysis-requests/A-016-roy1-replay-recovery.md) / [完整恢復契約](../04-analysis-integration/A-016-idempotency-recovery.md)。Gateway 給 authenticated socket 唯一 connection_id/session_generation；Domain intents 用內部 idempotency key、payload hash、owner 與 expected version；DB commit 用 unique constraints、原子 ledger/outbox，使「已完成副作用」與「僅發了 S02/S0B/S14」分開。C33 seq7 不可跨連線/回捲用作交易唯一性；**C35 沒有 epoch，舊/新載入同 checksum pair 的回覆無法由 Client 原生 bytes 區分**，要禁止重疊、必要時斷連並重建。交易/獎勵成功回包遺失不得二次扣款/加錢/發獎，Script Dispose 不等於 quest completed。這些是 Server 正確性策略，非原伺服器原本採用的 DB 實作。

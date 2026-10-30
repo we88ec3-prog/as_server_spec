@@ -1863,6 +1863,37 @@
         "Native C02 account ownership still unproven from A-027",
         "S02 numeric error meanings and whether post-success UI automatically returns to LoginDialog/World unknown"
       ]
+    },
+    {
+      "evidence_id": "ev_a016_20261031_asgard_replay_static",
+      "date": "2026-10-31",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-static",
+      "method": "objdump -D -M intel original Asgard.exe byte-matched; native packet serializer/parser and transport/frame/Client callback, cross-checked A-002/022/028; separately synthetic SQLite model",
+      "scope": "A-016: packet replay/recovery provenance. Client only proves C33 7-bit seq/S0B ack, C35 two u16 no epoch, S14 callback, C04/C15 lack request ID, C10 raw token; original Server durable commit/replay policy unknown",
+      "functions": [
+        "0x53c130",
+        "0x53c1a8",
+        "0x53c25d",
+        "0x573bf0",
+        "0x583150",
+        "0x4f2300",
+        "0x4f23cb",
+        "0x4f23b5",
+        "0x4f2333",
+        "0x573490",
+        "0x5773e0",
+        "0x574420",
+        "0x4b1f1b",
+        "0x5715f0"
+      ],
+      "report": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "synthetic_test": "tools/a016_recovery_model.py",
+      "limits": [
+        "C35 lacks original map epoch; same identical pair across overlapping epochs cannot be distinguished",
+        "S0B acknowledges movement, not DB fsync",
+        "original trading/reward opcode/Server commit policies are not claimed"
+      ]
     }
   ]
 }

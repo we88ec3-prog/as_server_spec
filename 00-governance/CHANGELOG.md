@@ -57,3 +57,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-028：C04 終局/取消 C15 的 BIN-first 分析
 
 指定 SHA Asgard.exe 追 `0x4b1d60` 的 S02 callback、`0x4b205f` local0x1e、`0x4b206b` 第二次 S02(success) UI、`0x4b1f1b..0x4b1f34` 失敗 C15 CancelNewUser（constructor 0x5715f0，empty serializer 0x5716a0，debug CPP 0x6136a4），並還原 error code UI focus 3/4/17/18/26/31。A-028 標 integrated/handoff partial，原 Client E2E not-run；原 Server DB commit/owner/relogin/World 仍不可宣稱全解，新增 PKT-C15、CT-041/042 與可執行 synthetic Python fixture，更新 A-021/027 安全規格與首次創角場景。
+
+## task_a/roy1 — 2026-10-31 A-016 重送與崩潰恢復
+
+原始 Asgard.exe SHA256 重驗，`0x53C130` TCP split/merge frame、C33 `0x573BF0`/S0B `0x583150`、S14 `0x4F2300`、C35 `0x573490`、C10 `0x5773E0`、C04/C15 的無業務 request ID 線索核對。識別 C35 同 map checksum 跨 epoch 不可從 wire 區分的限制，交付獨立的 Auth/Character/World/Movement/Economy/Reward 回覆與 durable commit 防重合約；新增 SQLite synthetic crash/reopen/ledger 工具與 CT-043/044，A-016 integrated/handoff partial、Client CT not-run；不杜撰原服經濟/CRC/DB 政策。

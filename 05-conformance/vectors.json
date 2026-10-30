@@ -272,7 +272,11 @@
       },
       "expected": "無效、過期、重用、跨角色及舊世代 token 拒絕",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_notes": "A-016: native Client fields + designed server-safe crash/idempotency; original Client CT still not-run"
     },
     {
       "id": "CT-016",
@@ -298,7 +302,11 @@
       },
       "expected": "世界初始化順序正確，載入中不得 InWorld",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_notes": "A-016: native Client fields + designed server-safe crash/idempotency; original Client CT still not-run"
     },
     {
       "id": "CT-017",
@@ -318,7 +326,11 @@
       },
       "expected": "C35 前後中斷不留幽靈載圖、不誤標教學完成",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_notes": "A-016: native Client fields + designed server-safe crash/idempotency; original Client CT still not-run"
     },
     {
       "id": "CT-018",
@@ -918,6 +930,63 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md"
+    },
+    {
+      "id": "CT-043",
+      "status": "planned",
+      "level": "sqlite-synthetic-crash-reopen-idempotency",
+      "requirements": [
+        "R-017",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C10",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-C33",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "designed-domain-synthetic-test",
+        "reference": "tools/a016_recovery_model.py",
+        "scenarios": [
+          "commit after S02 lost",
+          "one-shot token across restart",
+          "7-bit movement seq127/0 replay",
+          "atomic double-wallet trade",
+          "reward unique ledger"
+        ]
+      },
+      "expected": "SQLite reopen preserves unique character, outbox, wallet transfer and reward dedup; used token cannot replay; move duplicate only cached ACK; Client native E2E not-run",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md"
+    },
+    {
+      "id": "CT-044",
+      "status": "planned",
+      "level": "map-crc-ambiguous-epoch-negative-contract",
+      "requirements": [
+        "R-004",
+        "R-017",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "bin-derived-negative-contract",
+        "reference": "tools/a016_recovery_model.py",
+        "c35_example_body_hex": "1234abcd",
+        "same_map_same_revision_c35_identical": true
+      },
+      "expected": "C35 two-u16 only, cannot distinguish same-map/same-pair late response across epochs; single active pending load/connection and fail-closed ambiguous overlap. Reject mismatched/old/absent epoch, after crash no stale C35 can complete load; original Client E2E not-run",
+      "evidence_kind": "observed-static+designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md"
     }
   ]
 }

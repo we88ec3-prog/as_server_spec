@@ -80,3 +80,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-028 / roy1 已完成 C04 後 Client S02/C15 的靜態分析
 
 [完整研究](A-028-roy1-c04-terminal-analysis.md) / [安全規格](../04-analysis-integration/A-028-newuser-terminal-contract.md) / [合成測試工具](../tools/a028_newuser_response.py)。0x4b205f 的 local state0x1e 後，S02 status0 走 `0x4b206b` UI，並非直接 World transfer；status 非0 送 C15 CancelNewUser（0x5715f0、serializer 0x5716a0 無 body）並進0x1f。已獨立核對 status 3/4/17/18/26/31 的焦點分流（不是原服 status 語意）。A-028 `integrated/handoff_status=partial/native_creation_commit_ready=false/native_client_validation=not-run`，原生 owner+角色 durable commit 未證；新增 PKT-C15、CT-041/042，更新 CT-032。
+
+## A-016 / roy1：重送與斷線恢復分析（2026-10-31）
+
+[A-016 BIN-first 報告](A-016-roy1-replay-recovery.md) / [恢復合約](../04-analysis-integration/A-016-idempotency-recovery.md) / [SQLite 合成測試](../tools/a016_recovery_model.py)。確認 Client C33 7-bit sequence/S0B ack、C35 只含 MAP header word+structured checksum（**無 epoch**）、S14 control2 loading callback、C10 one-shot token interface、C04/C15 缺原生 request ID；提供每種操作的內部冪等鍵、提交時點與崩潰恢復矩陣。A-016 `integrated/handoff partial/implementation_ready=true` 限通用 Server 防重/持久化子集；原服 DB/經濟/重連/獎勵政策 unknown，CT-043/044 planned。

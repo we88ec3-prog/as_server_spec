@@ -45,3 +45,7 @@
 ## A-027 交接後精準剩餘工作（2026-10-31）
 
 A-027 已追完可核對的 C02 UI 欄位來源（field1 名稱候選；field2 密碼候選+確認控制）、本地長度/相等/region 檢查，但未能證明 pre-C03 Account owner 如何經原生 Server 認證，亦無 C03 無角色→MakeInfoDialog 的原生跳轉。**研究 A-027 integrated/handoff partial，但預建帳號認領路由禁止開發啟用**；後續拿 UI 真標籤／原服認證/失敗 evidence，或規劃別的原 Client 可達且具獨立身份驗證的安全入場方式。A-028 追 C04 後結果/commit，A-003 追合法角色；A-015 仍補原教程 map/spawn。詳見 [A-027](../03-analysis-requests/A-027-roy1-identity-ui-security.md)。
+
+## A-016 交付進度（2026-10-31）
+
+重送/崩潰恢復的 BIN-first 子集已整理成 [A-016](../03-analysis-requests/A-016-roy1-replay-recovery.md)；既有 C33/S0B/C35/S14/C10/C04/C15 的回覆邊界、同版 C35 無 epoch 的不可辨識性與 designed 的 durable commit/unique ledger/outbox 皆可交 DEV。研究 `integrated/handoff partial` 不等於原版 Server 的交易/Quest/登入恢復 policy 已證明，亦不解除 A-015 教程 map/spawn、A-027 帳號 owner 的必要資料條件。CT-043/044 planned，原版 Client not-run。

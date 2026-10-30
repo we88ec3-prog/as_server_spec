@@ -308,12 +308,30 @@
       "title": "事件重送及崩潰回復",
       "method": "登入狀態、移動確認及未完成切圖、交易、領獎跨斷線／重啟。",
       "deliverable": "每項操作的冪等鍵、提交點、已確認成功的定義。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "evidence_kind": "observed-static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Domain + persistence idempotency, transfer one-shot, C33/S0B short-window replay, single pending loading epoch and C35 fail-closed; full original-server policy/relogin/economy opcode semantics not proven",
+      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "analysis_test": "tools/a016_recovery_model.py",
+      "analysis_scope": "original x86 transport,C33/S0B,C35,S14,C10,C04/C15 and explicit Server-only operation keys, durable commit, crash/replay matrices",
+      "remaining_unknowns": [
+        "native server database commit checkpoints and recovery policy cannot be inferred from Client",
+        "C35 has no epoch; same-map late C35 same pair ambiguous within same TCP",
+        "original trade/reward transaction opcodes and result status remain A-012/A-013/A-026",
+        "actual World re-login and failure UI paths not validated with original Client",
+        "native tutorial content/first map spawn pending A-015"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-017",

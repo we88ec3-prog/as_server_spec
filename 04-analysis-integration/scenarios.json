@@ -35,8 +35,10 @@
       "status": "manual-pass-subset",
       "notes": "已補最小本機公告與清單路徑；其他metadata／Script種類待A-020，未納入的Client確認包仍須分別查核。 A-002 static: S03 0x5886c0 reads u32 address/u16 port/u8 len/raw token; region3/4 transfer 0x4a8370 creates plain C10 raw token without length prefix, via 0x577330/0x5773e0. Native duplicate-login outcome unknown.",
       "analysis_evidence_ids": [
-        "ev_a002_20261031_asgard_login_transfer_static"
-      ]
+        "ev_a002_20261031_asgard_login_transfer_static",
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred."
     },
     {
       "id": "SCN-002",
@@ -68,7 +70,12 @@
         "PKT-S19"
       ],
       "status": "manual-pass-subset",
-      "notes": "正常切圖已驗證；逾時與載入失敗回復待A-016。"
+      "notes": "正常切圖已驗證；逾時與載入失敗回復待A-016。 A-016: C35 has no map epoch, so same map content revision across overlapping loads can yield indistinguishable late C35; reject ambiguous overlap/fail closed and restore last durable map/pos on reconnect.",
+      "analysis_evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
+      "recovery_contract": "04-analysis-integration/A-016-idempotency-recovery.md"
     },
     {
       "id": "SCN-004",
@@ -182,12 +189,14 @@
       ],
       "analysis_evidence_ids": [
         "ev_a027_20261031_asgard_identity_static",
-        "ev_a028_20261031_asgard_c04_response_static"
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a016_20261031_asgard_replay_static"
       ],
       "a027_evidence": "UI sends C02 with locally checked field1 length and field2/confirmation equality; cannot prove owner or native preprovisioned auth. Fail closed before independent identity proof.",
       "native_account_claim_ready": false,
       "implementation_ready": false,
-      "a028_native_creation_commit_ready": false
+      "a028_native_creation_commit_ready": false,
+      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred."
     },
     {
       "id": "SCN-009",
@@ -228,7 +237,8 @@
       ],
       "analysis_evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
-        "ev_a028_20261031_asgard_c04_response_static"
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a016_20261031_asgard_replay_static"
       ],
       "a022_map_analysis_notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。 A-022 observed: S15 3*u16+2*u8+string8; S14(1) triggers C35(header file+4, structured checksum); S14(2) loading callback. Native tutorial map/spawn unknown pending A-015.",
       "script_entry": {
@@ -276,7 +286,8 @@
         },
         "validation_note": "Born/PaperDialog and original EXE bytes verified offline; native Client not-run; original NPC binding and quest policy unresolved",
         "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
-      }
+      },
+      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred."
     },
     {
       "id": "SCN-010",
@@ -305,13 +316,16 @@
         "舊世代操作",
         "雙連線"
       ],
-      "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-002 designed: old World disconnect/packet cannot remove new World generation; World C10 atomic consume; expired/reused/wrong-owner grant and crash residue are rejected. A-028 designed: Character durable commit cannot be undone by delayed C15; C04 retransmit same intent idempotent; after commit S02 success local UI, no automatic S03 assumption.",
+      "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-002 designed: old World disconnect/packet cannot remove new World generation; World C10 atomic consume; expired/reused/wrong-owner grant and crash residue are rejected. A-028 designed: Character durable commit cannot be undone by delayed C15; C04 retransmit same intent idempotent; after commit S02 success local UI, no automatic S03 assumption. A-016: bind Account generation, Character intent, transfer one-shot, map loading serial epoch, wallet/reward ledger; durable commit vs response sent distinguished; crash restores only committed snapshot.",
       "analysis_evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
         "ev_a002_20261031_asgard_login_transfer_static",
-        "ev_a028_20261031_asgard_c04_response_static"
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a016_20261031_asgard_replay_static"
       ],
-      "a022_map_analysis_notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-022 designed: epoch/resource version binds expected C35; wrong or old checksums rejected, reconcile after crash/disconnect; tutorial_entry_committed distinct from tutorial_completed."
+      "a022_map_analysis_notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-022 designed: epoch/resource version binds expected C35; wrong or old checksums rejected, reconcile after crash/disconnect; tutorial_entry_committed distinct from tutorial_completed.",
+      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
+      "recovery_contract": "04-analysis-integration/A-016-idempotency-recovery.md"
     },
     {
       "id": "SCN-011",

@@ -51,3 +51,7 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-028 針對 C04 終局分支的測試設計（2026-10-31）
 
 [原版 BIN-first 證據](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)／[不越權的 Server 設計](../04-analysis-integration/A-028-newuser-terminal-contract.md)：CT-031 驗 state0x1d + S02(status0) 才發 C04/state0x1e；CT-032 驗 **state0x1e + S02(status0)** 只觸發 local `0x4b206b` UI 分支，不直接建立 S03/C10；CT-041 驗 S02(nonzero) C15 CancelNewUser（opcode0x15、空 body、normal binary C2S frame）及 state0x1f/focus status；CT-042 驗有經過 Server owner credential 的角色 transaction、重送/重複名稱/晚到 C15 不破壞已提交角色。Python `tools/a028_newuser_response.py` 為合成模型測試，**非真實原 Client 通過**。仍需 A-027 原生 owner proof、A-003 合法欄位與原生登入/World UI 出場證據。
+
+## A-016 / roy1：R-017 回覆遺失、斷線與持久化（CT-043/044 planned）
+
+[A-016 原版可核對函式](../03-analysis-requests/A-016-roy1-replay-recovery.md) 和 [Domain/DB 恢復契約](../04-analysis-integration/A-016-idempotency-recovery.md)。執行 `python3 tools/a016_recovery_model.py` 做 SQLite synthetic crash/reopen：角色提交回包遺失仍唯一、token 原子一次性、C33 seq7 replay/127→0、C35 拒絕錯 epoch/同 pair ambiguity、交易雙邊入帳與領獎 unique ledger；**不代表原 Client 或原服驗收通過**。CT-043/044 是 designed/negative contract，原始 Client 世界載圖/重登入仍需後續 CT-016/017/018。
