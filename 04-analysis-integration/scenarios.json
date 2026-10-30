@@ -107,6 +107,121 @@
       ],
       "status": "manual-pass-subset",
       "notes": "可聽見聲音已確認；原map→track對應未確認。"
+    },
+    {
+      "id": "SCN-007",
+      "title": "管理員建帳後玩家首次登入",
+      "requirements": [
+        "R-001",
+        "R-002",
+        "R-025"
+      ],
+      "packets": [
+        "PKT-C62",
+        "PKT-C00",
+        "PKT-S00",
+        "PKT-C03",
+        "PKT-S02",
+        "PKT-S03"
+      ],
+      "status": "analysis-required",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "designed",
+      "failure_cases": [
+        "無權管理建帳",
+        "Client 自行註冊",
+        "帳號不存在/錯密/停權",
+        "管理建帳並發/重送"
+      ],
+      "notes": "管理員經獨立管理 API 預建帳號；Client 僅能登入既有帳號。C02 無 Account.Create 權限；原生空角色轉場待 A-021。"
+    },
+    {
+      "id": "SCN-008",
+      "title": "預建無角色帳號首次創角",
+      "requirements": [
+        "R-003",
+        "R-026"
+      ],
+      "packets": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-S02"
+      ],
+      "status": "analysis-required",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "designed",
+      "failure_cases": [
+        "C04 無 C02",
+        "名稱/外觀非法",
+        "跨 session",
+        "同名競爭",
+        "C02/C04 中斷"
+      ],
+      "notes": "原生 C02/C04 與 S02 成功/失敗轉場待 A-021；Character 原子保存，不創建 Account。"
+    },
+    {
+      "id": "SCN-009",
+      "title": "首次 World 交接進入教學",
+      "requirements": [
+        "R-002",
+        "R-004",
+        "R-027"
+      ],
+      "packets": [
+        "PKT-S03",
+        "PKT-C10",
+        "PKT-C25",
+        "PKT-S02",
+        "PKT-S05",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04",
+        "PKT-S33",
+        "PKT-S0F",
+        "PKT-S37"
+      ],
+      "status": "analysis-required",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "designed",
+      "failure_cases": [
+        "token 過期/重用/跨角色",
+        "C25/C35 非法順序",
+        "地圖缺失/CRC 異常/逾時",
+        "載入中斷線"
+      ],
+      "notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。"
+    },
+    {
+      "id": "SCN-010",
+      "title": "建角/交接/首次進圖的中斷恢復",
+      "requirements": [
+        "R-017",
+        "R-028"
+      ],
+      "packets": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-S02",
+        "PKT-S03",
+        "PKT-C10",
+        "PKT-C25",
+        "PKT-C35"
+      ],
+      "status": "analysis-required",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "designed",
+      "failure_cases": [
+        "資料庫提交前後 crash",
+        "成功回包遺失",
+        "舊世代操作",
+        "雙連線"
+      ],
+      "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。"
     }
   ]
 }

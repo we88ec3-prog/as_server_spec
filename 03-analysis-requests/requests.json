@@ -286,6 +286,77 @@
       "status": "open",
       "assignee": null,
       "evidence_ids": []
+    },
+    {
+      "id": "A-021",
+      "system": "SYS-CHAR",
+      "requirements": [
+        "R-002",
+        "R-003",
+        "R-025",
+        "R-026"
+      ],
+      "priority": "P0",
+      "title": "預建空角色帳號在原 Client 的首次登入與 C02/C04 建角",
+      "method": "使用管理員預先建立且無角色的帳號，追創角 UI handler、C02 serializer 0x5742b0、C04 0x574420 與 S02 parser 0x57dbc0，釐清 C02 是否混合帳號註冊與創角、如何避免 Client 建帳，以及是否需重登或直接轉服。",
+      "deliverable": "提供原 Client SHA/原生操作、C02/C04/S02 字段與狀態碼、成功/取消/失敗與重送時序；明確證明預建帳號能正確進入創角。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-002",
+        "A-003",
+        "A-020"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "unknown"
+    },
+    {
+      "id": "A-022",
+      "system": "SYS-WORLD",
+      "requirements": [
+        "R-004",
+        "R-027",
+        "R-028"
+      ],
+      "priority": "P0",
+      "title": "原生首次新手教學地圖、出生點與載入恢復",
+      "method": "新角色首次進圖追 C25/S15/S14/C35/S04 與原始地圖資源；確認真實教學 map ID、出生座標、朝向、首次判定、CRC/逾時/斷線與進度旗標。",
+      "deliverable": "提供 Client SHA/原資源證據、map ID、座標、內容版本、封包時序、失敗/重連語意、可重現原 Client 驗收；不得以本地測試圖冒充。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-015",
+        "A-016",
+        "A-021"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "unknown"
+    },
+    {
+      "id": "A-023",
+      "system": "SYS-QUEST",
+      "requirements": [
+        "R-027"
+      ],
+      "priority": "P1",
+      "title": "教學入口最小 NPC、腳本與任務初始化依賴",
+      "method": "追新手教學首次可操作時是否需要立即啟動的 NPC、腳本、任務 UI/事件；與 A-011/A-012 對照，不擴展至教學完成。",
+      "deliverable": "確認不可省略的首個教學觸發與資料、Client 效果和相關 opcode；保留未完成教學規則清單。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-011",
+        "A-012",
+        "A-022"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "unknown"
     }
   ]
 }

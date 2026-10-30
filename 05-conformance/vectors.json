@@ -172,6 +172,219 @@
       "input_text": "測試",
       "expected_hex": "04b4fab8d5",
       "note": "prefix counts CP950 bytes, not Unicode characters"
+    },
+    {
+      "id": "CT-011",
+      "status": "planned",
+      "level": "state-validation",
+      "requirements": [
+        "R-025",
+        "R-026",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C25"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "非法狀態不改變 Account、Character 或 World",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-012",
+      "status": "planned",
+      "level": "concurrency",
+      "requirements": [
+        "R-026",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "同名／同帳號競爭只提交一角色",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-013",
+      "status": "planned",
+      "level": "recovery",
+      "requirements": [
+        "R-026",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "C02 與 C04 之間斷線不留半角色",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-014",
+      "status": "planned",
+      "level": "idempotency",
+      "requirements": [
+        "R-026",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C04",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "C04 成功回包遺失重送不生成第二角色",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-015",
+      "status": "planned",
+      "level": "auth-security",
+      "requirements": [
+        "R-002",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C10"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "無效、過期、重用、跨角色及舊世代 token 拒絕",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-016",
+      "status": "planned",
+      "level": "world-sequence",
+      "requirements": [
+        "R-004",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C25",
+        "PKT-S02",
+        "PKT-S05",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04",
+        "PKT-S33"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "世界初始化順序正確，載入中不得 InWorld",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-017",
+      "status": "planned",
+      "level": "crash-recovery",
+      "requirements": [
+        "R-027",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C25",
+        "PKT-C35"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "C35 前後中斷不留幽靈載圖、不誤標教學完成",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-018",
+      "status": "planned",
+      "level": "native-client",
+      "requirements": [
+        "R-025",
+        "R-026",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C10",
+        "PKT-C25",
+        "PKT-S15"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "原生 Client 在證據確認的教學地圖出生且可操作",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-019",
+      "status": "planned",
+      "level": "account-policy",
+      "requirements": [
+        "R-025"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C03",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "管理建帳有權限，Client 不可建帳，停權／錯密不能交接",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-020",
+      "status": "planned",
+      "level": "profile-guard",
+      "requirements": [
+        "R-025",
+        "R-026",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C25"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/onboarding-test-plan.md"
+      },
+      "expected": "非法 profile 或順序明確拒絕，不自造成功",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run"
     }
   ]
 }

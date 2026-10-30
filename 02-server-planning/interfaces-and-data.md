@@ -43,3 +43,10 @@
 ## 依賴規則
 
 Domain不依賴socket／opcode／管理UI／具體DB；Protocol不直接寫資產；管理UI不繞過命令權限。依賴向內，Infrastructure實作儲存及時鐘等抽象邊界。各實作可選不同技術，但共同驗收應只觀察契約而非內部類別。
+
+## 首次玩家新增內部語意接口（不是原生 wire）
+
+Admin.ProvisionAccount/Suspend/Unsuspend：獨立管理身分、權限、稽核；不能由 Client 命令建立 Account。
+Auth.AuthenticateExistingAccount/ConsumeTransferGrant：核對帳號有效、世代與一次性 grant。
+Character.CreateDraft/CompleteCreation：只為既有帳號建立合法角色，原子提交；C02/C04/S02 分支待 A-021。
+World.SelectInitialSpawn/CommitTutorialEntry：原版教學地圖與坐標待 A-022；tutorial_entry 與 tutorial_completed 分開。參見 [規劃](first-login-onboarding.md)。

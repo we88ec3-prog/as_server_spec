@@ -23,3 +23,11 @@
 授權條款尚待專案擁有人選擇，見[分享與授權決策](00-governance/sharing-and-license.md)。本repository只維護可分享規格；作者的私有Server實作不發布在這裡。
 
 已有研究的整合情況請看[既有分析覆蓋表](04-analysis-integration/analysis-coverage.md)：逐份列出舊文件、新規格落點及哪些只保留摘要／身份索引。
+
+## 首次玩家流程：登入 → 創角 → 進入新手教學（2026-10-31）
+
+已確認：**只有管理員能建立 Account；玩家透過原 Client 登入及自行建立 Character，不得自行註冊 Account**。閱讀 [R-025～028 需求](01-server-requirements/first-login-onboarding.md) → [ONB-01～04 規劃](02-server-planning/first-login-onboarding.md) → [A-021～023 待分析](03-analysis-requests/README.md) → [SCN-007～010 情境](04-analysis-integration/scenarios.md) → [CT-011～020 計畫](05-conformance/onboarding-test-plan.md)。目前為規劃，不是原 Client 已完成驗收。
+
+## 首次玩家：管理建帳 → Client 登入 → 創角 → 新手教學（2026-10-31）
+
+已確認使用者需求：**帳號由管理員透過獨立後台建立，玩家只能使用原始 Client 登入並建立角色，不能由 Client 註冊帳號**。新的規格鏈： [R-025～028](01-server-requirements/first-login-onboarding.md) → [跨系統 ONB 規劃](02-server-planning/first-login-onboarding.md) → [A-021～023](03-analysis-requests/README.md) → [SCN-007～010](04-analysis-integration/scenarios.md) → [CT-011～020](05-conformance/onboarding-test-plan.md)。目前是規劃／待分析，不是新手地圖已通過原 Client 實測。

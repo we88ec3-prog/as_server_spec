@@ -241,6 +241,50 @@
       "baseline": "本次建立基線",
       "status": "specified",
       "stage": "requirement"
+    },
+    {
+      "id": "R-025",
+      "system": "SYS-AUTH",
+      "priority": "P0",
+      "title": "管理員建帳、玩家僅 Client 登入",
+      "acceptance": "僅授權管理員可透過獨立管理 API 建立帳號；玩家 Client 不可建立 Account，只能登入已存在且未停權帳號；管理操作有稽核。",
+      "baseline": "需求方已確認；未實作/未驗收",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed"
+    },
+    {
+      "id": "R-026",
+      "system": "SYS-CHAR",
+      "priority": "P0",
+      "title": "已預建無角色帳號首次創角",
+      "acceptance": "原 Client 合法創角並原子保存角色、外觀與 owner；重名、無前置、重送、斷線及並發不產生半角色或重複角色。",
+      "baseline": "部分封包入口已知，完整 Client 分支待 A-021",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed"
+    },
+    {
+      "id": "R-027",
+      "system": "SYS-WORLD",
+      "priority": "P0",
+      "title": "首次出生於新手教學地圖",
+      "acceptance": "使用已保存角色與有效交接進入具原 Client 證據的新手地圖與座標；loading 完成、定位正確且可操作；失敗有恢復策略。",
+      "baseline": "真實教學地圖/座標/首次條件待 A-022",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed"
+    },
+    {
+      "id": "R-028",
+      "system": "SYS-PERSIST",
+      "priority": "P0",
+      "title": "首次流程中斷恢復與冪等",
+      "acceptance": "管理建帳、角色建立、一次性 token、首次進圖及可能初始資產各有提交點，重送/斷線/重啟不重複角色、資產或誤標教學完成。",
+      "baseline": "尚未驗收",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed"
     }
   ]
 }

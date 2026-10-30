@@ -64,3 +64,7 @@ stateDiagram-v2
 ## 規格、實作與相容層
 
 Codec處理wire細節，Adapter處理語系／版本差異，Domain不含opcode常數。已確認原生行為、推導與自訂補完規則分開。資料庫、ORM、語言及實作架構可不同，但各Server對共同CT必須產生相容結果。
+
+## 首次玩家流程 R-025～028
+
+管理員透過獨立授權管理 API 建立 Account；玩家 Client 只登入既有 Account，C02/NewUser 不能直接建立 Account。創角／World handoff／進入新手教學與恢復的責任詳見 [first-login-onboarding.md](first-login-onboarding.md)，原 Client 空角色轉場及教學地圖待 A-021/A-022。

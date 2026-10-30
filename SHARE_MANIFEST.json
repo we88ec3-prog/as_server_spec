@@ -13,7 +13,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "297d2ea028eead7158bc420c8546a853ba76bbe49af51e82a515ced0cea06b71"
+      "sha256": "b2926fd5f11272c509c65f0eb89620e350bdbc2ea021388763472b5d09c17184"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -29,43 +29,51 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "3e85ef89ba7b214d0fea4cd6dce7f74239de27c10df7c0a108b4d3bfc49b2d77"
+      "sha256": "c544610f7315ee31cd30ed445bfdfdbf4f74302be0c5ea0831a76e3eea40b85c"
     },
     {
       "path": "00-governance/workflow.md",
       "sha256": "a35a2caf8ef76571ddfc369b1a1377e37c859101d4db9541e602ade9d7a83b97"
     },
     {
+      "path": "01-server-requirements/first-login-onboarding.md",
+      "sha256": "4ebe14b215c4f6a53bd631e2ece0ce7c318fb87b011f1b67133dd5bcfe914ab9"
+    },
+    {
       "path": "01-server-requirements/README.md",
-      "sha256": "f5e9aa7ac50d64bd40628915ed0517ebbc37671f977ae4729a2df1fcbc984977"
+      "sha256": "9d4ee1a66fb4348138a0c08ae88dba80158a7b795a7f678b27dfe049d4ba2464"
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "36a5821dea6c46b161f9e14b6476bf74f6cc35a351064275aa7c7fdc079dd3d1"
+      "sha256": "79ea295a7f0d7860b579f193b114b8bead76ea5c5679922a3382cabf82189047"
     },
     {
       "path": "02-server-planning/architecture.md",
-      "sha256": "a81407f6ac8fa2089cf3e3846925e921238fadf8a177f374b62ec4094bd2cdf8"
+      "sha256": "adc208a7c36fdbe17659c6207f597a4a86f362fc7fdf7e9e9fd29ba2d32f78be"
     },
     {
       "path": "02-server-planning/decisions.md",
       "sha256": "ad2c168f6a819b958c520ffc10cbcf5c7a593d6cb50d3e88a30d4954c74e65c7"
     },
     {
+      "path": "02-server-planning/first-login-onboarding.md",
+      "sha256": "16a2208a9eff43176643d6458b53be12a08d8cf4a15e5cb7299dc97f8803b03a"
+    },
+    {
       "path": "02-server-planning/interfaces-and-data.md",
-      "sha256": "eeba734c045317dd25b5dd4be75a199549adc5b28ae62ead560c378f56611d16"
+      "sha256": "813af661c600f5b8a8f56bd884052b95a46ee0237c2929f44ef83f23f1d4b5ce"
     },
     {
       "path": "02-server-planning/roadmap.md",
-      "sha256": "c17f68f54acdddea3159ae1900bff3a2ac76925df6de472e7a19fc88fff02b0d"
+      "sha256": "b4e7852cfee5525afac0c2dd203a1520bda89a2e844b4fb3d366a1e7feafff1f"
     },
     {
       "path": "02-server-planning/systems.json",
-      "sha256": "e3ba87d4e3a7c530c86bc36401ec3547b9f7f08525707b61a7bd92499ed3c57b"
+      "sha256": "6d4a8973cd40f118f7232dcd3d7797ce2c5dd4ad0eb67af820e154fcdf5c683c"
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "5645c59881ac02f2f1bdb7e326fabf61b0cedb196900d4c78596223b90a967fb"
+      "sha256": "15cfbfa4efcb1294cf2a0526ab4e36e3927fd40d93b9014d6af30566bd792e7a"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -73,7 +81,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "ad13f70fbe067d53e229a157045819493de417f7f52d5def1d1566888a2f8918"
+      "sha256": "fea6b94ac0078a95f87635f4e82fc7b8fe433e44601b50e5312694232386664f"
     },
     {
       "path": "04-analysis-integration/analysis-coverage.json",
@@ -125,11 +133,11 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "96bc641c01e3a31ebf102923935e103394a60f74618d2502b221f5dcef67483f"
+      "sha256": "7334e818cd8da58bcf17b180303f5014124016ddb09d87594c584d1e40291fa0"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "4e13edcec1977057c44ce55465bf17a8b56d07cc339fd2a3f3f0cecc5f79dd75"
+      "sha256": "452d4938341f76ca4aa40626e054af7c9a3fa923c622ac9e26922353f2a66548"
     },
     {
       "path": "04-analysis-integration/transport.md",
@@ -140,12 +148,16 @@
       "sha256": "9cd5a8dbe0cefc2bbe70e247a97dda6bf55ec389c90d87d01d1f6416585044a9"
     },
     {
+      "path": "05-conformance/onboarding-test-plan.md",
+      "sha256": "8f7d6185a94545b4760131ff3f7bba60cb8da2954c2765a2b378de0408f7f87d"
+    },
+    {
       "path": "05-conformance/vectors.json",
-      "sha256": "e2f4e25caa934532500a8ec383940026c71965d3bfd3c38cf5c905046fdbaef4"
+      "sha256": "5a8cfa90921aaed747a02a9a1264aa10479f0c9bcbc0f8601cdf79a59429874a"
     },
     {
       "path": "README.md",
-      "sha256": "7f0848fa74ec1d1ce0091992e076b660eb9f57f28a455e9f994101b2580deb1e"
+      "sha256": "a0715397450a287d5d9c8a08b2969009f6cddfdcd7ac9a1d0d2338b145d9f585"
     }
   ]
 }
