@@ -75,3 +75,18 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## A-002 更正 C25 誤標與登入轉服 wire
 
 原版 C03：`string8 account,string8 password,u8 flag`；S02：`u8 status,string8 message`；S03：`u32_be addr,u16_be port,u8 token_len,raw bytes`；C10：**raw token body**、無第二個 u8 length。位址 `0x4A8370` 是 S03 的 transfer handler，不可當 C25 的 region parser。真實 Server 的 duplicate-login status/policy 未知。見 [A-002 靜態核對](A-002-merge-verification.md)。
+
+## A-014／roy2 — 社交封包原生入口（2026-10-31）
+
+|Packet|Client native 入口|decoded body / 限制|
+|---|---|---|
+|C0E|0x574FC0 ctor，0x575070 writer|type:u8 + text:string8；type→頻道仍 unknown|
+|C19|0x578220 ctor，0x5782D0 writer|type:u8 + target:string8 + text:string8；離線拒絕原服語意 unknown|
+|C2E|0x572D30 ctor，0x572DE0 writer|op:u8，op0 name:string8；op1 name:string8 + 2×bool u8；op 意義未知|
+|C12|0x573550 ctor，0x573600 writer|op/subtype 條件分支；非所有 subtype 有相同尾部|
+|S0D|0x586120 ctor，0x5861D0 reader|type:u8，source_id:BE u32，text:string16；type4 多 string16/u32|
+|S58|0x580040 ctor，0x5800F0 reader|type:u8 + subtype:u8；後續 member 結構待證|
+|S3A|0x5887A0 ctor，0x5887CA 特殊支線|group-members status；0x208 是 local 記憶體欄位大小，**不是** wire|
+|S0A|0x582150 ctor，0x582200 reader|原有 `SMessage` 同時供系統訊息，保持 SYS-AUTH 既有封包分類|
+
+ChatInput/WhisperTarget/GroupMember/GuildList UI 有靜態證據；UI 公會功能不等同完整原生 guild 協定。已知 C2S codec 由 DEV 可實作，未確認的頻道/公會 op 在原生 profile 必須 fail closed，斷線、權限和限速設計為 designed。完整 [A-014 研究](../task_a/roy2/A-014-analysis.md)／[CT-041～043](../05-conformance/A-014-social-test-plan.md)。

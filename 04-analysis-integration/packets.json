@@ -817,6 +817,10 @@
       "requirements": [
         "R-001",
         "R-002"
+      ],
+      "social_analysis_note": "A-014 native SMessage parser 0x582200 confirms shared u8+string16; generic authentication/system message, do not reclassify as ordinary chat",
+      "evidence_ids": [
+        "A014-E03"
       ]
     },
     {
@@ -850,6 +854,237 @@
         "R-027"
       ],
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
+    },
+    {
+      "id": "PKT-C0E",
+      "direction": "C2S",
+      "opcode": "0x0e",
+      "name": "CSay",
+      "system": "SYS-SOCIAL",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "type:u8, text:string8",
+      "client_entry": "0x574FC0/0x575070",
+      "state_precondition": "Server only accepts C2S in authenticated World session; native sender policy unverified",
+      "related_packets": [
+        "PKT-S0D",
+        "PKT-S0A",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A014-E01",
+        "A014-E02",
+        "A014-E03",
+        "A014-E04",
+        "A014-E05"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-015"
+      ],
+      "contract_reference": "task_a/roy2/A-014-analysis.md"
+    },
+    {
+      "id": "PKT-C19",
+      "direction": "C2S",
+      "opcode": "0x19",
+      "name": "CWhisper",
+      "system": "SYS-SOCIAL",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "type:u8, target:string8, text:string8",
+      "client_entry": "0x578220/0x5782D0",
+      "state_precondition": "Server only accepts C2S in authenticated World session; native sender policy unverified",
+      "related_packets": [
+        "PKT-S0D",
+        "PKT-S0A",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A014-E01",
+        "A014-E02",
+        "A014-E03",
+        "A014-E04",
+        "A014-E05"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-015"
+      ],
+      "contract_reference": "task_a/roy2/A-014-analysis.md"
+    },
+    {
+      "id": "PKT-C2E",
+      "direction": "C2S",
+      "opcode": "0x2e",
+      "name": "CGroup",
+      "system": "SYS-SOCIAL",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "op:u8, op0 name:string8; op1 name:string8 + bool:u8 + bool:u8; other ops not classified",
+      "client_entry": "0x572D30/0x572DE0",
+      "state_precondition": "Server only accepts C2S in authenticated World session; native sender policy unverified",
+      "related_packets": [
+        "PKT-S0D",
+        "PKT-S0A",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A014-E01",
+        "A014-E02",
+        "A014-E03",
+        "A014-E04",
+        "A014-E05"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-015"
+      ],
+      "contract_reference": "task_a/roy2/A-014-analysis.md"
+    },
+    {
+      "id": "PKT-C12",
+      "direction": "C2S",
+      "opcode": "0x12",
+      "name": "CMemberList",
+      "system": "SYS-SOCIAL",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "op:u8 with branched subtype and conditional string8/u32/u8 fields; full branch table in report",
+      "client_entry": "0x573550/0x573600",
+      "state_precondition": "Server only accepts C2S in authenticated World session; native sender policy unverified",
+      "related_packets": [
+        "PKT-S0D",
+        "PKT-S0A",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A014-E01",
+        "A014-E02",
+        "A014-E03",
+        "A014-E04",
+        "A014-E05"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-015"
+      ],
+      "contract_reference": "task_a/roy2/A-014-analysis.md"
+    },
+    {
+      "id": "PKT-S0D",
+      "direction": "S2C",
+      "opcode": "0x0d",
+      "name": "SSay",
+      "system": "SYS-SOCIAL",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "type:u8, source_id:u32 BE, text:string16; type4 extra text2:string16 + number:u32 BE",
+      "client_entry": "0x586120/0x5861D0",
+      "state_precondition": "Server only accepts C2S in authenticated World session; native sender policy unverified",
+      "related_packets": [
+        "PKT-C0E",
+        "PKT-C19",
+        "PKT-C2E",
+        "PKT-C12"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A014-E01",
+        "A014-E02",
+        "A014-E03",
+        "A014-E04",
+        "A014-E05"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-015"
+      ],
+      "contract_reference": "task_a/roy2/A-014-analysis.md"
+    },
+    {
+      "id": "PKT-S58",
+      "direction": "S2C",
+      "opcode": "0x58",
+      "name": "SMemberList",
+      "system": "SYS-SOCIAL",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "type:u8, subtype:u8; remainder variant not yet resolved",
+      "client_entry": "0x580040/0x5800F0",
+      "state_precondition": "Server only accepts C2S in authenticated World session; native sender policy unverified",
+      "related_packets": [
+        "PKT-C0E",
+        "PKT-C19",
+        "PKT-C2E",
+        "PKT-C12"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A014-E01",
+        "A014-E02",
+        "A014-E03",
+        "A014-E04",
+        "A014-E05"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-015"
+      ],
+      "contract_reference": "task_a/roy2/A-014-analysis.md"
+    },
+    {
+      "id": "PKT-S3A",
+      "direction": "S2C",
+      "opcode": "0x3a",
+      "name": "SUpdateGroupMembers",
+      "system": "SYS-SOCIAL",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "subtype5 special branch; local member record 0x208 bytes (NOT WIRE)",
+      "client_entry": "0x5887A0/0x5887CA",
+      "state_precondition": "Server only accepts C2S in authenticated World session; native sender policy unverified",
+      "related_packets": [
+        "PKT-C0E",
+        "PKT-C19",
+        "PKT-C2E",
+        "PKT-C12"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A014-E01",
+        "A014-E02",
+        "A014-E03",
+        "A014-E04",
+        "A014-E05"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-015"
+      ],
+      "contract_reference": "task_a/roy2/A-014-analysis.md"
     }
   ]
 }

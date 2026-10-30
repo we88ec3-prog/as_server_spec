@@ -88,3 +88,7 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 ## A-015（task_a/roy2）限定研究交付結案：2026-10-31
 
 已確認 `Asgard.exe` 資源選擇路徑與真 Map0/1/2（494/494）、Born.dat 靜態結構，修正 Script 為 **BE u16 version + BE u32 UTF-16LE units** 並加入大檔及錯版負向測試。確認圖像資源只需 ID／格式交接，無須使用者上傳全量 Human；技能／物品來源 **unknown**，其原生遊戲語意交 A-007/A-010 等後續 A。A-015 `status=integrated / handoff_status=ready` **只對格式、來源盤點、metadata probe 與權利界線有效**；全內容 `implementation_ready=false`、同版配對 unverified、原生 `native_client_validation=not-run` 不變。參見 [結案審查](../task_a/roy2/A-015-closure-review.md)。
+
+## A-014／roy2 聊天／組隊／公會研究子集（2026-10-31）
+
+直接追指定 Client SHA 的 RTTI→class vtable→封包 constructor，已證 C0E、C19、C2E、C12、S0D、S0A、S58、S3A 類與已知欄位分支，另有聊天/密語/群組/公會 UI 存在性、可用的 [分析報告](../task_a/roy2/A-014-analysis.md)、[機讀欄位索引](../task_a/roy2/A-014-packet-index.json)、[合成 codec/權限測試](../task_a/roy2/test_a014_social.py)、[CT 方案](../05-conformance/A-014-social-test-plan.md)。`status=integrated / handoff_status=partial` 是已證 codec 子集交付，**不是**完整原生公會權限與 UI type 對照已解或 Client E2E 通過。原服拒絕與離線策略 unknown。

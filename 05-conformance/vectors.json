@@ -847,6 +847,76 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_request": "A-015"
+    },
+    {
+      "id": "CT-041",
+      "status": "planned",
+      "level": "synthetic-client-body-and-designed-server-policy",
+      "requirements": [
+        "R-015"
+      ],
+      "packet_ids": [
+        "PKT-C0E",
+        "PKT-C19",
+        "PKT-S0D",
+        "PKT-S0A"
+      ],
+      "input": {
+        "kind": "synthetic",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "expected": "synthetic decoded CP950 byte lengths, malformed requests, stale world generation and wrong sender protection",
+      "evidence_kind": "designed",
+      "analysis_request": "A-014",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-042",
+      "status": "planned",
+      "level": "synthetic-client-body-and-designed-server-policy",
+      "requirements": [
+        "R-015"
+      ],
+      "packet_ids": [
+        "PKT-C2E",
+        "PKT-C12",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "input": {
+        "kind": "synthetic",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "expected": "synthetic group member authority, stale revision, offline/duplicate/invalid invite/kick/leave; native subtype unknown",
+      "evidence_kind": "designed",
+      "analysis_request": "A-014",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-043",
+      "status": "planned",
+      "level": "native-client-E2E",
+      "requirements": [
+        "R-015"
+      ],
+      "packet_ids": [
+        "PKT-C0E",
+        "PKT-C19",
+        "PKT-S0D",
+        "PKT-S0A",
+        "PKT-C2E",
+        "PKT-C12",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "input": {
+        "kind": "native-client-data-required",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "expected": "native E2E: channel type/group/guild commands, original error reply, recipient fanout, world reconnect",
+      "evidence_kind": "designed",
+      "analysis_request": "A-014",
+      "native_client_validation": "not-run"
     }
   ]
 }

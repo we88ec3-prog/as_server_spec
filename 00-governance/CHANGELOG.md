@@ -69,3 +69,7 @@ A-002 C03/S03/C10 static Client contract 及 roy1 更正的 A-022 C25 handler �
 ## 2026-10-31 — A-015 resource-format / provenance scoped handoff
 
 基於原始 Asgard.exe、Born.dat、Map0/1/2 完成格式/權利調查的限定研究結案（`integrated / ready`）；修正 Script wrapper BE16(version) + BE32(text code units) 的舊規格錯誤，加入長 Script／錯誤 version/size 回歸測試。可列出 26 組 EXE 資源 selector 但沒有證據確認技能／物品定義檔名；不要求上傳 Human 全套圖像。其餘真 native map/spawn、NPC、碰撞／skill/item 原服語意及版本 manifest 仍 unknown 且交其他 A/CT，絕非整體遊戲 ready。無原始遊戲素材提交。
+
+## task_a/roy2／A-014 社交封包靜態證據及驗收拆分 — 2026-10-31
+
+確認原版 EXE native C0E/C19/C2E/C12 與 S0A/S0D/S58/S3A ctor/parser 欄位；Client 有一般聊天、密語、群組和公會相關 UI，但真正 CGroup/CMemberList op/subtype、group/guild 發話 type 與 Server 原生拒絕未知。已新增可重現合成 codec/Server membership guard 模型、Evidence A014-E01..E08、CT-041..CT-043，狀態 `integrated/partial/native Client not-run`。沒有建立新分支，沒有原始遊戲資料提交。

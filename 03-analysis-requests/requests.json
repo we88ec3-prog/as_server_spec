@@ -273,12 +273,42 @@
       "title": "聊天／組隊／公會",
       "method": "查各輸入通道、UI事件、權限及成員狀態；先確認功能存在。",
       "deliverable": "各頻道收發路由、非法操作、離線及斷線情境。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A014-E01",
+        "A014-E02",
+        "A014-E03",
+        "A014-E04",
+        "A014-E05",
+        "A014-E06",
+        "A014-E07",
+        "A014-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "observed-static-client + synthetic-test + designed-fail-closed-model",
+      "analysis_report": "task_a/roy2/A-014-analysis.md",
+      "packet_index": "task_a/roy2/A-014-packet-index.json",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Decoded C0E/C19 wire fields and C2E/C12 bounded subvariants; Server-side authority model only. Native group/guild interoperability is NOT ready.",
+      "analysis_scope_completed": [
+        "RTTI→vtable→native opcode constructors for C0E,C19,C2E,C12,S0A,S0D,S58,S3A",
+        "C0E/C19/C2E basic body fields; C12 variant scanner",
+        "S0D/S0A known receive fields; UI chat/group/guild presence",
+        "failure/disconnect/permission matrix designed separately from native observations"
+      ],
+      "remaining_unknowns": [
+        "C0E type to nearby/shout/group/guild channel mapping; need native UI producer cross-references",
+        "C2E/C12 all op/subtype semantics; S58/S3A group/guild member wire detail",
+        "Native guild create/invite/permissions and friend/blocked-whisper persistence; original client UI presence alone cannot certify protocol",
+        "Native original-server error/status payloads, whisper offline, rate limits and disconnect/relogin policy",
+        "Client E2E CT-043 not-run"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-015",
