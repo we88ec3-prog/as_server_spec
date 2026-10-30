@@ -50,3 +50,7 @@ Admin.ProvisionAccount/Suspend/Unsuspend：獨立管理身分、權限、稽核�
 Auth.AuthenticateExistingAccount/ConsumeTransferGrant：核對帳號有效、世代與一次性 grant。
 Character.CreateDraft/CompleteCreation：只為既有帳號建立合法角色，原子提交；C02/C04/S02 分支待 A-021。
 World.SelectInitialSpawn/CommitTutorialEntry：原版教學地圖與坐標待 A-022；tutorial_entry 與 tutorial_completed 分開。參見 [規劃](first-login-onboarding.md)。
+
+## C02 早於 C03 的信任邊界修訂（A-021 roy1）
+
+Game Client C02 可能在 C03 之前送出；C02 region 封包布局已由 BIN 確認，但其帳號名稱／憑證字段仍 unknown。Gateway 可以在 pre-auth 階段**解析**此封包，不代表有權呼叫 `Account.Create` 或 `Character.CompleteCreation`；未經帳號擁有者身份校驗，不得將其當成 `ClaimExistingAccount`，不得發行有效 transfer grant、授權 S02 success 以進入 C04 或寫入 Character。A-027 必須證明身份驗證／綁定時機，A-028 必須證明 C04 final response。詳見 [A-021 roy1 review](../04-analysis-integration/A-021-roy1-review.md)。

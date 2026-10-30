@@ -19,3 +19,7 @@ Account / Character / TransferGrant / CharacterSpawn / OnboardingProgress 具有
 SCN-007 管理建帳與玩家首次登入；SCN-008 原 Client 創角；SCN-009 首次新手教學進圖；SCN-010 中斷回復。A-021 原 Client 創角轉場、A-022 教學地圖出生、A-023 進圖後必要 NPC/Script 均尚待證據。CT-011～020 均為 planned，原生 Client 的測試與 Server 邏輯測試須分開報告。
 
 本批目標到「角色成功進入教學且可操作」為止。怪物 AI、角色技能、NPC 互動、教學完成、任務獎勵等需求不當作本批已完成；將在 ONB-05 後續規劃。
+
+## A-021 roy1 合併後新增安全約束（2026-10-31）
+
+已經 BIN-first 核對 C02 可在 C03 之前送出，且 local state 0x1d 在 S02(status0) 後發 C04。然而 **C02 字串的身份/驗證語意仍未知**；R-025「只能管理員建立 Account」不變，任何 Client C02 都不得直接新建 Account、任意認領預建帳號、核發具權限的 Session/World grant 或替他人建立角色。是否可安全綁定已預建 owner 交 A-027，C04 成功/拒絕與重登轉服交 A-028；暫不能宣稱 ONB-02 完整原生相容。審核見 [A-021 review](../04-analysis-integration/A-021-roy1-review.md)。

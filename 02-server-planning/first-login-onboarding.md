@@ -1,6 +1,6 @@
 # 首次玩家 Server 跨系統規劃（ONB-01～04）
 
-需求 R-025～028。**已確認**：管理員建帳；玩家原生 Client 只登入既有 Account，仍能自行創角。A-021 已靜態分析整合（參考 A-021-followup），可先按可實作的後台預建帳號 + C02 認領 + C04 建角策略開發；但沒有證據說 C03 無角色登入後原版 Client 自動轉至創角 UI。原新手教學地圖與座標待 A-022。
+需求 R-025～028。**已確認**：管理員建帳；玩家原生 Client 只登入既有 Account，仍能自行創角。A-021 已靜態分析整合（參考 A-021-followup），僅可實作已核對的 C02/C04 codec/Client 狀態子集；C02 預建帳號認領仍有未確認的身份與權限風險，必須等待 A-027；但沒有證據說 C03 無角色登入後原版 Client 自動轉至創角 UI。原新手教學地圖與座標待 A-022。
 
 |系統|語意命令/持久資料|限制|
 |---|---|---|
@@ -13,7 +13,7 @@
 ## 狀態與提交
 1. AuthorizedAdmin → AccountProvisioned；遊戲 Client 不接受 ProvisionAccount。
 2. LoginReady → C03 Authenticate → CharacterReady 或 NoCharacter（**Server 內部狀態**；不代表原 Client 有無角色選單）。
-3. NoCharacter → Client 原生 NewUser UI 的 C02（可在 C03 之前，**只能認領後台已存在帳號**，不得新建 Account）→ PendingCreateHandshake/lease → S02 status0 → C04 → 角色資料原子提交 → CharacterReady；C04 無前置/跨 Session/非法資料拒絕。C03 無角色不得直接進 World；是否能自動轉原 UI 仍 unknown，採 NewUser 入口作 designed 暫行流程。
+3. NoCharacter → Client 原生 NewUser UI 的 C02（可能早於 C03；**在 A-027 證明身份與權限前不得認領任何預建 Account**）→ 尚未授權的解析階段／合法身份驗證（待 A-027）→ 授權後才能回應可觸發 C04 的 S02 status0 → C04 → 最終回覆與角色原子提交時機待 A-028 → CharacterReady；C04 無前置/跨 Session/非法資料拒絕。C03 無角色不得直接進 World；是否能自動轉原 UI 仍 unknown，採 NewUser 入口作 designed 暫行流程。
 4. CharacterReady → S03 IssueGrant → C10 ConsumeGrant（同一 token 只能使用一次）→ C25 Loading。
 5. S02、S05、S15、S14(1)、C35、S04、S33、必要背包裝備、S14(2) → InWorld。教學地圖出生點只用 A-022 證實的設定；C35 超時/CRC 失敗進 Reconcile，不亂標入圖成功。
 6. 首次成功提交 tutorial_entry_committed；**不**自動寫 tutorial_completed。重連時用已保存角色/位置/旗標恢復，可能的初始資產以唯一 ledger 防重。
@@ -28,3 +28,8 @@
 |ONB-05（後續）|教學怪物、技能、NPC、任務與教學完成|另立需求，不屬本次首次入圖完成條件|
 
 此規劃不依賴特定語言/資料庫；現有 SCN-001 為一般登入/地圖載入已知 profile，不能自動升級為教學驗收。
+
+
+## A-021 roy1 靜態證據與安全設計更新（2026-10-31）
+
+原始 Client 會在 UI 狀態 0x1d 收到 S02(status0) 後送 C04，進 state 0x1e；此狀態轉移已靜態確認，但不代表 Account 認領已授權或 C04 已完成角色建立。**不可因 C02 早於 C03 就把既有帳號認領改成無密碼操作**。Region-specific C02 layout 已知，字段語意未知；在 A-027/A-028 未完成前只允許 codec/parser 與 Domain 內部模型的部分開發，對外未授權路由 fail closed。見 [roy1 審核](../04-analysis-integration/A-021-roy1-review.md)。
