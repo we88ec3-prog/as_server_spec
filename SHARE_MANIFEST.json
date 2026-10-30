@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "a87a9a194f0a2fefa500aae077350d05a010d74a312e8b76b40941ecd05973ee"
+      "sha256": "72434b3183befbd822c45fe751aadcf3f539c294f5fd50d5498cb8902f7b1ebb"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "4b6754404e887f20b1994589ef125d113e93982fcd5d0a71567fe10aa9a688e6"
+      "sha256": "22323eb909b0860d13239b4cec99aec80b2257766ba2f10a35c776e9b97911f2"
     },
     {
       "path": "00-governance/workflow.md",
@@ -77,7 +77,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "aff34014f6304b05de569f6395421d2a42554171007da26a8f7f8623c3e756f8"
+      "sha256": "b228a718b7114b4091e88d877b969283060be1ddceb1e24d565bf6f6a6514c82"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -185,7 +185,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "6d2dfdfde884e9a329379e86b992a5df771c6dcf279cfcdb916340b1086df600"
+      "sha256": "9bb8ff2ae604e76fb7c6a5af75fa0ae02d245a2e7aab07de5716a20cf96e82d1"
     },
     {
       "path": "03-analysis-requests/request-template.md",
