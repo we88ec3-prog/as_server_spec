@@ -2376,6 +2376,90 @@
       "report_path": "task_a/roy2/A-014-analysis.md",
       "raw_content_shared": false,
       "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "RTTI TypeDescriptors SDrawObjectsPacket 0x669CB0, SDieObjectsPacket 0x669C90, SMoveObjectPacket 0x669E8C, SMovePathPacket 0x669EAC, SRemoveObjectsPacket 0x66A038 via COL->vtable; native constructors 0x57E310(S07),0x57E1B0(S5F),0x5833A0(S0C),0x583530(S64),0x585E60(S0E) call base 0x578730",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E02",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "S07 0x57E3E0 reads BE u16 count and each first row BE u16,u16,u8,u32,u16, discriminator branches type1..14, local allocation 0x228 per row; full on-wire row is NOT fixed 0x228",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E03",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "S5F 0x57E260 BE u32 single value; S0E 0x585F10 BE u32 single value; opcode labels confirmed against ctor class, not merely file names",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E04",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "S0C 0x583450 BE u32,u16,u16,u8,u8; S64 0x5835E0 BE u32,u16,u16,u8,u8 count, count*u8, BE u16,u16,u8; S64 path local buffer +0x23..+0x2d precedes destination field +0x2e (11 slots), native counter loop cap unverified",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E05",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "CObjectInfoRequestPacket native ctor 0x574500 pushes 0x43; cannot link this alone to NPC click/interaction because UI producer and native response sequence not proven",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E06",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource + unknown",
+      "locator": "Provided MAP0/1/2 494 member structures and Born.dat observed; Born (31,29) is guide UI text, no proven NPC spawn/entity/map binding. EXE printable selectors World%02d.dat and @Monster%02d.dat are candidate resources, not proof of NPC spawn table",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E07",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test + designed",
+      "locator": "6 local unittest synthetic cases cover S5F/S0E/S0C/S64/S07-empty strict parsers, truncation/overflow/unknown forms, duplicate spawn, stale map epoch and lifecycle; neither native Client E2E nor original AI policy.",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
     }
   ]
 }

@@ -731,9 +731,17 @@
       "title": "新手教學 NPC／怪物生成、AI 行動與消失",
       "method": "在 A-022 確認的教學地圖追初始 NPC/怪物種類/出生/可見性、行動/攻擊/死亡/清除/重生及原 Client handler；對照 A-004/011/023。",
       "deliverable": "提供 Client SHA、資源位置、生成/動作/消失封包字段及狀態、時間/坐標單位、動態證據與失敗/重送 CT，原服未知 AI 參數保留 unknown。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A024-E01",
+        "A024-E02",
+        "A024-E03",
+        "A024-E04",
+        "A024-E05",
+        "A024-E06",
+        "A024-E07"
+      ],
       "dependencies": [
         "A-004",
         "A-011",
@@ -742,11 +750,35 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static-client + observed-static-resource-limits + synthetic-tests + designed-epoch-model",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
-      "latest_merged_evidence_focus": "A-023 nNewJoin01 merchant school-join script is an inferred candidate only, with no verified NPC entity/map binding. Identify recruiter spawn, entity id, interaction packet and A-011 NPC visibility/actions using original MAP/NPC assets or observed packet/event evidence, not name similarity."
+      "latest_merged_evidence_focus": "A-023 nNewJoin01 merchant school-join script is an inferred candidate only, with no verified NPC entity/map binding. Identify recruiter spawn, entity id, interaction packet and A-011 NPC visibility/actions using original MAP/NPC assets or observed packet/event evidence, not name similarity.",
+      "analysis_report": "task_a/roy2/A-024-analysis.md",
+      "codec_probe": "task_a/roy2/a024_npc_codec.py",
+      "implementation_ready": true,
+      "implementation_ready_scope": "S5F/S0E BE u32, S0C fixed fields, S64 bounded variable movement, S07 empty count and nonempty-prefix only; NO proven tutorial NPC, full S07 nonempty entities, interaction or AI",
+      "original_tutorial_spawn_ready": false,
+      "native_npc_interaction_ready": false,
+      "npc_ai_parameters_known": false,
+      "remaining_unknowns": [
+        "S07 type 1..14 非空 row 的完整 Client 物件建構/欄位判別、最初 NPC/怪物 type/schema 和完整登記與消失 handler 尚需逐路徑追查",
+        "A-022 原版首次新手 map_id/spawn/版本未知；Map0/1/2 共494張雖可解析，但未證原版 NPC/entity 綁定",
+        "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
+        "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
+        "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
+      ],
+      "resource_name_candidates": [
+        "World%02d.dat",
+        "@Monster%02d.dat"
+      ],
+      "conformance": [
+        "CT-021",
+        "CT-022",
+        "CT-034"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-025",

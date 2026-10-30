@@ -1137,6 +1137,226 @@
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
       ]
+    },
+    {
+      "id": "PKT-S07",
+      "direction": "S2C",
+      "opcode": "0x07",
+      "name": "DrawObjects",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u16 count; each row prefix BE u16,u16,u8,u32,u16, then type(1..14)/flags dependent variable fields; full row schema unknown",
+      "client_entry": "0x57E310 ctor;0x57E3E0 parser",
+      "state_precondition": "Object projection/World map context must exist; original order unknown",
+      "related_packets": [
+        "PKT-S15",
+        "PKT-S04",
+        "PKT-S44"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A024-E01",
+        "A024-E02",
+        "A024-E03",
+        "A024-E04",
+        "A024-E05",
+        "A024-E06",
+        "A024-E07"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "unknowns": [
+        "S07 type 1..14 非空 row 的完整 Client 物件建構/欄位判別、最初 NPC/怪物 type/schema 和完整登記與消失 handler 尚需逐路徑追查",
+        "A-022 原版首次新手 map_id/spawn/版本未知；Map0/1/2 共494張雖可解析，但未證原版 NPC/entity 綁定",
+        "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
+        "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
+        "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
+      ]
+    },
+    {
+      "id": "PKT-S5F",
+      "direction": "S2C",
+      "opcode": "0x5f",
+      "name": "DieObjects",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32 object/event opaque; death effect/target identity not fully proven",
+      "client_entry": "0x57E1B0 ctor;0x57E260 parser",
+      "state_precondition": "Object projection/World map context must exist; original order unknown",
+      "related_packets": [
+        "PKT-S15",
+        "PKT-S04",
+        "PKT-S44"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A024-E01",
+        "A024-E02",
+        "A024-E03",
+        "A024-E04",
+        "A024-E05",
+        "A024-E06",
+        "A024-E07"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "unknowns": [
+        "S07 type 1..14 非空 row 的完整 Client 物件建構/欄位判別、最初 NPC/怪物 type/schema 和完整登記與消失 handler 尚需逐路徑追查",
+        "A-022 原版首次新手 map_id/spawn/版本未知；Map0/1/2 共494張雖可解析，但未證原版 NPC/entity 綁定",
+        "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
+        "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
+        "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
+      ]
+    },
+    {
+      "id": "PKT-S0C",
+      "direction": "S2C",
+      "opcode": "0x0c",
+      "name": "MoveObject",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32, BE u16, BE u16, u8, u8; exact coordinate/direction semantics unknown",
+      "client_entry": "0x5833A0 ctor;0x583450 parser",
+      "state_precondition": "Object projection/World map context must exist; original order unknown",
+      "related_packets": [
+        "PKT-S15",
+        "PKT-S04",
+        "PKT-S44"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A024-E01",
+        "A024-E02",
+        "A024-E03",
+        "A024-E04",
+        "A024-E05",
+        "A024-E06",
+        "A024-E07"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "unknowns": [
+        "S07 type 1..14 非空 row 的完整 Client 物件建構/欄位判別、最初 NPC/怪物 type/schema 和完整登記與消失 handler 尚需逐路徑追查",
+        "A-022 原版首次新手 map_id/spawn/版本未知；Map0/1/2 共494張雖可解析，但未證原版 NPC/entity 綁定",
+        "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
+        "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
+        "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
+      ]
+    },
+    {
+      "id": "PKT-S64",
+      "direction": "S2C",
+      "opcode": "0x64",
+      "name": "MovePath",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32,u16,u16,u8,count:u8,count*u8 path,BE u16,u16,u8; cap path bytes at 11 for Client local buffer safety (designed)",
+      "client_entry": "0x583530 ctor;0x5835E0 parser",
+      "state_precondition": "Object projection/World map context must exist; original order unknown",
+      "related_packets": [
+        "PKT-S15",
+        "PKT-S04",
+        "PKT-S44"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A024-E01",
+        "A024-E02",
+        "A024-E03",
+        "A024-E04",
+        "A024-E05",
+        "A024-E06",
+        "A024-E07"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "unknowns": [
+        "S07 type 1..14 非空 row 的完整 Client 物件建構/欄位判別、最初 NPC/怪物 type/schema 和完整登記與消失 handler 尚需逐路徑追查",
+        "A-022 原版首次新手 map_id/spawn/版本未知；Map0/1/2 共494張雖可解析，但未證原版 NPC/entity 綁定",
+        "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
+        "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
+        "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
+      ]
+    },
+    {
+      "id": "PKT-S0E",
+      "direction": "S2C",
+      "opcode": "0x0e",
+      "name": "RemoveObjects",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32 opaque ID; removal reason and lifecycle semantics unknown",
+      "client_entry": "0x585E60 ctor;0x585F10 parser",
+      "state_precondition": "Object projection/World map context must exist; original order unknown",
+      "related_packets": [
+        "PKT-S15",
+        "PKT-S04",
+        "PKT-S44"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A024-E01",
+        "A024-E02",
+        "A024-E03",
+        "A024-E04",
+        "A024-E05",
+        "A024-E06",
+        "A024-E07"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "unknowns": [
+        "S07 type 1..14 非空 row 的完整 Client 物件建構/欄位判別、最初 NPC/怪物 type/schema 和完整登記與消失 handler 尚需逐路徑追查",
+        "A-022 原版首次新手 map_id/spawn/版本未知；Map0/1/2 共494張雖可解析，但未證原版 NPC/entity 綁定",
+        "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
+        "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
+        "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
+      ]
     }
   ]
 }
