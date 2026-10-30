@@ -4,8 +4,12 @@
   "purpose": "reviewed specification only; this manifest is not a content-secrecy scanner",
   "files": [
     {
+      "path": ".github/workflows/validate-phase-gates.yml",
+      "sha256": "d7cb548951673eeeda764ce73710b03dadc574dbe999141904cde1ddf568ada8"
+    },
+    {
       "path": "00-governance/ai-analysis-handoff.md",
-      "sha256": "841d057ca7cba544331e7889d9799ef9df4e122d7c7e7473d88b6de7c372c53f"
+      "sha256": "90797399448e604c5fea5d87e6820433769d5fcead369b0512032e4ee01dd72f"
     },
     {
       "path": "00-governance/baseline.md",
@@ -13,15 +17,19 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "db4d6ab69349ccf0261936e712a598113a28d520c1112d9856d49cec1fbe2f63"
+      "sha256": "5c92ccae3530be5533dc7dfb45e07b17dcb902417e0a933a3c32344e57694ce7"
     },
     {
       "path": "00-governance/implementation-status-template.json",
       "sha256": "106da95bda0b88b7fa7ba2a570997780ddf741a9e62e35aafad4097779717c36"
     },
     {
+      "path": "00-governance/phase-gates.md",
+      "sha256": "db5fb6fe4aef90adff207d1f6e35f89960acb3a3e3f9b7594b18c36d83e12dac"
+    },
+    {
       "path": "00-governance/record-contracts.md",
-      "sha256": "23482c0ef8e02b070b508cf076ddc18e4a9166b56b9b7e710522248e8e2f1950"
+      "sha256": "d6e303d7b20d613ed53b161503e157b8c35b4030c25523650ff707b505b4d1ed"
     },
     {
       "path": "00-governance/sharing-and-license.md",
@@ -33,7 +41,7 @@
     },
     {
       "path": "00-governance/workflow.md",
-      "sha256": "e17ca1f29c2fa8dfffc9f847bcf81f455c112a7fba4c129ba10c5aad57d52349"
+      "sha256": "8f4f7e48d9eebf293e0b6e80285bb976d85a5cdd950f6a093828222f56d853b5"
     },
     {
       "path": "01-server-requirements/first-login-onboarding.md",
@@ -81,7 +89,11 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "ed88d2433434a0719dddb8f62cdec3255356ed854c74823777a240f3c8689082"
+      "sha256": "465912ea5f449f9d4ccb6dc4752735fa5b8bedf13e8de403b7576e60edde021d"
+    },
+    {
+      "path": "03-analysis-requests/A-021-acceptance.md",
+      "sha256": "fb7fd0d702a5de08af98126f02f889ad68dc99f2ee4fee2a04cbe893102e21b3"
     },
     {
       "path": "03-analysis-requests/A-021-roy1-followup.md",
@@ -93,19 +105,19 @@
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
-      "sha256": "6075717ef47382e2be0148843e51a10a9411da9b3a40a438b09e8ceb3656b5a8"
+      "sha256": "a275b323261f004fb6fff829c788ae2fc0d3103e9e92929f5024882eeb3cc542"
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "9b358b761e84caeca6705400638f4ee5eca1ed4700f30abe87908c42932816ee"
+      "sha256": "63ee30f2e6bbfef6fa8ed3cd0d0878221fb43ca841989de5fd4aae74d3dea2f1"
     },
     {
       "path": "03-analysis-requests/request-template.md",
-      "sha256": "64368d8a459d4e88d0b48fc821d6e343cd6802d638b8470e683f454c900d2909"
+      "sha256": "b77c0b1fe2dbe3567589211111d49bce563cd186ff2e27e2f4725a0d8e9e42fe"
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "36d152128a10fef375a4cd066ccb5f52918a13674cff148fa5b856ec222bb4d4"
+      "sha256": "ff3ab384a50aadb8d6519061ce39a72596c3e974464f3e13e41f08e38d33be64"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
@@ -173,7 +185,7 @@
     },
     {
       "path": "05-conformance/implementer-guide.md",
-      "sha256": "9cd5a8dbe0cefc2bbe70e247a97dda6bf55ec389c90d87d01d1f6416585044a9"
+      "sha256": "82672a871be350d4da3e1c870a1c2eeb801b9d23a86b0747ca1c3f631556ebbf"
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
@@ -189,7 +201,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "7c49c24e8d1ee6a83befe95f61b01f1e4839104047ab305791025c3d8dd88fc7"
+      "sha256": "476189cb1ce977a612038520e0f858c7663390a729bd7533e0c77f5d1244e94c"
+    },
+    {
+      "path": "tools/validate-phase-gates.py",
+      "sha256": "c290cd701dbdb52494594db0a3c5b4501c53889c1d56995d119ec0335a7987be"
     }
   ]
 }

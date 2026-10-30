@@ -1,0 +1,17 @@
+name: Validate phase-gated work contracts
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  phase-gates:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate analysis / development / client verification stages
+        run: python3 tools/validate-phase-gates.py

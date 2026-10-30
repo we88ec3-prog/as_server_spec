@@ -18,10 +18,10 @@
 
 新增 R-029～031、A-024～026（open）、SCN-011～013（analysis-required）、CT-021～028（planned）；新增 ONB-01～06 工作板、work-items.json、分析人員交付包、教學執行規劃與測試計畫。原生 map/出生、NPC/怪物、技能及任務完成、出口與獎勵仍需證據，沒有宣稱新 Client 人工驗收通過。
 
-## task_a/roy1 — 2026-10-31（A-021 靜態證據與阻塞）
+## 0.1.0-draft 補充 — 2026-10-31／所有接案者的分階段驗收
 
-逐位址檢查 Asgard.exe C02/C04/S02 與原生 MakeInfoDialog，更新 A-021 證據索引與協定、CT；A-021 status=blocked，未聲稱首次預建帳號成功進入原版 UI，沒有假造原生 runtime 證據。另以 merge commit 整合 main 同時新增的教學規劃 A-024～026/R-029～031，不回退他人變更。
+新增通用「A 研究證據交付 → DEV 實作 → CT 原生 Client 驗收」分離契約、A-021 專屬交付清單、通用任務模板與 AI handoff 規則；更新所有 A 紀錄與 ONB 工作的機讀 gate 欄位，並增加 GitHub Actions 結構檢查。A-021/A-022 的表述不再以新 Server 的實機測試作為分析完成的必要條件；重要 unknown 仍依 partial/blocked 誠實記錄。未改變任何 A 的實際 open 狀態或 CT 的 not-run 結果。
 
-## task_a/roy1 — 2026-10-31 A-021 分析/實機流程分離
+## task_a/roy1 — 2026-10-31 A-021 分析整合
 
-依需求方確認改正 A-XX 完成標準：僅以分析實質缺失 blocked，不以缺乏原 Client 實機 blocked；可靜態整合並開始 Server 開發，再由 CT 驗收及 BUG 回饋。擴展 A-021 MakeInfoDialog 的 UI 欄位綁定、C02/C04/S02 狀態路徑，形成安全的「管理員預建 Account → C02 認領 → C04 完成 Character → C03 正常登入」 designed 相容方案。標示未證明的 C03 無角色自動 UI 轉場，無實機驗收宣稱。
+依 Asgard.exe SHA 覆核 MakeInfoDialog、C02/C04/S02 與 UI 分支，完成靜態研究及可開發的 R-025 相容規格：Client C02 可在 C03 前認領管理員已預建的 Account，不得新增 Account，C04 再原子完成 Character；精確原生 UI 跳轉及部分錯誤碼保留 unknown。A-021 integrated/handoff partial、Server 可開始實作、Client CT 尚未執行。保留 main 新增的 phase-gates/CI 與分離 A/DEV/CT 完成定義。

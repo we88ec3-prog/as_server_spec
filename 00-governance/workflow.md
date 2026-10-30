@@ -15,7 +15,7 @@
 5. 更新共用CT向量、相容性profile及變更紀錄。各Server實作再將自己的DEV任務連到相同R/PKT/SCN/CT。
 6. 自動測試通過與原客戶端實機通過分開記錄；失敗回報保留，修正後追加驗收。
 
-分析任務狀態：open → scoped → analyzing → review → integrated；僅在**分析所需原始資料或證據確實無法取得**等實質分析障礙時可 blocked，需記具體依賴。**沒有實機、Server 尚未完成或 Client 尚未驗收不得成為 A 的 blocked 原因。**整合不等於已開發，已開發不等於Client驗收。
+分析任務狀態：open → scoped → analyzing → review → integrated；證據不足可blocked並記具體依賴。整合不等於已開發，已開發不等於Client驗收。
 
 ## 證據與設計標記
 
@@ -33,9 +33,8 @@
 
 共享的規範性文字用「必須／不得／應／可」。歷史觀察、實作建議與待分析問題不可偽裝為規範性條文。新增官方未知公式時，必須以明示的自訂規則profile呈現。
 
-## A-XX 與實機 CT 的完成門檻（2026-10-31）
+## 防止研究／開發循環等待：所有任務的共同關卡
 
-- **A-XX 專注分析**：以 BIN-first 指令/偽碼、原生資源、call graph、serializer/parser、狀態機和靜態交叉核對深入追查，提供 Client SHA、VA、封包精確欄位、分支/例外、合成向量、Server 可實作規格與 evidence 種類。已盡可能分析且剩餘未知有明示安全相容設計、風險及回饋位置，並整合 PKT/SCN/CT，即可 `integrated`。
-- **不要求事先跑實機**：測試 Server 尚未開發，不能反過來用「原 Client 未驗收」無限阻擋分析。`A=integrated` 與 `CT=planned` 可以同時成立；整合只代表分析與規格可供開發，不保證 Client 0 BUG。
-- **實機為開發後驗收與修 BUG**：依規格先實作 Server，再跑 CT。若實機出錯則記錄不符行為、回查相關函式與資料、修改規格/Server，必要時重新開 A。禁止以猜測的 status 或地圖值偽稱 observed。
-- **真正 blocked**：所需 EXE、函式或資源缺失、損毀且已嘗試核對後仍無法分析，才記載具體阻塞原因。缺少實機、封包抓取或未有可啟動 Server **不算分析阻塞**。
+**工作閉環分成 R/SYS 規格 → A 證據交接 → DEV 實作 → CT 原生 Client 驗收，不要求 A 等 DEV／CT 才能結案。** A 可整合且 handoff ready/partial，CT 仍是 not-run；但要有實際證據、明確交付範圍與未知清單，不可把推測當已還原。Server 尚未建置不是 A 的 blocked 理由；只有本身必備研究證據不可取得時才能 blocked。CT 實測若暴露偏差，再回開 A/DEV，不反向取消有效的研究證據。
+
+本規則對**所有新舊接案者**生效；詳細角色、完成/部分交付/blocked、回報與 A-021 案例見 [phase-gates.md](phase-gates.md)。新派工必須套用 [request-template](../03-analysis-requests/request-template.md) 並接受跨階段驗證腳本檢查。

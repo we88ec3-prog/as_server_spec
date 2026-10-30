@@ -11,3 +11,7 @@ vectors.json是合成／固定協定字節，不包含實際帳密、token或遊
 每個Server發布自己的實作清單：實作名稱／版本、Client SHA、規格版本、profile、支援R/PKT/SCN、通過CT、人工驗收日期、已知偏差、自訂規則。可通過單人profile，不能因此自稱完整原服還原或支援所有Client版本。
 
 相容性測試應檢查外部行為，不限定作者的類別、資料表、函式名或程式語言。不要靠多抄一份私有程式輸出當作獨立測試。私有開發區可有額外測試，但共同必需規則和向量應回饋至本repo。
+
+## DEV/CT 與逆向分析的切割
+
+**CT 原生 Client 端到端驗收是 Server 可運行後的下游關卡**，不得當作 A-XXX 的逆向研究出場條件。A 可經證據 review 後 integrated/partial，DEV 可據已證明子集開發並先通過 unit/integration/codec fixtures；唯有指定原生 Client 實測留下證據，相關 CT 才能標 passed。發現原規格錯誤，開回 A 的證據缺口；發現程式錯誤，修 DEV；不能讓二者互等。見 [phase-gates](../00-governance/phase-gates.md)。

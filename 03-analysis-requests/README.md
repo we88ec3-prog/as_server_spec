@@ -36,7 +36,7 @@
 |A-022|P0|原生新手地圖 ID、出生座標、進圖條件、CRC 失敗、重登恢復。|
 |A-023|P1|教學入口不可省略的 NPC/Script/任務初始化；不要求完成教學。|
 
-A-021 的靜態分析及 Server 相容方案已 integrated；A-022/023 仍 open。A 分析不以 Client 實機為前提。
+以上均為 open，不能因規格完成而標記已解析。
 
 ## 新增 A-024～026：教學玩法待分析
 
@@ -44,8 +44,8 @@ A-021 的靜態分析及 Server 相容方案已 integrated；A-022/023 仍 open�
 - **A-025（P1）**：教學必需的技能/攻擊、權威結算、目標與任務計數；若原版沒有這些操作，交付反證並更新規格。
 - **A-026（P1）**：教學完成/獎勵是否存在、出口轉圖與重登。
 
-A-021/A-022 應優先分配，A-023 可先做靜態研究；**A-024～026 仍 open/unassigned；A-021 integrated/roy1**。詳見 [可交付給分析人員的分工包](onboarding-assignment-pack.md)。
+A-021/A-022 應優先分配，A-023 可先做靜態研究；**所有新 A 仍 open/unassigned**。詳見 [可交付給分析人員的分工包](onboarding-assignment-pack.md)。
 
-## A-021 / roy1：已分析整合，可先開發（2026-10-31）
+## A 任務交付與原生 Client 驗收的分界（所有 A 適用）
 
-[原先逐位址分析](A-021-roy1-static-analysis.md)、[深入追查與 Server 相容決策](A-021-roy1-followup.md)、[整合規格](../04-analysis-integration/A-021-native-flow.md)。A-021 `integrated/roy1/implementation_ready`；Client CT 仍 `planned`。**不再因缺乏實機而 blocked**。C02 可由登入前 NewUser UI 發送，但只可認領後台已預建帳號，不能自行建立 Account；自動從 C03 跳創角 UI 尚未證明。
+**A 的結案標準是可稽核的逆向成果，不是原生 Client 已連上新 Server。** A 的已知/未知需要交付；完整 Client E2E 是後續 DEV/CT 的獨立驗收。執行前必讀 [跨角色工作關卡](../00-governance/phase-gates.md)、[A 通用模板](request-template.md)，A-021 則讀 [專用驗收](A-021-acceptance.md)。所有 A 在 requests.json 記 `completion_policy`、`handoff_status` 與獨立的 `native_client_validation`，不可把 CT 未通過當成 A 未完成的唯一理由。

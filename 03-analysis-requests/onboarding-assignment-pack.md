@@ -26,3 +26,9 @@
 ## 不需要等分析才能做的 Server 工作
 
 管理建帳、憑證與停權核對、角色 DB 唯一性、一次性 grant、Loading/失敗回復骨架、任務 ledger 與場景 instance/generation 的 domain 模型均可以先開發。**原生相容映射**（C02/C04 回應、教學 map/spawn、NPC/技能/完成封包）必須等待相應 A。
+
+## 分析者與驗收者的責任切割（強制）
+
+本交接包中所有 A-021～026 的「Client 實測」若需要尚未開發的 Server，**只要求分析者交出待跑的重現步驟與預期，不要求分析者先做出 Server 或先讓 CT 通過**。有證據的原 Client 靜態觀察、封包欄位、腳本/資源語意可先交付且經審查。若必要字段仍 unknown，將 `handoff_status=partial`，不能自稱整段流程完整可實作；只有原始證據不可取得才真正 blocked。
+
+分析工作審查和原 Client E2E 驗收要各自標記狀態。A-021 的交付清單與 CT-018 分工見 [A-021-acceptance.md](A-021-acceptance.md)，所有接案者必須遵循 [通用關卡](../00-governance/phase-gates.md)。
