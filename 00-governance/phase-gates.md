@@ -56,3 +56,7 @@
 ## 避免循環依賴的機讀規則
 
 `03-analysis-requests/requests.json` 的所有 A 都用 `completion_policy` 與 `handoff_status`；`02-server-planning/work-items.json` 的 ONB 均以 `completion_policy=DEV-CT-SPLIT-v1` 分開 `implementation_status` 與 `client_acceptance`。CI 使用 `tools/validate-phase-gates.py` 驗證必要字段、引用與**禁止 A 的完成依賴新 Server/CT**；這是結構性防錯，無法取代對文字語意及證據的人工 review。
+
+## Client I/O 範圍防偏移（2026-10-31）
+
+本規則對 **全部 A-XX** 生效：必要研究成果是「玩家/收包觸發 → Client 送包 → Client 必要收包 → UI/下一個送包」及原始 EXE/資源證據；**原版 Server 的帳號認證、資料庫提交、出生點選擇、任務初派政策、NPC AI/獎勵決策一律不是 A 必備結案條件**。原服未見行為標 server-policy-unknown，責任轉 DEV；如 Client 路徑本身不明才保留該 Client 子分支 partial。明確執行範本見 [Client I/O 標準](../03-analysis-requests/client-io-handoff-standard.md)。

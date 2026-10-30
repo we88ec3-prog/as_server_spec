@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "62fd64ebf0d23a4e6ee08bf3a0b9e9459433fc1d4fc60d3c4a91aee709e940db"
+      "sha256": "30c7e514173b809e1c32b27c9bdb2bf9828fc3a4d1c4e97574291448432756cc"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -25,7 +25,7 @@
     },
     {
       "path": "00-governance/phase-gates.md",
-      "sha256": "db5fb6fe4aef90adff207d1f6e35f89960acb3a3e3f9b7594b18c36d83e12dac"
+      "sha256": "a25be5bd1f41f493009ea6ad90dc0976d3315640074be607eaff301f8c4cdafc"
     },
     {
       "path": "00-governance/record-contracts.md",
@@ -61,11 +61,15 @@
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
-      "sha256": "b4fea6573859f302bda2aa46b889d3df080d134f4c236e8d7d7f089c9eb09286"
+      "sha256": "f7684cf22e739cc09f85cb25353a8e9704b0fdc69a817d1cbb6ae14ffdb8d585"
     },
     {
       "path": "02-server-planning/architecture.md",
       "sha256": "adc208a7c36fdbe17659c6207f597a4a86f362fc7fdf7e9e9fd29ba2d32f78be"
+    },
+    {
+      "path": "02-server-planning/client-server-responsibility.md",
+      "sha256": "3f40e3ddb73105409a2df75424a7b0261a85e1a02efc73025b5863751ca60653"
     },
     {
       "path": "02-server-planning/decisions.md",
@@ -73,7 +77,7 @@
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
-      "sha256": "8d3c8bf2105f4b1c0e0411321e300917c2403cbb2be4eb2e00c0060f89f0f161"
+      "sha256": "398a5b7f48a77b67c01f7cef1d975e78a394c7cd8d5c13da420efcca521313cf"
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
@@ -160,8 +164,12 @@
       "sha256": "cff4b24d2c3517c36814e7d7f24986595e0f8dcf5f4bd7d02ecebe03897faaf4"
     },
     {
+      "path": "03-analysis-requests/client-io-handoff-standard.md",
+      "sha256": "8e3af1c4e2791bbeb72b01d806c2bff50b86d25d752dcc7d639bf32a72e4fdab"
+    },
+    {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
-      "sha256": "a0753b8bce80bbf8e65b76c7458cccd0a707304379f6a1f308f808606f1c8360"
+      "sha256": "0555bacea93f0df7f36256e0bf9be4e356bcdf871191a87e2f7769a131e07bec"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -173,7 +181,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "b32821421239acaa3abcd49728361d03887a1eb5d573cb39075987b142502450"
+      "sha256": "31d8afe69643d4e2a536ab393a3a4be401fd612cfdcbcc107ba564991bd1392b"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",

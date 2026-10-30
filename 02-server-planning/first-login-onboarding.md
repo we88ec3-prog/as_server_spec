@@ -41,3 +41,7 @@
 ## A-001/A-023 新證據：傳輸及 Script 啟動拆分
 
 A-001 補齊 seed0..9 的候選 binary mask/加密格式、C00/S00/string8 codec；只有 seed0/local profile 有既有人工登入基線，其他 seed 尚未原 Client CT。A-023 現已證 Client 能依 S44(1,0) 指定 Script 名稱、context、main/依賴文字 CRC 後呼叫 Main；缺資源會以 C6C0 請求更新；Born 正常關閉則在無 SendReply 時發 C6C4 後 C6C2。**原服是否/何時首次發 Born 仍 unknown，不應直接把 S14(2) 當已證實觸發點**。見 [生命週期規格](script-lifecycle-contract.md)。
+
+## 調整：原生 Client 相容性與 Server 權威責任（2026-10-31）
+
+前述「預建帳號認領／教學固定出生點／原服首次任務發送」屬 **Server 設計政策**；A-027/A-022/A-023 不再需要以原服內部策略證明才能結案。A 交付 UI/操作→C→S→S→C→Client UI/state 的可觀察行為。Admin Account 驗證、C02 owner、初始 map/spawn、何時派 Born、任務旗標由新 Server 決定；但 Server 僅能發送 Client 能理解的原生格式，且 C02 不能在未驗證 Account 時直接賦權。參考 [責任分界](client-server-responsibility.md)。

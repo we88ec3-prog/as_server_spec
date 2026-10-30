@@ -57,3 +57,9 @@ A-001 與 A-023 的 `integrated` 是可用證據子集；不要求重新做已�
 - A-028 接 S02(status0) 最終 UI 回 Login 和 C15 失敗取消政策，A-003 接名字外觀約束；C04 成功是 UI 轉移，不是 Server commit 原生證據。
 - A-016 已交 DEV 錯序/重送/SQLite crash，C35 pair 相同時需新的 TCP boundary；以 CT-045/046 測試，不假造 epoch 欄位。
 - **CT 編號決議**：CT-039/040 只屬 A-015；roy1 舊 CT-039～044 依序改為 **CT-041～046**，其他既有 CT 不覆蓋。
+
+## 2026-10-31 Client I/O 導向的統一修正（最新規則）
+
+原先任務把「查原服預建帳號驗證／固定教學出生點／首次發 Born 的 Server 判斷」當成 A 研究的阻塞，是責任劃分錯誤。**所有分析者優先回答：玩家做什麼→Client 送什麼→Client 要收到什麼→後續 UI 或自動回包。** 原服登入策略、map/spawn、任務觸發、NPC AI/DB 寫入交 Server DEV 自訂且標 designed；在相容的 Client opcode/state 範圍內實作。A 原已證子集保持 integrated，未跑原生 CT 不妨礙完成靜態研究。
+
+具體交付模板與現有 send/receive 時序：[Client I/O 標準](client-io-handoff-standard.md)。目前 A-027 只追 C02/C03 的 UI 來源與 S02 轉移，A-022 只追 S15/S14/C35/S04 地圖顯示，A-023 只追 S44/C6C Script 收發；A-003/028 查 C04/C15/成功/錯誤 UI，A-024～026 查 NPC/技能/任務收發。Server 的帳號安全檢查仍不可跳過。
