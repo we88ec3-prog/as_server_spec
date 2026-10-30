@@ -1136,6 +1136,76 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md"
+    },
+    {
+      "id": "CT-049",
+      "status": "planned",
+      "level": "prelogin-native-codec-fixtures",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ],
+      "packet_ids": [
+        "PKT-C0F",
+        "PKT-S18",
+        "PKT-C57",
+        "PKT-S56",
+        "PKT-C4B",
+        "PKT-S60"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic",
+        "reference": "tools/a020_prelogin_contract.py",
+        "fixtures": [
+          "C0F type3 body03 and non3 byte+string8",
+          "S18 kind0 subtype3 empty count 00030000 and one name/u32 record",
+          "C57 list/selection 01/0000",
+          "S56 compressed record list, truncated and trailing reject",
+          "C4B empty",
+          "S60 type0 BE u32, type1 compressed text"
+        ]
+      },
+      "expected": "Fields and selectors match original constructor/readers; safe local profile supports only tested subset. Non3 C0F, S18 kind1 official text semantics, S60 type0 policy remain not native E2E verified.",
+      "evidence_kind": "observed-static-plus-designed-fixture",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
+    },
+    {
+      "id": "CT-050",
+      "status": "planned",
+      "level": "prelogin-order-and-script-safety",
+      "requirements": [
+        "R-001",
+        "R-002",
+        "R-021"
+      ],
+      "packet_ids": [
+        "PKT-C6C",
+        "PKT-S44",
+        "PKT-C0F",
+        "PKT-S18",
+        "PKT-C57",
+        "PKT-S56",
+        "PKT-C4B",
+        "PKT-S60",
+        "PKT-C03"
+      ],
+      "input": {
+        "kind": "designed-negative-profile",
+        "reference": "tools/a020_prelogin_contract.py",
+        "cases": [
+          "C57 before metadata denied",
+          "selection not in list denied",
+          "malformed/oversized zlib and string lengths denied",
+          "C6C3 local no-op never owner proof",
+          "no S44 subtype1/3 unsafe cache-clear as ACK",
+          "C03 identity independently required"
+        ]
+      },
+      "expected": "Local profile enforces state guards and length/ratio bounds without inventing native errors or account claim. Original Server rejection timing, full regional versions and Script start remain unknown.",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     }
   ]
 }

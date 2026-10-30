@@ -57,3 +57,7 @@ A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/hando
 ## A-003 靜態子集交接（2026-10-31）
 
 [原生證據](../03-analysis-requests/A-003-roy1-create-legal-values.md)：C02 region UI length gate 與 C04 五字節、十色表已證；**一帳號多角、角色名稱/帳號名的真正關係、sex/hair 完整原生允許集合、重名回覆**仍未證。可先 DEV 的只有 encoder/decoder、TW CP950、原版十色 Client 選項與 Domain unique/idempotency 的 designed 方案。A-027 原生 owner、安全合法創角入口依舊阻塞，不得因 A-003 integrated/partial 解除限制。新增 CT-047/048（未原生 Client E2E）。[安全交接](../04-analysis-integration/A-003-character-create-contract.md)。
+
+## A-020 登入前最小 Profile 分支交接（2026-10-31）
+
+[A-020 報告](../03-analysis-requests/A-020-roy1-prelogin-branches.md)、[Contract](../04-analysis-integration/A-020-prelogin-contract.md)。原生 C0F/S18、C57/S56、C4B/S60 各 selector/reader 已交付；原本本機 local profile C0F3/S18 kind0(count0)/C57 1+0/S56/S60 可維持，但新揭露的 kind1 及其他 type 僅能先做 codec 和負面測試，不能直接宣稱原服 timing/credential。S44(1,3) 清理 Script cache 風險沿用 A-023。A-020 `integrated/handoff partial`，最小 Server 子集 implementable，region seed/key 和官方清單/Script 首次啟動仍 unknown；CT-049/050 not-run。

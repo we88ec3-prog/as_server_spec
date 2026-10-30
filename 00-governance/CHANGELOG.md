@@ -69,3 +69,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-003 創角合法值與帳號角色模型
 
 從指定 SHA Asgard.exe `0x498420/0x4985dc/0x4985e8` 查 region0=6、region1..4=12 字符限制的初始化，`0x4b1a30` 證明 region0 不執行本地最小長度 gate、其餘要求 narrow-byte >=12；`0x4b2031/0x574420` 追 C04 五 u8、`0x66422c` 原始十色表（index0..9, low-three bytes RGB）、`0x56084b/0x560b9f` 預覽交叉引用。C04 不含 character name；one-account-many-characters/重名/sex hair enum/status code 仍 unknown，不把一帳一角設計冒充 native。新增 A-003 報告、Client/Server 安全契約、五項合成測試、CT-047/048，整合 C02/C04/S02/SCN-008，狀態 integrated/handoff partial、native creation ready=false、Client not-run。
+
+## task_a/roy1 — 2026-10-31 A-020 完整登入前 Metadata／Script／選服
+
+原版 Asgard.exe SHA256 核對，原生 CMetaData/C0F 0x573a70、SMetaData/S18 0x582dc0、CMultiServer/C57 0x573f40、SMultiServer/S56 0x584190、CStipulation/C4B 0x575720、SStipulation/S60 0x587190 的分支及 RTTI/vtable 正確對照，保留已實測 local profile；S18(0,3,count0) 為原生空 metadata list，S60 type0/1 不同形態，Script 清快取依 A-023。新 A-020 BIN-first 報告、安全交接、Python synthetic negative/codec fixture、CT-049/050，更新封包、SCN-001、profile 和版本治理。A-020 integrated/handoff partial，原服時序/地區 key/unverified Script policy 仍 unknown，Client not-run。

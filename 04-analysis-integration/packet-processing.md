@@ -71,3 +71,7 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 
 - A-001：binary AA frame `payload_length:u16_be`，body seed0..9 mask + key/ordinal XOR（例外 opcode 不加 ordinal 依具體 profile）；C00 8-byte，S00 result0/1/2 parser 形態；只有 seed0/local 登入基線，seed1..9 synthetic fixtures 非 runtime。詳見 [A-001](../03-analysis-requests/A-001-roy1-seed-and-version.md)。
 - A-023：`S44(1,0)` Script named start，檢查 `name,context,text_crc32,deps,params`，Client 資源足夠則執行 Main；缺檔的 C6C0 → S44(1,1) 更新；Born/PaperDialog 無 SendReply 的 OK Dispose 送 C6C4 再 C6C2。**不代表 quest completion、原服 start 時間或 NPC binding 已確認**。詳細 schema、CRC/CP950 前提及清快取風險見 [A-023 Client 契約](../task_a/roy2/A-023-script-entry-contract.md)。
+
+## A-020 / roy1：Metadata、MultiServer、Stipulation 原始收發分流（2026-10-31）
+
+以上早期矩陣的 C0F/C57/C4B/S18/S56/S60 只列本機最小 profile；**本節為較新的原件 BIN-first 補充**。詳見 [完整研究](../03-analysis-requests/A-020-roy1-prelogin-branches.md)。C0F type3 單 u8，其他 type 多 u8+string8；S18 kind0 先 u8 kind+u8 subtype+u16 count，逐項 string8+u32；kind1 不同壓縮內容分支；C57 type1 list/type0 selected_id；S56 壓縮多項；C4B empty；S60 type0 u32/type1 compressed string。原生 packet class/debug RTTI 與 ctor/reader/writer 相互確認，不能以鄰近類別的 vtable 誤指 opcode。C6C/S44 詳見 A-023，尤其 S44 type1/subtype3 清快取風險。local `C4B→S60` 公告回應與所有先後次序是自訂相容方案，不宣稱原 Server；CT-049/050 planned、Client E2E not-run。

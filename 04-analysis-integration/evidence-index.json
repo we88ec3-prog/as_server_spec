@@ -1953,6 +1953,40 @@
         "Native server sex/hair allowed set, name encoding/validation/duplicate status and multi character support unknown",
         "No native C03 preprovisioned account character creation route or original-server DB trace"
       ]
+    },
+    {
+      "evidence_id": "ev_a020_20261031_asgard_prelogin_branch_static",
+      "date": "2026-10-31",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-static",
+      "method": "sha256sum + objdump -D -M intel original Asgard.exe and RTTI/vtable pre-string cross-check; A-023 original script contract cross-reference; designed synthetic tests separate",
+      "scope": "A-020: CMetaData C0F, SMetaData S18, CMultiServer C57, SMultiServer S56, CStipulation C4B, SStipulation S60 subtype/codec and local prelogin behavior",
+      "functions": [
+        "0x5739c0",
+        "0x573a70",
+        "0x582c60",
+        "0x582dc0",
+        "0x573e90",
+        "0x573f40",
+        "0x584040",
+        "0x584190",
+        "0x575670",
+        "0x575720",
+        "0x5870e0",
+        "0x587190",
+        "0x575140",
+        "0x575210",
+        "0x5862e0",
+        "0x586410"
+      ],
+      "report": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "synthetic_test": "tools/a020_prelogin_contract.py",
+      "limits": [
+        "Original login Server packet sequence and failures unknown",
+        "Native S18 kind1 compressed real content, region seed/key rules and S00 nonzero UI unknown",
+        "C4B empty body does NOT itself prove Server sends S60; local profile compatibility mapping is designed",
+        "S44(1,3) has destructive local Script cache side effect, so no live test without isolated sandbox"
+      ]
     }
   ]
 }

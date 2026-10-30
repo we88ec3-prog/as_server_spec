@@ -678,8 +678,8 @@
       "name": "Stipulation",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 type,u16 compressed_size,zlib CP950 NUL文字",
-      "client_entry": "0x587190",
+      "layout": "SStipulation parser 0x587190: type:u8; type0 + BE u32 opaque; type1 + zlib compressed text (local BE u16 length,zlib CP950 NUL text). Other type goes early invalid path.",
+      "client_entry": "0x5870e0 ctor / 0x587190 parser",
       "state_precondition": "公告請求後；請求分支尚待逐項納入registry",
       "related_packets": [],
       "layout_status": "partial",
@@ -690,7 +690,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "type0 u32 distinct from type1 compressed text; don't assume all S60 are local notices",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-S66",
@@ -722,13 +727,13 @@
       "name": "MetadataRequest",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "body03；其他request種類待分析",
-      "client_entry": "documented profile; exact per-branch entry pending A-020",
-      "state_precondition": "see profile-login.md",
+      "layout": "u8 type; when type!=3: u8 option,string8 text; type3 exactly u8=0x03; native CMetaData ctor 0x5739c0 writer 0x573a70",
+      "client_entry": "0x5739c0 ctor / 0x573a70 serializer",
+      "state_precondition": "prelogin metadata phase; original Server accepted kinds/timing unknown",
       "related_packets": [
         "PKT-S18"
       ],
-      "layout_status": "profile-documented",
+      "layout_status": "partial",
       "evidence_kinds": [
         "observed-runtime-profile",
         "designed-local-minimal-response"
@@ -737,7 +742,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "type3 has NO other fields; type!=3 additional u8 + string8; server kind mapping unknown",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-C4B",
@@ -746,13 +756,13 @@
       "name": "StipulationRequest",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "空body；已取得server list後",
-      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "layout": "CStipulation constructor 0x575670; serializer 0x575720 ret; EMPTY body. Local profile maps C4B to optional S60 notice; original Server response not proven",
+      "client_entry": "0x575670 ctor / 0x575720 empty serializer",
       "state_precondition": "see profile-login.md",
       "related_packets": [
         "PKT-S60"
       ],
-      "layout_status": "profile-documented",
+      "layout_status": "partial",
       "evidence_kinds": [
         "observed-runtime-profile",
         "designed-local-minimal-response"
@@ -761,7 +771,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "empty body confirmed, but local C4B→S60 is designed matching, not proven original Server",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-C57",
@@ -770,8 +785,8 @@
       "name": "ServerListOrSelection",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "body01請求清單；body0000選本機第一項",
-      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "layout": "CMultiServer native 0x573f40: type u8; type1 only; type0 + selected_id:u8; other type resets internal packet result",
+      "client_entry": "0x573e90 ctor / 0x573f40 writer",
       "state_precondition": "see profile-login.md",
       "related_packets": [
         "PKT-S56",
@@ -786,7 +801,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "type0 selected_id requires ID in previously received valid S56 list; type1 is list request",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-C6C",
@@ -815,10 +835,13 @@
         "A023-E06",
         "A023-E13",
         "A023-E14",
-        "A023-E16"
+        "A023-E16",
+        "ev_a020_20261031_asgard_prelogin_branch_static"
       ],
       "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
-      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
+      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
+      "a020_prelogin_gate": "Local login C6C subtype3 is accepted without reply (designed minimal-profile); it does not start Born, does not prove Script state or authenticate Account; A-023 handles native script updates and Dispose",
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-S18",
@@ -827,8 +850,8 @@
       "name": "Metadata",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "本profile最小body00030000；未還原其他metadata種類",
-      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "layout": "SMetaData native 0x582dc0: u8 kind,u8 subtype; kind0: BE u16 count,count*(string8 name,BE u32 opaque); kind1: string8 name,BE u32 opaque,compressed helper 0x45bb00; kind other unknown; local known 00030000 = kind0 subtype3 count0",
+      "client_entry": "0x582c60 ctor / 0x582dc0 parser",
       "state_precondition": "see profile-login.md",
       "related_packets": [],
       "layout_status": "partial",
@@ -840,7 +863,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "kind0 count0 fixture is understood; kind1 compressed resource framing/data and official Server semantics need evidence",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-S56",
@@ -849,11 +877,11 @@
       "name": "ServerList",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u16 BE compressed_size + zlib entry bytes；本profile只定義單項",
-      "client_entry": "documented profile; exact per-branch entry pending A-020",
+      "layout": "SMultiServer 0x584190: compressed block (local BE u16 compressed_size + zlib); inflated u8 count, count*(u8 id,BE u32 address,BE u16 port,u8 flag,3×string8); local single entry only tested",
+      "client_entry": "0x584040 ctor / 0x584190 parser",
       "state_precondition": "see profile-login.md",
       "related_packets": [],
-      "layout_status": "profile-documented",
+      "layout_status": "partial",
       "evidence_kinds": [
         "observed-runtime-profile",
         "designed-local-minimal-response"
@@ -862,7 +890,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "parser supports multiple records; official list, ordering and optional extra semantics unknown",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-S0A",
@@ -909,14 +942,17 @@
         "A023-E04",
         "A023-E14",
         "A023-E15",
-        "A023-E17"
+        "A023-E17",
+        "ev_a020_20261031_asgard_prelogin_branch_static"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
         "R-013",
         "R-027"
       ],
-      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
+      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
+      "a020_prelogin_gate": "Not required in minimal prelogin fixture; S44 type1/subtype3 deletes/clears Script/*.dat in native Client. Must not synthesize fake ACK; follow A-023.",
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-C15",

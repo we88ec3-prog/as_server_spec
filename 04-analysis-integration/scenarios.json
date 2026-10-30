@@ -36,9 +36,12 @@
       "notes": "已補最小本機公告與清單路徑；其他metadata／Script種類待A-020，未納入的Client確認包仍須分別查核。 A-002 static: S03 0x5886c0 reads u32 address/u16 port/u8 len/raw token; region3/4 transfer 0x4a8370 creates plain C10 raw token without length prefix, via 0x577330/0x5773e0. Native duplicate-login outcome unknown.",
       "analysis_evidence_ids": [
         "ev_a002_20261031_asgard_login_transfer_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a020_20261031_asgard_prelogin_branch_static"
       ],
-      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred."
+      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
+      "a020_prelogin": "C0F3→S18(0,3,count0), C57(1)→S56 multi-entry, C57(0,id), optional C4B(empty)→S60(type1) are local tested profile; native branches C0F non3/S18 kind1/S60 type0 confirmed static but not official-server timing. C6C3 prelogin no-op is local policy. Original failures and regional settings unproven.",
+      "native_full_prelogin_verified": false
     },
     {
       "id": "SCN-002",
@@ -152,12 +155,15 @@
       "analysis_evidence_ids": [
         "ev_a002_20261031_asgard_login_transfer_static",
         "ev_a027_20261031_asgard_identity_static",
-        "ev_a003_20261031_asgard_create_palette_ui_static"
+        "ev_a003_20261031_asgard_create_palette_ui_static",
+        "ev_a020_20261031_asgard_prelogin_branch_static"
       ],
       "a027_evidence": "UI sends C02 with locally checked field1 length and field2/confirmation equality; cannot prove owner or native preprovisioned auth. Fail closed before independent identity proof.",
       "native_account_claim_ready": false,
       "implementation_ready": false,
-      "a003_character_creation": "C02 field1 UI local length region0 skipped / nonzero 12; C04 no name field, ten RGB UI palette values known. Native account/character name binding, sex/hair original enums and one-account-many-character unknown; designed owner/uniqueness safety only."
+      "a003_character_creation": "C02 field1 UI local length region0 skipped / nonzero 12; C04 no name field, ten RGB UI palette values known. Native account/character name binding, sex/hair original enums and one-account-many-character unknown; designed owner/uniqueness safety only.",
+      "a020_prelogin": "C0F3→S18(0,3,count0), C57(1)→S56 multi-entry, C57(0,id), optional C4B(empty)→S60(type1) are local tested profile; native branches C0F non3/S18 kind1/S60 type0 confirmed static but not official-server timing. C6C3 prelogin no-op is local policy. Original failures and regional settings unproven.",
+      "native_full_prelogin_verified": false
     },
     {
       "id": "SCN-008",

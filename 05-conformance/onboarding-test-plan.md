@@ -68,3 +68,7 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-003 合法欄位與重名／角色模型（CT-047/048 planned）
 
 [BIN-first 原版研究](../03-analysis-requests/A-003-roy1-create-legal-values.md) / [合成 Python 工具](../tools/a003_create_contract.py)。CT-047 依 region 測 C02 string8、TW CP950 encoded byte length；region0 UI 第一欄 length gate skip，region1..4>=12；C04 5×u8，色彩查原版十筆色表 index0..9，確切 RGB 與報告一致。CT-048 在 **designed Domain** 以驗證 owner/pending intent/unique name/one-character-per-account 保護無權、雙線同名、同 intent 重送、C15 晚到不刪角；此一帳一角策略不是原服已證。原版重名 S02 status/真實角色選角與 sex/hair 列表仍 unknown，所有 CT 的 `native_client_validation=not-run`，不可假裝實機成功。
+
+## A-020 / roy1：登入前封包型別、解析安全與狀態（CT-049/050 planned）
+
+[原件 BIN-first](../03-analysis-requests/A-020-roy1-prelogin-branches.md) 與 [合成測試](../tools/a020_prelogin_contract.py)：CT-049 分別驗 C0F(3)、C0F(other)、S18(0,3,empty)／kind0 一筆 name+u32、C57(1)/C57(0,id)、S56 multi entry(zlib)、C4B empty、S60(type0 u32/type1 compressed text)，另需拒絕過長/截斷/尾隨／壓縮異常。CT-050 驗原生 C6C3 不會建立帳號所有權、Script cache destructive S44(1,3) 不得作 ACK、C57 不可錯序選服、未驗證 C03 不可 World。此測試是 designed local Server state + BIN-derived codec，不是完整原服 policy 或 Client E2E。

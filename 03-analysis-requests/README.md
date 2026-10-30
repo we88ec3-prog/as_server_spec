@@ -92,3 +92,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-003 / roy1：創角合法值、UI 欄位與原版十色盤（2026-10-31）
 
 [原件 BIN-first](A-003-roy1-create-legal-values.md)、[Server 安全交接](../04-analysis-integration/A-003-character-create-contract.md)、[五項可執行合成測試](../tools/a003_create_contract.py)。已從原版 Asgard.exe 確認：C02 region 0→3-string8，region2..4→4-string8+u8；region0 的首欄本地 length gate skip，region1..4 的 narrow-byte 長度門檻12；C04=5×u8，hair-color 由 Client index0..9 查 0x66422c 原版十色表後送 RGB。C04 沒有獨立 character name 欄，原 Server 重名、帳號／角色名稱關聯、多角色、sex/hair 合法枚舉與失敗碼仍 unknown。A-003 `integrated/handoff partial` 僅表示靜態子集交付；`implementation_ready=true` 限 codec/10色/安全 Domain，`native_character_creation_ready=false`，A-027 原生 owner 問題仍擋正式建角。CT-047/048 planned、Client E2E not-run。
+
+## A-020 / roy1：Metadata／Script／清單分支（2026-10-31）
+
+[原版 BIN-first 分支研究](A-020-roy1-prelogin-branches.md) / [Server profile 交接](../04-analysis-integration/A-020-prelogin-contract.md) / [合成測試](../tools/a020_prelogin_contract.py)。核對 C0F type3/other、S18 kind0/list vs kind1 compressed、C57 type0/type1、S56 inflated multi-entry、C4B empty、S60 type0 u32/type1 compressed text，A-023 C6C/S44 branch 不重複猜測。原本 S18 body00030000 的原生語意為 kind0、subtype3、count0；local C4B→S60 不等於原 Server 原版必定如此。A-020 `integrated/handoff partial/implementation_ready=true` 限原生 codec 與 fail-closed local subset；region key/真正官方 metadata/Script 時序與錯誤碼待原服證據；CT-049/050 planned，native Client not-run。

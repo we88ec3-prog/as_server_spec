@@ -438,13 +438,32 @@
       "title": "完整登入前metadata／Script／清單分支",
       "method": "以已知最小登入情境為基線，追C6C/C0F/C57/C4B與S18/S56/S60的種類、更新及失敗分支。",
       "deliverable": "各封包入口、完整欄位與狀態轉移；最小本機回覆和原生必要語意分開。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
-      "latest_merged_evidence_focus": "A-001 has resolved seed0..9 mask codec, C00 width and S00 result0/1/2 parser structure; focus on actual regional seed/key selection, nonzero S00 UI results, metadata/Script timing and account proof handoff. Do not mark client region login confirmed solely from synthetic codec tests."
+      "latest_merged_evidence_focus": "A-001 has resolved seed0..9 mask codec, C00 width and S00 result0/1/2 parser structure; focus on actual regional seed/key selection, nonzero S00 UI results, metadata/Script timing and account proof handoff. Do not mark client region login confirmed solely from synthetic codec tests.",
+      "evidence_kind": "observed-static",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C0F(3/other),S18 kind0/kind1 discriminant,C57(0/1),S56 zlib multi-entry,C4B empty,S60(0/1),C6C/S44 A-023 cross-reference and safe local-profile state gate; original Server sequencing/regional/policy unknown",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "analysis_contract": "04-analysis-integration/A-020-prelogin-contract.md",
+      "analysis_test": "tools/a020_prelogin_contract.py",
+      "analysis_scope": "Metadata, Script, MultiServer, Stipulation native packet discriminants and local minimal login vs original server-policy boundary",
+      "remaining_unknowns": [
+        "Region-specific seed/key selection and S00 result1/2 real failure UI, login metadata timing remain A-001 residual",
+        "C0F types other than3 option/text original purpose and matching S18 kind1 downloaded resource semantics unresolved",
+        "Native S18 kind1 compressed content, original response errors/retries and S56 multi-host list in official region unverified",
+        "Whether original Server replies S60 to C57(0) or C4B and type0 vs type1 timing unknown",
+        "Original prelogin Script catalog timing and first Born/S44 trigger vs C6C3 local no-op unresolved",
+        "No native Client E2E for region, metadata error/reconnect, selector invalid, zlib negative cases"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-021",

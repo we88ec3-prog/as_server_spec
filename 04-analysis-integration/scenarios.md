@@ -60,3 +60,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-003 / roy1 首次創角合法集合、角色數量與重名界線
 
 [完整 A-003 證據](../03-analysis-requests/A-003-roy1-create-legal-values.md) / [安全交接](A-003-character-create-contract.md)。已證 C02 的第一 NewUser UI 欄位 region0 skip narrow-length gate／其他 region >=12，C04 只含 sex/hair/3×RGB u8，十筆固定 Client 色盤；**C04 並無單獨 character_name 欄位**。原服是否帳號同名角色、是否支援多角色、sex/hair 正式枚舉、重名錯誤碼均無原服證據，Server 的 unique(account)/name 和 IdempotentCreate 屬 designed 保護，不能由此開放匿名 Client C02 建角。SCN-008 保持 analysis-required；CT-047/048 planned。
+
+## A-020 / roy1：SCN-001 登入前已知多分支
+
+[完整資料流](../03-analysis-requests/A-020-roy1-prelogin-branches.md) / [Contract](A-020-prelogin-contract.md)。C0F type3 body03 → S18 kind0 subtype3 count0（00030000），C57 type1 list、type0 selected id，S56 多記錄 zlib，C4B empty 與 S60 type0/u32、type1 compressed 可由原本 Client reader/writer 支持。**原版 Client code 並不證明原伺服器在所有 region 依這個順序發公告或要求 Script；最小本機 SCN-001 通過的測試數據和全原生服務需分開**。C6C3 local no-op 並非 Born start；未經授權 S44(1,3) 會影響本機檔案。CT-049/050 planned，Client E2E not-run。

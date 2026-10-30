@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "26bd88daec4e242624b5f4890fbf8f6f0774f92d8a8e7a23dee1b49f7f45b18c"
+      "sha256": "3621cfe8c81d13c8a7ba1ce01b7098ce600879fb5fa79b0e988f07a88fa15310"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "95d06db10f55af2248f0be79818b9c2e1549e17323df8774cbd835824cad760b"
+      "sha256": "bebdadb9d003885770bc3144a0a596b59551a587b94dd5419d4e0be27bfba139"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -124,6 +124,10 @@
       "sha256": "6f3959a3b453f7d7db76d087f1df935c344daa772dc0c146d46a62326d8e4895"
     },
     {
+      "path": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "sha256": "0a749e25867ad2fd1db640dd3c42da73438a0ae743d0869287a4858623f58c80"
+    },
+    {
       "path": "03-analysis-requests/A-021-acceptance.md",
       "sha256": "fb7fd0d702a5de08af98126f02f889ad68dc99f2ee4fee2a04cbe893102e21b3"
     },
@@ -153,7 +157,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "ab628b06882ce37b5b7b399401d109eac4eec8b4c1e71146e23d1470cecbe9a0"
+      "sha256": "0695167b2dad006dfb8e0c07980a8b2ff1af6d89ad98e0269e7c13c616470e5e"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -161,7 +165,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "78d1f4ef81391db5ca2b1307e66ecbe30a3c543b2a0cf11971140de15c6f0f6d"
+      "sha256": "eb7d4a3e6ecbc45c4ab88d38d3ec8be320773101447f4621a2175b02f66aac13"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -178,6 +182,10 @@
     {
       "path": "04-analysis-integration/A-017-admin-observability-contract.md",
       "sha256": "e302328abd202eccebfc0c97196e8113380fc829233fbbb039c6845a9ead4d8c"
+    },
+    {
+      "path": "04-analysis-integration/A-020-prelogin-contract.md",
+      "sha256": "316a7c2bb33e19a69dade1c5ecb599be4719851a344cb86236a3d8012c61505b"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
@@ -221,7 +229,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "de8e5ddac55c56a8b0f8d813587a1df0cb9f1d61fec2a5874fe1cf788a32907e"
+      "sha256": "2331731e2d4f6f39890f3fc073292c315a0c714da5413fadc9c45c20273473ef"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -233,15 +241,15 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "c5e1853811d34b798d78c032e46e635ae149131636da872f7746de4433a1399a"
+      "sha256": "8361ab20833fd2230e057e352b4d3a38757920343083946daf1d977029ac9a5a"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "fe17c590d16f1ee47eba22aae6c275ad1af748d750ffbde6b7bbe0d608c0c2de"
+      "sha256": "eef99bde61f6d1729691217c1b20d30d06a85ed1e08d9745c851a06951290058"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
-      "sha256": "425bb8567a267cb5d9cc866da376ca762b32fc54cb6b67560cb46f5f24af3cc5"
+      "sha256": "5f208f3148142a388cdf6f737c18bdbd5ba0349411bd898c4d7087458fd4b03d"
     },
     {
       "path": "04-analysis-integration/README.md",
@@ -253,11 +261,11 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "55af4813c5e8512f4a7939759e2488737a7829f99604dd74e54ddcdf321a7682"
+      "sha256": "861c87d410b2f5e7477c3228e50c00bb50193b24a183771aac7c97899f2b7e2d"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "ca0d3b006e2152f6b958b13aea38c750ffea80074b80172b1db925759ed32e10"
+      "sha256": "4e9ddd996dfe6d805d083ae0d1573c7f4c9fbbea4bf48fac886aecf31134eaf6"
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
@@ -281,7 +289,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "ab77d65e97414116a7a01b587df8b012b438c24b3a69dae5dc52ce10bb36405a"
+      "sha256": "f4f07c3d9023f15edca1482954a6e678c7755881a849917af493e71e913232c3"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
@@ -289,7 +297,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "7f9b2a86ac23eea4a7b41ae0af7d3bc6d8ed9e1f4f75117fb89064133f6cbbda"
+      "sha256": "34997feab06e3fa412c4d7a4f319dbff9230ac1e0d9453cae97a1531fb9a211e"
     },
     {
       "path": "README.md",
@@ -346,6 +354,10 @@
     {
       "path": "tools/a017_ops_contract.py",
       "sha256": "f2db26d80adbafb53325c28953a327315252b7a5efa6f8fcaffba5ff9097a086"
+    },
+    {
+      "path": "tools/a020_prelogin_contract.py",
+      "sha256": "2036129e6abcd38ec557c9a7c6c44da5755b3c6efaee711d1006c2f1b54272f6"
     },
     {
       "path": "tools/a027_pre_auth_contract.py",
