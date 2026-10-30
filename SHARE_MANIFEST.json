@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "8b5d21a9df9d1f661c861a577c58e0ff06ae1f39f4776fee172d2b9d5dad17cc"
+      "sha256": "5694bac27fde8915eb829c0e9b8f01ea43a59ff4e00a453b013df679b7b60cf9"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "b7cf8e2cf1dbc662fa701244d81b72a8613c8e0d33de070ace4d8c6a0d5ebaae"
+      "sha256": "f12d72f70b1634c511af95f31f0e300563a3567aa9c701537df16f8e96fb0342"
     },
     {
       "path": "00-governance/workflow.md",
@@ -153,7 +153,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "c4481a60409d294df0eb909a02e4339e57917bb80ad1fc87ca164a23fa10a943"
+      "sha256": "3a76b6f91a5b307d86cb4e581e6931fe85cea251cad4a37bd84ee47376667f3d"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -161,7 +161,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "76202c15aa741c39307fd5236f466c809e05700ff05a422fc250fb48cea34a07"
+      "sha256": "fdf1e1d1b4a432be46177e6c6a7f7a9eb59076382bc78529ebcba8dabad99fe3"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -229,7 +229,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "8f75d8f6c9f51bbefc216dfb35ca298ddb745f92e285bf907a7d246c33f0ec38"
+      "sha256": "37e1adfe304e32dd6a9cd46fad14c0a44355bc928518381085c0239984d794c1"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -245,7 +245,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "ed7d7f21a7d781a745b19824d1cc544e090693e632b8b03efd001ec926f6d742"
+      "sha256": "68356e30486b549672cfd49cbafc4c65d0855cb7295e8910761d10107ed56ef4"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -305,7 +305,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "f545a05390d3f5cdbf5dcf2193fee5ad5100f2f83b1a5fc1d5ca21c8cbbccd49"
+      "sha256": "c5f2ff03c1c849e11c20daa0b172aad786ed01e1ca8aba64c1132ef53607377e"
     },
     {
       "path": "README.md",
