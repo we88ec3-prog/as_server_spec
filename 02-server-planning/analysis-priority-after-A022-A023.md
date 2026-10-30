@@ -53,3 +53,7 @@ A-027 已追完可核對的 C02 UI 欄位來源（field1 名稱候選；field2 �
 ## A-025 / roy1 後續研究依賴更新（2026-10-31）
 
 原版 C13/C4D/C56/C3D 與 S52/S1E/S3D 的 Client 最小互動與 packet schema 已由 [A-025](../03-analysis-requests/A-025-roy1-tutorial-combat.md) 查通受限子集，新增 CT-051/052/053。**第一個導引 Born.dat 不含殺怪條件 ≠ 全部原服教程不要求戰鬥**。接下來 A-024 要找到實際 NPC/怪物 map/entity/spawn/interaction，A-008/009/010 要完成所有原版技能合法值、Battle subtype0..15 與狀態變化；A-012/026 必須從原服事件或資源確認是否有戰鬥任務目標、何時完成/發獎，否則只可擴充通用 Domain，不可強制新帳號先擊殺指定怪物。A-025 integrated/handoff partial，原生教學 requirement 和 quest mapping 未 ready。
+
+## A-026 / roy1 新增交接後剩餘關鍵來源（2026-10-31）
+
+A-026 已逆向確認 Born 引導關閉 C6C4→C6C2、C39 Merchant 多態命令、C0B Quit 空封包、S15/S14/C35/S04 通用切圖並建立安全 completion/可選 reward/exit 恢復模型；**原版教學是否存在獎勵、何時畢業、何處退出仍未知**。下一步 A-024 對原版 map/NPC 做 entity→Script 綁定、A-012 對原服 quest rule/回覆、A-015 對出口 map/版本/位置、必要時 A-009/010 對原服戰鬥事件；原服成功/失敗/重登封包 trace 可替代部分猜測。A-026 integrated/handoff partial，native_tutorial_complete_ready=false，不能把 A-025 或 C6C2/4 誤當 quest complete；CT-026～028/054～056 planned。

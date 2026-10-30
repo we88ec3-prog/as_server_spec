@@ -65,3 +65,7 @@ A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/hando
 ## A-025 / roy1：ONB-05 可實作的技能/攻擊子集（2026-10-31）
 
 [A-025 BIN-first](../03-analysis-requests/A-025-roy1-tutorial-combat.md) / [安全交接](../04-analysis-integration/A-025-tutorial-combat-contract.md)：已追 C13 Attack u32、C4D StartCastSpell u16、C56 CastSpell u8、C3D/S3D 0..15 多態、S52 CastSpell u32+u8 與 S1E DieObjects u32；Client C13 實際輸入觸發/本地 timer gate 具地址。可 DEV：typed codec、未授權/非法對象的 fail-closed、Server authoritative combat resolution / unique event ledger。**但原服傷害公式、技能 catalog/魔力/冷卻參數、NPC/怪物 entity、教學是否需要攻擊、任務目標映射都還未知**，不能直接標 ONB-05 native-ready。Born.dat 僅有 PaperDialog 導引，不能因 script 沒戰鬥指令就斷言全部教程無戰鬥。A-025 integrated/handoff partial；CT-051..053 planned、Client native not-run。
+
+## A-026 / roy1：ONB-06 教學完成與出口的限制（2026-10-31）
+
+[A-026 BIN-first](../03-analysis-requests/A-026-roy1-tutorial-completion.md) / [安全完成契約](../04-analysis-integration/A-026-tutorial-completion-contract.md) / [機讀未知規則](tutorial-completion-conditions.json)。原版 Born Script 只建引導紙張，C6C4/2 關閉**不構成畢業**；C39 Merchant 為 Client 互動子集、NPC/Script/完成 rule 未綁；C0B Quit 非教程出圖；原版 S15/S14/C35/S04 支援一般換圖，出口 map/xy/獎勵仍 unknown。ONB-06 可以 DEV 實作 verified-rule gating、unique Completion/optional Reward ledger/outbox 與 fenced ExitIntent/crash recovery；**不可打開原生教學畢業/發獎/轉圖**，直到 A-012/015/024 的原服規則及目的地核實。A-026 integrated/handoff partial; CT-026～028/054～056 planned/native not-run。

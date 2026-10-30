@@ -79,3 +79,7 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## A-025 / roy1：Client 如何發攻擊/施法封包及原生回覆（2026-10-31）
 
 [原始函式/逐欄證據](../03-analysis-requests/A-025-roy1-tutorial-combat.md) / [Server 契約](A-025-tutorial-combat-contract.md)：原 Client `0x55709c/0x557a5d` 選取對象並通過本地狀態/時間閘後送 C13 `BE u32 target_ref`（writer `0x570ac0`）；`0x402034` 從被選技能 `[ebx+0x80e]` 送 C4D `BE u16 spell_value`（writer `0x5755c0`）；C56 `u8`（`0x571800`，完整發送 stage 未確認）。C3D/S3D Battle `0x3d` 先 subtype `u8`、0..15 多態，不可把全部分支編成同一 layout。原 S52 `0x52` reader `BE u32,u8`、S1E `0x1e` reader `BE u32`，**這些並非「任務已完成」封包**。Server 必須先判定目標/同場景/距離/資源/冷卻/世代，再提交戰鬥結果；只有獨立核對原服目標 mapping 才可由 server_event_id 唯一紀錄更新任務。Born.dat 本身沒有殺怪條件，但不證明全部教程都沒有；SCN-012/CT-023～025 保持分析/驗收未完成，新增 CT-051～053。
+
+## A-026 / roy1：新手教學完成不由 Client C6C 或載圖封包直接證明
+
+[原件研究](../03-analysis-requests/A-026-roy1-tutorial-completion.md)／[Server 契約](A-026-tutorial-completion-contract.md)：Born.dat（hash 固定）只有 PaperDialog 到 (31,29) 招募員的文字導引。S44(1,0) 可啟動 Born；PaperDialog OK → C6C(4,name,context) 且未 reply 時 C6C(2,name,context) 只代表腳本關閉。原版 C39 Merchant ctor 0x5737c9，writer 0x573860 common u8,u32BE,u16BE 並依 subtype1..9 有其他欄位；**C39 是否對應原版女性招募員及完成任務未證**。C0B Quit writer 0x574c50 無 body，非教學離開事件。S15/S14(1)/C35/S04 只是 Map/CRC/Position 通用接口，沒有可證原版 exit map/ref/coord；C35 不含 epoch，在同 pair 重疊時不可辨。Server 不能把 ScriptClose/點 NPC/換圖/死亡或 Quit 直接當作 Completed/Reward；需 original-server verified objective 再 atomically append completion + optional reward + outbox，且原版合法出口 map 被證明後才安全切圖。CT-054～056 planned，SCN-013 analysis-required。

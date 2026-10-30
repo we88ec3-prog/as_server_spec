@@ -77,3 +77,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-025 新手教學攻擊／施法與目標事件
 
 用原版 Asgard.exe BIN-first 核對 CAttack 0x13/u32 BE (0x570a10/0x570ac0; sender 0x55709c/0x557a5d)、CStartCastSpell 0x4d/u16 BE (0x575510/0x5755c0; sender 0x402034)、CCastSpell 0x56/u8 (0x571750/0x571800)、CBattle/SBattle 0x3d subtype0..15 (0x570de0/0x57c890)、SCastSpell 0x52/u32+u8、SDieObjects 0x1e/u32。用同版 Born.dat 驗證只含導引紙張，不能推論全教程是否需戰鬥。新增 A-025 完整靜態/未知分級、Server designed 權威/quest event ledger、安全合成測試（14 原件 signature、7 unittest）、七個原生 PKT、CT-051～053、SCN-012 對應、共用 Manifest。A-025 integrated/partial，Client native not-run；不推測原版 damage/cooldown/kill quest。
+
+## task_a/roy1 — 2026-10-31 A-026 教學完成、獎勵、出圖與恢復
+
+從原件 Asgard.exe（SHA256 固定）驗 C39 Merchant constructor 0x5737c9 / writer 0x573860 的 u8,u32BE,u16BE + subtype1..9 多態、C0B Quit constructor 0x574bb9 / empty writer 0x574c50、S15/S14/C35/S04 通用 Map/Loading/Position；直接解壓 Born.dat 的 BE wrapper+UTF-16LE Main，只有 PaperDialog 導引 (31,29)，並沿 A-023 補證 C6C4→C6C2 ScriptClose。沒有原服任務完成 rule、獎勵存在與內容、NPC entity/script 綁定、官方出口 map/xy。新增 A-026 BIN-first、Domain 交接、機讀 unknowns、Python 11 signature/10 unittest 合成測試、PKT-C39/PKT-C0B、CT-054/055/056，更新 SCN-013、CT-026/027/028、packet/evidence/Manifest。A-026 integrated/handoff partial，native tutorial complete/reward/exit 不可實作啟用。

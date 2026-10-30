@@ -729,9 +729,11 @@
       "title": "教學完成條件、獎勵與退出地圖",
       "method": "追教學步驟、任務/NPC 對話、完成觸發、原服是否發獎、正常出口 map/座標與斷線重登恢復；對照 A-012/016/022/023/025。",
       "deliverable": "A 交付：BIN/Script/資源證據支持的完成條件與已知/未知步驟、原版是否存在獎勵、退出地圖已知欄位、回復語意、CT-028 原 Client 測試腳本；真正執行完整新 Server 的端到端原 Client 測試由 DEV/CT 負責。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
       "dependencies": [
         "A-012",
         "A-016",
@@ -741,10 +743,29 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static-plus-resource",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Native Born Script lifecycle and generic C39 Merchant, C0B Quit/map loading fields; designed durable completion/optional reward ledger and fenced exit recovery; original Server rule/reward/exit NOT proven",
+      "native_tutorial_complete_ready": false,
+      "native_reward_proven": false,
+      "native_exit_destination_proven": false,
+      "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "analysis_contract": "04-analysis-integration/A-026-tutorial-completion-contract.md",
+      "analysis_test": "tools/a026_tutorial_completion_model.py",
+      "analysis_schema": "02-server-planning/tutorial-completion-conditions.json",
+      "analysis_scope": "Born ScriptClose not quest complete; C39 Merchant generic NPC; S15/S14/C35/S04 exit mechanics and C0B quit; completion/reward/exitmap original policies unknown",
+      "remaining_unknowns": [
+        "Original Server tutorial completion rule/required quest NPC flags and proof event unknown",
+        "Recruiter entity/map and Script binding unproven, nNewJoin01.dat candidate only",
+        "Native reward existence/type/quantity/experience/gold unknown",
+        "Native exit map_ref/x/y/revision/C35 expected pair unknown",
+        "First to returning login original Client full tutorial E2E not-run",
+        "PaperDialog.dat and nNewJoin01.dat not provided locally; A-023 earlier resource analysis exists"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-027",

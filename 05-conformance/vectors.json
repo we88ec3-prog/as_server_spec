@@ -547,7 +547,11 @@
         "R-017",
         "R-031"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-S44",
+        "PKT-C6C",
+        "PKT-C39"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -555,7 +559,11 @@
       "expected": "未達成條件不能完成，成功與可能的獎勵只發一次",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "Client generic Script/Merchant/Map fields known; no original Server completion, optional reward or tutorial exit destination confirmed",
+      "analysis_evidence_ids": [
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "CT-027",
@@ -565,7 +573,12 @@
         "R-004",
         "R-031"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -573,7 +586,11 @@
       "expected": "合法原生出口地圖與座標，切圖中斷/重登一致",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "Client generic Script/Merchant/Map fields known; no original Server completion, optional reward or tutorial exit destination confirmed",
+      "analysis_evidence_ids": [
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "CT-028",
@@ -584,7 +601,15 @@
         "R-030",
         "R-031"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-S44",
+        "PKT-C6C",
+        "PKT-C39",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04"
+      ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -592,7 +617,11 @@
       "expected": "原生 Client 從首次入教學到完成並離開成功",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "Client generic Script/Merchant/Map fields known; no original Server completion, optional reward or tutorial exit destination confirmed",
+      "analysis_evidence_ids": [
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "CT-029",
@@ -1334,6 +1363,94 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
+    },
+    {
+      "id": "CT-054",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "level": "tutorial-script-close-not-completed",
+      "requirements": [
+        "R-013",
+        "R-031"
+      ],
+      "packet_ids": [
+        "PKT-S44",
+        "PKT-C6C",
+        "PKT-C39"
+      ],
+      "input": {
+        "kind": "native-bin-plus-designed",
+        "test": "tools/a026_tutorial_completion_model.py",
+        "cases": [
+          "Born Main only PaperDialog",
+          "C6C subtype4 then subtype2 close",
+          "duplicate/old-generation close cannot grant",
+          "C39 click without NPC binding not completion"
+        ]
+      },
+      "expected": "Script close/merchant interaction alone never means original tutorial completion or optional reward; native Client E2E not-run",
+      "evidence_kind": "observed-static-plus-designed"
+    },
+    {
+      "id": "CT-055",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "level": "tutorial-reward-transaction-once",
+      "requirements": [
+        "R-013",
+        "R-017",
+        "R-031"
+      ],
+      "packet_ids": [
+        "PKT-C6C",
+        "PKT-C39"
+      ],
+      "input": {
+        "kind": "designed-sqlite",
+        "test": "tools/a026_tutorial_completion_model.py",
+        "cases": [
+          "unknown original rule fail closed",
+          "unverified event fail closed",
+          "verified event unique completion",
+          "optional reward only if proven",
+          "duplicate/restart never regrant"
+        ]
+      },
+      "expected": "Completion/Reward/Outbox atomically committed once only after original-rule and authoritative-event proof; no invented native reward",
+      "evidence_kind": "designed"
+    },
+    {
+      "id": "CT-056",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "level": "tutorial-map-exit-recovery",
+      "requirements": [
+        "R-017",
+        "R-031"
+      ],
+      "packet_ids": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "designed-sqlite",
+        "test": "tools/a026_tutorial_completion_model.py",
+        "cases": [
+          "exit destination unknown blocked",
+          "must be durable completed",
+          "stale generation blocked",
+          "overlapping ambiguous same CRC blocked",
+          "correct CRC plus single-epoch barrier",
+          "crash retains prior map and completion"
+        ]
+      },
+      "expected": "Exit map checkpoint only after verified original exit route and safe C35 barrier; Client C35 has no epoch; no duplicate reward or position drift on crash",
+      "evidence_kind": "designed"
     }
   ]
 }

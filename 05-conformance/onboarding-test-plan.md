@@ -72,3 +72,7 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-020 / roy1：登入前封包型別、解析安全與狀態（CT-049/050 planned）
 
 [原件 BIN-first](../03-analysis-requests/A-020-roy1-prelogin-branches.md) 與 [合成測試](../tools/a020_prelogin_contract.py)：CT-049 分別驗 C0F(3)、C0F(other)、S18(0,3,empty)／kind0 一筆 name+u32、C57(1)/C57(0,id)、S56 multi entry(zlib)、C4B empty、S60(type0 u32/type1 compressed text)，另需拒絕過長/截斷/尾隨／壓縮異常。CT-050 驗原生 C6C3 不會建立帳號所有權、Script cache destructive S44(1,3) 不得作 ACK、C57 不可錯序選服、未驗證 C03 不可 World。此測試是 designed local Server state + BIN-derived codec，不是完整原服 policy 或 Client E2E。
+
+## A-026 原生教程完成/可選獎勵/出口（2026-10-31）
+
+[原件分析](../03-analysis-requests/A-026-roy1-tutorial-completion.md)、[完成與退出安全契約](../04-analysis-integration/A-026-tutorial-completion-contract.md)、[測試工具](../tools/a026_tutorial_completion_model.py)。CT-026/027/028 仍 planned、native E2E not-run；CT-054/055/056 是 synthetic/designed。先用受控 sandbox/合法身份和同版資源確認 Born.Main→PaperDialog→C6C4→C6C2 **只做 ScriptClose**；再真正進行招募員 NPC C39 互動與完整 Script/Quest reply capture，不可把 STATE=ACCEPT 候選當官方完成。沒有 original verified quest rule 時拒絕 completed；沒有 verified reward 時 reward=NULL；有驗證後以唯一交易 + outbox 保證回覆丟失/重登不重發。只有原服確定的 exit map/ref/coord/revision 才可 S15/S14/C35/S04，C35 不含 epoch，負面測同 pair overlap、錯 CRC、crash/reopen 位置/狀態恢復。完整 Client「登入→教學互動→完成→正常出圖→重登」仍需 CT-028；原始 Server 資料未提供，不可把離線測試標成 Client 已通關。

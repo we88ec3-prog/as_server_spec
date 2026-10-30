@@ -68,3 +68,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-025：SCN-012 教學技能/攻擊到任務目標（條件式；非原服必需戰鬥已證）
 
 [詳細研究](../03-analysis-requests/A-025-roy1-tutorial-combat.md)。Client C13 攻擊 target u32、C4D 開始施法 u16、C56 CastSpell u8；S52 CastSpell u32+u8、S1E DieObjects u32，C3D/S3D Battle 的 u8 subtype 0..15 多態（每個 subtype 尚未完整）。**不能把 S1E 消失、C13 攻擊指令或 Script C6C 關閉直接算 quest success**。Born 引導找 (31,29) 女性招募員、未宣告殺怪需求，但其他未知任務 Script/原服可能另有戰鬥。Server 對已驗證目標/怪物/原服任務 mapping 才可生成 unique event 並計進度；目前 `native_tutorial_combat_requirement_proven=false`、`native_quest_progress_mapping_ready=false`，SCN-012 維持 `analysis-required`。A-024、A-008/009/010、A-012/026 接續；CT-051/052/053 planned。
+
+## A-026 / roy1：SCN-013 完成教學／發獎／出圖的有界證據
+
+[A-026 原版 Client/資源核對](../03-analysis-requests/A-026-roy1-tutorial-completion.md) / [安全 Domain 設計](A-026-tutorial-completion-contract.md)。Client 只證：S44 指名 Born Main → 紙張引導 (31,29) 招募員 → C6C4/C6C2 lifecycle close；另有 C39 generic Merchant NPC、C0B Quit empty、S15/S14/C35/S04 generic map load。**沒有**證實的 Server quest completion、npc id/script binding、可選獎勵、退出目的 map/x/y 或重登入恢復政策。SCN-013 不得因 C6C close、C39 click、S1E death、C35 或 S14 control2 標 completed。只在 verified original rule + authoritative event 時做單事務 Complete+optional Reward+Outbox，only verified exit map/revision 能切圖；失敗時保留 durable completion 並按上次 map/pos 恢復。CT-026～028 仍 planned，另 CT-054～056 synthetic/design；原 Client not-run。

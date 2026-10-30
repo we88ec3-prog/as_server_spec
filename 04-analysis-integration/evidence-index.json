@@ -2026,6 +2026,39 @@
         "Born single script no combat API does not disprove later tutorial battle requirements",
         "Original Server combat→objective/quest linkage and first monster NPC/map binding unknown; native Client E2E not run"
       ]
+    },
+    {
+      "evidence_id": "ev_a026_20261031_born_merchant_exit_bin_static",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-plus-resource",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+      "method": "objdump original Asgard.exe native C39/C0B/S15/S04/C6C and A-023/025 cross-reference; zlib Born.dat 6-byte BE wrapper/UTF-16LE XML; local 11 original signature checks and 10 SQLite synthetic tests",
+      "scope": "A-026 client-only Script close vs completion, Merchant NPC interaction, generic Map/loading/position and Quit; designed reward-once and exit checkpoint, original Server quest/award/exit unknown",
+      "functions": [
+        "0x5737c9",
+        "0x573860",
+        "0x581ba9",
+        "0x581ca0",
+        "0x57fe99",
+        "0x57ff30",
+        "0x57fdd0",
+        "0x4f2300",
+        "0x573490",
+        "0x589990",
+        "0x574bb9",
+        "0x574c50",
+        "0x575210"
+      ],
+      "report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "contract": "04-analysis-integration/A-026-tutorial-completion-contract.md",
+      "synthetic_test": "tools/a026_tutorial_completion_model.py",
+      "limits": [
+        "Candidate nNewJoin01 not tied to actual NPC",
+        "No original Server completion/optional reward/exit details",
+        "C35 contains no epoch; same-pair overlap ambiguous",
+        "Native Client E2E not-run"
+      ]
     }
   ]
 }

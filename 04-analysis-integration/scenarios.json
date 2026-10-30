@@ -412,23 +412,44 @@
         "R-017",
         "R-031"
       ],
-      "packets": [],
+      "packets": [
+        "PKT-S44",
+        "PKT-C6C",
+        "PKT-C39",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04",
+        "PKT-C0B"
+      ],
       "status": "analysis-required",
-      "evidence_kind": "designed",
+      "evidence_kind": "observed-static-plus-designed",
       "profile": "TW-seed0-local-v0.1",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "notes": "已確認的教程條件成立後持久化完成進度，任何原版有的獎勵僅授予一次，按原生證據轉入一般地圖並可重登。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-025: do not auto-complete tutorial on S1E/CBattle or Script C6C close. Combat requirement remains unverified; verify A-026 original objective policy first.",
+      "notes": "已確認的教程條件成立後持久化完成進度，任何原版有的獎勵僅授予一次，按原生證據轉入一般地圖並可重登。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-025: do not auto-complete tutorial on S1E/CBattle or Script C6C close. Combat requirement remains unverified; verify A-026 original objective policy first. A-026: Born.Main just recruiter PaperDialog at (31,29); C6C4/C6C2 close no tutorial completion or award. C39 generic NPC, C0B quit and S15/S14/C35/S04 generic map exit. Original Server NPC quest proof, optional reward and official destination still unknown. Planned tests only; scenario remains analysis-required.",
       "failure_cases": [
         "未完成提前請求",
         "回覆丟失",
         "重領",
         "切圖失敗",
-        "重啟"
+        "重啟",
+        "C6C4/C6C2 duplicate/old generation not completion",
+        "Unverified C39 recruiter or STATE=ACCEPT cannot complete",
+        "Unproven reward must never be granted",
+        "Unknown exit map/ref/revision cannot exit",
+        "C35 indistinguishable overlapping same checksum pair requires fail close",
+        "Crash after completion before exit retains safe map and reward once"
       ],
-      "packet_mapping": "unknown",
+      "packet_mapping": "Native generic Script lifecycle, merchant interaction and map loading/quit only; no proven original tutorial completion/reward/exit opcode",
       "analysis_evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
-      ]
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a026_contract": "04-analysis-integration/A-026-tutorial-completion-contract.md",
+      "native_tutorial_complete_ready": false,
+      "native_reward_proven": false,
+      "native_exit_destination_proven": false
     },
     {
       "id": "SCN-014",

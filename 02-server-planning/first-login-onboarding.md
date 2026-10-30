@@ -53,3 +53,7 @@ A-001 補齊 seed0..9 的候選 binary mask/加密格式、C00/S00/string8 codec
 ## A-003 更新：原版外觀十色盤與一帳一角之設計限制（2026-10-31）
 
 [A-003](../03-analysis-requests/A-003-roy1-create-legal-values.md) 已證 C04 五 u8 前二欄選擇值、後三欄來源為原 Client 固定 10 色表；C04 本身不含新的 character name。C02 field1 來自 NewUser UI，而不是已證的獨立 CharacterName；region1..4 首欄窄字串有本地長度12 gate（region0 skip）。原服一帳號多角/性別及髮型合法枚舉/重名 S02 文義未證，所以 Server 若採一帳一角與角色名稱唯一索引須標 **designed profile**，不得聲稱原版遊戲已證此政策。未有 A-027 安全 Account owner 前不能送 C02 成功觸發 C04；A-028 原生 durable commit/重登亦還有未知。測試 CT-047/048 planned，Client E2E not-run。[安全角色契約](../04-analysis-integration/A-003-character-create-contract.md)。
+
+## A-026：第一次入教學到真正完成/退出必須拆開（2026-10-31）
+
+[A-026 BIN-first](../03-analysis-requests/A-026-roy1-tutorial-completion.md)：進圖後 S44(1,0) 能啟動 Born.Main 紙張，正常關閉只送 C6C4 後 C6C2，這是 lifecycle 而不是獎勵或畢業。文字 (31,29) 是女性招募員導引座標，非 spawn/出口。C39 Merchant 有原版通道但缺 NPC→Script 及任務 rule；S15/S14/C35/S04 支援一般換圖但未證原版出口 map/ref、x/y。只有原服 verified completion rule + authoritative event 才可原子提交獎勵（若有）及 completion；只有 verified exit destination 才能安全啟動 fenced map loading。SQLite 模型可交 DEV 先開發，原 Client CT-028 沒做、原服 gameplay/獎勵/出口仍 unknown，不可直接宣稱可完整玩完新手教學。見 [契約](../04-analysis-integration/A-026-tutorial-completion-contract.md)。

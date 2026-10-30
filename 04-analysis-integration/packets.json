@@ -323,11 +323,14 @@
       ],
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "C35 two BE u16 only; no map_id/map_epoch/request_id; same revision map checksum pair is wire-identical across loads, Server epoch cannot distinguish late identical C35."
+      "a016_recovery_note": "C35 two BE u16 only; no map_id/map_epoch/request_id; same revision map checksum pair is wire-identical across loads, Server epoch cannot distinguish late identical C35.",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-C62",
@@ -487,9 +490,12 @@
         "R-007"
       ],
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
-      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-S05",
@@ -580,11 +586,14 @@
       ],
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "control1 Client emits C35; control2 UI callback; control3 Sleep(3000ms) special path. None is original Server durable commit ack."
+      "a016_recovery_note": "control1 Client emits C35; control2 UI callback; control3 Sleep(3000ms) special path. None is original Server durable commit ack.",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-S15",
@@ -607,9 +616,12 @@
         "R-007"
       ],
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
-      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-S19",
@@ -836,12 +848,15 @@
         "A023-E13",
         "A023-E14",
         "A023-E16",
-        "ev_a020_20261031_asgard_prelogin_branch_static"
+        "ev_a020_20261031_asgard_prelogin_branch_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
       "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
       "a020_prelogin_gate": "Local login C6C subtype3 is accepted without reply (designed minimal-profile); it does not start Born, does not prove Script state or authenticate Account; A-023 handles native script updates and Dispose",
-      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-S18",
@@ -943,7 +958,8 @@
         "A023-E14",
         "A023-E15",
         "A023-E17",
-        "ev_a020_20261031_asgard_prelogin_branch_static"
+        "ev_a020_20261031_asgard_prelogin_branch_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
@@ -952,7 +968,9 @@
       ],
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
       "a020_prelogin_gate": "Not required in minimal prelogin fixture; S44 type1/subtype3 deletes/clears Script/*.dat in native Client. Must not synthesize fake ACK; follow A-023.",
-      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-C15",
@@ -1179,7 +1197,8 @@
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
       "requirements": [
         "R-010",
@@ -1187,7 +1206,62 @@
       ],
       "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
       "manual_validation": "not-run; BIN/codec signatures only",
-      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+    },
+    {
+      "id": "PKT-C39",
+      "direction": "C2S",
+      "opcode": "0x39",
+      "name": "Merchant",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 field, BE u32 opaque ref, BE u16 field, subtype discriminator 1..9 then variant-specific u8/string8; full fields and meanings partial",
+      "client_entry": "0x5737b0 constructor opcode at 0x5737c9; 0x573860..0x5738f6 writer",
+      "state_precondition": "Only verified NPC binding and World session can produce domain effect; recruiter mapping unknown",
+      "related_packets": [
+        "PKT-C6C",
+        "PKT-S44"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "requirements": [
+        "R-013",
+        "R-031"
+      ],
+      "manual_validation": "not-run",
+      "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+    },
+    {
+      "id": "PKT-C0B",
+      "direction": "C2S",
+      "opcode": "0x0b",
+      "name": "Quit",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "EMPTY body; native writer 0x574c50 ret. NOT tutorial completion",
+      "client_entry": "0x574bb0 constructor opcode at 0x574bb9; 0x574c50 writer",
+      "state_precondition": "Exit/quit Client path, not tutorial completion",
+      "related_packets": [],
+      "layout_status": "observed-static",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "requirements": [
+        "R-017",
+        "R-031"
+      ],
+      "manual_validation": "not-run",
+      "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     }
   ]
 }

@@ -100,3 +100,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-025 / roy1：教學首次攻擊、技能與目標事件（2026-10-31）
 
 [完整 BIN-first 報告](A-025-roy1-tutorial-combat.md)、[Server 安全交接](../04-analysis-integration/A-025-tutorial-combat-contract.md)、[14 條原件 byte signatures／7 項測試](../tools/a025_tutorial_combat_model.py)。原 Client C13 Attack BE u32（0x55709C/0x557A5D sender）、C4D StartCastSpell BE u16（0x402034）、C56 CastSpell u8，C3D/S3D Battle subtype0..15（不同多態 payload），S52 CastSpell u32+u8、S1E DieObjects u32 已確證。**Born.dat 只有招募員紙張導引，不含證明必須殺怪/施法的條件；不能推及整個教程不需戰鬥**。A-025 `integrated/handoff partial`，可交 DEV 的是 codec、Server 攻擊/技能權威輸入檢查和 **conditional** quest event unique-ledger 方案；原服戰鬥公式、首 NPC、教學目標必需性 unknown。SCN-012 仍 analysis-required；CT-051～053 planned、native Client not-run。
+
+## A-026 / roy1：教學完成、可能獎勵、出圖與中斷恢復（2026-10-31）
+
+[完整 BIN-first／Born 資源交叉核對](A-026-roy1-tutorial-completion.md)、[Server 安全設計](../04-analysis-integration/A-026-tutorial-completion-contract.md)、[10 項合成測試](../tools/a026_tutorial_completion_model.py)、[機讀完成條件／所有未知欄](../02-server-planning/tutorial-completion-conditions.json)。Born.Main 只有招募員 PaperDialog 導引 (31,29)（**非出口/出生**），C6C4→C6C2 只關 Script；C39 Merchant subtype1..9 有 native 入口，NPC/Script 真實綁定未知；C0B Quit empty 非畢業；S15/S14/C35/S04 支援通用切圖，但沒有原服出口目的地。原版任務完成 rule、獎勵是否存在/內容、官方出口 map/xy、重登政策 unknown。A-026 integrated/handoff partial，可交 DEV 安全 once-only Completion/optional Reward/Exit ledger，**不代表原生教學可通關**。SCN-013 仍 analysis-required，CT-026～028/054～056 planned/not-run。
