@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "analysis_id": "A-015",
+  "date": "2026-10-31",
+  "asset_sha256": {
+    "AsgardExe": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+    "Map0": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+    "Map1": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b",
+    "Map2": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb"
+  },
+  "maps_by_archive": [
+    {
+      "file": "Map0.dat",
+      "maps": 288,
+      "tail_counts": [
+        39481,
+        0,
+        4
+      ],
+      "header_third_diff": 30
+    },
+    {
+      "file": "Map1.dat",
+      "maps": 184,
+      "tail_counts": [
+        30523,
+        306,
+        523
+      ],
+      "header_third_diff": 2
+    },
+    {
+      "file": "Map2.dat",
+      "maps": 22,
+      "tail_counts": [
+        4028,
+        90,
+        1742
+      ],
+      "header_third_diff": 0
+    }
+  ],
+  "totals": {
+    "maps": 494,
+    "header_first_two_equal": 494,
+    "header_third_different": 32,
+    "header_anomaly_tuple": {
+      "1,1,4": 32
+    },
+    "tail_records_7_8_16": [
+      74032,
+      396,
+      2269
+    ],
+    "maps_with_records_7_8_16": [
+      490,
+      34,
+      58
+    ],
+    "tail7_first_byte_distribution": {
+      "0": 72577,
+      "1": 1455
+    },
+    "tail8_pixel_candidate_bounds_pass": 396,
+    "tail8_pixel_candidate_count": 396,
+    "tail16_pixel_candidate_bounds_pass": 2269,
+    "tail16_pixel_candidate_count": 2269,
+    "tail16_x_aligned_8": 2265,
+    "tail16_y_aligned_8": 2253
+  },
+  "field_types": {
+    "tail7": [
+      "boolean/u8",
+      "LE u16",
+      "LE signed i16",
+      "LE signed i16"
+    ],
+    "tail8": [
+      "LE u16",
+      "LE u16",
+      "LE u16",
+      "LE u16"
+    ],
+    "tail16": [
+      "LE u16",
+      "LE u16",
+      "LE u32",
+      "LE u32",
+      "LE u16",
+      "LE u16"
+    ]
+  },
+  "native_accessor_addresses": [
+    "0x4B2D70",
+    "0x4B2DE0",
+    "0x4B2E40"
+  ],
+  "test_summary": "4 synthetic unit tests PASS and 494/494 original MAP structure/field scan PASS",
+  "classification": {
+    "layout": "observed-static+observed-static-resource",
+    "coordinate_mapping": "inferred",
+    "client_e2e": "not-run"
+  },
+  "raw_game_content_shared": false
+}
