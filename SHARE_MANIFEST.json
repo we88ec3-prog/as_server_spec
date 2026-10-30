@@ -244,6 +244,10 @@
       "sha256": "5b09bd847fa7998fecc0a408f71a76a1e507d640a5672a3c67491b1ebfb72de0"
     },
     {
+      "path": "05-conformance/A-014-social-test-plan.md",
+      "sha256": "743e6ebb92e6114566d87b55ad5f69c60adaa05d40d3a975fd2363cbc3e481d8"
+    },
+    {
       "path": "05-conformance/A-015-content-test-plan.md",
       "sha256": "430e691ecd116c38645bf4a4c9835475cc102fa658d12039d67dd95b144419b1"
     },
@@ -272,6 +276,14 @@
       "sha256": "a007f78b79c6f44e3546898c7534a9c76e64a2a3fbfd01d9faaa4396f19bf179"
     },
     {
+      "path": "task_a/roy2/A-014-analysis.md",
+      "sha256": "f7406a3c36d4bfde1bd6b157eea7f1daae5daa8c8c1fd537b3420768f572dc77"
+    },
+    {
+      "path": "task_a/roy2/A-014-packet-index.json",
+      "sha256": "8648ddb0da18046a45fb2068dc90a221a905ccd6e7a6000615d4a00bd0b060b7"
+    },
+    {
       "path": "task_a/roy2/A-015-analysis.md",
       "sha256": "a3636bf420565419bd938bfb38ba764997dcc8dd2b4bfead6d25fe5443d74c92"
     },
@@ -296,6 +308,10 @@
       "sha256": "eb885e772fdc782c9f36b5b5731ec608ab95f9dabc7fd7325f87ecfa3bfd9611"
     },
     {
+      "path": "task_a/roy2/a014_social.py",
+      "sha256": "552fd70b4acf3cd83649927c7884cab86b6bef24b311a8d228279052edef2d4f"
+    },
+    {
       "path": "task_a/roy2/a015_field_audit.py",
       "sha256": "0e4945b33f244411ecb920a4b5086b1510378c274ee65024f4c162d6f49e4a3e"
     },
@@ -310,6 +326,10 @@
     {
       "path": "task_a/roy2/script-entry-verification.json",
       "sha256": "6c158301fbca7ee1d72cc86b597614a7127be06cc1b4a7ac0949b2ddd1272018"
+    },
+    {
+      "path": "task_a/roy2/test_a014_social.py",
+      "sha256": "4467b32d2324bb67fcdabda8acefd6d3f4f057818d02237280c096737336f7fe"
     },
     {
       "path": "task_a/roy2/test_a015_field_audit.py",
