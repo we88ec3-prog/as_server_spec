@@ -164,11 +164,20 @@
       "title": "多人進出視野",
       "method": "兩原客戶端與MapPane/object registry；追加入、移除、死亡、斷線與ID重用。",
       "deliverable": "確定出生／更新／移除封包、ID生命週期、作用域與可見性情境。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -180,7 +189,45 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "observed-static-client + synthetic-test + designed-model",
+      "analysis_report": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "offline_codec": "task_a/roy2/a004_visibility.py",
+      "implementation_ready": true,
+      "implementation_ready_scope": "S33(flags=0 profile), S06/S11/S0E/S0B decoded body and identity/epoch designed Server guards only; original MapPane registry mapping not proven",
+      "client_io_packet_ids": [
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0B",
+        "PKT-S0E"
+      ],
+      "client_io_scope_completed": [
+        "S33 PutHuman first x/y/facing/u32 ID and profile name/appearance; variable flags remain partial",
+        "S06 MoveHumanAck u32/u16/u16",
+        "S11 ChangeDirection u32/u8",
+        "S0B MoveAck u16/u16/u8 is NOT remote actor broadcast",
+        "S0E RemoveObjects u32 shared NPC/other objects",
+        "C33/C11 sender movement/turn from existing SYS-MOVE",
+        "Native PE32 SHA + 5 ctor/5 reader probes PASS; 9 synthetic/negative lifecycle tests PASS"
+      ],
+      "remaining_unknowns": [
+        "S33/S06/S11/S0E full MapPane receiver-to-ObjectRegistry callback, object ID equality and actual reuse/late packet handling not traced to native state mutation",
+        "Original client on-screen two-player join/move/turn/leave/disconnect E2E not-run",
+        "S33 nonzero flags and conditionally present appearance/name fields not covered by fixed-profile helper",
+        "Original Server AOI boundary/heartbeat/visibility radius and relog policy cannot be deduced from Client; belongs DEV/CT"
+      ],
+      "conformance": [
+        "CT-054",
+        "CT-055"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "handoff_result": "A004 static Client I/O subset delivered; full native object-registry hook and original visibility trigger unknown"
     },
     {
       "id": "A-005",

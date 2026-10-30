@@ -168,8 +168,21 @@
       ],
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
-        "R-005"
-      ]
+        "R-005",
+        "R-004",
+        "R-007"
+      ],
+      "evidence_ids": [
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
+      ],
+      "a004_ref": "task_a/roy2/A-004-analysis.md"
     },
     {
       "id": "PKT-C1C",
@@ -268,13 +281,24 @@
       ],
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
-        "R-005"
+        "R-005",
+        "R-004",
+        "R-007"
       ],
       "evidence_ids": [
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
       ],
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "C33 3*u8 direction/sequence7/gait; sequence is modulo128 and only session-scoped, no global idempotency request ID. Server short-window dedup + generation fencing (designed)."
+      "a016_recovery_note": "C33 3*u8 direction/sequence7/gait; sequence is modulo128 and only session-scoped, no global idempotency request ID. Server short-window dedup + generation fencing (designed).",
+      "a004_ref": "task_a/roy2/A-004-analysis.md"
     },
     {
       "id": "PKT-C35",
@@ -504,13 +528,25 @@
       ],
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
-        "R-005"
+        "R-005",
+        "R-004",
+        "R-007"
       ],
       "evidence_ids": [
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
       ],
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "S0B BE u16 x/y + u8 sequence/status; movement ACK does not imply durable character position database commit."
+      "a016_recovery_note": "S0B BE u16 x/y + u8 sequence/status; movement ACK does not imply durable character position database commit.",
+      "a004_ref": "task_a/roy2/A-004-analysis.md",
+      "a004_note": "S0B native reader has no u32 actor ID; do not fan out self MoveAck as remote movement."
     },
     {
       "id": "PKT-S0F",
@@ -624,8 +660,22 @@
       ],
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
-        "R-006"
-      ]
+        "R-006",
+        "R-004",
+        "R-007"
+      ],
+      "evidence_ids": [
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
+      ],
+      "a004_ref": "task_a/roy2/A-004-analysis.md",
+      "a004_note": "S33 first fields BE u16 x,y; u8 facing; BE u32 object; flags=0 profile S33 length 42+CP950-name-byte count; variable flags not covered."
     },
     {
       "id": "PKT-S37",
@@ -1340,13 +1390,23 @@
         "A024-E04",
         "A024-E05",
         "A024-E06",
-        "A024-E07"
+        "A024-E07",
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
       ],
       "manual_validation": "not-run",
       "requirements": [
         "R-012",
         "R-027",
-        "R-029"
+        "R-029",
+        "R-004",
+        "R-007"
       ],
       "analysis_request": "A-024",
       "contract_reference": "task_a/roy2/A-024-analysis.md",
@@ -1356,7 +1416,9 @@
         "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
         "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
-      ]
+      ],
+      "a004_ref": "task_a/roy2/A-004-analysis.md",
+      "a004_note": "Shared entity removal S0E BE u32; whether native client deletes Human and NPC via same registry is not proven."
     },
     {
       "id": "PKT-C13",
@@ -1423,6 +1485,96 @@
       ],
       "analysis_request": "A-024",
       "contract_reference": "task_a/roy2/A-024-analysis.md"
+    },
+    {
+      "id": "PKT-S06",
+      "direction": "S2C",
+      "opcode": "0x06",
+      "name": "MoveHumanAck",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32 opaque actor candidate, BE u16 field_a, BE u16 field_b; native callback identity/coords not fully proven",
+      "client_entry": "0x583220 ctor / 0x5832D0 parser",
+      "state_precondition": "In-world visible human object; inferred from class, actual handler state unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S0E",
+        "PKT-C33",
+        "PKT-C11"
+      ],
+      "layout_status": "observed-static-fields; object-role-inferred",
+      "evidence_kinds": [
+        "observed-static",
+        "inferred-semantics"
+      ],
+      "evidence_ids": [
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "analysis_request": "A-004",
+      "contract_reference": "task_a/roy2/A-004-analysis.md",
+      "unknowns": [
+        "S33/S06/S11/S0E full MapPane receiver-to-ObjectRegistry callback, object ID equality and actual reuse/late packet handling not traced to native state mutation",
+        "Original client on-screen two-player join/move/turn/leave/disconnect E2E not-run",
+        "S33 nonzero flags and conditionally present appearance/name fields not covered by fixed-profile helper",
+        "Original Server AOI boundary/heartbeat/visibility radius and relog policy cannot be deduced from Client; belongs DEV/CT"
+      ]
+    },
+    {
+      "id": "PKT-S11",
+      "direction": "S2C",
+      "opcode": "0x11",
+      "name": "ChangeDirection",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32 opaque actor candidate, u8 direction; native callback scope and matching object id unknown",
+      "client_entry": "0x57D6C0 ctor / 0x57D770 parser",
+      "state_precondition": "In-world visible human object; inferred from class, actual handler state unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S0E",
+        "PKT-C33",
+        "PKT-C11"
+      ],
+      "layout_status": "observed-static-fields; object-role-inferred",
+      "evidence_kinds": [
+        "observed-static",
+        "inferred-semantics"
+      ],
+      "evidence_ids": [
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "analysis_request": "A-004",
+      "contract_reference": "task_a/roy2/A-004-analysis.md",
+      "unknowns": [
+        "S33/S06/S11/S0E full MapPane receiver-to-ObjectRegistry callback, object ID equality and actual reuse/late packet handling not traced to native state mutation",
+        "Original client on-screen two-player join/move/turn/leave/disconnect E2E not-run",
+        "S33 nonzero flags and conditionally present appearance/name fields not covered by fixed-profile helper",
+        "Original Server AOI boundary/heartbeat/visibility radius and relog policy cannot be deduced from Client; belongs DEV/CT"
+      ]
     }
   ]
 }
