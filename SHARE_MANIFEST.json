@@ -57,7 +57,7 @@
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
-      "sha256": "5e043da24d6b481c7bcbaad57897f7b4f945e654fecca60a5300cce1747e1b1b"
+      "sha256": "a7767ff025f8400fc222d0889a3646d369bfef9d851d2aa5fabd2105e78c4e13"
     },
     {
       "path": "02-server-planning/architecture.md",
@@ -76,8 +76,12 @@
       "sha256": "80f4aa9f39e65e84c763d750290326643dcf9fac91c01157ad2b19700b546251"
     },
     {
+      "path": "02-server-planning/merge-20261031-roy1-roy2.md",
+      "sha256": "7c2c6274749261d848c429415daa6ea2a01866cadcccbcc36f0ccb627db02d74"
+    },
+    {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "8089497a4232756f84aaded984accb68da9238012bfb781f93c4cfe8274ee582"
+      "sha256": "797023df6e59f362e4ee09896eea5ff8085fe968b96cd6856be16c303d8f3d80"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -141,7 +145,7 @@
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
-      "sha256": "711e371105a9f8c87a1469b05b799c53129a54c38bed2da741021bd05ecacacc"
+      "sha256": "a0753b8bce80bbf8e65b76c7458cccd0a707304379f6a1f308f808606f1c8360"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -192,6 +196,10 @@
       "sha256": "6e1e71e357173c93dded6be4642b451d3951fdf1c104696957acf87c90f771d8"
     },
     {
+      "path": "04-analysis-integration/A015-A016-A027-A028-validation.md",
+      "sha256": "177bb46de9df2224c9cdac5ca914920c2f5ed194c121f110f1a17dfbb9bb6977"
+    },
+    {
       "path": "04-analysis-integration/a015-map-corpus.json",
       "sha256": "d983914bd3c06999110cb40628b17623602fb9e3056fe7288504c94e13d16cb0"
     },
@@ -213,7 +221,7 @@
     },
     {
       "path": "04-analysis-integration/content-resource-catalog.json",
-      "sha256": "660436c1891d517dd04256e9f1e5196e27417246638f9cdd12fae91870d5019e"
+      "sha256": "e386e3f1c67da7ec82630644e04673613df00fac14b5ec53a970194216851b78"
     },
     {
       "path": "04-analysis-integration/evidence-index.json",

@@ -146,27 +146,30 @@
         {
           "offset": "compressed input",
           "type": "zlib",
-          "semantics": "decompress to wrapper"
+          "semantics": "decompress to native Script wrapper"
         },
         {
-          "offset": "unpacked 0..3",
-          "type": "00 01 00 00",
-          "semantics": "header meaning unknown"
-        },
-        {
-          "offset": "unpacked 4..5",
+          "offset": "unpacked +0..1",
           "type": "BE u16",
-          "semantics": "UTF-16 code unit count"
+          "semantics": "wrapper version=1 observed in Born.dat; not raw 4-byte magic"
         },
         {
-          "offset": "unpacked 6..",
+          "offset": "unpacked +2..5",
+          "type": "BE u32",
+          "semantics": "UTF-16LE code-unit count; Born.dat 574"
+        },
+        {
+          "offset": "unpacked +6..",
           "type": "UTF-16LE",
-          "semantics": "script source text (XML for most, not all)"
+          "semantics": "XML source of Script (some corpus assets may be other types)"
         }
       ],
       "unresolved": [
-        "exact native activation hook / server quest logic"
-      ]
+        "original server first-login scheduling policy",
+        "script/NPC/quest authoritative mapping",
+        "exact client/archive release pairing"
+      ],
+      "native_script_start_known": "A-023: S44(1,0) named start + CRC/dependency checks loads Main, missing C6C(0), update S44(1,1); C6C(4) then optional C6C(2) for Dispose"
     },
     {
       "family": "Skill / Item definitions",
@@ -265,5 +268,6 @@
     "coordinate_candidate_all_in_48x32_pixel_bounds": true,
     "coordinate_semantic_confidence": "inferred-not-proven-NPC-or-spawn",
     "native_e2e": "not-run"
-  }
+  },
+  "versioned_wrapper_correction": "Born.dat raw zlib 589B; decompressed 1154B header 00 01 00 00 02 3e is BE u16 version=1 and BE u32 count=574, not 4-byte constant plus u16."
 }

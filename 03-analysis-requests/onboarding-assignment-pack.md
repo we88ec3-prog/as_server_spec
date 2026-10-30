@@ -48,3 +48,12 @@ A-023 的 CT-ID 經 main merge 改為 CT-033..035，不再佔用 A-021 的 CT-02
 ## A-001/A-023 本輪合併後給分析者的最新指令
 
 A-001 與 A-023 的 `integrated` 是可用證據子集；不要求重新做已經重現的 seed mask 或 S44(1,0) 主解析。**A-020** 補實際選 seed/key 的條件與版本/失敗 UI；**A-012** 補原服 first-login Born script 派送及任務/flag，已知 C6C2/4 為 cleanup 而非 quest；**A-015** 補原版 map ID、出生、MapContent revision/CRC 並驗證資源與 Client 發行配對；**A-024** 查招募員 entity/map/spawn、候選 nNewJoin01 真實綁定。最高 P0 保持 A-027、A-015、A-028。詳細限定格式見 [新證據 review](../04-analysis-integration/A-001-A-023-merge-verification.md)。研究不以 Server 實機 CT 為完成門檻。
+
+## 2026-10-31 最新 A-015/016/027/028 分派（覆蓋先前未完成描述）
+
+- A-015 / A-016 / A-027 / A-028 目前都是 **integrated / handoff partial**，只對已確認靜態／離線子集認定完成；原版登入→創角→教程 CT 依然 not-run。
+- A-027 調查剩餘 native C03(no character)→MakeInfoDialog，以及 C02 是否包含真正可驗的預建帳號密碼。禁止做任何 preauth Account claim；不是缺新 Server 才停止分析。
+- A-015 續用 Map0.dat、Map1.dat、Map2.dat 已驗 494 張的實證和 A-022 解析追教程 map ID/出生/碰撞與 C35 structured checksum；不能把 477 張包含 (31,29) 的 map 當唯一教程 map。
+- A-028 接 S02(status0) 最終 UI 回 Login 和 C15 失敗取消政策，A-003 接名字外觀約束；C04 成功是 UI 轉移，不是 Server commit 原生證據。
+- A-016 已交 DEV 錯序/重送/SQLite crash，C35 pair 相同時需新的 TCP boundary；以 CT-045/046 測試，不假造 epoch 欄位。
+- **CT 編號決議**：CT-039/040 只屬 A-015；roy1 舊 CT-039～044 依序改為 **CT-041～046**，其他既有 CT 不覆蓋。
