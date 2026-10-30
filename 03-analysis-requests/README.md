@@ -85,7 +85,6 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 
 在既有 `task_a/roy2` 分支續查 A-015（不另建分析分支）：取得 MAP 原件的 7／8／16-byte record 欄位型別原生 accessor、494 張地圖的標頭差異與疑似像素座標範圍，新增 [研究報告](../task_a/roy2/A-015-field-audit.md) 和 [metadata-only 重跑工具](../task_a/roy2/a015_field_audit.py)。A-015 仍 `integrated/partial`，尚無 Human/完整技能與物品定義；不提前轉做 A-016。
 
+## 2026-10-31 最新 Client 收發交接優先規則
 
-## A-024／task_a/roy2 原版 Client NPC／怪物封包子集（2026-10-31）
-
-實際 \`Asgard.exe\` 的 RTTI→vtable→ctor 確認 **S07 DrawObjects、S0C MoveObject、S64 MovePath、S5F DieObjects、S0E RemoveObjects**；opcode/reader/BE 欄位及 S07 subtype 分支見 [BIN-first 分析](../task_a/roy2/A-024-analysis.md)。已用 Python 6 項合成 decoded-body/過長路徑/epoch/重送測試通過；原版 Client E2E 未執行。S07 非空記錄尚未完整還原、招募員/怪物原始 spawn/點擊/AI/重生也沒有綁定證據，因此 A-024 \`integrated/partial\`、SCN-011/CT-021/022/034 仍需要後續 native/content 驗證。**不需要等待新 Server 實作，也不得推測本遊戲原服 NPC AI 的參數。**
+上面的歷史 A-XX 表格含有「原服怎麼決定帳號、出生、任務、AI」的舊問法；**以 [全員接案規範](../00-governance/task-ownership-and-client-io.md) 與 [最新 Client I/O 交付標準](client-io-handoff-standard.md) 為準**。每個 A 已有 `requests.json.handoff_track`，新接案必須用同一模板；Client 研究看 trigger→C→S→S→C→UI，Server 政策由 DEV。實際可開發分段見 [Server 縱切計畫](../02-server-planning/client-io-delivery-plan.md)。

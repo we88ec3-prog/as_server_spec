@@ -13,3 +13,7 @@
 任何 A 委派，先讀 [phase-gates.md](phase-gates.md)：**A 的驗收是有來源的分析結果與可交付規格，不是先用未開發 Server 通過原版 Client 實機**。若需要 Server 才能做端到端測試，將該實驗交給 CT/DEV；分析者應提供重現腳本與預期效果。確有必要的動態觀察可以使用既有可用環境或隔離探針，但模擬回覆不能證明原伺服器的行為。
 
 完成分析時明確註明 `A.status`、`handoff_status`、證據身份、目前缺少的字段與下游 CT；不能因為 CT=not-run 就退回已證據支持的 A。A-021 的具體交付準則見 [A-021-acceptance.md](../03-analysis-requests/A-021-acceptance.md)。
+
+## 2026-10-31 新優先規範：Client I/O 與分支權限
+
+先讀 [全員接案規範](task-ownership-and-client-io.md) 和 [Client I/O 標準](../03-analysis-requests/client-io-handoff-standard.md)，以 `handoff_track` 決定交付。**上方「建議 analysis/A-XXX 分支」只適用使用者有明確授權時；沒有授權就使用既有指定分支，絕不新開 branch。** 不要求分析者證明原服資料庫驗證、原服固定出生點或首次任務發送；若無確切 Client 收發結果，保留 unknown 與 Client 子範圍 partial，將 Server 原因交 DEV。缺檔請寫出檔名，不重複請求已提供原件。

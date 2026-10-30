@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
-      "sha256": "90797399448e604c5fea5d87e6820433769d5fcead369b0512032e4ee01dd72f"
+      "sha256": "a90bf038477f227bd1a3d4173716f3387fd4051967f049a3874432abf49a7d0c"
     },
     {
       "path": "00-governance/baseline.md",
@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "62fd64ebf0d23a4e6ee08bf3a0b9e9459433fc1d4fc60d3c4a91aee709e940db"
+      "sha256": "a87a9a194f0a2fefa500aae077350d05a010d74a312e8b76b40941ecd05973ee"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -25,15 +25,19 @@
     },
     {
       "path": "00-governance/phase-gates.md",
-      "sha256": "db5fb6fe4aef90adff207d1f6e35f89960acb3a3e3f9b7594b18c36d83e12dac"
+      "sha256": "46d579e08b2cedee4f12d5fd636235b36803dbb45f00bd7582a083b32d20f60a"
     },
     {
       "path": "00-governance/record-contracts.md",
-      "sha256": "d6e303d7b20d613ed53b161503e157b8c35b4030c25523650ff707b505b4d1ed"
+      "sha256": "d6bbb44169d1b6a1b14dc1077e24010e109c52e43a30197e221cfd0b6879fdde"
     },
     {
       "path": "00-governance/sharing-and-license.md",
       "sha256": "70706c0d6a0bb0d65d1470f355aa60bf143bdfe910ad44f99cc18d64ad566fe8"
+    },
+    {
+      "path": "00-governance/task-ownership-and-client-io.md",
+      "sha256": "9c768e8d70f4a04d9b6f33b8c0a42481fa7d2a884e3e51d798ec426a0399abe4"
     },
     {
       "path": "00-governance/traceability.csv",
@@ -41,7 +45,7 @@
     },
     {
       "path": "00-governance/workflow.md",
-      "sha256": "8f4f7e48d9eebf293e0b6e80285bb976d85a5cdd950f6a093828222f56d853b5"
+      "sha256": "d40371667ed606b993a5c0c337a89abdd63508e4b59378725d7c306d8549224a"
     },
     {
       "path": "01-server-requirements/first-login-onboarding.md",
@@ -61,11 +65,23 @@
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
-      "sha256": "b4fea6573859f302bda2aa46b889d3df080d134f4c236e8d7d7f089c9eb09286"
+      "sha256": "f7684cf22e739cc09f85cb25353a8e9704b0fdc69a817d1cbb6ae14ffdb8d585"
     },
     {
       "path": "02-server-planning/architecture.md",
       "sha256": "adc208a7c36fdbe17659c6207f597a4a86f362fc7fdf7e9e9fd29ba2d32f78be"
+    },
+    {
+      "path": "02-server-planning/client-io-delivery-plan.md",
+      "sha256": "5375895ad5d001f9af16a24c04704ca11f6a1d4678b6fae0ff37deac567ba99b"
+    },
+    {
+      "path": "02-server-planning/client-io-flow-matrix.json",
+      "sha256": "aff34014f6304b05de569f6395421d2a42554171007da26a8f7f8623c3e756f8"
+    },
+    {
+      "path": "02-server-planning/client-server-responsibility.md",
+      "sha256": "3f40e3ddb73105409a2df75424a7b0261a85e1a02efc73025b5863751ca60653"
     },
     {
       "path": "02-server-planning/decisions.md",
@@ -73,7 +89,7 @@
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
-      "sha256": "8d3c8bf2105f4b1c0e0411321e300917c2403cbb2be4eb2e00c0060f89f0f161"
+      "sha256": "398a5b7f48a77b67c01f7cef1d975e78a394c7cd8d5c13da420efcca521313cf"
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
@@ -85,11 +101,11 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "797023df6e59f362e4ee09896eea5ff8085fe968b96cd6856be16c303d8f3d80"
+      "sha256": "085c888f613e3f8e65c8db58243b74e214bd5b03031b2f740b958934e208f663"
     },
     {
       "path": "02-server-planning/roadmap.md",
-      "sha256": "28ce42c9c879782455ce4c6a23c9abce774758737bac34a2054e122f32bfffd6"
+      "sha256": "fadd4db5501a2d2df7331437f713e7d8fe5a5d783c44a2f2ad89fc3b8dc33c6f"
     },
     {
       "path": "02-server-planning/script-lifecycle-contract.md",
@@ -113,7 +129,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "e93fad9378c77486268815c83bd84929df62e3346e0de061274d10f949d4bdce"
+      "sha256": "a8f50c0b8eeee33c1f233890d9129b8b84248745f22f1052981b5cdab20b61d1"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -160,20 +176,24 @@
       "sha256": "cff4b24d2c3517c36814e7d7f24986595e0f8dcf5f4bd7d02ecebe03897faaf4"
     },
     {
+      "path": "03-analysis-requests/client-io-handoff-standard.md",
+      "sha256": "8e3af1c4e2791bbeb72b01d806c2bff50b86d25d752dcc7d639bf32a72e4fdab"
+    },
+    {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
-      "sha256": "a0753b8bce80bbf8e65b76c7458cccd0a707304379f6a1f308f808606f1c8360"
+      "sha256": "0555bacea93f0df7f36256e0bf9be4e356bcdf871191a87e2f7769a131e07bec"
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "c4481a60409d294df0eb909a02e4339e57917bb80ad1fc87ca164a23fa10a943"
+      "sha256": "6d2dfdfde884e9a329379e86b992a5df771c6dcf279cfcdb916340b1086df600"
     },
     {
       "path": "03-analysis-requests/request-template.md",
-      "sha256": "b77c0b1fe2dbe3567589211111d49bce563cd186ff2e27e2f4725a0d8e9e42fe"
+      "sha256": "783a530d608ad0626be2e0f4683681bd1f9973deec1c136708989c3d81a20506"
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "fb54f63820e9ddff5521fd38f5957d5270f67dc881c4fbfea648e40656bf857e"
+      "sha256": "6814f97db554f319d025feec11428b25672ded50d05d69755c45b9107c96b049"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -249,7 +269,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "e8a77d9d187af3b25bb03a4cfbd12c056ff3a08d3f9df965924730a9673cfdaa"
+      "sha256": "8a4e905e14f465bf60502b05fe59bd045694859c0bd15f8523d11108e3248b27"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -312,6 +332,10 @@
       "sha256": "ce76a643a9a55342784217152f0d673ccf4bcf5438379dc48afadaded6de7b13"
     },
     {
+      "path": "05-conformance/client-io-verification-plan.md",
+      "sha256": "ef248818861f88d753cfad9d1434c8fc6b8fa3b598522199ef9aa59e7ef0c9cb"
+    },
+    {
       "path": "05-conformance/implementer-guide.md",
       "sha256": "82672a871be350d4da3e1c870a1c2eeb801b9d23a86b0747ca1c3f631556ebbf"
     },
@@ -329,11 +353,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "5462c7df8d9d14a84c283759fffd27fcd96d859a44cdf3a12ebcfce788bd2e2f"
+      "sha256": "7b13ba7cc49bcbbdc9abdc9175f89feed8e737c28dc8e29a07e2a25b3b1112b5"
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
-      "sha256": "c2dcec529c12abb32d1642b17173dd21c2d96c751fc4802abdda9ba083aa164c"
+      "sha256": "3274236f3e9d148b867bda3d282bc159247c9f9c5496c2fbbdb7d798d75aba6e"
     },
     {
       "path": "task_a/roy2/A-014-packet-index.json",
@@ -449,7 +473,7 @@
     },
     {
       "path": "tools/validate-phase-gates.py",
-      "sha256": "c290cd701dbdb52494594db0a3c5b4501c53889c1d56995d119ec0335a7987be"
+      "sha256": "a1f840457eee6e8c33dd2b6cad830f59df8b16df1d9108373abce30d7d073f07"
     }
   ]
 }

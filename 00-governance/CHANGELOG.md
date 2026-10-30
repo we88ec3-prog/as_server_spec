@@ -74,7 +74,10 @@ A-002 C03/S03/C10 static Client contract 及 roy1 更正的 A-022 C25 handler �
 
 A-017 administrative account provisioning, ban/unban and sanitized audit integrated as designed Server API (not native GM wire), native Client not-run. CT-050/051 are management security/audit (old roy1 names CT-045/046 conflict with A-016); linked R-018/R-019/R-021/R-025 and SQLite synthetic tool `tools/a017_ops_contract.py`.
 
+## 2026-10-31 — A-XX 統一改以 Client 收發分析
 
-## A-024 Client NPC/Monster S2C parse evidence — 2026-10-31
+依需求方指正，修正此前 A-027/022/023 混入 Server 內部政策的錯誤：Client 分析只交操作/畫面觸發、C→S、必要 S→C、Client 狀態/自動回覆及失敗路徑。Account 驗證、角色 durable commit、出生 map/spawn、首次 Script 派送、NPC/AI/任務權威交 DEV/Server 設計；原始 Client 可用 opcode/field/state 仍須遵守。未改既有 A integrated/partial 或 CT not-run；增加兩份規範並更新 A 交接。Born.dat 原件已在本次環境驗 SHA/zlib，Map0/1/2.dat 也已提供。
 
-依指定 \`task_a/roy2\` 分支（未建立新分支），確認原版 EXE S07/S0C/S64/S5F/S0E opcode 和已證 BE fields，提供 6 項 synthetic tests、SCN-011/CT-021/022 traceability 和解析器。真實新手 map/spawn/NPC interaction/monster AI 未見原始綁定；A-024 \`integrated/partial/native-client-not-run\`，不得假定完整教學已能遊玩。
+## 2026-10-31 — Client I/O Server 實作路線與驗收矩陣
+
+規劃 DEV-IO-01～06，建立 6 條 Client 事件→C2S→S2C→Client 效果與 Server Authority 兩層機讀矩陣，連結 ONB-01～06、PKT/SCN/CT；新增分段驗收表並更新 README/roadmap/進度板。CI 對 Matrix 做 PKT/SCN/CT/A/ONB 參照完整性和原生 CT 不可假通過的欄位檢查。本次不修改任何 CT 的執行狀態，也不宣稱私有 Server 已實作。

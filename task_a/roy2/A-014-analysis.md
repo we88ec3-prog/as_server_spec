@@ -16,7 +16,7 @@ RTTI class descriptor 在原 EXE `.data`：`CGroupPacket@0x6694C4`、`CMemberLis
 |C2S `0x19`|CWhisperPacket `0x578220`，`0x5782D0` serializer|`type:u8, target:string8, text:string8`|type 具體值、不可送達/封鎖/密語回覆尚未完整驗證|
 |C2S `0x2E`|CGroupPacket `0x572D30`，`0x572DE0` serializer|`op:u8`; op=0 `+name:string8`; op=1 `+name:string8 +flag1:u8(bool) +flag2:u8(bool)`; other op 僅寫 op|未知 op 可能有其它資料由其他方法寫入；type0/1 **不是**已證邀請/踢人/解散語意|
 |C2S `0x12`|CMemberListPacket `0x573550`，`0x573600` serializer|`op:u8`; op0 `+sub:u8`; op1 `+sub:u8`, 再分 1..5，部分為 1/2 個 `string8`（各上限 30 bytes）、部分 `u8`；op2 `+sub:u8`，sub1 `+u32`，sub2 `+string8`; op3 `+sub:u8`，sub1/2 `+string8`|不可把不同 op/sub 誤解為同一種公會／好友操作；需逐 UI 呼叫點補語意|
-|S2C `0x0A`|SMessagePacket `0x582150`，`0x582200` reader|`type:u8 + text:string16` 的讀取入口；`0x45B890` 以長度限制 `0x752F` 呼叫|既有 AUTH/SYS 中 S0A 用於狀態訊息；不應全部轉作聊天訊息|
+|S2C `0x0A`|SMessagePacket `0x582150`，`0x582200` reader|`type:u8 + text:string8` 的讀取入口；`0x45B890` 以長度限制 `0x752F` 呼叫|既有 AUTH/SYS 中 S0A 用於狀態訊息；不應全部轉作聊天訊息|
 |S2C `0x0D`|SSayPacket `0x586120`，`0x5861D0` reader|`type:u8, source_id:BE u32, text:string8`；type4 另外讀 `text2:string8, number:BE u32` (`0x45B7A0`)|source_id 身分/可見範圍、type↔頻道名稱、type4 顯示語意待證|
 |S2C `0x58`|SMemberListPacket `0x580040`，`0x5800F0` reader|`type:u8, subtype:u8`；後續資料由分支/別的函式進一步處理|成員清單原始逐列格式與成員上限仍 partial|
 |S2C `0x3A`|SUpdateGroupMembersPacket `0x5887A0`，於 `0x5887CA` 檢查 subtype=5|`SUpdateGroupMembers` 類別存在，某 subtype5 建構階段額外初始化；內含 0x208B 步長之成員結構處理（`0x588800..0x588F20`）|內部 `0x208` 是本機結構不是 wire stride！不可把它當成封包長度或固定成員上限|

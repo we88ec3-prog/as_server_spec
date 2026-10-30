@@ -64,3 +64,7 @@ A-002 已 `integrated/partial`，C03/S02/S03/C10 與原版 Client 跨 TCP 轉服
 **A-014 integrated/partial（P2）**：C0E 聊天、C19 密語、C2E 群組、C12 成員、S0D 訊息、S58/S3A 成員回覆的 Client 靜態結構已定位；**S0D text 是 string8、S0A text 才是 string16**，此誤標已修正。原生聊天 type→頻道、組隊/公會 op/sub 對照、離線及權限回覆仍 unknown。Server 可先做 codec、來源身份以 Auth/World session 為權威、頻道範圍與群組成員 CAS、反重送與限速；但不能宣稱原版組隊/公會操作已完全實機互通。CT-047/048 planned、native not-run。社交工作應排在首登／教學 P0 關鍵路徑之後，或由另一位人員平行處理，不阻擋 ONB-01～03。詳見 [社交開發邊界](social-contract.md)。
 
 **A-015 最新交接**：`handoff_status=ready` 只限可驗證的 DAT/MAP/Script 格式、檔案庫盤點、hash/provenance 工具；原版新手 map/spawn/NPC/碰撞依舊 unknown，`implementation_ready=false`，不可將這個窄範圍 ready 誤當教程內容已完成。
+
+## Client I/O 分析優先順序（2026-10-31，覆蓋過往對原服政策的錯誤要求）
+
+同時執行 **C03/S03/C10 登入收發**、**NewUser C02/S02/C04/C15 UI 狀態**、**S15/S14/C35/S04/S33 進圖反應**；接續 S44/C6C Script、NPC 點擊與怪物顯示、技能操作與回包、任務 UI。每個 A 先交可證的操作→送包→收包→Client 反應，不須解出原版 Server 為何設定出生點、首次發任務或如何存帳號。責任分界與已確認 Client 序列見 [Client I/O 標準](../03-analysis-requests/client-io-handoff-standard.md)。

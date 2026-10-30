@@ -51,3 +51,7 @@ A-002 新增 C03 登入欄位、S03 host/port/opaque token、C10 raw token，及
 - **ONB-05/06**：Born S44 start、PaperDialog C6C4/2 可依靜態契約開發；不代表任務已完成。原服發送時機、招募員 entity ID、教程怪物/技能/獎勵待 A-012/024～026。
 
 詳見 [本輪整合規劃](merge-20261031-roy1-roy2.md) 與 [證據覆核](../04-analysis-integration/A015-A016-A027-A028-validation.md)。
+
+## 最新 Client I/O 型開發切片（2026-10-31）
+
+[可並行 DEV-IO-01～06](client-io-delivery-plan.md)／[6 條 Client 收發流程](client-io-flow-matrix.json)。正式 ONB 每項新增 `client_io_flows` 連結，明確分成 Client 可證事件、Server 自主決策與原生 CT。**不再把原服原始出生座標、首次 Born 派送時刻、原服驗證方式當 A/DEV 全部開工必要條件**；仍不得在沒有 C03 無角→NewUser UI 證據時宣稱原生完整創角成功，亦不可用未授權 C02 認領管理員帳號。

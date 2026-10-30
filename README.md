@@ -65,3 +65,7 @@
 [A-015/A-016/A-027/A-028 首次登入、創角、恢復、地圖的 Server 整合規格](02-server-planning/merge-20261031-roy1-roy2.md) · [原始二進位與 MAP/Born 覆核報告](04-analysis-integration/A015-A016-A027-A028-validation.md) · [A-014 聊天／密語／組隊／公會安全開發契約](02-server-planning/social-contract.md) · [A-015 格式與盤點研究結案界線](task_a/roy2/A-015-closure-review.md)。保留原 client/S02/C15/Script 與 494 MAP 的部分已證成果，沒有將建角原生 owner proof、首次出生、群組 type/op 或 Client E2E 宣稱通過。CT-039～040 為地圖內容、041～046 為創角／恢復、047～049 為社交。
 
 [A-017 管理端 API／停權解封／去敏稽核](02-server-planning/admin-operations.json) · [A-017 原始報告](03-analysis-requests/A-017-roy1-admin-audit.md)。主線測試 CT-050/051 planned，不冒認實機通過。
+
+## 新版工作規範與 Client 收發導向 Server 路線（2026-10-31）
+
+**所有接案者先讀**：[工作軌／責任／禁止自行建分支](00-governance/task-ownership-and-client-io.md) → [Client I/O 交付規範](03-analysis-requests/client-io-handoff-standard.md) → [新版任務模板](03-analysis-requests/request-template.md)。新增 [Server 可開發的 DEV-IO-01～06 縱切規劃](02-server-planning/client-io-delivery-plan.md)、[6 條機讀 Client I/O／Server decision 矩陣](02-server-planning/client-io-flow-matrix.json) 與 [分段驗收計畫](05-conformance/client-io-verification-plan.md)。CI 將強制 A 任務分類與交付要求；實機 CT 全部仍須獨立執行。
