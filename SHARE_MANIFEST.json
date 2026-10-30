@@ -165,7 +165,7 @@
     },
     {
       "path": "04-analysis-integration/A-016-idempotency-recovery.md",
-      "sha256": "c54d9377a1444d145bcbd8f51861e3bcded76e78e37cef8569e3ee2f1c3721af"
+      "sha256": "6ce3abea2f9e31d7cbe9959ed11f3ba441845337ac43706ae36969d3196b4673"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
@@ -185,11 +185,11 @@
     },
     {
       "path": "04-analysis-integration/A-027-preauth-safety-contract.md",
-      "sha256": "50aead306f19280f6400502050566cf65a3e30f5adae81dbe0601f3a5e490157"
+      "sha256": "4326a9b181a4b348b716112cf45049cf954ff3ce0cdadbd977a61c4f0062a1c7"
     },
     {
       "path": "04-analysis-integration/A-028-newuser-terminal-contract.md",
-      "sha256": "62073156a360ff3dc1417b21f4ce3aadb09ab2b3098834c657455d5fffc3570d"
+      "sha256": "6e1e71e357173c93dded6be4642b451d3951fdf1c104696957acf87c90f771d8"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -253,7 +253,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "ba78b969fe969fdbee4e1c16e8ec2c10aa2f998bc3454c4a52695cdcccd9221d"
+      "sha256": "39f7f080e2510105c99bc3ad461b5373f53172f255a810e3fb8f46b4f6c872d3"
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",

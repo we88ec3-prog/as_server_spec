@@ -21,7 +21,7 @@
 ## 可用性與阻塞分別表達
 
 - **A-027 研究 integrated、handoff partial**：UI 字段來源、第一欄本地長度 gate、第二欄與確認輸入的 UTF-16 相等、region 尾欄、S02→C04 的觸發條件已交付。
-- **原版管理預建帳號認領路由 blocked / implementation_ready=false**：目前無已證的 pre-C03 Account ownership credential，也無 C03(no character)→MakeInfoDialog native auto-transition。開發可以先完成無權限 decoder、格式與 domain 授權守衛及 CT-039/040；不能直接把 C02 視為 Account 或 Character 的授權意圖。
+- **原版管理預建帳號認領路由 blocked / implementation_ready=false**：目前無已證的 pre-C03 Account ownership credential，也無 C03(no character)→MakeInfoDialog native auto-transition。開發可以先完成無權限 decoder、格式與 domain 授權守衛及 CT-041/042；不能直接把 C02 視為 Account 或 Character 的授權意圖。
 - 若後續取得獨立 native 資源/原服 trace，更新此契約及 A-021/A-028；Server 開發完成後 CT 驗證另行記錄，不因本次 Client CT not-run 而停止逆向研究。
 
-參見 03-analysis-requests/requests.json，SCN-007/008，CT-029/030/031/032，CT-039/040。
+參見 03-analysis-requests/requests.json，SCN-007/008，CT-029/030/031/032，CT-041/042。

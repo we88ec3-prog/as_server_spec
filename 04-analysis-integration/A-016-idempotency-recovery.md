@@ -36,4 +36,4 @@
 
 合成驗證工具 [tools/a016_recovery_model.py](../tools/a016_recovery_model.py) 採 Python3 標準庫 sqlite3，測 create ack lost、C10 consume、C33 seq127→0、C35 wrong epoch/same pair ambiguity、SQLite crash/reopen 後的 outbox、兩錢包交易一次及領獎 ledger。
 
-CT-043/044 為 planned、非原生 Client E2E。既有 CT-015/016/017 保留；A-016 integrated/handoff partial 表示**已知 Client interface 與安全 Server 實作子集交付**，不等於原版 Server 的 DB/重登/經濟政策已還原。A-015 原始 tutorial map/spawn 依舊獨立。
+CT-045/046 為 planned、非原生 Client E2E。既有 CT-015/016/017 保留；A-016 integrated/handoff partial 表示**已知 Client interface 與安全 Server 實作子集交付**，不等於原版 Server 的 DB/重登/經濟政策已還原。A-015 原始 tutorial map/spawn 依舊獨立。
