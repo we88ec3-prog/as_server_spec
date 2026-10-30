@@ -33,3 +33,7 @@
 ## A-021 roy1 靜態證據與安全設計更新（2026-10-31）
 
 原始 Client 會在 UI 狀態 0x1d 收到 S02(status0) 後送 C04，進 state 0x1e；此狀態轉移已靜態確認，但不代表 Account 認領已授權或 C04 已完成角色建立。**不可因 C02 早於 C03 就把既有帳號認領改成無密碼操作**。Region-specific C02 layout 已知，字段語意未知；在 A-027/A-028 未完成前只允許 codec/parser 與 Domain 內部模型的部分開發，對外未授權路由 fail closed。見 [roy1 審核](../04-analysis-integration/A-021-roy1-review.md)。
+
+## A-022 merge：通用載圖的可實作邊界
+
+[完整 BIN-first 證據](../03-analysis-requests/A-022-roy1-bin-analysis.md)。進圖由 Server 先綁定 `character_id,map_id,map_revision,loading_epoch,spawn`；S15 → S14(1) → C35 驗兩個 BE u16（本機 MAP header +4 的 word 與 parse 後 structured checksum），只接受當次 epoch 的核對成功後才送 S04/S33/S14(2)。C35 第一欄非 map_id，checksum 不是 raw 檔案 CRC；錯版/超時/重連進 Reconcile，entry committed 不等於 tutorial completed。**A-015 的原生教學 MAP + 出生位置仍 unknown**；不得把 Born 指引座標 (31,29) 當初生點。原生 Client CT 尚未執行。

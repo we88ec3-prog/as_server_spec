@@ -1506,6 +1506,33 @@
         "0x4B205A"
       ],
       "report": "03-analysis-requests/A-021-roy1-static-analysis.md"
+    },
+    {
+      "evidence_id": "ev_a022_20261031_asgard_map_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "method": "objdump x86 original Asgard.exe; map parser/C35 checksum lookup; synthetic CRC primitive fixtures",
+      "scope": "A-022 C25/S14/S15/C35/S04/MapData CRC; original tutorial content missing",
+      "functions": [
+        "0x4a8370",
+        "0x57fdd0",
+        "0x4f2300",
+        "0x57ff30",
+        "0x573490",
+        "0x589990",
+        "0x4b33a0",
+        "0x4b4850",
+        "0x4b4890",
+        "0x4b3650",
+        "0x4b2ec0",
+        "0x43e0a0"
+      ],
+      "report": "03-analysis-requests/A-022-roy1-bin-analysis.md",
+      "limits": [
+        "No Map0/Map1/Map2 nor Script/Born asset bytes available",
+        "Native tutorial map/spawn/complete C35 vector unverified"
+      ]
     }
   ]
 }

@@ -406,9 +406,11 @@
       "title": "原生首次新手教學地圖、出生點與載入恢復",
       "method": "新角色首次進圖追 C25/S15/S14/C35/S04 與原始地圖資源；確認真實教學 map ID、出生座標、朝向、首次判定、CRC/逾時/斷線與進度旗標。",
       "deliverable": "A 交付：原始 Client/資源/BIN 證據支援的教學 map/出生設定（查無即明列 unknown）、C25/S15/C35 預期語意、CRC/失敗/重登已知矩陣及 CT-018 執行方案；完整新 Server 上的原生教學入圖由 DEV/CT 驗證，不是 A-022 先決條件。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a022_20261031_asgard_map_static"
+      ],
       "dependencies": [
         "A-015",
         "A-016",
@@ -416,10 +418,30 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-022-roy1-bin-analysis.md",
+      "implementation_ready": true,
+      "tutorial_content_ready": false,
+      "analysis_scope": "static S14/S15/C35/S04/C25 + MAP CRC and designed recovery; actual tutorial map resources not supplied",
+      "static_scope_completed": [
+        "S14 control1/2/3",
+        "S15 3xu16+2xu8+string8",
+        "C35 MAP header+4 and structured checksum",
+        "S04 4xu16",
+        "MAP record 16-byte tail",
+        "structured CRC inner primitive",
+        "epoch-specific loading/recovery"
+      ],
+      "remaining_unknowns": [
+        "native tutorial map ID and bytes require A-015",
+        "native first spawn x/y/heading and Born script",
+        "native onboarding flag and original failure policy",
+        "C25 all region branches"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-023",

@@ -36,3 +36,7 @@ C33(direction,seq,gait) → Server驗證（碰撞／速度待補）→ S0B(new_x
 - SCN-013：原生教學完成、存在才發的獎勵、出圖、恢復（A-026）。
 
 scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據的教程 opcode**，不是不需要封包。
+
+## A-022 / roy1：MAP/CRC 載圖及重連靜態證據
+
+[完整研究](../03-analysis-requests/A-022-roy1-bin-analysis.md) / [協定子集](A-022-map-loading-crc.md)。S15 3個 BE u16+flags u8+another u8+string8；S14(1) 要求 Client C35 的**MAP file header offset+4 u16 與 MapData 結構化 CRC**（第一欄不是 map ID）；S14(2) loading callback，3 延時異常。S04 4×BE u16 定位。Server 必須以 map identity+resource version+epoch 證實相同的 C35 再定位入圖；錯圖/斷線/舊 epoch 復原，tutorial_entry 與 completed 分離。原版教程 map/spawn 未從單一 EXE 證實，需 A-015 原版 MAP/Script/Born。

@@ -56,3 +56,7 @@ A-021/A-022 應優先分配，A-023 可先做靜態研究；**所有新 A 仍 op
 - **A-028**：C04 之後 Client state 0x1e 的 Server 成敗回覆、建角提交時機和重登／轉服結束流程。
 
 A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集可交付**；整條原生創角仍需要 A-027/A-028。見 [roy1 merge 後審核](../04-analysis-integration/A-021-roy1-review.md)。
+
+## A-022 roy1 分析已整合（通用 World-loading）
+
+[原始靜態報告](A-022-roy1-bin-analysis.md)、[協定整合](../04-analysis-integration/A-022-map-loading-crc.md)。S14/S15/C35/S04 的部分 layout、map checksum 的結構化計算、MAP record 16 bytes 有可核查 BIN 根據；`status=integrated/handoff_status=partial/implementation_ready=true` 僅指通用 loading，`tutorial_content_ready=false`、`native_client_validation=not-run`。教程 map/spawn 必須接續 A-015 資源調查。

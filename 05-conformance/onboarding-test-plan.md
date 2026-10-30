@@ -33,3 +33,7 @@
 |CT-032|C04 後續的 S02 終局、Character commit、合法重登或 World handoff|A-028 尚未完成前屬 native-compatibility blocked|
 
 CT-029/031 若對已證據支持的 Client 靜態行為做 fixture，可以完成該子集測試；**不代表 CT-030/032 或原始 Client 創角進圖 E2E 通過**。
+
+## A-022 合併後 CT-016/017/018 變更
+
+CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4／structured checksum、S04 4×u16 寫 byte fixture；明確測錯序、錯版 CRC、延遲的舊 epoch C35。CT-017：重連/token/epoch 失效，不能重領資產或把入圖當教程完成。CT-018：等 A-015 原 MAP/spawn 被證實後再做真正教程 Client E2E。所有此處均屬 planned，不報 PASS。

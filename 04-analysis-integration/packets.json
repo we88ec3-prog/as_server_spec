@@ -194,7 +194,7 @@
       "name": "WorldEntryMetadata",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "原型接受但未完整解讀billing metadata",
+      "layout": "region 3/4 contain separate metadata handling at 0x4a8370; not universally empty body",
       "client_entry": "0x4a8370",
       "state_precondition": "token交接完成",
       "related_packets": [
@@ -211,7 +211,11 @@
       "requirements": [
         "R-004",
         "R-007"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a022_20261031_asgard_map_static"
+      ],
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
     },
     {
       "id": "PKT-C33",
@@ -242,7 +246,7 @@
       "name": "MapCRC",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u16,BE u16；CRC算法／比較策略待補",
+      "layout": "BE u16 local MAP header word at file offset+4, BE u16 structured MapData checksum; not map id or raw-file CRC",
       "client_entry": "0x573490",
       "state_precondition": "收到S14(1)後",
       "related_packets": [
@@ -258,7 +262,11 @@
       "requirements": [
         "R-004",
         "R-007"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a022_20261031_asgard_map_static"
+      ],
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
     },
     {
       "id": "PKT-C62",
@@ -378,7 +386,7 @@
       "name": "UserPosition",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u16 x,y,viewport_x,viewport_y；本profile鏡頭8,9",
+      "layout": "4x BE u16 x,y,viewport_x,viewport_y per profile; tutorial spawn value unknown",
       "client_entry": "0x589990",
       "state_precondition": "世界／地圖已建立",
       "related_packets": [],
@@ -390,7 +398,11 @@
       "requirements": [
         "R-004",
         "R-007"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a022_20261031_asgard_map_static"
+      ],
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
     },
     {
       "id": "PKT-S05",
@@ -459,33 +471,12 @@
       "name": "MapLoadingControl",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 control：1請求CRC、2關閉載入；3錯誤分支未納入profile",
+      "layout": "u8 control; 1 requests C35; 2 loading callback; 3 abnormal delayed handler (3000ms)",
       "client_entry": "0x4f2300",
       "state_precondition": "地圖載入中",
       "related_packets": [
         "PKT-C35"
       ],
-      "layout_status": "partial",
-      "evidence_kinds": [
-        "prior-static-analysis"
-      ],
-      "manual_validation": "see scenario; not every branch validated",
-      "requirements": [
-        "R-004",
-        "R-007"
-      ]
-    },
-    {
-      "id": "PKT-S15",
-      "direction": "S2C",
-      "opcode": "0x15",
-      "name": "Map",
-      "system": "SYS-WORLD",
-      "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u16 map,width,height,u8 flags,u8 field,string8 title",
-      "client_entry": "0x57ff30",
-      "state_precondition": "已有MapPane與自身玩家",
-      "related_packets": [],
       "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
@@ -494,7 +485,36 @@
       "requirements": [
         "R-004",
         "R-007"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a022_20261031_asgard_map_static"
+      ],
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
+    },
+    {
+      "id": "PKT-S15",
+      "direction": "S2C",
+      "opcode": "0x15",
+      "name": "Map",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u16 map_ref,BE u16 field_b,BE u16 field_c,u8 flags,u8 field_d,string8 title; flags invert bit0, bit1, bit5, bit6",
+      "client_entry": "0x57ff30",
+      "state_precondition": "已有MapPane與自身玩家",
+      "related_packets": [],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "prior-static-analysis"
+      ],
+      "manual_validation": "see scenario; not every branch validated",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "evidence_ids": [
+        "ev_a022_20261031_asgard_map_static"
+      ],
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
     },
     {
       "id": "PKT-S19",

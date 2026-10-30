@@ -79,13 +79,15 @@
       "depends_on": [
         "ONB-02"
       ],
-      "readiness": "world-ready-map-blocked",
+      "readiness": "generic-world-loading-analysis-ready; native-tutorial-content-unresolved",
       "implementation_status": "not-reported",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
-      "blocked_native_scope": "A-027/028 and A-022 must resolve authenticated new character, transfer and tutorial spawn for native Client E2E."
+      "blocked_native_scope": "A-027/028 auth/creation, A-015 native map/Born/NPC, and A-022 map CRC/version mapping still block original tutorial Client E2E; generic Map/CRC loading subset may develop.",
+      "analysis_handoff": "A-022 integrated/partial: Map CRC and loading ready; native tutorial content requires A-015",
+      "tutorial_content_ready": false
     },
     {
       "id": "ONB-04",

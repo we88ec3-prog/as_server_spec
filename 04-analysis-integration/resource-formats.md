@@ -34,7 +34,7 @@ BarberShopDialog的Gender、HairShape、HairColor與CreateHairShape/SetHairObjec
 |區塊後|width*height筆，每筆10bytes：3個u16+1個u32|圖層／碰撞語意未完成|
 |tile後|u32 count + count*7bytes|結構已知，語意未知|
 |之後|u32 count + count*8bytes|結構已知，語意未知|
-|之後|u32 count + 剩餘資料|最後記錄大小尚未證實|
+|之後|u32 count + count*16 bytes|A-022 確認最後段 record 步長 16 bytes（0x4B35BC、0x4B3230），欄位語意仍需分析|
 
 00000.map為20×20、tile offset108、共400格；00001.map為124×185、tile offset5836。不能用這些結構驗證宣稱已完成碰撞或出生點可通行判斷；A-005/A-015負責補完。
 
@@ -47,3 +47,7 @@ Human有男女衣服mb/wb各102檔，髮型mh/wh各36檔；管理目錄在可用
 alpha區有height個u32 rowoffset及u16 RLE run（高byte count，低byte alpha）；非零alpha pixel依序取palette index。樣本alpha為0..248，預覽工具縮放到255，但原引擎rounding仍未完整追查。DOI動作／方向、其餘frame group與替代通道仍未知，不能據首幀自行補動畫映射。
 
 Evidence：MAP ev_e166a44f01c9de3b7eff7457a30e6279b8571b5a76afc7354812c14bf1331e27；YPF ev_118f7890a0a4321dda8b83065142403499e707a3620831c41800a1b4164b4be1。原始資產及抽取工具不隨規格分享；本頁描述格式以利各實作者自行驗證其持有的相符資料。
+
+## A-022：C35 校驗不是全檔 raw CRC
+
+同 SHA Client `0x4B4850` 讀 MAP header +4 的 LE u16；`0x4B4890→0x4B3650→0x4B2EC0` 對解析後 block、10-byte tiles、7/8/16-byte records 做結構化 checksum，部分值正規化。`0x43E0A0` 查表 `0x664720`（table[1]=0x1021），單元 primitive 合成 `01 02 03→0x1222`。無原版教學 MAP/Script/Born bytes，真 tutorial map ID、出生與完整 C35 checksum 仍 unknown。參見 [A-022 證據](../03-analysis-requests/A-022-roy1-bin-analysis.md)。
