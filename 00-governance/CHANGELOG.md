@@ -29,3 +29,11 @@
 ## 2026-10-31／A-023 Born.dat 原件補證
 
 驗證 Born.dat SHA `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98` 的 zlib/UTF-16 XML，得到 Main 紙張導引、(31,29) 女性招募員與滑鼠點擊；無顯式 quest/NPC 生成/SendReply，不能推定自動觸發或出生座標。補實證 EXE IAT DeleteFileA、離線可重現校驗器、A/SCN/CT/evidence/manifest。A-023 限定證據範圍 integrated/handoff partial，原生 Client not-run；剩餘 NPC/原版觸發交 A-022/A-024。
+
+task_a/roy1 — 2026-10-31 A-021 分析整合
+
+依 Asgard.exe SHA 覆核 MakeInfoDialog、C02/C04/S02 與 UI 分支，完成靜態研究及可開發的 R-025 相容規格：Client C02 可在 C03 前認領管理員已預建的 Account，不得新增 Account，C04 再原子完成 Character；精確原生 UI 跳轉及部分錯誤碼保留 unknown。A-021 integrated/handoff partial、Server 可開始實作、Client CT 尚未執行。保留 main 新增的 phase-gates/CI 與分離 A/DEV/CT 完成定義。
+
+## A-021 roy1 merge 後審核與安全規劃 — 2026-10-31
+
+Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，確認 C02 region variants、C04 五 u8、S02 status/string 及 0x1d→0x1e UI path。修正 `implementation_ready=true` 的過度聲明為 partial codec-only、整體 false；新增 A-027/028 追 pre-C03 身份授權及 C04 後續回覆。R-025 admin-only Account 政策不變，禁止無身份綁定的 C02 認領。這些均非原生 Client E2E 通過。

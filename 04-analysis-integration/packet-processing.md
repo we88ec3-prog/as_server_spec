@@ -60,3 +60,16 @@ C2S：Client serializer → wire → Server解碼／狀態驗證 → Domain命�
 |PKT-S44|S2C 0x44|ctor 0x5862e0 / handler 0x52c2a0|type1/subtype 0..4 各有不同操作；type1/subtype3 在 0x52c8e5 呼叫 0x5294e0 觸及本機 Script 快取|該分支有檔案清理副作用，不是空 ACK；無確認的教程專屬 opcode|
 
 局部結論與研究缺口見 [A-023 分析全文](../task_a/roy2/A-023-analysis.md) 和 [教學 Script 整合](script-and-tutorial-entry.md)。World 既有 S15/S14/C35 時序只能定位安全前置狀態，不能推論首個 Born/NPC 自動執行。下游 CT-029～031 均未原生 Client 驗收。
+
+1 原生創角靜態路徑（非實機驗收）
+
+來源：[`A-021 roy1 靜態報告`](../03-analysis-requests/A-021-roy1-static-analysis.md)；Evidence `ev_a021_20261031_asgard_static`；Client SHA-256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`。
+
+| 原生路徑 | Body（已驗證） | 對 Server 的規格影響 | 不得聲稱 |
+|---|---|---|---|
+
+詳見 [原生創角靜態矩陣](A-021-native-flow.md)。C02 不能直接等同於已登入後的 CreateCharacter，R-025 禁止 Client 建立 Account。
+
+## roy1 A-021 協定回顧與不信任前認證資料（2026-10-31）
+
+已核對 Asgard.exe 靜態證據：C02 writer 依 region 分支，region 2～4 為四個 length-prefixed string8 + flag，其他為三個 string8；C04 writer 五個 u8；S02 status u8 + string8；CreateInfo UI state 0x1d 收到 status0 時送 C04/轉 0x1e。**C02 有可能在 C03 之前出現**。這並不證明字串欄位包含有效密碼，也不證明某預建帳號已被授權認領。R-025 僅管理員創建 Account 的規範不變；PreAuth C02 只可解析與安全拒絕／等待能被證實的 identity proof（A-027）。C04 的 S02 終局與 World 轉服待 A-028。來源與信任標記詳見 [A-021 review](A-021-roy1-review.md)。

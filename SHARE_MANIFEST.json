@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "4f97b5f2da99e7b8dca31e2e81f50c770f9a8be02391cb1d02c3cf110359249f"
+      "sha256": "f4990674d1d7cdd9c02ff5ffffe192a39424c25a220fa843a356472aa82f6094"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -45,7 +45,7 @@
     },
     {
       "path": "01-server-requirements/first-login-onboarding.md",
-      "sha256": "4ebe14b215c4f6a53bd631e2ece0ce7c318fb87b011f1b67133dd5bcfe914ab9"
+      "sha256": "d1c34b1e4a38626eb91dbb478d40265565347cd99238303fe611539d2408d85f"
     },
     {
       "path": "01-server-requirements/README.md",
@@ -65,7 +65,7 @@
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
-      "sha256": "16a2208a9eff43176643d6458b53be12a08d8cf4a15e5cb7299dc97f8803b03a"
+      "sha256": "28b7c53de74bc565696859a67f6c27c38b46dcb703bdf2c8fc422f66bd166453"
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
@@ -96,6 +96,14 @@
       "sha256": "fb7fd0d702a5de08af98126f02f889ad68dc99f2ee4fee2a04cbe893102e21b3"
     },
     {
+      "path": "03-analysis-requests/A-021-roy1-followup.md",
+      "sha256": "30a5c65de22f8ab347d8d074ba0c848f70afd0cf2fd5b95c7aac76e1491de8b2"
+    },
+    {
+      "path": "03-analysis-requests/A-021-roy1-static-analysis.md",
+      "sha256": "87143dd8bf2bcc851f32b3689d075970cd4bd41ee69d0e57e853787775ef54a5"
+    },
+    {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
       "sha256": "a275b323261f004fb6fff829c788ae2fc0d3103e9e92929f5024882eeb3cc542"
     },
@@ -109,7 +117,15 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "c4a5d867412f15f5bf8ff4385d8e372f8decb5c7ca1cf50f1483cc7907528702"
+      "sha256": "b6c911afde4e8e1ec78fa2d0bd67e616da59ee0de955f185a1f28b024811d4d1"
+    },
+    {
+      "path": "04-analysis-integration/A-021-native-flow.md",
+      "sha256": "3b50cc7f882ce8ab4d8fc65a8d660b32ac9d6117a86751f12b9c8aa9331252e2"
+    },
+    {
+      "path": "04-analysis-integration/A-021-roy1-review.md",
+      "sha256": "3a283b4eeb482bf6c3a3e527fbf043b953973489b22bd6e29731e0c8cea3df87"
     },
     {
       "path": "04-analysis-integration/analysis-coverage.json",
@@ -129,7 +145,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "7cf4c94258ab5da294dc45e561b3f5f4f155023ce4bda60fc40c1b31b18cdcb6"
+      "sha256": "a341e6fb32adca28645f5f76e69ad2adefb793c22bb547d7c36581f006fc67cb"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -141,11 +157,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "155a1d1fb87f049220182035676dd384cb483509dad3a073b4ef47a08cf88f57"
+      "sha256": "5b1b2c3f38cb5918acf1e5d245a993bcfaeb842f4272e0c0c5a229213c96e807"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "73882662a5679e83a7db6e076f2b2296d6d0726b5213d7a0fc18e235345f7703"
+      "sha256": "021e395b3da2fe293a9360007fa29d83a8aafd6432ed022df7c27d41dd0400c4"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -189,7 +205,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "8f7d6185a94545b4760131ff3f7bba60cb8da2954c2765a2b378de0408f7f87d"
+      "sha256": "cdc1b77fba17972bd8827acfb21a9b15c5a72b1650a4578cebbbf1500e1ade90"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",

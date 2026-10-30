@@ -33,7 +33,7 @@
       "name": "NewUser",
       "system": "SYS-CHAR",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "台灣profile為4個string8及flag；其他語系分支不可套用",
+      "layout": "region code 2..4: string8×4 + u8；其他region: string8×3；欄位語意未確認，不可用於Client建帳",
       "client_entry": "0x5742b0",
       "state_precondition": "公告／條款階段",
       "related_packets": [
@@ -46,7 +46,11 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-003"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a021_20261031_asgard_static"
+      ],
+      "native_static_report": "04-analysis-integration/A-021-native-flow.md"
     },
     {
       "id": "PKT-C03",
@@ -79,7 +83,7 @@
       "name": "NewUserInfo",
       "system": "SYS-CHAR",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 sex,u8 hair,RGB3",
+      "layout": "u8 sex,u8 hair,u8 R,u8 G,u8 B；實測合法值仍待確認",
       "client_entry": "0x574420",
       "state_precondition": "創角草稿成功之後",
       "related_packets": [],
@@ -90,7 +94,11 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-003"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a021_20261031_asgard_static"
+      ],
+      "native_static_report": "04-analysis-integration/A-021-native-flow.md"
     },
     {
       "id": "PKT-C10",
@@ -322,7 +330,7 @@
       "name": "LoginOrCreateResult",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 status,string8 message；依會話狀態解讀",
+      "layout": "u8 status,string8 message；在MakeInfoDialog local_state=0x1d且status=0時發C04；錯誤碼意義未全解",
       "client_entry": "0x57dbc0",
       "state_precondition": "登入／創角／進世界初始化",
       "related_packets": [],
@@ -334,7 +342,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a021_20261031_asgard_static"
+      ],
+      "native_static_report": "04-analysis-integration/A-021-native-flow.md"
     },
     {
       "id": "PKT-S03",

@@ -360,9 +360,11 @@
       "title": "預建空角色帳號在原 Client 的首次登入與 C02/C04 建角",
       "method": "BIN-first 追管理員預建空角色帳號的 Client UI 分支與 C02 serializer 0x5742b0、C04 0x574420、S02 parser 0x57dbc0；列逐欄/合法條件/回覆分支與重登/轉服可能性。可在已有環境動態觀察；不得假設必須先完成新 Server 實機。參考 03-analysis-requests/A-021-acceptance.md。",
       "deliverable": "A 交付：Client 身份、原生 BIN/UI/serializer/parser 證據、C02/C04/S02 已證字段、狀態/成功/拒絕/取消/重送/轉服的已知與未知矩陣、PKT/SCN 可實作子集及 CT-018 測試腳本。若沒有原生 Server 回覆證據，明列 unknown 並 handoff partial；新 Server 上原 Client 登入/創角成功屬 DEV/CT-018，非 A-021 結案前提。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a021_20261031_asgard_static"
+      ],
       "dependencies": [
         "A-002",
         "A-003",
@@ -370,10 +372,27 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "implementation_ready": false,
+      "analysis_scope": "static research with explicit conservative Server compatibility policy",
+      "analysis_report": "03-analysis-requests/A-021-roy1-static-analysis.md",
+      "analysis_followup": "03-analysis-requests/A-021-roy1-followup.md",
+      "implementation_policy": "C02 may precede C03 and only claims an admin-preprovisioned account, no account creation; C04 atomically creates Character; C03 authenticates existing account; validate actual Client UI later via CT",
+      "remaining_unknowns": [
+        "C02 text fields precise semantics",
+        "C03 existing no-character to MakeInfoDialog native transition",
+        "C04 reply status/transfer branch"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "implementation_ready_scope": "Only verified static C02 region layout, C04 five bytes, S02 status+string, and UI 0x1d->0x1e transition are usable for codec/state implementation. Account ownership/authentication and C04 final success/transfer remain blocked.",
+      "review_notes": "Verified against Asgard.exe SHA256 db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145. A-021 static subset accepted; pre-C03 C02 must not be treated as authenticated account ownership; see A-027/A-028 and 04-analysis-integration/A-021-roy1-review.md.",
+      "followup_analysis": [
+        "A-027",
+        "A-028"
+      ]
     },
     {
       "id": "A-022",
@@ -527,6 +546,60 @@
         "A-022",
         "A-023",
         "A-025"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "unknown",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "A-027",
+      "system": "SYS-AUTH",
+      "requirements": [
+        "R-002",
+        "R-003",
+        "R-025",
+        "R-026"
+      ],
+      "priority": "P0",
+      "title": "C02 預先建帳身份／憑證與原版空角創角入口（安全阻塞）",
+      "method": "BIN-first 追 C02 每個 string8 的來源與用途、server 如何在 C03 之前驗證 pre-provisioned Account、是否使用 token/password/session 或其他授權關聯、無角色帳號的原版 UI 到達創角的條件。以 Client 原生 parser/serializer/UI handler 與資料來源證明，任何推測皆 unknown，不得讓 C02 直接認領或建立 Account。",
+      "deliverable": "可追溯 BIN/資源證據，C02 各欄位原語意、帳號身份/憑證證明時機、冒用／同名／非法登入失敗分支、合法轉入 C04 的前置條件及封包/狀態矩陣。未能證實時明確宣布預建帳號的原生創角路由 blocked；不要求先完成新 Server 或 CT 實機。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-021",
+        "A-003",
+        "A-020"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "unknown",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "A-028",
+      "system": "SYS-CHAR",
+      "requirements": [
+        "R-003",
+        "R-026",
+        "R-027"
+      ],
+      "priority": "P0",
+      "title": "C04 後 S02 回覆、角色提交與轉服／重登終局",
+      "method": "由 MakeInfoDialog C02(status0)→C04 與 UI state 0x1e 追全部後續 S02/其他回覆 parser、角色建立成功/拒絕/取消、關閉視窗、重登或 transfer to World 的轉場。不可由 0x1d 收到 status0 推定 C04 已建角成功。",
+      "deliverable": "BIN/原資源證據、0x1e 後狀態機、Client response handler、字段/失敗碼/轉場、Server 角色原子提交的回覆時機、可執行 CT-031/CT-032 測試腳本；未知保持 partial，不要求先以新 Server 實機通過。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-021",
+        "A-027"
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
