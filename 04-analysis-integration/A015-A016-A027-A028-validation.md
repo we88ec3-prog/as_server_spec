@@ -20,3 +20,7 @@
 - 原服 Born 發送時機、任務/獎勵政策與 Script close 的遊戲意義；C6C2/4 非任務完成證明。
 
 此頁是 **研究檢驗與 DEV 規劃 gate**，所有 native Client CT 仍 not-run；沒有使用不存在的真 Server 截包編造 PASS。分析子集 integrated/partial 可以交 DEV，不因缺實機而停工。
+
+## 追加 roy2 A-014／A-015 closure 二次核對（2026-10-31）
+
+最新 `task_a/roy2` 增量 `c97bf22c040b6ae1676b772f8b351284d9ee38a4` 透過雙親 `f73da39cf3121d19bf0d9ddf5a4ab021d8be222b` 合併。A-015 format inventory `handoff=ready` **只限格式/來源/可重現工具**，而 `original_tutorial_content_ready=false, implementation_ready=false, asset_release_match=unverified, native_client_validation=not-run` 不變。A-014 報告的 S0D 文字欄位有靜態誤判：本輪用原 Asgard.exe `0x5861D0` 確認先讀 type:u8 + source:u32，`0x5861F2` 與 type4 extra `0x58620D` 均 call `0x45B7A0` (string8)；S0A 的 `0x582218` 呼叫 `0x45B890` (string16)。已修正報告、機讀索引與主線 PKT-S0D，不能將 A014 原文字 string16 直接照抄成 Server codec。群組／公會 op/sub 仍 unknown。A014 源報告試驗 CT-041～043 與 roy1 衝突，主線 CT-047～049 獨立列號；皆 planned、native not-run。

@@ -65,3 +65,7 @@ A-002 C03/S03/C10 static Client contract 及 roy1 更正的 A-022 C25 handler �
 ## task_a/roy2／A-015 native MAP record field audit — 2026-10-31
 
 遵守原指定 `task_a/roy2` 既有分支／目錄，未開新分支。由原版 EXE accessor 直接確認 MAP tail 7B=u8/u16/i16/i16、8B=4×u16、16B=2×u16+2×u32+2×u16，對 Map0/1/2 原件 494 MAP 重新驗證：32 張 header 第三值獨立；7/8/16 totals 74032/396/2269；8B/16B 疑似座標 100% 符合 48×32 pixels 的尺寸界線，但僅 inferred，不是 NPC/出生點。附 4 項合成回歸測試。A-015 保留 integrated/partial、CT-040 not-run、A-016 open；未上傳遊戲素材。
+
+## 2026-10-31 最新 roy2 A-014／A-015 增量整合與版本核對
+
+延續 roy1 A-016/027/028 與 roy2 A-015 格式研究，以雙 parent commit `f73da39cf3121d19bf0d9ddf5a4ab021d8be222b` 合併新增的 roy2 `c97bf22c040b6ae1676b772f8b351284d9ee38a4`：A-014 社交 Chat/Whisper/Group/Guild BIN 子集、A-015 有界範圍格式研究結案。A-014 報告原 S0D text string16 誤標，已由 Asgard.exe `0x5861F2/0x58620D` 的 `0x45B7A0` 確認為 **string8**；S0A 才使用 `0x45B890` string16。社交測試原歷史 CT-041/042/043 與主線創角撞號，重編 CT-047/048/049，主線共 49 CT 且原生 Client not-run。A-015 `handoff_status=ready` 只代表格式／來源／檔案身份範圍可結案，教程 map/spawn/NPC/技能仍未解。最新 manifest 校對及社交規劃已記錄。
