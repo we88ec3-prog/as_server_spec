@@ -37,3 +37,7 @@ A-022 通用 Map/CRC 的部分可直接支援 DEV，但真正新手 map/spawn/C3
 ## 最新 A-001/A-023 分界（2026-10-31）
 
 **A-001 integrated/partial**：seed0..9 binary codec 可先做 unit fixtures；實際 region/版本選 seed/key、S00 錯誤狀態仍交 A-020，不能宣布十種模式都真 Client 登入成功。**A-023 integrated/partial**：S44(1,0) named start、缺檔 C6C0/S44(1,1) 更新、Main 及 C6C4→C6C2 Dispose 已有靜態契約；原服首次發送時機、NPC 位置與 quest flag 仍 unknown。ONB-05 的 Script transport/run registry 可先 DEV；ONB-03/05 的原生教程全程仍 blocked。詳見 [Script Lifecycle](script-lifecycle-contract.md) 與 [本輪證據核對](../04-analysis-integration/A-001-A-023-merge-verification.md)。
+
+## 本輪 A-002 Client 轉服解析更新
+
+A-002 新增 C03 登入欄位、S03 host/port/opaque token、C10 raw token，及新 TCP 轉服的 Client 資料流。ONB-01/03 可先做實作與 synthetic CT-037；ONB-04 可依 generation/舊 socket 安全政策先開發 synthetic CT-038。**原服採踢舊還是拒絕新登入尚未知**，本 Server latest-auth-wins 為 designed，不宣稱原版已驗收。A-027 的 pre-C03 C02 Account owner proof 仍是最重要的首登阻塞。

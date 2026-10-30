@@ -71,3 +71,7 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 
 - A-001：binary AA frame `payload_length:u16_be`，body seed0..9 mask + key/ordinal XOR（例外 opcode 不加 ordinal 依具體 profile）；C00 8-byte，S00 result0/1/2 parser 形態；只有 seed0/local 登入基線，seed1..9 synthetic fixtures 非 runtime。詳見 [A-001](../03-analysis-requests/A-001-roy1-seed-and-version.md)。
 - A-023：`S44(1,0)` Script named start，檢查 `name,context,text_crc32,deps,params`，Client 資源足夠則執行 Main；缺檔的 C6C0 → S44(1,1) 更新；Born/PaperDialog 無 SendReply 的 OK Dispose 送 C6C4 再 C6C2。**不代表 quest completion、原服 start 時間或 NPC binding 已確認**。詳細 schema、CRC/CP950 前提及清快取風險見 [A-023 Client 契約](../task_a/roy2/A-023-script-entry-contract.md)。
+
+## A-002 更正 C25 誤標與登入轉服 wire
+
+原版 C03：`string8 account,string8 password,u8 flag`；S02：`u8 status,string8 message`；S03：`u32_be addr,u16_be port,u8 token_len,raw bytes`；C10：**raw token body**、無第二個 u8 length。位址 `0x4A8370` 是 S03 的 transfer handler，不可當 C25 的 region parser。真實 Server 的 duplicate-login status/policy 未知。見 [A-002 靜態核對](A-002-merge-verification.md)。

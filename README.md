@@ -55,3 +55,7 @@
 ## A-001/A-023 最新可實作交接
 
 [2026-10-31 roy1/roy2 新成果驗證](04-analysis-integration/A-001-A-023-merge-verification.md) · [Script 啟動/關閉 Server 規劃](02-server-planning/script-lifecycle-contract.md)。A-001 seed0..9 binary codec、A-023 S44(1,0) named start／C6C2/4 close 子集可先開發；原服 first-login policy／NPC mapping 未確認，原生 Client CT 均 not-run。
+
+## A-002 登入／轉服規劃
+
+[SessionTransfer 契約](02-server-planning/session-transfer-contract.md)／[A-002 新證據驗證](04-analysis-integration/A-002-merge-verification.md)：S03 addr/port/token 引導新 TCP，C10 只寫 raw token。已勘誤 0x4A8370 真正是 S03 handler 而非 C25。CT-037/038 native not-run。

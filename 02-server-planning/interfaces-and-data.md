@@ -58,3 +58,7 @@ Game Client C02 可能在 C03 之前送出；C02 region 封包布局已由 BIN �
 ## ScriptCatalog 與 ScriptRun 邊界（A-023 E14–E18）
 
 為 S44(1,0)/(1,1) 與 C6C(0/1/2/4) 建立 `ScriptCatalog(client_profile, codepage, resource_revision, script_name, sha256, decoded_text_crc32, dependencies)`、`ScriptRun(run_id, account_id, character_id, session_generation, map_epoch, context, resource_revision, lifecycle_state)`。所有 C6C 由 Server 確認 run/context 有效，Dispose/清理不觸發 quest 完成；重複／舊 session 不可重發獎勵。僅 S44 named start 及原 Client 已知子類可做原生 codec；資源錯 CRC 或 S44(1,3) 危險快取操作 fail closed。首次何時送 Born、首 NPC/entity/quest 綁定仍 A-012/015/024。詳見 [Script 生命週期](script-lifecycle-contract.md)。
+
+## A-002 S03/C10 AuthSession / TransferGrant
+
+`AuthSession(account_id, character_id, generation, status)`、`TransferGrant(token_hash, account_id, character_id, generation, destination, expires_at, consumed)`、`WorldBinding(account_id, generation, connection_id)`；S03 對 Client 含 addr/port/u8 token length+raw token，新 TCP C10 **僅 raw token**。old login socket close 不能清除合法尚未兌換 grant，stale generation disconnect 不能刪新 World。以 CAS 消費 grant/推進 generation。原服 duplicate 政策 unknown，latest-auth-wins 只作 Server designed。參見 [交接契約](session-transfer-contract.md)。
