@@ -299,8 +299,8 @@
       "priority": "P0",
       "title": "預建空角色帳號在原 Client 的首次登入與 C02/C04 建角",
       "method": "使用管理員預先建立且無角色的帳號，追創角 UI handler、C02 serializer 0x5742b0、C04 0x574420 與 S02 parser 0x57dbc0，釐清 C02 是否混合帳號註冊與創角、如何避免 Client 建帳，以及是否需重登或直接轉服。",
-      "deliverable": "提供原 Client SHA/原生操作、C02/C04/S02 字段與狀態碼、成功/取消/失敗與重送時序；明確證明預建帳號能正確進入創角。",
-      "status": "blocked",
+      "deliverable": "BIN-first 靜態追查 C02/C04/S02、原 Client UI/呼叫鏈、可用 Server 狀態機與合成測試；未定原生分支需標 unknown 並提供可實作的 designed 相容方案。實機 CT 不屬 A 分析結案門檻。",
+      "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
         "ev_a021_20261031_asgard_static"
@@ -313,13 +313,18 @@
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
       "evidence_kind": "observed-static",
-      "blockers": [
-        "無原版 Client + 完整資源/測服的 runtime 驗證，無法證明管理預建無角帳號進入 MakeInfoDialog",
-        "C02 各 string8 原生欄位語意及 C02 是否具帳號註冊意義未確認",
-        "C04 後 S02/S03、重登、取消/失敗/重送/斷線分支未實測"
-      ],
       "analysis_report": "03-analysis-requests/A-021-roy1-static-analysis.md",
-      "last_analysis_date": "2026-10-31"
+      "last_analysis_date": "2026-10-31",
+      "implementation_ready": true,
+      "runtime_validation_status": "planned",
+      "analysis_scope": "static analysis and provisional server compatibility design",
+      "remaining_unknowns": [
+        "C02 文字欄位精確 UI/帳號語意",
+        "既有無角帳號 C03 後是否原生自動顯示 MakeInfoDialog",
+        "C04 後 S02 成功/拒絕與再登入的全部原生轉場"
+      ],
+      "implementation_policy": "C02 is pre-provisioned account claim/initialization, not INSERT Account; can occur before C03; then C04 atomically commits Character; C03 only authenticates existing Accounts; runtime CT is separate",
+      "analysis_followup": "03-analysis-requests/A-021-roy1-followup.md"
     },
     {
       "id": "A-022",

@@ -7,15 +7,7 @@
 - **SHA-256：`db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`**
 - Profile：`TW-seed0-local-v0.1`（既有規格基線；本次無實機確認當前 region 設定）
 - 證據：`ev_a021_20261031_asgard_static`；分類 **observed-static**。本次為 PE/組語靜態檢查，**沒有原 Client 實際連線、畫面或封包抓取**。
-- 任務狀態：**blocked（已有可複核的靜態結果；交付門檻「證明預建無角帳號能進原生創角 UI」尚未達到）**。
-
-## 1. 已實際核對的原生入口
-
-| 虛擬位址（VA） | 靜態觀察 | 強度 |
-|---|---|---|
-| `0x574170` | CNewUser 建構時傳 `opcode=0x02` 至 `0x578600` | observed-static |
-| `0x5742B0` | C02 的欄位序列化器；使用 `0x45B1B0` 寫字串，`0x45AB00` 寫 byte | observed-static |
-| `0x574370` | CNewUserInfo 建構時傳 `opcode=0x04` | observed-static |
+- 任務狀態：**integrated（靜態研究及明示相容策略已整合；Client CT 尚未執行）**。nfo 建構時傳 `opcode=0x04` | observed-static |
 | `0x574420` | C04 從內部 `+0x18..+0x1c` 順序寫出五個 u8 | observed-static |
 | `0x57DBC0` | S02 parser：`0x45ADB0` 讀 status u8 到物件 `+0x18`；`0x45B7A0` 讀訊息至 `+0x1a`（最大 0xff） | observed-static |
 | `0x4B21E0` | MakeInfoDialog 相關 UI callback；事件碼 1 分支 | observed-static |
@@ -84,9 +76,9 @@ MakeInfoDialog UI（何時顯示、是否預建帳號可觸達：UNKNOWN）
 
 ## 4. R-025 的不得違反界線
 
-已確認的**需求**：只有管理後台可 `ProvisionAccount`，玩家 Client 僅登入已存在帳號。C02 的「NewUser」與建帳語意仍屬 **unknown**。Server 不可實作「任何連線送 C02 即新增 Account」；在缺乏已登入合法 Session、正確前置流程與角色 owner 時必須拒絕或延後 C02/C04 的 Domain 寫入。這是本專案的 **designed** 安全政策，並非原版 Client 原始行為已實測。
+已確認的**需求**：只有管理後台可 `ProvisionAccount`，玩家 Client 僅登入已存在帳號。C02 的「NewUser」與建帳語意仍屬 **unknown**。Server 不可實作「任何連線送 C02 即新增 Account」；在缺乏**已預建帳號、憑證認證、正確 pending 階段與角色 owner** 時必須拒絕 C02/C04 的 Domain 寫入。C02 可以位於 C03 之前，不能要求「已登入 C03」作為唯一授權途徑。這是本專案的 **designed** 安全政策，並非原版 Client 原始行為已實測。
 
-可將 `C02` 暫建模為 `PendingCreateHandshake`（僅狀態暫存、不建帳），待分析得知其原生目的再連結 `CreateCharacter`。角色最終寫入需以帳號/角色唯一約束、交易及冪等控制，絕不可只憑一次正常 static path 定稿。
+可將 `C02` 建模為只認領已由後台建立的帳號，並開啟 `PendingCreateHandshake`（僅狀態暫存、不建帳），C04 再一次性提交 `CreateCharacter`；這是 designed 相容策略。角色最終寫入需以帳號/角色唯一約束、交易及冪等控制，絕不可只憑一次正常 static path 定稿。
 
 ## 5. 合成 codec 向量（非 Client 實測）
 
@@ -97,7 +89,7 @@ MakeInfoDialog UI（何時顯示、是否預建帳號可觸達：UNKNOWN）
 
 以上僅根據靜態 writer/parser 與 string8 規則推導的**測試合成值**，不能當成抓包；更不能由此宣告相關 CT passed。
 
-## 6. 補齊 A-021 所需最小原版 Client 實驗
+## 6. 下游 Client CT 測試清單（不是 A 靜態分析停止條件）
 
 1. 使用上述 SHA 的**未修改**原版 Client、完整原生資源、獨立測試後台與測試用伺服器。預建 `Account`，確認其 `CharacterCount=0`，且 Client 不能透過任何封包建立 Account。
 2. 記錄 C03 認證前置、S02/S03 回應，觀察是否**自動進入**原生 MakeInfoDialog；對照 `0x4B21E0` / `0x4B1D60` handler 的動態斷點。
@@ -105,7 +97,7 @@ MakeInfoDialog UI（何時顯示、是否預建帳號可觸達：UNKNOWN）
 4. 分別測：取消、空/非法值、重名、已存在帳號新角色、C02 重送、C04 重送、C02→C04 中途斷線、C04 ack 丟失、同帳號兩 Client、重登。檢查角色/owner/外觀只提交一次。
 5. 在有效帳號但無 Session、停權帳號、未管理建帳的帳號測試 C02/C04 拒絕，保證 Account 沒有變更。
 6. 確認創角完成是直接 S03/C10 轉 World 或重新登入，將時間順序及後續 S02/S03 的每個狀態碼、畫面效果登錄；更新 SCN-008、PKT、CT-011..014/018/019。
-7. 另一位分析者根據 SHA/VA 複核，再由規格負責人審查，方可由 `blocked` → `review` → `integrated`。
+7. 另一位分析者根據 SHA/VA 複核，再由規格負責人審查，作為後續 CT/BUG 回饋，不能阻止 A 靜態分析整合。
 
 ## 7. 重現命令、可信度與邊界
 
@@ -122,4 +114,4 @@ objdump -D -M intel --start-address=0x45b1b0 --stop-address=0x45b280 Asgard.exe
 - x86 位址為 VA（image base 0x400000）；不可當作 file offset。
 - 原版 EXE、本機解碼素材、帳密/token、原始巨大反組譯不入共享 Git。
 - 只有此處列出及可重現的靜態路徑是此次**新增證據**；先前 profile 規格與人工登入正常路徑不可擴大成首次建角實機成功。
-- 本次單檔靜態分析已交付；完整 A-021 依原定「明確證明預建帳號能進 UI」的驗收要求仍 **BLOCKED**，未捏造 Client 實測。
+- 本次單檔靜態分析已交付；A-021 已可由靜態證據與設計相容方案供 Server 開發；沒有宣稱 Client 實測或「C03 後自動進 UI」已確認，詳見 [後續深入追查](A-021-roy1-followup.md)。

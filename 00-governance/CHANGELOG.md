@@ -21,3 +21,7 @@
 ## task_a/roy1 — 2026-10-31（A-021 靜態證據與阻塞）
 
 逐位址檢查 Asgard.exe C02/C04/S02 與原生 MakeInfoDialog，更新 A-021 證據索引與協定、CT；A-021 status=blocked，未聲稱首次預建帳號成功進入原版 UI，沒有假造原生 runtime 證據。另以 merge commit 整合 main 同時新增的教學規劃 A-024～026/R-029～031，不回退他人變更。
+
+## task_a/roy1 — 2026-10-31 A-021 分析/實機流程分離
+
+依需求方確認改正 A-XX 完成標準：僅以分析實質缺失 blocked，不以缺乏原 Client 實機 blocked；可靜態整合並開始 Server 開發，再由 CT 驗收及 BUG 回饋。擴展 A-021 MakeInfoDialog 的 UI 欄位綁定、C02/C04/S02 狀態路徑，形成安全的「管理員預建 Account → C02 認領 → C04 完成 Character → C03 正常登入」 designed 相容方案。標示未證明的 C03 無角色自動 UI 轉場，無實機驗收宣稱。
