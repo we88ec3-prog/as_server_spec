@@ -13,7 +13,10 @@
       "deliverable": "每個已支援profile給解碼向量，未解分支不得填猜測值。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-002",
@@ -24,10 +27,13 @@
       "priority": "P0",
       "title": "重複登入及斷線交接",
       "method": "正常／錯誤密碼／token過期／同帳號兩連線／交接途中斷線。",
-      "deliverable": "雙客戶端實測與連線狀態機；確認原型政策和原生必要行為的差異。",
+      "deliverable": "以 BIN/Client parser/可取得的原始封包證據提供登入與重複登入/斷線交接狀態機、已知失敗分支、未解字段和 Server 模擬/雙 Client 實測計畫；完整新 Server 上的雙 Client 驗收歸下游 CT，不阻塞有證據的分析交付。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-003",
@@ -41,7 +47,10 @@
       "deliverable": "合法集合、失敗代碼、兩階段回復；不先假定現代帳號多角色UI。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-004",
@@ -56,7 +65,10 @@
       "deliverable": "確定出生／更新／移除封包、ID生命週期、作用域與可見性情境。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-005",
@@ -70,7 +82,10 @@
       "deliverable": "碰撞資料語意及拒絕／校正向量；標記速度政策是否原服還原。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-006",
@@ -81,10 +96,13 @@
       "priority": "P0",
       "title": "螢幕置中及獨立染色驗收",
       "method": "依8/9鏡頭及S05/S33已知RGB，批次站立、八向移動、更衣、切圖、重登。",
-      "deliverable": "原客戶端人工驗收；目前僅自動與靜態，不能先標通過。",
+      "deliverable": "先交付 S05/S33/RGB 等靜態證據、Client UI 預期和八向移動/更衣/切圖/重登的人工驗收腳本；已有可用的環境時可增加 observed-runtime，尚未開發新 Server 的最終 Client 人工驗收屬 CT，不應成為逆向研究失敗的理由。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-007",
@@ -99,7 +117,10 @@
       "deliverable": "實體物品模型及非衣櫃情境：使用失敗／背包滿／斷線／重送。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-008",
@@ -113,7 +134,10 @@
       "deliverable": "初始數值、更新、溢位與死亡邊界；未知公式獨立列出。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-009",
@@ -127,7 +151,10 @@
       "deliverable": "完整收發時序、公式來源、權威裁定及同時死亡策略。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-010",
@@ -141,7 +168,10 @@
       "deliverable": "技能型別表、效果更新及過期，原規則與設計補完分列。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-011",
@@ -155,7 +185,10 @@
       "deliverable": "生成／移動／消失／互動對話的最小可驗收鏈。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-012",
@@ -169,7 +202,10 @@
       "deliverable": "區分client呈現與server規則；不可把client腳本當全部Server邏輯。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-013",
@@ -184,7 +220,10 @@
       "deliverable": "各情境交易邊界及防重領測試；金額上限與編碼來源。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-014",
@@ -198,7 +237,10 @@
       "deliverable": "各頻道收發路由、非法操作、離線及斷線情境。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-015",
@@ -212,7 +254,10 @@
       "deliverable": "可驗證的資料格式和抽取步驟；不在共享repo附原始遊戲資產。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-016",
@@ -226,7 +271,10 @@
       "deliverable": "每項操作的冪等鍵、提交點、已確認成功的定義。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-017",
@@ -242,7 +290,10 @@
       "deliverable": "管理API與遊戲wire分離；無敏感body的診斷欄位。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-018",
@@ -256,7 +307,10 @@
       "deliverable": "2客戶端正確性→可重現負載基準；再選tick與容量。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-019",
@@ -270,7 +324,10 @@
       "deliverable": "原曲目對應有證據，或明確宣告未知；不可把測試曲1當官方配置。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-020",
@@ -285,7 +342,10 @@
       "deliverable": "各封包入口、完整欄位與狀態轉移；最小本機回覆和原生必要語意分開。",
       "status": "open",
       "assignee": null,
-      "evidence_ids": []
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-021",
@@ -298,8 +358,8 @@
       ],
       "priority": "P0",
       "title": "預建空角色帳號在原 Client 的首次登入與 C02/C04 建角",
-      "method": "使用管理員預先建立且無角色的帳號，追創角 UI handler、C02 serializer 0x5742b0、C04 0x574420 與 S02 parser 0x57dbc0，釐清 C02 是否混合帳號註冊與創角、如何避免 Client 建帳，以及是否需重登或直接轉服。",
-      "deliverable": "提供原 Client SHA/原生操作、C02/C04/S02 字段與狀態碼、成功/取消/失敗與重送時序；明確證明預建帳號能正確進入創角。",
+      "method": "BIN-first 追管理員預建空角色帳號的 Client UI 分支與 C02 serializer 0x5742b0、C04 0x574420、S02 parser 0x57dbc0；列逐欄/合法條件/回覆分支與重登/轉服可能性。可在已有環境動態觀察；不得假設必須先完成新 Server 實機。參考 03-analysis-requests/A-021-acceptance.md。",
+      "deliverable": "A 交付：Client 身份、原生 BIN/UI/serializer/parser 證據、C02/C04/S02 已證字段、狀態/成功/拒絕/取消/重送/轉服的已知與未知矩陣、PKT/SCN 可實作子集及 CT-018 測試腳本。若沒有原生 Server 回覆證據，明列 unknown 並 handoff partial；新 Server 上原 Client 登入/創角成功屬 DEV/CT-018，非 A-021 結案前提。",
       "status": "open",
       "assignee": null,
       "evidence_ids": [],
@@ -310,7 +370,10 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown"
+      "evidence_kind": "unknown",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-022",
@@ -323,7 +386,7 @@
       "priority": "P0",
       "title": "原生首次新手教學地圖、出生點與載入恢復",
       "method": "新角色首次進圖追 C25/S15/S14/C35/S04 與原始地圖資源；確認真實教學 map ID、出生座標、朝向、首次判定、CRC/逾時/斷線與進度旗標。",
-      "deliverable": "提供 Client SHA/原資源證據、map ID、座標、內容版本、封包時序、失敗/重連語意、可重現原 Client 驗收；不得以本地測試圖冒充。",
+      "deliverable": "A 交付：原始 Client/資源/BIN 證據支援的教學 map/出生設定（查無即明列 unknown）、C25/S15/C35 預期語意、CRC/失敗/重登已知矩陣及 CT-018 執行方案；完整新 Server 上的原生教學入圖由 DEV/CT 驗證，不是 A-022 先決條件。",
       "status": "open",
       "assignee": null,
       "evidence_ids": [],
@@ -334,7 +397,10 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown"
+      "evidence_kind": "unknown",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-023",
@@ -356,7 +422,10 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown"
+      "evidence_kind": "unknown",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-024",
@@ -381,7 +450,10 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown"
+      "evidence_kind": "unknown",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-025",
@@ -408,7 +480,10 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown"
+      "evidence_kind": "unknown",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     },
     {
       "id": "A-026",
@@ -421,7 +496,7 @@
       "priority": "P1",
       "title": "教學完成條件、獎勵與退出地圖",
       "method": "追教學步驟、任務/NPC 對話、完成觸發、原服是否發獎、正常出口 map/座標與斷線重登恢復；對照 A-012/016/022/023/025。",
-      "deliverable": "提供有證據的完成/失敗/取消分支、必要封包、保存點、獎勵是否存在與防重領、出圖時序及原 Client 驗收；不猜測出口或獎勵。",
+      "deliverable": "A 交付：BIN/Script/資源證據支持的完成條件與已知/未知步驟、原版是否存在獎勵、退出地圖已知欄位、回復語意、CT-028 原 Client 測試腳本；真正執行完整新 Server 的端到端原 Client 測試由 DEV/CT 負責。",
       "status": "open",
       "assignee": null,
       "evidence_ids": [],
@@ -434,7 +509,10 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown"
+      "evidence_kind": "unknown",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run"
     }
   ]
 }

@@ -39,3 +39,7 @@
 [最新 Server 進度板](02-server-planning/onboarding-delivery-board.md) · [A-XX 分析交付包](03-analysis-requests/onboarding-assignment-pack.md) · [ONB-01～06 開發批次](02-server-planning/work-items.json) · [教學 Server 詳細規劃](02-server-planning/tutorial-runtime-plan.md) · [CT-021～028 驗收計畫](05-conformance/tutorial-test-plan.md)。
 
 管理員建立 Account、玩家只用原 Client 登入的 R-025 決策不變；本次規劃仍不代表教程已開發或跑通原 Client。
+
+## 分析交付與開發／實機驗收分離（所有新舊任務）
+
+為防止 A-021 類「逆向分析等新 Server 的實機驗收、Server 又等逆向分析」的循環依賴，**所有 A/DEV/CT 接案者都需按 [phase-gates.md](00-governance/phase-gates.md) 的獨立出場條件工作**。A-021 有專用 [交付清單](03-analysis-requests/A-021-acceptance.md)；共用要求由機讀 requests.json、work-items.json 以及 CI [validate-phase-gates.py](tools/validate-phase-gates.py) 驗證。分析可完成並保留 CT=not-run，前提是證據支持範圍與未解事項如實交代。
