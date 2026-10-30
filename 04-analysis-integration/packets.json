@@ -54,12 +54,16 @@
       "evidence_ids": [
         "ev_a021_20261031_asgard_static",
         "ev_a027_20261031_asgard_identity_static",
-        "ev_a028_20261031_asgard_c04_response_static"
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
       "ownership_authorization": "unverified; MUST deny pre-auth claim and S02(success) until independent Server credential verification and native route known",
-      "native_account_claim_ready": false
+      "native_account_claim_ready": false,
+      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "a003_ui_first_field": "region0 skips local length gate; region1..4 0x91fed0 initializes 12 and 0x4b1a30 accepts narrow byte length>=12; this does NOT establish native Server name length or owner proof",
+      "a003_name_semantics": "No reliable native CharacterName mapping/unique policy yet; field1 from NewUser UI and may be account identity; region1 UI/writer discrepancy remains"
     },
     {
       "id": "PKT-C03",
@@ -96,7 +100,7 @@
       "name": "NewUserInfo",
       "system": "SYS-CHAR",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 sex,u8 hair,u8 R,u8 G,u8 B；實測合法值仍待確認",
+      "layout": "5 x u8: sex, hair, color_r,color_g,color_b; original UI builds color from 10-entry dword table at 0x66422c, index0..9; exact table in A-003; sex/hair native allowed enums UNKNOWN",
       "client_entry": "0x574420",
       "state_precondition": "MakeInfoDialog local state0x1d received S02(status0); Server must independently verify Account owner and valid pending generation before accepting C04",
       "related_packets": [
@@ -114,14 +118,31 @@
       "evidence_ids": [
         "ev_a021_20261031_asgard_static",
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "response_flow": "After C04 Client local state0x1e; S02(status0) enters 0x4b206b UI branch, not immediate S03/World; S02(nonzero) emits empty C15 and state0x1f",
       "native_character_commit_proven": false,
       "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "Five u8, no request id; Server must bind verified owner/session/pending intent and commit once before reporting success (designed)."
+      "a016_recovery_note": "Five u8, no request id; Server must bind verified owner/session/pending intent and commit once before reporting success (designed).",
+      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "a003_native_palette_10_hex": [
+        "915a28",
+        "ff6464",
+        "82b4fa",
+        "b9ffff",
+        "fab4e6",
+        "ff9600",
+        "82be64",
+        "d5ff64",
+        "ffc895",
+        "5a5a5a"
+      ],
+      "a003_explicit_character_name_in_body": false,
+      "a003_native_sex_hair_valid_enum_known": false,
+      "a003_original_server_rgb_restriction_known": false
     },
     {
       "id": "PKT-C10",
@@ -407,13 +428,16 @@
         "ev_a021_20261031_asgard_static",
         "ev_a002_20261031_asgard_login_transfer_static",
         "ev_a027_20261031_asgard_identity_static",
-        "ev_a028_20261031_asgard_c04_response_static"
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
       "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
       "a028_newuser_status_flow": "MakeInfoDialog local state0x1d and status0 -> send C04/state0x1e; state0x1e/status0 -> UI 0x4b206b, not direct S03; status!=0 -> C15 CancelNewUser with empty body/state0x1f; status code textual meanings unknown",
-      "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md"
+      "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "a003_create_error_meanings": "Unknown; UI focus status 3/4/17/18/26/31 not proof of duplicate-name or invalid hair/sex; S02(status0) first-stage triggers C04, second-stage enters local UI"
     },
     {
       "id": "PKT-S03",
@@ -920,12 +944,14 @@
       ],
       "evidence_ids": [
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
       ],
       "native_static_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "server_handling": "Designed: cancel only uncommitted matching owner+generation pending operation; never rollback already durable Character, cannot grant account ownership",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "Empty body has no original intent/owner ID; late cancel cannot safely undo committed Character; designed cancel pending only."
+      "a016_recovery_note": "Empty body has no original intent/owner ID; late cancel cannot safely undo committed Character; designed cancel pending only.",
+      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md"
     }
   ]
 }

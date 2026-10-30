@@ -88,3 +88,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-017 / roy1 管理 API／觀測與稽核交付（2026-10-31）
 
 [範圍與威脅矩陣](A-017-roy1-admin-audit.md)、[管理 API 契約](../04-analysis-integration/A-017-admin-observability-contract.md)、[機讀操作](../02-server-planning/admin-operations.json) 及 [合成測試](../tools/a017_ops_contract.py)。R-018/R-019/R-021 含帳號建檔、停權 N 天/永久與解封、角色傳送／調整、物品發放、診斷關聯與敏感欄位白名單；所有管理操作與遊戲 C2S 分離，不因 IP/URL 可達就授權。A-017 `integrated / handoff ready` **只對 Server Admin/Telemetry 設計規格**，原版 GM/ban 管理 wire 未確認、Server 未宣稱已實作；CT-045/046 planned，SCN-014 是獨立管理場景。
+
+## A-003 / roy1：創角合法值、UI 欄位與原版十色盤（2026-10-31）
+
+[原件 BIN-first](A-003-roy1-create-legal-values.md)、[Server 安全交接](../04-analysis-integration/A-003-character-create-contract.md)、[五項可執行合成測試](../tools/a003_create_contract.py)。已從原版 Asgard.exe 確認：C02 region 0→3-string8，region2..4→4-string8+u8；region0 的首欄本地 length gate skip，region1..4 的 narrow-byte 長度門檻12；C04=5×u8，hair-color 由 Client index0..9 查 0x66422c 原版十色表後送 RGB。C04 沒有獨立 character name 欄，原 Server 重名、帳號／角色名稱關聯、多角色、sex/hair 合法枚舉與失敗碼仍 unknown。A-003 `integrated/handoff partial` 僅表示靜態子集交付；`implementation_ready=true` 限 codec/10色/安全 Domain，`native_character_creation_ready=false`，A-027 原生 owner 問題仍擋正式建角。CT-047/048 planned、Client E2E not-run。

@@ -53,3 +53,7 @@ A-022 通用 Map/CRC 的部分可直接支援 DEV，但真正新手 map/spawn/C3
 ## A-017 管理與觀測工作交接（2026-10-31）
 
 A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/handoff ready/implementation_ready=true` **只表示可以供 Server 開發**。Admin.ProvisionAccount/Suspend/Unsuspend 應以獨立管理身份進入 Auth Domain；角色傳送/屬性調整/補發物品遵守 World/Inventory 狀態、可驗證唯一性與 audit。管理員的 HTTP API 必須與原 Client wire 隔離且 log 不含密碼/token/完整封包。SCN-014、CT-045/046 目前仍需 DEV/CT；原服 GM opcode/ban UI 不宣稱已證。[詳細管理契約](../04-analysis-integration/A-017-admin-observability-contract.md)。
+
+## A-003 靜態子集交接（2026-10-31）
+
+[原生證據](../03-analysis-requests/A-003-roy1-create-legal-values.md)：C02 region UI length gate 與 C04 五字節、十色表已證；**一帳號多角、角色名稱/帳號名的真正關係、sex/hair 完整原生允許集合、重名回覆**仍未證。可先 DEV 的只有 encoder/decoder、TW CP950、原版十色 Client 選項與 Domain unique/idempotency 的 designed 方案。A-027 原生 owner、安全合法創角入口依舊阻塞，不得因 A-003 integrated/partial 解除限制。新增 CT-047/048（未原生 Client E2E）。[安全交接](../04-analysis-integration/A-003-character-create-contract.md)。

@@ -56,3 +56,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## SCN-014：管理操作與遊戲協定分離
 
 [A-017 機讀管理操作](../02-server-planning/admin-operations.json)／[詳細稽核與權限規格](A-017-admin-observability-contract.md)。使用獨立 `/admin/v1` Admin 操作（Admin 認證/RBAC、停權/解封/補道具/調整/傳送），**不是新增原版 game C2S opcode**。所有 allow/deny/replay 有去敏稽核與 correlation ID；URL/IP 可達不代表授權；同 key 重送不重做副作用。CT-045/046 planned，A-017 設計研究 handoff ready、Server/原生 Client 的管理行為不宣稱已實作/通過。
+
+## A-003 / roy1 首次創角合法集合、角色數量與重名界線
+
+[完整 A-003 證據](../03-analysis-requests/A-003-roy1-create-legal-values.md) / [安全交接](A-003-character-create-contract.md)。已證 C02 的第一 NewUser UI 欄位 region0 skip narrow-length gate／其他 region >=12，C04 只含 sex/hair/3×RGB u8，十筆固定 Client 色盤；**C04 並無單獨 character_name 欄位**。原服是否帳號同名角色、是否支援多角色、sex/hair 正式枚舉、重名錯誤碼均無原服證據，Server 的 unique(account)/name 和 IdempotentCreate 屬 designed 保護，不能由此開放匿名 Client C02 建角。SCN-008 保持 analysis-required；CT-047/048 planned。

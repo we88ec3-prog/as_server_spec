@@ -65,3 +65,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-017 管理操作與可觀測性
 
 依 R-018/R-019/R-021/R-025 定義原生遊戲 socket 外的 Admin API、actor/permission/target/version/理由/idempotency、安全停權/解封/角色調整/傳送/發物品、deny/replay 也留無敏感審計、trace/metrics 安全白名單；原版 Asgard.exe 的 `sblockclient.cpp` debug 字串**不能**證明原服存在特定停權/GM 管理 API。新增 A-017 report、admin-operations.json、A-017 Admin/Observability contract、Python SQLite synthetic RBAC/audit tests、SCN-014、CT-045/046，更新 traceability 與共享校驗。A-017 `integrated/handoff ready/implementation_ready=true` 僅指設計與合成測試交付，實際 Server/Client CT 尚未驗收。
+
+## task_a/roy1 — 2026-10-31 A-003 創角合法值與帳號角色模型
+
+從指定 SHA Asgard.exe `0x498420/0x4985dc/0x4985e8` 查 region0=6、region1..4=12 字符限制的初始化，`0x4b1a30` 證明 region0 不執行本地最小長度 gate、其餘要求 narrow-byte >=12；`0x4b2031/0x574420` 追 C04 五 u8、`0x66422c` 原始十色表（index0..9, low-three bytes RGB）、`0x56084b/0x560b9f` 預覽交叉引用。C04 不含 character name；one-account-many-characters/重名/sex hair enum/status code 仍 unknown，不把一帳一角設計冒充 native。新增 A-003 報告、Client/Server 安全契約、五項合成測試、CT-047/048，整合 C02/C04/S02/SCN-008，狀態 integrated/handoff partial、native creation ready=false、Client not-run。

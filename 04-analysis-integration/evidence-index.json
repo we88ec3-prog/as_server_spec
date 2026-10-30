@@ -1912,6 +1912,47 @@
         "Legal item/character bounds remain A-003/A-007/A-013",
         "Measured load/latency capacity remains A-018"
       ]
+    },
+    {
+      "evidence_id": "ev_a003_20261031_asgard_create_palette_ui_static",
+      "date": "2026-10-31",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-static",
+      "method": "objdump original PE32 x86 + direct .data dump at VA 0x66422c + synthetic C02 CP950/C04/DB tests; cross-reference A-021/A-027/A-028",
+      "scope": "A-003 create input UI length region0 skip/nonzero 12, C02 region layouts, C04 5-byte body, 10 exact native RGB choices, two-stage S02/C15 and unsupported original name/one-account-many-character rules",
+      "functions": [
+        "0x498420",
+        "0x49846f",
+        "0x4985cd",
+        "0x4985dc",
+        "0x4985e8",
+        "0x498628",
+        "0x4b1a30",
+        "0x4b1c21",
+        "0x4b27b5",
+        "0x4b28fd",
+        "0x5b4a62",
+        "0x5742b0",
+        "0x574420",
+        "0x4b2031",
+        "0x4b203d",
+        "0x66422c",
+        "0x664254",
+        "0x4b0d10",
+        "0x4b0d20",
+        "0x4b0d30",
+        "0x56084b",
+        "0x560b9f",
+        "0x4b1f46",
+        "0x4b206b"
+      ],
+      "report": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "test": "tools/a003_create_contract.py",
+      "limits": [
+        "RGB source palette is confirmed for original Client UI; original Server may or may not accept other RGB",
+        "Native server sex/hair allowed set, name encoding/validation/duplicate status and multi character support unknown",
+        "No native C03 preprovisioned account character creation route or original-server DB trace"
+      ]
     }
   ]
 }

@@ -82,12 +82,33 @@
       "title": "創角合法值與帳號角色模型",
       "method": "查建立介面、C02/C04、重名、取消、名字編碼及一帳號多角色是否原生支持。",
       "deliverable": "合法集合、失敗代碼、兩階段回復；不先假定現代帳號多角色UI。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a003_20261031_asgard_create_palette_ui_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "observed-static",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Region-dependent C02 string8 codec and first-field native UI gate, C04 five-u8 layout and ten native client palette colors, planned uniqueness and owner-aware idempotent Domain fixtures only; full original name/sex/hair/roles not proven",
+      "native_character_creation_ready": false,
+      "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "analysis_contract": "04-analysis-integration/A-003-character-create-contract.md",
+      "analysis_test": "tools/a003_create_contract.py",
+      "analysis_scope": "native create UI field length, C02/C04 region/character-name boundary, exact ten RGB palette, S02/C15 two-stage error callbacks, designed one-character/account uniqueness protection",
+      "remaining_unknowns": [
+        "C02 field1 is account/name candidate, not proven independently as CharacterName; original uniqueness/case folding and restrictions unknown",
+        "C04 sex and hair allowed native server enums beyond u8 width unproven",
+        "One Account many Characters / selection/delete user interface native support unknown; one-char policy is designed conservative",
+        "Original Server S02 duplicate-name, bad-character, slot-full status codes and durable commit timing unknown",
+        "Preprovisioned Account identity and C03 no-character -> native MakeInfoDialog remains blocked by A-027",
+        "Region1 additional UI fields versus C02 writer branch remain unresolved"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-004",

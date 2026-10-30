@@ -49,3 +49,7 @@ A-001 補齊 seed0..9 的候選 binary mask/加密格式、C00/S00/string8 codec
 ## A-028 最新狀態：C04 後不會由同一 S02 callback 直接轉服
 
 [原版 EXE 逆向證據](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md) / [Server 安全契約](../04-analysis-integration/A-028-newuser-terminal-contract.md)：S02(status0) 在 state0x1d 促發 C04(五 u8) → state0x1e；之後 S02(status0) 執行本地 UI 操作（region3 有額外視窗）；**不是立即 S03 World transfer**。S02(status!=0) 在 CreateInfo UI 發 C15 `0x15` empty body → state0x1f。角色建立的 Server DB transaction 建議採先 durable commit 才回成功、同 intent 失敗重試/重送不重建、晚到 C15 不刪已提交角色，但這是設計不是原服已證。A-027 owner 與 A-003 原生合法值仍 blocked；A-028 `integrated/handoff partial/native_creation_commit_ready=false`。CT-032/041/042 planned。
+
+## A-003 更新：原版外觀十色盤與一帳一角之設計限制（2026-10-31）
+
+[A-003](../03-analysis-requests/A-003-roy1-create-legal-values.md) 已證 C04 五 u8 前二欄選擇值、後三欄來源為原 Client 固定 10 色表；C04 本身不含新的 character name。C02 field1 來自 NewUser UI，而不是已證的獨立 CharacterName；region1..4 首欄窄字串有本地長度12 gate（region0 skip）。原服一帳號多角/性別及髮型合法枚舉/重名 S02 文義未證，所以 Server 若採一帳一角與角色名稱唯一索引須標 **designed profile**，不得聲稱原版遊戲已證此政策。未有 A-027 安全 Account owner 前不能送 C02 成功觸發 C04；A-028 原生 durable commit/重登亦還有未知。測試 CT-047/048 planned，Client E2E not-run。[安全角色契約](../04-analysis-integration/A-003-character-create-contract.md)。

@@ -64,3 +64,7 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 - CT-046（planned）：允許與拒絕、重播、錯誤均寫入 sanitized audit/trace；不得洩漏 password、S03/C10 token、原始 packet body、Cookie 或 Authorization。管理 metrics/health 不向公開 Game Client 露出敏感維度。
 
 合成 Python `tools/a017_ops_contract.py`（五個 unittest 通過）是 designed 參考，不是原版 Admin UI/新 Server 上線驗收，也不是原服擁有同樣的權限政策。
+
+## A-003 合法欄位與重名／角色模型（CT-047/048 planned）
+
+[BIN-first 原版研究](../03-analysis-requests/A-003-roy1-create-legal-values.md) / [合成 Python 工具](../tools/a003_create_contract.py)。CT-047 依 region 測 C02 string8、TW CP950 encoded byte length；region0 UI 第一欄 length gate skip，region1..4>=12；C04 5×u8，色彩查原版十筆色表 index0..9，確切 RGB 與報告一致。CT-048 在 **designed Domain** 以驗證 owner/pending intent/unique name/one-character-per-account 保護無權、雙線同名、同 intent 重送、C15 晚到不刪角；此一帳一角策略不是原服已證。原版重名 S02 status/真實角色選角與 sex/hair 列表仍 unknown，所有 CT 的 `native_client_validation=not-run`，不可假裝實機成功。

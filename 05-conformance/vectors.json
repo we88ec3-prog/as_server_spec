@@ -193,7 +193,11 @@
       },
       "expected": "非法狀態不改變 Account、Character 或 World",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a003_20261031_asgard_create_palette_ui_static"
+      ],
+      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
     },
     {
       "id": "CT-012",
@@ -213,7 +217,11 @@
       },
       "expected": "同名／同帳號競爭只提交一角色",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a003_20261031_asgard_create_palette_ui_static"
+      ],
+      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
     },
     {
       "id": "CT-013",
@@ -233,7 +241,11 @@
       },
       "expected": "C02 與 C04 之間斷線不留半角色",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a003_20261031_asgard_create_palette_ui_static"
+      ],
+      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
     },
     {
       "id": "CT-014",
@@ -253,7 +265,11 @@
       },
       "expected": "C04 成功回包遺失重送不生成第二角色",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a003_20261031_asgard_create_palette_ui_static"
+      ],
+      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
     },
     {
       "id": "CT-015",
@@ -563,7 +579,11 @@
       "native_client_validation": "not-run",
       "analysis_dependency": [
         "A-021"
-      ]
+      ],
+      "analysis_evidence_ids": [
+        "ev_a003_20261031_asgard_create_palette_ui_static"
+      ],
+      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
     },
     {
       "id": "CT-030",
@@ -587,7 +607,11 @@
       "native_client_validation": "not-run",
       "analysis_dependency": [
         "A-027"
-      ]
+      ],
+      "analysis_evidence_ids": [
+        "ev_a003_20261031_asgard_create_palette_ui_static"
+      ],
+      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
     },
     {
       "id": "CT-031",
@@ -614,8 +638,10 @@
         "A-028"
       ],
       "analysis_evidence_ids": [
-        "ev_a028_20261031_asgard_c04_response_static"
-      ]
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
+      ],
+      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
     },
     {
       "id": "CT-032",
@@ -645,8 +671,10 @@
         "A-027"
       ],
       "analysis_evidence_ids": [
-        "ev_a028_20261031_asgard_c04_response_static"
-      ]
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
+      ],
+      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
     },
     {
       "id": "CT-033",
@@ -1049,6 +1077,65 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md"
+    },
+    {
+      "id": "CT-047",
+      "status": "planned",
+      "level": "bin-derived-character-color-and-region-fixtures",
+      "requirements": [
+        "R-003",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic",
+        "reference": "tools/a003_create_contract.py",
+        "palette_color_count": 10,
+        "first_palette_rgb_hex": "915a28",
+        "last_palette_rgb_hex": "5a5a5a",
+        "region0_local_length_gate": "skipped",
+        "region1_to_4_gate_narrow_bytes": 12
+      },
+      "expected": "C02 region2..4 4×string8+u8 and other region 3×string8; TW CP950 uses encoded byte length; original UI palette indices0..9 convert ten exact RGB triples to five-byte C04; C04 has no name slot and wire only bounds sex/hair as u8; native allowed enumerations unknown",
+      "evidence_kind": "observed-static",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md"
+    },
+    {
+      "id": "CT-048",
+      "status": "planned",
+      "level": "character-authorized-uniqueness-and-two-stage-recovery",
+      "requirements": [
+        "R-003",
+        "R-025",
+        "R-026",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "designed-sqlite-synthetic",
+        "reference": "tools/a003_create_contract.py",
+        "cases": [
+          "anonymous pre-C03 claim denied",
+          "owner mismatch refused",
+          "same account duplicate intent idempotent",
+          "same character display-name two owners unique",
+          "C15 empty after committed does not delete character",
+          "S02 errors do not have native text mapping yet"
+        ]
+      },
+      "expected": "No Account INSERT via Client, no Character without verified owner and pending intent; same pending/body succeeds once; duplicate name/account conflict and delayed C15 have zero unintended effects; full native new-user UI/Server error status not-run",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md"
     }
   ]
 }
