@@ -81,3 +81,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 — Client I/O Server 實作路線與驗收矩陣
 
 規劃 DEV-IO-01～06，建立 6 條 Client 事件→C2S→S2C→Client 效果與 Server Authority 兩層機讀矩陣，連結 ONB-01～06、PKT/SCN/CT；新增分段驗收表並更新 README/roadmap/進度板。CI 對 Matrix 做 PKT/SCN/CT/A/ONB 參照完整性和原生 CT 不可假通過的欄位檢查。本次不修改任何 CT 的執行狀態，也不宣稱私有 Server 已實作。
+
+## A-024：NPC/怪物 Client I/O 已證子集（2026-10-31）
+
+原版 `Asgard.exe` SHA `db3df616...`：C13 Attack (`BE u32`)、C43 ObjectInfoRequest (`u8,BE u32,u8`)，S07 DrawObjects、S0C MoveObject、S64 MovePath、S5F DieObjects、S0E RemoveObjects 的 native ctor/reader；[A-024 分析](../task_a/roy2/A-024-analysis.md)、[7 項合成測試](../task_a/roy2/test_a024_npc_codec.py)。正式 Client I/O 矩陣的 `FLOW-GAMEPLAY` 已補收發欄位，但 **C43≠已證女招募員點擊**、S07 物件非空完整 row/原版 UI/封包操作還不完整；A-024 `integrated/partial`, CT-021/022/034 planned，Native E2E not-run。Server AI/重生規則由 DEV 設計，不是 Client A 完成條件。

@@ -223,10 +223,19 @@
     {
       "id": "FLOW-GAMEPLAY",
       "label": "NPC／怪物／技能／任務操作",
-      "client_trigger": "玩家在世界中點擊 NPC、攻擊或施放技能、完成任務操作",
-      "client_send": [],
-      "server_to_client": [],
-      "client_reaction": "尚缺具體事件與 opcode 的逐項 Client writer/parser/動畫/任務 UI 證據；禁止以設計任務數值代替原生 wire",
+      "client_trigger": "玩家在世界中執行攻擊 / object-info request（C13/C43 native constructor 可證；招募員特定點擊/target 選擇與技能觸發仍 unknown）",
+      "client_send": [
+        "PKT-C13",
+        "PKT-C43"
+      ],
+      "server_to_client": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "client_reaction": "S07 顯示物件記錄、S0C/S64 移動/路徑、S5F 死亡事件、S0E 移除；非空 S07 row type1..14 完整渲染分支仍待深入",
       "evidence": [
         "A-004",
         "A-005",
@@ -251,21 +260,26 @@
         "CT-025",
         "CT-026",
         "CT-027",
-        "CT-028"
+        "CT-028",
+        "CT-034"
       ],
       "server_decisions": [
         "Server 自訂 NPC/怪物 spawn、AI、技能判定與 QuestGoal/RewardLedger；以已證 wire adapter 映射到 Client",
         "無已證 NPC/技能/任務 opcode 時保留 mock-only 子域測試，不向原 Client 送猜測回包"
       ],
-      "readiness": "requires-client-io-evidence",
+      "readiness": "npc-client-codec-partial; skill/quest-still-unknown",
       "unknowns": [
-        "實際 NPC 點擊 C→S、物件生成 S→C、技能 C→S/效果 S→C、任務完成/獎勵 UI 封包待分析"
+        "C13 攻擊 UI/目標選擇條件及 Server 命中/拒絕政策",
+        "C43 物件資訊請求確切 NPC 招募員點擊路徑",
+        "S07 非空 row type1..14 完整 wire-to-entity 渲染和各類 UI 回應",
+        "NPC/怪物初始 spawn/移動/AI/重生屬 Server 權威，原服策略未知；技能/任務另 A-025/026"
       ],
       "native_client_validation": "not-run",
       "work_items": [
         "ONB-05",
         "ONB-06"
-      ]
+      ],
+      "a024_report": "task_a/roy2/A-024-analysis.md"
     }
   ]
 }

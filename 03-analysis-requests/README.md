@@ -88,3 +88,7 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 ## 2026-10-31 最新 Client 收發交接優先規則
 
 上面的歷史 A-XX 表格含有「原服怎麼決定帳號、出生、任務、AI」的舊問法；**以 [全員接案規範](../00-governance/task-ownership-and-client-io.md) 與 [最新 Client I/O 交付標準](client-io-handoff-standard.md) 為準**。每個 A 已有 `requests.json.handoff_track`，新接案必須用同一模板；Client 研究看 trigger→C→S→S→C→UI，Server 政策由 DEV。實際可開發分段見 [Server 縱切計畫](../02-server-planning/client-io-delivery-plan.md)。
+
+## A-024：NPC/怪物 Client I/O 已證子集（2026-10-31）
+
+原版 `Asgard.exe` SHA `db3df616...`：C13 Attack (`BE u32`)、C43 ObjectInfoRequest (`u8,BE u32,u8`)，S07 DrawObjects、S0C MoveObject、S64 MovePath、S5F DieObjects、S0E RemoveObjects 的 native ctor/reader；[A-024 分析](../task_a/roy2/A-024-analysis.md)、[7 項合成測試](../task_a/roy2/test_a024_npc_codec.py)。正式 Client I/O 矩陣的 `FLOW-GAMEPLAY` 已補收發欄位，但 **C43≠已證女招募員點擊**、S07 物件非空完整 row/原版 UI/封包操作還不完整；A-024 `integrated/partial`, CT-021/022/034 planned，Native E2E not-run。Server AI/重生規則由 DEV 設計，不是 Client A 完成條件。
