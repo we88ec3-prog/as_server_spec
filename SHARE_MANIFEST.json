@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "8e174af21f9439910af44cc3cc9cf18f6ee591463799dafa975a748d96dcc0c6"
+      "sha256": "f7743a5aa9f63eb65acda6058fca43a44104e42caa187ec2c0b8e9d9b4a7c874"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -57,7 +57,7 @@
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
-      "sha256": "c11cd9556bc17db1594377dd713d325f050d0d7d7c7685a808ee30cd7c574db9"
+      "sha256": "fad4700538c7d22d4bb2153340bea9789c83490b690d56cb257bc71eac16ed23"
     },
     {
       "path": "02-server-planning/architecture.md",
@@ -69,19 +69,23 @@
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
-      "sha256": "8307f0d3db854d0a5110eb903f7a112781e111d1d017f05b8032a8e17240dd2b"
+      "sha256": "8d3c8bf2105f4b1c0e0411321e300917c2403cbb2be4eb2e00c0060f89f0f161"
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
-      "sha256": "fdb55a06345b2c05fc11f37069ab989c19bfd0b0670eeb28df84394bb995388c"
+      "sha256": "527731effc465d0039ac1ab99d41e93797817473da518f66ad82ece3616707c4"
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "f4f019faf9ce867865cd9b421ce2a9bb92255e910d013e2be9988f60d616ae8b"
+      "sha256": "f4622bfb86f337f915212bdc4c6ed1af7acebe0b1a0cd30918ec70eefc142872"
     },
     {
       "path": "02-server-planning/roadmap.md",
       "sha256": "28ce42c9c879782455ce4c6a23c9abce774758737bac34a2054e122f32bfffd6"
+    },
+    {
+      "path": "02-server-planning/script-lifecycle-contract.md",
+      "sha256": "a5678d546fae5b213567bf1f63a1fa6953e445b460233e27d449a569b7a936cd"
     },
     {
       "path": "02-server-planning/systems.json",
@@ -117,7 +121,7 @@
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
-      "sha256": "07a8ca2548bfa9d5a710d61d5a6c9ed0959203efc863e494f07e5b821fa82385"
+      "sha256": "711e371105a9f8c87a1469b05b799c53129a54c38bed2da741021bd05ecacacc"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -129,7 +133,11 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "cc3c8e75bbc8596360bc367ce00da3b41293f203367d34928d77fc4992aed523"
+      "sha256": "38d06d913dbed51d0e86c7158c8e649c538c288263192a3c4a75c39508636a01"
+    },
+    {
+      "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
+      "sha256": "1cf33e6c48bffa7bdff9d748ca2060a7bf866d19c0fcaf8112187ffdc03e6942"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
@@ -177,7 +185,7 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "85c415000a450f3a4d049c73d9ec5ad817798061b50c2afbb0187bce77de7766"
+      "sha256": "c5e1853811d34b798d78c032e46e635ae149131636da872f7746de4433a1399a"
     },
     {
       "path": "04-analysis-integration/packets.json",
@@ -237,7 +245,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "2042601a4c0bd7b1717aa0deabbbf232d3d56d83c23db468fa51714f9178c336"
+      "sha256": "3a1da19a8e477ff1bd09d815326503167c30f1170c316c5fcd5135fc1db0758d"
     },
     {
       "path": "task_a/roy2/A-023-analysis.md",

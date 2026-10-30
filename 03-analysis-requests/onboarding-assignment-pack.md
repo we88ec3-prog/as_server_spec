@@ -44,3 +44,7 @@ A-021、A-022、A-023 均 `integrated/handoff_status=partial`，不可再當作�
 A-023 的 CT-ID 經 main merge 改為 CT-033..035，不再佔用 A-021 的 CT-029..032。Born 原件是否與 Client 版本相符尚未證實；本次驗證 EXE SHA 與指定 BIN 分支，Born 原件離線 PASS 僅有 roy2 的研究報告/validator 可供日後重現。
 
 完整排程與出場門檻見 [新優先矩陣](../02-server-planning/analysis-priority-after-A022-A023.md)。
+
+## A-001/A-023 本輪合併後給分析者的最新指令
+
+A-001 與 A-023 的 `integrated` 是可用證據子集；不要求重新做已經重現的 seed mask 或 S44(1,0) 主解析。**A-020** 補實際選 seed/key 的條件與版本/失敗 UI；**A-012** 補原服 first-login Born script 派送及任務/flag，已知 C6C2/4 為 cleanup 而非 quest；**A-015** 補原版 map ID、出生、MapContent revision/CRC 並驗證資源與 Client 發行配對；**A-024** 查招募員 entity/map/spawn、候選 nNewJoin01 真實綁定。最高 P0 保持 A-027、A-015、A-028。詳細限定格式見 [新證據 review](../04-analysis-integration/A-001-A-023-merge-verification.md)。研究不以 Server 實機 CT 為完成門檻。

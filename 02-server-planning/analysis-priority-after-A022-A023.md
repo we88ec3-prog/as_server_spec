@@ -34,3 +34,10 @@
 `A-027 → A-028 → ONB-02 創角` 和 `A-015 → 真正 map/spawn → ONB-03 進圖` **兩條 P0 路徑並行**；兩條收斂後才可測真正「原 Client 新帳號進教學」。接續 `A-012/A-024 → A-025（若必須戰鬥） → A-026`，再以原生 Client 完成全教程驗收。
 
 報告：[A-022](../03-analysis-requests/A-022-roy1-bin-analysis.md) / [A-023](../task_a/roy2/A-023-analysis.md) / [核對紀錄](../04-analysis-integration/A-022-A-023-merge-validation.md)。
+
+## 2026-10-31 第二輪調整（以本節為最新，覆蓋前面未完成項）
+
+- **A-001 已 integrated/partial**：seed 0..9 mask／binary XOR／C00/S00 初步解析交 DEV；A-020 不再重複這些已證項，改優先分析原生版本/region 的 seed/key 選擇、S00 非零結果 UI 與其餘 metadata。CT-036 保留為 synthetic codec（native not-run）。
+- **A-023 Client 入口機制已解到 S44(1,0) → Main → C6C lifecycle**，不是「不知道如何觸發 Script」。**仍不知道原服何時／依何旗標送 Born**，以及女性招募員真正 entity/script/quest。A-012 接原服首次腳本排程和 quest，A-015 接原版資源版本/出生，A-024 接 NPC 實體綁定；將這三條可並行安排在 A-027/A-028 的帳號關鍵路徑外。
+- **最高優先仍是 A-027 + A-015 並行，接 A-028**。同時可以開發 transport 通用 codec + S44/C6C Script 生命週期（受控 mock／安全測試）；不得把 Born 的文字座標 (31,29) 當出生點，也不得把 C6C2/4 當完成任務。
+- 說「沒有 Script／MAP 資源」不精確：roy2 的本地研究已核對 Born/PaperDialog 以及 Script corpus，並報告存在 Map0/1/2 與 Basic；**目前欠缺的是版本配對和原服 NPC/任務綁定**。本次合併檢查環境沒有完整原始資源可供獨立再跑。

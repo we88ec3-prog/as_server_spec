@@ -228,7 +228,8 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "latest_merged_evidence_focus": "A-023 confirms S44(1,0) starts named Main with dependencies, C6C(0) requests missing script, C6C(4) close and C6C(2) no-reply cleanup. Focus on original-server first-login send condition, PaperDialog lifecycle, quest authoritative meaning and recruiter/NPC script binding. No unsupported quest completion inference."
     },
     {
       "id": "A-013",
@@ -280,7 +281,8 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "latest_merged_evidence_focus": "Roy2 reports available Map0/1/2.dat, Script and Basic resources in its own local analysis context; investigate and verify exact version linkage to Asgard.exe, tutorial map_id/spawn/orientation/content revision, MAP checksum and NPC/script map bindings. Born (31,29) is guide waypoint not player spawn; resource availability is not itself resolved semantics."
     },
     {
       "id": "A-016",
@@ -368,7 +370,8 @@
       "evidence_ids": [],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "latest_merged_evidence_focus": "A-001 has resolved seed0..9 mask codec, C00 width and S00 result0/1/2 parser structure; focus on actual regional seed/key selection, nonzero S00 UI results, metadata/Script timing and account proof handoff. Do not mark client region login confirmed solely from synthetic codec tests."
     },
     {
       "id": "A-021",
@@ -570,7 +573,8 @@
       "evidence_kind": "unknown",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "latest_merged_evidence_focus": "A-023 nNewJoin01 merchant school-join script is an inferred candidate only, with no verified NPC entity/map binding. Identify recruiter spawn, entity id, interaction packet and A-011 NPC visibility/actions using original MAP/NPC assets or observed packet/event evidence, not name similarity."
     },
     {
       "id": "A-025",
