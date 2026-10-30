@@ -241,7 +241,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "637cfafd8c463037bc73a3dcef7b797e63c833ab3e1751841e71e27852b6c804"
+      "sha256": "ed7d7f21a7d781a745b19824d1cc544e090693e632b8b03efd001ec926f6d742"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -297,7 +297,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "55e8d2dcdee98641067442cdcc88a382f4b8fda0793237ea44f9d9ffae6c4a60"
+      "sha256": "f545a05390d3f5cdbf5dcf2193fee5ad5100f2f83b1a5fc1d5ca21c8cbbccd49"
     },
     {
       "path": "README.md",

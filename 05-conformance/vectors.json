@@ -1052,6 +1052,48 @@
       "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "merge_source_id": "CT-044",
       "merge_note": "roy1 CT CT-044 renumbered to CT-046 because roy2 A-015 retains CT-039/040; native Client not-run"
+    },
+    {
+      "status": "planned",
+      "requirements": [
+        "R-015"
+      ],
+      "evidence_kind": "static-client-plus-designed-security",
+      "native_client_validation": "not-run",
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "id": "CT-047",
+      "level": "social-chat-whisper-codec-and-origin-safety",
+      "packet_ids": [
+        "PKT-C0E",
+        "PKT-C19",
+        "PKT-S0A",
+        "PKT-S0D"
+      ],
+      "expected": "C0E type/string8, C19 type/target/text string8 and S0D source_id+string8 native subset; Server binds origin to authenticated World, rejects illegal type/encoding and stale generation; S0A remains context-dependent; native channel type and error statuses unknown."
+    },
+    {
+      "status": "planned",
+      "requirements": [
+        "R-015"
+      ],
+      "evidence_kind": "static-client-plus-designed-security",
+      "native_client_validation": "not-run",
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "id": "CT-048",
+      "level": "social-group-guild-branch-and-membership-security",
+      "packet_ids": [
+        "PKT-C2E",
+        "PKT-C12",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "expected": "Decode only evidence-backed op/subtype forms, reject unsupported values without changing membership; Server authoritative group/guild generation/CAS for invitations; native guild policy and member row format still unknown."
     }
   ]
 }
