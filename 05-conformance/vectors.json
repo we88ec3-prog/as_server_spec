@@ -626,6 +626,71 @@
       "analysis_dependency": [
         "A-028"
       ]
+    },
+    {
+      "id": "CT-033",
+      "status": "planned",
+      "level": "script-opcode-safety",
+      "requirements": [
+        "R-013",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C6C",
+        "PKT-S44"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-023-tutorial-entry-test-plan.md"
+      },
+      "expected": "按 C6C/S44 已知 subtype 分流；未知欄位不偽裝成功；S44 type1/subtype3 在隔離沙盒檢查快取變更，不視為純 ACK",
+      "evidence_kind": "observed-static-plus-designed-test",
+      "native_client_validation": "not-run",
+      "offline_resource_test": {
+        "result": "pass-local-offline",
+        "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+        "validator": "task_a/roy2/verify_born.py",
+        "native_client_validation": "not-run"
+      },
+      "review_merge_note": "Renamed from roy2 CT-029 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
+    },
+    {
+      "id": "CT-034",
+      "status": "planned",
+      "level": "tutorial-first-interaction",
+      "requirements": [
+        "R-027",
+        "R-029"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-023-tutorial-entry-test-plan.md"
+      },
+      "expected": "首個教學 NPC/Script/任務 UI 在資源/原服證據確認後可定位，未互動對照組不假設任務已完成",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "packet_mapping": "unknown",
+      "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
+    },
+    {
+      "id": "CT-035",
+      "status": "planned",
+      "level": "tutorial-script-idempotency",
+      "requirements": [
+        "R-013",
+        "R-027"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-023-tutorial-entry-test-plan.md"
+      },
+      "expected": "取消/重送/斷線/舊 session 不會使任務初始化或後續進度重複，原版拒絕碼未知",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "packet_mapping": "unknown",
+      "review_merge_note": "Renamed from roy2 CT-031 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
     }
   ]
 }

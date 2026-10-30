@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "1147fc6f6e71b1e73ddde844789d40b892e2e38aa202bfa04161b1af7c6b08c0"
+      "sha256": "bb5c669a81836ec16bbc34f1ed7eacaeecc0920c002ae97fcaf0e9b1ecdc643b"
     },
     {
       "path": "00-governance/workflow.md",
@@ -121,7 +121,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "94fa0c8b443829dcb60e9b8aba56ab1ffe68e0e3b8cb4db82eaedd66717a0b06"
+      "sha256": "2e49178a4ecec1dddf06429a05ef982ab9b48670dec5ec8b89e9483766412249"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
@@ -153,7 +153,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "cdbd1d6ee043ba17d84b765abd3cc30e692c20811185455eb21dc45689373924"
+      "sha256": "df3edc86078d13d49967e6b32dd7181468134a78ed085da78e4d9fbad59912b2"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -169,7 +169,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "779c7286af7795aed956f10a69b315d42faa1dc825c997ecfcf8e270ef264e73"
+      "sha256": "d539b032688a7d8240cf729561f8ab89020a5f2807740b6453872b07f5935c3b"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -185,7 +185,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "9bba72217d623a6418ac80394bcc94fda5e4c2e22da23c8626ba5fefff4e552f"
+      "sha256": "b1b5a45a8fc16cb901602fdb759dbc3c1c57e9e8ad8bb23ccd0199c27fa9b2a8"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -221,7 +221,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "a64c2c9be5609fb76f89474dcf20a48d7bffd71b7dd2681d82e2c87b97735bad"
+      "sha256": "b8b19037c799912ed9f634c54f2682092ae95a136f4116e5c3b5660ddd8dd8a4"
     },
     {
       "path": "README.md",

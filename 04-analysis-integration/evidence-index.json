@@ -1533,6 +1533,122 @@
         "No Map0/Map1/Map2 nor Script/Born asset bytes available",
         "Native tutorial map/spawn/complete C35 vector unverified"
       ]
+    },
+    {
+      "evidence_id": "A023-E01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x00400000; sha256 original PE32 identity",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E02",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x575140,0x575210 CScript opcode and subtype dispatch",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E03",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x5862e0,0x4e0b70,0x52c2a0 SScript dispatch",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E04",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x52c8df,0x52c8e5,0x5294e0,0x52951d cache scan branch",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E05",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x5290bc,0x5292c6,0x529351 Script file path logic",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E06",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x521d32,0x521d84,0x526626,0x51a9f0 SendReply/ScriptRunner",
+      "evidence_kind": "observed-static",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E07",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "04-analysis-integration/resource-formats.md prior Born/Script structure",
+      "evidence_kind": "prior-research",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E08",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "04-analysis-integration/profile-login.md and scenarios.md local profile",
+      "evidence_kind": "prior-research",
+      "record_scope": "A-023 scope-limited summary; see report; original EXE/assets not included",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E09",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "Born.dat zlib + wrapper 00010000, BE u16 574 UTF-16LE XML Main",
+      "evidence_kind": "observed-static-resource",
+      "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+      "resource_client_version_binding": "unverified",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E10",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "Born.Main calls CreateArray, Insert, PaperDialog_Create; guide (31,29) female recruiter mouse click; no explicit quest/SendReply/spawn",
+      "evidence_kind": "observed-static-resource",
+      "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+      "resource_client_version_binding": "unverified",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E11",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x5f11fc EXE IAT=KERNEL32.DeleteFileA and 0x529575 indirect call in S44 cache scan",
+      "evidence_kind": "observed-static",
+      "resource_sha256": null,
+      "resource_client_version_binding": "n/a",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-analysis.md"
     }
   ]
 }
