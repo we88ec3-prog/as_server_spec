@@ -169,7 +169,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "007176b0cbf9675a6840353ca13c8c2c7c4f19bd77f63211d6360e5301a12973"
+      "sha256": "43c78c68afd2af84daa2d23c827a9d0231eb97c37fdbbbfc61d30a282e3cf3e6"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -241,7 +241,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "8c1dc4fb1b05f7fc4617938f784eb16769930889eee77d376762212ab745b1cf"
+      "sha256": "47caf9346f16c4ed686aa3bce0e8439e3fae4a38515fde017fa88c8b1a9435e4"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -257,7 +257,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "ed7d7f21a7d781a745b19824d1cc544e090693e632b8b03efd001ec926f6d742"
+      "sha256": "dba553ce0da4279a3707d51a8ac20dab97a4b0335760aaee917429e3f003d938"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -317,7 +317,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "c0aefbae5e5e8aff2eda91d1dab302b5e56858000e126d4cfcbbe5278d6f120b"
+      "sha256": "3db2a3b69cc8c3d86fcc4a89e45a248191a93cda82aca999b19c3649a476293e"
     },
     {
       "path": "README.md",
@@ -325,7 +325,7 @@
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
-      "sha256": "3274236f3e9d148b867bda3d282bc159247c9f9c5496c2fbbdb7d798d75aba6e"
+      "sha256": "8fb001ebb2956ba8a91a3ec98008da485071d27769aebeae6315238aa6899593"
     },
     {
       "path": "task_a/roy2/A-014-packet-index.json",
