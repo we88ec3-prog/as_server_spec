@@ -360,6 +360,14 @@
       "sha256": "7b13ba7cc49bcbbdc9abdc9175f89feed8e737c28dc8e29a07e2a25b3b1112b5"
     },
     {
+      "path": "task_a/roy2/A-004-analysis.md",
+      "sha256": "f63677beef39c9985a83e72908a227e48729af7dfad6667a018a91b64852a6eb"
+    },
+    {
+      "path": "task_a/roy2/A-004-native-locators.json",
+      "sha256": "ee6dd69a14aef589db22f2a8cebca74000c037a23e325ac8022f79dc0b28d2aa"
+    },
+    {
       "path": "task_a/roy2/A-014-analysis.md",
       "sha256": "3274236f3e9d148b867bda3d282bc159247c9f9c5496c2fbbdb7d798d75aba6e"
     },
@@ -396,6 +404,14 @@
       "sha256": "edf9e734f2fc084755143126f721ab60b092588d1ec1ec86bf70cb3ef84cf9d6"
     },
     {
+      "path": "task_a/roy2/a004_native_probe.py",
+      "sha256": "64cc1cb1cf26f6f35ebc967509be4e33326ccb2aaecece1bd631a708f0660fb1"
+    },
+    {
+      "path": "task_a/roy2/a004_visibility.py",
+      "sha256": "35e3c08ff14a3f77696b239321d4504ae79970eed22c5d3e624d2c2a80e6f1ba"
+    },
+    {
       "path": "task_a/roy2/a014_social.py",
       "sha256": "552fd70b4acf3cd83649927c7884cab86b6bef24b311a8d228279052edef2d4f"
     },
@@ -418,6 +434,10 @@
     {
       "path": "task_a/roy2/script-entry-verification.json",
       "sha256": "6c158301fbca7ee1d72cc86b597614a7127be06cc1b4a7ac0949b2ddd1272018"
+    },
+    {
+      "path": "task_a/roy2/test_a004_visibility.py",
+      "sha256": "4cf5faa9262ecacc4a82ceb76e101161c0e425b69897cf617486d69b71fb390c"
     },
     {
       "path": "task_a/roy2/test_a014_social.py",
