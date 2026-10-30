@@ -740,7 +740,9 @@
         "A024-E04",
         "A024-E05",
         "A024-E06",
-        "A024-E07"
+        "A024-E07",
+        "A024-E08",
+        "A024-E09"
       ],
       "dependencies": [
         "A-004",
@@ -778,7 +780,24 @@
         "CT-022",
         "CT-034"
       ],
-      "last_analysis_date": "2026-10-31"
+      "last_analysis_date": "2026-10-31",
+      "client_action_attacks_found": true,
+      "client_action_info_request_found": true,
+      "client_sends": [
+        {
+          "packet_id": "PKT-C13",
+          "layout": "BE u32",
+          "trigger": "CAttack ctor from native callers 0x55709E/0x557A5F; exact target acquisition/UI condition needs tracing"
+        },
+        {
+          "packet_id": "PKT-C43",
+          "layout": "u8 + BE u32 + u8",
+          "trigger": "CObjectInfoRequest native producers including 0x479DC7; not yet proven recruiter-specific click"
+        }
+      ],
+      "unknowns_not_required_for_server_ai": [
+        "native original monster AI tick/respawn interval are Server policy not A Client I/O blocker"
+      ]
     },
     {
       "id": "A-025",

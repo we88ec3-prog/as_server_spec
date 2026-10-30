@@ -53,3 +53,15 @@ python -m unittest discover -s task_a/roy2 -p 'test_a024_npc_codec.py'
 6 項 synthetic unit tests **PASS**（decoded fixed S5F/S0E/S0C、S64 path、S07 零列、epoch/replay negative cases），不包含遊戲資料或原版 E2E。詳見 \`a024_npc_codec.py\` 與測試檔。對 S07 **非空物件**和未證 native handler，驗證器刻意 fail closed。
 
 **A-024 結論**：已交付有據的 Client 收包、欄位型別和初步狀態模型，\`status=integrated\`，\`handoff_status=partial\`（真正教學 NPC/map 綁定和非空 S07 對應仍不完整），\`native_client_validation=not-run\`。不是原生整段教學成功，也不應自稱完整生成/AI/重生的原服還原。CT-021/022/034 須在 Client/資源/內容條件可用後補測。
+
+
+## 五、Client 主動動作補查：攻擊 C13 與物件資訊 C43
+
+依 \`A-XX Client I/O\` 契約額外追原件 C2S native constructor + serializer，不只列 S2C：
+
+|玩家操作候選 / C2S|Client 原生來源|已證 decoded body|觸發/反應限制|
+|---|---|---|---|
+|攻擊 \`C13\`（\`CAttackPacket\`）|ctor \`0x570A10\` push 0x13；serializer \`0x570AC0\` 讀 object+0x18 並呼叫 \`0x45AC40\`；native producer \`0x55709E\`、\`0x557A5F\`|**BE u32** 一欄|遊戲中的攻擊來源確有可送包路徑，但具體 UI 按鍵、target 取得方式及 Server 命中拒絕/傷害效果尚無 E2E|
+|物件資訊請求 \`C43\`（\`CObjectInfoRequestPacket\`）|ctor \`0x574500\` push 0x43；serializer \`0x5745B0\`：\`0x45AB00\`、\`0x45AC40\`、\`0x45AB00\`；多個呼叫點含 \`0x479DC7\`、\`0x4A23F8\`|**u8、BE u32、u8**|這是**物件資訊請求**類別。無法由名字/存在性證明女性招募員 NPC 點擊必送 C43；需要 Client UI→handler cross-ref 及合法 trace|
+
+這是本 A 已交付的 **Client sends**；\`S07/S0C/S64/S5F/S0E\` 是 **Client receives**；Client reaction 的最小可證只有將欄位讀入 Object/Path/Die/Remove packet，真物件渲染 registry 的所有分支還未逐一確認。Server 回覆成功/錯誤的具體 native codec，必須等確定 UI producer 與 parser 後再填。合成測試已補上 C13/C43 編碼檢查，共 **7 tests PASS**，不代表 native Client E2E。

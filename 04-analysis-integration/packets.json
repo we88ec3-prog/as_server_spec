@@ -1357,6 +1357,72 @@
         "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
       ]
+    },
+    {
+      "id": "PKT-C13",
+      "direction": "C2S",
+      "opcode": "0x13",
+      "name": "Attack",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32 target/action opaque; semantic target acquisition not fully proven",
+      "client_entry": "0x570A10 ctor; 0x570AC0 writer; caller 0x55709E/0x557A5F",
+      "state_precondition": "User action and in-world context inferred; exact UI target selector unknown",
+      "related_packets": [
+        "PKT-S07",
+        "PKT-S5F",
+        "PKT-S0E",
+        "PKT-S44"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A024-E08",
+        "A024-E09"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md"
+    },
+    {
+      "id": "PKT-C43",
+      "direction": "C2S",
+      "opcode": "0x43",
+      "name": "ObjectInfoRequest",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 type, BE u32 object opaque, u8 subtype; source UI/field semantics unknown",
+      "client_entry": "0x574500 ctor; 0x5745B0 writer; producer 0x479DC7",
+      "state_precondition": "User action and in-world context inferred; exact UI target selector unknown",
+      "related_packets": [
+        "PKT-S07",
+        "PKT-S5F",
+        "PKT-S0E",
+        "PKT-S44"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A024-E08",
+        "A024-E09"
+      ],
+      "manual_validation": "not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md"
     }
   ]
 }

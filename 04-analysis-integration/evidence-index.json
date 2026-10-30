@@ -2460,6 +2460,28 @@
       "test_path": "task_a/roy2/a024_npc_codec.py",
       "raw_assets_shared": false,
       "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E08",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "CAttackPacket RTTI vtable 0x613530/0x61353C, ctor 0x570A10 pushes C2S opcode 0x13, writer 0x570AC0 reads local+0x18 and calls BE u32 writer 0x45AC40; external ctor callers 0x55709E and 0x557A5F; original UI target selection condition not fully proved",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/test_a024_npc_codec.py",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E09",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static + synthetic-test",
+      "locator": "CObjectInfoRequestPacket ctor 0x574500 sends opcode 0x43; serializer 0x5745B0 uses u8 writer 0x45AB00, BE u32 writer 0x45AC40, u8 writer 0x45AB00; multiple producers incl. 0x479DC7, 0x4A23F8. Native NPC recruiter click mapping unknown; offline C13/C43 synthetic vectors added, 7 tests total PASS",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/test_a024_npc_codec.py",
+      "native_client_validation": "not-run"
     }
   ]
 }
