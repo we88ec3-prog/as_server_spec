@@ -2288,6 +2288,94 @@
         "Native server sex/hair allowed set, name encoding/validation/duplicate status and multi character support unknown",
         "No native C03 preprovisioned account character creation route or original-server DB trace"
       ]
+    },
+    {
+      "evidence_id": "A014-E01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "RTTI descriptors 0x6694C4,0x669558,0x669760,0x669994 → CGroup/CMemberList/CSay/CWhisper vtable; constructors 0x572D30 op2E,0x573550 op12,0x574FC0 op0E,0x578220 op19",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E02",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "C0E 0x575070 writer type:u8+string8; C19 0x5782D0 writer type:u8+target:string8+text:string8; C2E 0x572DE0 op0/1; C12 0x573600 op/sub discriminant",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E03",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "SMessage 0x582150/op0A parser0x582200, SSay 0x586120/op0D parser0x5861D0, SMemberList 0x580040/op58 parser0x5800F0, SUpdateGroupMembers 0x5887A0/op3A subtype5",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E04",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "SSay type4 additional string16 and BE u32; SUpdate group local member struct uses 0x208B stride around 0x588820..0x588f20, not wire stride",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E05",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "UTF16 UI action strings ChatInputDialog/FriendListDialog/GroupMemberDialog/GuildListDialog/WhisperTargetDialog/InputChat/InputWhisper/InputShoutToGroup/InputShoutToGuild; Chat UI 0x42E03C creates CSay, 0x42E0A0/0x42E140 creates CWhisper",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E06",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test",
+      "locator": "test_a014_social.py synthetic CP950 decoded C0E/C19/C2E fixtures and malformed/overlong codepoint string tests; no real native Client E2E",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E07",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "designed",
+      "locator": "Fail-closed auth world generation, group/guild member revision, permissions, offline, replay and concurrency routing state model; not original Server policy",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E08",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static+unknown",
+      "locator": "No separate CGuild/SGuild RTTI class identified; group/guild chat mapping, C2E/C12 subtypes and S58/S3A rows/native rejection meanings remain unknown",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
     }
   ]
 }

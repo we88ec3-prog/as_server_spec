@@ -305,7 +305,15 @@
       "status": "integrated",
       "assignee": "roy2",
       "evidence_ids": [
-        "ev_a014_20261031_asgard_social_static"
+        "ev_a014_20261031_asgard_social_static",
+        "A014-E01",
+        "A014-E02",
+        "A014-E03",
+        "A014-E04",
+        "A014-E05",
+        "A014-E06",
+        "A014-E07",
+        "A014-E08"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -327,7 +335,8 @@
         "CT-047",
         "CT-048",
         "CT-049"
-      ]
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-015",
