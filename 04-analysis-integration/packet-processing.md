@@ -75,3 +75,16 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## A-002 更正 C25 誤標與登入轉服 wire
 
 原版 C03：`string8 account,string8 password,u8 flag`；S02：`u8 status,string8 message`；S03：`u32_be addr,u16_be port,u8 token_len,raw bytes`；C10：**raw token body**、無第二個 u8 length。位址 `0x4A8370` 是 S03 的 transfer handler，不可當 C25 的 region parser。真實 Server 的 duplicate-login status/policy 未知。見 [A-002 靜態核對](A-002-merge-verification.md)。
+
+
+## A-024 NPC/Monster Client I/O（decoded S2C static subset）
+
+|PKT|原生 ctor → reader|已證 Body|門檻|
+|---|---|---|---|
+|S07 DrawObjects|0x57E310 → 0x57E3E0|BE u16 count + variant rows；首欄 BE u16,u16,u8,u32,u16；type1..14 分支|0x228 是 **local struct stride**，不是 wire row size；非空變體仍需 BIN 深查|
+|S0C MoveObject|0x5833A0 → 0x583450|BE u32,u16,u16,u8,u8|位置/速度語意 unknown|
+|S64 MovePath|0x583530 → 0x5835E0|BE u32,u16,u16,u8,u8 count, count*u8, u16,u16,u8|local 路徑 +0x23..+0x2D 只有 11 slots：Server 保守 cap11 是 **designed**, 非原服已證界限|
+|S5F DieObjects|0x57E1B0 → 0x57E260|BE u32|原版死亡/HP/掉落分支未知|
+|S0E RemoveObjects|0x585E60 → 0x585F10|BE u32|觸發清除時機/範圍未知|
+
+\`C43 CObjectInfoRequest\` 類存在但不能直接認定為 NPC click；A-023 \`Born.dat\` 提及 (31,29) 只是 UI 引導，非出生或 NPC id。原生源頭與原服 AI 規格 unknown，禁止預設 type/category/respawn seconds。Server 應由 authenticated World/instance/epoch 投影、去重、限制未知 type；**這是 designed**。CT-021/022/034 仍 planned。參照 [A-024](../task_a/roy2/A-024-analysis.md)／[synthetic tests](../task_a/roy2/test_a024_npc_codec.py)。

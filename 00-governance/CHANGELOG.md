@@ -73,3 +73,8 @@ A-002 C03/S03/C10 static Client contract 及 roy1 更正的 A-022 C25 handler �
 ## 2026-10-31 A-017 admin ops traceability conclusion
 
 A-017 administrative account provisioning, ban/unban and sanitized audit integrated as designed Server API (not native GM wire), native Client not-run. CT-050/051 are management security/audit (old roy1 names CT-045/046 conflict with A-016); linked R-018/R-019/R-021/R-025 and SQLite synthetic tool `tools/a017_ops_contract.py`.
+
+
+## A-024 Client NPC/Monster S2C parse evidence — 2026-10-31
+
+依指定 \`task_a/roy2\` 分支（未建立新分支），確認原版 EXE S07/S0C/S64/S5F/S0E opcode 和已證 BE fields，提供 6 項 synthetic tests、SCN-011/CT-021/022 traceability 和解析器。真實新手 map/spawn/NPC interaction/monster AI 未見原始綁定；A-024 \`integrated/partial/native-client-not-run\`，不得假定完整教學已能遊玩。
