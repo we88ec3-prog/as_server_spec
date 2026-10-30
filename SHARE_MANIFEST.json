@@ -56,6 +56,10 @@
       "sha256": "3074ab1425b03acd42b1b381487462ad25cedcbacf36ec62bd3a9a8b2a3de74f"
     },
     {
+      "path": "02-server-planning/admin-operations.json",
+      "sha256": "cd38b52249f5259558655e529e919fdd359de07055b51dc7f1ba1653f2a51cb5"
+    },
+    {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
       "sha256": "b4fea6573859f302bda2aa46b889d3df080d134f4c236e8d7d7f089c9eb09286"
     },
@@ -77,7 +81,7 @@
     },
     {
       "path": "02-server-planning/merge-20261031-roy1-roy2.md",
-      "sha256": "7c2c6274749261d848c429415daa6ea2a01866cadcccbcc36f0ccb627db02d74"
+      "sha256": "28ba81de7abbe87dd49cad89a5b1a28b9f4a4f88e9f1f29b1e1ebc166645140d"
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
@@ -122,6 +126,10 @@
     {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "sha256": "d4069165b56341272e0fe58879b797f89372ac6852a787505c0b6cb06e7e5047"
+    },
+    {
+      "path": "03-analysis-requests/A-017-roy1-admin-audit.md",
+      "sha256": "c015ef6e1bbfd665619efa84ff16c598c972ebe853f35729ddfd60432c02a627"
     },
     {
       "path": "03-analysis-requests/A-021-acceptance.md",
@@ -174,6 +182,10 @@
     {
       "path": "04-analysis-integration/A-016-idempotency-recovery.md",
       "sha256": "6ce3abea2f9e31d7cbe9959ed11f3ba441845337ac43706ae36969d3196b4673"
+    },
+    {
+      "path": "04-analysis-integration/A-017-admin-observability-contract.md",
+      "sha256": "8bd67833b0a83c66b7ed40549e052c5e3d25ddba0bf2cc1858167e2fe72b55f0"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",

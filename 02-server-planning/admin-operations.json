@@ -167,5 +167,10 @@
     "full_script_text"
   ],
   "native_client_validation": "not-run",
-  "analysis_status": "designed"
+  "analysis_status": "designed",
+  "conformance": [
+    "CT-050",
+    "CT-051"
+  ],
+  "analysis_handoff": "A-017 integrated/ready for designed management API and observability only; no original Client GM opcode nor deployed server verification"
 }
