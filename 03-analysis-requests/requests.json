@@ -51,12 +51,26 @@
       "title": "重複登入及斷線交接",
       "method": "正常／錯誤密碼／token過期／同帳號兩連線／交接途中斷線。",
       "deliverable": "以 BIN/Client parser/可取得的原始封包證據提供登入與重複登入/斷線交接狀態機、已知失敗分支、未解字段和 Server 模擬/雙 Client 實測計畫；完整新 Server 上的雙 Client 驗收歸下游 CT，不阻塞有證據的分析交付。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "evidence_kind": "observed-static",
+      "analysis_report": "03-analysis-requests/A-002-roy1-login-transfer.md",
+      "analysis_test": "tools/a002_session_model.py",
+      "implementation_ready": true,
+      "implementation_policy": "latest-authenticated-login-wins is designed (not native proven); World generation+one-time transfer grant; login socket close must not revoke pending transfer grant",
+      "remaining_unknowns": [
+        "native duplicate-login/kick decision and S02 status mapping",
+        "region other than 3/4 S03 callback selection",
+        "C03 flag native meaning",
+        "native token timeout/reconnection policy"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-003",

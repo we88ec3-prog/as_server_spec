@@ -63,7 +63,7 @@
       "name": "Login",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "string8 name,string8 password,u8 flag",
+      "layout": "string8 account,string8 password,u8 client_flag; original serializer 0x573110 and Login UI 0x4a7d10; flag meaning unknown",
       "client_entry": "0x573110",
       "state_precondition": "版本／公告完成",
       "related_packets": [
@@ -78,7 +78,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
+      ],
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-C04",
@@ -111,7 +115,7 @@
       "name": "TransferToken",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "raw opaque token，非string8",
+      "layout": "raw opaque token bytes, no u8 length prefix or string8 wrapper; native constructor 0x577330, writer 0x5773e0 -> 0x45b4c0; C2S plaintext exception",
       "client_entry": "runtime-transfer",
       "state_precondition": "轉服新連線首包",
       "related_packets": [],
@@ -123,7 +127,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
+      ],
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-C11",
@@ -198,8 +206,8 @@
       "name": "WorldEntryMetadata",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "region 3/4 contain separate metadata handling at 0x4a8370; not universally empty body",
-      "client_entry": "0x4a8370",
+      "layout": "World entry metadata: region-specific layout partial; do NOT cite 0x4a8370 as C25, that VA is S03 transfer handler",
+      "client_entry": "unresolved; previously misattributed 0x4a8370 is S03 callback",
       "state_precondition": "token交接完成",
       "related_packets": [
         "PKT-S02",
@@ -217,9 +225,11 @@
         "R-007"
       ],
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a002_20261031_asgard_login_transfer_static"
       ],
-      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-C33",
@@ -350,7 +360,7 @@
       "name": "LoginOrCreateResult",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 status,string8 message；在MakeInfoDialog local_state=0x1d且status=0時發C04；錯誤碼意義未全解",
+      "layout": "u8 status,string8 message; LoginDialog wrong-password status3 is prior tested fixture, duplicate-login status UNKNOWN",
       "client_entry": "0x57dbc0",
       "state_precondition": "登入／創角／進世界初始化",
       "related_packets": [],
@@ -364,9 +374,11 @@
         "R-002"
       ],
       "evidence_ids": [
-        "ev_a021_20261031_asgard_static"
+        "ev_a021_20261031_asgard_static",
+        "ev_a002_20261031_asgard_login_transfer_static"
       ],
-      "native_static_report": "04-analysis-integration/A-021-native-flow.md"
+      "native_static_report": "04-analysis-integration/A-021-native-flow.md",
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-S03",
@@ -375,13 +387,13 @@
       "name": "TransferServer",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u32 address,u16 port,u8 token_size,raw token；位元序見情境",
+      "layout": "BE u32 address,BE u16 port,u8 token_length,raw token[token_length]; native 0x5886c0; region3/4 transfer handler 0x4a8370",
       "client_entry": "0x5886c0",
       "state_precondition": "登入成功",
       "related_packets": [
         "PKT-C10"
       ],
-      "layout_status": "partial",
+      "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
       ],
@@ -389,7 +401,11 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
+      ],
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
     },
     {
       "id": "PKT-S04",

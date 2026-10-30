@@ -19,7 +19,9 @@
         "SCN-007"
       ],
       "conformance": [
-        "CT-019"
+        "CT-019",
+        "CT-037",
+        "CT-038"
       ],
       "depends_on": [],
       "readiness": "design-ready-minimal-profile",
@@ -27,7 +29,8 @@
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
-      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff"
+      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
+      "analysis_handoff": "A-002 integrated/partial: C03/S02/S03/C10 static Client codec and cross-TCP handoff; original duplicate login policy unknown"
     },
     {
       "id": "ONB-02",
@@ -103,7 +106,8 @@
       ],
       "analysis_requests": [
         "A-016",
-        "A-022"
+        "A-022",
+        "A-002"
       ],
       "scenarios": [
         "SCN-010"
@@ -111,7 +115,9 @@
       "conformance": [
         "CT-015",
         "CT-017",
-        "CT-035"
+        "CT-035",
+        "CT-037",
+        "CT-038"
       ],
       "depends_on": [
         "ONB-03"

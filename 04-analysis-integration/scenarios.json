@@ -33,7 +33,10 @@
         "PKT-S33"
       ],
       "status": "manual-pass-subset",
-      "notes": "已補最小本機公告與清單路徑；其他metadata／Script種類待A-020，未納入的Client確認包仍須分別查核。"
+      "notes": "已補最小本機公告與清單路徑；其他metadata／Script種類待A-020，未納入的Client確認包仍須分別查核。 A-002 static: S03 0x5886c0 reads u32 address/u16 port/u8 len/raw token; region3/4 transfer 0x4a8370 creates plain C10 raw token without length prefix, via 0x577330/0x5773e0. Native duplicate-login outcome unknown.",
+      "analysis_evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
+      ]
     },
     {
       "id": "SCN-002",
@@ -134,10 +137,13 @@
         "帳號不存在/錯密/停權",
         "管理建帳並發/重送"
       ],
-      "notes": "管理員經獨立管理 API 預建帳號；Client 僅能登入既有帳號。C02 無 Account.Create 權限；原生空角色轉場待 A-021。 Security: do not treat C02 before login as authenticated Account/Character owner. A-027 must establish proof. This remains analysis-required.",
+      "notes": "管理員經獨立管理 API 預建帳號；Client 僅能登入既有帳號。C02 無 Account.Create 權限；原生空角色轉場待 A-021。 Security: do not treat C02 before login as authenticated Account/Character owner. A-027 must establish proof. This remains analysis-required. A-002 designed: failed C03 never evicts current World; successful account auth alone issues generation-bound one-use transfer grant; login-socket close must not immediately revoke pending grant.",
       "known_from_roy1": "C02 may be sent before C03; client C02 has no authority to create Account or claim admin-provisioned account",
       "analysis_blockers": [
         "A-027"
+      ],
+      "analysis_evidence_ids": [
+        "ev_a002_20261031_asgard_login_transfer_static"
       ]
     },
     {
@@ -283,9 +289,10 @@
         "舊世代操作",
         "雙連線"
       ],
-      "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。",
+      "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-002 designed: old World disconnect/packet cannot remove new World generation; World C10 atomic consume; expired/reused/wrong-owner grant and crash residue are rejected.",
       "analysis_evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a002_20261031_asgard_login_transfer_static"
       ],
       "a022_map_analysis_notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-022 designed: epoch/resource version binds expected C35; wrong or old checksums rejected, reconcile after crash/disconnect; tutorial_entry_committed distinct from tutorial_completed."
     },

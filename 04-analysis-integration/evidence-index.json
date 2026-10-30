@@ -1763,6 +1763,33 @@
       "resource_client_version_binding": "n/a",
       "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
       "report_path": "task_a/roy2/A-023-script-entry-contract.md"
+    },
+    {
+      "evidence_id": "ev_a002_20261031_asgard_login_transfer_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "method": "objdump -D -M intel of supplied unmodified Asgard.exe, C03 and S03/C10 x86 data flow; previously recorded seed0 login fixture cross-reference",
+      "scope": "A-002 static C03/S02/S03/C10 and region3/4 S03 transfer handler, no original duplicate-login server policy inferred",
+      "functions": [
+        "0x573060",
+        "0x573110",
+        "0x4a7d10",
+        "0x57dbc0",
+        "0x588610",
+        "0x5886c0",
+        "0x4a8370",
+        "0x577330",
+        "0x5773e0",
+        "0x45b4c0",
+        "0x53c460"
+      ],
+      "report": "03-analysis-requests/A-002-roy1-login-transfer.md",
+      "synthetic_model": "tools/a002_session_model.py",
+      "limits": [
+        "original server duplicate-login policy not recoverable from client only",
+        "different region S03 handler and duplicate-status messages unknown"
+      ]
     }
   ]
 }
