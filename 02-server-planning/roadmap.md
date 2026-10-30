@@ -14,3 +14,7 @@
 ## M1 內新增 ONB 首次玩家 P0 子里程碑
 
 ONB-01 管理後台建帳和安全登入 → ONB-02 Client 創角（需 A-021）→ ONB-03 首次原生教學進圖（需 A-022）→ ONB-04 故障回復與 CT/原 Client 驗收。ONB-05 怪物、NPC、技能及完成教學為後續階段，**不算本次首次進圖已完成**。見 [first-login-onboarding.md](first-login-onboarding.md)。
+
+## 首次玩家到完整教學的新階段（2026-10-31）
+
+M1/ONB-01～04 定義「管理員建帳→玩家登入→創角→進入原生教學→故障恢復」；M2/M3/ONB-05～06 定義「教學 NPC/怪物→技能/目標→完成與退出」。見 [ONB 進度板](onboarding-delivery-board.md)、[機讀開發批次](work-items.json)、[教學 Server 規劃](tutorial-runtime-plan.md)。規劃完成不等於 Server 已實作或原 Client 驗收。

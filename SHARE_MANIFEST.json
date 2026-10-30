@@ -13,7 +13,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "b2926fd5f11272c509c65f0eb89620e350bdbc2ea021388763472b5d09c17184"
+      "sha256": "8552a7684b1a5081bd57644150a36a81b4aaf6d48a792dde98493ab531c8ec16"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "01-server-requirements/README.md",
-      "sha256": "9d4ee1a66fb4348138a0c08ae88dba80158a7b795a7f678b27dfe049d4ba2464"
+      "sha256": "92bd8c904155aff6c84e6592427f96489bb3f781b423fa0cfe6f8ec7f9901cf7"
     },
     {
       "path": "01-server-requirements/requirements.json",
@@ -69,7 +69,7 @@
     },
     {
       "path": "02-server-planning/roadmap.md",
-      "sha256": "b4e7852cfee5525afac0c2dd203a1520bda89a2e844b4fb3d366a1e7feafff1f"
+      "sha256": "28ce42c9c879782455ce4c6a23c9abce774758737bac34a2054e122f32bfffd6"
     },
     {
       "path": "02-server-planning/systems.json",
@@ -89,7 +89,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "15cfbfa4efcb1294cf2a0526ab4e36e3927fd40d93b9014d6af30566bd792e7a"
+      "sha256": "b9f381e6893feddc58f7f3124f6f3e6bab2377e2efce85cee26a0672848a4327"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -153,7 +153,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "452d4938341f76ca4aa40626e054af7c9a3fa923c622ac9e26922353f2a66548"
+      "sha256": "848cb31732c851970a6785c7dae7800338b1fefca7ca2300633afe2c8bd61d36"
     },
     {
       "path": "04-analysis-integration/transport.md",
@@ -177,7 +177,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "a0715397450a287d5d9c8a08b2969009f6cddfdcd7ac9a1d0d2338b145d9f585"
+      "sha256": "7c49c24e8d1ee6a83befe95f61b01f1e4839104047ab305791025c3d8dd88fc7"
     }
   ]
 }

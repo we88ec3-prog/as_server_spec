@@ -28,3 +28,11 @@ C33(direction,seq,gait) → Server驗證（碰撞／速度待補）→ S0B(new_x
 - **SCN-010**：創角、token、進圖提交前後故障恢復；教學入口與完成狀態分離。
 
 參見 [完整需求](../01-server-requirements/first-login-onboarding.md) 與 scenarios.json；既有 SCN-001 已驗收子集不更改。
+
+## SCN-011～013：完整教學的新增待分析情境
+
+- SCN-011：原生教學地圖的 NPC／怪物生成、行動及清除（A-024）。
+- SCN-012：原生 Client 技能／攻擊指令、Server 判定與任務進度（A-025）。
+- SCN-013：原生教學完成、存在才發的獎勵、出圖、恢復（A-026）。
+
+scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據的教程 opcode**，不是不需要封包。

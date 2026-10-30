@@ -31,3 +31,11 @@
 ## 首次玩家：管理建帳 → Client 登入 → 創角 → 新手教學（2026-10-31）
 
 已確認使用者需求：**帳號由管理員透過獨立後台建立，玩家只能使用原始 Client 登入並建立角色，不能由 Client 註冊帳號**。新的規格鏈： [R-025～028](01-server-requirements/first-login-onboarding.md) → [跨系統 ONB 規劃](02-server-planning/first-login-onboarding.md) → [A-021～023](03-analysis-requests/README.md) → [SCN-007～010](04-analysis-integration/scenarios.md) → [CT-011～020](05-conformance/onboarding-test-plan.md)。目前是規劃／待分析，不是新手地圖已通過原 Client 實測。
+
+## 首次玩家流程已規劃延伸至教學完成（2026-10-31）
+
+本次新增 **R-029～031**（教學 NPC/怪物、技能/目標、完成/退出）、**A-024～026**（待逆向）、**SCN-011～013**（分析必要）與 **CT-021～028**（planned）。
+
+[最新 Server 進度板](02-server-planning/onboarding-delivery-board.md) · [A-XX 分析交付包](03-analysis-requests/onboarding-assignment-pack.md) · [ONB-01～06 開發批次](02-server-planning/work-items.json) · [教學 Server 詳細規劃](02-server-planning/tutorial-runtime-plan.md) · [CT-021～028 驗收計畫](05-conformance/tutorial-test-plan.md)。
+
+管理員建立 Account、玩家只用原 Client 登入的 R-025 決策不變；本次規劃仍不代表教程已開發或跑通原 Client。
