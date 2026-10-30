@@ -16,8 +16,8 @@ RTTI class descriptor 在原 EXE `.data`：`CGroupPacket@0x6694C4`、`CMemberLis
 |C2S `0x19`|CWhisperPacket `0x578220`，`0x5782D0` serializer|`type:u8, target:string8, text:string8`|type 具體值、不可送達/封鎖/密語回覆尚未完整驗證|
 |C2S `0x2E`|CGroupPacket `0x572D30`，`0x572DE0` serializer|`op:u8`; op=0 `+name:string8`; op=1 `+name:string8 +flag1:u8(bool) +flag2:u8(bool)`; other op 僅寫 op|未知 op 可能有其它資料由其他方法寫入；type0/1 **不是**已證邀請/踢人/解散語意|
 |C2S `0x12`|CMemberListPacket `0x573550`，`0x573600` serializer|`op:u8`; op0 `+sub:u8`; op1 `+sub:u8`, 再分 1..5，部分為 1/2 個 `string8`（各上限 30 bytes）、部分 `u8`；op2 `+sub:u8`，sub1 `+u32`，sub2 `+string8`; op3 `+sub:u8`，sub1/2 `+string8`|不可把不同 op/sub 誤解為同一種公會／好友操作；需逐 UI 呼叫點補語意|
-|S2C `0x0A`|SMessagePacket `0x582150`，`0x582200` reader|`type:u8 + text:string16` 的讀取入口；`0x45B890` 以長度限制 `0x752F` 呼叫|既有 AUTH/SYS 中 S0A 用於狀態訊息；不應全部轉作聊天訊息|
-|S2C `0x0D`|SSayPacket `0x586120`，`0x5861D0` reader|`type:u8, source_id:u32, text:string16`；type4 另外讀 `text2:string16, number:u32`|source_id 身分/可見範圍、type↔頻道名稱、type4 顯示語意待證|
+|S2C `0x0A`|SMessagePacket `0x582150`，`0x582200` reader|`type:u8 + text:string8` 的讀取入口；`0x45B890` 以長度限制 `0x752F` 呼叫|既有 AUTH/SYS 中 S0A 用於狀態訊息；不應全部轉作聊天訊息|
+|S2C `0x0D`|SSayPacket `0x586120`，`0x5861D0` reader|`type:u8, source_id:BE u32, text:string8`；type4 另外讀 `text2:string8, number:BE u32` (`0x45B7A0`)|source_id 身分/可見範圍、type↔頻道名稱、type4 顯示語意待證|
 |S2C `0x58`|SMemberListPacket `0x580040`，`0x5800F0` reader|`type:u8, subtype:u8`；後續資料由分支/別的函式進一步處理|成員清單原始逐列格式與成員上限仍 partial|
 |S2C `0x3A`|SUpdateGroupMembersPacket `0x5887A0`，於 `0x5887CA` 檢查 subtype=5|`SUpdateGroupMembers` 類別存在，某 subtype5 建構階段額外初始化；內含 0x208B 步長之成員結構處理（`0x588800..0x588F20`）|內部 `0x208` 是本機結構不是 wire stride！不可把它當成封包長度或固定成員上限|
 
@@ -33,6 +33,8 @@ RTTI class descriptor 在原 EXE `.data`：`CGroupPacket@0x6694C4`、`CMemberLis
 |公會通話|InputShoutToGuild、GuildListDialog、C0E type 對照待查|Server 按 guild_id/member 權威；不假設與 group 等同|UI 存在 **observed-static**；native guild protocol **unknown**|
 |群組/名單操作|C2E、C12 與 S58/S3A，有操作型別和多分支|Server 驗證邀請者與被邀請者、在同一 group、當下權限、epoch 和原子成員更新|packet 架構 **observed-static**；每個 op 對應語意 **unknown**|
 |好友/封鎖密語|FriendListDialog、`Friend%02d`、`BlockWhisper%02d` 設定名稱|本機設定≠已確認原服資料庫；不可直接改成 Server-backed 好友名單|UI/設定字串 **observed-static**，跨裝置同步 **unknown**|
+
+**重要**：S0D/SSay 實際從 `0x45B7A0` 讀取 **string8（u8 byte 長度）**；S0A/SMessage `0x45B890` 才是 **string16（BE u16 byte 長度）**。前一版把 S0D 寫作 string16 的推斷已依 BIN 改正，兩種 S2C 不可混用。
 
 **重要**：目前未從 EXE 取得有獨立 `CGuildPacket/SGuildPacket` 類名；這只是掃描範圍內的負面證據，**不是原版沒有公會功能**。Guild 很可能經共用 member/group 類或另一封包；未可證明前不執行原生 guild command。
 
@@ -54,3 +56,7 @@ python -m unittest discover -s task_a/roy2 -p 'test_a014_social.py'
 ```
 
 契約與負向測試詳見 [A-014-social-test-plan.md](../../05-conformance/A-014-social-test-plan.md)。**不要求先有新 Server 才研究**：A 逆向已證欄位可移交 DEV；原生 A-014 group/guild type/subtype 對照、收件路由與原服拒絕 status 需要後續 BIN UI crossrefs / 合法 Native traces。A-014 結論 `status=integrated, handoff_status=partial, native_client_validation=not-run`；可先實作純聊天/密語的已知 codec + 權威安全模型，群組/公會仍不可宣稱 native-compatible ready。
+
+## 與最新 main 的 A-014 核對補正
+
+因其他分析者亦在 main 推入 A-014 部分證據，請以其已占用的 **CT-047／CT-048** 為正式索引；原本這份子分支對 CT-041～043 的暫定編號**作廢**（已被 A-027/A-028 等任務占用），不能再次分配。核心 S0D 文字欄已實際追 `0x5861F2 → 0x45B7A0`（第一條）與 type4 第二次 `0x58620D → 0x45B7A0`，證實 **string8**；S0A `0x582218 → 0x45B890` **string16**。所有原服頻道／公會權威仍 unknown。

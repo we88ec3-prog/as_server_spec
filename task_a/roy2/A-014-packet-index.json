@@ -47,7 +47,7 @@
       "op": "0x0a",
       "ctor": "0x582150",
       "method": "0x582200",
-      "layout": "u8 type + string16",
+      "layout": "u8 type + string16 (0x45B890)",
       "notes": "already exists AUTH/SYS; do not reclassify all as chat"
     },
     {
@@ -56,7 +56,7 @@
       "op": "0x0d",
       "ctor": "0x586120",
       "method": "0x5861d0",
-      "layout": "u8 type,u32 source_id,string16 text; type4 extra string16 text2,u32 extra"
+      "layout": "u8 type, BE u32 source_id, string8 text (0x45B7A0); type4 additional string8 text2, BE u32 extra"
     },
     {
       "id": "PKT-S58",
@@ -85,5 +85,19 @@
     "S58/S3A full group list row",
     "native guild wire class/semantics",
     "native S0A/S0D error subtype"
+  ],
+  "native_reader_correction": {
+    "status": "verified-from-EXE",
+    "S0D": "0x5861F2/0x58620D -> 0x45B7A0 (string8)",
+    "S0A": "0x582218 -> 0x45B890 (string16)"
+  },
+  "official_conformance_ids": [
+    "CT-047",
+    "CT-048"
+  ],
+  "obsolete_branch_CT_ids": [
+    "CT-041",
+    "CT-042",
+    "CT-043"
   ]
 }
