@@ -222,6 +222,74 @@
         "雙連線"
       ],
       "notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。"
+    },
+    {
+      "id": "SCN-011",
+      "title": "教學場景 NPC/怪物生成、行動與清除",
+      "requirements": [
+        "R-027",
+        "R-029"
+      ],
+      "packets": [],
+      "status": "analysis-required",
+      "evidence_kind": "designed",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "notes": "已進教學且地圖載入成功後，根據原生內容證據實體化 NPC/怪物，進行有權限的可見性廣播、狀態更新及回收。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+      "failure_cases": [
+        "重複 spawn",
+        "越界位置",
+        "舊 instance AI",
+        "資源缺失"
+      ],
+      "packet_mapping": "unknown"
+    },
+    {
+      "id": "SCN-012",
+      "title": "教學技能/攻擊到任務目標更新",
+      "requirements": [
+        "R-010",
+        "R-011",
+        "R-030"
+      ],
+      "packets": [],
+      "status": "analysis-required",
+      "evidence_kind": "designed",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "notes": "合法施放/攻擊經 Server 驗證目標、資源、冷卻與狀態，再產生效果與可去重的任務進度事件；原版是否要求攻擊待 A-025。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+      "failure_cases": [
+        "非法目標",
+        "資源不足",
+        "cooldown",
+        "重送",
+        "亂序",
+        "死亡中斷"
+      ],
+      "packet_mapping": "unknown"
+    },
+    {
+      "id": "SCN-013",
+      "title": "滿足條件後完成教學、發獎與退出",
+      "requirements": [
+        "R-013",
+        "R-017",
+        "R-031"
+      ],
+      "packets": [],
+      "status": "analysis-required",
+      "evidence_kind": "designed",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "notes": "已確認的教程條件成立後持久化完成進度，任何原版有的獎勵僅授予一次，按原生證據轉入一般地圖並可重登。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+      "failure_cases": [
+        "未完成提前請求",
+        "回覆丟失",
+        "重領",
+        "切圖失敗",
+        "重啟"
+      ],
+      "packet_mapping": "unknown"
     }
   ]
 }

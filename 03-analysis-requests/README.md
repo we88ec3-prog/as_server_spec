@@ -45,7 +45,7 @@
 - **A-026（P1）**：教學完成/獎勵是否存在、出口轉圖與重登。
 
 A-021/A-022 應優先分配，A-023 可先做靜態研究；**所有新 A 仍 open/unassigned**。詳見 [可交付給分析人員的分工包](onboarding-assignment-pack.md)。
+ 
+## A-021 / roy1 靜態分析（2026-10-31）
 
-## A-021 roy1 靜態分析結果（2026-10-31）
-
-已上傳 [原版 EXE 逐位址可重現研究](A-021-roy1-static-analysis.md) 與 [04 協定整合子集](../04-analysis-integration/A-021-native-flow.md)。C02 region 2..4 的四字串+byte、非此範圍三字串、C04 五 byte、S02 status+string8，以及 MakeInfoDialog 內 C02→S02(成功)→C04 的傳送路徑已有 **observed-static** 證據。**A-021 標 blocked 而非 integrated**：尚缺「預建空角色帳號可實際進入原生創角 UI」、C02 欄位語意、C04 後轉場和原版 Client 完整故障分支的 runtime 驗證。不要把 C02 默認成可由玩家建立 Account。
+已上傳 [原版 EXE 逐位址研究](A-021-roy1-static-analysis.md) 和 [協定子集](../04-analysis-integration/A-021-native-flow.md)。C02 region2..4 四字串+byte、其他 region 三字串、C04 五 byte、S02 status+string8、UI C02→S02(成功)→C04 路徑已有 observed-static。**A-021 現為 blocked（分派 roy1），非 integrated**：尚需預建無角帳號原 Client 實測、C02 欄位語意、C04 後轉服/重登與失敗分支。不可讓 Client 使用 C02 建立 Account。

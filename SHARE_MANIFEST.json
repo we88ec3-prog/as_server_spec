@@ -13,7 +13,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "7cd33f8c869f346d36b29966d30bf28adfd73129f9ce8258b4002212e34e69ad"
+      "sha256": "38be8752c28c98e8b5f114ad40ce3d6c3ed537072465fb5c825032f55064301d"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -93,7 +93,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "066a0988a20031307b8b59bd2003f1f29a4592fc82088db27385eed89b49b735"
+      "sha256": "c163a7f2da43d4b36639191404f7b1203000f0f86516660ab1772cb5bd0df03b"
     },
     {
       "path": "03-analysis-requests/request-template.md",

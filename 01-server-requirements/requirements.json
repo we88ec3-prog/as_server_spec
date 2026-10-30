@@ -285,6 +285,39 @@
       "status": "specified",
       "stage": "requirement",
       "evidence_kind": "designed"
+    },
+    {
+      "id": "R-029",
+      "system": "SYS-NPC",
+      "priority": "P1",
+      "title": "教學 NPC/怪物生成與行動",
+      "acceptance": "教學場景依原 Client 證據生成 NPC/怪物，行動、可見性與回收由 Server 權威控制；未確認的內容不得假冒原生。",
+      "baseline": "設計需求，原 Client 玩法待 A-023..026 取證",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed"
+    },
+    {
+      "id": "R-030",
+      "system": "SYS-SKILL",
+      "priority": "P1",
+      "title": "教學技能/戰鬥與目標進度",
+      "acceptance": "依已確認的 Client 指令及目標合法性結算教學技能/攻擊、消耗、怪物狀態及任務目標，重送不重複計數。",
+      "baseline": "設計需求，原 Client 玩法待 A-023..026 取證",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed"
+    },
+    {
+      "id": "R-031",
+      "system": "SYS-QUEST",
+      "priority": "P1",
+      "title": "完成教學、可選獎勵與離開",
+      "acceptance": "依原 Client 可證明的任務／互動條件完成教學、持久化進度、一次性授予已確認的獎勵，並轉到合法地圖；重登一致。",
+      "baseline": "設計需求，原 Client 玩法待 A-023..026 取證",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed"
     }
   ]
 }
