@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "182c9664b5407d3f18d1eb61074e0b07a9acfe21d6f93af5398bf73ea55301c6"
+      "sha256": "4b6754404e887f20b1994589ef125d113e93982fcd5d0a71567fe10aa9a688e6"
     },
     {
       "path": "00-governance/workflow.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/merge-20261031-roy1-roy2.md",
-      "sha256": "28ba81de7abbe87dd49cad89a5b1a28b9f4a4f88e9f1f29b1e1ebc166645140d"
+      "sha256": "147ff541406de192390e91355a138c2405f0120c84aff9820e24740c216188e3"
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
@@ -122,6 +122,10 @@
     {
       "path": "03-analysis-requests/A-002-roy1-login-transfer.md",
       "sha256": "90a34aa37e8fdc57416579144d82543139af71cc8a4ed737e7886d1e6eb08a23"
+    },
+    {
+      "path": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "sha256": "ab962fead296d4cfa0b02c01705e3d4242ca616d1cc069d6a553b7ee36b5bddf"
     },
     {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
@@ -169,7 +173,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "43c78c68afd2af84daa2d23c827a9d0231eb97c37fdbbbfc61d30a282e3cf3e6"
+      "sha256": "b32821421239acaa3abcd49728361d03887a1eb5d573cb39075987b142502450"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -178,6 +182,10 @@
     {
       "path": "04-analysis-integration/A-002-merge-verification.md",
       "sha256": "75b7543978fc97e0efad0dcbcfb3424483e3c107cdf5a88173d7480ec5f5e369"
+    },
+    {
+      "path": "04-analysis-integration/A-003-character-create-contract.md",
+      "sha256": "dcdb47793b979fcc2f15c8e84fc303dc5658a3ccfbb16c04612e8a392d686938"
     },
     {
       "path": "04-analysis-integration/A-016-idempotency-recovery.md",
@@ -241,7 +249,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "47caf9346f16c4ed686aa3bce0e8439e3fae4a38515fde017fa88c8b1a9435e4"
+      "sha256": "8a4e905e14f465bf60502b05fe59bd045694859c0bd15f8523d11108e3248b27"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -257,7 +265,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "dba553ce0da4279a3707d51a8ac20dab97a4b0335760aaee917429e3f003d938"
+      "sha256": "ed7d7f21a7d781a745b19824d1cc544e090693e632b8b03efd001ec926f6d742"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -317,7 +325,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "3db2a3b69cc8c3d86fcc4a89e45a248191a93cda82aca999b19c3649a476293e"
+      "sha256": "2a834f6c49e9e203f790f7723cfea082acb0a827ee0569bc6ef606a573da47ad"
     },
     {
       "path": "README.md",
@@ -325,7 +333,7 @@
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
-      "sha256": "8fb001ebb2956ba8a91a3ec98008da485071d27769aebeae6315238aa6899593"
+      "sha256": "3274236f3e9d148b867bda3d282bc159247c9f9c5496c2fbbdb7d798d75aba6e"
     },
     {
       "path": "task_a/roy2/A-014-packet-index.json",
@@ -402,6 +410,10 @@
     {
       "path": "tools/a002_session_model.py",
       "sha256": "1b5ce8336b83bff995467642fde693fe66e3b9a64a6533c365c02030ebbd7a13"
+    },
+    {
+      "path": "tools/a003_create_contract.py",
+      "sha256": "00b8ee1d644211c0993203dfc35cbbd93fab14001e2485508876959cc6382a7d"
     },
     {
       "path": "tools/a015_content_probe.py",
