@@ -41,3 +41,7 @@
 - **A-023 Client 入口機制已解到 S44(1,0) → Main → C6C lifecycle**，不是「不知道如何觸發 Script」。**仍不知道原服何時／依何旗標送 Born**，以及女性招募員真正 entity/script/quest。A-012 接原服首次腳本排程和 quest，A-015 接原版資源版本/出生，A-024 接 NPC 實體綁定；將這三條可並行安排在 A-027/A-028 的帳號關鍵路徑外。
 - **最高優先仍是 A-027 + A-015 並行，接 A-028**。同時可以開發 transport 通用 codec + S44/C6C Script 生命週期（受控 mock／安全測試）；不得把 Born 的文字座標 (31,29) 當出生點，也不得把 C6C2/4 當完成任務。
 - 說「沒有 Script／MAP 資源」不精確：roy2 的本地研究已核對 Born/PaperDialog 以及 Script corpus，並報告存在 Map0/1/2 與 Basic；**目前欠缺的是版本配對和原服 NPC/任務綁定**。本次合併檢查環境沒有完整原始資源可供獨立再跑。
+
+## 最新 A-002 合併後優先調整（2026-10-31）
+
+A-002 已 `integrated/partial`，C03/S02/S03/C10 與原版 Client 跨 TCP 轉服邏輯的靜態證據可供 DEV；**A-022 先前把 0x4A8370 當 C25 的解讀已撤銷，它是 S03 transfer handler**。A-020/A-016 後續聚焦原服 duplicate-login policy、S02 非零結果、regional/失敗交接與 recovery，別重做已知 bytes。最高 P0 仍 **A-027 + A-015 平行，隨後 A-028**；C03/S03/C10 codec、一次性 Grant、generation 安全可與研究並行，CT-037/038 後續由 DEV/CT 原 Client 驗收。見 [SessionTransfer](session-transfer-contract.md)。
