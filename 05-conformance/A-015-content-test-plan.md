@@ -25,3 +25,5 @@
 ## 補充：真實 MAP 索引結構驗證（A015-E09～E13）
 
 本輪用上傳原件執行 Map0/Map1/Map2 全庫校驗，**494/494 靜態解析 PASS**；以原始 SHA 鎖定三份檔案，保留 330 unique payload、33 duplicate groups、477 coordinate-in-bounds 的負面定位結論。這是 **CT-039 的本機資源離線檢查部分已執行**，但 CT-039 整體仍 planned（YPF/技能物品/來源權利尚無全量原檔）。CT-040 原生 Client 仍 not-run；絕不可因 494 MAP 可讀而將教學 spawn / NPC / C35 視為通過。
+
+原始 3 庫的可重現離線工具：`python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat`；內建合成測試：`python -m unittest discover -s tools -p 'test_a015_map_corpus_verify.py'`。只處理有權合法持有的個人本機遊戲資源，不把資源 bytes 輸出到 repo。

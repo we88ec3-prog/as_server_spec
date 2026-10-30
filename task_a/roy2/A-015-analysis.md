@@ -109,3 +109,7 @@ python -m unittest discover -s tools -p 'test_a015_content_probe.py'
 python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat --json /private/a015-map-metadata.json
 ```
 工具只輸出 metadata，不匯出任何 MAP 原始資料。合成 4×4 地圖及截斷/尾段錯誤負向測試 PASS；494/494 原件結構驗證 PASS。**A-015 仍 integrated / handoff partial，Native Client CT-040 not-run**；A-022/A-024 的真 tutorial map/spawn/NPC 與 A-005 碰撞語意仍需其他證據。機讀摘要 [`a015-map-corpus.json`](../../04-analysis-integration/a015-map-corpus.json)（請由 repo root 開啟）。
+
+### 原始三庫驗證器／合成回歸檢查
+
+`python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat` 會以索引、MAP dimensions、tile 與尾段作嚴格完整性檢查，並統計 identical-map alias、位置邊界。報告不包含任何原始地圖或完整內容。合成失敗案例由 `python -m unittest discover -s tools -p 'test_a015_map_corpus_verify.py'` 執行；**執行離線 parser 不是 Client 原生 CT**。
