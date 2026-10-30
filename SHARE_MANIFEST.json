@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "5c92ccae3530be5533dc7dfb45e07b17dcb902417e0a933a3c32344e57694ce7"
+      "sha256": "b3ddaab7e42047a51fda5a996a5c77d87e35ad34727b1d7d035a8e117a243689"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -65,7 +65,7 @@
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
-      "sha256": "ea176209102874627877855cdc0d7a796d959f1afe2585bab03ce6a925ce75cf"
+      "sha256": "b90f76b7de12f3e762568d958f27923e1c2004ab93eb5822eb23a7aa810eda4d"
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
@@ -89,7 +89,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "465912ea5f449f9d4ccb6dc4752735fa5b8bedf13e8de403b7576e60edde021d"
+      "sha256": "164a848d1a5a79622e34b29cbdfa3910b106bb3e58f2810182988731382d82fe"
     },
     {
       "path": "03-analysis-requests/A-021-acceptance.md",
@@ -104,12 +104,16 @@
       "sha256": "87143dd8bf2bcc851f32b3689d075970cd4bd41ee69d0e57e853787775ef54a5"
     },
     {
+      "path": "03-analysis-requests/A-022-roy1-bin-analysis.md",
+      "sha256": "79aa83c7e2103f692dbc89963efac1d5280aa7b51e129644ea18e3b552eb79cc"
+    },
+    {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
       "sha256": "a275b323261f004fb6fff829c788ae2fc0d3103e9e92929f5024882eeb3cc542"
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "63ee30f2e6bbfef6fa8ed3cd0d0878221fb43ca841989de5fd4aae74d3dea2f1"
+      "sha256": "887cf00487024d023aa78578dcabd79b128370c5a585d01afc2e53075257c5d2"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -117,11 +121,15 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "ff3ab384a50aadb8d6519061ce39a72596c3e974464f3e13e41f08e38d33be64"
+      "sha256": "0412bfbca290ffde48ca97d34702068431cda0d6c07527ff59aee7d4a137e04c"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
       "sha256": "3b50cc7f882ce8ab4d8fc65a8d660b32ac9d6117a86751f12b9c8aa9331252e2"
+    },
+    {
+      "path": "04-analysis-integration/A-022-map-loading-crc.md",
+      "sha256": "a6115e2875e2de8bf9eae8accba216b4210ed6a849203e744380ce800c388753"
     },
     {
       "path": "04-analysis-integration/analysis-coverage.json",
@@ -141,7 +149,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "b25d8447cd26c1c8bd5a251811285f3d65698ebaaa9a3e9c5692fcef3d2239c9"
+      "sha256": "cdbd1d6ee043ba17d84b765abd3cc30e692c20811185455eb21dc45689373924"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -157,7 +165,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "4ca23336f8f11cf42894d9456c58f8863fbf6221c5af42e239702f7c326fa6c6"
+      "sha256": "779c7286af7795aed956f10a69b315d42faa1dc825c997ecfcf8e270ef264e73"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -169,15 +177,15 @@
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "44a03ab4b9b2f527e0c4d056abced650821163ecad1c890fe4625fddb0368be5"
+      "sha256": "28fa7d2849c863a821ed6d73c26c4bca7b6e1ef54a0a4002ecfd4b7920bfb329"
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "70aa920721fa7acac1cff50af89f2e50216a2d5be8f0169a3610fe6fe46aae9e"
+      "sha256": "cfd12afa5e32277560affd09f7a46fcefb1cc2b45b18a2e44cc0f62c1a539b14"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "848cb31732c851970a6785c7dae7800338b1fefca7ca2300633afe2c8bd61d36"
+      "sha256": "819bff1da093f00dda77a06bd5ebec51f453a75bada01d752bbfa1e4643abac9"
     },
     {
       "path": "04-analysis-integration/transport.md",
@@ -189,7 +197,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "ccca1eac2330bda6b096166698b2c7af72ea504293048024dffdd25f47bc8841"
+      "sha256": "03509f43d201e0ef4cb1ddf2d86757b261a39c4d62c493f65d870d38e1f9bfda"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
