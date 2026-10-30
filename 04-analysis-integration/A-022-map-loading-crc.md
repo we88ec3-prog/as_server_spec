@@ -7,3 +7,7 @@
 **designed**：Server 必須先確定 map/ref/resource_version/epoch，再送 S15/S14(1)，驗證同 epoch、同版本 C35 後送 S04/S33/背包/S14(2) 才 InWorld；超時／錯圖／舊 CRC／斷線進 Reconcile；入圖 committed 與教程 completed 分離，重連不重領資產。
 
 **unknown**：本次僅有 EXE，原版 tutorial map_id、出生 x/y/heading、首次旗標、原版教程圖 CRC 及原 Server 拒絕策略，仍待 A-015 MAP/Script/Born、A-016、A-023。狀態：`A-022=integrated`、`handoff_status=partial`、`implementation_ready=true`（通用世界載入）、`tutorial_content_ready=false`、`native_client_validation=not-run`，不能假稱官方教程出生已驗證。
+
+## A-016：載圖與恢復之身份/epoch 限制（2026-10-31）
+
+[A-016 BIN-first 報告](../03-analysis-requests/A-016-roy1-replay-recovery.md) / [安全恢復契約](A-016-idempotency-recovery.md)：C35 `0x573490` 只輸出 2×BE u16，**沒有 map_id/epoch/request ID**。Server 內部 loading_epoch 可隔離連線/重登狀態，但同 TCP 若舊 epoch C35 與新 epoch 期待相同 checksum pair，**單靠 C35 body 無法辨別**；須單一 pending loading、控制 in-flight/complete 邊界，無法安全判定時 fail closed 並重建連線。S14 control2 `0x4F23B5` 是 Client local loading callback，**不是**已持久化入圖/教程完成的 Server ACK。按最近 durable map/pos 恢復，CT-043/044 planned，Client E2E not-run。

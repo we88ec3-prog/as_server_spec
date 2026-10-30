@@ -41,3 +41,13 @@ A-022 通用 Map/CRC 的部分可直接支援 DEV，但真正新手 map/spawn/C3
 ## 本輪 A-002 Client 轉服解析更新
 
 A-002 新增 C03 登入欄位、S03 host/port/opaque token、C10 raw token，及新 TCP 轉服的 Client 資料流。ONB-01/03 可先做實作與 synthetic CT-037；ONB-04 可依 generation/舊 socket 安全政策先開發 synthetic CT-038。**原服採踢舊還是拒絕新登入尚未知**，本 Server latest-auth-wins 為 designed，不宣稱原版已驗收。A-027 的 pre-C03 C02 Account owner proof 仍是最重要的首登阻塞。
+
+## roy1/roy2 最新合併後 Gate（2026-10-31）
+
+- **ONB-01**：Admin 建帳政策 R-025 保留；C03 正常帳密可解析，但匿名 C02 不能作 pre-provisioned owner claim。A-027 integrated/partial，**原生建角身份路由 blocked**。
+- **ONB-02**：C02→S02(status0)→C04(5u8)→S02(status0)→本地 UI（非 S03）；失敗會 C15(0 body)/state0x1f。DB commit/角色唯一性與 pending C15 僅能 designed，待原版帳號綁定。CT-041～044 planned。
+- **ONB-03**：Map0/1/2 嚴格離線 494/494 PASS、但實際教學 Map ID/Spawn/C35 第二欄及資源發行版配對未證。CT-039 是離線子集、CT-040 原生教學 still not-run。
+- **ONB-04**：C35 無 epoch，跨兩次同 pair 的延遲包原始 wire 不可辨。單 TCP 單 pending load；無法安全隔離時斷線/重新授權。SQLite/outbox/C33 seq7 皆為 Server designed。CT-045/046 planned。
+- **ONB-05/06**：Born S44 start、PaperDialog C6C4/2 可依靜態契約開發；不代表任務已完成。原服發送時機、招募員 entity ID、教程怪物/技能/獎勵待 A-012/024～026。
+
+詳見 [本輪整合規劃](merge-20261031-roy1-roy2.md) 與 [證據覆核](../04-analysis-integration/A015-A016-A027-A028-validation.md)。

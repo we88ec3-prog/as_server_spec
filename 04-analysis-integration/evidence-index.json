@@ -2067,6 +2067,110 @@
       "native_client_validation": "not-run"
     },
     {
+      "evidence_id": "ev_a027_20261031_asgard_identity_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "method": "objdump -D -M intel on supplied matching PE32 Asgard.exe, tracing C02 UI controls, string equality, region-dependent writer and MakeInfoDialog paths; synthetic fail-closed codec tests",
+      "scope": "A-027 pre-C03 C02 input source/validation and NewUser UI; cannot prove original Server account authentication",
+      "functions": [
+        "0x574170",
+        "0x5742B0",
+        "0x4B2700",
+        "0x4B27B5",
+        "0x4B27F7",
+        "0x4B2825",
+        "0x4B2858",
+        "0x4B28D2",
+        "0x4B28FD",
+        "0x4B2911",
+        "0x4B1A30",
+        "0x5B4A62",
+        "0x4B2360",
+        "0x4B21E0",
+        "0x4B2340",
+        "0x4B1D60",
+        "0x4B1F46",
+        "0x4AEF08",
+        "0x4B0B67"
+      ],
+      "report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
+      "test": "tools/a027_pre_auth_contract.py",
+      "limits": [
+        "No original Server verifier or proven C03 no-character -> MakeInfoDialog transition",
+        "UI labels and region1 extra field semantics not confirmed",
+        "S02 status0 triggers C04 but server issuance conditions are not observed"
+      ]
+    },
+    {
+      "evidence_id": "ev_a028_20261031_asgard_c04_response_static",
+      "date": "2026-10-31",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-static",
+      "method": "objdump -D -M intel original PE32 Asgard.exe SHA checked, decoded 0x4b21a8/0x4b21bc S02 failure focus table and 0x613690/0x6136a4 C15 vtable/UTF16 cpp name",
+      "scope": "A-028 C04 post-send local state0x1e and S02 successful/failed callbacks, C15 empty body and state0x1f; cannot prove original Server commit",
+      "functions": [
+        "0x4b1d60",
+        "0x4b1da9",
+        "0x4b1e0d",
+        "0x4b1ee9",
+        "0x4b1f1b",
+        "0x4b1f34",
+        "0x4b1f46",
+        "0x4b205a",
+        "0x4b205f",
+        "0x4b206b",
+        "0x4b20c5",
+        "0x4b217a",
+        "0x4b21a8",
+        "0x4b21bc",
+        "0x5715f0",
+        "0x5716a0",
+        "0x613690",
+        "0x6136a4",
+        "0x574420",
+        "0x57dbc0"
+      ],
+      "report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "synthetic_test": "tools/a028_newuser_response.py",
+      "limits": [
+        "Original server DB durable commit not observable from client",
+        "Native C02 account ownership still unproven from A-027",
+        "S02 numeric error meanings and whether post-success UI automatically returns to LoginDialog/World unknown"
+      ]
+    },
+    {
+      "evidence_id": "ev_a016_20261031_asgard_replay_static",
+      "date": "2026-10-31",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-static",
+      "method": "objdump -D -M intel original Asgard.exe byte-matched; native packet serializer/parser and transport/frame/Client callback, cross-checked A-002/022/028; separately synthetic SQLite model",
+      "scope": "A-016: packet replay/recovery provenance. Client only proves C33 7-bit seq/S0B ack, C35 two u16 no epoch, S14 callback, C04/C15 lack request ID, C10 raw token; original Server durable commit/replay policy unknown",
+      "functions": [
+        "0x53c130",
+        "0x53c1a8",
+        "0x53c25d",
+        "0x573bf0",
+        "0x583150",
+        "0x4f2300",
+        "0x4f23cb",
+        "0x4f23b5",
+        "0x4f2333",
+        "0x573490",
+        "0x5773e0",
+        "0x574420",
+        "0x4b1f1b",
+        "0x5715f0"
+      ],
+      "report": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "synthetic_test": "tools/a016_recovery_model.py",
+      "limits": [
+        "C35 lacks original map epoch; same identical pair across overlapping epochs cannot be distinguished",
+        "S0B acknowledges movement, not DB fsync",
+        "original trading/reward opcode/Server commit policies are not claimed"
+      ]
+    },
+    {
       "evidence_id": "A015-E19",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
@@ -2104,6 +2208,27 @@
       "asset_bytes_in_shared_repo": false,
       "release_match": "unverified",
       "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "ev_a014_20261031_asgard_social_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "method": "PE32 objdump BIN-first; constructor opcode, writer and reader callsites plus partial RTTI tracing",
+      "scope": "C0E say/C19 whisper/C2E group/C12 member, S0A message/S0D say/S58/S3A; S0D first text read via 0x45B7A0 string8, contrary to source report string16 label",
+      "functions": [
+        "0x575070",
+        "0x5782D0",
+        "0x572DE0",
+        "0x573600",
+        "0x582200",
+        "0x5861D0",
+        "0x5800F0",
+        "0x5887CA"
+      ],
+      "report": "task_a/roy2/A-014-analysis.md",
+      "index": "task_a/roy2/A-014-packet-index.json",
+      "limits": "original server routing/op meaning unknown, native Client CT not-run"
     },
     {
       "evidence_id": "A014-E01",

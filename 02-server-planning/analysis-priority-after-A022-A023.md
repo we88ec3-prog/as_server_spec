@@ -45,3 +45,22 @@
 ## 最新 A-002 合併後優先調整（2026-10-31）
 
 A-002 已 `integrated/partial`，C03/S02/S03/C10 與原版 Client 跨 TCP 轉服邏輯的靜態證據可供 DEV；**A-022 先前把 0x4A8370 當 C25 的解讀已撤銷，它是 S03 transfer handler**。A-020/A-016 後續聚焦原服 duplicate-login policy、S02 非零結果、regional/失敗交接與 recovery，別重做已知 bytes。最高 P0 仍 **A-027 + A-015 平行，隨後 A-028**；C03/S03/C10 codec、一次性 Grant、generation 安全可與研究並行，CT-037/038 後續由 DEV/CT 原 Client 驗收。見 [SessionTransfer](session-transfer-contract.md)。
+
+## 2026-10-31 合併 A-015/A-016/A-027/A-028 最新派工（以本節為準）
+
+|優先|分析研究|目前結論與精確剩餘問題|下游工作|
+|---|---|---|---|
+|P0 同步|**A-027 follow-up + A-003/A-020**|A-027 靜態已 integrated/partial：C02 來自 NewUser UI 的前兩欄及密碼確認相等檢查；**並未證明預建帳號的身分授權，也未證 C03 登入無角色必能到 MakeInfoDialog**。查真正 native credential/登入→UI 路由、各 region 原表單；不可用帳號名稱認領。|ONB-01/02、CT-030/041/042|
+|P0 同步|**A-015 follow-up + A-022**|A-015 integrated/partial：原始 Map0/1/2 已驗 494/494，尾段 7/8/16 bytes 型別已知；**地圖 ID→教程、出生點、實際 checksum 第二欄、collision/NPC 語意仍未證**。用已取得 MAP、EXE 的引擎交叉引用繼續，而非聲稱缺 MAP。|ONB-03、CT-039/040/046|
+|P0 平行|**A-028 follow-up + A-003**|A-028 integrated/partial：C04 後 S02(status0) 只進 UI，非自動 S03；S02(nonzero) 會送零 body C15，state0x1f。補實際建角成功後如何導回 Login、合法外觀／名字以及原服 owner/DB commit 證據。|ONB-02、CT-031/032/043/044|
+|P0 DEV/CT 並行|**A-016 已分析子集交付**|A-016 integrated/partial：C33 seq7 循環、C35 無 map/epoch/request ID；DB/World 的 generation、outbox、重試防重是 Server designed。不能把合成 crash/reopen 測試當原 Client 通過。|ONB-04、CT-015～017/045/046|
+|P1 並行|**A-012/A-024 + A-011**|原版 Born 以 S44(1,0) 可啟 Main，C6C4/2 是腳本生命週期；**原服首次下發的時機、女招募員 entity/script 綁定仍未知**，(31,29) 是文字導引不是出生。|ONB-05、CT-033～035|
+|P1 後續|**A-025 → A-026**|先取得教學戰鬥/技能目標、再取任務完成／獎勵／出口；完成條件與傳輸回覆不可自行杜撰。|ONB-05/06、CT-021～028|
+
+**分析與實機 CT 分離**：上述 A-015/016/027/028 都已提交可再現的部分研究，不再標 not-started，也不要求先有 Server 實機才能交付；`native_client_validation` 仍是 `not-run`。最高優先可分兩人同步追 A-027 的「身份證明／無角 UI 可達性」和 A-015 的「教學地圖／實際 checksum」。缺原始 Human/Script 依賴資料時請明列檔名，不從地圖名猜 NPC 或角色外觀。
+
+## A-014 最新社交協定子集（2026-10-31）
+
+**A-014 integrated/partial（P2）**：C0E 聊天、C19 密語、C2E 群組、C12 成員、S0D 訊息、S58/S3A 成員回覆的 Client 靜態結構已定位；**S0D text 是 string8、S0A text 才是 string16**，此誤標已修正。原生聊天 type→頻道、組隊/公會 op/sub 對照、離線及權限回覆仍 unknown。Server 可先做 codec、來源身份以 Auth/World session 為權威、頻道範圍與群組成員 CAS、反重送與限速；但不能宣稱原版組隊/公會操作已完全實機互通。CT-047/048 planned、native not-run。社交工作應排在首登／教學 P0 關鍵路徑之後，或由另一位人員平行處理，不阻擋 ONB-01～03。詳見 [社交開發邊界](social-contract.md)。
+
+**A-015 最新交接**：`handoff_status=ready` 只限可驗證的 DAT/MAP/Script 格式、檔案庫盤點、hash/provenance 工具；原版新手 map/spawn/NPC/碰撞依舊 unknown，`implementation_ready=false`，不可將這個窄範圍 ready 誤當教程內容已完成。

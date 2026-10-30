@@ -276,6 +276,7 @@
       "status": "integrated",
       "assignee": "roy2",
       "evidence_ids": [
+        "ev_a014_20261031_asgard_social_static",
         "A014-E01",
         "A014-E02",
         "A014-E03",
@@ -288,27 +289,32 @@
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
       "native_client_validation": "not-run",
-      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "observed-static-client + synthetic-test + designed-fail-closed-model",
+      "implementation_ready": false,
+      "codec_subset_ready": true,
+      "evidence_kind": "observed-static",
       "analysis_report": "task_a/roy2/A-014-analysis.md",
       "packet_index": "task_a/roy2/A-014-packet-index.json",
-      "implementation_ready": true,
-      "implementation_ready_scope": "Decoded C0E/C19 wire fields and C2E/C12 bounded subvariants; Server-side authority model only. Native group/guild interoperability is NOT ready.",
-      "analysis_scope_completed": [
-        "RTTI→vtable→native opcode constructors for C0E,C19,C2E,C12,S0A,S0D,S58,S3A",
-        "C0E/C19/C2E basic body fields; C12 variant scanner",
-        "S0D/S0A known receive fields; UI chat/group/guild presence",
-        "failure/disconnect/permission matrix designed separately from native observations"
-      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_scope": "Client C0E/C19/C2E/C12, S0A/S0D/S58/S3A opcode/body subsets observed-static; group/guild action mapping and original Server routing unresolved",
       "remaining_unknowns": [
-        "C0E type to nearby/shout/group/guild channel mapping; need native UI producer cross-references",
-        "C2E/C12 all op/subtype semantics; S58/S3A group/guild member wire detail",
-        "Native guild create/invite/permissions and friend/blocked-whisper persistence; original client UI presence alone cannot certify protocol",
-        "Native original-server error/status payloads, whisper offline, rate limits and disconnect/relogin policy",
-        "Client E2E CT-043 not-run"
+        "C0E/S0D type to channel mapping; no native channel E2E",
+        "C12/C2E op/sub semantics and complete S58/S3A group rows",
+        "original guild permissions, whisper errors and offline/blocked behavior",
+        "S0D has native string8 reader 0x45B7A0, unlike S0A string16 0x45B890; correct source report before codec implementation",
+        "原版 C0E type→頻道、C2E/C12 op/subtype→組隊/公會/好友語意及 S58/S3A 完整成員列仍待原生 Client/封包實證",
+        "原服離線、封鎖、權限及組隊／公會重登政策尚未還原；不能用 designed Server policy 冒稱實際行為"
       ],
-      "last_analysis_date": "2026-10-31"
+      "conformance": [
+        "CT-047",
+        "CT-048"
+      ],
+      "social_codec_synthetic_tests": "5 PASS; local synthetic decoded-body and designed-membership unit tests",
+      "native_social_ready": false,
+      "ct_ids": [
+        "CT-047",
+        "CT-048"
+      ],
+      "bin_correction": "S0D string8 0x45B7A0; S0A string16 0x45B890"
     },
     {
       "id": "A-015",
@@ -379,7 +385,8 @@
       "analysis_scope_ready": "resource source inventory / static format+identity/provenance + metadata-only parser and rights boundary ONLY",
       "analysis_completed_in_bounded_scope": true,
       "release_match_to_client": "unverified",
-      "source_inventory_review": "task_a/roy2/A-015-closure-review.md"
+      "source_inventory_review": "task_a/roy2/A-015-closure-review.md",
+      "scope_boundary": "A-015 handoff=ready for resource formats/inventory/provenance ONLY; actual tutorial MapID, spawn, collision, NPC and C35 checksum still blocked. CT-040 not-run."
     },
     {
       "id": "A-016",
@@ -391,12 +398,30 @@
       "title": "事件重送及崩潰回復",
       "method": "登入狀態、移動確認及未完成切圖、交易、領獎跨斷線／重啟。",
       "deliverable": "每項操作的冪等鍵、提交點、已確認成功的定義。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "evidence_kind": "observed-static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Domain + persistence idempotency, transfer one-shot, C33/S0B short-window replay, single pending loading epoch and C35 fail-closed; full original-server policy/relogin/economy opcode semantics not proven",
+      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "analysis_test": "tools/a016_recovery_model.py",
+      "analysis_scope": "original x86 transport,C33/S0B,C35,S14,C10,C04/C15 and explicit Server-only operation keys, durable commit, crash/replay matrices",
+      "remaining_unknowns": [
+        "native server database commit checkpoints and recovery policy cannot be inferred from Client",
+        "C35 has no epoch; same-map late C35 same pair ambiguous within same TCP",
+        "original trade/reward transaction opcodes and result status remain A-012/A-013/A-026",
+        "actual World re-login and failure UI paths not validated with original Client",
+        "native tutorial content/first map spawn pending A-015"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-017",
@@ -745,9 +770,11 @@
       "title": "C02 預先建帳身份／憑證與原版空角創角入口（安全阻塞）",
       "method": "BIN-first 追 C02 每個 string8 的來源與用途、server 如何在 C03 之前驗證 pre-provisioned Account、是否使用 token/password/session 或其他授權關聯、無角色帳號的原版 UI 到達創角的條件。以 Client 原生 parser/serializer/UI handler 與資料來源證明，任何推測皆 unknown，不得讓 C02 直接認領或建立 Account。",
       "deliverable": "可追溯 BIN/資源證據，C02 各欄位原語意、帳號身份/憑證證明時機、冒用／同名／非法登入失敗分支、合法轉入 C04 的前置條件及封包/狀態矩陣。未能證實時明確宣布預建帳號的原生創角路由 blocked；不要求先完成新 Server 或 CT 實機。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a027_20261031_asgard_identity_static"
+      ],
       "dependencies": [
         "A-021",
         "A-003",
@@ -755,10 +782,25 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "implementation_ready": false,
+      "implementation_ready_scope": "Region-aware C02 codec, UI source/confirmation controls and fail-closed pre-auth guard only; native account-claim/character-authorizing route remains blocked",
+      "native_account_claim_ready": false,
+      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
+      "analysis_test": "tools/a027_pre_auth_contract.py",
+      "analysis_scope": "C02 original UI input mapping, local name-length and second-field confirmation, region fields, NewUser UI entry and negative authorization contract",
+      "remaining_unknowns": [
+        "native original Server verification of preprovisioned account before C03 is unproven; no demonstrated challenge/token",
+        "true UI labels and whether field2 is a preprovisioned Account credential",
+        "C03 successful no-character to MakeInfoDialog native transition not demonstrated",
+        "region1 third-field UI/serializer discrepancy",
+        "exact server status/error for unauthorized C02 and final C04 status (A-028)"
+      ],
+      "security_decision": "fail-closed: C02 parser may run but cannot claim existing Account, issue S02 success, create pending owner or Character unless independent authenticated credential or verified bound C03 session path is demonstrated",
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-028",
@@ -772,19 +814,35 @@
       "title": "C04 後 S02 回覆、角色提交與轉服／重登終局",
       "method": "由 MakeInfoDialog C02(status0)→C04 與 UI state 0x1e 追全部後續 S02/其他回覆 parser、角色建立成功/拒絕/取消、關閉視窗、重登或 transfer to World 的轉場。不可由 0x1d 收到 status0 推定 C04 已建角成功。",
       "deliverable": "BIN/原資源證據、0x1e 後狀態機、Client response handler、字段/失敗碼/轉場、Server 角色原子提交的回覆時機、可執行 CT-031/CT-032 測試腳本；未知保持 partial，不要求先以新 Server 實機通過。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a028_20261031_asgard_c04_response_static"
+      ],
       "dependencies": [
         "A-021",
         "A-027"
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "analysis_test": "tools/a028_newuser_response.py",
+      "analysis_scope": "C04 success/failed S02 callback and C15 CancelNewUser packet incl native focus and UI state",
+      "implementation_ready": false,
+      "implementation_ready_scope": "C04/S02/C15 codecs, UI response state fixtures and designed DB idempotency are implementable. Native admin-preprovisioned account-claim and original Server final commit/transfer flow NOT implementable until A-027 proof and Client CT",
+      "native_creation_commit_ready": false,
+      "remaining_unknowns": [
+        "Native Server durable Character creation transaction point after C04 not observable from Client",
+        "Native secure C02 to admin pre-provisioned account ownership (A-027) missing",
+        "S02 failure codes exact native meanings and Server C15 semantics unconfirmed",
+        "C03 successful zero-character to MakeInfoDialog, and post-C04 successful UI navigation to login/World not proven",
+        "Original valid character fields/name/appearance and account character multiplicity (A-003) pending"
+      ],
+      "last_analysis_date": "2026-10-31"
     }
   ]
 }

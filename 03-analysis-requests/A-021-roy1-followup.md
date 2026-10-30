@@ -41,3 +41,7 @@ C02 **可在 C03 之前發送**。不能把「必須先有已登入 C03 Session�
 本 A 的靜態流程、可還原欄位、Server 安全方案與未知分支已整合；`A-021=integrated`、`implementation_ready=true`、`Client CT=planned`。實機 CT-011..014/018/019 不屬 A 的先決門檻；若實際發生 BUG，按封包/UI 回傳證據修訂規格與實作。不得以「無實機」設 `blocked`。
 
 尚待其他分析或下游 CT 回饋：C02 各文字欄真實用途、C03 no-character → 原生 UI 的完整跳轉、C04 後 S02 狀態語意、合法外觀選項，以及 C02 新使用者 UI 和 R-025 僅後台建帳的交互方式。
+
+## A-027/A-028 後續核對更正（2026-10-31）
+
+本篇較早提出「C02 claim 預建帳號、C04 後直接再 S02 success→C03」為 **designed 方案，原生認領授權尚未成立**。A-027 已證第一欄 UI 來源/本地長度 gate、第二欄/確認欄相等，但並未找到可信的原 Server owner 驗證與零角色 C03→MakeInfoDialog 路徑；禁止 pre-auth 直接認領。**A-028** 已從 S02 `0x4b1d60` callback 證明：C04 後 state0x1e，S02(status0) 呼叫 local UI `0x4b206b`，**沒有直接 S03**；S02(nonzero) 發送 **C15 CancelNewUser（0x15，空 body）** 並設 state0x1f。原 Server durable commit 與重登實際 UI 仍 unknown，請以 [新研究](A-028-roy1-c04-terminal-analysis.md)、[新安全契約](../04-analysis-integration/A-028-newuser-terminal-contract.md) 取代早期可能誤導的成功推論。

@@ -44,3 +44,11 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-002 / roy1：登入、跨 TCP 轉服及重複登入邊界
 
 [完整分析](../03-analysis-requests/A-002-roy1-login-transfer.md) 和 [合成模型](../tools/a002_session_model.py)。C03 兩個 string8 + u8；S03 `0x5886C0`：u32 address、u16 port、u8 token_len、token raw bytes；`0x4A8370` 的 region3/4 handler 連 World 並送 C10，其 `0x5773E0` serializer 發 raw token，**不另帶 token_len prefix**。此函式不是 C25。Server-designed：成功認證後發一個綁 account/character/generation/destination 的短效一次性 grant；**舊登入 TCP 關閉不可直接令 grant 失效**；第二個合法登入原子換 generation、舊 socket 延遲斷線不可移除新世代。原服重複登入是 kick 或 reject 仍 unknown；CT-037/038 planned，Client 實測尚未進行。
+
+## A-028 roy1：C04 後 S02、C15/CancelNewUser 與重登邊界
+
+[原生 S02 UI 深度分析](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)；[Server 安全交接](A-028-newuser-terminal-contract.md)。確認 C02→S02(status0 at local0x1d)→C04(五 u8)→local0x1e；再收 S02(status0) 走 local UI `0x4b206b`，**不是此回調直接發 S03**。非零 S02 建構/送出 C15（opcode0x15，empty body），state0x1f，特定錯誤碼影響本地焦點（不是已知原服錯誤文字）。A-028 integrated/handoff partial，**原 Server 角色持久提交時點與原生預建帳號 owner 驗證仍 unknown**，SCN-008/010 不可標為原生全程可實作。新 PKT-C15、CT-043/044 planned，Server 可先做 transaction/idempotency/pending cancellation 的 designed 模組。
+
+## A-016 / roy1：事件重放、移動 sequence 與世界 crash recovery
+
+[A-016 原生證據和設計矩陣](../03-analysis-requests/A-016-roy1-replay-recovery.md)、[Server 契約](A-016-idempotency-recovery.md)、[SQLite 合成測試](../tools/a016_recovery_model.py)。C33 `0x573BF0` 序列化 3×u8，S0B `0x583150` 讀 BE u16 x/y + u8 status/seq；**7-bit seq 每128次回捲，不能永久作交易 ID**。C35 `0x573490` 僅兩個 BE u16，無 map epoch；當舊/新同 pair 重疊時 wire 不可判定，必須串行、fence 或 fail closed 重新 World 連線。S14(2) local callback 不是 DB durable ACK。Account/Character/World/交易/領獎用內部 generation、intent、outbox、ledger 原子性保障重送/崩潰；交易獎勵原生 opcode 尚待分析，**不可捏造原版行為**。CT-045/046 planned，A-016 integrated/handoff partial，只交證據支持的 Client 接口與 designed recovery。SCN-003/010 的失敗/重啟未原生實測，仍非 fully passed。

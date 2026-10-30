@@ -66,10 +66,7 @@ A-002 C03/S03/C10 static Client contract 及 roy1 更正的 A-022 C25 handler �
 
 遵守原指定 `task_a/roy2` 既有分支／目錄，未開新分支。由原版 EXE accessor 直接確認 MAP tail 7B=u8/u16/i16/i16、8B=4×u16、16B=2×u16+2×u32+2×u16，對 Map0/1/2 原件 494 MAP 重新驗證：32 張 header 第三值獨立；7/8/16 totals 74032/396/2269；8B/16B 疑似座標 100% 符合 48×32 pixels 的尺寸界線，但僅 inferred，不是 NPC/出生點。附 4 項合成回歸測試。A-015 保留 integrated/partial、CT-040 not-run、A-016 open；未上傳遊戲素材。
 
-## 2026-10-31 — A-015 resource-format / provenance scoped handoff
 
-基於原始 Asgard.exe、Born.dat、Map0/1/2 完成格式/權利調查的限定研究結案（`integrated / ready`）；修正 Script wrapper BE16(version) + BE32(text code units) 的舊規格錯誤，加入長 Script／錯誤 version/size 回歸測試。可列出 26 組 EXE 資源 selector 但沒有證據確認技能／物品定義檔名；不要求上傳 Human 全套圖像。其餘真 native map/spawn、NPC、碰撞／skill/item 原服語意及版本 manifest 仍 unknown 且交其他 A/CT，絕非整體遊戲 ready。無原始遊戲素材提交。
+## A-014／task_a/roy2 最新 BIN-first 核對與整合（2026-10-31）
 
-## task_a/roy2／A-014 社交封包靜態證據及驗收拆分 — 2026-10-31
-
-確認原版 EXE native C0E/C19/C2E/C12 與 S0A/S0D/S58/S3A ctor/parser 欄位；Client 有一般聊天、密語、群組和公會相關 UI，但真正 CGroup/CMemberList op/subtype、group/guild 發話 type 與 Server 原生拒絕未知。已新增可重現合成 codec/Server membership guard 模型、Evidence A014-E01..E08、CT-041..CT-043，狀態 `integrated/partial/native Client not-run`。沒有建立新分支，沒有原始遊戲資料提交。
+原版 Client SHA `db3df616...`：C0E/C19/C2E/C12、S0A/S0D/S58/S3A，經 RTTI→constructor/reader 定位；**S0D `0x45B7A0` 是 string8，S0A `0x45B890` 才是 string16**。5 個合成 codec/權限回歸測試 PASS。組隊/公會的 op/subtype、type→channel、原服拒絕/離線/重登策略尚無 native 直接證據；A-014 `integrated/partial`，CT-047/048 保留 planned。參照 [分析報告](../task_a/roy2/A-014-analysis.md) 及 [測試](../task_a/roy2/test_a014_social.py)。

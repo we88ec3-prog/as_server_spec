@@ -41,3 +41,17 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-002 C03/S03/C10 與重複登入 CT-037/CT-038（planned）
 
 [A-002 靜態分析](../03-analysis-requests/A-002-roy1-login-transfer.md) 已追 S03 addr/port/u8 token_len/raw token 與 C10 raw token；[合成 Domain fixture](../tools/a002_session_model.py) 實際測錯密不踢人、同帳號世代替換、一次性 token、跨角色拒絕、過期、login socket 在 transfer 中先斷、舊 World 清理不影響新 World，以及 crash fail closed。**這是 designed 測試，不是雙原版 Client 實機 passed**。CT-037/038 用以提醒 DEV 依真實 DB、mock wire 與 Client 再驗；S02 的原服重複登入錯誤碼未知，禁止拿錯密 status3 直接代用。
+
+## A-027 身份與 C02 前認證安全（CT-041/040，planned）
+
+[完整 A-027](../03-analysis-requests/A-027-roy1-identity-ui-security.md)：CT-041 對任意 pre-auth C02（包含正確已存在帳號名、非法/停權/跨 session）驗證 Server 不建立 Account、不認領 owner、不建立 pending C04 草稿、**不回 S02 status0**、不改 Character；只有真實已認證 owner 的獨立路徑可開放。CT-042 驗證各 region writer body 3 vs 4 string8+u8、UI +0x270 與 +0x274 的本地字串相等、UI 欄位來源；region1 UI/serializer discrepancy、原版 C03 空角色→UI 仍 unknown。
+
+[安全與合成 codec 工具](../tools/a027_pre_auth_contract.py) 只驗合成 body/拒絕策略，**不是 Client 真實互動成功**。A-027 integrated/partial 與 native claim route blocked 同時成立；後續 A-028 才確認 C04 終局/提交回覆。
+
+## A-028 針對 C04 終局分支的測試設計（2026-10-31）
+
+[原版 BIN-first 證據](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)／[不越權的 Server 設計](../04-analysis-integration/A-028-newuser-terminal-contract.md)：CT-031 驗 state0x1d + S02(status0) 才發 C04/state0x1e；CT-032 驗 **state0x1e + S02(status0)** 只觸發 local `0x4b206b` UI 分支，不直接建立 S03/C10；CT-043 驗 S02(nonzero) C15 CancelNewUser（opcode0x15、空 body、normal binary C2S frame）及 state0x1f/focus status；CT-044 驗有經過 Server owner credential 的角色 transaction、重送/重複名稱/晚到 C15 不破壞已提交角色。Python `tools/a028_newuser_response.py` 為合成模型測試，**非真實原 Client 通過**。仍需 A-027 原生 owner proof、A-003 合法欄位與原生登入/World UI 出場證據。
+
+## A-016 / roy1：R-017 回覆遺失、斷線與持久化（CT-045/044 planned）
+
+[A-016 原版可核對函式](../03-analysis-requests/A-016-roy1-replay-recovery.md) 和 [Domain/DB 恢復契約](../04-analysis-integration/A-016-idempotency-recovery.md)。執行 `python3 tools/a016_recovery_model.py` 做 SQLite synthetic crash/reopen：角色提交回包遺失仍唯一、token 原子一次性、C33 seq7 replay/127→0、C35 拒絕錯 epoch/同 pair ambiguity、交易雙邊入帳與領獎 unique ledger；**不代表原 Client 或原服驗收通過**。CT-045/044 是 designed/negative contract，原始 Client 世界載圖/重登入仍需後續 CT-016/017/018。

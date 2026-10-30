@@ -146,28 +146,30 @@
         {
           "offset": "compressed input",
           "type": "zlib",
-          "semantics": "decompress to native text reader wrapper"
+          "semantics": "decompress to native Script wrapper"
         },
         {
-          "offset": "unpacked 0..1",
+          "offset": "unpacked +0..1",
           "type": "BE u16",
-          "semantics": "format version; Born original=1"
+          "semantics": "wrapper version=1 observed in Born.dat; not raw 4-byte magic"
         },
         {
-          "offset": "unpacked 2..5",
+          "offset": "unpacked +2..5",
           "type": "BE u32",
-          "semantics": "UTF-16LE code-unit count; Born=574; previously incorrectly modeled as BE u16"
+          "semantics": "UTF-16LE code-unit count; Born.dat 574"
         },
         {
-          "offset": "unpacked 6..",
-          "type": "UTF-16LE 2*n bytes",
-          "semantics": "XML or non-XML script; may be client-side presentation only"
+          "offset": "unpacked +6..",
+          "type": "UTF-16LE",
+          "semantics": "XML source of Script (some corpus assets may be other types)"
         }
       ],
       "unresolved": [
-        "exact native first-login activation hook/server quest logic",
-        "script source not necessarily game authority"
-      ]
+        "original server first-login scheduling policy",
+        "script/NPC/quest authoritative mapping",
+        "exact client/archive release pairing"
+      ],
+      "native_script_start_known": "A-023: S44(1,0) named start + CRC/dependency checks loads Main, missing C6C(0), update S44(1,1); C6C(4) then optional C6C(2) for Dispose"
     },
     {
       "family": "Skill / Item definitions",
@@ -210,10 +212,7 @@
     "A015-E15",
     "A015-E16",
     "A015-E17",
-    "A015-E18",
-    "A015-E19",
-    "A015-E20",
-    "A015-E21"
+    "A015-E18"
   ],
   "offline_tool": "tools/a015_content_probe.py",
   "asset_corpus_uploaded": {
@@ -270,10 +269,13 @@
     "coordinate_semantic_confidence": "inferred-not-proven-NPC-or-spawn",
     "native_e2e": "not-run"
   },
-  "handoff_status": "ready",
-  "ready_scope": "DAT/MAP/Script format+metadata/provenance, binary resource selector inventory, rights boundary",
-  "skill_item_definition_source": "unknown",
-  "native_client_validation": "not-run",
-  "implementation_ready": false,
-  "source_review": "task_a/roy2/A-015-closure-review.md"
+  "versioned_wrapper_correction": "Born.dat raw zlib 589B; decompressed 1154B header 00 01 00 00 02 3e is BE u16 version=1 and BE u32 count=574, not 4-byte constant plus u16.",
+  "a015_handoff_scope": "ready for resource format/metadata/provenance only; full tutorial/game content implementation_ready=false",
+  "a015_closure_report": "task_a/roy2/A-015-closure-review.md",
+  "a015_extended_evidence": [
+    "A015-E19",
+    "A015-E20",
+    "A015-E21"
+  ],
+  "server_only_content_gap": "Skill and item authoritative definitions/filename remain unknown; Basic.dat, Icon.dat, Locale.dat are candidates, not proven definition tables"
 }
