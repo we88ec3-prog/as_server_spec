@@ -97,7 +97,7 @@
     },
     {
       "path": "02-server-planning/social-contract.md",
-      "sha256": "072900bc54b4cf0e9dbefba3a7cf51aac9947bce219233919e528b469240663d"
+      "sha256": "50f9ddd1fae8c2181ad7d0151342b0cada8bc6d3692178d57b3d7343b1cfd88f"
     },
     {
       "path": "02-server-planning/systems.json",
@@ -161,7 +161,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "76202c15aa741c39307fd5236f466c809e05700ff05a422fc250fb48cea34a07"
+      "sha256": "77f2bf412fba3282182ccfd01666d93e2bd8ee8c02959ed6d0d18396de309359"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -280,6 +280,10 @@
       "sha256": "5b09bd847fa7998fecc0a408f71a76a1e507d640a5672a3c67491b1ebfb72de0"
     },
     {
+      "path": "05-conformance/A-014-social-test-plan.md",
+      "sha256": "36611d265386fb0e9ce62865bfed6a564ececcb2750d32c5a35dd7464c2e0f39"
+    },
+    {
       "path": "05-conformance/A-015-content-test-plan.md",
       "sha256": "ade0aa1b3f85ece38a3f3c21795c565b9f8e8fd8da742f3a7b1f1b32f820c5e0"
     },
@@ -301,7 +305,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "f545a05390d3f5cdbf5dcf2193fee5ad5100f2f83b1a5fc1d5ca21c8cbbccd49"
+      "sha256": "0e092ef5eb8ecd91d8968c20ac6b59f436e9bfabe86d667b0cfe7c0d3934cb67"
     },
     {
       "path": "README.md",

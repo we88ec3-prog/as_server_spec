@@ -1094,6 +1094,33 @@
         "PKT-S3A"
       ],
       "expected": "Decode only evidence-backed op/subtype forms, reject unsupported values without changing membership; Server authoritative group/guild generation/CAS for invitations; native guild policy and member row format still unknown."
+    },
+    {
+      "id": "CT-049",
+      "status": "planned",
+      "level": "social-group-guild-native-e2e",
+      "requirements": [
+        "R-015"
+      ],
+      "packet_ids": [
+        "PKT-C0E",
+        "PKT-S0D",
+        "PKT-S0A",
+        "PKT-C12",
+        "PKT-C2E",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "expected": "Using original Client and authorized test Server, determine group/guild C0E type and S0D subtype/recipient set, S58/S3A member rows and native error codes; no assertion of original guild compatibility without captured evidence",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-014"
+      ]
     }
   ]
 }
