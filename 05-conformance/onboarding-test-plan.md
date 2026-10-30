@@ -16,3 +16,9 @@
 |CT-020|非法 profile、錯誤順序及未知分支不得冒充 success|Server unit/integration|
 
 每次結果要記 Client SHA、Server revision、測試環境、輸入（去秘密）、期待/實際、通過/失敗、時間、證據與未解問題。Server 自動測試通過與 Client 人工通過是兩件事。未取得原生欄位證據前，vectors.json 使用 planned 狀態而非可執行的 byte-exact 成功值。
+
+## A-021 / roy1 靜態補充（2026-10-31；**未執行 Client 驗收**）
+
+請參閱 [逐位址分析](../03-analysis-requests/A-021-roy1-static-analysis.md) 和 [協定子集](../04-analysis-integration/A-021-native-flow.md)。現可用合成輸入為 `C02 016101620163016401`（region2..4）、`C02 016101620163`（其他 region）、`C04 0102112233`、`S02 0000`。**body only**、只檢查 parser/serializer 形狀，非原 Client 封包擷取；它們不能直接把 CT-011..014 標 passed。
+
+原 Client 必須額外核對以下測點：C03 已存在無角帳號是否開啟原生創角 UI、C02 4 欄 UI 語意、C02/S02/C04 的所有成功失敗/取消分支、C04 後是直接 transfer 或重新登入、網路重送/並發/斷線原生效果，以及任何 Client 發起新帳號的要求都不會讓 Server 建立 Account。沒有完整資源/可執行測服與去識別動態 trace，A-021 仍為 blocked。

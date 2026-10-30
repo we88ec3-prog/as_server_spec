@@ -49,3 +49,12 @@ C2S：Client serializer → wire → Server解碼／狀態驗證 → Domain命�
 - S15：Client清理舊圖其他物件、保留本地玩家並載新地圖；S04定位及S14關閉loading。
 - S19 kind1：Client依音樂設定播放Music/%05d.mp3；不代表Server已知道官方map曲目。
 - S66/C75：Server檢查challenge的對應及期限；client_time語意更深用途待分析，不因單一時差直接認定作弊。
+
+## A-021 原生創角靜態路徑（非實機驗收）
+
+來源：[`A-021 roy1 靜態報告`](../03-analysis-requests/A-021-roy1-static-analysis.md)；Evidence `ev_a021_20261031_asgard_static`；Client SHA-256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`。
+
+| 原生路徑 | Body（已驗證） | 對 Server 的規格影響 | 不得聲稱 |
+|---|---|---|---|
+
+詳見 [原生創角靜態矩陣](A-021-native-flow.md)。C02 不能直接等同於已登入後的 CreateCharacter，R-025 禁止 Client 建立 Account。

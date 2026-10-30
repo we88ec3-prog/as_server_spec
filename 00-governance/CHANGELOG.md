@@ -13,3 +13,11 @@
 ## 0.1.0-draft 補充 — 2026-10-31
 
 依需求方確認的 R-025「僅管理員建帳，玩家 Client 只登入」，新增 R-025～028、A-021～023（open）、SCN-007～010（analysis-required）、CT-011～020（planned）及首次玩家需求/設計/測試文檔，更新系統分工、追蹤與 manifest。原 Client 空角創角轉場與真實教學 map/出生座標維持 unknown；本次不代表 Server 已實作或 Client 已驗收。
+
+## 0.1.0-draft 補充 — 2026-10-31 教學完成延伸
+
+新增 R-029～031、A-024～026（open）、SCN-011～013（analysis-required）、CT-021～028（planned）；新增 ONB-01～06 工作板、work-items.json、分析人員交付包、教學執行規劃與測試計畫。原生 map/出生、NPC/怪物、技能及任務完成、出口與獎勵仍需證據，沒有宣稱新 Client 人工驗收通過。
+
+## task_a/roy1 — 2026-10-31（A-021 靜態證據與阻塞項）
+
+核對原 `Asgard.exe` SHA，BIN-first 複核 C02/C04/S02 codec、MakeInfoDialog UI 發送與成功回覆路徑；新增逐位址證據、分支相容子集與測試計畫，更新 A-021 的證據索引與實際 `blocked` 狀態。沒有原生首次無角色帳號實機/封包實測，故**未宣告 A-021 完成、Server 已開發或 CT 通過**。僅將可證靜態結論整合至 04，待現場動態證據後再審核收斂。

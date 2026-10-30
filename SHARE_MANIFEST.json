@@ -13,7 +13,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "b2926fd5f11272c509c65f0eb89620e350bdbc2ea021388763472b5d09c17184"
+      "sha256": "7cd33f8c869f346d36b29966d30bf28adfd73129f9ce8258b4002212e34e69ad"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -29,7 +29,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "b3843b48bc4b682f97142354539a1933c1d73a6f6bf3190adedfbe2cf33aba33"
+      "sha256": "413530f1179f0d2bf71f14189cde04e0da9b4ad531ea4c967f4d3dfe2a444801"
     },
     {
       "path": "00-governance/workflow.md",
@@ -41,11 +41,11 @@
     },
     {
       "path": "01-server-requirements/README.md",
-      "sha256": "9d4ee1a66fb4348138a0c08ae88dba80158a7b795a7f678b27dfe049d4ba2464"
+      "sha256": "92bd8c904155aff6c84e6592427f96489bb3f781b423fa0cfe6f8ec7f9901cf7"
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "79ea295a7f0d7860b579f193b114b8bead76ea5c5679922a3382cabf82189047"
+      "sha256": "3074ab1425b03acd42b1b381487462ad25cedcbacf36ec62bd3a9a8b2a3de74f"
     },
     {
       "path": "02-server-planning/architecture.md",
@@ -64,16 +64,36 @@
       "sha256": "813af661c600f5b8a8f56bd884052b95a46ee0237c2929f44ef83f23f1d4b5ce"
     },
     {
+      "path": "02-server-planning/onboarding-delivery-board.md",
+      "sha256": "75efdd60061ae93fd441b0fad131e18f029296fadc80ce38a20d26ebed28363e"
+    },
+    {
       "path": "02-server-planning/roadmap.md",
-      "sha256": "b4e7852cfee5525afac0c2dd203a1520bda89a2e844b4fb3d366a1e7feafff1f"
+      "sha256": "28ce42c9c879782455ce4c6a23c9abce774758737bac34a2054e122f32bfffd6"
     },
     {
       "path": "02-server-planning/systems.json",
-      "sha256": "6d4a8973cd40f118f7232dcd3d7797ce2c5dd4ad0eb67af820e154fcdf5c683c"
+      "sha256": "0412f4e0b5df51e9722d8a14d5e1d14b15fedb5efae90a1ed04870657f435589"
+    },
+    {
+      "path": "02-server-planning/tutorial-runtime-plan.md",
+      "sha256": "d3f1f69a56caf41e353db6fa2101357cc85ad2d9908d27df0377707d4e29b810"
+    },
+    {
+      "path": "02-server-planning/work-items.json",
+      "sha256": "ed88d2433434a0719dddb8f62cdec3255356ed854c74823777a240f3c8689082"
+    },
+    {
+      "path": "03-analysis-requests/A-021-roy1-static-analysis.md",
+      "sha256": "4fe4c81fc9078136115ce16595b710bc301a8864eac5fb7405483e6193df0fd3"
+    },
+    {
+      "path": "03-analysis-requests/onboarding-assignment-pack.md",
+      "sha256": "6075717ef47382e2be0148843e51a10a9411da9b3a40a438b09e8ceb3656b5a8"
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "15cfbfa4efcb1294cf2a0526ab4e36e3927fd40d93b9014d6af30566bd792e7a"
+      "sha256": "066a0988a20031307b8b59bd2003f1f29a4592fc82088db27385eed89b49b735"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -81,7 +101,11 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "fea6b94ac0078a95f87635f4e82fc7b8fe433e44601b50e5312694232386664f"
+      "sha256": "6d535f3cc567f49ec328cf83143239da84c43d6fb94596dfdd99cbdc4d530908"
+    },
+    {
+      "path": "04-analysis-integration/A-021-native-flow.md",
+      "sha256": "b2aaeaee616bcc87c46e6cb9381b89cc9a5116baabfdfc6cb32ec5ddb26df8aa"
     },
     {
       "path": "04-analysis-integration/analysis-coverage.json",
@@ -101,7 +125,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "16818b1538ac4e63ebad2abf59f75a6c5888d649187931dc37836b70e4fa7371"
+      "sha256": "b25d8447cd26c1c8bd5a251811285f3d65698ebaaa9a3e9c5692fcef3d2239c9"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -113,11 +137,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "2f6f7ca42ddb5a734f75477040f0b6d57abe0f06e8d1a86f9715fc5027de8893"
+      "sha256": "d532fd0071655617023d9ded7a965230e1364d18f6880ae98521f8cc90d06e3e"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "50c186e820002bc77a29e36c4b60461d8c348ad49dc5bf64cb2cb3d373115fe5"
+      "sha256": "4ca23336f8f11cf42894d9456c58f8863fbf6221c5af42e239702f7c326fa6c6"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -133,11 +157,11 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "7334e818cd8da58bcf17b180303f5014124016ddb09d87594c584d1e40291fa0"
+      "sha256": "70aa920721fa7acac1cff50af89f2e50216a2d5be8f0169a3610fe6fe46aae9e"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "452d4938341f76ca4aa40626e054af7c9a3fa923c622ac9e26922353f2a66548"
+      "sha256": "848cb31732c851970a6785c7dae7800338b1fefca7ca2300633afe2c8bd61d36"
     },
     {
       "path": "04-analysis-integration/transport.md",
@@ -149,15 +173,19 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "8f7d6185a94545b4760131ff3f7bba60cb8da2954c2765a2b378de0408f7f87d"
+      "sha256": "ccca1eac2330bda6b096166698b2c7af72ea504293048024dffdd25f47bc8841"
+    },
+    {
+      "path": "05-conformance/tutorial-test-plan.md",
+      "sha256": "a44fdfc22a30b7b06864dbcf344845f9828e9401ddcd4b9b58056081597932cd"
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "5a8cfa90921aaed747a02a9a1264aa10479f0c9bcbc0f8601cdf79a59429874a"
+      "sha256": "ac1b998f43738342ad065fa208eb167e7faddf3f5ef2369f7065cf7ed98da785"
     },
     {
       "path": "README.md",
-      "sha256": "a0715397450a287d5d9c8a08b2969009f6cddfdcd7ac9a1d0d2338b145d9f585"
+      "sha256": "7c49c24e8d1ee6a83befe95f61b01f1e4839104047ab305791025c3d8dd88fc7"
     }
   ]
 }

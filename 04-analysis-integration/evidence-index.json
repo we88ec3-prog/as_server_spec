@@ -1485,6 +1485,27 @@
         "evidence-index.md"
       ],
       "record_scope": "identity index only; original evidence record not copied"
+    },
+    {
+      "evidence_id": "ev_a021_20261031_asgard_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "method": "objdump Intel x86 disassembly; VA-based reproducible analysis of user-provided unmodified EXE",
+      "scope": "C02/C04/S02 serializer-parser and MakeInfoDialog control flow, NOT native runtime acceptance",
+      "functions": [
+        "0x574170",
+        "0x5742B0",
+        "0x574370",
+        "0x574420",
+        "0x57DBC0",
+        "0x4B21E0",
+        "0x4B229F",
+        "0x4B1D60",
+        "0x4B1F46",
+        "0x4B205A"
+      ],
+      "report": "03-analysis-requests/A-021-roy1-static-analysis.md"
     }
   ]
 }
