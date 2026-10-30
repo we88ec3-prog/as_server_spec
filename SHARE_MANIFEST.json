@@ -269,7 +269,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "8a4e905e14f465bf60502b05fe59bd045694859c0bd15f8523d11108e3248b27"
+      "sha256": "aebf33a229052c381955f81021e7bfb24e63fa4952d34952ee1afea4dabeeae9"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -281,11 +281,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "04e1806fd69e34e479128cdbbdb16033298c7fcc02661a7f9b5304a9774fca83"
+      "sha256": "895b802510c194d874c9ed353d5eaf72d99f713028a78fe73655f54fa9687330"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "ed7d7f21a7d781a745b19824d1cc544e090693e632b8b03efd001ec926f6d742"
+      "sha256": "ead5a0cd7a3468b34c9c357fe8daa9796f99240059eb3b18a3ede3d7c2de816f"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -301,7 +301,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "bcded4112635f3b2d10dc7a2322b9741f949a1a3b4e15618410fb9c2556acc30"
+      "sha256": "316d62284f9207118a02ab31f6ad70bbf32539ddad7147ce350aee5bd854aacd"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -353,7 +353,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "2a834f6c49e9e203f790f7723cfea082acb0a827ee0569bc6ef606a573da47ad"
+      "sha256": "76aa5c57cd4c21935d9c507252033cc6ce4b650b62ff32375055f0da08ea2580"
     },
     {
       "path": "README.md",
