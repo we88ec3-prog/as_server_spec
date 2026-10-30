@@ -24,3 +24,9 @@
 3. DEV unit/integration 可以先驗「重送不雙計」的自訂設計，原版 Client E2E 通過僅由 CT Owner 報告。
 
 結論連到 [A-023 報告](../task_a/roy2/A-023-analysis.md)。A-023 部分研究完成不取代 CT-030 原版教學互動驗收。
+
+## Born.dat 離線驗證（CT 不取代原生實測）
+
+CT-029：`python task_a/roy2/verify_born.py /local/Born.dat` 驗 resource hash、zlib、BE 574、唯一 Main、三個 UI 呼叫、(31,29) 招募員點選指引；本輪離線 PASS、截斷檔 FAIL。**不等於 Native Client CT PASS**。
+
+CT-030：若 Main 由原服真正觸發，應顯示 PaperDialog 引導；觸發時間、地圖、NPC ID 仍 unknown，需抓 S14(2) 前後事件及玩家點招募員時真正的封包。CT-031：Main 無直接 SendReply/quest 修改，不能生成假的「Born 完成」回覆。三個 CT 的 native_client_validation 仍 not-run。

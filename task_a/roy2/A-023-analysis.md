@@ -3,7 +3,7 @@
 - 日期：2026-10-31；工作路徑：`task_a/roy2`；分析分支：`analysis/A-023-roy2`
 - 範圍：R-027、SYS-QUEST、ONB-03/05、SCN-009/011；對照 A-011、A-012、A-022。不追教學完成、獎勵、怪物 AI 或技能細節（A-024～026）。
 - Client：`Asgard.exe` PE32 x86、ImageBase `0x00400000`、檔案 3,235,840 bytes、SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，匹配 `TW-seed0-local-v0.1` 的既有身份。
-- 證據來源：本輪原始 EXE 反組譯與字串／交叉引用（`observed-static`）；本 repo 的既有資源與封包整理（`prior-research`）。未取得原始 `Script/*.dat`、MAP 及原服首登入抓包，無 `observed-runtime`。
+- 證據來源：本輪原始 EXE 反組譯與字串／交叉引用（`observed-static`）；本 repo 的既有資源與封包整理（`prior-research`）。現已取得 Born.dat；仍未取得原始 MAP/NPC 定義、原服首登入抓包，無 `observed-runtime`。
 - 門檻：A 研究與 DEV/CT 分離；`handoff_status=partial`，可交付原生 Script 通道安全子集與入口狀態的開發／測試規範；**首個必備 NPC、Born 觸發條件、任務步驟／opcode 仍 unknown**，不得標為原生教程已可完整實作。
 
 ## 1. 可核查的 BIN 證據
@@ -83,3 +83,21 @@ strings -el -t x Asgard.exe
 研究項目已具體核查：`A023-E01..E06` 的 EXE/指令、既有整合 `E07..E08` 的基準，並把多 subtype 與快取清理列入可用的 Server 風險規格。限制是 **首個不可省略的教學觸發/NPC/Script ID/quest flag 尚未解**。交接至 A-022（原教學 map/出生）、A-011/A-012（NPC/腳本語意）、A-024（首 NPC 生成與封包）與後續 DEV/CT；若原始資源補齊，應回本 A 追加精確觸發證據，補齊缺口後才能改為 `handoff_status=ready`。
 
 本成果進 review；可接受「有限子集整合、A partial」與「原生全段仍未可實作」同時成立。不聲稱 peer-review 已完成，不以 CT 未開始為失敗原因。
+
+## 7. Born.dat 已補：原件實證與 A-023 交接結論（2026-10-31）
+
+|證據|核查結果|不能推導的內容|
+|---|---|---|
+|A023-E09 observed-static-resource|原始 589 bytes、SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`；zlib 解壓 1154 bytes、SHA256 `a33d271e4f71e9958f59060b1aba01430919752a357b9615d60271b26c933546`。頭 `00010000` + BE u16 `0x023e=574` UTF-16LE code units，`6+2*574=1154`；唯一 XML `<script><function name="Main">`。|無法證明此資源和 EXE 屬同一版本，沒有原版觸發設定|
+|A023-E10 observed-static-resource|`Main` 順序：`client.CreateArray()`、`page.Insert(msg)`、`PaperDialog_Create("",page)`；文字要求玩家往**中間 (31,29)**，點選**女性招募員**（滑鼠）。|座標是**文字導航目標**，不是已驗證出生點／NPC spawn，也沒有實體 NPC ID 或 map ID|
+|A023-E10 absent calls|此 Main 不含明確 `SendReply`、`SetQuest`、`SetFlag`、`SpawnNpc` 呼叫。|不能由單一腳本證明引擎內部沒有副作用、沒有其他任務或必然自動啟動|
+|A023-E11 observed-static|EXE IAT `0x5f11fc=KERNEL32.DeleteFileA`；`0x529569` 讀取該 IAT，`0x529575` 間接呼叫；S44 handler `0x52c8e5` 通往 `0x5294e0` 的 Script cache 掃描流程。|不能拿 S44 type1/subtype3 當無副作用 ACK；本輪沒有實際執行刪檔|
+
+本輪用 Python stdlib 完成離線 zlib/UTF-16/ElementTree 解析與字串遮罩後呼叫核查，正常資源 **offline PASS**；截斷檔 **FAIL**。可執行 `python task_a/roy2/verify_born.py /local/Born.dat` 重現；原始 Born.dat 不提交 Git。機讀摘要在 `04-analysis-integration/tutorial-born-resource.json`。
+
+### 入口最小依賴／決議
+
+1. **已證**：存在一個只顯示教學紙張對話並引導玩家去 (31,29) 點選招募員的 `Born.Main` 資源；原生 Client 的 C6C/S44 script 通道存在且有危險清快取分支。
+2. **仍未證**：是否首次登入自動呼叫 Born.Main、首個不可省略的 NPC、招募員身分及原生初始任務/互動 wire、原服回覆。單憑 Born 沒有這些欄位，不能在正式 profile 填猜測值。
+3. **DEV 交接**：ScriptCatalog 可登記 SHA256 驗證的 Born 候選，Dialog 可按內容資源發生但不得自稱原版已觸發；WorldReady、EntryCommitted、TutorialCompleted 分開；不主動發未知 S44，拒絕 stale/未載圖的互動。
+4. **A gate**：`status=integrated`、`handoff_status=partial`、`native_client_validation=not-run`。完成本次實際可取得的資源與 BIN 證據整合，原生首次觸發/必要 NPC 缺口交 A-022/A-024、quest/對話分支交 A-012/A-026，實機由 CT-030/031；不是等新 Server 才停止分析。舊段落的「沒有 Born 檔」敘述屬先前階段，以本節為準。

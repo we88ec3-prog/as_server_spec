@@ -548,7 +548,13 @@
       },
       "expected": "按 C6C/S44 已知 subtype 分流；未知欄位不偽裝成功；S44 type1/subtype3 在隔離沙盒檢查快取變更，不視為純 ACK",
       "evidence_kind": "observed-static-plus-designed-test",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "offline_resource_test": {
+        "result": "pass-local-offline",
+        "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+        "validator": "task_a/roy2/verify_born.py",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "CT-030",

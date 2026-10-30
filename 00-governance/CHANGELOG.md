@@ -25,3 +25,7 @@
 ## 0.1.0-draft 補充 — 2026-10-31／A-023 roy2 BIN-first Script 研究
 
 新增 `task_a/roy2/A-023-analysis.md`、原始 Client SHA 的靜態證據 E01～E08 與教學入口 Script 整合；C6C serializer 確認 0..4 分支、補 PKT-S44（含 type1/subtype3 的本機 Script 快取清理風險），更新 SCN-009/011、CT-029～031、追蹤與 manifest。教學第一個必需 NPC、Born 自動執行、任務 UI/flag 與首次 Script 封包仍無資源/原服證據；A-023 進 review／handoff partial，CT 未執行，未宣稱完整教程還原。
+
+## 2026-10-31／A-023 Born.dat 原件補證
+
+驗證 Born.dat SHA `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98` 的 zlib/UTF-16 XML，得到 Main 紙張導引、(31,29) 女性招募員與滑鼠點擊；無顯式 quest/NPC 生成/SendReply，不能推定自動觸發或出生座標。補實證 EXE IAT DeleteFileA、離線可重現校驗器、A/SCN/CT/evidence/manifest。A-023 限定證據範圍 integrated/handoff partial，原生 Client not-run；剩餘 NPC/原版觸發交 A-022/A-024。

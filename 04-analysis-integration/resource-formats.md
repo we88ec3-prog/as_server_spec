@@ -47,3 +47,7 @@ Human有男女衣服mb/wb各102檔，髮型mh/wh各36檔；管理目錄在可用
 alpha區有height個u32 rowoffset及u16 RLE run（高byte count，低byte alpha）；非零alpha pixel依序取palette index。樣本alpha為0..248，預覽工具縮放到255，但原引擎rounding仍未完整追查。DOI動作／方向、其餘frame group與替代通道仍未知，不能據首幀自行補動畫映射。
 
 Evidence：MAP ev_e166a44f01c9de3b7eff7457a30e6279b8571b5a76afc7354812c14bf1331e27；YPF ev_118f7890a0a4321dda8b83065142403499e707a3620831c41800a1b4164b4be1。原始資產及抽取工具不隨規格分享；本頁描述格式以利各實作者自行驗證其持有的相符資料。
+
+## Born.dat 本輪原件驗證（A-023）
+
+zlib 589 bytes，SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`，解壓 1154 bytes；`00010000` + BE u16 574 UTF-16LE units；XML 唯一 Main 建立 PaperDialog，提示往 **(31,29)** 找女性「招募員」並用滑鼠點選。它是導航目標而**非**已證出生座標/NPC ID。本檔無顯式 SendReply/quest/spawn。原始檔未放進共用 repo；資源是否與指定 EXE 同版尚未確認。見 [分析全文](../task_a/roy2/A-023-analysis.md)。

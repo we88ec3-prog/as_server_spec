@@ -6,7 +6,7 @@
 
 - **PKT-C6C**：0x575140 構建 opcode 0x6C；0x575210 serializer 以 subtype 0..4 分岔。0x526626（腳本 API 名 `SendReply`）→0x51a9f0→0x575140 表示腳本有回送 CScript 通道。各 subtype 詳細 wire 欄、何時主動回送 unknown。
 - **PKT-S44**：0x5862e0 建構 opcode 0x44，0x4e0b70/0x52c2a0 分派；type1/subtype0..4 各異，type1/subtype3 → 0x5294e0，掃描／操作本地 `Script\\*.dat`（既有研究指出清快取）。**禁止**把 S44 任意 subtype 當作無副作用成功回覆。
-- **ScriptRunner/檔案來源**：0x521d32/0x521d84 識別 `client`/`Script`；0x5290bc/0x529351/0x52951d 的 .dat 路徑與 wildcard，表示需處理外部資料。資源研究中 `Born` 是新手對話／座標導引線索，但本輪沒有 Born.dat 檔案可核對。
+- **ScriptRunner/檔案來源**：0x521d32/0x521d84 識別 `client`/`Script`；0x5290bc/0x529351/0x52951d 的 .dat 路徑與 wildcard，表示需處理外部資料。資源研究中 `Born` 是新手對話／座標導引線索，但本輪 Born.dat 原件已被核對（A023-E09/E10）。
 - **入世界基線**：既有 SCN-001/009 是 S03→C10→C25→S02/S05→S15→S14(1)→C35→S04/S33→S14(2)；不能把這條封包鏈當作首 NPC/Script 已被啟動的證據。
 
 ## 對 Server 的契約（安全設計，非原服事實）
@@ -16,4 +16,8 @@
 - 只有取得來源與精確 schema 時才能向 Client 傳送對應 S44；不能以 C6C(03) 最小登入 fixture 取代所有 script 互動。封包重送、stale session、跨 instance 的任務進度須伺服器權威處理。
 - 完整 BIN 觀察、失敗路徑、CT 重現腳本見報告。CT-029～031 的 `native_client_validation` 均 `not-run`。
 
-**A gate**：`review`／`handoff_status=partial`，因真正的首教學觸發/任務封包尚缺必要證據。這不是因新 Server 未建立而 blocked。
+**A gate**：`integrated`／`handoff_status=partial`，因真正的首教學觸發/任務封包尚缺必要證據。這不是因新 Server 未建立而 blocked。
+
+## Born.dat 新證據
+
+589-byte zlib SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98` 解壓為 1154-byte UTF-16LE XML，唯一 `Main` 執行 `client.CreateArray` → `page.Insert` → `PaperDialog_Create`；紙張引導提及 **(31,29)** 女性招募員與滑鼠點選。這個座標**不是已證實出生點**。本 Main 無顯式 NPC/quest/SendReply，是否首次自動觸發與 NPC/quest ID 仍 unknown。另 EXE IAT `0x5f11fc=DeleteFileA` 確認 S44 Script 清除風險。見 [資源機讀摘要](tutorial-born-resource.json) 和 [驗證工具](../task_a/roy2/verify_born.py)。
