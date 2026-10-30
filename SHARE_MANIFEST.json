@@ -112,12 +112,16 @@
       "sha256": "90a34aa37e8fdc57416579144d82543139af71cc8a4ed737e7886d1e6eb08a23"
     },
     {
+      "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "sha256": "2575fe5d824c42930ca917d2c4a771997a9f2ccdef4b5a8985b0a85fbbe872b3"
+    },
+    {
       "path": "03-analysis-requests/A-021-acceptance.md",
       "sha256": "fb7fd0d702a5de08af98126f02f889ad68dc99f2ee4fee2a04cbe893102e21b3"
     },
     {
       "path": "03-analysis-requests/A-021-roy1-followup.md",
-      "sha256": "30a5c65de22f8ab347d8d074ba0c848f70afd0cf2fd5b95c7aac76e1491de8b2"
+      "sha256": "d50223db64cf407d8479d3b556f5ae2f161012db1f3ba651ce6b89d7514de087"
     },
     {
       "path": "03-analysis-requests/A-021-roy1-static-analysis.md",
@@ -126,6 +130,14 @@
     {
       "path": "03-analysis-requests/A-022-roy1-bin-analysis.md",
       "sha256": "1b54aa79d8ef5880741c550d7203ac65c75e0ae43387dcaabf06a6520190fe6c"
+    },
+    {
+      "path": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
+      "sha256": "0412ac99a9cd6bffcd926efa4600051aa7e1b2450875fd52c03f2651a2226478"
+    },
+    {
+      "path": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "sha256": "c25b5c322eacd3935111da182d3c1e11910f8bed2e72476f1729a35914f23d49"
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
@@ -152,8 +164,12 @@
       "sha256": "75b7543978fc97e0efad0dcbcfb3424483e3c107cdf5a88173d7480ec5f5e369"
     },
     {
+      "path": "04-analysis-integration/A-016-idempotency-recovery.md",
+      "sha256": "c54d9377a1444d145bcbd8f51861e3bcded76e78e37cef8569e3ee2f1c3721af"
+    },
+    {
       "path": "04-analysis-integration/A-021-native-flow.md",
-      "sha256": "3b50cc7f882ce8ab4d8fc65a8d660b32ac9d6117a86751f12b9c8aa9331252e2"
+      "sha256": "89c93e0e50169e118da44dae7e94eb956c240955d8c37183b8388fbb786d5bb3"
     },
     {
       "path": "04-analysis-integration/A-021-roy1-review.md",
@@ -165,7 +181,15 @@
     },
     {
       "path": "04-analysis-integration/A-022-map-loading-crc.md",
-      "sha256": "f54bfdca49310c5301565c0b963f2b9808cb73660694b03584b4e579865628ee"
+      "sha256": "2fae4f8a2c84ebd7065b2308e2b4d502a6f02aba883098c204a80939163f2d2c"
+    },
+    {
+      "path": "04-analysis-integration/A-027-preauth-safety-contract.md",
+      "sha256": "50aead306f19280f6400502050566cf65a3e30f5adae81dbe0601f3a5e490157"
+    },
+    {
+      "path": "04-analysis-integration/A-028-newuser-terminal-contract.md",
+      "sha256": "62073156a360ff3dc1417b21f4ce3aadb09ab2b3098834c657455d5fffc3570d"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -229,7 +253,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "6d83cb2c0b2b5fc509dd1bf82464ca5792798074a41efb05f8391cf92a218635"
+      "sha256": "ba78b969fe969fdbee4e1c16e8ec2c10aa2f998bc3454c4a52695cdcccd9221d"
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
@@ -257,7 +281,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "64f85771a304fb37c2375a7d742139d911814437a9d7b2fa3745457724a8ef74"
+      "sha256": "a417b358f815667447a3ff0e14cbd2e2ad619ae3087d3523e63d847f60365ef1"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
@@ -338,6 +362,18 @@
     {
       "path": "tools/a015_map_corpus_verify.py",
       "sha256": "29a3e802487156126362312c2ccca7fedb6b1858f3b96fc83ed3c71980733f92"
+    },
+    {
+      "path": "tools/a016_recovery_model.py",
+      "sha256": "c7e31a3c3dbaed247327fc1c68d93ad5656d15a551760026368cd3d77d037b14"
+    },
+    {
+      "path": "tools/a027_pre_auth_contract.py",
+      "sha256": "a487c5795eed6ba82ee3af66151ee1835a31943586180d06e882bbd2564facf1"
+    },
+    {
+      "path": "tools/a028_newuser_response.py",
+      "sha256": "900f6d08befd177fceb436a4724f0d30f565b9b1ff62f1bf39ed95279be02fc8"
     },
     {
       "path": "tools/test_a015_content_probe.py",
