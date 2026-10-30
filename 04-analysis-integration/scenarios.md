@@ -52,3 +52,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-016 / roy1：事件重放、移動 sequence 與世界 crash recovery
 
 [A-016 原生證據和設計矩陣](../03-analysis-requests/A-016-roy1-replay-recovery.md)、[Server 契約](A-016-idempotency-recovery.md)、[SQLite 合成測試](../tools/a016_recovery_model.py)。C33 `0x573BF0` 序列化 3×u8，S0B `0x583150` 讀 BE u16 x/y + u8 status/seq；**7-bit seq 每128次回捲，不能永久作交易 ID**。C35 `0x573490` 僅兩個 BE u16，無 map epoch；當舊/新同 pair 重疊時 wire 不可判定，必須串行、fence 或 fail closed 重新 World 連線。S14(2) local callback 不是 DB durable ACK。Account/Character/World/交易/領獎用內部 generation、intent、outbox、ledger 原子性保障重送/崩潰；交易獎勵原生 opcode 尚待分析，**不可捏造原版行為**。CT-043/044 planned，A-016 integrated/handoff partial，只交證據支持的 Client 接口與 designed recovery。SCN-003/010 的失敗/重啟未原生實測，仍非 fully passed。
+
+## SCN-014：管理操作與遊戲協定分離
+
+[A-017 機讀管理操作](../02-server-planning/admin-operations.json)／[詳細稽核與權限規格](A-017-admin-observability-contract.md)。使用獨立 `/admin/v1` Admin 操作（Admin 認證/RBAC、停權/解封/補道具/調整/傳送），**不是新增原版 game C2S opcode**。所有 allow/deny/replay 有去敏稽核與 correlation ID；URL/IP 可達不代表授權；同 key 重送不重做副作用。CT-045/046 planned，A-017 設計研究 handoff ready、Server/原生 Client 的管理行為不宣稱已實作/通過。

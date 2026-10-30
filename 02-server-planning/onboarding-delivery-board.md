@@ -49,3 +49,7 @@ A-022 通用 Map/CRC 的部分可直接支援 DEV，但真正新手 map/spawn/C3
 ## A-016 恢復與防重交接（2026-10-31）
 
 [A-016 研究](../03-analysis-requests/A-016-roy1-replay-recovery.md) `integrated/handoff partial`，通用 Session/World/Movement/Character 的 Server 防重骨架可實作（`implementation_ready=true`）；原始原服 commit/transaction 故障政策仍 unknown。新增 CT-043/044：SQLite crash/reopen、成功回覆遺失、C10 one-use、C33 seq7 replay/127→0、C35 同 pair 不可辨識 epoch；交易領獎僅 designed Domain/ledger，不代表原生 opcode 已分析。A-015 真教程內容、A-027 帳號認領安全、A-028 角色最終原生 UI 等路徑不能因 A-016 狀態而解除限制。[詳細](../04-analysis-integration/A-016-idempotency-recovery.md)。
+
+## A-017 管理與觀測工作交接（2026-10-31）
+
+A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/handoff ready/implementation_ready=true` **只表示可以供 Server 開發**。Admin.ProvisionAccount/Suspend/Unsuspend 應以獨立管理身份進入 Auth Domain；角色傳送/屬性調整/補發物品遵守 World/Inventory 狀態、可驗證唯一性與 audit。管理員的 HTTP API 必須與原 Client wire 隔離且 log 不含密碼/token/完整封包。SCN-014、CT-045/046 目前仍需 DEV/CT；原服 GM opcode/ban UI 不宣稱已證。[詳細管理契約](../04-analysis-integration/A-017-admin-observability-contract.md)。

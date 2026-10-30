@@ -61,3 +61,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-016 重送與崩潰恢復
 
 原始 Asgard.exe SHA256 重驗，`0x53C130` TCP split/merge frame、C33 `0x573BF0`/S0B `0x583150`、S14 `0x4F2300`、C35 `0x573490`、C10 `0x5773E0`、C04/C15 的無業務 request ID 線索核對。識別 C35 同 map checksum 跨 epoch 不可從 wire 區分的限制，交付獨立的 Auth/Character/World/Movement/Economy/Reward 回覆與 durable commit 防重合約；新增 SQLite synthetic crash/reopen/ledger 工具與 CT-043/044，A-016 integrated/handoff partial、Client CT not-run；不杜撰原服經濟/CRC/DB 政策。
+
+## task_a/roy1 — 2026-10-31 A-017 管理操作與可觀測性
+
+依 R-018/R-019/R-021/R-025 定義原生遊戲 socket 外的 Admin API、actor/permission/target/version/理由/idempotency、安全停權/解封/角色調整/傳送/發物品、deny/replay 也留無敏感審計、trace/metrics 安全白名單；原版 Asgard.exe 的 `sblockclient.cpp` debug 字串**不能**證明原服存在特定停權/GM 管理 API。新增 A-017 report、admin-operations.json、A-017 Admin/Observability contract、Python SQLite synthetic RBAC/audit tests、SCN-014、CT-045/046，更新 traceability 與共享校驗。A-017 `integrated/handoff ready/implementation_ready=true` 僅指設計與合成測試交付，實際 Server/Client CT 尚未驗收。

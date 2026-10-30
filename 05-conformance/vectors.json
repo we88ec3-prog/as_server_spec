@@ -987,6 +987,68 @@
       "evidence_kind": "observed-static+designed",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md"
+    },
+    {
+      "id": "CT-045",
+      "status": "planned",
+      "level": "management-rbac-and-atomic-replay",
+      "requirements": [
+        "R-018",
+        "R-021",
+        "R-025"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "designed-sqlite-fixture",
+        "reference": "tools/a017_ops_contract.py",
+        "cases": [
+          "unauthenticated actor and forbidden role",
+          "suspend N days/permanent and unsuspend",
+          "item grant one-shot",
+          "same idempotency key changed payload conflict",
+          "teleport/adjustment valid state"
+        ]
+      },
+      "expected": "Independent management authentication + RBAC + reason, target validation; denied actions no domain side effect; same key same body no duplicate item; changed body conflict; append-only sanitized audit for allow/deny/replay",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md"
+    },
+    {
+      "id": "CT-046",
+      "status": "planned",
+      "level": "admin-audit-redaction-observability",
+      "requirements": [
+        "R-019",
+        "R-021"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "designed-security-fixture",
+        "reference": "tools/a017_ops_contract.py",
+        "sensitive_fields": [
+          "password",
+          "transfer_token",
+          "authorization_header",
+          "raw_packet_body",
+          "cookie"
+        ],
+        "correlation_fields": [
+          "actor_id",
+          "request_id",
+          "operation",
+          "target_id",
+          "decision",
+          "session_generation",
+          "map_id",
+          "loading_epoch",
+          "opcode"
+        ]
+      },
+      "expected": "Only safe allowlisted audit/diagnostic fields stored; no passwords, token, auth headers, cookies, complete game packet body or private chat even on denial/error; received/committed/notified distinguished",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md"
     }
   ]
 }

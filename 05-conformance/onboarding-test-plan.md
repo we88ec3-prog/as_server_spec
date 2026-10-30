@@ -55,3 +55,12 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-016 / roy1：R-017 回覆遺失、斷線與持久化（CT-043/044 planned）
 
 [A-016 原版可核對函式](../03-analysis-requests/A-016-roy1-replay-recovery.md) 和 [Domain/DB 恢復契約](../04-analysis-integration/A-016-idempotency-recovery.md)。執行 `python3 tools/a016_recovery_model.py` 做 SQLite synthetic crash/reopen：角色提交回包遺失仍唯一、token 原子一次性、C33 seq7 replay/127→0、C35 拒絕錯 epoch/同 pair ambiguity、交易雙邊入帳與領獎 unique ledger；**不代表原 Client 或原服驗收通過**。CT-043/044 是 designed/negative contract，原始 Client 世界載圖/重登入仍需後續 CT-016/017/018。
+
+## A-017 管理 API／稽核測試（CT-045/046）
+
+[詳細分析](../03-analysis-requests/A-017-roy1-admin-audit.md) 與 [契約](../04-analysis-integration/A-017-admin-observability-contract.md)。
+
+- CT-045（planned）：只允許具有獨立 operator identity 與 permission 的 Admin 命令；未登入/越權/相同 key 不同 body 皆拒絕，副作用不可發生；同 key 同 body 的 item grant 只存一次；停權 N 天/永久/解封、角色調整與傳送須由 Domain 驗證與唯一 ledger 保護。
+- CT-046（planned）：允許與拒絕、重播、錯誤均寫入 sanitized audit/trace；不得洩漏 password、S03/C10 token、原始 packet body、Cookie 或 Authorization。管理 metrics/health 不向公開 Game Client 露出敏感維度。
+
+合成 Python `tools/a017_ops_contract.py`（五個 unittest 通過）是 designed 參考，不是原版 Admin UI/新 Server 上線驗收，也不是原服擁有同樣的權限政策。

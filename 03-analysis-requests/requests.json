@@ -345,12 +345,32 @@
       "title": "管理操作及可觀測性",
       "method": "列出角色調整、生成物品、傳送、封鎖與追蹤的權限和記錄需求。",
       "deliverable": "管理API與遊戲wire分離；無敏感body的診斷欄位。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a017_20261031_management_contract"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "ready",
+      "native_client_validation": "not-run",
+      "evidence_kind": "designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Administrative API, typed permissions, sanitized audit/observability, atomic idempotency and synthetic fixtures; NOT recovered original GM wire or deployed Server",
+      "original_admin_wire_evidence": "unknown",
+      "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md",
+      "analysis_contract": "04-analysis-integration/A-017-admin-observability-contract.md",
+      "api_schema": "02-server-planning/admin-operations.json",
+      "analysis_test": "tools/a017_ops_contract.py",
+      "analysis_scope": "R-018/R-019/R-021 (plus R-025) separate Admin API permissions, account suspension, item grants, teleport, audit/log redaction and replay security",
+      "remaining_unknowns": [
+        "Original game's Server admin/GM wire, kick/ban statuses unproven",
+        "Actual online World teleport coordination with native Client requires DEV/CT",
+        "Production admin identity, deployment, secret rotation and retention remain DEV/OPS",
+        "Legal item/character bounds remain A-003/A-007/A-013",
+        "Measured load/latency capacity remains A-018"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-018",

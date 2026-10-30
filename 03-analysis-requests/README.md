@@ -84,3 +84,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-016 / roy1：重送與斷線恢復分析（2026-10-31）
 
 [A-016 BIN-first 報告](A-016-roy1-replay-recovery.md) / [恢復合約](../04-analysis-integration/A-016-idempotency-recovery.md) / [SQLite 合成測試](../tools/a016_recovery_model.py)。確認 Client C33 7-bit sequence/S0B ack、C35 只含 MAP header word+structured checksum（**無 epoch**）、S14 control2 loading callback、C10 one-shot token interface、C04/C15 缺原生 request ID；提供每種操作的內部冪等鍵、提交時點與崩潰恢復矩陣。A-016 `integrated/handoff partial/implementation_ready=true` 限通用 Server 防重/持久化子集；原服 DB/經濟/重連/獎勵政策 unknown，CT-043/044 planned。
+
+## A-017 / roy1 管理 API／觀測與稽核交付（2026-10-31）
+
+[範圍與威脅矩陣](A-017-roy1-admin-audit.md)、[管理 API 契約](../04-analysis-integration/A-017-admin-observability-contract.md)、[機讀操作](../02-server-planning/admin-operations.json) 及 [合成測試](../tools/a017_ops_contract.py)。R-018/R-019/R-021 含帳號建檔、停權 N 天/永久與解封、角色傳送／調整、物品發放、診斷關聯與敏感欄位白名單；所有管理操作與遊戲 C2S 分離，不因 IP/URL 可達就授權。A-017 `integrated / handoff ready` **只對 Server Admin/Telemetry 設計規格**，原版 GM/ban 管理 wire 未確認、Server 未宣稱已實作；CT-045/046 planned，SCN-014 是獨立管理場景。
