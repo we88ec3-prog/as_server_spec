@@ -80,8 +80,8 @@ NewUser / MakeInfoDialog (state 0x1c；是否 C03 後可達 UNKNOWN)
 ## 5. 新增可驗證測試與剩餘未知
 
 1. `CT-032` 修改分析依據：對 state0x1e 收 `S02(0,empty)`，預期進 `0x4b206b` UI 本地完成路徑，**不期待 C03/S03 由同個 callback 直接發出**；原 Client end-to-end not-run。
-2. `CT-041`：`S02(status!=0)` 在 `state0x1d/0x1e` 產生 C15、body 空、state0x1f；focus status 3/4/17/18/26/31；本次 static/synthetic，不是原服 status 意義證明。
-3. `CT-042`：原子角色提交/重送/回覆遺失/C15 延遲/跨帳號/冒用/重啟，designed Domain 測試，需等可信 Account owner 的原生入場證據才放行正式 Client 驗收。
+2. `CT-043`：`S02(status!=0)` 在 `state0x1d/0x1e` 產生 C15、body 空、state0x1f；focus status 3/4/17/18/26/31；本次 static/synthetic，不是原服 status 意義證明。
+3. `CT-044`：原子角色提交/重送/回覆遺失/C15 延遲/跨帳號/冒用/重啟，designed Domain 測試，需等可信 Account owner 的原生入場證據才放行正式 Client 驗收。
 4. `tools/a028_newuser_response.py`：純 Python 合成 S02 parser、C04 u8、C15 行為 UI state 與 designed fail-closed commit/idempotency，沒有執行原 Client。
 5. 仍未解：**A-027** pre-C03 C02 如何安全認領預建 Account、C03 no-character→MakeInfoDialog；**A-003** 原版角色名稱、合法值與角色數；**A-028 native gap** status0 成功的原始 Server DB 時點、status1..31 文字語意、0x1e UI 後是否重登/轉服及具體操作、C15 Server 處理。必須有原生資源/Server 證據或 UI CT 才能宣告全流程 ready。
 

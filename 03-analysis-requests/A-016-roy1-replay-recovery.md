@@ -70,7 +70,7 @@ Gateway/Session 可以生成 server-internal connection_id, account_generation, 
 ## 6. 測試與交接
 
 - tools/a016_recovery_model.py：Python stdlib sqlite3 合成測試。登入 grant 一次性、C04 未授權拒絕/成功重送、SQLite 重啟後 outbox/角色唯一性、C35 epoch/fail closed、C33 7-bit seq127→0、錢包雙邊移轉與獎勵唯一 ledger。
-- CT-043：持久狀態/idempotency crash/reopen（designed, native Client not-run）；CT-044：C35 無 epoch 的限制與同 pair 模糊重送（BIN-derived bound + designed fallback）。
+- CT-045：持久狀態/idempotency crash/reopen（designed, native Client not-run）；CT-046：C35 無 epoch 的限制與同 pair 模糊重送（BIN-derived bound + designed fallback）。
 - 既有 CT-015/016/017、SCN-003/010 更新 provenance 與故障注入，不因人工正常切圖/一般登入通過就宣布重啟恢復已 passed。
 
 ## 7. 復核（VA，不是 file offset）

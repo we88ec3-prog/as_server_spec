@@ -113,7 +113,7 @@
     },
     {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "sha256": "2575fe5d824c42930ca917d2c4a771997a9f2ccdef4b5a8985b0a85fbbe872b3"
+      "sha256": "d4069165b56341272e0fe58879b797f89372ac6852a787505c0b6cb06e7e5047"
     },
     {
       "path": "03-analysis-requests/A-021-acceptance.md",
@@ -133,11 +133,11 @@
     },
     {
       "path": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
-      "sha256": "0412ac99a9cd6bffcd926efa4600051aa7e1b2450875fd52c03f2651a2226478"
+      "sha256": "f2efda873357a7fdbda0391c14a3c241e3b5779182bae38bcc27de5667e88cd4"
     },
     {
       "path": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
-      "sha256": "c25b5c322eacd3935111da182d3c1e11910f8bed2e72476f1729a35914f23d49"
+      "sha256": "cff4b24d2c3517c36814e7d7f24986595e0f8dcf5f4bd7d02ecebe03897faaf4"
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
@@ -281,7 +281,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "a417b358f815667447a3ff0e14cbd2e2ad619ae3087d3523e63d847f60365ef1"
+      "sha256": "b7585be5effae66359d40e8b72ca60f10cda4046bdfada43ec77b9e5473833e0"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
