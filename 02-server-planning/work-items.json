@@ -21,7 +21,8 @@
       "conformance": [
         "CT-019",
         "CT-037",
-        "CT-038"
+        "CT-038",
+        "CT-041"
       ],
       "depends_on": [],
       "readiness": "design-ready-minimal-profile",
@@ -30,7 +31,8 @@
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
-      "analysis_handoff": "A-002 integrated/partial: C03/S02/S03/C10 static Client codec and cross-TCP handoff; original duplicate login policy unknown"
+      "analysis_handoff": "A-002 integrated/partial: C03/S02/S03/C10 static Client codec and cross-TCP handoff; original duplicate login policy unknown",
+      "latest_evidence_gate": "Pre-C03 C02 cannot claim preprovisioned Account without separately verified owner/session; A-027 static research completed but native claim blocked."
     },
     {
       "id": "ONB-02",
@@ -42,7 +44,8 @@
         "A-003",
         "A-021",
         "A-027",
-        "A-028"
+        "A-028",
+        "A-016"
       ],
       "scenarios": [
         "SCN-008"
@@ -51,7 +54,11 @@
         "CT-012",
         "CT-014",
         "CT-030",
-        "CT-032"
+        "CT-032",
+        "CT-041",
+        "CT-042",
+        "CT-043",
+        "CT-044"
       ],
       "depends_on": [
         "ONB-01"
@@ -62,7 +69,8 @@
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
-      "blocked_native_scope": "C02 pre-C03 cannot grant character creation authority until A-027 proves owner binding. C04 reply and final transition require A-028."
+      "blocked_native_scope": "C02 pre-C03 cannot grant character creation authority until A-027 proves owner binding. C04 reply and final transition require A-028.",
+      "latest_evidence_gate": "C02 S02(status0)→C04; C04 S02(status0)→local UI not S03; status!=0→empty C15/state1f; original preprovisioned owner route still blocked."
     },
     {
       "id": "ONB-03",
@@ -75,7 +83,8 @@
         "A-028",
         "A-015",
         "A-023",
-        "A-027"
+        "A-027",
+        "A-016"
       ],
       "scenarios": [
         "SCN-009"
@@ -83,7 +92,10 @@
       "conformance": [
         "CT-016",
         "CT-018",
-        "CT-034"
+        "CT-034",
+        "CT-039",
+        "CT-040",
+        "CT-046"
       ],
       "depends_on": [
         "ONB-02"
@@ -96,7 +108,8 @@
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
       "blocked_native_scope": "A-027/A-028 authenticated creation, A-015 native MAP/spawn and A-023 Born-trigger/NPC content still unknown. A-022 generic loading (S14/S15/C35/S04) evidence is ready only for partial implementation; CT-018/034 native Client not-run.",
       "analysis_handoff": "A-022 integrated/partial: Map CRC and loading ready; native tutorial content requires A-015",
-      "tutorial_content_ready": false
+      "tutorial_content_ready": false,
+      "latest_evidence_gate": "494 MAP structure verified, but native tutorial map/spawn and C35 structured checksum pair not yet proven; C35 has no client-visible epoch."
     },
     {
       "id": "ONB-04",
@@ -117,7 +130,9 @@
         "CT-017",
         "CT-035",
         "CT-037",
-        "CT-038"
+        "CT-038",
+        "CT-045",
+        "CT-046"
       ],
       "depends_on": [
         "ONB-03"
@@ -127,7 +142,8 @@
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
-      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff"
+      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
+      "latest_evidence_gate": "Offline recovery/idempotency model ready; native resource or World E2E not-run."
     },
     {
       "id": "ONB-05",

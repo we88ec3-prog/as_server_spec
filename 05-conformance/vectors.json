@@ -272,7 +272,11 @@
       },
       "expected": "無效、過期、重用、跨角色及舊世代 token 拒絕",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_notes": "A-016: native Client fields + designed server-safe crash/idempotency; original Client CT still not-run"
     },
     {
       "id": "CT-016",
@@ -298,7 +302,11 @@
       },
       "expected": "世界初始化順序正確，載入中不得 InWorld",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_notes": "A-016: native Client fields + designed server-safe crash/idempotency; original Client CT still not-run"
     },
     {
       "id": "CT-017",
@@ -318,7 +326,11 @@
       },
       "expected": "C35 前後中斷不留幽靈載圖、不誤標教學完成",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "analysis_evidence_ids": [
+        "ev_a016_20261031_asgard_replay_static"
+      ],
+      "a016_notes": "A-016: native Client fields + designed server-safe crash/idempotency; original Client CT still not-run"
     },
     {
       "id": "CT-018",
@@ -594,11 +606,15 @@
         "kind": "test-design",
         "reference": "05-conformance/onboarding-test-plan.md"
       },
-      "expected": "S02 status0 在 Create Info state 0x1d 可觸發 C04 並進 0x1e，但不得把此跳轉視為已完成角色建立",
+      "expected": "S02 status0 在 Create Info state 0x1d 可觸發 C04 並進 0x1e，但不得把此跳轉視為已完成角色建立; on subsequent S02(status0) at state0x1e, Client runs local UI 0x4b206b without sending another C04 or immediate S03",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_dependency": [
-        "A-021"
+        "A-021",
+        "A-028"
+      ],
+      "analysis_evidence_ids": [
+        "ev_a028_20261031_asgard_c04_response_static"
       ]
     },
     {
@@ -614,17 +630,22 @@
         "PKT-C04",
         "PKT-S02",
         "PKT-S03",
-        "PKT-C10"
+        "PKT-C10",
+        "PKT-C15"
       ],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/onboarding-test-plan.md"
       },
-      "expected": "在 A-028 證明的後續回覆與提交時序下建立單一角色，失敗/重登/轉服一致；目前 Client E2E blocked",
+      "expected": "Native static: C04→local state0x1e; S02(status0) at 0x1e enters UI 0x4b206b, not direct C03/S03; S02(nonzero) triggers C15(empty body) and state0x1f. Secure owner account claim and native durable commit/relogin/transfer still unknown, Client E2E blocked.",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_dependency": [
-        "A-028"
+        "A-028",
+        "A-027"
+      ],
+      "analysis_evidence_ids": [
+        "ev_a028_20261031_asgard_c04_response_static"
       ]
     },
     {
@@ -845,6 +866,192 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_request": "A-015"
+    },
+    {
+      "id": "CT-041",
+      "status": "planned",
+      "level": "preauth-account-owner-safety",
+      "requirements": [
+        "R-002",
+        "R-025",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "designed-security-fixture",
+        "reference": "tools/a027_pre_auth_contract.py",
+        "scenarios": [
+          "preauth C02 matching existing admin provisioned name",
+          "different account owner",
+          "suspended",
+          "invalid credentials",
+          "duplicate concurrent"
+        ]
+      },
+      "expected": "Decode permitted, but no Account claim/Create, no Character lease or S02 success until owner proven by independently authenticated native path; no Client account creation ever",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
+      "merge_source_id": "CT-039",
+      "merge_note": "roy1 CT CT-039 renumbered to CT-041 because roy2 A-015 retains CT-039/040; native Client not-run"
+    },
+    {
+      "id": "CT-042",
+      "status": "planned",
+      "level": "native-ui-c02-source-regions",
+      "requirements": [
+        "R-003",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic-fixtures",
+        "reference": "tools/a027_pre_auth_contract.py",
+        "regions": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "expected": "C02 correct 3/4 string8 shape, second wire field matches confirmation-only UI check; region1 discrepancy and original no-character UI switch remain not-run/unknown",
+      "evidence_kind": "observed-static",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
+      "merge_source_id": "CT-040",
+      "merge_note": "roy1 CT CT-040 renumbered to CT-042 because roy2 A-015 retains CT-039/040; native Client not-run"
+    },
+    {
+      "id": "CT-043",
+      "status": "planned",
+      "level": "native-bin-derived-newuser-error-cancel",
+      "requirements": [
+        "R-003",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C04",
+        "PKT-C15"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic-fixture",
+        "reference": "tools/a028_newuser_response.py",
+        "s02_failure_example_hex": "0303657272",
+        "s02_success_example_hex": "0000",
+        "focus_status_first": [
+          3,
+          4,
+          18,
+          26,
+          31
+        ],
+        "focus_status_second": [
+          17
+        ]
+      },
+      "expected": "S02(nonzero) in MakeInfoDialog causes C15 opcode0x15 with zero-byte body and local state0x1f; S02(status0) state0x1d causes C04, state0x1e causes local UI 0x4b206b, without direct S03",
+      "evidence_kind": "observed-static",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "merge_source_id": "CT-041",
+      "merge_note": "roy1 CT CT-041 renumbered to CT-043 because roy2 A-015 retains CT-039/040; native Client not-run"
+    },
+    {
+      "id": "CT-044",
+      "status": "planned",
+      "level": "character-create-safe-commit-idempotency",
+      "requirements": [
+        "R-025",
+        "R-026",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "designed-domain-synthetic-test",
+        "reference": "tools/a028_newuser_response.py"
+      },
+      "expected": "No account/character creation without verified owner; C04 only with active owner+pending generation; once-only transaction commit; duplicate C04 no second character, late C15 never deletes durable record; no S03 automatic after UI success",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "merge_source_id": "CT-042",
+      "merge_note": "roy1 CT CT-042 renumbered to CT-044 because roy2 A-015 retains CT-039/040; native Client not-run"
+    },
+    {
+      "id": "CT-045",
+      "status": "planned",
+      "level": "sqlite-synthetic-crash-reopen-idempotency",
+      "requirements": [
+        "R-017",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C10",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-C33",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "designed-domain-synthetic-test",
+        "reference": "tools/a016_recovery_model.py",
+        "scenarios": [
+          "commit after S02 lost",
+          "one-shot token across restart",
+          "7-bit movement seq127/0 replay",
+          "atomic double-wallet trade",
+          "reward unique ledger"
+        ]
+      },
+      "expected": "SQLite reopen preserves unique character, outbox, wallet transfer and reward dedup; used token cannot replay; move duplicate only cached ACK; Client native E2E not-run",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "merge_source_id": "CT-043",
+      "merge_note": "roy1 CT CT-043 renumbered to CT-045 because roy2 A-015 retains CT-039/040; native Client not-run"
+    },
+    {
+      "id": "CT-046",
+      "status": "planned",
+      "level": "map-crc-ambiguous-epoch-negative-contract",
+      "requirements": [
+        "R-004",
+        "R-017",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "bin-derived-negative-contract",
+        "reference": "tools/a016_recovery_model.py",
+        "c35_example_body_hex": "1234abcd",
+        "same_map_same_revision_c35_identical": true
+      },
+      "expected": "C35 two-u16 only, cannot distinguish same-map/same-pair late response across epochs; single active pending load/connection and fail-closed ambiguous overlap. Reject mismatched/old/absent epoch, after crash no stale C35 can complete load; original Client E2E not-run",
+      "evidence_kind": "observed-static+designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "merge_source_id": "CT-044",
+      "merge_note": "roy1 CT CT-044 renumbered to CT-046 because roy2 A-015 retains CT-039/040; native Client not-run"
     }
   ]
 }

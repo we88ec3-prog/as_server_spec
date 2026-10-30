@@ -101,7 +101,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "7943d8e700d321d0f98c28e072bb828d074a049358964a250eac0a6ca8713e89"
+      "sha256": "e93fad9378c77486268815c83bd84929df62e3346e0de061274d10f949d4bdce"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -289,7 +289,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "017cf879c2a18fc47257d3cc67d05bab3c226d3d89c5333260c85b7713862d21"
+      "sha256": "55e8d2dcdee98641067442cdcc88a382f4b8fda0793237ea44f9d9ffae6c4a60"
     },
     {
       "path": "README.md",
