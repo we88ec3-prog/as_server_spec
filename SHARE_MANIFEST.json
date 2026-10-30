@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "7e495ae992c4f70b1d7d21f7406b3e36c5f95b269ac91df91f072f5a3e8c08ab"
+      "sha256": "62fd64ebf0d23a4e6ee08bf3a0b9e9459433fc1d4fc60d3c4a91aee709e940db"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "0f696dd9553dccdd2c28f2e93c5be92a19acda12c48e0e95669e44924752d503"
+      "sha256": "182c9664b5407d3f18d1eb61074e0b07a9acfe21d6f93af5398bf73ea55301c6"
     },
     {
       "path": "00-governance/workflow.md",
@@ -321,7 +321,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "42dd5dceae466eecc5dfd3a599a4a377687105216e26ebf0e74086359b8c2423"
+      "sha256": "5462c7df8d9d14a84c283759fffd27fcd96d859a44cdf3a12ebcfce788bd2e2f"
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
@@ -414,6 +414,10 @@
     {
       "path": "tools/a016_recovery_model.py",
       "sha256": "c7e31a3c3dbaed247327fc1c68d93ad5656d15a551760026368cd3d77d037b14"
+    },
+    {
+      "path": "tools/a017_ops_contract.py",
+      "sha256": "f2db26d80adbafb53325c28953a327315252b7a5efa6f8fcaffba5ff9097a086"
     },
     {
       "path": "tools/a027_pre_auth_contract.py",
