@@ -46,7 +46,9 @@
       ],
       "conformance": [
         "CT-012",
-        "CT-014"
+        "CT-014",
+        "CT-030",
+        "CT-032"
       ],
       "depends_on": [
         "ONB-01"
@@ -67,14 +69,18 @@
       ],
       "analysis_requests": [
         "A-022",
-        "A-028"
+        "A-028",
+        "A-015",
+        "A-023",
+        "A-027"
       ],
       "scenarios": [
         "SCN-009"
       ],
       "conformance": [
         "CT-016",
-        "CT-018"
+        "CT-018",
+        "CT-034"
       ],
       "depends_on": [
         "ONB-02"
@@ -85,7 +91,7 @@
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
-      "blocked_native_scope": "A-027/028 auth/creation, A-015 native map/Born/NPC, and A-022 map CRC/version mapping still block original tutorial Client E2E; generic Map/CRC loading subset may develop.",
+      "blocked_native_scope": "A-027/A-028 authenticated creation, A-015 native MAP/spawn and A-023 Born-trigger/NPC content still unknown. A-022 generic loading (S14/S15/C35/S04) evidence is ready only for partial implementation; CT-018/034 native Client not-run.",
       "analysis_handoff": "A-022 integrated/partial: Map CRC and loading ready; native tutorial content requires A-015",
       "tutorial_content_ready": false
     },
@@ -104,7 +110,8 @@
       ],
       "conformance": [
         "CT-015",
-        "CT-017"
+        "CT-017",
+        "CT-035"
       ],
       "depends_on": [
         "ONB-03"
@@ -126,7 +133,9 @@
       "analysis_requests": [
         "A-023",
         "A-024",
-        "A-025"
+        "A-025",
+        "A-011",
+        "A-012"
       ],
       "scenarios": [
         "SCN-011",
@@ -137,7 +146,10 @@
         "CT-022",
         "CT-023",
         "CT-024",
-        "CT-025"
+        "CT-025",
+        "CT-033",
+        "CT-034",
+        "CT-035"
       ],
       "depends_on": [
         "ONB-03"
@@ -147,7 +159,8 @@
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
-      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff"
+      "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
+      "analysis_handoff": "A-023 integrated/partial: C6C/S44 & Born paper dialog, unknown first trigger/NPC ID; A-024/025 and A-011/012 remain open."
     },
     {
       "id": "ONB-06",
@@ -156,7 +169,9 @@
         "R-031"
       ],
       "analysis_requests": [
-        "A-026"
+        "A-026",
+        "A-012",
+        "A-016"
       ],
       "scenarios": [
         "SCN-013"

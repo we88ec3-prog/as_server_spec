@@ -36,3 +36,11 @@
 ## A-027/A-028 優先分派：解除原生預建帳號創角阻塞
 
 roy1 的 A-021 static subset 已完成 review，但是 **C02 在 C03 前的帳號擁有者證明未知**。交付 A-027 給 Auth/Client UI 研究者，要求明確驗證 C02 欄位來源、身份校驗方式及如何預防他人帳號被冒用；交付 A-028 給 Client state/packet 研究者，要求完成 C04 後 state0x1e 的回覆、角色提交/失敗與轉服或重登。兩者都**不需要先把 Server 做出來才算分析完成**；缺證據必須保持 partial，不能以安全性不足的 provisional claim 取代。
+
+## 最新指派順序（2026-10-31，以本節覆蓋上方歷史表）
+
+A-021、A-022、A-023 均 `integrated/handoff_status=partial`，不可再當作尚未開始。**P0 第一批**：A-027（pre-C03 C02 owner/credential boundary）＋ A-015（版本化原生 MAP/Born/NPC 出生資料），可由兩位分析者並行；A-003 與 A-020 同時補合法值和 metadata/auth。**P0 第二批**：A-028（C04 最終 status / Character commit / transfer），可在 A-027 身份來源尚未結論時先查 state0x1e 的 BIN，但不能設計無憑證帳號認領。A-016 補 crash/recovery、A-022 針對實際 MAP 的 checksum expected pair 是平行支線。**P1 第三批**：A-012（Born/Script 任務語意）＋ A-011/A-024（女性招募員及首 NPC、怪物 spawn/action）；有了明確場景和 NPC 後才封閉 A-025 技能/目標事件，最後 A-026 完成條件／出圖／獎勵。A-004/A-005 可並行補可見性與移動權威。
+
+A-023 的 CT-ID 經 main merge 改為 CT-033..035，不再佔用 A-021 的 CT-029..032。Born 原件是否與 Client 版本相符尚未證實；本次驗證 EXE SHA 與指定 BIN 分支，Born 原件離線 PASS 僅有 roy2 的研究報告/validator 可供日後重現。
+
+完整排程與出場門檻見 [新優先矩陣](../02-server-planning/analysis-priority-after-A022-A023.md)。

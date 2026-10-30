@@ -47,3 +47,7 @@
 ## roy1 A-021 合併後 review（2026-10-31）
 
 `task_a/roy1` 已 fast-forward merge 並經 Asgard.exe BIN 靜態核對；已確認 C02 region variants、C04 五 u8、S02 status/string 及 UI 0x1d→0x1e。**A-021 只達靜態 partial handoff**，新開 A-027（前認證身份／帳號權限）及 A-028（C04 最終回覆/轉場），CT-029～032 計畫中。詳見 [roy1 review](04-analysis-integration/A-021-roy1-review.md)。未經認證的 C02 絕不能認領管理員已建立的帳號。
+
+## 2026-10-31 A-022/A-023 整合後的分析優先順序
+
+[下一輪分析順序與 DEV/CT 解鎖條件](02-server-planning/analysis-priority-after-A022-A023.md) | [BIN 靜態驗證與 Born 來源限制](04-analysis-integration/A-022-A-023-merge-validation.md)。A-027/A-015 為首批並行，A-028 隨後；Script 相關 CT 使用 033～035，保留原有 CT-029～032。

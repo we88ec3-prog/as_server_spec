@@ -57,7 +57,7 @@ strings -el -t x Asgard.exe
 |首個 NPC 是誰、id/位置/可見性？|unknown，EXE 不含已驗證地圖生物表|取得版本化地圖/NPC/事件定義，對照 A-011/A-024 的 object parser/handler|
 |是否必需送 S44 才能讓角色移動？|unknown；最小 profile C6C(03) 不回覆不構成否證|原生教程與非教程對照，錄首圖 S14(2) 前後 UI、封包及未互動下行動|
 |首個任務 UI/flag/quest event/回包？|unknown；Script 可建立 dialog 並 SendReply，但具體任務語意無證據|資源腳本中的 `CreateDialog`、`SendReply`、資料鍵/事件 hook 與 BIN 呼叫點逐一映射|
-|拒絕、取消、重送、斷線與重登入|原版原生 Script 回覆狀態及重播語意 unknown|同一 NPC 先接受/再取消/重送與舊 generation；CT-030 驗證 Server ledger 不錯誤加進度|
+|拒絕、取消、重送、斷線與重登入|原版原生 Script 回覆狀態及重播語意 unknown|同一 NPC 先接受/再取消/重送與舊 generation；CT-034 驗證 Server ledger 不錯誤加進度|
 
 **無實機不構成分析停止理由。** 本輪已完成 EXE-only 可以核查的 Script 協定、快取副作用及前置時序研究；真正需資源／原服訊息的必要欄位是研究證據缺口，保持 partial，不自行捏造。
 
@@ -69,13 +69,13 @@ strings -el -t x Asgard.exe
 4. `SScript` 的快取更新/刪除不是純 UI 彈窗；未掌握安全 schema 和必要條件前不主動發，尤其不發 type1/subtype3 清快取；拒絕路徑不擬造 opcode。
 5. NPC/初始任務僅從經確認的 profile/content revision 載入；若缺官方資源就「native-content-unresolved」，勿使用假 NPC id/座標在官方 profile。
 6. 未來任務觸發與初始 grant 應由 Server 權威、原子性/冪等 ledger 實作；現階段這只是安全設計，不當作原服協定。
-7. UI/Client 事件需等 World/MapPane 有效；**不代表**確認了某個 Born 自動啟動時點。不可因缺 CT-029/030 就抹掉 E02～E06 的靜態證據。
+7. UI/Client 事件需等 World/MapPane 有效；**不代表**確認了某個 Born 自動啟動時點。不可因缺 CT-033/030 就抹掉 E02～E06 的靜態證據。
 
 ## 5. 下游 CT 計畫（尚未原生測試）
 
-- **CT-029 Script 通道與副作用防護**：在隔離測試副本（先備份 Script）重現 C6C subtype0..4/SScript type1/2 分派。只驗 BIN serializer/parser／file sandbox 行為，S44 type1/subtype3 須明確禁用正式服或於可丟棄檔案環境觀察；不得將其當普通 ACK。缺 byte layout 時先跑 mock unit 檢查，不送未知真實封包。
-- **CT-030 首次可操作邊界**：管理員預建無角色帳號，原 Client 創角、首次進 A-022 證實的教學圖；收集 S14(2) 前後、最初 NPC/Script/任務視窗是否主動出現、mapID/NPC ID、C6C/S44 實際 bytes，與不互動控制組比對。無原 Server 時先用 DEV 模擬/事件 instrumentation，標 mock；真正相容判定待原 Client CT。
-- **CT-031 中斷／重送**：對首個已驗證事件進行取消、重送、重登入與未載入完成即回覆；Server 拒絕 stale session、重複 ledger、不在錯誤時間更新 quest。
+- **CT-033 Script 通道與副作用防護**：在隔離測試副本（先備份 Script）重現 C6C subtype0..4/SScript type1/2 分派。只驗 BIN serializer/parser／file sandbox 行為，S44 type1/subtype3 須明確禁用正式服或於可丟棄檔案環境觀察；不得將其當普通 ACK。缺 byte layout 時先跑 mock unit 檢查，不送未知真實封包。
+- **CT-034 首次可操作邊界**：管理員預建無角色帳號，原 Client 創角、首次進 A-022 證實的教學圖；收集 S14(2) 前後、最初 NPC/Script/任務視窗是否主動出現、mapID/NPC ID、C6C/S44 實際 bytes，與不互動控制組比對。無原 Server 時先用 DEV 模擬/事件 instrumentation，標 mock；真正相容判定待原 Client CT。
+- **CT-035 中斷／重送**：對首個已驗證事件進行取消、重送、重登入與未載入完成即回覆；Server 拒絕 stale session、重複 ledger、不在錯誤時間更新 quest。
 - 所有 CT：Owner=DEV/CT；`native_client_validation=not-run`；本輪沒有執行 Client GUI。
 
 ## 6. Handoff／待證據
@@ -100,4 +100,7 @@ strings -el -t x Asgard.exe
 1. **已證**：存在一個只顯示教學紙張對話並引導玩家去 (31,29) 點選招募員的 `Born.Main` 資源；原生 Client 的 C6C/S44 script 通道存在且有危險清快取分支。
 2. **仍未證**：是否首次登入自動呼叫 Born.Main、首個不可省略的 NPC、招募員身分及原生初始任務/互動 wire、原服回覆。單憑 Born 沒有這些欄位，不能在正式 profile 填猜測值。
 3. **DEV 交接**：ScriptCatalog 可登記 SHA256 驗證的 Born 候選，Dialog 可按內容資源發生但不得自稱原版已觸發；WorldReady、EntryCommitted、TutorialCompleted 分開；不主動發未知 S44，拒絕 stale/未載圖的互動。
-4. **A gate**：`status=integrated`、`handoff_status=partial`、`native_client_validation=not-run`。完成本次實際可取得的資源與 BIN 證據整合，原生首次觸發/必要 NPC 缺口交 A-022/A-024、quest/對話分支交 A-012/A-026，實機由 CT-030/031；不是等新 Server 才停止分析。舊段落的「沒有 Born 檔」敘述屬先前階段，以本節為準。
+4. **A gate**：`status=integrated`、`handoff_status=partial`、`native_client_validation=not-run`。完成本次實際可取得的資源與 BIN 證據整合，原生首次觸發/必要 NPC 缺口交 A-022/A-024、quest/對話分支交 A-012/A-026，實機由 CT-034/031；不是等新 Server 才停止分析。舊段落的「沒有 Born 檔」敘述屬先前階段，以本節為準。
+
+
+> **合併編號註記（2026-10-31）**：roy2 原工作分支曾稱 CT-029/030/031；併入 main 時因這些 ID 已由 A-021 使用，故改為 CT-033/034/035。這是同一 Script/NPC 測試內容的編號遷移，非完成原生 Client 驗收。

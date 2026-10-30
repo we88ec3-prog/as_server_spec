@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "4405f9b285717e8db939e2ab20734d83e774cb4c690e57414d5dff14d9417dbf"
+      "sha256": "59ebce9e9de66901e1e7924b6296cac8fcf2db11283cc3eb05cad4144757b8c5"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -56,6 +56,10 @@
       "sha256": "3074ab1425b03acd42b1b381487462ad25cedcbacf36ec62bd3a9a8b2a3de74f"
     },
     {
+      "path": "02-server-planning/analysis-priority-after-A022-A023.md",
+      "sha256": "6c5ec62b924dc502342f9d7a1d60566ea9a8268997036f2f273b6815a6b41393"
+    },
+    {
       "path": "02-server-planning/architecture.md",
       "sha256": "adc208a7c36fdbe17659c6207f597a4a86f362fc7fdf7e9e9fd29ba2d32f78be"
     },
@@ -73,7 +77,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "d46a47bdd292b0f29e17eb1b99e73ed8187b814993475bece24d97e6f069d642"
+      "sha256": "b354a73ead8e29a23596966092fd647c4fe123f09de2df3494e22691aadf73b9"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -89,7 +93,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "5f1c346977e289ddfbb995cf8072af1af2a86215ed744b9910362dfc00c3746f"
+      "sha256": "a7b2a314fa169b5a138382218ecfda2207011fe8bca0111975d79b96c6d60713"
     },
     {
       "path": "03-analysis-requests/A-021-acceptance.md",
@@ -109,7 +113,7 @@
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
-      "sha256": "42386237802469f2782f006a2522377656d514dba7d8104b9d54d2f0ae275d0d"
+      "sha256": "24af5699a5367a0dc9463a5bfdc49c9882d8f08ecf70a285aacf59ab66daa6c7"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -130,6 +134,10 @@
     {
       "path": "04-analysis-integration/A-021-roy1-review.md",
       "sha256": "3a283b4eeb482bf6c3a3e527fbf043b953973489b22bd6e29731e0c8cea3df87"
+    },
+    {
+      "path": "04-analysis-integration/A-022-A-023-merge-validation.md",
+      "sha256": "a48cab5310a24c407a353a51cfad195399700f935790480cdf6b6fb6cf80f913"
     },
     {
       "path": "04-analysis-integration/A-022-map-loading-crc.md",
@@ -193,7 +201,7 @@
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
-      "sha256": "783c0fddc4b90a903d0bd0c961f269bc0c088adb56cd25faf9634c42625480d0"
+      "sha256": "631a44003d6aee7922cdf3f0ddb2c25bc9acb87c57239d1148b88dc5a30fa21b"
     },
     {
       "path": "04-analysis-integration/transport.md",
@@ -205,7 +213,7 @@
     },
     {
       "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
-      "sha256": "d0c811555333f0a15efc81fd76312cc1e63c0c14c2c33aab878a53fd30d7bc0c"
+      "sha256": "fe4bccea8c3532851ff80f1bf36be2d60943876c43ec520cac8599057c790f85"
     },
     {
       "path": "05-conformance/implementer-guide.md",
@@ -225,11 +233,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "749e618191aba355da4e9d717a4d8ee9c36ebfb948edc6d16ae6a1a3f768a8ee"
+      "sha256": "830c4362d35e24a588576814de0fef295a327adb145531ea5fdf72e7f1cd4534"
     },
     {
       "path": "task_a/roy2/A-023-analysis.md",
-      "sha256": "b10386fae3eea13c16855df2ad86c8c15c534e94fb7265cce51ddf84efd79a83"
+      "sha256": "88946df0c6c1f5871889579ce240517e828474bba51f9b0eb8f6265302160faa"
     },
     {
       "path": "task_a/roy2/verify_born.py",
