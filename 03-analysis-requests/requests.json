@@ -357,6 +357,84 @@
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
       "evidence_kind": "unknown"
+    },
+    {
+      "id": "A-024",
+      "system": "SYS-NPC",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "priority": "P1",
+      "title": "新手教學 NPC／怪物生成、AI 行動與消失",
+      "method": "在 A-022 確認的教學地圖追初始 NPC/怪物種類/出生/可見性、行動/攻擊/死亡/清除/重生及原 Client handler；對照 A-004/011/023。",
+      "deliverable": "提供 Client SHA、資源位置、生成/動作/消失封包字段及狀態、時間/坐標單位、動態證據與失敗/重送 CT，原服未知 AI 參數保留 unknown。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-004",
+        "A-011",
+        "A-022",
+        "A-023"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "unknown"
+    },
+    {
+      "id": "A-025",
+      "system": "SYS-SKILL",
+      "requirements": [
+        "R-009",
+        "R-010",
+        "R-011",
+        "R-030"
+      ],
+      "priority": "P1",
+      "title": "教學首個技能或攻擊與任務目標事件",
+      "method": "追原 Client 教學必要的技能/攻擊 C2S、S2C 效果、目標/距離/冷卻/消耗、傷害/死亡及任務進度；若教程並不要求技能需提出證據並調整情境。",
+      "deliverable": "交付逐欄 opcode、權威驗證、效果/計數、非法目標與重送案例，公式未知明示，附 Client 重現和 CT 提案。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-008",
+        "A-009",
+        "A-010",
+        "A-012",
+        "A-024"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "unknown"
+    },
+    {
+      "id": "A-026",
+      "system": "SYS-QUEST",
+      "requirements": [
+        "R-013",
+        "R-017",
+        "R-031"
+      ],
+      "priority": "P1",
+      "title": "教學完成條件、獎勵與退出地圖",
+      "method": "追教學步驟、任務/NPC 對話、完成觸發、原服是否發獎、正常出口 map/座標與斷線重登恢復；對照 A-012/016/022/023/025。",
+      "deliverable": "提供有證據的完成/失敗/取消分支、必要封包、保存點、獎勵是否存在與防重領、出圖時序及原 Client 驗收；不猜測出口或獎勵。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-012",
+        "A-016",
+        "A-022",
+        "A-023",
+        "A-025"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "unknown"
     }
   ]
 }

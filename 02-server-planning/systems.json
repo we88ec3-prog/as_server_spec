@@ -35,11 +35,15 @@
       "requirements": [
         "R-004",
         "R-007",
-        "R-027"
+        "R-027",
+        "R-029",
+        "R-031"
       ],
       "analysis_requests": [
         "A-004",
-        "A-022"
+        "A-022",
+        "A-024",
+        "A-026"
       ],
       "implementation_language": "independent",
       "status": "planned"
@@ -80,10 +84,12 @@
     {
       "id": "SYS-STATS",
       "requirements": [
-        "R-009"
+        "R-009",
+        "R-030"
       ],
       "analysis_requests": [
-        "A-008"
+        "A-008",
+        "A-025"
       ],
       "implementation_language": "independent",
       "status": "planned"
@@ -91,10 +97,12 @@
     {
       "id": "SYS-COMBAT",
       "requirements": [
-        "R-010"
+        "R-010",
+        "R-030"
       ],
       "analysis_requests": [
-        "A-009"
+        "A-009",
+        "A-025"
       ],
       "implementation_language": "independent",
       "status": "planned"
@@ -102,10 +110,12 @@
     {
       "id": "SYS-SKILL",
       "requirements": [
-        "R-011"
+        "R-011",
+        "R-030"
       ],
       "analysis_requests": [
-        "A-010"
+        "A-010",
+        "A-025"
       ],
       "implementation_language": "independent",
       "status": "planned"
@@ -113,11 +123,13 @@
     {
       "id": "SYS-NPC",
       "requirements": [
-        "R-012"
+        "R-012",
+        "R-029"
       ],
       "analysis_requests": [
         "A-011",
-        "A-023"
+        "A-023",
+        "A-024"
       ],
       "implementation_language": "independent",
       "status": "planned"
@@ -125,11 +137,15 @@
     {
       "id": "SYS-QUEST",
       "requirements": [
-        "R-013"
+        "R-013",
+        "R-030",
+        "R-031"
       ],
       "analysis_requests": [
         "A-012",
-        "A-023"
+        "A-023",
+        "A-025",
+        "A-026"
       ],
       "implementation_language": "independent",
       "status": "planned"
@@ -160,11 +176,15 @@
       "id": "SYS-CONTENT",
       "requirements": [
         "R-016",
-        "R-027"
+        "R-027",
+        "R-029",
+        "R-031"
       ],
       "analysis_requests": [
         "A-015",
-        "A-022"
+        "A-022",
+        "A-024",
+        "A-026"
       ],
       "implementation_language": "independent",
       "status": "planned"
@@ -173,12 +193,14 @@
       "id": "SYS-PERSIST",
       "requirements": [
         "R-017",
-        "R-028"
+        "R-028",
+        "R-031"
       ],
       "analysis_requests": [
         "A-016",
         "A-021",
-        "A-022"
+        "A-022",
+        "A-026"
       ],
       "implementation_language": "independent",
       "status": "planned"

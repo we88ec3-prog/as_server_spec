@@ -29,7 +29,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "b3843b48bc4b682f97142354539a1933c1d73a6f6bf3190adedfbe2cf33aba33"
+      "sha256": "413530f1179f0d2bf71f14189cde04e0da9b4ad531ea4c967f4d3dfe2a444801"
     },
     {
       "path": "00-governance/workflow.md",
@@ -45,7 +45,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "79ea295a7f0d7860b579f193b114b8bead76ea5c5679922a3382cabf82189047"
+      "sha256": "3074ab1425b03acd42b1b381487462ad25cedcbacf36ec62bd3a9a8b2a3de74f"
     },
     {
       "path": "02-server-planning/architecture.md",
@@ -73,7 +73,7 @@
     },
     {
       "path": "02-server-planning/systems.json",
-      "sha256": "6d4a8973cd40f118f7232dcd3d7797ce2c5dd4ad0eb67af820e154fcdf5c683c"
+      "sha256": "0412f4e0b5df51e9722d8a14d5e1d14b15fedb5efae90a1ed04870657f435589"
     },
     {
       "path": "02-server-planning/tutorial-runtime-plan.md",
@@ -97,7 +97,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "fea6b94ac0078a95f87635f4e82fc7b8fe433e44601b50e5312694232386664f"
+      "sha256": "acb0090c54b08e0a3192abe2a70212ec3f91ebf63202c56e25399e61afcc3e8e"
     },
     {
       "path": "04-analysis-integration/analysis-coverage.json",
@@ -149,7 +149,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "7334e818cd8da58bcf17b180303f5014124016ddb09d87594c584d1e40291fa0"
+      "sha256": "70aa920721fa7acac1cff50af89f2e50216a2d5be8f0169a3610fe6fe46aae9e"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -173,7 +173,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "5a8cfa90921aaed747a02a9a1264aa10479f0c9bcbc0f8601cdf79a59429874a"
+      "sha256": "ac1b998f43738342ad065fa208eb167e7faddf3f5ef2369f7065cf7ed98da785"
     },
     {
       "path": "README.md",
