@@ -650,9 +650,13 @@
         "result": "pass-local-offline",
         "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
         "validator": "task_a/roy2/verify_born.py",
-        "native_client_validation": "not-run"
+        "native_client_validation": "not-run",
+        "dependency_validator": "task_a/roy2/verify_entry_dependencies.py",
+        "dependency_result": "pass-local-offline",
+        "dependency_resource_sha256": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+        "verification_report": "task_a/roy2/entry-dependency-verification.json"
       },
-      "review_merge_note": "Renamed from roy2 CT-029 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
+      "review_merge_note": "CT-033 replaces historical roy2 CT-029. Born and PaperDialog offline verification replayed on 2026-10-31; native CT remains not-run."
     },
     {
       "id": "CT-034",

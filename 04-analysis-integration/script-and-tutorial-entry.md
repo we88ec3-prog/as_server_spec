@@ -14,10 +14,12 @@
 - `WorldReady`、`TutorialEntryCommitted`、`TutorialCompleted` 分開；登入/載圖不可默默寫入完成。
 - 首個 NPC、Script、任務 UI 是否為必要初始條件、觸發條件、map/npc/script/quest id、payload／拒絕碼全部 unknown：需資源與 A-022/A-011/A-012/A-024 補齊。禁止用測試值冒稱原版。
 - 只有取得來源與精確 schema 時才能向 Client 傳送對應 S44；不能以 C6C(03) 最小登入 fixture 取代所有 script 互動。封包重送、stale session、跨 instance 的任務進度須伺服器權威處理。
-- 完整 BIN 觀察、失敗路徑、CT 重現腳本見報告。CT-029～031 的 `native_client_validation` 均 `not-run`。
+- 完整 BIN 觀察、失敗路徑、CT 重現腳本見報告。CT-033～031 的 `native_client_validation` 均 `not-run`。
 
 **A gate**：`integrated`／`handoff_status=partial`，因真正的首教學觸發/任務封包尚缺必要證據。這不是因新 Server 未建立而 blocked。
 
 ## Born.dat 新證據
+
+直接 Script 依賴已補查（A023-E12）：`PaperDialog.dat` 定義 Born 所需的 `PaperDialog_Create` 及翻頁／關閉 callback。Born 單頁資料使 PREV/NEXT 隱藏，預設／取消均指向 OK；OK 依序呼叫 `dialog.Dispose`、`client.Dispose`。資源沒有顯式 SendReply 或 quest 修改，native Dispose 內部效果仍未知。視覺引用為 `Basic.dat/AlertFrame.ypf` 與按鈕 object 11/12/13，尚未驗證視覺資產載入。詳見報告 A023-E12 與 `task_a/roy2/entry-dependency-verification.json`；不可把關閉紙張視窗當成原服任務完成。
 
 589-byte zlib SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98` 解壓為 1154-byte UTF-16LE XML，唯一 `Main` 執行 `client.CreateArray` → `page.Insert` → `PaperDialog_Create`；紙張引導提及 **(31,29)** 女性招募員與滑鼠點選。這個座標**不是已證實出生點**。本 Main 無顯式 NPC/quest/SendReply，是否首次自動觸發與 NPC/quest ID 仍 unknown。另 EXE IAT `0x5f11fc=DeleteFileA` 確認 S44 Script 清除風險。見 [資源機讀摘要](tutorial-born-resource.json) 和 [驗證工具](../task_a/roy2/verify_born.py)。

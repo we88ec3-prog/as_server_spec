@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "4405f9b285717e8db939e2ab20734d83e774cb4c690e57414d5dff14d9417dbf"
+      "sha256": "bf50f80614440b77b79582899f8ff7e75c71e89112ad2eb311e8d71d7b44f284"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -57,7 +57,7 @@
     },
     {
       "path": "02-server-planning/architecture.md",
-      "sha256": "adc208a7c36fdbe17659c6207f597a4a86f362fc7fdf7e9e9fd29ba2d32f78be"
+      "sha256": "95f687a4e7eec4b4a1a43d465d06e6d489c4d164d6d7b0ce3fa3907b88f53ec8"
     },
     {
       "path": "02-server-planning/decisions.md",
@@ -121,7 +121,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "2e49178a4ecec1dddf06429a05ef982ab9b48670dec5ec8b89e9483766412249"
+      "sha256": "a75aac0be506dc92133d4052181a66547d5222e1980bfa5dc630a9050bff71fe"
     },
     {
       "path": "04-analysis-integration/A-021-native-flow.md",
@@ -153,7 +153,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "df3edc86078d13d49967e6b32dd7181468134a78ed085da78e4d9fbad59912b2"
+      "sha256": "041ccf344905584e45006efde7ed2e43557cc490c32ee07b06721a032d4927eb"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -169,7 +169,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "d539b032688a7d8240cf729561f8ab89020a5f2807740b6453872b07f5935c3b"
+      "sha256": "d65611e3dc309cfd9b432f59c8b195d3cc031dfc9d47af21586971c663662ec6"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -193,7 +193,7 @@
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
-      "sha256": "783c0fddc4b90a903d0bd0c961f269bc0c088adb56cd25faf9634c42625480d0"
+      "sha256": "a82b1549ee33178409fbc77b0a2c97ea0de73f77db734d3d0afef29d6d834c30"
     },
     {
       "path": "04-analysis-integration/transport.md",
@@ -201,11 +201,11 @@
     },
     {
       "path": "04-analysis-integration/tutorial-born-resource.json",
-      "sha256": "4cfc03d882273fc4e69c29588dd1fd6979ac0519275377910f530f44daa21864"
+      "sha256": "3762d358600fdd980ea7f79d8e000afd7b3210189d9d143f0b9c214a0acfab05"
     },
     {
       "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
-      "sha256": "d0c811555333f0a15efc81fd76312cc1e63c0c14c2c33aab878a53fd30d7bc0c"
+      "sha256": "c93c5bf538a1910d3583b5178d818af853543a82c0b9bfe273dcc57da8caaa88"
     },
     {
       "path": "05-conformance/implementer-guide.md",
@@ -221,7 +221,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "b8b19037c799912ed9f634c54f2682092ae95a136f4116e5c3b5660ddd8dd8a4"
+      "sha256": "55d6acf311dd47fb4647dd9a408709d4afa4275000c44e2dfca1d6a99e592c65"
     },
     {
       "path": "README.md",
@@ -229,7 +229,7 @@
     },
     {
       "path": "task_a/roy2/A-023-analysis.md",
-      "sha256": "b10386fae3eea13c16855df2ad86c8c15c534e94fb7265cce51ddf84efd79a83"
+      "sha256": "782210c85bcfe02f9a732d2dc19f5343c9558b4a82508c00bf3ea2a527ed663e"
     },
     {
       "path": "task_a/roy2/verify_born.py",
@@ -238,6 +238,14 @@
     {
       "path": "tools/validate-phase-gates.py",
       "sha256": "c290cd701dbdb52494594db0a3c5b4501c53889c1d56995d119ec0335a7987be"
+    },
+    {
+      "path": "task_a/roy2/verify_entry_dependencies.py",
+      "sha256": "13707e3531636d7587c52bde737cf5a16e9a204abe0bcbcfd42cd6f67f127fb6"
+    },
+    {
+      "path": "task_a/roy2/entry-dependency-verification.json",
+      "sha256": "1888670fb2a76e4853e096c60e067ba4260d5ec604250a35ed313ca9bf59dc91"
     }
   ]
 }

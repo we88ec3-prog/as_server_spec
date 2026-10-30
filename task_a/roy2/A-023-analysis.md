@@ -1,6 +1,6 @@
 # A-023／roy2 — 教學入口最小 NPC、Script 與任務初始化依賴（BIN-first）
 
-- 日期：2026-10-31；工作路徑：`task_a/roy2`；分析分支：`analysis/A-023-roy2`
+- 日期：2026-10-31；工作路徑：`task_a/roy2`；分析分支：`task_a/roy2`
 - 範圍：R-027、SYS-QUEST、ONB-03/05、SCN-009/011；對照 A-011、A-012、A-022。不追教學完成、獎勵、怪物 AI 或技能細節（A-024～026）。
 - Client：`Asgard.exe` PE32 x86、ImageBase `0x00400000`、檔案 3,235,840 bytes、SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，匹配 `TW-seed0-local-v0.1` 的既有身份。
 - 證據來源：本輪原始 EXE 反組譯與字串／交叉引用（`observed-static`）；本 repo 的既有資源與封包整理（`prior-research`）。現已取得 Born.dat；仍未取得原始 MAP/NPC 定義、原服首登入抓包，無 `observed-runtime`。
@@ -36,6 +36,22 @@ strings -el -t x Asgard.exe
 
 ## 2. 客戶端入口的最小狀態模型（非臆測原服）
 
+### 追加 C6C serializer 契約（A023-E13，observed-static）
+
+REA/Ghidra 12.1.4 對指定 SHA 核查 `0x575210`，Evidence `ev_78de5bbeebab4156741f475aa2cced960617a78e69ae64287a9339ab013efe76`。以下是 body 的序列化順序，排除 frame/opcode；欄位名稱僅表示儲存位置，未賦予任務語意。
+
+|subtype|body 順序|來源物件 offset|
+|---|---|---|
+|0|u8(0), string8|0x18、0x1a|
+|1|u8(1), string8, u32, u16 count, count 組 (string8, string8)|0x18、0x1a、0x21c、0x220；array 0x224，每組 stride 0x400，兩字串差 0x200|
+|2|u8(2), string8, u32|0x18、0x1a、0x21c|
+|3|u8(3)，沒有額外 payload|0x18|
+|4|u8(4), string8, u32|0x18、0x1a、0x21c|
+
+writer `0x45ab00` 寫一 byte；`0x45b1b0` 以 `WideCharToMultiByte` 和全域 codepage `0x66e47c` 編碼，寫 u8 byte length 再寫字串 bytes，wire 不含 NUL；buffer 256 bytes，長度最多 255。長字串轉換失敗的 native API 行為不可當安全截斷策略。`0x45ab40`/`0x45ac40` 寫 2/4 bytes：writer offset 0x10 非零時 BE，零時 native x86 LE。本輪未追本通道該 flag 初始化及 codepage 值，故不可直接稱所有 subtype 為固定 BE/Big5。
+
+上述四個 helper 的 REA Evidence 依序為 `ev_3d1ec696a0779fc38c07d16ea384ad72549b8145577aa9078e7c17ad2189574a`、`ev_a9616b9b5418d23da5026960e5e56187746f59ce5c320ad4822490744c87ae88`、`ev_c0c9aae0fec0512d0350e44781aa437705febcf4e6eac993011a64b6ff92c338`、`ev_f4228c3d7b533e44801a49be40fdaf34baaccd71be47a47ebf6b0876d9de8886`。以對應地址呼叫 REA `procedure_pseudo_code` 可重現；反編譯為工具輸出而非原始碼或 runtime。未知 subtype 先寫 selector 然後將物件 offset 0x14 的有效旗標清零；Server 應拒絕未支援的 schema，不猜回覆。仍未證實哪個 subtype 對應首 NPC／任務。
+
 |階段|既有基線|Script/NPC 的證據結論|Server 作法|
 |---|---|---|---|
 |登入前 Script 協商|C6C body 03：既有 local-profile 不回覆|observed-runtime-profile（舊測試）；C6C 其他 subtypes unknown|不得將該次「不回」推導為任一教學 Script 永遠不需要|
@@ -57,7 +73,7 @@ strings -el -t x Asgard.exe
 |首個 NPC 是誰、id/位置/可見性？|unknown，EXE 不含已驗證地圖生物表|取得版本化地圖/NPC/事件定義，對照 A-011/A-024 的 object parser/handler|
 |是否必需送 S44 才能讓角色移動？|unknown；最小 profile C6C(03) 不回覆不構成否證|原生教程與非教程對照，錄首圖 S14(2) 前後 UI、封包及未互動下行動|
 |首個任務 UI/flag/quest event/回包？|unknown；Script 可建立 dialog 並 SendReply，但具體任務語意無證據|資源腳本中的 `CreateDialog`、`SendReply`、資料鍵/事件 hook 與 BIN 呼叫點逐一映射|
-|拒絕、取消、重送、斷線與重登入|原版原生 Script 回覆狀態及重播語意 unknown|同一 NPC 先接受/再取消/重送與舊 generation；CT-030 驗證 Server ledger 不錯誤加進度|
+|拒絕、取消、重送、斷線與重登入|原版原生 Script 回覆狀態及重播語意 unknown|同一 NPC 先接受/再取消/重送與舊 generation；CT-034 驗證 Server ledger 不錯誤加進度|
 
 **無實機不構成分析停止理由。** 本輪已完成 EXE-only 可以核查的 Script 協定、快取副作用及前置時序研究；真正需資源／原服訊息的必要欄位是研究證據缺口，保持 partial，不自行捏造。
 
@@ -69,13 +85,13 @@ strings -el -t x Asgard.exe
 4. `SScript` 的快取更新/刪除不是純 UI 彈窗；未掌握安全 schema 和必要條件前不主動發，尤其不發 type1/subtype3 清快取；拒絕路徑不擬造 opcode。
 5. NPC/初始任務僅從經確認的 profile/content revision 載入；若缺官方資源就「native-content-unresolved」，勿使用假 NPC id/座標在官方 profile。
 6. 未來任務觸發與初始 grant 應由 Server 權威、原子性/冪等 ledger 實作；現階段這只是安全設計，不當作原服協定。
-7. UI/Client 事件需等 World/MapPane 有效；**不代表**確認了某個 Born 自動啟動時點。不可因缺 CT-029/030 就抹掉 E02～E06 的靜態證據。
+7. UI/Client 事件需等 World/MapPane 有效；**不代表**確認了某個 Born 自動啟動時點。不可因缺 CT-033/030 就抹掉 E02～E06 的靜態證據。
 
 ## 5. 下游 CT 計畫（尚未原生測試）
 
-- **CT-029 Script 通道與副作用防護**：在隔離測試副本（先備份 Script）重現 C6C subtype0..4/SScript type1/2 分派。只驗 BIN serializer/parser／file sandbox 行為，S44 type1/subtype3 須明確禁用正式服或於可丟棄檔案環境觀察；不得將其當普通 ACK。缺 byte layout 時先跑 mock unit 檢查，不送未知真實封包。
-- **CT-030 首次可操作邊界**：管理員預建無角色帳號，原 Client 創角、首次進 A-022 證實的教學圖；收集 S14(2) 前後、最初 NPC/Script/任務視窗是否主動出現、mapID/NPC ID、C6C/S44 實際 bytes，與不互動控制組比對。無原 Server 時先用 DEV 模擬/事件 instrumentation，標 mock；真正相容判定待原 Client CT。
-- **CT-031 中斷／重送**：對首個已驗證事件進行取消、重送、重登入與未載入完成即回覆；Server 拒絕 stale session、重複 ledger、不在錯誤時間更新 quest。
+- **CT-033 Script 通道與副作用防護**：在隔離測試副本（先備份 Script）重現 C6C subtype0..4/SScript type1/2 分派。只驗 BIN serializer/parser／file sandbox 行為，S44 type1/subtype3 須明確禁用正式服或於可丟棄檔案環境觀察；不得將其當普通 ACK。缺 byte layout 時先跑 mock unit 檢查，不送未知真實封包。
+- **CT-034 首次可操作邊界**：管理員預建無角色帳號，原 Client 創角、首次進 A-022 證實的教學圖；收集 S14(2) 前後、最初 NPC/Script/任務視窗是否主動出現、mapID/NPC ID、C6C/S44 實際 bytes，與不互動控制組比對。無原 Server 時先用 DEV 模擬/事件 instrumentation，標 mock；真正相容判定待原 Client CT。
+- **CT-035 中斷／重送**：對首個已驗證事件進行取消、重送、重登入與未載入完成即回覆；Server 拒絕 stale session、重複 ledger、不在錯誤時間更新 quest。
 - 所有 CT：Owner=DEV/CT；`native_client_validation=not-run`；本輪沒有執行 Client GUI。
 
 ## 6. Handoff／待證據
@@ -83,6 +99,20 @@ strings -el -t x Asgard.exe
 研究項目已具體核查：`A023-E01..E06` 的 EXE/指令、既有整合 `E07..E08` 的基準，並把多 subtype 與快取清理列入可用的 Server 風險規格。限制是 **首個不可省略的教學觸發/NPC/Script ID/quest flag 尚未解**。交接至 A-022（原教學 map/出生）、A-011/A-012（NPC/腳本語意）、A-024（首 NPC 生成與封包）與後續 DEV/CT；若原始資源補齊，應回本 A 追加精確觸發證據，補齊缺口後才能改為 `handoff_status=ready`。
 
 本成果進 review；可接受「有限子集整合、A partial」與「原生全段仍未可實作」同時成立。不聲稱 peer-review 已完成，不以 CT 未開始為失敗原因。
+
+## 最新交付：PaperDialog 直接依賴（A023-E12）
+
+2026-10-31 在 `task_a/roy2` 追加核查。下文第 7 節取代前文 Born 尚未取得的歷史問答；本節補完 Born 的直接 Script UI 依賴。CT 編號已依主線調整為 CT-033～035，避免與帳號／創角 CT-029～031 混用。
+
+- `PaperDialog.dat`：1639 bytes，SHA256 `5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054`；解壓 9196 bytes，SHA256 `491021376f9500c2a32a3c3ab56439bb302b39c660147903dcc4ba4b5c6f526a`。同樣採 `00010000`、BE u16 4595 UTF-16 code units；與 EXE 的發行配對仍 unverified。
+- XML 定義 `PaperDialog_Create(titleString, helpArray)`、`ShowIndexedHelp(paperDialog, index)`、`PaperDialogProc(dialog, control)`。這是 Born.Main 外部函式的直接定義，不可只部署 Born 並假設函式內建於 EXE。
+- 建立紙張對話，註冊 `PaperDialogProc` callback；保存 `PAPERARRAY` 與 `INDEX=0`，顯示第 0 頁。Born 只插入一頁，因此依靜態分支推導 PREV/NEXT 皆隱藏，預設與取消控制均為 OK。這是資源預期，尚未在 GUI 觀察。
+- OK 分支依序呼叫 `dialog.Dispose()`、`client.Dispose()`。三個函式沒有顯式 SendReply、SetQuest、SetFlag 或 NPC spawn 呼叫；不能從字面名稱推定 `client.Dispose` 會斷線，也不能排除 native API 的內部副作用。關閉視窗不得被 Server 當作收到任務完成回報。
+- 視覺依賴還包含 `Basic.dat/AlertFrame.ypf` 與 image button object 11/12/13。本輪只確認引用，未驗證這些資產解析、載入成功或版本配對；沒有將其加入 Git。
+
+重現：`python task_a/roy2/verify_entry_dependencies.py /local/Script`。驗證兩份原件 hash、完整 zlib stream、wrapper/XML、callback、首頁、翻頁條件及關閉分支；不執行遊戲腳本。機讀結果見 `entry-dependency-verification.json`。完整資源 PASS；缺 PaperDialog、截斷及版本不符須 FAIL。此工具限上述固定 hash，不是任意腳本語言的通用解析器。
+
+交付判定：A-023 的現有可取得靜態分析與依賴交接已追加完成，保留 integrated/partial。原生首次觸發、必要 NPC/任務 opcode 尚不足以宣告 ready；CT-033～035 仍由 DEV/CT 執行，native_client_validation=not-run。
 
 ## 7. Born.dat 已補：原件實證與 A-023 交接結論（2026-10-31）
 
@@ -100,4 +130,4 @@ strings -el -t x Asgard.exe
 1. **已證**：存在一個只顯示教學紙張對話並引導玩家去 (31,29) 點選招募員的 `Born.Main` 資源；原生 Client 的 C6C/S44 script 通道存在且有危險清快取分支。
 2. **仍未證**：是否首次登入自動呼叫 Born.Main、首個不可省略的 NPC、招募員身分及原生初始任務/互動 wire、原服回覆。單憑 Born 沒有這些欄位，不能在正式 profile 填猜測值。
 3. **DEV 交接**：ScriptCatalog 可登記 SHA256 驗證的 Born 候選，Dialog 可按內容資源發生但不得自稱原版已觸發；WorldReady、EntryCommitted、TutorialCompleted 分開；不主動發未知 S44，拒絕 stale/未載圖的互動。
-4. **A gate**：`status=integrated`、`handoff_status=partial`、`native_client_validation=not-run`。完成本次實際可取得的資源與 BIN 證據整合，原生首次觸發/必要 NPC 缺口交 A-022/A-024、quest/對話分支交 A-012/A-026，實機由 CT-030/031；不是等新 Server 才停止分析。舊段落的「沒有 Born 檔」敘述屬先前階段，以本節為準。
+4. **A gate**：`status=integrated`、`handoff_status=partial`、`native_client_validation=not-run`。完成本次實際可取得的資源與 BIN 證據整合，原生首次觸發/必要 NPC 缺口交 A-022/A-024、quest/對話分支交 A-012/A-026，實機由 CT-034/031；不是等新 Server 才停止分析。舊段落的「沒有 Born 檔」敘述屬先前階段，以本節為準。

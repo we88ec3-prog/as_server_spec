@@ -1649,6 +1649,30 @@
       "resource_client_version_binding": "n/a",
       "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
       "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E12",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "Script/PaperDialog.dat: PaperDialog_Create, ShowIndexedHelp, PaperDialogProc; Born.Main direct call; local UI close/pagination and frame dependency",
+      "evidence_kind": "observed-static-resource",
+      "resource_sha256": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+      "resource_client_version_binding": "unverified",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-analysis.md"
+    },
+    {
+      "evidence_id": "A023-E13",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "locator": "0x575210 C6C serializer; writers 0x45ab00/0x45b1b0/0x45ab40/0x45ac40; REA ev_78de5bbeebab4156741f475aa2cced960617a78e69ae64287a9339ab013efe76",
+      "evidence_kind": "observed-static",
+      "resource_sha256": null,
+      "resource_client_version_binding": "n/a",
+      "record_scope": "Reviewed bounded analysis; raw game asset not in repo",
+      "report_path": "task_a/roy2/A-023-analysis.md"
     }
   ]
 }
