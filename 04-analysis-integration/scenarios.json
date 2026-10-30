@@ -143,8 +143,12 @@
         "A-027"
       ],
       "analysis_evidence_ids": [
-        "ev_a002_20261031_asgard_login_transfer_static"
-      ]
+        "ev_a002_20261031_asgard_login_transfer_static",
+        "ev_a027_20261031_asgard_identity_static"
+      ],
+      "a027_evidence": "UI sends C02 with locally checked field1 length and field2/confirmation equality; cannot prove owner or native preprovisioned auth. Fail closed before independent identity proof.",
+      "native_account_claim_ready": false,
+      "implementation_ready": false
     },
     {
       "id": "SCN-008",
@@ -173,7 +177,13 @@
       "analysis_blockers": [
         "A-027",
         "A-028"
-      ]
+      ],
+      "analysis_evidence_ids": [
+        "ev_a027_20261031_asgard_identity_static"
+      ],
+      "a027_evidence": "UI sends C02 with locally checked field1 length and field2/confirmation equality; cannot prove owner or native preprovisioned auth. Fail closed before independent identity proof.",
+      "native_account_claim_ready": false,
+      "implementation_ready": false
     },
     {
       "id": "SCN-009",

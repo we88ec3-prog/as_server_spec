@@ -41,3 +41,7 @@
 - **A-023 Client 入口機制已解到 S44(1,0) → Main → C6C lifecycle**，不是「不知道如何觸發 Script」。**仍不知道原服何時／依何旗標送 Born**，以及女性招募員真正 entity/script/quest。A-012 接原服首次腳本排程和 quest，A-015 接原版資源版本/出生，A-024 接 NPC 實體綁定；將這三條可並行安排在 A-027/A-028 的帳號關鍵路徑外。
 - **最高優先仍是 A-027 + A-015 並行，接 A-028**。同時可以開發 transport 通用 codec + S44/C6C Script 生命週期（受控 mock／安全測試）；不得把 Born 的文字座標 (31,29) 當出生點，也不得把 C6C2/4 當完成任務。
 - 說「沒有 Script／MAP 資源」不精確：roy2 的本地研究已核對 Born/PaperDialog 以及 Script corpus，並報告存在 Map0/1/2 與 Basic；**目前欠缺的是版本配對和原服 NPC/任務綁定**。本次合併檢查環境沒有完整原始資源可供獨立再跑。
+
+## A-027 交接後精準剩餘工作（2026-10-31）
+
+A-027 已追完可核對的 C02 UI 欄位來源（field1 名稱候選；field2 密碼候選+確認控制）、本地長度/相等/region 檢查，但未能證明 pre-C03 Account owner 如何經原生 Server 認證，亦無 C03 無角色→MakeInfoDialog 的原生跳轉。**研究 A-027 integrated/handoff partial，但預建帳號認領路由禁止開發啟用**；後續拿 UI 真標籤／原服認證/失敗 evidence，或規劃別的原 Client 可達且具獨立身份驗證的安全入場方式。A-028 追 C04 後結果/commit，A-003 追合法角色；A-015 仍補原教程 map/spawn。詳見 [A-027](../03-analysis-requests/A-027-roy1-identity-ui-security.md)。

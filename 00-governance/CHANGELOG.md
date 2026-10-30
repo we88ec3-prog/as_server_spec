@@ -49,3 +49,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## 2026-10-31 — task_a/roy1 (A-001) + task_a/roy2 (A-023) 新分析 merge
 
 主線由 2517e60 fast-forward 至 roy1 0facfc2（A-001 seed0..9 binary codec）；另以兩 parent commit c544af3 將最新 roy2 ae95270 合併（A-023 S44 named start、PaperDialog 依賴/CRC、C6C4/2 Dispose、候選 NPC Script），後續整合原 JSON/CT 而不覆蓋 A-001；留存 CT-029～032、CT-033～035 和 CT-036。原本 A-023 之「Script 如何啟動未知」修正為「Client 端啟動機制已有靜態契約、原服首次發送政策未知」。新增 ScriptRun 安全狀態機、檔案版本/語系/CRC 前提及分派更新。EXE SHA 和 18 個 roy2 byte signatures 複核通過，roy2 Born/PaperDialog 完整資源離線 PASS 非本次獨立 replay。
+
+## task_a/roy1 — 2026-10-31 A-027 BIN-first C02 身份/控制與安全修訂
+
+從指定 SHA Asgard.exe 的 0x4B2700 UI→0x5742B0 C02 writer 追出 field1 UI+0x26C 受 0x4B1A30 長度 gate、field2 UI+0x270 與確認 UI+0x274 經 0x5B4A62 UTF-16 相等檢查、region 0/2..4 額外字段，並核對 0x4B2360/0x4B21E0/S02 觸發 C04。預建帳號的 native owner 身份/credential 仍無 Server 或 Client 可信關聯證據、C03 零角色自動進 MakeInfoDialog 亦未證，故 A-027 研究 integrated/handoff partial，但 native account-claim **implementation_ready=false**、must fail closed；修正先前 A-021 建議裡「直接 claim 預建 Account」的危險解讀。新增 CT-039/040 合成契約，Client CT not-run。

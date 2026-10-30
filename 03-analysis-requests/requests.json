@@ -662,9 +662,11 @@
       "title": "C02 預先建帳身份／憑證與原版空角創角入口（安全阻塞）",
       "method": "BIN-first 追 C02 每個 string8 的來源與用途、server 如何在 C03 之前驗證 pre-provisioned Account、是否使用 token/password/session 或其他授權關聯、無角色帳號的原版 UI 到達創角的條件。以 Client 原生 parser/serializer/UI handler 與資料來源證明，任何推測皆 unknown，不得讓 C02 直接認領或建立 Account。",
       "deliverable": "可追溯 BIN/資源證據，C02 各欄位原語意、帳號身份/憑證證明時機、冒用／同名／非法登入失敗分支、合法轉入 C04 的前置條件及封包/狀態矩陣。未能證實時明確宣布預建帳號的原生創角路由 blocked；不要求先完成新 Server 或 CT 實機。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a027_20261031_asgard_identity_static"
+      ],
       "dependencies": [
         "A-021",
         "A-003",
@@ -672,10 +674,25 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "implementation_ready": false,
+      "implementation_ready_scope": "Region-aware C02 codec, UI source/confirmation controls and fail-closed pre-auth guard only; native account-claim/character-authorizing route remains blocked",
+      "native_account_claim_ready": false,
+      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
+      "analysis_test": "tools/a027_pre_auth_contract.py",
+      "analysis_scope": "C02 original UI input mapping, local name-length and second-field confirmation, region fields, NewUser UI entry and negative authorization contract",
+      "remaining_unknowns": [
+        "native original Server verification of preprovisioned account before C03 is unproven; no demonstrated challenge/token",
+        "true UI labels and whether field2 is a preprovisioned Account credential",
+        "C03 successful no-character to MakeInfoDialog native transition not demonstrated",
+        "region1 third-field UI/serializer discrepancy",
+        "exact server status/error for unauthorized C02 and final C04 status (A-028)"
+      ],
+      "security_decision": "fail-closed: C02 parser may run but cannot claim existing Account, issue S02 success, create pending owner or Character unless independent authenticated credential or verified bound C03 session path is demonstrated",
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-028",

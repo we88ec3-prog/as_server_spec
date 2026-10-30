@@ -1790,6 +1790,42 @@
         "original server duplicate-login policy not recoverable from client only",
         "different region S03 handler and duplicate-status messages unknown"
       ]
+    },
+    {
+      "evidence_id": "ev_a027_20261031_asgard_identity_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "method": "objdump -D -M intel on supplied matching PE32 Asgard.exe, tracing C02 UI controls, string equality, region-dependent writer and MakeInfoDialog paths; synthetic fail-closed codec tests",
+      "scope": "A-027 pre-C03 C02 input source/validation and NewUser UI; cannot prove original Server account authentication",
+      "functions": [
+        "0x574170",
+        "0x5742B0",
+        "0x4B2700",
+        "0x4B27B5",
+        "0x4B27F7",
+        "0x4B2825",
+        "0x4B2858",
+        "0x4B28D2",
+        "0x4B28FD",
+        "0x4B2911",
+        "0x4B1A30",
+        "0x5B4A62",
+        "0x4B2360",
+        "0x4B21E0",
+        "0x4B2340",
+        "0x4B1D60",
+        "0x4B1F46",
+        "0x4AEF08",
+        "0x4B0B67"
+      ],
+      "report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
+      "test": "tools/a027_pre_auth_contract.py",
+      "limits": [
+        "No original Server verifier or proven C03 no-character -> MakeInfoDialog transition",
+        "UI labels and region1 extra field semantics not confirmed",
+        "S02 status0 triggers C04 but server issuance conditions are not observed"
+      ]
     }
   ]
 }

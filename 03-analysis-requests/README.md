@@ -72,3 +72,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-002 / roy1：重複登入／C03→S03→C10 交接研究（2026-10-31）
 
 [完整 BIN-first 研究](A-002-roy1-login-transfer.md)、[可執行 Server 狀態機合成測試](../tools/a002_session_model.py)。A-002 `integrated/handoff_status=partial/implementation_ready=true/native_client_validation=not-run`。靜態證實 C03 string8/string8/u8、S02 status+message、S03 addr/port/u8 token_len/raw bytes，以及地區3/4 S03 handler `0x4A8370` 連 World 後發送不帶額外長度的 C10 raw token；**此地址先前被 A-022 誤認成 C25 入口，已修正**。重複登入原服 kick/reject 策略仍 unknown；Server 先採帶 generation 的單一 World 狀態與 once-only grant，CT-037/038 留待下游驗證，不因沒有實機停工。
+
+## A-027 / roy1：C02 身份與 UI 字段靜態交付
+
+[A-027 逐位址研究](A-027-roy1-identity-ui-security.md) / [安全契約](../04-analysis-integration/A-027-preauth-safety-contract.md) / [合成測試](../tools/a027_pre_auth_contract.py)。新追 UI+0x26C/0x270/0x274 來源、0x4B1A30 的第一欄長度 gate、0x5B4A62 UTF-16 相等比較、region 尾欄。**C02 在 C03 前送出不能證明 pre-provisioned Account owner**，C03(no-character)→原生 MakeInfoDialog 仍 unknown；`A-027 integrated/partial` 僅限可證研究，`implementation_ready=false/native_account_claim_ready=false` 表示原版認領路由必須 fail-closed，不能憑 C02 建帳/建角色/發 S02(status0)。新 CT-039/040 為 planned、非實機通過。

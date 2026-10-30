@@ -41,3 +41,9 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-002 C03/S03/C10 與重複登入 CT-037/CT-038（planned）
 
 [A-002 靜態分析](../03-analysis-requests/A-002-roy1-login-transfer.md) 已追 S03 addr/port/u8 token_len/raw token 與 C10 raw token；[合成 Domain fixture](../tools/a002_session_model.py) 實際測錯密不踢人、同帳號世代替換、一次性 token、跨角色拒絕、過期、login socket 在 transfer 中先斷、舊 World 清理不影響新 World，以及 crash fail closed。**這是 designed 測試，不是雙原版 Client 實機 passed**。CT-037/038 用以提醒 DEV 依真實 DB、mock wire 與 Client 再驗；S02 的原服重複登入錯誤碼未知，禁止拿錯密 status3 直接代用。
+
+## A-027 身份與 C02 前認證安全（CT-039/040，planned）
+
+[完整 A-027](../03-analysis-requests/A-027-roy1-identity-ui-security.md)：CT-039 對任意 pre-auth C02（包含正確已存在帳號名、非法/停權/跨 session）驗證 Server 不建立 Account、不認領 owner、不建立 pending C04 草稿、**不回 S02 status0**、不改 Character；只有真實已認證 owner 的獨立路徑可開放。CT-040 驗證各 region writer body 3 vs 4 string8+u8、UI +0x270 與 +0x274 的本地字串相等、UI 欄位來源；region1 UI/serializer discrepancy、原版 C03 空角色→UI 仍 unknown。
+
+[安全與合成 codec 工具](../tools/a027_pre_auth_contract.py) 只驗合成 body/拒絕策略，**不是 Client 真實互動成功**。A-027 integrated/partial 與 native claim route blocked 同時成立；後續 A-028 才確認 C04 終局/提交回覆。

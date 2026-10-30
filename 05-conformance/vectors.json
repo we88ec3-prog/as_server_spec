@@ -792,6 +792,64 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-002-roy1-login-transfer.md"
+    },
+    {
+      "id": "CT-039",
+      "status": "planned",
+      "level": "preauth-account-owner-safety",
+      "requirements": [
+        "R-002",
+        "R-025",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "designed-security-fixture",
+        "reference": "tools/a027_pre_auth_contract.py",
+        "scenarios": [
+          "preauth C02 matching existing admin provisioned name",
+          "different account owner",
+          "suspended",
+          "invalid credentials",
+          "duplicate concurrent"
+        ]
+      },
+      "expected": "Decode permitted, but no Account claim/Create, no Character lease or S02 success until owner proven by independently authenticated native path; no Client account creation ever",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md"
+    },
+    {
+      "id": "CT-040",
+      "status": "planned",
+      "level": "native-ui-c02-source-regions",
+      "requirements": [
+        "R-003",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic-fixtures",
+        "reference": "tools/a027_pre_auth_contract.py",
+        "regions": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "expected": "C02 correct 3/4 string8 shape, second wire field matches confirmation-only UI check; region1 discrepancy and original no-character UI switch remain not-run/unknown",
+      "evidence_kind": "observed-static",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md"
     }
   ]
 }

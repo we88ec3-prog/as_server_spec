@@ -37,9 +37,9 @@
       "name": "NewUser",
       "system": "SYS-CHAR",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "region code 2..4: string8×4 + u8；其他region: string8×3；欄位語意未確認，不可用於Client建帳",
+      "layout": "4xstring8+u8 when region2..4; 3xstring8 otherwise; field1 from MakeInfoDialog UI+0x26c (minimum length gate), field2 from UI+0x270 (compared against non-wire UI+0x274), region2..4 extra inputs from UI IDs 0x17/0x18 (region4) or 0x0f/0x10 (other nonzero); pre-provisioned ownership NOT proven",
       "client_entry": "0x5742b0",
-      "state_precondition": "公告／條款階段",
+      "state_precondition": "NewUser/MakeInfoDialog possible pre-C03; may decode only, no Account/Character mutation without proven owner",
       "related_packets": [
         "PKT-S02"
       ],
@@ -52,9 +52,13 @@
         "R-003"
       ],
       "evidence_ids": [
-        "ev_a021_20261031_asgard_static"
+        "ev_a021_20261031_asgard_static",
+        "ev_a027_20261031_asgard_identity_static"
       ],
-      "native_static_report": "04-analysis-integration/A-021-native-flow.md"
+      "native_static_report": "04-analysis-integration/A-021-native-flow.md",
+      "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
+      "ownership_authorization": "unverified; MUST deny pre-auth claim and S02(success) until independent Server credential verification and native route known",
+      "native_account_claim_ready": false
     },
     {
       "id": "PKT-C03",
@@ -375,10 +379,12 @@
       ],
       "evidence_ids": [
         "ev_a021_20261031_asgard_static",
-        "ev_a002_20261031_asgard_login_transfer_static"
+        "ev_a002_20261031_asgard_login_transfer_static",
+        "ev_a027_20261031_asgard_identity_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
-      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
+      "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md"
     },
     {
       "id": "PKT-S03",
