@@ -62,3 +62,7 @@ C2S：Client serializer → wire → Server解碼／狀態驗證 → Domain命�
 ## roy1 A-021 協定回顧與不信任前認證資料（2026-10-31）
 
 已核對 Asgard.exe 靜態證據：C02 writer 依 region 分支，region 2～4 為四個 length-prefixed string8 + flag，其他為三個 string8；C04 writer 五個 u8；S02 status u8 + string8；CreateInfo UI state 0x1d 收到 status0 時送 C04/轉 0x1e。**C02 有可能在 C03 之前出現**。這並不證明字串欄位包含有效密碼，也不證明某預建帳號已被授權認領。R-025 僅管理員創建 Account 的規範不變；PreAuth C02 只可解析與安全拒絕／等待能被證實的 identity proof（A-027）。C04 的 S02 終局與 World 轉服待 A-028。來源與信任標記詳見 [A-021 review](A-021-roy1-review.md)。
+
+## A-023 Script 通道：解析安全與首次導引的未知
+
+Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x575210`，subtype 0..4 分支）；S44 opcode 0x44（ctor `0x5862e0`、type1/subtype3 handler `0x52c8e5→0x5294e0`），其中本機 Script cache 作業**不是無副作用 ACK**，不得送未知合成 S44。另 Born.Main 顯示 PaperDialog 引導玩家去 (31,29) 找女性招募員，但不證首觸發、NPC ID 或 map/spawn。詳見 [A-023 分析](../task_a/roy2/A-023-analysis.md)。CT-033..035 為此分支的教學 Script CT；A-021 原 CT-029..032 不變。

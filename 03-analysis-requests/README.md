@@ -60,3 +60,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-022 roy1 分析已整合（通用 World-loading）
 
 [原始靜態報告](A-022-roy1-bin-analysis.md)、[協定整合](../04-analysis-integration/A-022-map-loading-crc.md)。S14/S15/C35/S04 的部分 layout、map checksum 的結構化計算、MAP record 16 bytes 有可核查 BIN 根據；`status=integrated/handoff_status=partial/implementation_ready=true` 僅指通用 loading，`tutorial_content_ready=false`、`native_client_validation=not-run`。教程 map/spawn 必須接續 A-015 資源調查。
+
+## A-023 roy2 靜態／Born 資源子集已交付
+
+[原始研究](../task_a/roy2/A-023-analysis.md)、[整合結論](../04-analysis-integration/script-and-tutorial-entry.md)、[Born 機讀摘要](../04-analysis-integration/tutorial-born-resource.json)。C6C/S44 的分支與危險快取行為已定位；Born.Main 描述 (31,29) 女性招募員是**文字目的地非出生點**。A-023 可設 `integrated/handoff_status=partial`，但首觸發/首 NPC/quest wire 仍需後續研究，Native E2E not-run。測試 ID 經併入 main 後統一 CT-033..035。

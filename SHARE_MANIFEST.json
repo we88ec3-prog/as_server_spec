@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "d94fad72e79571556837b78690f73023dfb9084c15e5c3e38a3f8906495048c8"
+      "sha256": "4405f9b285717e8db939e2ab20734d83e774cb4c690e57414d5dff14d9417dbf"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -113,7 +113,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "404fdf978ed98615f963f57c7b7b6455b6916e43fd408b8a767a9ce97ac791ec"
+      "sha256": "dac8ed860b525f16302335637b46bfb13fec9a5b2d723b30537e0484e3e81cba"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -165,7 +165,7 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "1ab54b7abd6c71c18e14b89776157df86069dada3e729c914fd07b36777b617f"
+      "sha256": "85c415000a450f3a4d049c73d9ec5ad817798061b50c2afbb0187bce77de7766"
     },
     {
       "path": "04-analysis-integration/packets.json",
@@ -181,7 +181,7 @@
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "28fa7d2849c863a821ed6d73c26c4bca7b6e1ef54a0a4002ecfd4b7920bfb329"
+      "sha256": "2d76e90f3f72901d59bd2ecd0d66d9f5130cfa5b57264e10f5270e237051e6f1"
     },
     {
       "path": "04-analysis-integration/scenarios.json",
@@ -192,8 +192,20 @@
       "sha256": "819bff1da093f00dda77a06bd5ebec51f453a75bada01d752bbfa1e4643abac9"
     },
     {
+      "path": "04-analysis-integration/script-and-tutorial-entry.md",
+      "sha256": "783c0fddc4b90a903d0bd0c961f269bc0c088adb56cd25faf9634c42625480d0"
+    },
+    {
       "path": "04-analysis-integration/transport.md",
       "sha256": "5a2d03249cda2e854e8129a51e7be3346b62f028af6359db5c08a982ce44cf27"
+    },
+    {
+      "path": "04-analysis-integration/tutorial-born-resource.json",
+      "sha256": "4cfc03d882273fc4e69c29588dd1fd6979ac0519275377910f530f44daa21864"
+    },
+    {
+      "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
+      "sha256": "d0c811555333f0a15efc81fd76312cc1e63c0c14c2c33aab878a53fd30d7bc0c"
     },
     {
       "path": "05-conformance/implementer-guide.md",
@@ -214,6 +226,14 @@
     {
       "path": "README.md",
       "sha256": "749e618191aba355da4e9d717a4d8ee9c36ebfb948edc6d16ae6a1a3f768a8ee"
+    },
+    {
+      "path": "task_a/roy2/A-023-analysis.md",
+      "sha256": "b10386fae3eea13c16855df2ad86c8c15c534e94fb7265cce51ddf84efd79a83"
+    },
+    {
+      "path": "task_a/roy2/verify_born.py",
+      "sha256": "2b860e6461186e909cb24113ec24a5895272e4abf1c286bf4a0d7dff2272e873"
     },
     {
       "path": "tools/validate-phase-gates.py",

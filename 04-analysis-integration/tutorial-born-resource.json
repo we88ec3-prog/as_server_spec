@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "A023-BORN-20261031",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "profile": "TW-seed0-local-v0.1",
+  "resource_filename": "Born.dat",
+  "source": "user-supplied",
+  "version_match_to_client": "unverified",
+  "raw_resource_committed": false,
+  "raw_size": 589,
+  "raw_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+  "compression": "zlib",
+  "unpacked_size": 1154,
+  "unpacked_sha256": "a33d271e4f71e9958f59060b1aba01430919752a357b9615d60271b26c933546",
+  "wrapper_prefix_hex": "00010000",
+  "length_type": "BE u16 UTF-16LE code units",
+  "length_units": 574,
+  "xml_root": "script",
+  "entry_function": "Main",
+  "calls": [
+    "client.CreateArray",
+    "page.Insert",
+    "PaperDialog_Create"
+  ],
+  "guide_target": {
+    "x": 31,
+    "y": 29,
+    "meaning": "textual waypoint, not verified spawn",
+    "recruiter": "female",
+    "input": "mouse click"
+  },
+  "explicit_send_reply": false,
+  "explicit_quest_mutation": false,
+  "explicit_npc_spawn": false,
+  "auto_trigger": "unknown",
+  "npc_entity_id": "unknown",
+  "map_id": "unknown",
+  "native_client_validation": "not-run",
+  "evidence": [
+    "A023-E09",
+    "A023-E10"
+  ]
+}
