@@ -23,3 +23,6 @@ jobs:
       - name: Validate A-015 original MAP geometry and coordinate evidence
         run: |
           python3 -m unittest discover -s task_a/roy2 -p 'test_a015_map_coordinate.py' -v
+      - name: Validate A-010 skill cast and lasting effect original decoded-body contracts
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a010_skill_codec.py' -v
