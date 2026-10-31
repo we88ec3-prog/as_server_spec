@@ -323,7 +323,8 @@
         "ev_a028_20261031_asgard_c04_response_static",
         "ev_a016_20261031_asgard_replay_static",
         "ev_a003_20261031_asgard_create_palette_ui_static",
-        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "ev_a030_20261101_native_name_email_s02_c15_strict"
       ],
       "a027_evidence": "UI sends C02 with locally checked field1 length and field2/confirmation equality; cannot prove owner or native preprovisioned auth. Fail closed before independent identity proof.",
       "native_account_claim_ready": false,
@@ -361,7 +362,16 @@
         "s02_error_native_gui_ready": false,
         "native_client_validation": "not-run"
       },
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "a030_strict_handoff": {
+        "report": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+        "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
+        "original_client_validation": "not-run",
+        "native_email_name_label_ready": false,
+        "region2_4_codec_recovered": true,
+        "s02_c15_code_path_recovered": true,
+        "official_s02_error_meaning_ready": false
+      }
     },
     {
       "id": "SCN-009",

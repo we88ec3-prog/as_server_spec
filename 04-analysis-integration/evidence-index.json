@@ -3927,6 +3927,32 @@
         "Region0/1 different writer, email semantic not applicable without new evidence",
         "No original Server email DB policy or UI E-MAIL blank acceptance evidence"
       ]
+    },
+    {
+      "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
+      "date": "2026-11-01",
+      "evidence_kind": "observed-static-original-x86-with-synthetic-offline",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "source_branch": "task_a/roy1",
+      "report_path": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+      "offline_test": "tools/a030_native_newuser_contract.py",
+      "native_client_validation": "not-run",
+      "locator": "EXE 0x574189 C02 opcode; 0x5742b0..0x574352 writer; 0x4b286d..0x4b28cd input copy; 0x4b24e7 0x49 key F3 and 0x4b250f/0x4b2516 0x4B key F4; 0x57dbc0..0x57dbdd S02 parser; 0x4b2340/0x4b1d60 UI; 0x4b1dff message and 0x4b1e1e suppress; 0x4b1ebe dialog; 0x4b1f1d construct C15, 0x4b1f2f send, 0x4b1f34 state1f, 0x571609 C15 opcode, 0x5716a0 empty writer",
+      "locally_validated_binary_anchors": 40,
+      "locally_executed_tests": 6,
+      "synthetic_status1_body_hex": "0110526571756573742072656a6563746564",
+      "assumptions": "NAME/E-MAIL native literal label NOT proven; status1 official Server semantics NOT proven; UI/tcp GUI E2E NOT run",
+      "exact_missing_filenames": [
+        "Locale.dat",
+        "Basic.dat (optional UI layout validation)"
+      ],
+      "limits": [
+        "No original GUI execution or packet capture",
+        "No original Server response meaning, no persisted email SQL change",
+        "No original client resource localization input provided"
+      ],
+      "raw_assets_shared": false
     }
   ]
 }

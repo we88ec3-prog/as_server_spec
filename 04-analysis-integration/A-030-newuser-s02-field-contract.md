@@ -34,3 +34,8 @@ Offline 30 EXE instruction signatures and full 29-entry focus selector, 15 synth
 ## 2026-11-01 E-MAIL 欄位傳送路徑（A-030 增量）
 
 [完整證據及 15 個 x86 anchor](../03-analysis-requests/A-030-roy1-email-c02-field.md) 指向原版 **C2S C02** 的 region2..4 **F4 string8**（region4 widget24，region2/3 widget16；packet+0x822 / writer+0x816；C02 enqueue 0x4B229F）。不是 C04／沒有額外 E-MAIL opcode。使用者所見 E-MAIL 第五個表單欄位對應這第二個額外 UI 控制項是高可信推論，**原版 UI label 字面與空值 gate 尚未 native/resource 驗證**。Region0/1 writer 只發三個 string8；正式名稱欄位與 E-MAIL DB 欄位策略不由靜態 Client 決定。可用 `tools/a030_native_newuser_contract.py` 新 test_16 驗原件；缺 `Locale.dat` 的原生標籤證明。保持 `A-030 integrated/partial`、native Client `not-run`。
+
+
+## 2026-11-01 原始 EXE evidence addendum
+
+見 [A30 逐位址嚴格驗證](../03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md)。可直接解碼 Region2..4 `C02 F3/F4`，兩個 UI extra 值確實由原 Writer 送出；只有 **官方 NAME/E-MAIL label 必須先依 `Locale.dat` key0x49/0x4B 或未修改原版 Client 畫面＋去敏欄位長度對照才能將 F3/F4 登記為 CharacterName/Account.creation_email**。S02(nonzero, text) → 原生文字提示建立路徑（Region3/state0x1E 抑制例外）→ C15 空 body/state0x1F 已證 Client 組語，未取得正式 Server 的錯誤碼語意、真正 GUI 或 C15 後不斷線保證；供 DEV 使用的 status1 message 向量僅為 synthetic candidate。R-035 正式保存 E-MAIL 仍依現有 Server 設計，不可讓 A30 靜態研究越權修改 DB。

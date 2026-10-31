@@ -57,7 +57,8 @@
         "ev_a028_20261031_asgard_c04_response_static",
         "ev_a003_20261031_asgard_create_palette_ui_static",
         "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
-        "ev_a030_20261101_email_c02_fourth_field_static"
+        "ev_a030_20261101_email_c02_fourth_field_static",
+        "ev_a030_20261101_native_name_email_s02_c15_strict"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
@@ -129,6 +130,16 @@
         "native_gui_label_confirmed": false,
         "native_client_validation": "not-run",
         "codepage": "LanguageMan-dependent CP950 at TW locale index4 only"
+      },
+      "a030_final": {
+        "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
+        "report": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+        "decoder": "Region0/1 3 string8; Region2..4 4 string8+u8. F3 extra widget15/23 -> packet+0x624 -> writer+0x618, F4 extra widget16/24 -> packet+0x822 -> writer+0x816",
+        "name_email": "Region2..4 F3=NAME and F4=E-MAIL inferred from user-reported labels and order, literal name mapping remains unverified without Locale.dat",
+        "region1_issue": "UI uses widgets15/16 and writes +0x624/+0x822, writer uses packet+0x424 third field; do not call compatible",
+        "native_gui_test": "not-run",
+        "email_is_mandatory": "unknown",
+        "email_db_policy": "R-035 save on successful character commit, no additional use; Server-designed and not implemented by A30"
       }
     },
     {
@@ -196,7 +207,8 @@
         "A006-E07",
         "A006-E08",
         "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
-        "ev_a030_20261101_email_c02_fourth_field_static"
+        "ev_a030_20261101_email_c02_fourth_field_static",
+        "ev_a030_20261101_native_name_email_s02_c15_strict"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "response_flow": "After C04 Client local state0x1e; S02(status0) enters 0x4b206b UI branch, not immediate S03/World; S02(nonzero) emits empty C15 and state0x1f",
@@ -585,7 +597,8 @@
         "ev_a028_20261031_asgard_c04_response_static",
         "ev_a003_20261031_asgard_create_palette_ui_static",
         "ev_a029_20261031_native_c26_password_change_static",
-        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "ev_a030_20261101_native_name_email_s02_c15_strict"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
@@ -622,6 +635,28 @@
         "synthetic_status1_message": "Request rejected",
         "original_error_code_semantics": "unknown",
         "original_client_gui": "not-run"
+      },
+      "a030_native_display": {
+        "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
+        "report": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+        "observed_static": "u8 status,string8 text; NewUser status!=0 -> nonempty text dialog builder 0x4b1ebe except region3/state1E; always C15 empty and state1F; status0(state1D)->C04 and state1E; state1E status0 local success",
+        "nonzero_focus_status_first": [
+          3,
+          4,
+          18,
+          26,
+          31
+        ],
+        "nonzero_focus_status_second": [
+          17
+        ],
+        "generic_static_candidate": {
+          "status": 1,
+          "body_hex": "0110526571756573742072656a6563746564",
+          "official_status_meaning": "unknown",
+          "actual_gui": "not-run"
+        },
+        "native_gui_and_socket": "not-run"
       }
     },
     {
@@ -1293,7 +1328,8 @@
         "ev_a028_20261031_asgard_c04_response_static",
         "ev_a016_20261031_asgard_replay_static",
         "ev_a003_20261031_asgard_create_palette_ui_static",
-        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "ev_a030_20261101_native_name_email_s02_c15_strict"
       ],
       "native_static_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "server_handling": "Designed: cancel only uncommitted matching owner+generation pending operation; never rollback already durable Character, cannot grant account ownership",
@@ -1304,6 +1340,14 @@
         "evidence_id": "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
         "observed_static": "after S02 nonzero, create empty C15 0x4b1f1d, send 0x4b1f2f, local state1f; socket and next UI unverified",
         "report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md"
+      },
+      "a030_native_failure_followup": {
+        "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
+        "report": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+        "opcode": "0x15",
+        "body_bytes": 0,
+        "observed_static": "MakeInfo S02(nonzero) at 0x4b1f1d calls C15 ctor, 0x4b1f2f enqueues, local state0x1F at 0x4b1f34",
+        "does_not_prove": "original Server keeps TCP open, automatic retry, or Error UI screenshot"
       }
     },
     {

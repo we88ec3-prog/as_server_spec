@@ -2803,11 +2803,25 @@
         "A-030"
       ],
       "evidence_ids": [
-        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "ev_a030_20261101_native_name_email_s02_c15_strict"
       ],
       "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
       "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown",
-      "current_server_baseline": "ad84f9 unconditional Close persists live at f2a4a38; independently verified backend, phase-timeout/journal exist, no captured RI-005 native C02 receipt."
+      "current_server_baseline": "ad84f9 unconditional Close persists live at f2a4a38; independently verified backend, phase-timeout/journal exist, no captured RI-005 native C02 receipt.",
+      "a030_client_research": {
+        "report": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+        "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
+        "observed_static_code_paths": [
+          "C02 region2..4 F3 F4 string8",
+          "S02 nonzero+message modal (region3/state1e suppression)",
+          "C15 empty and state0x1f",
+          "S02 zero stage1d -> C04"
+        ],
+        "actual_native_client_validation": "not-run",
+        "semantic_label_confirmation": "await Locale.dat / native GUI",
+        "server_or_db_tests": "not executed by A30"
+      }
     },
     {
       "id": "CT-104",
@@ -2845,7 +2859,8 @@
       ],
       "evidence_ids": [
         "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
-        "ev_a030_20261101_email_c02_fourth_field_static"
+        "ev_a030_20261101_email_c02_fourth_field_static",
+        "ev_a030_20261101_native_name_email_s02_c15_strict"
       ],
       "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
       "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown",
@@ -2854,6 +2869,19 @@
         "offline": "15/15 original EXE signature checks passed; expanded Python test has field4 static-anchor test; no native GUI",
         "client_e2e": "still planned: Region4 widget24 & region2/3 widget16 literal E-MAIL label via matched Locale.dat or native UI, E-MAIL empty/filled decode length and S02/C15",
         "native_label_verified": false
+      },
+      "a030_client_research": {
+        "report": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+        "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
+        "observed_static_code_paths": [
+          "C02 region2..4 F3 F4 string8",
+          "S02 nonzero+message modal (region3/state1e suppression)",
+          "C15 empty and state0x1f",
+          "S02 zero stage1d -> C04"
+        ],
+        "actual_native_client_validation": "not-run",
+        "semantic_label_confirmation": "await Locale.dat / native GUI",
+        "server_or_db_tests": "not executed by A30"
       }
     },
     {
@@ -2894,10 +2922,24 @@
         "A-030"
       ],
       "evidence_ids": [
-        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "ev_a030_20261101_native_name_email_s02_c15_strict"
       ],
       "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
-      "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown"
+      "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown",
+      "a030_client_research": {
+        "report": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+        "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
+        "observed_static_code_paths": [
+          "C02 region2..4 F3 F4 string8",
+          "S02 nonzero+message modal (region3/state1e suppression)",
+          "C15 empty and state0x1f",
+          "S02 zero stage1d -> C04"
+        ],
+        "actual_native_client_validation": "not-run",
+        "semantic_label_confirmation": "await Locale.dat / native GUI",
+        "server_or_db_tests": "not executed by A30"
+      }
     },
     {
       "id": "CT-106",
@@ -2930,7 +2972,23 @@
       "analysis_dependency": [
         "A-030"
       ],
-      "design_source": "02-server-planning/newuser-email-persistence-20261101.md"
+      "design_source": "02-server-planning/newuser-email-persistence-20261101.md",
+      "evidence_ids": [
+        "ev_a030_20261101_native_name_email_s02_c15_strict"
+      ],
+      "a030_client_research": {
+        "report": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+        "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
+        "observed_static_code_paths": [
+          "C02 region2..4 F3 F4 string8",
+          "S02 nonzero+message modal (region3/state1e suppression)",
+          "C15 empty and state0x1f",
+          "S02 zero stage1d -> C04"
+        ],
+        "actual_native_client_validation": "not-run",
+        "semantic_label_confirmation": "await Locale.dat / native GUI",
+        "server_or_db_tests": "not executed by A30"
+      }
     },
     {
       "id": "CT-107",

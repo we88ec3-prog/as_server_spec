@@ -64,6 +64,56 @@ def verify_email_c02_chain(path=None):
    raise ValueError("C02 field4 chain mismatch: "+description)
  return len(EMAIL_C02_CHAIN)
 
+
+# Additional original x86 anchors; this is code-flow evidence, NOT a real GUI/session test.
+STRICT_S02_C15_AND_NAME_EMAIL={
+ "C02 opcode 0x02":(0x574189,"6a02"),
+ "C02 F3 relative +0x618":(0x5742f6,"8dbe18060000"),
+ "C02 F4 relative +0x816":(0x57430e,"8dbe16080000"),
+ "UI region4 first extra +0x624":(0x4b2870,"81c124060000"),
+ "UI region4 second extra +0x822":(0x4b288f,"81c222080000"),
+ "UI region2-3 second extra +0x822":(0x4b28bb,"81c122080000"),
+ "confirm dialog F3 packet+0x624":(0x4b24e7,"0524060000"),
+ "confirm dialog F3 locale key0x49":(0x4b24ed,"6a49"),
+ "confirm dialog F4 packet+0x822":(0x4b250f,"81c222080000"),
+ "confirm dialog F4 locale key0x4b":(0x4b2516,"6a4b"),
+ "S02 status parser":(0x57dbc3,"e8e8d1edff"),
+ "S02 message parser":(0x57dbd8,"e8c3dbedff"),
+ "MakeInfo S02 dispatcher":(0x4b235b,"e900faffff"),
+ "S02 focus dispatch index":(0x4b1db5,"0fb688bc214b00"),
+ "S02 message text gate":(0x4b1dff,"66837f2600"),
+ "S02 region3 suppression":(0x4b1e1e,"83f803"),
+ "S02 text dialog builder":(0x4b1ebe,"e8ad06f9ff"),
+ "S02 zero/nonzero branch":(0x4b1eec,"84c0"),
+ "native C15 opcode0x15":(0x571609,"6a15"),
+ "native C15 empty serializer":(0x5716a0,"c3"),
+ "S02 nonzero C15 ctor":(0x4b1f1d,"e8cef60b00"),
+ "S02 nonzero C15 send":(0x4b1f2f,"e86c690c00"),
+ "S02 nonzero state1f":(0x4b1f34,"c7464c1f000000"),
+ "S02 success state1d branch":(0x4b1f46,"837e4c1d"),
+ "S02 success C04 ctor":(0x4b2021,"e84a230c00"),
+ "S02 success state1e":(0x4b205f,"c7464c1e000000"),
+}
+def verify_strict_original_branches(path=None):
+ d=Path(path or client_path()).read_bytes()
+ if hashlib.sha256(d).hexdigest()!=SHA:raise ValueError("Client SHA mismatch")
+ for name,(va,h) in STRICT_S02_C15_AND_NAME_EMAIL.items():
+  expected=bytes.fromhex(h)
+  if d[va-0x400000:va-0x400000+len(expected)]!=expected:
+   raise ValueError("S02/C15/original NAME-EMAIL source: "+name)
+ return len(STRICT_S02_C15_AND_NAME_EMAIL)
+
+def newuser_reply_effect(state,region,status,text):
+ """Derived from 0x4b1d60; returns code-path flags, NOT a native GUI result."""
+ if state not in (0x1d,0x1e) or region not in range(5) or not 0<=status<=255:
+  raise ValueError("outside traced Native NewUser state/region/status")
+ if status:
+  return {"display_attempt":bool(text) and not (region==3 and state==0x1e),
+          "send_c15":True,"next_state":0x1f,"send_c04":False,"local_success":False}
+ return {"display_attempt":bool(text) and not (region==3 and state==0x1e),
+         "send_c15":False,"next_state":0x1e if state==0x1d else state,
+         "send_c04":state==0x1d,"local_success":state==0x1e}
+
 FOCUS_SELECTOR=bytes([0,1]+[4]*12+[2,3]+[4]*7+[1]+[4]*4+[3])
 WIDGETS={
  0:(1,2,3,10,None),
@@ -136,4 +186,36 @@ class TestA030(unittest.TestCase):
  def test_16_native_extended_field4_chain(self):
   if not client_path().is_file():self.skipTest("Original Asgard.exe absent; set ASGARD_EXE")
   self.assertEqual(verify_email_c02_chain(),15)
+ def test_17_strict_original_name_email_s02_c15(self):
+  if not client_path().is_file():self.skipTest("Original Asgard.exe absent; set ASGARD_EXE")
+  self.assertEqual(verify_strict_original_branches(),26)
+ def test_18_no_embedded_email_label_in_original_exe(self):
+  if not client_path().is_file():self.skipTest("Original Asgard.exe absent")
+  d=client_path().read_bytes()
+  self.assertIn("Locale.dat".encode("utf-16le"),d)
+  self.assertNotIn("E-MAIL".encode("utf-16le"),d)
+ def test_19_s02_failure_sends_c15_and_enters_1f(self):
+  for state in (0x1d,0x1e):
+   for region in range(5):
+    effect=newuser_reply_effect(state,region,1,"Request rejected")
+    self.assertTrue(effect["send_c15"])
+    self.assertEqual(effect["next_state"],0x1f)
+    self.assertFalse(effect["send_c04"])
+    self.assertEqual(effect["display_attempt"],not (state==0x1e and region==3))
+ def test_20_s02_empty_text_no_popup_still_c15(self):
+  for state in (0x1d,0x1e):
+   x=newuser_reply_effect(state,4,2,"")
+   self.assertFalse(x["display_attempt"])
+   self.assertTrue(x["send_c15"])
+ def test_21_s02_success_twostage_no_c15(self):
+  first=newuser_reply_effect(0x1d,4,0,"")
+  final=newuser_reply_effect(0x1e,4,0,"")
+  self.assertEqual(first["next_state"],0x1e)
+  self.assertTrue(first["send_c04"])
+  self.assertFalse(first["send_c15"])
+  self.assertTrue(final["local_success"])
+  self.assertFalse(final["send_c04"])
+ def test_22_original_gui_not_inferred_from_static_probe(self):
+  for bad in ((0x1f,4,1,""),(0x1d,5,1,""),(0x1d,4,-1,"")):
+   with self.assertRaises(ValueError):newuser_reply_effect(*bad)
 if __name__=="__main__":unittest.main(verbosity=2)

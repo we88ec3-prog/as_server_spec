@@ -168,3 +168,8 @@ Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研�
 ## 2026-11-01 A-030 補證：創角 E-MAIL 原生封包路徑
 
 固定原版 Asgard.exe SHA，新增 15/15 x86 指令簽章核對：C02 region2..4 F4 第二個額外 UI 欄位（region4 widget24/region2、3 widget16）→packet+0x822→writer+0x816→C02(send)；確認視窗引用同一欄和語系文字 ID 0x4B。C04 只有外觀，不送 E-MAIL。E-MAIL label 的字面與可空 gate 因 `Locale.dat`/GUI 缺少，維持 inferred-high，不冒稱完整原生驗收；A-030 integrated/partial。新增獨立報告與 probe test_16，更新 requests/evidence/PKT-C02/CT-104 和 manifest。
+
+
+## 2026-11-01 / A-030 roy1 native field and error UI evidence
+
+在既有 `task_a/roy1` 追通原始 `Asgard.exe` Region2..4 C02 F3/F4 資料流、確認視窗 locale keys 0x49/0x4B、S02(u8/string8) 失敗訊息 dialog 建構、C15 opcode0x15 empty body 送出和 state0x1F；Region3/state0x1E 抑制訊息是例外。原件40個 x86 anchors PASS + 離線6 tests PASS；擴充工具原生簽章 26 個、合成 unit case 6 個，native original GUI not-run。新報告 `03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md` 與 requests/packets/evidence/scenarios/CT-103～106 交接更新。仍需 `Locale.dat` label 與原 Client CT；R-035 只保存 email 產品決策不受影響。無 Server/DB/EXE 修改，無新分支。

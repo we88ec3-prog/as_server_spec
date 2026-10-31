@@ -76,3 +76,10 @@ This confirms A30-1 packet/close reason only for the **modified diagnostic Clien
 ## 2026-11-01 E-MAIL 是否經 C02 發送：後續 BIN-first 核查
 
 已追通原版 region2..4 `C02` 第四個 `string8`：region4 widget `0x18`、region2/3 widget `0x10` → packet `+0x822` → writer this `+0x816` → native C02 send `0x4B229F`。確認畫面亦讀相同 F3/F4（label ID 0x49/0x4B）。**根據使用者畫面的欄位順序，F4 是 E-MAIL 高可信候選，但沒有 `Locale.dat` 或原 Client GUI 對照，尚不能把 E-MAIL 字樣當作已獨立確認的 UI label**。Region0/1 的三字串例外仍在，E-MAIL 是否可留空及 DB 儲存是不同議題。15/15 原始 EXE byte signature PASS；新 `test_16_native_extended_field4_chain` 可重現。詳細見 [A030 E-MAIL 封包確認](A-030-roy1-email-c02-field.md)。
+
+
+## 2026-11-01 嚴格追鏈完成（Client 靜態證據）
+
+原始 EXE 40/40 machine-code anchors 本地 PASS、6 項離線驗證 PASS。**完整整理**：[A30 NAME/E-MAIL、S02/C15 最終靜態交接](A-030-roy1-native-fields-failure-c15-handoff.md)。Region2..4 F3/F4 實際 UI→C02 confirmed（widget15/16 或 23/24；writer+0x618/+0x816）；確認 popup 以語系 keys **0x49/0x4B** 分別顯示，唯 **key0x49 是 NAME、key0x4B 是 E-MAIL 的原始翻譯文字尚待 `Locale.dat`**。Region1 的 writer 缺 F4 且第三欄來源疑點保留；不把產品 R-035 E-MAIL 保存需求當成已證 Client label。
+
+S02 parser (u8/string8)，非零 status 觸發 Client message modal（非空文字且非 Region3/state0x1E suppress），再 C15 opcode0x15、empty body、local state0x1F，已經 EXE 指令層確認；**不能證明實際 GUI 文案、原版 Server 錯誤碼含義、C15 後 TCP 繼續與重試**。本次工具新增 S02/C15 更嚴格簽章與對應合成模型，原始 Client GUI 未跑；A30 `integrated/partial`，不可誤標 native-ready。
