@@ -680,7 +680,10 @@
         "No verified original official skills definition filename/skill IDs, individual spell categories, range, MP cost, cooldown, effect duration, stacking, summoned owner/AI",
         "Native original Client GUI/world combat casts and effect expiry trace not-run; CT-090 planned"
       ],
-      "last_analysis_date": "2026-10-31"
+      "last_analysis_date": "2026-10-31",
+      "native_static_result": "PASS original provided Asgard.exe SHA256 and 25 native instruction VA patterns + 6 MSVC RTTI classes, independently checked against local original PE32",
+      "offline_test_result": "PASS GitHub Actions run 41193941400: 19 A010 decoded-body and designed ledger synthetic tests, prior A011(16)+A024(19+7)+A015(18) and phase gates passed",
+      "offline_ci_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41193941400"
     },
     {
       "id": "A-011",
