@@ -660,7 +660,9 @@
         "Unresolved exact S07 source field→final Monster ImageId and resource row-to-YPF/DOI animation group/frame/direction mapping",
         "Unverified mouse click→C43→S34/S3C/S44→NPCChatDialog native callback chain",
         "Original Server drop, NPC AI and spawn semantics not Client-authoritative; native Client GUI E2E CT-068 not-run"
-      ]
+      ],
+      "offline_test_result": "Original Asgard.exe PE 29 VA signatures, 4 RTTI, 3 UTF16 literals PASS; GitHub Actions run 41186221751 success: 16 A-011 unit tests and phase gates passed",
+      "static_validation_ci": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751"
     },
     {
       "id": "A-012",
