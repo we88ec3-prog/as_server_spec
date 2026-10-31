@@ -119,3 +119,7 @@ Roy1 新增 C6C(1) name/context/key-value ScriptReply 與 C6C(4/2) close/cleanup
 3. **新手入學**：選「不入學」是沒有任務/獎勵/場景副作用的拒絕，可再次點 NPC 重問，也可以稍後接受。
 
 完整 [最新決策](02-server-planning/three-policy-adjustments-20261031.md)、[CT-101](05-conformance/party-monster-reward-test-plan.md)、[CT-102](05-conformance/tutorial-refuse-reask-test-plan.md)。新增 R-033/034、SCN-018/019、CT-100～102 仍 planned/not-run；**這輪不修改 Server/Client/Web 程式**。
+
+## 2026-10-31 創角提交斷線源碼追查及修正規劃（僅設計）
+
+原版 Asgard.exe 創角輸入 ID/PASSWORD/CONFIRM/NAME/E-MAIL 提交後顯示重新連線；核對 private as_server_roy/main@ad84f9 後，LoginWireSession.HandleAsync 的 C02/C04 **無條件 Close（0 S02 frames）**，GameTcpProbeService 立即退出並關閉 Socket；C15 合法 body 後也 Close。現有 CharacterCreationAccountGuard 另有過時 loggedIn 要求，**但 live C02 根本未走到 Guard**，不能錯誤聲稱 Guard 是立即斷線的已證呼叫點。現場首個封包/斷點仍缺原始 Client 去敏 trace，未證帳密錯。見 [開發交接及根因](02-server-planning/native-newuser-disconnect-remediation-20261031.md)、[A-030 UI/EMAIL 補證](03-analysis-requests/A-030-native-newuser-disconnect-fields.md)、[CT-103..105](05-conformance/native-newuser-disconnect-acceptance-plan.md)；A-021/027/028/020 沿用已證部分。**全部規劃，沒有修改私有 Server/DB/Web/Client、沒有新分支**。

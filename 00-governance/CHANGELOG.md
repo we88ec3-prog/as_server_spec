@@ -125,3 +125,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 使用者最新三項規劃覆蓋：C02 Guard、最高隊伍傷害、拒絕入學可重問
 
 核對私有 `CharacterCreationAccountGuard.RequireMatch(loggedIn,...)` 仍需已登入身份，標記 DEV-040 未實作最新要求：創角直接核對 C02 既有帳密後發限創角授權 proof，免 C03；原生失敗碼待 A-027/028。共享怪同 Monster life 依**隊伍總有效傷害**選唯一贏家，贏家**所有成員每人完整 EXP + 各人一次獨立掉寶判定**， ledger 冪等；party/tie/offline/中途異動保留實作前決策。 `nNewJoin01 STATE=REFUSE` 代表 Server 不入學 no-op、NPC 可再點擊/再拒絕/稍後接受，無其他角色副作用。新增 R-033/034、SCN-018/019、CT-100/101/102，保留現有 A-014/A-009/025、A-012/023/026 精準取證，不新 branch，不改程式，不宣稱 native CT passed。
+
+## 2026-10-31 原生創角「連線中斷」P0 調查與規劃
+
+讀取 private as_server_roy@ad84f9 source 確認 LoginWireSession C02/C04 進分支直接 Close、不送 S02、不驗帳密；C15 empty 也 Close，transport 在 CloseConnection 時退出 Socket。創角 Guard loggedIn 依賴是另一個尚未接到 live handler 的程式缺口。原本 A-021/A-027/A-028 的 Client state0x1D→0x1E、C15、region serializer 照舊；原本使用者觀察的連線中斷究竟在 C02 前後仍無 live trace，保留 unknown。新增 A-030 精準核查 ID/PASSWORD/CONFIRM/NAME/E-MAIL 逐 region UI/wire、E-MAIL 必填、S02 native fail UI/取消/重試、第一個斷點；新增 CT-103..105，規劃 DEV-CREATE-01..10 及分階段通過條件，補 machine-readable ONB-02/R-026/SCN-008/Client flows/readiness/traceability。無私有程式或 DB/Client 異動；未來實作必須向使用者確認範圍。

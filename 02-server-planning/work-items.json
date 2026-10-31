@@ -97,7 +97,9 @@
         "A-021",
         "A-027",
         "A-028",
-        "A-016"
+        "A-016",
+        "A-020",
+        "A-030"
       ],
       "scenarios": [
         "SCN-008"
@@ -113,7 +115,10 @@
         "CT-044",
         "CT-054",
         "CT-097",
-        "CT-100"
+        "CT-100",
+        "CT-103",
+        "CT-104",
+        "CT-105"
       ],
       "depends_on": [],
       "readiness": "codec-partial-native-authorization-blocked",
@@ -133,8 +138,8 @@
       "temporary_creation_account_policy": "SUPERSEDED: NewUser authenticates the entered existing Account + Password via Server CredentialVerifier directly; C03 login session is not prerequisite. Wrong/nonexistent/banned => native error/no draft; C04 must have creation-only proof.",
       "creation_account_policy_source": "02-server-planning/three-native-account-entry-policy.md",
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
-      "next_iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
-      "native_creation_activation_gate": "No prior C03 required; A-027/028 must confirm C02 account/password field and native error reply before enabling live route; proof must bind account_id+version+connection+generation+TTL.",
+      "next_iteration_handoff": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
+      "native_creation_activation_gate": "Original native C02/C04 unconditional Close confirmed in private Server main ad84f9; A-030 requires direct native NewUser region/field ID/PASSWORD/NAME/E-MAIL and usable S02(nonzero) evidence first. Only after C02 credential proof and name check may issue stage1 S02(0), then C04 atomic commit and stage2 S02(0). Without evidence remain fail-closed.",
       "provisioning_dependency": "ONB-01 authorized admin-provisioned Account record required, but ONB-01 C03 login action is NOT required before C02",
       "latest_three_entry_decision": {
         "source": "02-server-planning/three-native-account-entry-policy.md",
@@ -144,7 +149,15 @@
         "requires_prior_c03": false,
         "creation_only_auth_proof": true
       },
-      "creation_guard_status": "Private CharacterCreationAccountGuard.cs still enforces loggedIn; needs separate coding authorization to replace with verified C02-account+password creation-only proof; do NOT delete credential guard."
+      "creation_guard_status": "Private CharacterCreationAccountGuard.cs still enforces loggedIn; needs separate coding authorization to replace with verified C02-account+password creation-only proof; do NOT delete credential guard.",
+      "current_implementation_diagnosis": {
+        "private_repo_sha": "ad84f9fb11606a318aff6bd67e065aa0ee07cc45",
+        "host": "LoginWireSession.HandleAsync case0x02/0x04 returns Close without S02/Auth/DB",
+        "transport": "GameTcpProbeService.HandleClientAsync exits on CloseConnection and closes using TcpClient",
+        "guard": "CharacterCreationAccountGuard loggedIn requirement not invoked by live C02 and obsolete",
+        "native_reproduction": "user-reported reconnect popup; no socket trace captured",
+        "plan": "02-server-planning/native-newuser-disconnect-remediation-20261031.md"
+      }
     },
     {
       "id": "ONB-03",

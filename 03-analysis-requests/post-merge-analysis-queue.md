@@ -68,3 +68,7 @@
 - **A-014（party Client I/O）＋ A-009/A-025（damage/death）＋ A-007（EXP/Item 顯示）**：追 native party id、組隊名冊與接受/離開/解散更新，怪物血量/死亡及經驗、道具取得的 UI/wire。**最高傷害隊伍獲獎＋隊伍全員100% EXP＋每人一次獨立掉寶**是使用者指定 Server policy，不用 A 還原原服分配公式；CT-101。特殊 tie、離線、跨圖、入退隊策略需後續確定。
 - **A-012/A-023/A-026**：追 `nNewJoin01.dat STATE=REFUSE` 的原版選項→C6C、NPC 重點擊→Script 重新開啟、招募員 NPC→Script 綁定。拒絕入學**零領域副作用且可無限次再問**是 Server 已決策政策，不得被舊「REFUSE 可能永久旗標」猜測覆蓋；CT-102。原版 NPC→Script、UI 動態仍未驗收。
 - 詳 [權威新決策](../02-server-planning/three-policy-adjustments-20261031.md)，新場景 SCN-018/019，需求 R-033/034；所有 native Client CT `not-run`，本次沒有新增已確認缺少的檔案。
+
+## P0 補證 A-030：創角送出後連線中斷（2026-10-31）
+
+已核對 private as_server_roy/main@ad84f9，當 C02 或 C04 到達 LoginWireSession.HandleAsync 時立刻 return Close()，不發 S02 也不驗 DB；這是源碼確定的行為，**使用者實機 popup 首包斷在哪裡仍未有 TCP trace**。A-030 不是重新分析整個創角協定，請沿 A-021/027/028/020 已有的 C02 field1/field2+CONFIRM，針對 ID、PASSWORD、CONFIRM、NAME、E-MAIL 真實控件來源、EMAIL 空值必填 gate、region0/1/2..4 serializer、region!=0 本地 min12，以及 S02 非零時 NewUser UI/C15/retry/post-C04 回登入做精準補證。S02 status3 現在只有登入的本地定義，不能偷當創角密碼錯。**無已確認的新缺檔**，若需要 Label resource 必須查出原始 loader 的確切檔名。詳 [A-030](A-030-native-newuser-disconnect-fields.md) 及 [修正計畫](../02-server-planning/native-newuser-disconnect-remediation-20261031.md)。

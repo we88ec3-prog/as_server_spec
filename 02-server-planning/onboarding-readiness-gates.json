@@ -10,11 +10,13 @@
       "mode": "develop-now",
       "analysis": [
         "A-002",
-        "A-027"
+        "A-027",
+        "A-030"
       ],
       "tests": [
         "CT-041",
-        "CT-097"
+        "CT-097",
+        "CT-104"
       ],
       "rule": "Use single Server CredentialVerifier for Login C03 and independent NewUser C02 using entered existing account+password. Both require validated credentials, account not suspended and current credential_version; creation-only proof not a login/World grant. No C03 prerequisite for create. Actual private CharacterCreationAccountGuard loggedIn requirement is an implementation gap; authenticated C02 proof is separate from C03."
     },
@@ -25,11 +27,13 @@
       "analysis": [
         "A-003",
         "A-021",
-        "A-027"
+        "A-027",
+        "A-030"
       ],
       "tests": [
         "CT-042",
-        "CT-097"
+        "CT-097",
+        "CT-104"
       ],
       "rule": "Region-aware C02 decoded-body; the first/second UI fields are account/password inferred candidates, require native A-027 evidence before production enabling; no account create via Client."
     },
@@ -38,12 +42,14 @@
       "owner": "Server",
       "mode": "develop-now",
       "analysis": [
-        "A-027"
+        "A-027",
+        "A-030"
       ],
       "tests": [
         "CT-041",
         "CT-053",
-        "CT-097"
+        "CT-097",
+        "CT-104"
       ],
       "rule": "Direct NewUser C02 with existing account+wrong/missing password, nonexistent/banned account, replay or wrong credential version => reject with verified native error and no S02(0), pending, Character or Grant; do not reject solely because C03 was not performed."
     },
@@ -53,11 +59,13 @@
       "mode": "develop-now",
       "analysis": [
         "A-016",
-        "A-028"
+        "A-028",
+        "A-030"
       ],
       "tests": [
         "CT-044",
-        "CT-053"
+        "CT-053",
+        "CT-104"
       ],
       "rule": "A verified creation-only owner proof tied to C02 account_id+credential_version+connection/generation authorizes only matching pending C04; atomic once-only Character commit and C15 pending-only cancellation."
     },
@@ -67,12 +75,16 @@
       "mode": "needs-client-evidence",
       "analysis": [
         "A-027",
-        "A-021"
+        "A-021",
+        "A-030"
       ],
       "tests": [
         "CT-054",
         "CT-097",
-        "CT-100"
+        "CT-100",
+        "CT-103",
+        "CT-104",
+        "CT-105"
       ],
       "rule": "Validate independent native NewUser UI, C02 first/second fields genuine existing Account+Password and original nonzero S02 failure UI; do NOT demand C03(no character)->NewUser callback as prerequisite. Native C02/C04 fail closed until source/profile proven. Private Guard now observed requiring loggedIn and must be refactored after explicit DEV authorization."
     },
@@ -81,11 +93,13 @@
       "owner": "Client research",
       "mode": "partial-client-evidence",
       "analysis": [
-        "A-028"
+        "A-028",
+        "A-030"
       ],
       "tests": [
         "CT-032",
-        "CT-043"
+        "CT-043",
+        "CT-105"
       ],
       "rule": "C02 S02(0) triggers C04 and state1e; C04 S02(0) goes to local UI, not automatic S03; nonzero S02 leads C15."
     },
@@ -170,6 +184,24 @@
         "CT-102"
       ],
       "rule": "Recruiter STATE=REFUSE is domain no-op; no quest/admission/reward/teleport flags and NPC remains repeatable. New click obtains new run/context. Script close alone never quest completes."
+    },
+    {
+      "id": "WIRE-04",
+      "owner": "Server+Client research",
+      "mode": "needs-client-evidence",
+      "analysis": [
+        "A-020",
+        "A-021",
+        "A-027",
+        "A-028",
+        "A-030"
+      ],
+      "tests": [
+        "CT-103",
+        "CT-104",
+        "CT-105"
+      ],
+      "rule": "C02/C04 current Server unconditional Close diagnosed from source. To enable real native creation, trace which opcode triggers disconnect, prove region-specific ID/password/NAME/E-MAIL and Email-required gate, confirm native NewUser nonzero S02 status/message/C15 UI and post-second S02 return-to-login. No guessing, original client E2E not-run."
     }
   ]
 }

@@ -62,7 +62,8 @@
         "A-003",
         "A-021",
         "A-027",
-        "A-028"
+        "A-028",
+        "A-030"
       ],
       "scenarios": [
         "SCN-007",
@@ -82,20 +83,28 @@
         "CT-053",
         "CT-054",
         "CT-097",
-        "CT-100"
+        "CT-100",
+        "CT-103",
+        "CT-104",
+        "CT-105"
       ],
       "server_decisions": [
         "R-025/R-026: C02 絕不可建立 Account；直接用本次 C02 提交的 existing Account name + Password 於同一 DB CredentialVerifier 驗證；**無需 prior C03 Session**，帳號/密碼不符、停權/角色已存在 → 原版可辨識錯誤、不建 Pending/Character、不發 S02(0)。",
         "成功憑證只建立 creation-only owner proof (account_id, credential_version, connection/generation, TTL) 與 PendingCharacterIntent，C04 同 proof 才一次性提交 Character；這不授權 World grant。",
         "原生 field1/field2 和錯誤 status 的 Client evidence 仍缺 A-027/A-028；Native enablement 必須 fail closed，不能亂猜 status。",
-        "Live private CharacterCreationAccountGuard loggedIn requirement is obsolete; direct C02 valid account+password must produce creation-only proof regardless of prior C03; Host wire still not native-tested."
+        "Live private CharacterCreationAccountGuard loggedIn requirement is obsolete; direct C02 valid account+password must produce creation-only proof regardless of prior C03; Host wire still not native-tested.",
+        "Private Server main ad84f9 LoginWireSession.HandleAsync case C02/C04 currently returns Close() and never invokes Auth/DecodeC02/DB/S02; future DEV-040 native routing required, no Client changes.",
+        "C02 identity+password auth in the Admin-created Account store without C03, generation-scoped creation-only proof, S02(0) first reply→C04 once-only commit→S02(0) final; ordinary failures require A-028/A-030 native-compatible nonzero replies, never guess status."
       ],
-      "readiness": "original C02/C04 decoded-body ready, direct credential auth designed; native field semantics + error UI not proven",
+      "readiness": "confirmed current server unconditional C02/C04 Close, original native failure/NAME/EMAIL/region pending A-030; planning only",
       "unknowns": [
         "C02 第1/2欄 Account/Password 的各 region 精確 native UI/serializer 角色與本機限制",
         "S02(status!=0) 對錯帳號/錯密/停權/已有角色的 native UI/error code",
         "C04 final success UI 到一般登入頁的實際按鍵、region差異",
-        "原版 Client 的 C03(no character) auto-route 只作補充觀察，不是使用者要求的 create 前置"
+        "原版 Client 的 C03(no character) auto-route 只作補充觀察，不是使用者要求的 create 前置",
+        "NAME and E-MAIL original form->C02 field mapping and E-MAIL required gate, region1 writer discrepancy",
+        "Which native S02 nonzero status+message renders credential/duplicate errors, C15 retry/socket semantics",
+        "Observed popup first actual TCP breakpoint: C02 before or after, C04 after, C15 after; original Client native trace not-run"
       ],
       "native_client_validation": "not-run",
       "work_items": [

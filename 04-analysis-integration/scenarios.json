@@ -305,7 +305,12 @@
         "跨 session",
         "同名競爭",
         "C02/C04 中斷",
-        "直接 C02 輸入後端 Account 不存在、錯密或停權（應回原生 UI 錯誤且不建角色）"
+        "直接 C02 輸入後端 Account 不存在、錯密或停權（應回原生 UI 錯誤且不建角色）",
+        "Server closes immediately upon valid pre-login C02 without first S02",
+        "Wrong/unknown/banned account presents native generic disconnect instead of confirmed S02 business error",
+        "Client NAME/E-MAIL empty prevents sending C02 due to local UI gate; must be distinguished from Server auth rejection",
+        "C04 durable commit success but final S02 lost and retry duplicates Character",
+        "C15 after nonzero S02 erroneously deletes committed character"
       ],
       "notes": "原生 C02/C04 與 S02 成功/失敗轉場待 A-021；Character 原子保存，不創建 Account。 Roy1 static evidence shows state0x1d + S02(status0) triggers C04 then state0x1e; this is not final character creation. Account binding must be proven by A-027, C04 final status by A-028. A-028 static: after C04 Client state0x1e; later S02(status0) acts on UI at 0x4b206b, no immediate S03; nonzero S02 emits C15 CancelNewUser (empty body) and state0x1f. Original Server commit and secure owner unverified.",
       "analysis_blockers": [
@@ -332,9 +337,21 @@
       "native_character_creation_ready": false,
       "latest_user_decision_contract": "02-server-planning/three-native-account-entry-policy.md",
       "conformance": [
-        "CT-100"
+        "CT-100",
+        "CT-103",
+        "CT-104",
+        "CT-105"
       ],
-      "creation_guard_new_decision": "No previously authenticated C03 LoginSession required. C02 submitted existing account+password must verify via server before any creation proof; private Guard still requires loggedIn (implementation gap)."
+      "creation_guard_new_decision": "No previously authenticated C03 LoginSession required. C02 submitted existing account+password must verify via server before any creation proof; private Guard still requires loggedIn (implementation gap).",
+      "native_disconnect_issue": "Current Server live C02 and C04 unconditional Close with no S02 and no DB check, likely generic Client reconnect. Specific user symptom packet breakpoint not native-captured.",
+      "analysis_requests": [
+        "A-020",
+        "A-021",
+        "A-027",
+        "A-028",
+        "A-030"
+      ],
+      "followup_plan": "02-server-planning/native-newuser-disconnect-remediation-20261031.md"
     },
     {
       "id": "SCN-009",

@@ -262,13 +262,15 @@
       "system": "SYS-CHAR",
       "priority": "P0",
       "title": "已預建無角色帳號首次創角",
-      "acceptance": "創角是獨立原版 Client 入口，不必先從 C03 登入；玩家在創角 UI 所輸入的 existing Account 名稱＋密碼，均須通過同一 Server CredentialVerifier 且帳號未停權，才可建立只供創角的授權 proof，依 C02/S02/C04/S02 一次性原子保存 Character。不存在／錯密／停權應回原生 UI 錯誤且不可建立 Account/草稿/角色/Grant。各 region C02 欄位與原生錯誤碼待 A-027/A-028 驗證。 明確要求調整既有 CharacterCreationAccountGuard：合法 C02 本次帳密驗證通過時，loggedIn=null 不能導致拒絕；不得改成只靠 C02 帳號名稱認證。",
+      "acceptance": "創角是獨立原版 Client 入口，不必先從 C03 登入；玩家在創角 UI 所輸入的 existing Account 名稱＋密碼，均須通過同一 Server CredentialVerifier 且帳號未停權，才可建立只供創角的授權 proof，依 C02/S02/C04/S02 一次性原子保存 Character。不存在／錯密／停權應回原生 UI 錯誤且不可建立 Account/草稿/角色/Grant。各 region C02 欄位與原生錯誤碼待 A-027/A-028 驗證。 明確要求調整既有 CharacterCreationAccountGuard：合法 C02 本次帳密驗證通過時，loggedIn=null 不能導致拒絕；不得改成只靠 C02 帳號名稱認證。 針對原始 Client 創角送出 generic reconnect，必須先以去敏 trace 定位 C02 前/後或 C04 後，再以已證 S02/Client UI 回覆一般業務拒絕；C15 取消原子清理，成功返回原生登入。EMAIL/NAME 欄位及區域必填 gate 需 A-030 明確查證。",
       "baseline": "使用者明確區分兩個入口；C02 pre-C03 已有 Client 靜態證據，但 field1/field2 精確身分/密碼、錯誤訊息 native E2E 未證",
       "status": "specified",
       "stage": "requirement",
       "evidence_kind": "designed",
       "creation_direct_password_credential_policy": "02-server-planning/three-native-account-entry-policy.md",
-      "guard_runtime_correction": "Private as_server_roy@ad84f9f CharacterCreationAccountGuard.cs still requires loggedIn; latest requirement explicitly must NOT depend on C03 logged-in Session. Verify C02 submitted existing account+password to create creation-only proof; no login/world grants."
+      "guard_runtime_correction": "Private as_server_roy@ad84f9f CharacterCreationAccountGuard.cs still requires loggedIn; latest requirement explicitly must NOT depend on C03 logged-in Session. Verify C02 submitted existing account+password to create creation-only proof; no login/world grants.",
+      "native_disconnect_remediation_plan": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
+      "current_private_runtime_gap": "as_server_roy main ad84f9fb: LoginWireSession.HandleAsync case C02/C04 unconditionally returns Close() with no S02 or DB auth. CharacterCreationAccountGuard still expects loggedIn but live C02 does not invoke it."
     },
     {
       "id": "R-027",

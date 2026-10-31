@@ -24,3 +24,7 @@
 1. A-027/028：直接 NewUser（無 C03）C02 帳密/錯誤 UI；不用追一個必須先登入才有的 Guard。注意 Server `CreationAuthProof` 是設計而非原版封包 token。
 2. A-014：Party/Group 的 native 成員/變更 Client 包和 UI（目前 C12/C2E/S58/S3A partial）；A-009/025 怪物 hit/death 的 Client 可觀察 UI；A-007/013 經驗/掉落顯示/領取。**隊伍獎勵分配屬 Server designed，不要求原服 Server 原始碼**。
 3. A-012/023/026：招募 NPC click→`nNewJoin01` Script→C6C(1) `STATE=REFUSE` 的 native 選項反應與再點擊；Server 拒絕入學 no-op，不假設 UI 自己有持久拒絕旗標。現有資源 `Asgard.exe`、`nNewJoin01.dat`、`PaperDialog.dat` 已提供，缺少其他具名檔案目前無新證據。
+
+## A-030 創角斷線定點補證（2026-10-31）
+
+關鍵已證：Server LoginWireSession.HandleAsync C02/C04 對任何 body 都立即 Close()，經 TCP Host 退出並關 socket；不等於帳密錯。**Client 實際是否發 C02、在哪條 socket 斷仍要查**。A-030 請按 existing A-021/027/028/020 已證址追 ID/PASSWORD/CONFIRM/NAME/E-MAIL UI widget、地域欄位(3 strings 或4+flag)、region1 差異、EMAIL 空字串 gate、非 region0 第一欄 min12、S02 非零 status/message→focus/C15/重試，並追 C04 成功後的原生回 Login UI。只接受遮罩後的 opcode/len/VA/Client UI；不能猜 S02 錯誤碼。見 [A-030](A-030-native-newuser-disconnect-fields.md)。

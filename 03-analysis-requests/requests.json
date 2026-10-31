@@ -1338,7 +1338,13 @@
       "last_analysis_date": "2026-10-31",
       "source_branch": "task_a/roy1",
       "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
-      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
+      "native_newuser_disconnect_followup": "A-030 / 03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "conformance": [
+        "CT-103",
+        "CT-104",
+        "CT-105"
+      ]
     },
     {
       "id": "A-021",
@@ -1399,7 +1405,13 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "latest_user_decision": "Direct create UI independent of C03; Server verify C02 existing account+password against DB then allow C04; wrong password must generate native-compatible error, details require A-027/A-028."
+      "latest_user_decision": "Direct create UI independent of C03; Server verify C02 existing account+password against DB then allow C04; wrong password must generate native-compatible error, details require A-027/A-028.",
+      "native_newuser_disconnect_followup": "A-030 / 03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "conformance": [
+        "CT-103",
+        "CT-104",
+        "CT-105"
+      ]
     },
     {
       "id": "A-022",
@@ -1896,7 +1908,9 @@
         "exact server status/error for unauthorized C02 and final C04 status (A-028)",
         "C02 field1/field2 exact name/password semantics for TW region and which S02 nonzero error is actually displayed for unknown account vs wrong password",
         "Direct NewUser launch does not require C03; confirm native event/control availability and correct C02 submit/reply sequence",
-        "Direct NewUser C02 field1/field2 original native account/password UI and S02 wrong-credential result for no-prior-C03 client operation"
+        "Direct NewUser C02 field1/field2 original native account/password UI and S02 wrong-credential result for no-prior-C03 client operation",
+        "Which original visible NAME and E-MAIL widget serializes into C02 field3 or field4 per region, and whether E-MAIL empty blocks local C02 submit; A-030.",
+        "Original Create UI region!=0 minimum 12 first-field control vs Admin 3..32 account constraints, native test A-030."
       ],
       "security_decision": "fail-closed: C02 parser may run but cannot claim existing Account, issue S02 success, create pending owner or Character unless independent authenticated credential or verified bound C03 session path is demonstrated",
       "last_analysis_date": "2026-10-31",
@@ -1915,7 +1929,13 @@
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
       "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md",
       "latest_user_decision": "Login and NewUser are independent Client entry points. C02 direct pre-C03 account+password must authenticate an existing provisioned Account against same Server verifier; not just name match. Earlier mandatory C03 path is superseded. Native UI field1/2 and S02 failure code still require evidence.",
-      "guard_correction": "Private CharacterCreationAccountGuard loggedIn prereq is obsolete; direct C02 name+password authenticates independent of C03; native C02 field1/field2 and error response still research required. Do not treat existing login name as owner."
+      "guard_correction": "Private CharacterCreationAccountGuard loggedIn prereq is obsolete; direct C02 name+password authenticates independent of C03; native C02 field1/field2 and error response still research required. Do not treat existing login name as owner.",
+      "native_newuser_disconnect_followup": "A-030 / 03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "conformance": [
+        "CT-103",
+        "CT-104",
+        "CT-105"
+      ]
     },
     {
       "id": "A-028",
@@ -1971,7 +1991,13 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md",
+      "native_newuser_disconnect_followup": "A-030 / 03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "conformance": [
+        "CT-103",
+        "CT-104",
+        "CT-105"
+      ]
     },
     {
       "id": "A-029",
@@ -2022,6 +2048,68 @@
         "unknowns"
       ],
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md"
+    },
+    {
+      "id": "A-030",
+      "system": "SYS-CHAR",
+      "requirements": [
+        "R-025",
+        "R-026"
+      ],
+      "priority": "P0",
+      "title": "原版創角斷線切片：ID/PASSWORD/CONFIRM/NAME/E-MAIL、C02 region、S02 非零錯誤/UI 和 C15 重試",
+      "method": "只補既有 A-020/A-021/A-027/A-028 的殘留缺口；BIN-first 原版 Client 控件 label/widget/callback/xref 與 region-based C02 serializer，去敏 C2S/S2C trace + 原 Client UI 重現 H0..H4；追 Email 空值是否阻止 C02、NAME 的 wire 來源、S02 非零 status 顯示/cancel/retry、成功回 Login。不得把原服 Server 帳密算法或未證 Client E2E 當成已知。",
+      "deliverable": "逐區 widget/field1..4/flag 的 source→wire→label mapping（NAME/EMAIL 必填與否），獨立 NewUser 最短合法前置封包、錯誤 S02(status/message) 對焦點/顯示/是否 C15、送包及 TCP close 時點、可重試/回登入的原生客戶端演示；6 欄 handoff + 未解/需要精確資源檔名。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-020",
+        "A-021",
+        "A-027",
+        "A-028"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "current-server-source-and-user-reported-native-popup; new-client-observation-pending",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run",
+      "implementation_ready": false,
+      "analysis_scope": "Client I/O only: original NewUser UI field/region/submit, S02 failure focus/message, C15, popup and successful login navigation; Server rule and DB remain DEV scope",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Client native UI/wire evidence only; ordinary auth failure must not imply disconnect, and original Server policy is not analysis output; no Server code or DB writes",
+      "analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "remaining_unknowns": [
+        "Exact C02 native submitted ID/password/name/email widget and serializer field in current region, especially region1 mismatch",
+        "Whether Email field is mandatory for UI submission and absent vs blank wire representation",
+        "A-003/A-027 minimum12 first-field gate vs Admin allowed3..32 and actual selected Client region",
+        "Which nonzero S02 status/message reliably shows native Create form error and emits C15 without generic disconnected popup",
+        "Concrete Client region/seed prelogin handshake and exact point of socket close in user-reported reproduction",
+        "C15 state1f retry and C04 final success to independent login UI navigation"
+      ],
+      "conformance": [
+        "CT-103",
+        "CT-104",
+        "CT-105"
+      ],
+      "next_analysis_priority": "after code-based root-cause closed, map NAME/EMAIL and error-code UI before live native enablement",
+      "do_not_repeat": [
+        "C02 0x5742B0 serializer layout",
+        "C04 five-byte body",
+        "S02 status+string8 parser",
+        "C15 zero-byte body",
+        "0x1d/0x1e client transition already static proven"
+      ]
     }
   ]
 }
