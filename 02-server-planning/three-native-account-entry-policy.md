@@ -64,3 +64,9 @@ Native Change Password UI → native opcode UNKNOWN → account+old credential v
 ## 2026-10-31 創角 Guard 實際程式缺口（以本節為準）
 
 最新使用者再次指定：**創角不需要已登入 Session**。私有 `as_server_roy/main@ad84f9fb11606a318aff6bd67e065aa0ee07cc45` 的 `CharacterCreationAccountGuard.RequireMatch(loggedIn, generation, submittedAccount)` 與 `AuthenticatedCharacterCreation.BeginFromClientAsync` 仍要求先登入，**尚未實作與規劃一致的直接 C02 帳密驗證**。不能僅刪 `loggedIn` null check 就讓任何 C02 認領帳號；後續 Server 開發應用 **C02 本次 submittedAccount+submittedPassword → 與後端比對 → 簽發限本次創角的 proof (account_id,credential_version,connection,generation,TTL) → pending C04** 代替 Guard 的「已登入身分姓名一致」門檻。原 Client C02 第二欄語意、錯密 S02 回覆仍需 A-027/028；未查實前 live native 路由繼續安全拒絕。詳 [三項決策](three-policy-adjustments-20261031.md) 與 [CT-100](../05-conformance/native-creation-gate-test-plan.md)。
+
+## A-029 原生靜態結果（2026-10-31；更新此節，取代上面「wire UNKNOWN」的歷史描述）
+
+**已取得原 Client 的更改密碼封包**：`PKT-C26` C2S opcode **0x26**，原 `CChangePasswordPacket` ctor `0x571a10/0x571a29`，writer `0x571ac0` 依序三個 `string8`：（1）原生 UI control8 的 Account 候選，（2）control9 舊密碼，（3）control10 新密碼。control11 再輸入新密碼只在本地確認相等，不在 wire；新舊密碼相同時也只本地提示並拒送。原生 widget 對密碼 controls9～11 設 UI length 8。所需 Client opcode **不再未知，絕不自造 opcode**。
+
+S→C 走共用 `PKT-S02` selector2→`0x4a8d60` status/UI callback，**專屬 C26 的成功、舊密碼錯、停權等 S02 status-to-UI 意義仍 unknown，原生 Client GUI 未測**。所以只開放規格的 C26 decoder/authority 設計，不能宣稱改密碼 E2E 已可正式上線；`4～8 ASCII 英數` 仍由新 Server 執行帳號 policy（本次未由原版完整驗證 4 字下限與字元集）。原 Account 同時供 C03 登入與 C02 無前置登入直接創角，原子 credential rotation / char retention / revoke 仍是 Server 設計，不能當作原版 Server 事實。本次只改 `as_server_spec`；未觸碰 Server 或管理 Web。詳 [A-029](../03-analysis-requests/A-029-roy1-native-password-change.md)、[契約](../04-analysis-integration/A-029-native-password-change-contract.md)、[CT-098/099](../05-conformance/account-password-native-change-test-plan.md)。

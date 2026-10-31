@@ -72,3 +72,7 @@
 ## P0 補證 A-030：創角送出後連線中斷（2026-10-31）
 
 已核對 private as_server_roy/main@ad84f9，當 C02 或 C04 到達 LoginWireSession.HandleAsync 時立刻 return Close()，不發 S02 也不驗 DB；這是源碼確定的行為，**使用者實機 popup 首包斷在哪裡仍未有 TCP trace**。A-030 不是重新分析整個創角協定，請沿 A-021/027/028/020 已有的 C02 field1/field2+CONFIRM，針對 ID、PASSWORD、CONFIRM、NAME、E-MAIL 真實控件來源、EMAIL 空值必填 gate、region0/1/2..4 serializer、region!=0 本地 min12，以及 S02 非零時 NewUser UI/C15/retry/post-C04 回登入做精準補證。S02 status3 現在只有登入的本地定義，不能偷當創角密碼錯。**無已確認的新缺檔**，若需要 Label resource 必須查出原始 loader 的確切檔名。詳 [A-030](A-030-native-newuser-disconnect-fields.md) 及 [修正計畫](../02-server-planning/native-newuser-disconnect-remediation-20261031.md)。
+
+## 2026-10-31 最新 A-029 / A-030 分支整合（Roy1）
+
+A-029 **C26** 原生三個 string8 帳號/舊密/新密已證，確認欄本地比較；S02 專屬改密成功/失敗碼仍未知。A-030 已取得 NewUser region-based C02 UI widget ID 和非零 S02 文字/modal/C15 靜態分支；NAME/E-MAIL 真標籤映射、必填、原版 GUI 與 RI-001/RI-005 的現場回包仍未證。兩者 integrated/partial；不重做 Roy2 已入 main 的分析。新優先順序：原生創角障礙 A-030 及 RI-001/005 實測，再 C26 Client UI 状態，再 NPC/戰鬥。

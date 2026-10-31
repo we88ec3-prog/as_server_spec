@@ -98,3 +98,7 @@ ONB-01 C03 登入原有 Account 及 ONB-02 C02 直接創角為**互不要求事�
 ## ONB-02 / DEV-040-NATIVE：Client 創角斷線（2026-10-31，僅規劃）
 
 已核對 private Server 最新 source：C02/C04 一律 Close()（不發 S02），C15 empty 後 Close，TCP Host CloseConnection 即關 socket；CharacterCreationAccountGuard 的 loggedIn 要求另與產品政策不符，但 live C02 並**未執行 Guard**。優先在開發前做去敏 trace 辨 C02 前/後/C04 後/C15；後續改獨立 C02 AuthProof（無 prior C03）+ 欄位/地域 + 兩段 S02/C04/DB commit + C15 未提交清理 + native error mapping。A-030/CT-103..105 planned/not-run，正式 Server 實作仍需使用者另外確認。權威詳 [修正規劃](native-newuser-disconnect-remediation-20261031.md)。
+
+## ONB-02/ONB-07：Roy1/Roy2 2026-10-31 新資料進度
+
+最新 Server main f2a4a38 已完成獨立 C02 帳密後端認證/creation-only proof/C04 transaction、以及 RI-005 FormInput idle 600秒/absolute 1800秒和去敏 TCP 日誌；`LoginWireSession` 真正 C02/C04/C15 仍 fail-closed。Roy1 A-030 的 static field/region 與非零 S02 文字/C15 已整合，NAME/E-MAIL 必填/真語意與 Client GUI 未證；Roy1 A-029 原 Client C26 改密碼 wire 已證但回覆 status 尚未證；原版實機 CT 均 not-run。詳 [新版分期計畫](roy1-roy2-new-evidence-dev-plan-20261031.md)。

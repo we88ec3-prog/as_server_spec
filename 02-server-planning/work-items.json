@@ -121,7 +121,7 @@
         "CT-105"
       ],
       "depends_on": [],
-      "readiness": "codec-partial-native-authorization-blocked",
+      "readiness": "A-030 native field ordinal and S02 nonzero static integrated; NAME/EMAIL semantics and live C02 adapter still blocked",
       "implementation_status": "not-reported",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
@@ -156,8 +156,11 @@
         "transport": "GameTcpProbeService.HandleClientAsync exits on CloseConnection and closes using TcpClient",
         "guard": "CharacterCreationAccountGuard loggedIn requirement not invoked by live C02 and obsolete",
         "native_reproduction": "user-reported reconnect popup; no socket trace captured",
-        "plan": "02-server-planning/native-newuser-disconnect-remediation-20261031.md"
-      }
+        "plan": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
+        "latest_private_main": "f2a4a388013b11b5472c3b1022dea5c8176e503b",
+        "revision": "IndependentCharacterCreation, ICreationCredentialVerifier, credential version fencing, phase-based form idle timeout, redacted diagnostic journal exist; LoginWireSession native C02/C04/C15 still fail-closed. No original Client E2E."
+      },
+      "latest_a030_client_evidence": "region0 widget 1/2/3/F3=10; region2/3 widgets12/13/14/F3=15/F4=16; region4 widgets20/21/22/F3=23/F4=24; region1 mismatch; NAME/EMAIL labels and native S02 status still unproven"
     },
     {
       "id": "ONB-03",
@@ -451,7 +454,7 @@
         "ONB-01"
       ],
       "dependency_boundary": "requires existing managed Account and CredentialVerifier, not requiring C03/login GUI before UI action unless native Client proves it",
-      "readiness": "planned-native-wire-blocked",
+      "readiness": "native C26 wire static-ready; result S02 status and GUI E2E blocked",
       "implementation_status": "not-reported",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
@@ -461,11 +464,13 @@
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/three-native-account-entry-policy.md",
-      "analysis_prerequisite": "A-029 must locate existing native password-change opcode/body and original Client error/success UI; no invented packet",
+      "analysis_prerequisite": "A-029 located native C26 3 string8; require native C26-specific S02 status/UI mapping for activation. Backend domain may be designed separately.",
       "server_domain_scope": "old credential verification, new 4..8 password hash transaction and credential_version; revoke old sessions/grants, preserve characters, shared credential source for C03 and direct C02",
       "admin_web_policy": "normal player password change is native game UI; admin credential reset is recovery only",
       "native_ct_gate": "CT-098/099 must be genuine original Client, not synthetic or Admin JSON API",
-      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
+      "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
+      "native_wire_contract": "04-analysis-integration/A-029-native-password-change-contract.md"
     }
   ]
 }

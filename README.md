@@ -129,3 +129,7 @@ Roy1 新增 C6C(1) name/context/key-value ScriptReply 與 C6C(4/2) close/cleanup
 ## 2026-10-31 創角提交斷線源碼追查及修正規劃（僅設計）
 
 原版 Asgard.exe 創角輸入 ID/PASSWORD/CONFIRM/NAME/E-MAIL 提交後顯示重新連線；核對 private as_server_roy/main@ad84f9 後，LoginWireSession.HandleAsync 的 C02/C04 **無條件 Close（0 S02 frames）**，GameTcpProbeService 立即退出並關閉 Socket；C15 合法 body 後也 Close。現有 CharacterCreationAccountGuard 另有過時 loggedIn 要求，**但 live C02 根本未走到 Guard**，不能錯誤聲稱 Guard 是立即斷線的已證呼叫點。現場首個封包/斷點仍缺原始 Client 去敏 trace，未證帳密錯。見 [開發交接及根因](02-server-planning/native-newuser-disconnect-remediation-20261031.md)、[A-030 UI/EMAIL 補證](03-analysis-requests/A-030-native-newuser-disconnect-fields.md)、[CT-103..105](05-conformance/native-newuser-disconnect-acceptance-plan.md)；A-021/027/028/020 沿用已證部分。**全部規劃，沒有修改私有 Server/DB/Web/Client、沒有新分支**。
+
+## 2026-10-31 Roy1/Roy2 新增 A-029/A-030 來源證據整合
+
+已同步現有 `task_a/roy1` A-029 改密碼 C26（三個 string8）、A-030 C02 地區 widget 與 S02 非零文字/C15 靜態分析；`task_a/roy2` 原研究提交先前已在 main。保留最新私有 Server 已實作的獨立創角 Domain／RI-005 分階段 timeout/診斷，不宣稱 Native Client 創角已完成。完整 [分支整合與驗證](04-analysis-integration/roy1-roy2-password-newuser-sync-20261031.md)、[更新的 DEV 交接](02-server-planning/roy1-roy2-new-evidence-dev-plan-20261031.md)。

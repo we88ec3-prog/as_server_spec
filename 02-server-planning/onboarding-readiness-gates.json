@@ -154,7 +154,7 @@
       "tests": [
         "CT-098"
       ],
-      "rule": "Identify and verify game's existing password-change UI, original C2S and S2C writer/reader, success/error/cancel display, regional path; no new client and no native-ready claim before evidence."
+      "rule": "A-029 C26 3×string8 account/old/new and generic S02 are original EXE static-proven. Change-specific S02 status, original UI feedback and region/entry remain native validation gates; do not invent result statuses."
     },
     {
       "id": "REWARD-01",
@@ -201,7 +201,7 @@
         "CT-104",
         "CT-105"
       ],
-      "rule": "C02/C04 current Server unconditional Close diagnosed from source. To enable real native creation, trace which opcode triggers disconnect, prove region-specific ID/password/NAME/E-MAIL and Email-required gate, confirm native NewUser nonzero S02 status/message/C15 UI and post-second S02 return-to-login. No guessing, original client E2E not-run."
+      "rule": "C02/C04 current Server unconditional Close diagnosed from source. To enable real native creation, trace which opcode triggers disconnect, prove region-specific ID/password/NAME/E-MAIL and Email-required gate, confirm native NewUser nonzero S02 status/message/C15 UI and post-second S02 return-to-login. No guessing, original client E2E not-run. A-030 statically recovered regional widget IDs and S02 text-modal; NAME/EMAIL required semantics and actual native GUI still unknown. RI-005 pre-submit idle and RI-001 submit failure are separate cases."
     }
   ]
 }

@@ -78,3 +78,11 @@ Spec main: 6bab003c38ade6122b72adc7a71309ca1d53630c。Server main（唯讀）: a
 |P0-4|Client E2E + error negative|原版直接創角成功可回登入，錯密/未知/停權/重名依 Client 支援的失敗顯示；合成與原版 CT 不混用|
 
 原始碼分析不能代表已完成 Server 修正，所有後續 Server 功能修改必須**先向使用者確認實作範圍**。詳細 A-030 / CT-103..105 見同批新增文件。
+
+## 2026-10-31 新快照覆蓋舊 Server 實作現況
+
+本檔對 `as_server_roy@ad84f9` 的 `LoginWireSession` 無條件關線結論為**當時原始碼確證**。最新 `as_server_roy/main@f2a4a388` 已有 **IndependentCharacterCreation / ICreationCredentialVerifier 的獨立創角驗證、proof、草稿及 C04 transaction backend**、FormInput idle 600s 的 RI-005 階段化 deadline 與去敏 log。live native `LoginWireSession` C02/C04/C15 仍採 fail-closed，原版 UI 兩階段 S02/C04 尚未接線，不能稱作創角完成或把現在所有斷線視為帳密錯誤。Roy1 A-030 靜態證實 widget→field slot，但 **NAME / E-MAIL 真 label、E-MAIL 是否必填、原版 S02 錯誤碼仍不明**。請以 [最新分支審查](../04-analysis-integration/roy1-roy2-password-newuser-sync-20261031.md) 及 [新版 DEV 規劃](roy1-roy2-new-evidence-dev-plan-20261031.md) 作後續開發進度，原有 P0-DIAG H0..H4 仍適用。
+
+## 23:51 new main integration evidence: C02 received and explicitly closed (modified Client only)
+
+Another agent updated main after the start of this merge. The latest 2026-10-31 23:51 correlated local test found **modified main-menu-preview diagnostic Client** successfully sent C02, and the running private Server f2a4a38 logged C02(body length 15, ordinal5) then close reason `native-c02-fields-unknown-a030`, without S02. This is now runtime-confirmed for that test and is NOT a 60-second idle timeout; original unmodified Asgard.exe CT-103/104/105 remains not-run. Earlier stale-socket send=-1 is a separate event. The P0 task can shift from diagnosing that particular disconnect to NAME/EMAIL authoritative field map, C02 adapter and Client-supported error S02, without claiming full native acceptance.

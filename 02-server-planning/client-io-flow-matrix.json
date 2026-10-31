@@ -104,7 +104,8 @@
         "原版 Client 的 C03(no character) auto-route 只作補充觀察，不是使用者要求的 create 前置",
         "NAME and E-MAIL original form->C02 field mapping and E-MAIL required gate, region1 writer discrepancy",
         "Which native S02 nonzero status+message renders credential/duplicate errors, C15 retry/socket semantics",
-        "Observed popup first actual TCP breakpoint: C02 before or after, C04 after, C15 after; original Client native trace not-run"
+        "Observed popup first actual TCP breakpoint: C02 before or after, C04 after, C15 after; original Client native trace not-run",
+        "Roy1 A-030 verified C02 regional widget ordinals; NAME/EMAIL exact label, E-MAIL mandatory and native error S02 remain unproven"
       ],
       "native_client_validation": "not-run",
       "work_items": [
@@ -678,11 +679,15 @@
     },
     {
       "id": "FLOW-PASSWORD-CHANGE",
-      "label": "原版遊戲內更改密碼（Client 已有 UI，native wire 待 A-029）",
-      "client_trigger": "玩家進入原始 Asgard.exe 遊戲內更改密碼 UI，輸入既有帳號/原密碼/新密碼/確認（實際欄位與前置登入條件待原生 A-029）",
-      "client_send": [],
-      "server_to_client": [],
-      "client_reaction": "使用者確認 UI 存在；實際 C2S/S2C opcode、body、錯誤回覆/成功回登入 UI、region 仍未知，不能自造封包",
+      "label": "原版遊戲修改密碼：A-029 靜態已證 C26 三 string8；S02 回覆碼仍待驗證",
+      "client_trigger": "LoginDialogPane event12 submits C26 account/old/new after local new==confirm and new!=old; event13 cancels without C26; actual native GUI region/entry unknown",
+      "client_send": [
+        "PKT-C26"
+      ],
+      "server_to_client": [
+        "PKT-S02"
+      ],
+      "client_reaction": "S02 generic LoginDialogPane callback 0x4a8d60 statically observed; C26-specific status and GUI result unknown, no original Client E2E",
       "evidence": [
         "A-029"
       ],
@@ -698,17 +703,16 @@
       ],
       "server_decisions": [
         "Server uses same Account CredentialVerifier as Login C03 and direct Create C02; old credential must be trusted; new game password 4..8 ASCII alphanumeric; atomic hash and credential version update, revoke grants/sessions, preserve characters and progress.",
-        "Normal player password change is strictly via original native Client UI; Admin credential-reset is authorized recovery, not normal self-service. Brute force throttling and generic errors apply."
+        "Normal player password change is strictly via original native Client UI; Admin credential-reset is authorized recovery, not normal self-service. Brute force throttling and generic errors apply.",
+        "Decode only original C26 account/old/new 3 string8; Server verifies old password and 4..8 new; atomic credential rotation revokes grants and creation proofs; preserve role/Character, S02 status cannot be guessed."
       ],
-      "readiness": "user-reported UI only, native packet unconfirmed; implementation blocked",
+      "readiness": "native-C26-3xstring8 static body ready; S02 status-to-change-result and original GUI E2E still blocked",
       "unknowns": [
-        "Original C2S opcode/writer fields",
-        "Original S2C opcode/error UI feedback",
-        "Whether UI requires prior C03 or has old password independently",
-        "Regional differences and retry/cancel/invalid fields"
+        "Which S02 status means C26 success/old password incorrect/banned, and actual GUI result",
+        "Native UI entry in login/world and regional labels; original min4/alnum validation unproven"
       ],
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/requests.json",
+      "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
       "source_policy": "02-server-planning/three-native-account-entry-policy.md"
     }
   ]

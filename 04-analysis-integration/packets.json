@@ -55,7 +55,8 @@
         "ev_a021_20261031_asgard_static",
         "ev_a027_20261031_asgard_identity_static",
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a003_20261031_asgard_create_palette_ui_static"
+        "ev_a003_20261031_asgard_create_palette_ui_static",
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
@@ -63,7 +64,56 @@
       "native_account_claim_ready": false,
       "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
       "a003_ui_first_field": "region0 skips local length gate; region1..4 0x91fed0 initializes 12 and 0x4b1a30 accepts narrow byte length>=12; this does NOT establish native Server name length or owner proof",
-      "a003_name_semantics": "No reliable native CharacterName mapping/unique policy yet; field1 from NewUser UI and may be account identity; region1 UI/writer discrepancy remains"
+      "a003_name_semantics": "No reliable native CharacterName mapping/unique policy yet; field1 from NewUser UI and may be account identity; region1 UI/writer discrepancy remains",
+      "a030_region_field_evidence": {
+        "report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+        "contract": "04-analysis-integration/A-030-newuser-s02-field-contract.md",
+        "evidence_id": "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "verified_native_ui_ordinals": {
+          "region0": {
+            "id": 1,
+            "password": 2,
+            "confirm_local_only": 3,
+            "field3_widget": 10
+          },
+          "region1": {
+            "id": 12,
+            "password": 13,
+            "confirm_local_only": 14,
+            "ui_extras": [
+              15,
+              16
+            ],
+            "native_writer_strings": 3,
+            "uncertainty": "UI fills packet+0x624/0x822 but writer uses +0x418"
+          },
+          "region2_3": {
+            "id": 12,
+            "password": 13,
+            "confirm_local_only": 14,
+            "field3_widget": 15,
+            "field4_widget": 16,
+            "native_writer_strings": 4,
+            "tail_u8": true
+          },
+          "region4": {
+            "id": 20,
+            "password": 21,
+            "confirm_local_only": 22,
+            "field3_widget": 23,
+            "field4_widget": 24,
+            "native_writer_strings": 4,
+            "tail_u8": true
+          }
+        },
+        "original_label_semantics": {
+          "id_password_confirm": "inferred-high / confirmation wire exclusion observed",
+          "NAME": "unknown; extra field F3 candidate for region2..4 only",
+          "EMAIL": "unknown; extra field F4 candidate for region2..4 only",
+          "email_required": "unknown"
+        },
+        "original_client_e2e": "not-run"
+      }
     },
     {
       "id": "PKT-C03",
@@ -128,7 +178,8 @@
         "A006-E05",
         "A006-E06",
         "A006-E07",
-        "A006-E08"
+        "A006-E08",
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "response_flow": "After C04 Client local state0x1e; S02(status0) enters 0x4b206b UI branch, not immediate S03/World; S02(nonzero) emits empty C15 and state0x1f",
@@ -493,7 +544,8 @@
       "related_packets": [
         "PKT-C02",
         "PKT-C04",
-        "PKT-C15"
+        "PKT-C15",
+        "PKT-C26"
       ],
       "layout_status": "profile-documented",
       "evidence_kinds": [
@@ -509,7 +561,9 @@
         "ev_a002_20261031_asgard_login_transfer_static",
         "ev_a027_20261031_asgard_identity_static",
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a003_20261031_asgard_create_palette_ui_static"
+        "ev_a003_20261031_asgard_create_palette_ui_static",
+        "ev_a029_20261031_native_c26_password_change_static",
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
@@ -517,7 +571,36 @@
       "a028_newuser_status_flow": "MakeInfoDialog local state0x1d and status0 -> send C04/state0x1e; state0x1e/status0 -> UI 0x4b206b, not direct S03; status!=0 -> C15 CancelNewUser with empty body/state0x1f; status code textual meanings unknown",
       "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
-      "a003_create_error_meanings": "Unknown; UI focus status 3/4/17/18/26/31 not proof of duplicate-name or invalid hair/sex; S02(status0) first-stage triggers C04, second-stage enters local UI"
+      "a003_create_error_meanings": "Unknown; UI focus status 3/4/17/18/26/31 not proof of duplicate-name or invalid hair/sex; S02(status0) first-stage triggers C04, second-stage enters local UI",
+      "a029_native_change_password": {
+        "packet": "PKT-C26",
+        "observed_static": "LoginDialogPane shared opcode0x02 packet dispatch 0x4a9670/0x4a9694 ->0x4a8d60, status byte field +0x24, switch 0..0x23 and generic UI focus/message states",
+        "unknown": "Specific S02 status code for native password-change success/wrong old password/banned/new password errors and post-response focus; do not reuse C03/C02 status meaning without test",
+        "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
+        "evidence_id": "ev_a029_20261031_native_c26_password_change_static",
+        "native_client_validation": "not-run"
+      },
+      "a030_native_newuser_error_handoff": {
+        "report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+        "contract": "04-analysis-integration/A-030-newuser-s02-field-contract.md",
+        "evidence_id": "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "observed_static": "state1d/1e nonzero status with nonempty message -> native text modal 0x4b1e2e..0x4b1ec3 (except region3+state1e suppression), C15(empty) state1f; status1 and status2 no special focus",
+        "focus_selection": {
+          "first": [
+            3,
+            4,
+            18,
+            26,
+            31
+          ],
+          "second": [
+            17
+          ]
+        },
+        "synthetic_status1_message": "Request rejected",
+        "original_error_code_semantics": "unknown",
+        "original_client_gui": "not-run"
+      }
     },
     {
       "id": "PKT-S03",
@@ -1187,13 +1270,19 @@
       "evidence_ids": [
         "ev_a028_20261031_asgard_c04_response_static",
         "ev_a016_20261031_asgard_replay_static",
-        "ev_a003_20261031_asgard_create_palette_ui_static"
+        "ev_a003_20261031_asgard_create_palette_ui_static",
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
       ],
       "native_static_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "server_handling": "Designed: cancel only uncommitted matching owner+generation pending operation; never rollback already durable Character, cannot grant account ownership",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "a016_recovery_note": "Empty body has no original intent/owner ID; late cancel cannot safely undo committed Character; designed cancel pending only.",
-      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md"
+      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "a030_after_error": {
+        "evidence_id": "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "observed_static": "after S02 nonzero, create empty C15 0x4b1f1d, send 0x4b1f2f, local state1f; socket and next UI unverified",
+        "report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md"
+      }
     },
     {
       "id": "PKT-C0E",
@@ -2818,6 +2907,40 @@
         "PKT-S2C"
       ],
       "a010_boundary": "UI callback and correspondence to S2C ID not completely proven"
+    },
+    {
+      "id": "PKT-C26",
+      "direction": "C2S",
+      "opcode": "0x26",
+      "name": "CChangePasswordPacket",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "3×string8: account candidate (LoginDialogPane ctrl8), old password (ctrl9), new password (ctrl10). Confirm ctrl11 is local-only; no subtype. string8=u8 encoded byte length+bytes, no NUL; codepage from LanguageMan, CP950 conditional for index4. Packet/framing excluded.",
+      "client_entry": "0x571a10 ctor push 0x26; 0x571ac0 writer (0x45b1b0 x3); 0x4a8950 UI callback event12; 0x4a8ab1 constructor; 0x4a8d05 send",
+      "state_precondition": "Original LoginDialogPane ChangePassword UI event; pre-login/active-session/world access unresolved; Server must verify account/old credential",
+      "related_packets": [
+        "PKT-S02",
+        "PKT-C03",
+        "PKT-C02"
+      ],
+      "layout_status": "native-static-wire-proven; native-success-E2E-not-run",
+      "evidence_kinds": [
+        "observed-static",
+        "synthetic-test",
+        "designed-server-boundary"
+      ],
+      "manual_validation": "not-run; C26-specific S02 success/error statuses unknown",
+      "requirements": [
+        "R-025",
+        "R-032"
+      ],
+      "evidence_ids": [
+        "ev_a029_20261031_native_c26_password_change_static"
+      ],
+      "contract_reference": "04-analysis-integration/A-029-native-password-change-contract.md",
+      "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
+      "native_client_validation": "not-run",
+      "security_note": "Do not log raw strings. Old/new are transmitted in native packet body; protect transport, never treat local confirmation as auth, do not invent response status."
     }
   ]
 }

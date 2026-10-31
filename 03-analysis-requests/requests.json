@@ -2010,22 +2010,28 @@
       "title": "原版遊戲內更改密碼 UI：輸入、封包、回覆與錯誤反應",
       "method": "BIN-first 從 Asgard.exe 已有 Change Password UI/選單的建立和按鍵 callback 起，沿原密碼、新密碼、確認欄/region 及 writer→實際 C2S opcode/body，對照 S2C parser、成功/錯誤/取消 UI；找不到時列已查 VA 與 unknown，不得從英文名稱猜封包。",
       "deliverable": "Client trigger→native C2S→native S2C→Client UI 的位址/欄位/編碼/狀態序列，4～8字欄位限制、錯密/成功/重送/斷線/停權的 UI 可觀察反應及後續 CT-098/099 手工操作步驟；Server 只依證據接原本 UI 的 wire，不能創新 opcode。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a029_20261031_native_c26_password_change_static"
+      ],
       "dependencies": [
         "A-027",
         "A-002"
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "user-reported-client-UI; native-wire-unknown",
+      "evidence_kind": "observed-static-exe-plus-synthetic-codec-and-designed-boundary",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
-      "implementation_ready": false,
+      "implementation_ready": true,
       "analysis_scope": "original game password-change UI only, not Admin API or Server DB policy",
       "remaining_unknowns": [
+        "Actual C26-specific S02 status for successful change, wrong old password, banned account, no-account, expired session",
+        "Original native UI entry path in and out of World, official screen labels, post-success focus and region variations",
+        "Native Client input 4-character minimum and ASCII/alnum allowed sets: widget cap8 on controls9..11 statically seen, rest original Client policy not proven",
+        "Actual original Server authoritative identity, credential persistence and original Client GUI E2E not-run",
         "UI creation route and controls labels",
         "C2S opcode/payload, old password/new password/confirm fields and encoding",
         "S2C response opcode/status and native success/error UI",
@@ -2047,7 +2053,24 @@
         "evidence",
         "unknowns"
       ],
-      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md"
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "implementation_ready_scope": "Native C26 three-string8 body and LoginDialogPane submit/cancel/local guards; bounded Server decoder only; exact native S02 result statuses and E2E change success NOT ready",
+      "native_c26_wire_ready": true,
+      "native_password_change_e2e_ready": false,
+      "native_s02_change_status_ready": false,
+      "report_path": "03-analysis-requests/A-029-roy1-native-password-change.md",
+      "contract_path": "04-analysis-integration/A-029-native-password-change-contract.md",
+      "offline_test": "tools/a029_password_change_contract.py",
+      "latest_analysis_date": "2026-10-31",
+      "client_io_handoff": {
+        "trigger": "LoginDialogPane 0x4a8950 event_code 12 -> 0x4a8a81; control8 account candidate,9 old,10 new,11 confirmation; control10 vs 11 and 9 vs 10 local UTF16 comparison",
+        "client_sends": "PKT-C26 opcode0x26 CChangePasswordPacket constructor 0x571a10; 0x571ac0 writer encodes 3xstring8 account/old/new, confirmation is local only; 0x4a8d05 queues",
+        "client_receives": "PKT-S02 opcode0x02 generic packet callback selector2 at 0x4a9670/0x4a9694 ->0x4a8d60; status byte [packet+0x24], reply status 0..0x23 switch, meanings for C26 not proven",
+        "client_reaction": "Confirmation mismatch -> message index0x4d, same old/new -> message index0x5d, both do not send; event13 -> reset 0x4a87b0 without C26; generic S02 status changes focus/messages, exact success/old wrong/banned unknown",
+        "evidence": "03-analysis-requests/A-029-roy1-native-password-change.md",
+        "unknowns": "Native UI labels/entry while inworld, min4 and ASCII checks, S02 exact change-specific success/error/ban codes, Server change semantics and actual E2E"
+      },
+      "integration_baseline": "Roy1 static integrated with main c453538; private Server f2a4a38 has backend proof and phase deadlines but native C02/C04 still fail closed"
     },
     {
       "id": "A-030",
@@ -2060,9 +2083,11 @@
       "title": "原版創角斷線切片：ID/PASSWORD/CONFIRM/NAME/E-MAIL、C02 region、S02 非零錯誤/UI 和 C15 重試",
       "method": "只補既有 A-020/A-021/A-027/A-028 的殘留缺口；BIN-first 原版 Client 控件 label/widget/callback/xref 與 region-based C02 serializer，去敏 C2S/S2C trace + 原 Client UI 重現 H0..H4；追 Email 空值是否阻止 C02、NAME 的 wire 來源、S02 非零 status 顯示/cancel/retry、成功回 Login。不得把原服 Server 帳密算法或未證 Client E2E 當成已知。",
       "deliverable": "逐區 widget/field1..4/flag 的 source→wire→label mapping（NAME/EMAIL 必填與否），獨立 NewUser 最短合法前置封包、錯誤 S02(status/message) 對焦點/顯示/是否 C15、送包及 TCP close 時點、可重試/回登入的原生客戶端演示；6 欄 handoff + 未解/需要精確資源檔名。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+      ],
       "dependencies": [
         "A-020",
         "A-021",
@@ -2071,9 +2096,9 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "current-server-source-and-user-reported-native-popup; new-client-observation-pending",
+      "evidence_kind": "observed-static-original-exe-plus-synthetic-offline-not-native-GUI",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "implementation_ready": false,
       "analysis_scope": "Client I/O only: original NewUser UI field/region/submit, S02 failure focus/message, C15, popup and successful login navigation; Server rule and DB remain DEV scope",
@@ -2090,11 +2115,15 @@
       "client_server_boundary": "Client native UI/wire evidence only; ordinary auth failure must not imply disconnect, and original Server policy is not analysis output; no Server code or DB writes",
       "analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
       "remaining_unknowns": [
+        "NAME/E-MAIL original visible text and control IDs not independently extracted; region2..4 F3/F4 likely candidates only; cannot claim true mapping",
+        "Region0 has third string only, region1 UI-writer discrepancy, actual runtime selected region not confirmed",
+        "E-MAIL blank vs filled effect on actual native Client submission not observed",
+        "S02 status1 nonempty printable message has native static modal path; actual GUI acceptance and official status meanings unknown",
+        "C15 post-error socket and retry, full login return, H0-H4 actual disconnect timestamp/trace unknown",
         "Exact C02 native submitted ID/password/name/email widget and serializer field in current region, especially region1 mismatch",
         "Whether Email field is mandatory for UI submission and absent vs blank wire representation",
         "A-003/A-027 minimum12 first-field gate vs Admin allowed3..32 and actual selected Client region",
         "Which nonzero S02 status/message reliably shows native Create form error and emits C15 without generic disconnected popup",
-        "Concrete Client region/seed prelogin handshake and exact point of socket close in user-reported reproduction",
         "C15 state1f retry and C04 final success to independent login UI navigation"
       ],
       "conformance": [
@@ -2111,7 +2140,34 @@
         "0x1d/0x1e client transition already static proven"
       ],
       "runtime_diagnostic_status": "A30-1 partial: C02 explicit close runtime-confirmed on modified diagnostic client, 2026-10-31 23:51 UTC+8; field/error research still open",
-      "runtime_diagnostic_report": "02-server-planning/idle-disconnect-observability.md"
+      "runtime_diagnostic_report": "02-server-planning/idle-disconnect-observability.md",
+      "implementation_ready_scope": "C02 region-aware UI ordinal/writer fields; S02(nonzero,string8) text-dialog branch, C15(empty) + state1f, S02(0) two-stage C04; no official NAME/E-MAIL mapping or native error status semantics",
+      "analysis_contract": "04-analysis-integration/A-030-newuser-s02-field-contract.md",
+      "analysis_test": "tools/a030_native_newuser_contract.py",
+      "analysis_date": "2026-10-31",
+      "native_name_email_mapping_ready": false,
+      "native_s02_failure_gui_ready": false,
+      "offline_validation": "Original Asgard.exe SHA256 plus 30 x86 signatures, 29 focus table selector bytes, 15 synthetic tests PASS; UI E2E not-run",
+      "client_io_handoff": {
+        "trigger": "MakeInfoDialog region-dependent first/second/confirm controls and extra widget(s), confirm button and actual C02 send; local state 0x1d/0x1e S02 callback",
+        "client_sends": [
+          "PKT-C02",
+          "PKT-C04",
+          "PKT-C15"
+        ],
+        "client_receives": [
+          "PKT-S02"
+        ],
+        "client_reaction": "nonzero S02 with text (except region3+state1e display-suppression) builds text dialog and sends C15 state1f; S02(0) state1d sends C04/state1e; NAME/EMAIL labels not independently resolved",
+        "evidence": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+        "unknowns": [
+          "NAME and E-MAIL actual UI label-to-widget IDs and per-region semantic mapping require actual GUI/control/resource evidence",
+          "E-MAIL required/optional gate unknown (no extra explicit nonempty gate in submitted slice)",
+          "S02 nonzero status original Server semantics and actual rendered UI, C15 postresponse socket behavior remain unverified"
+        ]
+      },
+      "integration_baseline": "Roy1 static integrated with main c453538; private Server f2a4a38 has backend proof and phase deadlines but native C02/C04 still fail closed",
+      "runtime_diagnostic_client_scope": "Modified main-menu-preview diagnostic client; not original Asgard.exe E2E"
     }
   ]
 }

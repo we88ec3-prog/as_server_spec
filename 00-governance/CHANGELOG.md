@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-10-31 23:51 創角送出直接原因已確認
+
+新連線以 REA Client send 與 Server f2a4a38 本地去敏 close journal 關聯：C02 成功送出並收到，因 native-c02-fields-unknown-a030 立即關閉、未回 S02。將 RI-001 根因切片提升為 runtime-confirmed；A-030 僅補 A30-1，欄位與錯誤契約仍待研究。確認新版 FormInput idle600／absolute1800 已實作並在本次摘要生效，與舊60秒等待及前輪 send=-1 分開。不發布原始 journal／表單，Server 未由規格整合者修改或重啟；原版 CT 仍未通過。
+
 
 ## 2026-10-31 23:51 創角送出直接原因已確認
 
@@ -147,3 +151,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 原生創角「連線中斷」P0 調查與規劃
 
 讀取 private as_server_roy@ad84f9 source 確認 LoginWireSession C02/C04 進分支直接 Close、不送 S02、不驗帳密；C15 empty 也 Close，transport 在 CloseConnection 時退出 Socket。創角 Guard loggedIn 依賴是另一個尚未接到 live handler 的程式缺口。原本 A-021/A-027/A-028 的 Client state0x1D→0x1E、C15、region serializer 照舊；原本使用者觀察的連線中斷究竟在 C02 前後仍無 live trace，保留 unknown。新增 A-030 精準核查 ID/PASSWORD/CONFIRM/NAME/E-MAIL 逐 region UI/wire、E-MAIL 必填、S02 native fail UI/取消/重試、第一個斷點；新增 CT-103..105，規劃 DEV-CREATE-01..10 及分階段通過條件，補 machine-readable ONB-02/R-026/SCN-008/Client flows/readiness/traceability。無私有程式或 DB/Client 異動；未來實作必須向使用者確認範圍。
+
+## 2026-10-31 Roy1/Roy2 分支同步與原始 Client 核對
+
+Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研究已整合，新增 packet/evidence/status machine/readiness 引用，保持 A-029/A-030 integrated/partial、Client E2E not-run；Roy2 全部原提交先前已在 main。依最新 `as_server_roy@f2a4a38` 調整規劃：獨立創角 backend 已實作、Host native C02/C04/C15 仍 fail-closed，RI-005 表單 idle=600s/absolute=1800s 且原版 Client 未驗，RI-001 的 C02 提交斷線與事後 send=-1 不可混淆。見整合審查與新版 DEV 計畫；本次只更新規格。

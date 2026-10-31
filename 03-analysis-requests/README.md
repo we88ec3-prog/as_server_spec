@@ -100,3 +100,9 @@ Roy1 A-013 的商店/交易原生 codec 與 A-011 的 Monster bank/S1A/C39，以
 ## 2026-10-31 Roy1/Roy2 最新分支再次同步
 
 Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主線，主線保留 Economy CT-087..089、MAP CT-090/091、Quest CT-092..094、Skill CT-095/096。來源 Roy2 的局部編號 CT-087/088/089/090 **不可覆寫**。本輪 Web 管理 UI 只有 Server 設計，不需要偽造 Client 原生 opcode。詳 [整合審查](../04-analysis-integration/roy-branch-web-admin-sync-20261031.md)。
+
+## 2026-10-31 Roy1 新的 A-029 / A-030 Client 靜態交付
+
+- **A-029**：原生改密碼 C26（0x26）實際存在，body=Account/old/new 3×string8，確認新密碼本地比對，不傳第四欄；S02 generic handler 已定位但官方 status/原生 GUI 未驗。見 [A-029](A-029-roy1-native-password-change.md)、[整合契約](../04-analysis-integration/A-029-native-password-change-contract.md)。
+- **A-030**：原生 C02 的 region0/1/2..4 widget→field slot 及 S02 非零文字提示與 C15 分支可證，**NAME/E-MAIL 真欄位／必填仍 unknown**。見 [A-030](A-030-native-newuser-disconnect-fields.md)、[整合契約](../04-analysis-integration/A-030-newuser-s02-field-contract.md)。
+- 舊表格的 open/not-started 僅是歷史狀態；以最新 `requests.json` integrated/partial/native-not-run 與 [主線同步審查](../04-analysis-integration/roy1-roy2-password-newuser-sync-20261031.md) 為準。
