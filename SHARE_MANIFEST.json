@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "38cb80cae1333011843a07aae2f0ec227fa0073f8fc63022b32396679add532c"
+      "sha256": "6135ef22a4dcf1b66b44f248acb644e528fefd06b4aaa663131c644a67741eed"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "145b60066dedf5af8f34a830ff5fe0da3c15a4419296474d8750e8823bd81bae"
+      "sha256": "cca78a4ef1c1d16007a06b6b5e8ced32ce1c5f57d0606e64288578f9d688148d"
     },
     {
       "path": "00-governance/workflow.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "fe4e9e37f731c4febc9185ecb1e09a06d21664c57da1934ed1798b11a0d533d4"
+      "sha256": "2a4e51d821b9f47a469d01010b8398217b2bfdbf3b4ba090602824b13f6daf81"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -100,8 +100,16 @@
       "sha256": "80f4aa9f39e65e84c763d750290326643dcf9fac91c01157ad2b19700b546251"
     },
     {
+      "path": "02-server-planning/map-geometry-evidence.json",
+      "sha256": "d2f45f16d82d76cbca15f6fb8059c86f800a0d4ad8e71ee74417b567f1cb4173"
+    },
+    {
       "path": "02-server-planning/map-music-evidence.json",
       "sha256": "ca4b2c7bc4fec203ad9afb2c9be2c11b4aead385a3c393c66a5ab557a82ce7e7"
+    },
+    {
+      "path": "02-server-planning/map-resource-actor-plan-20261031.md",
+      "sha256": "1c0d56d238c899989a0d3fdcfc88ef374aba46f0b108611e17ee0be22203752d"
     },
     {
       "path": "02-server-planning/merge-20261031-roy1-roy2.md",
@@ -124,8 +132,12 @@
       "sha256": "45bf409bd4efb19f3aa22bab51326d50dc0d00e0580c2f9347ce718eec1da4e0"
     },
     {
+      "path": "02-server-planning/npc-monster-resource-index.json",
+      "sha256": "6f85d35d235a1d63c3ed6bfab0bb7c1b6f33c11f82b5d28f6ba27928493950cc"
+    },
+    {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "8b51c8d41c529efb87e76499482ee39763d015c6c566d70715a752faaa941cbc"
+      "sha256": "75ad725dbf6e01b654bba922615157a93623b0d01ae92c8366da10d6659f94ab"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
@@ -133,7 +145,7 @@
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
-      "sha256": "dfb070b67abd9d55382715166d17c8ced8572a5e1b380a20c1f232cfe00af63b"
+      "sha256": "7c2575e87516deb05de20f460020f2a3e028639de1160482a85fd8b1f5f0c53a"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -173,7 +185,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "4f794ba4ae1228da452894b4a6376731b17fdb1f88430423bb6b89ecf544dcf2"
+      "sha256": "5e636a7717c7d6e8b598a17480fc97a168d563ea9c984a3e7e24edfd71ecceb2"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -194,6 +206,14 @@
     {
       "path": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
       "sha256": "1d0b5e26b1bef6c967b529a2aa76e4c814abd309a1d27c86ea66b4c6eed18786"
+    },
+    {
+      "path": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "sha256": "d334f761be68adeb009dde094ca181a09d0f63d7512e3085107d3bbcb05f4452"
+    },
+    {
+      "path": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "sha256": "2272557b80e1d78f678eabfe76ad6aa360d7d924a80efa49b6dafd19efc3578a"
     },
     {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
@@ -228,6 +248,10 @@
       "sha256": "1b54aa79d8ef5880741c550d7203ac65c75e0ae43387dcaabf06a6520190fe6c"
     },
     {
+      "path": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "sha256": "f1c7e400086d4b5e126439f2c3e87679ba1468fc660b4b71ebe50ccb6d5f0a9a"
+    },
+    {
       "path": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
       "sha256": "9f10c030ffe4da90edb1253d2329f6ce3d84c8a6b29d45740126a9e89363fae3"
     },
@@ -257,11 +281,11 @@
     },
     {
       "path": "03-analysis-requests/post-merge-analysis-queue.md",
-      "sha256": "004b49efbf037ab556521867e0f028da033ae1470dc9e7bbcf7099e6a6c0ca01"
+      "sha256": "081ae8f83cd9390a99a012878a20c67c2c24928eec555d244198a4380c55d9e0"
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "88e1fcb2a3bedc447c4d0e28569e782d0f9d394ba5fbdadd499d25b356b9b952"
+      "sha256": "fe92597a7a8aff460a97cd15e38eb21702627d75dc0b576e2d3bc347102be6bb"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -269,7 +293,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "805fc3eb33bd1ab5815e43841f050e8668d6bbfa32ea2005c20904a95f9f1e27"
+      "sha256": "43a99f5b81833552f231a5b81c1b7a0349a6c296763f449a1553442d0cda46fb"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -290,6 +314,14 @@
     {
       "path": "04-analysis-integration/A-007-inventory-domain-contract.md",
       "sha256": "a5f09ea59b9286509172ce6be2772461092aad0bb4043802e3e72d7c23fb012c"
+    },
+    {
+      "path": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
+      "sha256": "5446e96ff9b0cad89baaa5e95bebc127db30695c948836bc2f43b60e2a49dd4c"
+    },
+    {
+      "path": "04-analysis-integration/A-013-economy-contract.md",
+      "sha256": "5064fdb02c3afe55b98433a1bb92dc6557dfb413a9c8fdd1f53b2bb61c118265"
     },
     {
       "path": "04-analysis-integration/A-016-idempotency-recovery.md",
@@ -318,6 +350,10 @@
     {
       "path": "04-analysis-integration/A-022-A-023-merge-validation.md",
       "sha256": "e9d3f2882c5e80b8fcf51061aa6392ee53e22b92e7fe9670d904f9b979708be4"
+    },
+    {
+      "path": "04-analysis-integration/A-022-map-geometry-contract.md",
+      "sha256": "5a065fe342ece17b0af2de5ab67a019721c202ab278efb254fa2b81318aacda0"
     },
     {
       "path": "04-analysis-integration/A-022-map-loading-crc.md",
@@ -369,7 +405,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "40e6e8be0a90f9d0787c20429ce4e0bd2ced0379d72765e5cb466ed53fb4f2e2"
+      "sha256": "c2cd7211b59beb97f6d45907a1bd66aa7fa6a77c92595c960a9ba08528003910"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -378,6 +414,10 @@
     {
       "path": "04-analysis-integration/items.md",
       "sha256": "f7615f76468131a51bd1232df5359ba3125341a27fdb63acecc2c19cbaea4a9b"
+    },
+    {
+      "path": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
+      "sha256": "d50d5782e92850ca5bbbdb91e8a7a89932fded870783e5938080e51f2574abc8"
     },
     {
       "path": "04-analysis-integration/new-asset-samples-20261031.md",
@@ -389,7 +429,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "e8e854771aa49bc0f2c7158811aa9790c789a3acf3dcacd04c60350db7053175"
+      "sha256": "bdd2ca9f181ea759bdb9f10f1d43d8c763410e87507a4cab710a5d309507fdb3"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -401,7 +441,7 @@
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "dbba5007f1b97f0a7dd92111fe3a58d103a660b330f7b0d6f28be3eef9bb1ea9"
+      "sha256": "5e0afd7c2d5a64d2fd25871d755e713182b4338b425843d61ff9597c3539ed2d"
     },
     {
       "path": "04-analysis-integration/roy-merge-20261031-audit.md",
@@ -409,7 +449,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "6b7be61cab3dff057344e7335d538ec6580b2589d60ced1c9c2deec79830c018"
+      "sha256": "f8e7fb800ba5cadab93f0b87f9c604ca024cdd4212c72aef855367bd10aea281"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -460,6 +500,10 @@
       "sha256": "430e691ecd116c38645bf4a4c9835475cc102fa658d12039d67dd95b144419b1"
     },
     {
+      "path": "05-conformance/A-015-map-coordinate-test-plan.md",
+      "sha256": "d2e168a6cced0e4acff47030a0b3779cc7da1d3b0e3cf052dd5e2079bfd400c6"
+    },
+    {
       "path": "05-conformance/A-023-tutorial-entry-test-plan.md",
       "sha256": "ce76a643a9a55342784217152f0d673ccf4bcf5438379dc48afadaded6de7b13"
     },
@@ -488,6 +532,10 @@
       "sha256": "7a45ae3ab13158fe54848ef3a34947b11041e4c4fee0cf48d8c29bc684d75343"
     },
     {
+      "path": "05-conformance/ct-id-remap-roy2-a015-main-sync-20261031.md",
+      "sha256": "7e92ac4f4b5e1df692efa77890b30a8af93e8561c0b2a1325cd8b884cbaafdb9"
+    },
+    {
       "path": "05-conformance/implementer-guide.md",
       "sha256": "82672a871be350d4da3e1c870a1c2eeb801b9d23a86b0747ca1c3f631556ebbf"
     },
@@ -513,11 +561,11 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "8640474e239c533b3c6b9996a6a49c4d42fd79c95a907e7aa7ded90e996aa052"
+      "sha256": "dedf6114db002a790874266a96d7047dc1a4501d6fad2d2f11e4a95984b3fd83"
     },
     {
       "path": "README.md",
-      "sha256": "fdfa3c5826d2832cd06d1eeec1c362f4dd8bed148ca84af7f131dbbdfac5d74c"
+      "sha256": "140192635669a48351c01273467906bb7fb736b24eb10a9e7bc640660dbc22e8"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -561,7 +609,7 @@
     },
     {
       "path": "task_a/roy2/A-015-analysis.md",
-      "sha256": "a3636bf420565419bd938bfb38ba764997dcc8dd2b4bfead6d25fe5443d74c92"
+      "sha256": "ea539988b1519880c806b79126aa09ec15936584804651b856e4ebf495b176a9"
     },
     {
       "path": "task_a/roy2/A-015-closure-review.md",
@@ -574,6 +622,10 @@
     {
       "path": "task_a/roy2/A-015-field-audit.md",
       "sha256": "90d7ec265d023157cac9ba9597ab8b1fd262bc090f509976a44e42dae2e29bed"
+    },
+    {
+      "path": "task_a/roy2/A-015-map-coordinate-collision.md",
+      "sha256": "2a6cdf5f6fe4de31aa25e7d1ae83b6c6005459124c0862a239f688199f41b5ff"
     },
     {
       "path": "task_a/roy2/A-023-analysis.md",
@@ -648,6 +700,14 @@
       "sha256": "0e4945b33f244411ecb920a4b5086b1510378c274ee65024f4c162d6f49e4a3e"
     },
     {
+      "path": "task_a/roy2/a015_map_coordinate.py",
+      "sha256": "d258800a3a242e060575435a06ceb2a205f3c6cb41285f1db62cfaf8c6c8a269"
+    },
+    {
+      "path": "task_a/roy2/a015_map_native_probe.py",
+      "sha256": "99e6701f1d47cc55bc9f372fdcc9455d105741cc05d87b484601840d76101dff"
+    },
+    {
       "path": "task_a/roy2/a024_npc_codec.py",
       "sha256": "bbe22a35818f0d05d9633afcd673579113c9a96048100a14cbc801c65ce07235"
     },
@@ -704,6 +764,10 @@
       "sha256": "e45cd53bee2798e0a482ccfa71987d63060fac2ec92aa8cdf824c4aac60a5446"
     },
     {
+      "path": "task_a/roy2/test_a015_map_coordinate.py",
+      "sha256": "f0443b78a639a431c0e4777f9569ddb2860e22c8ccf248424b20fa999c204ba1"
+    },
+    {
       "path": "task_a/roy2/test_a024_npc_codec.py",
       "sha256": "e660980d647757ab5d5fdef08977326c5e8b17261065529b2f1a02467af0d1d2"
     },
@@ -744,6 +808,14 @@
       "sha256": "d96123b62bfc4725b38ded9b6b8f56285ab4af55286a955a6768108b4b00df86"
     },
     {
+      "path": "tools/a011_npc_asset_contract.py",
+      "sha256": "acf747f9dd97221d603564973465db4363d74cde5c6a54b5647bca59c024b4da"
+    },
+    {
+      "path": "tools/a013_economy_contract.py",
+      "sha256": "8fd00ebb0d1a6ab100df33a950a96c1128b67be2b2a50d213d20fd3f0d9a2e72"
+    },
+    {
       "path": "tools/a015_content_probe.py",
       "sha256": "35fe2f349eac1c201cd234bbf2247ecd6fd6a1644f8f896ba23dd6c6a7376c22"
     },
@@ -766,6 +838,10 @@
     {
       "path": "tools/a020_prelogin_contract.py",
       "sha256": "2036129e6abcd38ec557c9a7c6c44da5755b3c6efaee711d1006c2f1b54272f6"
+    },
+    {
+      "path": "tools/a022_map_geometry_probe.py",
+      "sha256": "11b74e3875dfd84754f72ef89ad9e68bbed71466d482c0cec884bc0e44871e2d"
     },
     {
       "path": "tools/a025_tutorial_combat_model.py",
