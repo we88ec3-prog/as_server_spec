@@ -153,8 +153,10 @@ Client S08 由 Status::update 0x53F8A0 將數值寫至 Status 物件，再經 St
 |---|---|---|
 |非 Human 物件初次加入|S07|BE u16 count；每筆 11B 前綴後按 kind1/2/4（flags+string8）、3（5u8+string8）、5..12（無尾段）、13（string8）、14（2u8+u16）分派，**所有 1..14 kind 已有原件跳表解析**；0x228 是 Client 內部 stride，並非 wire。|
 |移動／路徑|S0C / S64|S0C BE u32,u16,u16,u8,u8；S64 BE u32,u16,u16,u8,count:u8,count bytes,u16,u16,u8。Server 安全 cap11 是 designed。|
-|物件資訊／UI 更新候選|S34 / S3C|S34 u8 subtype+BE u32+flags u8，subtype6 多10B，subtype11 多組動態列表另待 UI 追證；S3C BE u32+3u8。|
+|物件資訊／UI 更新候選|S34 / S3C|S34 u8 subtype+BE u32+flags u8，subtype6 多10B，subtype11 flags bit0/1/2/3/4/6 六組動態 string8/count/record 均已原生靜態解析（GUI 語意待 CT）；S3C BE u32+3u8。|
 |動作選項／效果候選|S62 / S63 / S29|S62 2u8+BE u16+3u8+4 string8+u8+BE u16+u8；S63 2u8（**不是**物件刪除）；S29 2 BE u32+2 BE u16+u8。不能擅自將 Action/Effect 全解作怪物狀態。|
 |死亡／物件真正移除|S5F / S0E|兩者皆 BE u32，但 **S5F 是 DieObjects、S0E 是 RemoveObjects**，原版是否死亡後立即移除未知。|
 
 本輪另外以 **20 個原件 VA 指令、14 type 跳表、6 RTTI** 證實相關 reader，生成 [安全 decoded-body codec](../task_a/roy2/a024_object_packets.py) 和 [新增測試](../task_a/roy2/test_a024_object_packets.py)；原生 World UI、NPC/Monster type 對應、官方怪物出生與原服 AI 均 **unknown/not-run**。Client 主動攻擊 C13、資訊請求 C43 已有 A-024/A-009，並非 S→C 更新。供 Server 設計採用 `FLOW-NPC-OBJECTS`，另見 [CT-065/066](../05-conformance/A-024-object-lifecycle-test-plan.md)。不要拿 Human S33/S06/S11 替代非 Human 物件包。
+
+**A-024 CI**：[GitHub Actions run 41185085803](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41185085803) phase gates PASS、19 個新增物件測試與 7 個既有 NPC 測試 PASS；20 PE anchors、14 type dispatch、六 RTTI 原件靜態查核 PASS；Native Client CT-066 not-run。
