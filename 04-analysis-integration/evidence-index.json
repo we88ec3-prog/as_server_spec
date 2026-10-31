@@ -4716,6 +4716,66 @@
       "synthetic_test": "task_a/roy3/test_a024_roy3_handler_probe.py",
       "native_client_validation": "not-run",
       "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A030-E05",
+      "date": "2026-11-01",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "original-client-exe-static-byte-provenance",
+      "source_branch": "task_a/roy3",
+      "locator": "Original MakeInfoDialog Region1 widget15→packet+0x624 and widget16→+0x822 while Region1 C02 fallback writer serializes packet+0x424 third string8; Region1 source/value mismatch, no fourth wire field.",
+      "report_path": "task_a/roy3/A-030-roy3-region1-submit-failure.md",
+      "contract_path": "04-analysis-integration/A-030-roy3-region1-contract.md",
+      "native_probe": "task_a/roy3/a030_roy3_region_submit_probe.py",
+      "synthetic_test": "task_a/roy3/test_a030_roy3_region_submit_probe.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A030-E06",
+      "date": "2026-11-01",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "original-exe-resource-static-and-scoped-negative-observation",
+      "source_branch": "task_a/roy3",
+      "locator": "Original 3-file hashes and BasicString/ SkinString labels 73 NAME,75 E-MAIL,2153 名字,2154 E-Mail; Region2..4 F3/F4 static mapping. 0x4B28D2..0x4B2918 contains no direct EMAIL +0x822 nonempty check; native blank field unknown.",
+      "report_path": "task_a/roy3/A-030-roy3-region1-submit-failure.md",
+      "contract_path": "04-analysis-integration/A-030-roy3-region1-contract.md",
+      "native_probe": "task_a/roy3/a030_roy3_region_submit_probe.py",
+      "synthetic_test": "task_a/roy3/test_a030_roy3_region_submit_probe.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A030-E07",
+      "date": "2026-11-01",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "original-client-exe-static-reconfirmation",
+      "source_branch": "task_a/roy3",
+      "locator": "S02 status/message native parser, nonempty popup construction, Region3 state1E suppression, nonzero C15 empty/state1F reconfirmed by x86. Original GUI/status semantics and TCP not-run.",
+      "report_path": "task_a/roy3/A-030-roy3-region1-submit-failure.md",
+      "contract_path": "04-analysis-integration/A-030-roy3-region1-contract.md",
+      "native_probe": "task_a/roy3/a030_roy3_region_submit_probe.py",
+      "synthetic_test": "task_a/roy3/test_a030_roy3_region_submit_probe.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A030-E08",
+      "date": "2026-11-01",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "offline-original-static-and-native-e2e-negative-scope",
+      "source_branch": "task_a/roy3",
+      "locator": "34 original EXE opcode windows, original Basic/Locale SHA labels, 11 offline unit tests PASS; CT-104 Region1 and blank EMAIL/S02/C15 GUI/TCP acceptance remains planned.",
+      "report_path": "task_a/roy3/A-030-roy3-region1-submit-failure.md",
+      "contract_path": "04-analysis-integration/A-030-roy3-region1-contract.md",
+      "native_probe": "task_a/roy3/a030_roy3_region_submit_probe.py",
+      "synthetic_test": "task_a/roy3/test_a030_roy3_region_submit_probe.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
     }
   ]
 }
