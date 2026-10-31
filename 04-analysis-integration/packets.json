@@ -1906,7 +1906,7 @@
       "name": "ObjectInfoReply",
       "system": "SYS-NPC",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 subtype, BE u32 object-key candidate, u8 flags; subtype6 adds BE u16,u8,BE u32,u8,u8,u8 (10B), subtype11 flags-dependent dynamic string8/count vectors (see A-024 report; safe codec excludes 11)",
+      "layout": "u8 subtype, BE u32 object-key candidate, u8 flags (6B); subtype6 adds BE u16,u8,BE u32,3xu8 (10B); subtype11 optional groups in native order: flags bit0 string8+2u8+BE u32; bit1 BE u16 n+n raw bytes; bit2 u8 n + n*(u8,u8,string8); bit3 u8 n + n*(u8,BE u16,4xu8,string8); bit4 u8 n + n*(string8,string8,2xu8,string8); bit6 u8 n+n*u8. All string8 use CP950 bytes; 0x202/0x40E/0x602 are local strides, NOT wire.",
       "client_entry": "0x5844B0 ctor push0x34; 0x584540 reader",
       "state_precondition": "Client World/object-info event context; exact receiver callback and NPC applicability unknown",
       "related_packets": [
@@ -1915,14 +1915,15 @@
         "PKT-S0E",
         "PKT-C43"
       ],
-      "layout_status": "observed-static-native-fields; object-type-usage-unknown",
+      "layout_status": "observed-static-native-full-subtype6-and-subtype11-conditional-fields; UI-semantics-unknown",
       "evidence_kinds": [
         "observed-static",
         "synthetic-test"
       ],
       "evidence_ids": [
         "A024-E13",
-        "A024-E18"
+        "A024-E18",
+        "A024-E19"
       ],
       "manual_validation": "native-client-not-run",
       "requirements": [
@@ -1934,11 +1935,12 @@
       "contract_reference": "task_a/roy2/A-024-analysis.md",
       "native_probe": "task_a/roy2/a024_object_native_probe.py",
       "offline_test": "task_a/roy2/test_a024_object_packets.py",
-      "semantics_boundary": "object information/status reply; per-kind GUI unknown",
+      "semantics_boundary": "ObjectInfoReply carries a kind/subtype and opaque key with conditional detail arrays; no proof that all variants render NPC/monster data.",
       "unknowns": [
-        "Client GUI/world-object callback not fully traced",
-        "Native E2E not-run; original Server NPC policies unknown"
-      ]
+        "Opaque field-to-native GUI display mapping and NPC/Monster kind binding unverified",
+        "Native Client CT-066 not-run; Server content/AI choice independent"
+      ],
+      "offline_result": "GitHub Actions run 41185085803: 19 new S07/object tests and 7 earlier NPC tests PASS"
     },
     {
       "id": "PKT-S3C",
