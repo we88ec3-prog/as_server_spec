@@ -72,3 +72,7 @@
 - `A-012 status=integrated, handoff_status=ready, implementation_ready=true` **限定原生 Client I/O 與 static resource scope**。
 - `native_client_validation=not-run, native_quest_rule_ready=false, native_npc_script_binding_ready=false`；CT-092～094 的 native GUI／Server E2E 未通過，不得將測試腳本成功當作 Client 正式登入或任務發獎成功。
 - 不提交任何原始 DAT/EXE、任務完整內文、客戶端私有二進位或玩家識別資訊；只提交證據摘要/雜湊、probe 和交接文件。
+
+## 2026-11-01 A-012 Merchant.dat 原件完成：共用 Script 執行環境補證
+
+**本文件早期「Merchant.dat 未附上」的資源缺口已解除。** 新上傳原始 `Merchant.dat` SHA256 `6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350`，1603 bytes，zlib 解包 7856 bytes，BE v1/u32 3925 UTF16 units，CP950 XML CRC32 `E9B389CF`，只有 `Main`。它建立 `ServerParam`、`ClientReply`、`MerchantTile`、`MerchantName` 等 globals，再呼叫 `DoesTalk`/外部選單程式；`nNewJoin01` 則提供 `DoesTalk=true`、`MerchantTalk→JoinMessage01` 與最後 `STATE=ACCEPT/REFUSE`。此為兩份原資源之**靜態依賴交叉證據**，不是已跑原版 NPC 介面，也不證在 `TYPE=DIRECT` 時必定執行 nNewJoin。仍待 `QuestDialog_Create`、`MerchantDialog_Create`、`MerchantDirectTalk` 的真正 Script/engine 提供者（確切檔名未知），原服 NPC EntityId→Script、Quest/Reward；不能猜 `QuestDialog.dat`。詳 [A12 Merchant 原件說明](A-012-roy1-merchant-original-bridge-20261101.md)、[新離線測試](../tools/a012_merchant_bridge_probe.py)（本地 25/25 PASS，原生 Client GUI 未跑）。

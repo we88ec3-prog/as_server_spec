@@ -22,3 +22,8 @@
 ## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
 
 CT-092 原件新增 `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat` 的 SHA/zlib/UTF16LE/CRC、23/3/3 functions、9 native Asgard.exe C6C/S44 anchors 與 20 local unit tests，均 PASS（[證據](../03-analysis-requests/A-012-roy1-new-script-resources-20261101.md)、[工具](../tools/a012_dialog_option_native_probe.py)）。**CT-093/094 原版 Client GUI/Server E2E 仍未執行。** CT-093 必查 PaperDialog02 按鍵盤取消與明確 CANCEL（cancelControl 其實是 OK）、兩份 Paper 的 PaperDialogProc 名稱重複時 runtime scoping、nNewJoin01 MerchantTalk→三頁→終頁 STATE 的正負選項、真 runner/name/context，而不是硬編 synthetic `nNewJoin01`。CT-094 必查 Server 無法從 STATE=ACCEPT／PAPER02=START 直接推導 QuestCompleted/Reward，拒絕重播、錯 NPC、跨角色 generation。原件 `Merchant.dat` 仍缺（主線 A23 已具名 hash）；`QuestDialog_Create` 的已證提供者及 NPC/QuestRule authority 仍待定位。先前缺本次三個新上傳檔案的敘述已失效。
+
+
+## 2026-11-01 A-012 Merchant.dat 原件完成：共用 Script 執行環境補證
+
+CT-092 已加核 original Merchant.dat SHA256/CRC (7856-byte UTF16LE XML, CRC950 E9B389CF)，與 nNewJoin01 的 `ClientReply`、`MerchantTile`、`MerchantName`、`DoesTalk`/MerchantTalk 原始引用：`tools/a012_merchant_bridge_probe.py` 的 **25/25 新本地離線測試 PASS**，7 個 C6C/S44 original EXE anchors PASS。CT-093 真 GUI 後續必補 Merchant.Main 的 S44 runner/context/ServerParam、`MerchantDialog_Create`/選 TALK 真 callback、`TYPE=DIRECT` 的 MerchantDirectTalk provider、`QuestDialog_Create` provider、nNewJoin01 三頁真正選項及 C6C opcode/封包時間序，不能用合成名當實測。CT-094 必須以同圖兩角色/錯 NPC/重送/接受或拒絕/斷線保護權威 quest/optional reward。Merchant.dat 已提供**不再列入缺檔**；其餘函式**尚無已證的資源檔名**。原版 Client GUI/原服 E2E 仍 planned/not-run。見 [研究](../03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md)。

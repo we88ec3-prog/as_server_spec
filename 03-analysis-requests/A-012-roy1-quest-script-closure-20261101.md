@@ -71,3 +71,8 @@ objdump -d -M intel --start-address=0x52c2ca --stop-address=0x52c2e7 Asgard.exe
 ## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
 
 本報告「缺 `PaperDialog.dat`／`nNewJoin01.dat`」**只描述過往工作環境**；現在原件已提供並完成 zlib/UTF16LE/CP950 CRC 驗證，另取得 `PaperDialog02.dat`。新增確證：`PaperDialog02.PaperDialogProc` 的 `PAPER02=START/NOT`，`nNewJoin01.JoinMessage03Proc` 的 `STATE=ACCEPT/REFUSE`，它們是 Client C6C(1) 選項意圖，並非任務完成或獎勵。後者為 MerchantTalk hook、沒有 Main，也不證 Born 女性招募員就是此腳本；PaperDialog02 有獨立 CANCEL 按鈕而 cancelControl 仍 OK。完整原件 SHA、CRC、函式清單、wire fixtures、缺少的外部依賴請以 [本次最新交接](A-012-roy1-new-script-resources-20261101.md) 為準。native GUI／Server authority unknown 保留。
+
+
+## 2026-11-01 A-012 Merchant.dat 原件完成：共用 Script 執行環境補證
+
+自 2026-11-01 新補的 Merchant.dat 原件已與 nNewJoin01 原件交叉核實。Merchant.Main(args) 建立 `ClientReply`、`MerchantTile`、`MerchantName`、`ServerParam`，使先前僅看 nNewJoin01 時尚未定位的外部參數來源獲得**資源級證據**；但 ScriptRuntime 的實際依賴載入次序、`QuestDialog_Create` 函式實作檔名、官方 NPC 綁定和 Quest 狀態政策仍是未知。舊段落若標示 Merchant 未提供，以 [新補檔完整分析](A-012-roy1-merchant-original-bridge-20261101.md) 為準。原本 Born/PaperDialog 和 PaperDialog02 的不同 close/reply 路徑不變。25 個新本地離線測試 PASS，原版 GUI not-run。A12 client I/O handoff=ready 僅限靜態已證子集。

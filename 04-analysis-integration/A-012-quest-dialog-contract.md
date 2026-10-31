@@ -21,3 +21,8 @@
 ## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
 
 新 [原件＋Client I/O 契約](../03-analysis-requests/A-012-roy1-new-script-resources-20261101.md) 與 [離線重驗工具](../tools/a012_dialog_option_native_probe.py)：`PaperDialog` 單頁無 SendReply 的 OK -> native C6C(4)+未回覆 C6C(2)；`PaperDialog02` OK/CANCEL 的 `ClientReply.Add(PAPER02,START/NOT)` + SendReply，`nNewJoin01` 三頁 MerchantTalk 終頁 OK/CANCEL 的 `ClientReply.Add(STATE,ACCEPT/REFUSE)` + SendReply -> native C6C(1)；兩者 SendReply 後 native replied flag 排除 no-reply C6C2。四份 Script 原件 SHA＋CP950 CRC、9 x86 簽章、20 local unittest PASS；這些是**原件與靜態 wire 可用證據，非原版 GUI/Server reward E2E**。`nNewJoin01` 無 Main，ScriptRun.name/context 和 NPC 真綁定仍須 Server 授權/原生 trace；`PaperDialog02` 的 cancelControl=OK 和同名 PaperDialogProc 引用需隔離 GUI 驗。A12 handoff=ready 僅限 Client I/O。
+
+
+## 2026-11-01 A-012 Merchant.dat 原件完成：共用 Script 執行環境補證
+
+[新 Merchant 原件報告](../03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md)／[原始資源 probe](../tools/a012_merchant_bridge_probe.py) 完成原件比對：Merchant.Main(args) 先在 Script VM 中 AddGlobal(ServerParam,ClientReply,MerchantTile,MerchantName 等)，參數字段 `TILE/MNAME/UGOLD/UBAL/UAGOLD/UABAL/UCOLOR/GREETING/TYPE`；nNewJoin01 沒有 Main，透過 DoesTalk/BuildMuttering/MerchantTalk hook、JoinMessage01..03 最後 STATE ACCEPT/REFUSE 使用 ClientReply，再由原版 C6C subtype1 writer 送出。**這是 resource-dependency + observed-static C6C 合約，不足以證實固定 NPC/S44 執行時機與原服QuestRule**。TYPE=DIRECT 所呼叫的 MerchantDirectTalk、QuestDialog_Create、MerchantDialog_Create 的真正提供者不在現存原件中，確切檔名未知。加測 25/25 unit tests、7 x86 anchors，原生 GUI/TCP not-run；A12 Client I/O ready, quest-policy not-ready。

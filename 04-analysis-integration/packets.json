@@ -1300,7 +1300,8 @@
         "ev_a020_20261031_asgard_prelogin_branch_static",
         "ev_a026_20261031_born_merchant_exit_bin_static",
         "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
-        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "ev_a012_20261101_merchant_main_original_bridge"
       ],
       "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
@@ -1345,6 +1346,15 @@
         "wire": "subtype1+name:string8+context:u32BE+count:u16BE+(key/value string8)*count; runner name/context from live S44, synthetic value not original trace",
         "native_gui": "not-run",
         "quest_reward": "not proven"
+      },
+      "a012_merchant_main_bridge": {
+        "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+        "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "reply": "Merchant.Main creates ClientReply via CreateParams and AddGlobal; nNewJoin01 final-page SendReply with STATE ACCEPT/REFUSE -> C6C subtype1; runner name/context from actual ScriptRun, not necessarily nNewJoin01; plain Born close C6C4+C6C2",
+        "body_shape": "subtype1, string8 runner name, BE u32 context, BE u16 pair_count, pair_count*(string8 key, string8 value)",
+        "only_source_proven": true,
+        "original_gui": "not-run",
+        "original_quest_rule": "unknown"
       }
     },
     {
@@ -1458,7 +1468,8 @@
         "ev_a020_20261031_asgard_prelogin_branch_static",
         "ev_a026_20261031_born_merchant_exit_bin_static",
         "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
-        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "ev_a012_20261101_merchant_main_original_bridge"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
@@ -1484,6 +1495,14 @@
         "original_script_entry": "S44(1,0) name/dependency/CRC, not proof of original Server first-login policy; nNewJoin01 lacks Main and is MerchantTalk hook, PaperDialog02 requires external ClientReply",
         "native_gui": "not-run",
         "quest_reward": "not proven"
+      },
+      "a012_merchant_main_bridge": {
+        "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+        "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "resource_start": "Merchant.dat exports Main(args), initializes globals and calls external MerchantDialog_Create/feature hooks, nNewJoin01 exports MerchantTalk but no Main; actual S44 runner+NPC binding unknown",
+        "only_source_proven": true,
+        "original_gui": "not-run",
+        "original_quest_rule": "unknown"
       }
     },
     {

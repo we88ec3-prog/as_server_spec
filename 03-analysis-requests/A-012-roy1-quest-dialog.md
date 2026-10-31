@@ -80,3 +80,8 @@ C6C subtype1 pair_count 原內部 local `[esi+0x220]` 16-bit，陣列首位址 `
 ## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
 
 本輪已直接取得 `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat` 原始檔（參見 [A12 新原件精確流程](A-012-roy1-new-script-resources-20261101.md)）；**此前本文提到這幾份 Script 未提供/未重驗的歷史限制已解除**。原版 `PaperDialog` 的 OK 僅 Dispose（C6C4、未回覆時 C6C2），`PaperDialog02` 的 OK/CANCEL 是 `PAPER02=START/NOT`，`nNewJoin01` 的最後一頁 OK/CANCEL 是 `STATE=ACCEPT/REFUSE`，都以原 Script XML 與 Asgard.exe C6C1 writer 靜態交叉驗證；nNewJoin01 只有 MerchantTalk，沒有 Main。已由固定 SHA/CRC 和 20 個 local offline tests 證實。QuestDialog_Create/ClientReply 等外部引擎/Script 來源、NPC 綁定、首次 S44 時機和 Server 權威任務/獎勵仍 unknown，原版 Windows GUI not-run。A12 handoff=ready 僅限 Client I/O、非原服任務系統完成。
+
+
+## 2026-11-01 A-012 Merchant.dat 原件完成：共用 Script 執行環境補證
+
+已從現有原件 Merchant.dat + nNewJoin01.dat 查清 **Merchant.Main(args) 建立 ServerParam/ClientReply/MerchantTile/MerchantName globals，nNewJoin01 的 MerchantTalk 提供頁面/選項而非獨立 Main**。詳細原始程式與 SHA/CRC 見 [Merchant 原件 A12 增量](A-012-roy1-merchant-original-bridge-20261101.md)。STATE=ACCEPT/REFUSE 是 Client choice → C6C(1) 的 candidate，不是 QuestCompleted；未確認 QuestDialog_Create provider、NPC EntityId→Script、首次發 S44、真正 GUI/TCP、官方任務或獎勵。原件 25 tests PASS，A12 Client I/O 靜態 handoff ready。之前標 Merchant.dat 尚需提供的文字已由此更新。

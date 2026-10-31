@@ -2459,7 +2459,8 @@
       "evidence_ids": [
         "ev_a012_20261031_script_reply_choice_client_static",
         "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
-        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "ev_a012_20261101_merchant_main_original_bridge"
       ],
       "input": {
         "kind": "native-SHA/static-resource-plus-synthetic",
@@ -2482,7 +2483,7 @@
         "native_client_validation": "not-run",
         "quest_authoritative_rules": "unknown"
       },
-      "offline_status": "passed-original-x86-and-original-Born-PaperDialog-PaperDialog02-nNewJoin01-sha-CRC-native-static; overall CT planned GUI not-run",
+      "offline_status": "original EXE+Merchant/nNewJoin/Born/PaperDialog/PaperDialog02 SHA/CRC and static source bindings with 25 local tests PASS; CT as a whole still planned original-client GUI not-run",
       "a012_supplied_original_script_test": {
         "report": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
         "test": "tools/a012_dialog_option_native_probe.py",
@@ -2492,6 +2493,18 @@
         "native_x86_anchors": 9,
         "native_gui": "not-run",
         "original_Server_quest_rule": "not-proven"
+      },
+      "a012_merchant_original_proof": {
+        "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+        "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "tool": "tools/a012_merchant_bridge_probe.py",
+        "original_Merchant_sha": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+        "original_CP950_CRC": "e9b389cf",
+        "new_x86_anchors": 7,
+        "new_offline_unit_tests": "25/25 PASS",
+        "merchant_to_nnewjoin_globals": "proven by original source",
+        "npc_binding_gui_timing": "not-run",
+        "server_quest_rule": "unknown"
       }
     },
     {
@@ -2513,7 +2526,8 @@
       "evidence_ids": [
         "ev_a012_20261031_script_reply_choice_client_static",
         "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
-        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "ev_a012_20261101_merchant_main_original_bridge"
       ],
       "input": {
         "kind": "native-client-e2e-plan",
@@ -2548,8 +2562,23 @@
       "original_native_gui_new_cases": [
         "PaperDialog Born one page OK -> C6C4+C6C2",
         "PaperDialog02 OK -> PAPER02 START; CANCEL -> PAPER02 NOT, and ESC may route OK because cancelControl=OK",
-        "nNewJoin01 MerchantTalk through pages 1/2/3 then STATE ACCEPT/REFUSE only at final controls, verify runner script/context and no accidental QuestCompleted"
-      ]
+        "nNewJoin01 MerchantTalk through pages 1/2/3 then STATE ACCEPT/REFUSE only at final controls, verify runner script/context and no accidental QuestCompleted",
+        "Merchant.Main S44 runner/init ServerParam, ClientReply, MerchantTile, MerchantName, exact MerchantDialog_Create provider and callback to nNewJoin MerchantTalk",
+        "Get actual ScriptRun name/context and NPC EntityId mapping; compare nNewJoin third-page STATE ACCEPT/REFUSE C6C1",
+        "Check TYPE=DIRECT requires external MerchantDirectTalk, not proven direct nNewJoin link"
+      ],
+      "a012_merchant_original_proof": {
+        "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+        "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "tool": "tools/a012_merchant_bridge_probe.py",
+        "original_Merchant_sha": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+        "original_CP950_CRC": "e9b389cf",
+        "new_x86_anchors": 7,
+        "new_offline_unit_tests": "25/25 PASS",
+        "merchant_to_nnewjoin_globals": "proven by original source",
+        "npc_binding_gui_timing": "not-run",
+        "server_quest_rule": "unknown"
+      }
     },
     {
       "id": "CT-094",
@@ -2568,7 +2597,8 @@
       "evidence_ids": [
         "ev_a012_20261031_script_reply_choice_client_static",
         "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
-        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "ev_a012_20261101_merchant_main_original_bridge"
       ],
       "input": {
         "kind": "server-designed-and-native-client-followup",
@@ -2599,6 +2629,18 @@
         "native_x86_anchors": 9,
         "native_gui": "not-run",
         "original_Server_quest_rule": "not-proven"
+      },
+      "a012_merchant_original_proof": {
+        "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+        "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "tool": "tools/a012_merchant_bridge_probe.py",
+        "original_Merchant_sha": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+        "original_CP950_CRC": "e9b389cf",
+        "new_x86_anchors": 7,
+        "new_offline_unit_tests": "25/25 PASS",
+        "merchant_to_nnewjoin_globals": "proven by original source",
+        "npc_binding_gui_timing": "not-run",
+        "server_quest_rule": "unknown"
       }
     },
     {

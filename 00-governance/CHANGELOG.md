@@ -194,3 +194,8 @@ Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研�
 ## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
 
 在既有 `task_a/roy1` 完成 A12 新補的 PaperDialog.dat、PaperDialog02.dat、nNewJoin01.dat 原件解析。Born+三份 Script SHA256、zlib/BE version+UTF16LE XML、CP950 CRC32 分別 1D87B0C0、F870C574、42683546、D9390353 均核實；原 Client x86 C6C/S44 9 簽章；本地 20 unittest PASS。新得到 PaperDialog02 callback PAPER02=START/NOT、nNewJoin01.JoinMessage03Proc STATE=ACCEPT/REFUSE；區分 PaperDialog 的無 SendReply Dispose/cleanup；確認 nNewJoin01 只有 MerchantTalk hook，無 Main，仍需 Merchant/QuestDialog 外部 context/NPC 來源。新增報告與 probe，更新 A12 requests、evidence、packets、scenarios、CT-092～094、manifest。研究完成 Client I/O 靜態資源 scope、Native GUI/原服 quest/reward 未證，不改遊戲主程式/Server。
+
+
+## 2026-11-01 A-012 Merchant.dat 原件完成：共用 Script 執行環境補證
+
+在原有 `task_a/roy1` 新增 A12 Merchant.dat 原件實證：原件 SHA256 `6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350`、解壓 7856 bytes v1/3925 UTF16LE units、CP950 CRC32 E9B389CF；Merchant.Main 建立 ServerParam/ClientReply、TILE/MNAME/錢包資料、GREETING/TYPE、MerchantTile/MerchantName 與共用能力選單；nNewJoin01 MerchantTalk 的 STATE ACCEPT/REFUSE 跨 Script globals 來源獲證。原 EXE 7 C6C/S44 bytes anchors + 原件/SHA/CRC/tests **本地25/25 PASS**，沒有原版 GUI/原服會話。更新 A12 requests、Evidence-index、PKT-C6C/PKT-S44、SCN-009/011/013/019、CT-092/093/094、A12 交接/測試與 SHA manifest。A12 handoff=ready 只限 Client 靜態 I/O，QuestRule/NPC bind/GUI not-ready；Merchant 不再缺，外部 Dialog API 提供者檔名未明；不改 Asgard.exe/Server/DB，不建立新 branch。

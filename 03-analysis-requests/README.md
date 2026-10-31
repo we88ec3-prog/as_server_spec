@@ -142,3 +142,8 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 ## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
 
 [A12 原始 Script 三補件驗證](A-012-roy1-new-script-resources-20261101.md)（[工具](../tools/a012_dialog_option_native_probe.py)）：`PaperDialog.dat` 只關閉；`PaperDialog02.dat` 的 PAPER02 START/NOT；`nNewJoin01.dat` 初級學校對話終頁 STATE ACCEPT/REFUSE，**皆為原始腳本出處，透過 Asgard.exe 的 C6C(1/4/2) 分支**；所有 SHA、CP950 CRC 原件確認與 20 個 local tests 通過。nNewJoin01 無 Main，不能直接當首次 S44 啟動腳本；原 NPC→Script、Server quest/reward、native GUI still unknown。A12 Client I/O ready，不代表原服任務全還原。
+
+
+## 2026-11-01 A-012 Merchant.dat 原件完成：共用 Script 執行環境補證
+
+[A12 Merchant.dat 原始 Script 補件分析](A-012-roy1-merchant-original-bridge-20261101.md)（[25-case 離線驗證器](../tools/a012_merchant_bridge_probe.py)）：Merchant.Main(args) 初始化 ServerParam/ClientReply/MerchantTile/MerchantName 並依 TYPE/DoesTalk 分派共用 Merchant 對話；nNewJoin01 無 Main、提供 MerchantTalk+JoinMessage01/02/03，最終 STATE ACCEPT/REFUSE 由 Client C6C(1) SendReply。本輪原件/CRC/7 x86 signatures/25 tests PASS，**原版 GUI/Server quest-rule/NPC binding 仍 not-run/unknown**；QuestDialog_Create/MerchantDialog_Create provider 的正式檔名尚未知，不能猜。Merchant.dat 不再缺。

@@ -868,7 +868,8 @@
       "evidence_ids": [
         "ev_a012_20261031_script_reply_choice_client_static",
         "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
-        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "ev_a012_20261101_merchant_main_original_bridge"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "ready",
@@ -887,10 +888,10 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "evidence_kind": "observed-original-Script-resources + static-original-Client-x86 + bounded-synthetic",
+      "evidence_kind": "observed-original-Merchant-and-4-Script-resources-plus-original-EXE-static; designed policy clearly separate",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "implementation_ready": true,
-      "implementation_ready_scope": "S44 start/asset/dependency; C6C type0..4 native writer and SendReply/Dispose/cleanup; original PaperDialog single-page close, PaperDialog02 PAPER02 START/NOT, nNewJoin01 STATE ACCEPT/REFUSE resource-derived reply intent; requires validated Server ScriptRun context, but no original NPC binding/quest reward/GUI E2E",
+      "implementation_ready_scope": "Client S44 script entry and C6C 0..4 native wire; resource-proven Merchant.Main creates ServerParam/ClientReply/MerchantTile/MerchantName and selects Talk capabilities, school nNewJoin01 MerchantTalk final STATE ACCEPT/REFUSE reply; designed secure ScriptRun context. Original NPC binding/QuestDialog implementation/quest reward and GUI not ready.",
       "native_quest_rule_ready": false,
       "native_npc_script_binding_ready": false,
       "analysis_report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
@@ -903,15 +904,14 @@
       ],
       "last_analysis_date": "2026-11-01",
       "remaining_unknowns": [
-        "Original Client Windows GUI and actual C6C(1/2/4) encrypted/ordinal packets from real PaperDialog02 and nNewJoin01, including keyboard cancelControl=OK behavior, are not run (CT-093)",
-        "PaperDialog02 references ClientReply external; two Paper scripts both export PaperDialogProc and ShowIndexedHelp, runtime dependency scoping/unambiguous callback dispatch is not proven",
-        "nNewJoin01 has MerchantTalk and NO Main; true S44 runner name and merchant/entity/map/NPC->script binding, QuestDialog_Create dependency and entry context remain unknown (A-011/A-024)",
-        "Merchant.dat is a confirmed prior-A023 resource filename SHA6888021cc... but not provided in this turn, QuestDialog_Create owner exact release file name not verified",
-        "Authoritative original Server quest step/flags, first-login script send decision, acceptance/rejection effect, reward existence/content, post choice transition remain Server evidence gaps (A026/DEV)",
-        "Native S44 cache CRC mismatch/delete/reload runtime not tested; must not send unsafe mismatching CRC in original Client"
+        "nNewJoin01 has MerchantTalk but no Main; original Server S44 runner name/context/dependency list and exact NPC→Script/EntityId/map binding still unverified; Merchant.Main source is not an actual NPC click trace",
+        "QuestDialog_Create, MerchantDialog_Create and MerchantDirectTalk implementation provider files not located in mounted Script subset; original filenames unknown, do not invent QuestDialog.dat",
+        "Official quest progression, STATE=ACCEPT side effects, reward presence/content, original Server first-login script scheduling and subsequent World/quest response remain authority gaps A026/DEV",
+        "Original Client Win32 GUI, C6C packet timing and correct Merchant-to-Join3 control callback, cancel/retry/Script namespace/dependency collision remain CT-093/CT-094 not-run",
+        "S44 invalid CRC / cache scan path unsafe on original client; must test offline/sandbox only; Server cross-session/stale context validation designed, not original server evidence"
       ],
       "client_io_handoff": {
-        "trigger": "S44(1,0) starts named Script with dependencies; Born.Main PaperDialog; PaperDialog02 option; nNewJoin01 MerchantTalk JoinMessage01->02->03 option",
+        "trigger": "Server S44(1,0) starts named Script; Merchant.Main(args) prepares ServerParam and ClientReply plus Merchant globals; nNewJoin01 MerchantTalk -> JoinMessage01/02/03; original NPC binding unknown",
         "client_sends": [
           "PKT-C6C",
           "PKT-C43",
@@ -922,17 +922,16 @@
           "PKT-S34",
           "PKT-S3C"
         ],
-        "client_reaction": "Plain PaperDialog OK sends C6C4 then unreplied C6C2 native cleanup; PaperDialog02 OK/CANCEL SendReply PAPER02 START/NOT; nNewJoin01 last-page OK/CANCEL SendReply STATE ACCEPT/REFUSE, then dispose C6C4. C6C1 contains current runner name/context (not necessarily resource filename).",
-        "evidence": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
+        "client_reaction": "Merchant.Main creates Script-wide ClientReply and MerchantTile/MerchantName from S44 runtime args and calls capability/menu hooks; nNewJoin01 DoesTalk=true, MerchantTalk enters school join pages; final choice emits C6C1 STATE ACCEPT/REFUSE, then dispose. PaperDialog plain close emits C6C4 then unreplied C6C2; PaperDialog02 sends PAPER02 START/NOT.",
+        "evidence": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
         "unknowns": [
-          "Original Client Windows GUI and actual C6C(1/2/4) encrypted/ordinal packets from real PaperDialog02 and nNewJoin01, including keyboard cancelControl=OK behavior, are not run (CT-093)",
-          "PaperDialog02 references ClientReply external; two Paper scripts both export PaperDialogProc and ShowIndexedHelp, runtime dependency scoping/unambiguous callback dispatch is not proven",
-          "nNewJoin01 has MerchantTalk and NO Main; true S44 runner name and merchant/entity/map/NPC->script binding, QuestDialog_Create dependency and entry context remain unknown (A-011/A-024)",
-          "Merchant.dat is a confirmed prior-A023 resource filename SHA6888021cc... but not provided in this turn, QuestDialog_Create owner exact release file name not verified",
-          "Authoritative original Server quest step/flags, first-login script send decision, acceptance/rejection effect, reward existence/content, post choice transition remain Server evidence gaps (A026/DEV)",
-          "Native S44 cache CRC mismatch/delete/reload runtime not tested; must not send unsafe mismatching CRC in original Client"
+          "nNewJoin01 has MerchantTalk but no Main; original Server S44 runner name/context/dependency list and exact NPC→Script/EntityId/map binding still unverified; Merchant.Main source is not an actual NPC click trace",
+          "QuestDialog_Create, MerchantDialog_Create and MerchantDirectTalk implementation provider files not located in mounted Script subset; original filenames unknown, do not invent QuestDialog.dat",
+          "Official quest progression, STATE=ACCEPT side effects, reward presence/content, original Server first-login script scheduling and subsequent World/quest response remain authority gaps A026/DEV",
+          "Original Client Win32 GUI, C6C packet timing and correct Merchant-to-Join3 control callback, cancel/retry/Script namespace/dependency collision remain CT-093/CT-094 not-run",
+          "S44 invalid CRC / cache scan path unsafe on original client; must test offline/sandbox only; Server cross-session/stale context validation designed, not original server evidence"
         ],
-        "classification": "observed-original-resource + observed-static-native-x86; no original Windows GUI or original Server quest authority"
+        "classification": "Observed original Merchant and nNewJoin Script source with native C6C producer x86 and synthetic tests; original NPC/quest rules and GUI not observed"
       },
       "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
       "admission_refuse_policy": "R-034 STATE=REFUSE means no Server domain mutation, repeat click dialog available; verify original ScriptReply client UI and candidate nNewJoin01 binding only.",
@@ -968,7 +967,71 @@
         "actual_exe_gui": "not-run",
         "entry_scope": "nNewJoin01 has MerchantTalk but NO Main; PaperDialog02 has external ClientReply and onControlClick name collision; real runner script/context and NPC binding unknown"
       },
-      "offline_validation_latest": "Original Asgard.exe and Born/PaperDialog/PaperDialog02/nNewJoin01 SHA, zlib/u16+u32 UTF16LE wrapper, 4 CP950 XML CRC, function inventories, 9 x86 signatures; local 20/20 tests PASS; native Windows Client GUI not-run"
+      "offline_validation_latest": "Merchant.dat SHA6888021cc..., zlib wrapper BE version1+u32 units3925 UTF16LE XML, CRC950 E9B389CF PASS; cross-check 5 Script originals, Asgard.exe SHA and 7 C6C/S44 x86 anchors; 25/25 local unit tests PASS. Native GUI/TCP not run.",
+      "new_merchant_report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+      "new_merchant_probe": "tools/a012_merchant_bridge_probe.py",
+      "merchant_original_proof": {
+        "original_sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+        "raw_size": 1603,
+        "zlib_unpacked_bytes": 7856,
+        "version": 1,
+        "utf16le_units": 3925,
+        "cp950_xml_crc32": "e9b389cf",
+        "entry_function": "Main",
+        "nnewjoin_main_absent": true,
+        "globals_defined": [
+          "ServerParam",
+          "ClientReply",
+          "MerchantTile",
+          "MerchantName",
+          "UserGold",
+          "UserBalance",
+          "UserAvailGold",
+          "UserAvailBalance",
+          "MerchantColor",
+          "MerchantGreeting"
+        ],
+        "server_argument_keys": [
+          "TILE",
+          "MNAME",
+          "UGOLD",
+          "UBAL",
+          "UAGOLD",
+          "UABAL",
+          "UCOLOR",
+          "GREETING",
+          "TYPE"
+        ],
+        "feature_dispatch": [
+          "BUY",
+          "SELL",
+          "REPAIR",
+          "BANK",
+          "IDENTIFY",
+          "DIRECT"
+        ],
+        "school_hook": "nNewJoin01 MerchantTalk() -> JoinMessage01; DoesTalk true, other five Does* false; final-page STATE ACCEPT/REFUSE",
+        "missing_external_function_owners": [
+          "QuestDialog_Create",
+          "MerchantDialog_Create",
+          "MerchantDirectTalk"
+        ],
+        "no_verified_filename_for_questdialog_implementation": true,
+        "npc_binding": "unknown",
+        "native_gui": "not-run",
+        "sha_locked_originals": [
+          "Asgard.exe",
+          "Born.dat",
+          "Merchant.dat",
+          "nNewJoin01.dat",
+          "PaperDialog.dat",
+          "PaperDialog02.dat"
+        ],
+        "exe_x86_anchors": 7,
+        "local_tests_passed": 25,
+        "source": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "tool": "tools/a012_merchant_bridge_probe.py"
+      }
     },
     {
       "id": "A-013",

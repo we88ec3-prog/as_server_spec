@@ -4547,6 +4547,32 @@
         "PaperDialog02 external ClientReply and duplicate callback names, exact runtime scope unproven",
         "Merchant.dat not supplied"
       ]
+    },
+    {
+      "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+      "date": "2026-11-01",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_branch": "task_a/roy1",
+      "evidence_kind": "observed-original-Merchant-script+cross-original-nNewJoin-Script+observed-static-Client-C6C-x86",
+      "locator": "Merchant.dat Main(args): AddGlobal ServerParam, CreateParams ClientReply, arg keys TILE/MNAME/UGOLD/UBAL/UAGOLD/UABAL/UCOLOR/GREETING/TYPE, DoesBuy/Sell/Repair/Bank/Identify/Talk and MerchantDialog_Create. nNewJoin01.dat DoesTalk true, MerchantTalk->JoinMessage01, final JoinMessage03Proc STATE ACCEPT/REFUSE. EXE 0x575159 C6C ctor,0x51aa5c reply1,0x51ab33 replied,0x5268c6 dispose4,0x5194ce no-reply2,0x57525c paircount,0x5862f9 S44.",
+      "report_path": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+      "native_probe": "tools/a012_merchant_bridge_probe.py",
+      "original_asset_sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+      "source_files": [
+        "Asgard.exe",
+        "Born.dat",
+        "Merchant.dat",
+        "nNewJoin01.dat",
+        "PaperDialog.dat",
+        "PaperDialog02.dat"
+      ],
+      "cp950_crc32": "e9b389cf",
+      "native_x86_anchors": 7,
+      "local_unit_tests_passed": 25,
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false,
+      "evidence_limit": "Script resources prove common global definitions and valid hook names, not the actual binding/invocation order of a specific NPC, Original Server QuestRule/Reward nor actual Client runtime UI."
     }
   ]
 }

@@ -432,7 +432,8 @@
         "ev_a028_20261031_asgard_c04_response_static",
         "ev_a016_20261031_asgard_replay_static",
         "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
-        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "ev_a012_20261101_merchant_main_original_bridge"
       ],
       "a022_map_analysis_notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。 A-022 observed: S15 3*u16+2*u8+string8; S14(1) triggers C35(header file+4, structured checksum); S14(2) loading callback. Native tutorial map/spawn unknown pending A-015.",
       "script_entry": {
@@ -457,7 +458,8 @@
           "A023-E16",
           "A023-E17",
           "A023-E18",
-          "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
+          "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+          "ev_a012_20261101_merchant_main_original_bridge"
         ],
         "analysis_gate": "integrated-partial",
         "ct": [
@@ -486,6 +488,12 @@
           "PaperDialog02": "confirmed",
           "nNewJoin01": "confirmed",
           "PaperDialog": "confirmed"
+        },
+        "merchant_main_resource_crossproof": {
+          "merchant": "Merchant.dat Main args/global init",
+          "nNewJoin": "MerchantTalk -> JoinMessage01 then final STATE ACCEPT/REFUSE",
+          "npc_binding": "unverified",
+          "source": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md"
         }
       },
       "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
@@ -511,6 +519,15 @@
         "nNewJoin01_reply": "STATE ACCEPT/REFUSE",
         "NPC_recruiter_binding": "unknown",
         "Server_quest_rule": "unknown",
+        "native_client_gui": "not-run"
+      },
+      "a012_merchant_original_bridge": {
+        "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+        "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "merchant_script_globals_proven": true,
+        "nnewjoin_school_talk_hook_proven": true,
+        "nnewjoin_real_npc_binding": "unknown",
+        "server_quest_completion_or_reward": "unknown",
         "native_client_gui": "not-run"
       }
     },
@@ -601,7 +618,8 @@
       "analysis_evidence_ids": [
         "ev_a025_20261031_attack_skill_bin_static",
         "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
-        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "ev_a012_20261101_merchant_main_original_bridge"
       ],
       "integration_sources": [
         {
@@ -640,6 +658,15 @@
         "nNewJoin01_reply": "STATE ACCEPT/REFUSE",
         "NPC_recruiter_binding": "unknown",
         "Server_quest_rule": "unknown",
+        "native_client_gui": "not-run"
+      },
+      "a012_merchant_original_bridge": {
+        "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+        "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "merchant_script_globals_proven": true,
+        "nnewjoin_school_talk_hook_proven": true,
+        "nnewjoin_real_npc_binding": "unknown",
+        "server_quest_completion_or_reward": "unknown",
         "native_client_gui": "not-run"
       }
     },
@@ -741,7 +768,8 @@
       "packet_mapping": "unknown",
       "analysis_evidence_ids": [
         "ev_a025_20261031_attack_skill_bin_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a012_20261101_merchant_main_original_bridge"
       ],
       "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
       "a026_contract": "04-analysis-integration/A-026-tutorial-completion-contract.md",
@@ -760,7 +788,16 @@
           "packet_mapping": "unknown"
         }
       ],
-      "refusal_policy": "STATE=REFUSE no domain state change, NPC can re-open dialog again, repeat refusal or later ACCEPT; original NPC binding not proven."
+      "refusal_policy": "STATE=REFUSE no domain state change, NPC can re-open dialog again, repeat refusal or later ACCEPT; original NPC binding not proven.",
+      "a012_merchant_original_bridge": {
+        "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+        "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "merchant_script_globals_proven": true,
+        "nnewjoin_school_talk_hook_proven": true,
+        "nnewjoin_real_npc_binding": "unknown",
+        "server_quest_completion_or_reward": "unknown",
+        "native_client_gui": "not-run"
+      }
     },
     {
       "id": "SCN-014",
@@ -1001,7 +1038,19 @@
       "unknowns": [
         "Recruiter NPC entity/script mapping",
         "UI choice -> C6C key/value -> native reply semantics"
-      ]
+      ],
+      "analysis_evidence_ids": [
+        "ev_a012_20261101_merchant_main_original_bridge"
+      ],
+      "a012_merchant_original_bridge": {
+        "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
+        "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
+        "merchant_script_globals_proven": true,
+        "nnewjoin_school_talk_hook_proven": true,
+        "nnewjoin_real_npc_binding": "unknown",
+        "server_quest_completion_or_reward": "unknown",
+        "native_client_gui": "not-run"
+      }
     }
   ]
 }
