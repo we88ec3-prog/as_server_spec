@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "558209584715f24e511b7f05c433e29ffe8939e7731f87c12c56505324281052"
+      "sha256": "03b5a6f7f3a9a9666688bc7ec8e19a287f3119dbab4b466c5f5fdd1feeea5ff5"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -45,7 +45,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "43f9cd27b437557a98cadc2cd9cebdb2fadbae66ccaed6acaac05d20dc075e41"
+      "sha256": "bcb35a7fac97c044cef94a3fb0bd58662883837d873302c5f4d242639c6d7fa8"
     },
     {
       "path": "00-governance/workflow.md",
@@ -189,7 +189,7 @@
     },
     {
       "path": "02-server-planning/three-native-account-entry-policy.md",
-      "sha256": "0f9fcf0fc75161538f421c176bc83be48c4d29863d5ff3e9c05f864cfd987050"
+      "sha256": "a24777b9f337b125fca8545942ca6bbb88a3bee87661f9a8643a0e3fc4c0da0c"
     },
     {
       "path": "02-server-planning/tutorial-completion-conditions.json",
@@ -288,6 +288,10 @@
       "sha256": "cff4b24d2c3517c36814e7d7f24986595e0f8dcf5f4bd7d02ecebe03897faaf4"
     },
     {
+      "path": "03-analysis-requests/A-029-roy1-native-password-change.md",
+      "sha256": "eae4e331458e4742715dd2d9fa014839e5dfa47701da41778d33e6fc95c239b1"
+    },
+    {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
       "sha256": "8e3af1c4e2791bbeb72b01d806c2bff50b86d25d752dcc7d639bf32a72e4fdab"
     },
@@ -305,7 +309,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "82173b9fd8352bd97c0dacaa6444b8839cfeace0fb677290a77e79fcfcd8c80d"
+      "sha256": "cdd69759ae858f0e0203c80859d95af18c4aabdd2ab254222ae317b7e6ef6659"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -313,7 +317,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "f2e259476c2ad620948300f46a0584acdc95dea7cd0775507db35efeeedf5f30"
+      "sha256": "364214414de9e49dedf053efa4589ec2254261497abe7cb1091930be5f611c7c"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -400,6 +404,10 @@
       "sha256": "6e1e71e357173c93dded6be4642b451d3951fdf1c104696957acf87c90f771d8"
     },
     {
+      "path": "04-analysis-integration/A-029-native-password-change-contract.md",
+      "sha256": "170b6e40c2208f1f6c944320385dc976bd3db0b010ef01daf0728a4fcf40a1f5"
+    },
+    {
       "path": "04-analysis-integration/A015-A016-A027-A028-validation.md",
       "sha256": "058e3997cfcb8c457bc9f9cf99eb87e8253ed87cee2ded50a6ea785847ef949c"
     },
@@ -429,7 +437,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "db01987643fe98d4a4db124b919787598f2b1fb82367f151c04d2a84ac53bb46"
+      "sha256": "9a5332f03a5bb35115f5b1ea72631567852c44276bc8e5d566c4ffaa405c9b85"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -457,7 +465,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "c7e8d867e14b8046518767b1413b4dab685699962cc39c28ee6994e36c727a27"
+      "sha256": "d7b514da591d2b80f761e8e0a23e43f955e4e43194f611ed892bae4f5275251d"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -481,7 +489,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "84e719043c8b478ec2ab493c3eac03506b26ab484f4a3dcc99466829a8eac69a"
+      "sha256": "650d6f7013e1656833d7205dc83166e65a68a0ca84202fb43690ac9822823b40"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -553,7 +561,7 @@
     },
     {
       "path": "05-conformance/account-password-native-change-test-plan.md",
-      "sha256": "6b3bfd5053835648d7a3f71e5f1d58622430c987a92ee0a341b0320b457c194a"
+      "sha256": "67f54f8d7192a7f30eb54129bbfa3989c6302d5be21406f96ff815181ab0994e"
     },
     {
       "path": "05-conformance/admin-web-management-acceptance-plan.md",
@@ -605,7 +613,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "6d7d32da82ce9be1c2f219ae65dbc5a3a1ee9abc81c0cf404b58911d3118e261"
+      "sha256": "4c1f48b0cc957fc6af1b16d7189d10e75990aa8548d7bf2e2ebf0ebca622d7aa"
     },
     {
       "path": "README.md",
@@ -922,6 +930,10 @@
     {
       "path": "tools/a028_newuser_response.py",
       "sha256": "900f6d08befd177fceb436a4724f0d30f565b9b1ff62f1bf39ed95279be02fc8"
+    },
+    {
+      "path": "tools/a029_password_change_contract.py",
+      "sha256": "1fb2fce18318e898084403ab28adb1ea16e63c014f87f0a5286314a2ecb628c0"
     },
     {
       "path": "tools/test_a015_content_probe.py",
