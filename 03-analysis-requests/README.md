@@ -98,3 +98,21 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 這次以同一原始 `Asgard.exe`＋`Map0.dat/Map1.dat/Map2.dat` 追到完整 **MAP raw 10B tile → Client memory 17B tile → index=x+y*width**。Native `0x4B4920` 只證合法 tile 邊界，`0x4B4A3B/0x4B4A73` 的 32×48 視窗單元是像素→tile 的**候選**；tile bit0、bit4 線段測試和獨立每格 4B grid 具有不同用途，尚不能自稱原版玩家 walkable map。
 
 原始 494 地圖／7,701,805 tile 重新掃描且 SHA 全部吻合；477 張地圖包含 Born(31,29) ，該格 flags 0:242／1:109／17:126，絕不能當玩家出生點證據。**26 原始 PE signatures PASS、18 synthetic map tests PASS**（[GitHub Actions run 41188097214](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41188097214)）；[完整分析](../task_a/roy2/A-015-map-coordinate-collision.md)、[metadata-only MAP codec](../task_a/roy2/a015_map_coordinate.py)、[26 PE checks](../task_a/roy2/a015_map_native_probe.py)、[CT-087/070](../05-conformance/A-015-map-coordinate-test-plan.md)。資源/地圖解析研究已交付，完整原版 passability / native Client GUI **未驗證**；不需要再提供 Asgard/Map0/1/2/Born，同版真實走路／撞牆 trace 有助於後續結案。
+
+
+## A-010／roy2：施法、取消、持續效果 Client I/O 原版靜態研究（2026-10-31）
+
+已以原始 `Asgard.exe` SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 確認六組 native opcode→class→writer/reader：
+
+|封包|已證 native decoded-body|
+|---|---|
+|C4D StartCastSpell|BE u16，Client 真實 producer `0x402034..0x402052` 從 `[ebx+0x80E]` 取得 word|
+|C56 CastSpell|u8；真正 UI producer 未追完整|
+|S52 CastSpell|BE u32,u8|
+|S48 CancelCastSpell|BE u32|
+|S2C AddLastingSpell（opcode 0x2C）|BE u32,u8,BE u16,u8,string8 encoded-byte length,u8,BE u32,BE u32|
+|S2D RemoveLastingSpell（opcode 0x2D）|BE u32|
+
+實際動作分類（單體、AOE、治療、BUFF、召喚）與技能 ID、射程、消耗、冷卻、效果時間、疊加/過期及原生 Client UI callback **未證**。原版 `SkillSpellDialog`／`LastingSpellDialog` 等類別存在不等於某類技能的效果已還原。A-010 交付 `integrated/partial`，**只完成可驗證的 Client I/O 靜態範圍**；Native UI `CT-090` not-run，不把原服公式或完整技能表補猜。
+
+[完整研究](../task_a/roy2/A-010-analysis.md) · [decoded-body codec](../task_a/roy2/a010_skill_codec.py) · [25 原始指令／六 RTTI 驗證](../task_a/roy2/a010_native_probe.py) · [CT-089/090](../05-conformance/A-010-skill-cast-lifecycle-test-plan.md) · [CI 19 項測試成功](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41193941400)。未獲已證名稱的正式技能定義檔：不要憑猜測要求 `Skill*.dat` 或 `Spell*.dat`；此輪無新增必需檔案。
