@@ -17,3 +17,7 @@
 ## 2026-11-01 A-012 最終 Client I/O 交接更新
 
 [新增完整原件驗證](../03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md) 與 [離線探針](../tools/a012_quest_resource_bridge.py)：以 Asgard.exe/Born.dat/Basic.dat 固定 SHA，15 x86 C6C/S44/SendReply/Dispose/S44 script-cache 指令簽章、4 個 Basic 內嵌資源 hash、Born XML/CP950 CRC、12 個 unittest 本地 PASS。Basic.dat 的 Script/Quest UI **只有 UI 文字與圖像**：BasicString[101/198]、SkinString[2263/2264]、AlertFrame/QuestImage；沒有官方 quest ID/完成條件/獎勵。C6C4→未回覆 C6C2 的 native sender 順序再核對，C6C1 不可授權 reward。**Client I/O 靜態 handoff=ready，original Client GUI CT-093/094 not-run，official Server quest/reward/NPC script binding unknown**；DEV 只開有原生證據的 ScriptRun/lifecycle/context codec 和安全防重子集。
+
+## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
+
+新 [原件＋Client I/O 契約](../03-analysis-requests/A-012-roy1-new-script-resources-20261101.md) 與 [離線重驗工具](../tools/a012_dialog_option_native_probe.py)：`PaperDialog` 單頁無 SendReply 的 OK -> native C6C(4)+未回覆 C6C(2)；`PaperDialog02` OK/CANCEL 的 `ClientReply.Add(PAPER02,START/NOT)` + SendReply，`nNewJoin01` 三頁 MerchantTalk 終頁 OK/CANCEL 的 `ClientReply.Add(STATE,ACCEPT/REFUSE)` + SendReply -> native C6C(1)；兩者 SendReply 後 native replied flag 排除 no-reply C6C2。四份 Script 原件 SHA＋CP950 CRC、9 x86 簽章、20 local unittest PASS；這些是**原件與靜態 wire 可用證據，非原版 GUI/Server reward E2E**。`nNewJoin01` 無 Main，ScriptRun.name/context 和 NPC 真綁定仍須 Server 授權/原生 trace；`PaperDialog02` 的 cancelControl=OK 和同名 PaperDialogProc 引用需隔離 GUI 驗。A12 handoff=ready 僅限 Client I/O。

@@ -138,3 +138,7 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 ## A-012 (2026-11-01 roy1 Client I/O 靜態結案)
 
 [任務腳本與原始對話資源最終交接](A-012-roy1-quest-script-closure-20261101.md)：以 Asgard.exe/Born.dat/Basic.dat 鎖 SHA，15/15 native bytes、4 個 Basic.dat 內嵌資源原件 SHA、Born Main/CRC、12/12 自動測試 PASS；S44→Main 與 C6C(0..4) SendReply/Dispose/no-reply cleanup 原始路徑及 UI 資源已整合。A12 Client I/O 靜態交付 **ready**，但原版 Windows GUI/原服 Quest Rule/Reward/NPC Script 綁定仍未驗，CT-093/094 仍 planned；`PaperDialog.dat`、`nNewJoin01.dat` 未在本輪重驗。
+
+## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
+
+[A12 原始 Script 三補件驗證](A-012-roy1-new-script-resources-20261101.md)（[工具](../tools/a012_dialog_option_native_probe.py)）：`PaperDialog.dat` 只關閉；`PaperDialog02.dat` 的 PAPER02 START/NOT；`nNewJoin01.dat` 初級學校對話終頁 STATE ACCEPT/REFUSE，**皆為原始腳本出處，透過 Asgard.exe 的 C6C(1/4/2) 分支**；所有 SHA、CP950 CRC 原件確認與 20 個 local tests 通過。nNewJoin01 無 Main，不能直接當首次 S44 啟動腳本；原 NPC→Script、Server quest/reward、native GUI still unknown。A12 Client I/O ready，不代表原服任務全還原。

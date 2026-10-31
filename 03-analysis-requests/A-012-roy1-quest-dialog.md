@@ -76,3 +76,7 @@ C6C subtype1 pair_count 原內部 local `[esi+0x220]` 16-bit，陣列首位址 `
 已以**原件** `Asgard.exe`、`Born.dat` 和新可用的 `Basic.dat` 完成增量核對：原版 EXE 15/15 指令、Born CRC/單頁 PaperDialog Create、Basic.dat 中 AlertFrame.ypf / BasicString.txt / QuestImage.ypf / SkinString.txt 的原件 SHA、12/12 離線合成/負面測試 PASS。BasicString[101] 是對話視窗提示，[198] 是 NPC 對話說明；SkinString[2263/2264] 是任務日誌/任務欄。這些資源不是 Server QuestRule/Reward。原生 C6C(4) 後的 unreplied C6C(2) gate 由原始 x86 再證，**不是兩次 quest 完成**。詳 [A-012 靜態 Client I/O 最終交接](A-012-roy1-quest-script-closure-20261101.md) 與 [新測試](../tools/a012_quest_resource_bridge.py)。
 
 **任務 status 保持 integrated、handoff 改為 ready（限定已證 Client I/O 靜態契約）**；原版 Client GUI、NPC/Quest 規則、原服首次派送條件和獎勵仍 unknown/not-run，不可標成完整原服還原。具名缺件 `PaperDialog.dat`、`nNewJoin01.dat` 仍未在本輪容器提供，先前 A-023 有資源 SHA/研究可參考而不假冒本輪重驗；Quest/NPC 原服配置的精確檔名尚未知。
+
+## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
+
+本輪已直接取得 `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat` 原始檔（參見 [A12 新原件精確流程](A-012-roy1-new-script-resources-20261101.md)）；**此前本文提到這幾份 Script 未提供/未重驗的歷史限制已解除**。原版 `PaperDialog` 的 OK 僅 Dispose（C6C4、未回覆時 C6C2），`PaperDialog02` 的 OK/CANCEL 是 `PAPER02=START/NOT`，`nNewJoin01` 的最後一頁 OK/CANCEL 是 `STATE=ACCEPT/REFUSE`，都以原 Script XML 與 Asgard.exe C6C1 writer 靜態交叉驗證；nNewJoin01 只有 MerchantTalk，沒有 Main。已由固定 SHA/CRC 和 20 個 local offline tests 證實。QuestDialog_Create/ClientReply 等外部引擎/Script 來源、NPC 綁定、首次 S44 時機和 Server 權威任務/獎勵仍 unknown，原版 Windows GUI not-run。A12 handoff=ready 僅限 Client I/O、非原服任務系統完成。

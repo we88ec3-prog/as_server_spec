@@ -2458,7 +2458,8 @@
       ],
       "evidence_ids": [
         "ev_a012_20261031_script_reply_choice_client_static",
-        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
       ],
       "input": {
         "kind": "native-SHA/static-resource-plus-synthetic",
@@ -2481,7 +2482,17 @@
         "native_client_validation": "not-run",
         "quest_authoritative_rules": "unknown"
       },
-      "offline_status": "passed-original-exe-born-basic-static-and-synthetic; full CT remains planned/native-GUI-not-run"
+      "offline_status": "passed-original-x86-and-original-Born-PaperDialog-PaperDialog02-nNewJoin01-sha-CRC-native-static; overall CT planned GUI not-run",
+      "a012_supplied_original_script_test": {
+        "report": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
+        "test": "tools/a012_dialog_option_native_probe.py",
+        "evidence_id": "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "local_unittests_passed": 20,
+        "resource_crc": "all four original CP950 CRC32 PASS",
+        "native_x86_anchors": 9,
+        "native_gui": "not-run",
+        "original_Server_quest_rule": "not-proven"
+      }
     },
     {
       "id": "CT-093",
@@ -2501,7 +2512,8 @@
       ],
       "evidence_ids": [
         "ev_a012_20261031_script_reply_choice_client_static",
-        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
       ],
       "input": {
         "kind": "native-client-e2e-plan",
@@ -2522,7 +2534,22 @@
         "new_tests": "12/12 passed",
         "native_client_validation": "not-run",
         "quest_authoritative_rules": "unknown"
-      }
+      },
+      "a012_supplied_original_script_test": {
+        "report": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
+        "test": "tools/a012_dialog_option_native_probe.py",
+        "evidence_id": "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "local_unittests_passed": 20,
+        "resource_crc": "all four original CP950 CRC32 PASS",
+        "native_x86_anchors": 9,
+        "native_gui": "not-run",
+        "original_Server_quest_rule": "not-proven"
+      },
+      "original_native_gui_new_cases": [
+        "PaperDialog Born one page OK -> C6C4+C6C2",
+        "PaperDialog02 OK -> PAPER02 START; CANCEL -> PAPER02 NOT, and ESC may route OK because cancelControl=OK",
+        "nNewJoin01 MerchantTalk through pages 1/2/3 then STATE ACCEPT/REFUSE only at final controls, verify runner script/context and no accidental QuestCompleted"
+      ]
     },
     {
       "id": "CT-094",
@@ -2540,7 +2567,8 @@
       ],
       "evidence_ids": [
         "ev_a012_20261031_script_reply_choice_client_static",
-        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
       ],
       "input": {
         "kind": "server-designed-and-native-client-followup",
@@ -2561,6 +2589,16 @@
         "new_tests": "12/12 passed",
         "native_client_validation": "not-run",
         "quest_authoritative_rules": "unknown"
+      },
+      "a012_supplied_original_script_test": {
+        "report": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
+        "test": "tools/a012_dialog_option_native_probe.py",
+        "evidence_id": "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "local_unittests_passed": 20,
+        "resource_crc": "all four original CP950 CRC32 PASS",
+        "native_x86_anchors": 9,
+        "native_gui": "not-run",
+        "original_Server_quest_rule": "not-proven"
       }
     },
     {

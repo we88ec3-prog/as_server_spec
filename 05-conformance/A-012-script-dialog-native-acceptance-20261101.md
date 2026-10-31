@@ -19,3 +19,6 @@
 - 原服 NPC/entity→Script 與 QuestRule/Reward 的正式定義/綁定檔名目前**未知**；需原服 trace、內容索引或可證來源，不能任意要求不存在的「Quest.dat」。原版 Client Windows GUI/Server 診斷 trace 亦未取得。
 
 **責任切分：** A12 原 Client I/O 靜態 scope `ready`；A24 追 NPC id→Script、A26 追是否真有任務 completion/reward、DEV 規劃真正 Server identity/progress/ledger；CT-093/094 做原版 Native runtime。任務完成不等同對話視窗關閉。
+## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
+
+CT-092 原件新增 `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat` 的 SHA/zlib/UTF16LE/CRC、23/3/3 functions、9 native Asgard.exe C6C/S44 anchors 與 20 local unit tests，均 PASS（[證據](../03-analysis-requests/A-012-roy1-new-script-resources-20261101.md)、[工具](../tools/a012_dialog_option_native_probe.py)）。**CT-093/094 原版 Client GUI/Server E2E 仍未執行。** CT-093 必查 PaperDialog02 按鍵盤取消與明確 CANCEL（cancelControl 其實是 OK）、兩份 Paper 的 PaperDialogProc 名稱重複時 runtime scoping、nNewJoin01 MerchantTalk→三頁→終頁 STATE 的正負選項、真 runner/name/context，而不是硬編 synthetic `nNewJoin01`。CT-094 必查 Server 無法從 STATE=ACCEPT／PAPER02=START 直接推導 QuestCompleted/Reward，拒絕重播、錯 NPC、跨角色 generation。原件 `Merchant.dat` 仍缺（主線 A23 已具名 hash）；`QuestDialog_Create` 的已證提供者及 NPC/QuestRule authority 仍待定位。先前缺本次三個新上傳檔案的敘述已失效。

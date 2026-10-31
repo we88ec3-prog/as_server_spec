@@ -68,3 +68,6 @@ objdump -d -M intel --start-address=0x52c2ca --stop-address=0x52c2e7 Asgard.exe
 |CT-094|Server 可以驗 Session/context/stale/重播之設計|原版完成規則／獎勵已證或重放/併發真 Client E2E|
 
 本報告以規格原始 Client 的 **trigger / client_sends / client_receives / client_reaction / evidence / unknowns** 六欄標準交接，保留 runtime/test 的未完成狀態，不上傳原遊戲素材、密碼或真封包。
+## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
+
+本報告「缺 `PaperDialog.dat`／`nNewJoin01.dat`」**只描述過往工作環境**；現在原件已提供並完成 zlib/UTF16LE/CP950 CRC 驗證，另取得 `PaperDialog02.dat`。新增確證：`PaperDialog02.PaperDialogProc` 的 `PAPER02=START/NOT`，`nNewJoin01.JoinMessage03Proc` 的 `STATE=ACCEPT/REFUSE`，它們是 Client C6C(1) 選項意圖，並非任務完成或獎勵。後者為 MerchantTalk hook、沒有 Main，也不證 Born 女性招募員就是此腳本；PaperDialog02 有獨立 CANCEL 按鈕而 cancelControl 仍 OK。完整原件 SHA、CRC、函式清單、wire fixtures、缺少的外部依賴請以 [本次最新交接](A-012-roy1-new-script-resources-20261101.md) 為準。native GUI／Server authority unknown 保留。

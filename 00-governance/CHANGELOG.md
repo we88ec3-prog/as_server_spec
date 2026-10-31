@@ -190,3 +190,7 @@ Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研�
 ## 2026-11-01 A-012 Script/Quest Dialogue Client I/O closure (roy1)
 
 同步最新 main 並追加 BIN-first A12：原版 `Asgard.exe` (15 instruction windows) + `Born.dat`（唯一 Main、PaperDialog 一頁、CP950 CRC）+ `Basic.dat`（AlertFrame/BasicString/QuestImage/SkinString 四個 resource SHA、對話及任務日誌原始文字）交叉驗證；Dispose→C6C4 和 unreplied C6C2、SendReply→C6C1 原生資料流重驗，本地 12/12 offline tests PASS。新報告 `03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md`、測試 `tools/a012_quest_resource_bridge.py`，更新 A-012、PKT-S44/C6C、SCN-009/011、CT-092/093/094 與 manifest。A12 `integrated/ready` 只代表 Client I/O 已證靜態子集可交 DEV；原生 GUI / 原服 NPC→Script / Quest completion/reward 邊界仍 not-run/unknown。不改 Client/Server/DB、不創 branch。
+
+## 2026-11-01 A12 補件閉環（PaperDialog／PaperDialog02／nNewJoin01 三份原件）
+
+在既有 `task_a/roy1` 完成 A12 新補的 PaperDialog.dat、PaperDialog02.dat、nNewJoin01.dat 原件解析。Born+三份 Script SHA256、zlib/BE version+UTF16LE XML、CP950 CRC32 分別 1D87B0C0、F870C574、42683546、D9390353 均核實；原 Client x86 C6C/S44 9 簽章；本地 20 unittest PASS。新得到 PaperDialog02 callback PAPER02=START/NOT、nNewJoin01.JoinMessage03Proc STATE=ACCEPT/REFUSE；區分 PaperDialog 的無 SendReply Dispose/cleanup；確認 nNewJoin01 只有 MerchantTalk hook，無 Main，仍需 Merchant/QuestDialog 外部 context/NPC 來源。新增報告與 probe，更新 A12 requests、evidence、packets、scenarios、CT-092～094、manifest。研究完成 Client I/O 靜態資源 scope、Native GUI/原服 quest/reward 未證，不改遊戲主程式/Server。

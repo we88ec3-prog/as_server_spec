@@ -4513,6 +4513,40 @@
       "native_client_validation": "not-run",
       "raw_assets_shared": false,
       "provenance_limits": "Original PaperDialog.dat and nNewJoin01.dat not mounted for this rerun; prior A-023 only. GUI/Server quest step/reward unknown, not claimed original-client E2E."
+    },
+    {
+      "evidence_id": "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+      "date": "2026-11-01",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_branch": "task_a/roy1",
+      "evidence_kind": "observed-original-script-resource+original-client-x86-static+synthetic-offline",
+      "locator": "Born.dat Main PaperDialog_Create; PaperDialog.dat PaperDialogProc OK -> dialog.Dispose/client.Dispose; PaperDialog02.dat PaperDialogProc OK/CANCEL -> ClientReply.Add(PAPER02,START/NOT), SendReply, Dispose; nNewJoin01.dat MerchantTalk/JoinMessage01->02->03, JoinMessage03Proc OK/CANCEL -> ClientReply.Add(STATE,ACCEPT/REFUSE), SendReply, Dispose; Asgard.exe 0x575159 C6C opcode,0x51aa5c subtype1,0x526626 SendReply,0x51ab33 replied,0x5268c6 subtype4,0x5194ce subtype2,0x5862f9 S44",
+      "report_path": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
+      "native_probe": "tools/a012_dialog_option_native_probe.py",
+      "local_tests_passed": 20,
+      "native_x86_anchors": 9,
+      "original_sha256": {
+        "Born.dat": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+        "PaperDialog.dat": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+        "PaperDialog02.dat": "49a618b9a59bda1294df6cbd8fa57e07c6e42c7647602dd988decf4a147bf22a",
+        "nNewJoin01.dat": "8410064a564e381bfe941c71af3fc70598ea2325df69c3d216d7fbba1c7f79ae"
+      },
+      "cp950_crc32": {
+        "Born": "1d87b0c0",
+        "PaperDialog": "f870c574",
+        "PaperDialog02": "42683546",
+        "nNewJoin01": "d9390353"
+      },
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false,
+      "limitations": [
+        "No original Server official NPC bind/rule/reward",
+        "No actual GUI/packet trace",
+        "nNewJoin01 no Main, runner name != necessarily resource name",
+        "PaperDialog02 external ClientReply and duplicate callback names, exact runtime scope unproven",
+        "Merchant.dat not supplied"
+      ]
     }
   ]
 }

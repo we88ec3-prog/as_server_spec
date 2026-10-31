@@ -1299,7 +1299,8 @@
         "A023-E16",
         "ev_a020_20261031_asgard_prelogin_branch_static",
         "ev_a026_20261031_born_merchant_exit_bin_static",
-        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
       ],
       "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
@@ -1314,6 +1315,36 @@
         "client_boundary": "SendReply subtype1 is choice intent; client.Dispose subtype4 followed by no-reply cleanup subtype2 if not replied; not quest grant",
         "native_gui_validation": "not-run",
         "quest_reward_original_server": "unknown"
+      },
+      "a012_dialog_resource_reply": {
+        "evidence_id": "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "report": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
+        "original_script_reply_pairs": {
+          "PaperDialog02": {
+            "OK": [
+              "PAPER02",
+              "START"
+            ],
+            "CANCEL": [
+              "PAPER02",
+              "NOT"
+            ]
+          },
+          "nNewJoin01_JoinMessage03": {
+            "OK": [
+              "STATE",
+              "ACCEPT"
+            ],
+            "CANCEL": [
+              "STATE",
+              "REFUSE"
+            ]
+          }
+        },
+        "plain_paper_ok": "client.Dispose C6C4 then unreplied C6C2 (original EXE static)",
+        "wire": "subtype1+name:string8+context:u32BE+count:u16BE+(key/value string8)*count; runner name/context from live S44, synthetic value not original trace",
+        "native_gui": "not-run",
+        "quest_reward": "not proven"
       }
     },
     {
@@ -1426,7 +1457,8 @@
         "A023-E17",
         "ev_a020_20261031_asgard_prelogin_branch_static",
         "ev_a026_20261031_born_merchant_exit_bin_static",
-        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
@@ -1445,6 +1477,13 @@
         "client_boundary": "S44(1,0) named script start, missing dependency C6C0, subtype3 cache cleanup is destructive, never use as no-op ACK",
         "native_gui_validation": "not-run",
         "quest_reward_original_server": "unknown"
+      },
+      "a012_dialog_resource_reply": {
+        "evidence_id": "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
+        "report": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
+        "original_script_entry": "S44(1,0) name/dependency/CRC, not proof of original Server first-login policy; nNewJoin01 lacks Main and is MerchantTalk hook, PaperDialog02 requires external ClientReply",
+        "native_gui": "not-run",
+        "quest_reward": "not proven"
       }
     },
     {
