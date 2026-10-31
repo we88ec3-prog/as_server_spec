@@ -2664,6 +2664,217 @@
         "ev_a029_20261031_native_c26_password_change_static"
       ],
       "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md"
+    },
+    {
+      "id": "CT-100",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "character-create-without-prior-c03-guard",
+      "requirements": [
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-S02",
+        "PKT-C15"
+      ],
+      "input": {
+        "kind": "server-auth-domain-synthetic-plus-native-e2e",
+        "reference": "05-conformance/native-creation-gate-test-plan.md",
+        "cases": [
+          "loggedIn=null but valid admin-created account+password direct C02",
+          "loggedIn=null with wrong password or nonexistent account",
+          "loggedIn=A but direct C02(B,correctBpassword) must use B independent proof",
+          "valid C02 then C04 on stale generation, different connection or credential-version mismatch"
+        ]
+      },
+      "expected": "C02 existing account+password match creates creation-only proof without any C03 logged-in Session and may authorize same connection/generation C04; cannot create account, grant world access or accept name-only/invalid credential. Private Guard still requires loggedIn: planned code update pending confirmation, native fail reply/status A-027/028 unknown.",
+      "evidence_kind": "designed-not-implemented",
+      "analysis_dependency": [
+        "A-027",
+        "A-028"
+      ]
+    },
+    {
+      "id": "CT-101",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "monster-top-damage-party-full-exp-personal-loot",
+      "requirements": [
+        "R-010",
+        "R-012",
+        "R-033"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-S13",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "input": {
+        "kind": "server-domain-damage-party-reward-ledger",
+        "reference": "05-conformance/party-monster-reward-test-plan.md",
+        "cases": [
+          "party A 60+40 vs party B solo 90 -> A wins, both full EXP",
+          "party member 0 damage still eligible if winner party member",
+          "each eligible member independent loot resolution exactly once",
+          "loser members zero reward",
+          "damage replay, duplicate death, reconnect/restart and new respawn life",
+          "tie, join/leave, offline/cross-map explicitly pending policy"
+        ]
+      },
+      "expected": "Sum only effective server damage per party per monster life, single highest party owns reward; each winner member gets 100% monster base EXP (no split) and exactly one independent loot-table resolution (not guaranteed item); other parties none, idempotent per life+character, unresolved eligibility/ties not silently guessed.",
+      "evidence_kind": "user-decided-server-domain-not-implemented",
+      "analysis_dependency": [
+        "A-014",
+        "A-009",
+        "A-025",
+        "A-007"
+      ]
+    },
+    {
+      "id": "CT-102",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "tutorial-admission-refuse-noop-repeatable-npc",
+      "requirements": [
+        "R-013",
+        "R-031",
+        "R-034"
+      ],
+      "packet_ids": [
+        "PKT-C43",
+        "PKT-S44",
+        "PKT-C6C"
+      ],
+      "input": {
+        "kind": "server-script-state-machine-plus-original-native-ui",
+        "reference": "05-conformance/tutorial-refuse-reask-test-plan.md",
+        "cases": [
+          "click recruiter choose REFUSE -> only dialog closes, no state mutation",
+          "reclick recruiter and reask after refusal multiple times",
+          "later choose ACCEPT -> authorized acceptance not automatic quest completion",
+          "two players reply separately, shared NPC stays live",
+          "duplicate/stale C6C close/refuse and disconnect"
+        ]
+      },
+      "expected": "REFUSE yields no Quest/Admission/Onboarding/reward/EXP/item/map/Actor side effects and never permanently disables recruiter; each new click can open new context with same choice. C6C close not a quest completion event. Native click->script binding remains unverified.",
+      "evidence_kind": "user-decided-domain-plus-resource-intent-not-implemented",
+      "analysis_dependency": [
+        "A-012",
+        "A-023",
+        "A-026"
+      ]
+    },
+    {
+      "id": "CT-103",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "original-newuser-tcp-disconnect-root-cause-and-transport",
+      "requirements": [
+        "R-025",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "server-source-baseline-plus-synthetic-and-native-diagnostic",
+        "reference": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
+        "cases": [
+          "baseline live C02→LoginWireSession.Close with zero S02 frames",
+          "C04→Close with zero S02 frames",
+          "C15 empty→Close",
+          "first decoded Client opcode and phase/region vs UI popup, H0..H4",
+          "tcp close reason explicit/protocol/idle/peer",
+          "region2..4 4-string+flag, others 3-string, unknown region failure"
+        ]
+      },
+      "expected": "Root cause from source distinguished from observed native popup; instrument sanitized trace, show exact C02-before/after/C04 or C15 close origin. Future correct C02 path must not unconditionally Close valid account+password, preserve strict protocol fatal close.",
+      "evidence_kind": "server-source-confirmed-and-user-reported-popup; native-packet-trace-not-run",
+      "analysis_dependency": [
+        "A-020",
+        "A-021",
+        "A-027",
+        "A-030"
+      ]
+    },
+    {
+      "id": "CT-104",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "newuser-business-errors-native-s02-compatibility-and-c15",
+      "requirements": [
+        "R-025",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "server-auth-domain-negative-plus-native-ui-validation",
+        "reference": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
+        "cases": [
+          "existing account wrong password",
+          "account nonexistent, temporary or permanent ban",
+          "existing character, duplicate or illegal name, bad appearance",
+          "S02 nonzero branch state0x1d/state0x1e must display/native focus then send empty encrypted C15",
+          "NAME/E-MAIL required field and per-region UI",
+          "C15 late/stale must not affect committed character"
+        ]
+      },
+      "expected": "No Account/Character or illegitimate draft on business reject; known native nonzero S02 error/message produces meaningful Client failure and expected C15 without being reported as generic network disconnect where original UI supports it; unknown status must never be guessed, fail-closed documented.",
+      "evidence_kind": "designed-and-native-code-mapping-pending",
+      "analysis_dependency": [
+        "A-027",
+        "A-028",
+        "A-030"
+      ]
+    },
+    {
+      "id": "CT-105",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "original-client-direct-create-c02-c04-two-s02-commit-relogin",
+      "requirements": [
+        "R-025",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-C03",
+        "PKT-S03",
+        "PKT-C10"
+      ],
+      "input": {
+        "kind": "sqlite-postgres-synthetic-separate-from-original-client-manual-e2e",
+        "reference": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
+        "cases": [
+          "admin preprovisioned correct credentials direct NewUser without prior C03",
+          "two-stage S02 success with C04 five bytes, atomically persisted Character and return original login UI",
+          "C02/C04 disconnect/retry/cancel and independent Login C03 obtains created Character",
+          "same request replay, stale generation, password version changed, duplicate/invalid names",
+          "original UI E-MAIL optionality and region tested with same EXE hash"
+        ]
+      },
+      "expected": "Original unmodified Asgard.exe completes C02→S02(0)→C04→S02(0), character durable exactly once; native UI returns to login and later C03/S03/C10 accesses the saved character. Business auth negatives do not impersonate protocol disconnection where native failure reply known. Native acceptance remains not-run until actual client capture.",
+      "evidence_kind": "designed-not-implemented",
+      "analysis_dependency": [
+        "A-021",
+        "A-027",
+        "A-028",
+        "A-030"
+      ]
     }
   ]
 }

@@ -61,3 +61,14 @@
 - **A-028**：查 C02 認證成功後 S02(0)→C04；C04 的 S02 非零錯誤、C15及 UI 回登入。Client 研究不必還原 Server 密碼 hash、創角帳務策略。
 - **新增 A-029／P0**：使用者確認**遊戲內有更改密碼 UI**，定位開啟和送出、原密碼/新密碼/再次確認、本地欄位限制、Client C2S opcode/body、S2C status/message、成功/失敗/取消/retry與 region；此資訊不能猜或自造 Client opcode。玩家正常密碼修改必須走這個 UI，與 Admin 授權救援 reset 分離。
 - 正式 **CT-097 direct-create，CT-098 native change UI，CT-099 change security**，皆 planned/not-run。現有 EXE 已足夠展開靜態追蹤，**目前沒有可證明缺少的具名額外資源檔**。
+
+## 新需求（2026-10-31）：Guard、隊伍獎勵與拒絕入學
+
+- **A-027/A-028（P0 增量）**：不再以先登入 C03 作前置，追原始 NewUser C02 UI 的帳號/密碼真欄位，以及錯密 S02 非零錯誤與 C04 提交結果。Server 的現有 `CharacterCreationAccountGuard.cs` 仍以 loggedIn 驗證，是**未實作規劃**而非 A 研究已完成的 native 行為；CT-100。
+- **A-014（party Client I/O）＋ A-009/A-025（damage/death）＋ A-007（EXP/Item 顯示）**：追 native party id、組隊名冊與接受/離開/解散更新，怪物血量/死亡及經驗、道具取得的 UI/wire。**最高傷害隊伍獲獎＋隊伍全員100% EXP＋每人一次獨立掉寶**是使用者指定 Server policy，不用 A 還原原服分配公式；CT-101。特殊 tie、離線、跨圖、入退隊策略需後續確定。
+- **A-012/A-023/A-026**：追 `nNewJoin01.dat STATE=REFUSE` 的原版選項→C6C、NPC 重點擊→Script 重新開啟、招募員 NPC→Script 綁定。拒絕入學**零領域副作用且可無限次再問**是 Server 已決策政策，不得被舊「REFUSE 可能永久旗標」猜測覆蓋；CT-102。原版 NPC→Script、UI 動態仍未驗收。
+- 詳 [權威新決策](../02-server-planning/three-policy-adjustments-20261031.md)，新場景 SCN-018/019，需求 R-033/034；所有 native Client CT `not-run`，本次沒有新增已確認缺少的檔案。
+
+## P0 補證 A-030：創角送出後連線中斷（2026-10-31）
+
+已核對 private as_server_roy/main@ad84f9，當 C02 或 C04 到達 LoginWireSession.HandleAsync 時立刻 return Close()，不發 S02 也不驗 DB；這是源碼確定的行為，**使用者實機 popup 首包斷在哪裡仍未有 TCP trace**。A-030 不是重新分析整個創角協定，請沿 A-021/027/028/020 已有的 C02 field1/field2+CONFIRM，針對 ID、PASSWORD、CONFIRM、NAME、E-MAIL 真實控件來源、EMAIL 空值必填 gate、region0/1/2..4 serializer、region!=0 本地 min12，以及 S02 非零時 NewUser UI/C15/retry/post-C04 回登入做精準補證。S02 status3 現在只有登入的本地定義，不能偷當創角密碼錯。**無已確認的新缺檔**，若需要 Label resource 必須查出原始 loader 的確切檔名。詳 [A-030](A-030-native-newuser-disconnect-fields.md) 及 [修正計畫](../02-server-planning/native-newuser-disconnect-remediation-20261031.md)。

@@ -98,7 +98,7 @@
       "system": "SYS-COMBAT",
       "priority": "P1",
       "title": "戰鬥與死亡",
-      "acceptance": "命中／傷害／資源消耗／死亡／復活為可測試的權威狀態轉移。",
+      "acceptance": "命中／傷害／資源消耗／死亡／復活為可測試的權威狀態轉移。 同怪一個 life_generation 結算共享場景有效傷害，依隊伍聚合並保護傷害/死亡去重（R-033）。",
       "baseline": "待分析",
       "status": "specified",
       "stage": "requirement"
@@ -118,7 +118,7 @@
       "system": "SYS-NPC",
       "priority": "P1",
       "title": "怪物與NPC",
-      "acceptance": "生成、AI、仇恨、互動、掉落及重生；AI不阻塞網路迴圈。",
+      "acceptance": "生成、AI、仇恨、互動、掉落及重生；AI不阻塞網路迴圈。 擊殺獎勵由總有效傷害最高隊伍取得，隊伍成員全額 EXP 並各自一次掉落解析（R-033）。",
       "baseline": "待分析",
       "status": "specified",
       "stage": "requirement"
@@ -128,7 +128,7 @@
       "system": "SYS-QUEST",
       "priority": "P2",
       "title": "對話與任務",
-      "acceptance": "對話選擇、任務狀態、條件與獎勵可保存；重送不得重複領獎。",
+      "acceptance": "對話選擇、任務狀態、條件與獎勵可保存；重送不得重複領獎。 新手招募 NPC 選不入學應零進度/資產/地圖副作用、可再次點同 NPC 詢問（R-034）。",
       "baseline": "待分析",
       "status": "specified",
       "stage": "requirement"
@@ -262,12 +262,15 @@
       "system": "SYS-CHAR",
       "priority": "P0",
       "title": "已預建無角色帳號首次創角",
-      "acceptance": "創角是獨立原版 Client 入口，不必先從 C03 登入；玩家在創角 UI 所輸入的 existing Account 名稱＋密碼，均須通過同一 Server CredentialVerifier 且帳號未停權，才可建立只供創角的授權 proof，依 C02/S02/C04/S02 一次性原子保存 Character。不存在／錯密／停權應回原生 UI 錯誤且不可建立 Account/草稿/角色/Grant。各 region C02 欄位與原生錯誤碼待 A-027/A-028 驗證。",
+      "acceptance": "創角是獨立原版 Client 入口，不必先從 C03 登入；玩家在創角 UI 所輸入的 existing Account 名稱＋密碼，均須通過同一 Server CredentialVerifier 且帳號未停權，才可建立只供創角的授權 proof，依 C02/S02/C04/S02 一次性原子保存 Character。不存在／錯密／停權應回原生 UI 錯誤且不可建立 Account/草稿/角色/Grant。各 region C02 欄位與原生錯誤碼待 A-027/A-028 驗證。 明確要求調整既有 CharacterCreationAccountGuard：合法 C02 本次帳密驗證通過時，loggedIn=null 不能導致拒絕；不得改成只靠 C02 帳號名稱認證。 針對原始 Client 創角送出 generic reconnect，必須先以去敏 trace 定位 C02 前/後或 C04 後，再以已證 S02/Client UI 回覆一般業務拒絕；C15 取消原子清理，成功返回原生登入。EMAIL/NAME 欄位及區域必填 gate 需 A-030 明確查證。",
       "baseline": "使用者明確區分兩個入口；C02 pre-C03 已有 Client 靜態證據，但 field1/field2 精確身分/密碼、錯誤訊息 native E2E 未證",
       "status": "specified",
       "stage": "requirement",
       "evidence_kind": "designed",
-      "creation_direct_password_credential_policy": "02-server-planning/three-native-account-entry-policy.md"
+      "creation_direct_password_credential_policy": "02-server-planning/three-native-account-entry-policy.md",
+      "guard_runtime_correction": "Private as_server_roy@ad84f9f CharacterCreationAccountGuard.cs still requires loggedIn; latest requirement explicitly must NOT depend on C03 logged-in Session. Verify C02 submitted existing account+password to create creation-only proof; no login/world grants.",
+      "native_disconnect_remediation_plan": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
+      "current_private_runtime_gap": "as_server_roy main ad84f9fb: LoginWireSession.HandleAsync case C02/C04 unconditionally returns Close() with no S02 or DB auth. CharacterCreationAccountGuard still expects loggedIn but live C02 does not invoke it."
     },
     {
       "id": "R-027",
@@ -319,7 +322,7 @@
       "system": "SYS-QUEST",
       "priority": "P1",
       "title": "完成教學、可選獎勵與離開",
-      "acceptance": "依原 Client 可證明的任務／互動條件完成教學、持久化進度、一次性授予已確認的獎勵，並轉到合法地圖；重登一致。",
+      "acceptance": "依原 Client 可證明的任務／互動條件完成教學、持久化進度、一次性授予已確認的獎勵，並轉到合法地圖；重登一致。 選不入學不是完成、轉圖、永久失去入學資格；再點 NPC 可重問，稍後仍可接受。",
       "baseline": "設計需求，原 Client 玩法待 A-023..026 取證",
       "status": "specified",
       "stage": "requirement",
@@ -336,6 +339,32 @@
       "stage": "requirement",
       "evidence_kind": "designed",
       "policy_source": "02-server-planning/three-native-account-entry-policy.md",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "R-033",
+      "system": "SYS-COMBAT",
+      "priority": "P1",
+      "title": "多人共享怪物由最高傷害隊伍獨享獎勵，隊員全額經驗與各自掉落",
+      "acceptance": "同一 Monster life 的 Server 實際有效傷害按 party_id（單人視為一人隊伍）累加，死亡時總傷害最高的唯一隊伍獲獎；該隊每位符合隊伍名冊的成員取得完整 100% 怪物基礎 EXP（不平分、不按個人輸出）；每位成員各獨立 resolve 一次怪物 loot table（不保證中獎），其他隊伍零 EXP/掉落；傷害事件、死亡、每角色 EXP、每角色個人 loot ledger 均一次性／重啟可恢復。同傷害、離線/跨圖與中途隊伍變更策略需實作前確定。",
+      "baseline": "User-decided 2026-10-31; Server-only designed allocation; party Client A-014 and XP/item renderer unverified",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed",
+      "design_source": "02-server-planning/three-policy-adjustments-20261031.md",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "R-034",
+      "system": "SYS-QUEST",
+      "priority": "P1",
+      "title": "新手教學拒絕入學不改狀態，NPC 可再次點擊詢問",
+      "acceptance": "選招募員不入學/STATE=REFUSE 時只結束當前對話，不寫入任何入學、Quest、獎勵、角色進度或傳送狀態，也不把 NPC 設不可互動。玩家可重複點同 NPC 重新收到合法新 Dialog/ScriptRun、反覆拒絕或改選入學；其他玩家互動不受影響。C6C(2/4) close 不是接受或完成。",
+      "baseline": "User-decided 2026-10-31; nNewJoin01.dat STATE=REFUSE known script intent, native NPC/GUI mapping pending",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed",
+      "design_source": "02-server-planning/three-policy-adjustments-20261031.md",
       "native_client_validation": "not-run"
     }
   ]

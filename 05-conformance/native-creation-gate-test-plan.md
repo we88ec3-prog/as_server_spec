@@ -14,3 +14,11 @@
 |已登入空角色是否自動開創角 UI|**非產品功能的必需條件**，只作補充觀察|原版 CT-054 保留研究結果，不再作直接創角開放先決|
 
 **狀態**：本文件是規劃。Server / Client 都未就此要求重新測試，不能填原版錯誤 S02 數字、創角 UI 實際訊息或改密碼封包。詳 [安全權威流程](../02-server-planning/three-native-account-entry-policy.md)。
+
+## CT-100：無先前 C03 的創角 Guard 取代驗收（planned / not-run）
+
+使用者再次指出私有 `CharacterCreationAccountGuard.cs` 仍要求 `loggedIn`。測試必須先證明是**Guard 的 Auth 設計**正確改動，而非單純刪 null 防護：未登入 C03、C02 正確既有帳號＋密碼→驗後產生 creation-only proof、可合法 C04 原子建角；未登入但錯密→拒絕且無草稿／角色／S02(0)／WorldGrant；先登入 A 但在 C02 填 B 並提供 B 正確密碼→授權歸屬必須依本次 B 憑證判定（如已存在衝突應守其他規則），**不可沿用先前 A 身分**；先登入 A 但 C02 密碼錯→仍拒絕。C04 確認 proof 的 owner/account/credential_version/connection/generation/TTL，過期/跨連線/replay 都拒絕。原版 C02 field1/field2 和錯密 S02 status 仍需 A-027/028 Client 證據，Native E2E `not-run`。詳 [新決策](../02-server-planning/three-policy-adjustments-20261031.md)。
+
+## 新增 CT-103..105：提交後斷線與一般驗證錯誤（planned/not-run）
+
+Server main@ad84f9 的 C02/C04 會 return Close()，**不會驗證輸入的 Account/Password，更不會發創角 S02**；C15 empty 亦 Close。這是程式來源事實，不是原版 Client popup 已錄影封包。完整測試請參見 [斷線驗收矩陣](native-newuser-disconnect-acceptance-plan.md)：區分 C02 前／後／C04 後／C15、實際資料庫及原生 UI。EMAIL 是否必填與 NAME/C02 source 需 A-030；錯誤 status 不得套用 C03 的自訂 status3。原 Client E2E 未執行；不得以合成 PASS 充作實機完成。

@@ -48,3 +48,9 @@ ADR-007 的共享地圖/Actor authority 不變：**Human** S33/S06/S11，**非 H
 ## 最新 A-004/A-011 補證
 
 A-004 已追原生 ObjectRegistry `0x4EAC30`，A-011 已確認 S07 kind1/2/4→MonsterObject 與 `Monster%02d.dat` (**不含 @**) 的 Library/Slot 映射。多玩家仍共用同一 world/map 的 NPC/怪物，Client 物件 ref 不等於 Server EntityId；Native CT-082～086 尚未執行。
+
+## ADR-008（2026-10-31）新增：隊伍總傷害決定經驗／掉寶歸屬
+
+**本節覆蓋上文「組隊經驗／掉落未有使用者決策」的歷史文字**。最新正式決策：同一隻共享怪物的有效傷害**按隊伍相加**（未組隊=單人隊伍），**總傷害最高的一隊獨占獎勵**；**該隊每人取得 100% 完整經驗**、**每人獨立解析一次掉落表**，不依個人傷害比例、也不平分。怪物死亡／復活只有一個全地圖事件，獎勵卻是隊伍 winner snapshot 下每個角色各一份 once-only ledger。零有效傷害不發；其他隊伍不領。**同傷害平手、入/退隊中途、離線/跨圖成員資格仍需在實作前明確決策**。詳 [三項新決策](three-policy-adjustments-20261031.md)／[多人獎勵驗收](../05-conformance/party-monster-reward-test-plan.md)。
+
+原版 Client party membership/protocol 仍需 A-014，傷害／死亡需 A-009/025，掉寶 UI/物品發送需 A-007/013；這是新 Server 政策，不宣稱原版遊戲也如此分配。**已實作的 DEV-070-M 共享 Actor 是基礎，但獎勵 Domain 未因此自動完成。**

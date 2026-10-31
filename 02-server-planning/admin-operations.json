@@ -223,5 +223,15 @@
     "requires_prior_login_for_newuser": false,
     "direct_newuser_credentials": "verify existing account+password against same Server credential store",
     "implementation_status": "planned-only"
+  },
+  "creation_entry_guard": {
+    "latest_policy": "no prior C03 login session; verify C02 account AND password against existing store, create scoped proof",
+    "private_code_gap": "CharacterCreationAccountGuard.RequireMatch currently requires loggedIn; as_server_roy code not modified",
+    "required_analysis": [
+      "A-027",
+      "A-028"
+    ],
+    "ct": "CT-100",
+    "status": "spec-only-runtime-not-implemented"
   }
 }

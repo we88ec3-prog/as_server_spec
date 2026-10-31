@@ -122,7 +122,15 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 
 使用者確認**登入、創角兩獨立 UI 入口**；管理先建立 Account，創角直接以既有帳號＋密碼對後端同一 CredentialStore 驗證，錯誤需回 UI 而不寫角色，**不要求先 C03**。另原版有**更改密碼 UI**，玩家正常修改必須用此入口，管理 `credential-reset` 改定位為救援。新增 R-032/A-029/ONB-07/SCN-017/CT-097..099 與三入口安全、原生測試文件；A-027需核 C02 field1/field2 與 native error status，A-029需定位 change-password opcode/回覆，未證一律 unknown。維持4～8密碼、原 Client不修改、僅設計不實作、後續 Web 實作前必須確認。
 
+## 2026-10-31 使用者最新三項規劃覆蓋：C02 Guard、最高隊伍傷害、拒絕入學可重問
 
-## 2026-10-31 — A-029 原生改密碼封包與 UI / roy1
+核對私有 `CharacterCreationAccountGuard.RequireMatch(loggedIn,...)` 仍需已登入身份，標記 DEV-040 未實作最新要求：創角直接核對 C02 既有帳密後發限創角授權 proof，免 C03；原生失敗碼待 A-027/028。共享怪同 Monster life 依**隊伍總有效傷害**選唯一贏家，贏家**所有成員每人完整 EXP + 各人一次獨立掉寶判定**， ledger 冪等；party/tie/offline/中途異動保留實作前決策。 `nNewJoin01 STATE=REFUSE` 代表 Server 不入學 no-op、NPC 可再點擊/再拒絕/稍後接受，無其他角色副作用。新增 R-033/034、SCN-018/019、CT-100/101/102，保留現有 A-014/A-009/025、A-012/023/026 精準取證，不新 branch，不改程式，不宣稱 native CT passed。
 
-已由 Asgard.exe 原件 RVA/RTTI 和 GUI producer 確認 CChangePasswordPacket C26，三個 string8 = (帳號、舊密碼、新密碼)，確認欄只本地比較；LoginDialogPane event12→C26 / event13 cancel，兩個本地拒絕（confirm mismatch/old=new），S02 generic callback selector2 和 status 分派已追，C26 專用成功/錯誤 status 未得原服證據。新增 A029 報告/契約、19 x86 靜態簽章＋合成 codec 工具、PKT-C26 / PKT-S02、SCN-017、CT-098/099、evidence/traceability。A029 integrated/partial，原生 GUI E2E not-run；不改 Client、Server/DB，不建立分支。
+## 2026-10-31 原生創角「連線中斷」P0 調查與規劃
+
+讀取 private as_server_roy@ad84f9 source 確認 LoginWireSession C02/C04 進分支直接 Close、不送 S02、不驗帳密；C15 empty 也 Close，transport 在 CloseConnection 時退出 Socket。創角 Guard loggedIn 依賴是另一個尚未接到 live handler 的程式缺口。原本 A-021/A-027/A-028 的 Client state0x1D→0x1E、C15、region serializer 照舊；原本使用者觀察的連線中斷究竟在 C02 前後仍無 live trace，保留 unknown。新增 A-030 精準核查 ID/PASSWORD/CONFIRM/NAME/E-MAIL 逐 region UI/wire、E-MAIL 必填、S02 native fail UI/取消/重試、第一個斷點；新增 CT-103..105，規劃 DEV-CREATE-01..10 及分階段通過條件，補 machine-readable ONB-02/R-026/SCN-008/Client flows/readiness/traceability。無私有程式或 DB/Client 異動；未來實作必須向使用者確認範圍。
+
+
+## 2026-10-31 task_a/roy1 與 main 重新同步：A-029 原版改密碼研究
+
+保留 main 的 A-030 新需求、DEV 創角斷線規劃與各 CT；合入 roy1 已完成 A-029：原生 C26 三字串/登入介面 callback，S02 共用回覆但改密錯誤碼 unknown；A-029 integrated/partial、Client GUI not-run。A-030 接續研究 C02 NAME/E-MAIL 原生欄位和 S02 非零顯示，未修改 Server/DB/Client。

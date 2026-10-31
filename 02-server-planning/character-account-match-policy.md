@@ -14,3 +14,7 @@
 **歷史舊政策已作廢**：先前本檔要求 `C03 已登入 AuthContext`、C02 欄位名稱與它相同才允許建角，**與使用者確認的雙入口不相容**。現在帳號一致性改成「本次 C02 帳號/密碼實際驗證結果指向 Server 同一筆 existing Account」，而不是「本次 C02 名稱必須等於先前登入帳號」。匿名只送帳號名或跳過密碼的 C02 仍必須拒絕；若不能確認密碼欄位原生 wire，暫不得開放創角成功。
 
 [原生驗收](../05-conformance/native-creation-gate-test-plan.md) · [A-027 證據](../03-analysis-requests/A-027-roy1-identity-ui-security.md)。
+
+## 2026-10-31 再確認：Guard 不需 C03（尚未改私有實作）
+
+規格改為 C02 submitted **帳號和密碼**直接驗 existing Account 的 hash/status，無先前登入 `loggedIn` 要求；Server 可以建立 creation-only proof，但不直接建立 LoginSession。私有 `as_server_roy/main` 的 `CharacterCreationAccountGuard.RequireMatch` 仍是舊規則，屬明確的**DEV-040 待改項**，不能把本規格當成程式已修改。見 [新決策](three-policy-adjustments-20261031.md) 與 CT-100。

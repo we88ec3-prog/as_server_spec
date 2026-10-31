@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "03b5a6f7f3a9a9666688bc7ec8e19a287f3119dbab4b466c5f5fdd1feeea5ff5"
+      "sha256": "d9c809381482dbe3eca5d0f37bc099e5633383cf19f59a7dd78cd85f1b7a67c8"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -45,7 +45,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "bcb35a7fac97c044cef94a3fb0bd58662883837d873302c5f4d242639c6d7fa8"
+      "sha256": "7f7b6a44eab4f4ffeaae2abd5eb4c90727a50097d6abc83a6752737704101bf4"
     },
     {
       "path": "00-governance/workflow.md",
@@ -61,11 +61,11 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "d552f0101ae53a7115c4811efea84984f0a24dca6f0051efa9be86ac28eb33f3"
+      "sha256": "9e122cc77c4a618fd3b0b8b51526af49850a83a84f0a2ca50d577e9c29524f85"
     },
     {
       "path": "02-server-planning/admin-operations.json",
-      "sha256": "df881e9d386cb2ad03f7b17f20738fa6d4b00c71c247b13ab55c6a5964fd82e5"
+      "sha256": "6087ea3c093a678c24e5a4ee9d2efd34a4efabc70c8b62e4f929b89f16fce5d4"
     },
     {
       "path": "02-server-planning/admin-web-management-interface-plan.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/character-account-match-policy.md",
-      "sha256": "e20752538cdfb6ec3e0a7488e315bf0920ba97f6c54bf1216c2a86b39faf62de"
+      "sha256": "360043ce03d3aa92fab4427d38f681160cf119e33de4b86266704b473f091c9f"
     },
     {
       "path": "02-server-planning/client-io-delivery-plan.md",
@@ -89,7 +89,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "781f366e944588cf2852414a1eea822e7186927d083fc2946b938f544e816f45"
+      "sha256": "666a7aa80e588cf64bea8e0d1e9dd437f1c045e5d4c624b5193d182b9fc4d295"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -125,7 +125,7 @@
     },
     {
       "path": "02-server-planning/native-creation-next-iteration.md",
-      "sha256": "2e2fc7781c370d72880e839b452692d1ee184c67e1ee92b1e09f542bb33b87ec"
+      "sha256": "59108a829c8129c5f248762b03f9236e86b2449afe94344b071e0f4ddedfbb89"
     },
     {
       "path": "02-server-planning/native-game-password-4to8-policy.md",
@@ -136,8 +136,12 @@
       "sha256": "282578be220e1bab856657cb7dcb29874fc86ae7b32a3527de179f76ca8c6b61"
     },
     {
+      "path": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
+      "sha256": "5f70e0999bf6022d66119cf43ad49aea579ccedd2511d6b62d4191b8112aecf7"
+    },
+    {
       "path": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
-      "sha256": "17f8f16bceeb31801418fe920ca9c8136113c7f78917ec015aef63c9db6f25e6"
+      "sha256": "3c671cc624b07951807faea6106cc1453f97e194f42856782ccef58ba9922370"
     },
     {
       "path": "02-server-planning/novice-school-admission-flow.md",
@@ -149,11 +153,11 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "bee9c07a6267bfd81c47d57720954472a604e52378bbd4f87ad2c32d748a0601"
+      "sha256": "7e17ffbfbffbc179d31c815e9c5b310cd2535968a2284913d52797a24d6cbc93"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
-      "sha256": "5f7f4badc844b85ad1a345483ded1506472b344767e413d58cd79532ed15928a"
+      "sha256": "455d12d9af1cf980924951b53d7fcf332db5bcd9834fae7e6f1c6e2b7f1a175b"
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
@@ -173,11 +177,11 @@
     },
     {
       "path": "02-server-planning/shared-map-multiplayer-contract.json",
-      "sha256": "d789e043c856ba99b2496e3838ce26a2ad0fc034bc3e87e8f0598007a39cd434"
+      "sha256": "713ecb60cc4685b8829e47eae46abc5d8c554fed2be4751bafc0a74b5fc26daa"
     },
     {
       "path": "02-server-planning/shared-map-multiplayer-contract.md",
-      "sha256": "0ec5bd6885d29ef482bd1ac6616da74b0a92385ef4e93818b8fd71c9f00cc07c"
+      "sha256": "0c68688a7bcc5c4c9abf8f6cedc68ca0ade45cdc5acc37b0ce7cabd043945379"
     },
     {
       "path": "02-server-planning/social-contract.md",
@@ -189,7 +193,11 @@
     },
     {
       "path": "02-server-planning/three-native-account-entry-policy.md",
-      "sha256": "a3653007a947298aba18f3835c76854dde81805e804709a4f70d27de5919f57f"
+      "sha256": "675edc1074157259f01ae2663a26f0c7abde274d1af5c6cc81f09d73bdf23315"
+    },
+    {
+      "path": "02-server-planning/three-policy-adjustments-20261031.md",
+      "sha256": "e0d4f57d312a74960b78c63a2224396371e602b7aa50cfc025fdc6d074ffa847"
     },
     {
       "path": "02-server-planning/tutorial-completion-conditions.json",
@@ -201,7 +209,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "1145c28e2cf48fd7a1a6c208afe49f141b1a0f5b24c10c12328c16e658c8fb66"
+      "sha256": "ba122c7eb1f241ec169f2ed367cf163dabb3b478617fd191a50ce9f4e7a0caa9"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -288,8 +296,8 @@
       "sha256": "cff4b24d2c3517c36814e7d7f24986595e0f8dcf5f4bd7d02ecebe03897faaf4"
     },
     {
-      "path": "03-analysis-requests/A-029-roy1-native-password-change.md",
-      "sha256": "eae4e331458e4742715dd2d9fa014839e5dfa47701da41778d33e6fc95c239b1"
+      "path": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "sha256": "0609f78271b0ef45163dec27c2fd7375ad4213606134c00adf085b9f25f507ea"
     },
     {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
@@ -297,7 +305,7 @@
     },
     {
       "path": "03-analysis-requests/next-client-io-evidence.md",
-      "sha256": "c6c30d7333391e8ee828c24ceffa4830294a8ca2ecfdf5e1f37d9261e027f158"
+      "sha256": "f6e348c9719b538eb2ac6e8d1b6a642b10ab77c1d62b2d743213a1cf87572aa6"
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
@@ -305,11 +313,11 @@
     },
     {
       "path": "03-analysis-requests/post-merge-analysis-queue.md",
-      "sha256": "2d355d07661b9ca36f2aa162a9452dd810f5e6b1e9805730db812d8531e2a63f"
+      "sha256": "7cb05a109bac0c4c032bb0636d0939422c40416dcefebe7d0df804938c7e78ac"
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "cdd69759ae858f0e0203c80859d95af18c4aabdd2ab254222ae317b7e6ef6659"
+      "sha256": "82173b9fd8352bd97c0dacaa6444b8839cfeace0fb677290a77e79fcfcd8c80d"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -317,7 +325,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "364214414de9e49dedf053efa4589ec2254261497abe7cb1091930be5f611c7c"
+      "sha256": "38e0c70c6b28a9922322b35a11486e6ef8dee87670f05e245eba67a3e8f8b395"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -404,10 +412,6 @@
       "sha256": "6e1e71e357173c93dded6be4642b451d3951fdf1c104696957acf87c90f771d8"
     },
     {
-      "path": "04-analysis-integration/A-029-native-password-change-contract.md",
-      "sha256": "170b6e40c2208f1f6c944320385dc976bd3db0b010ef01daf0728a4fcf40a1f5"
-    },
-    {
       "path": "04-analysis-integration/A015-A016-A027-A028-validation.md",
       "sha256": "058e3997cfcb8c457bc9f9cf99eb87e8253ed87cee2ded50a6ea785847ef949c"
     },
@@ -437,7 +441,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "9a5332f03a5bb35115f5b1ea72631567852c44276bc8e5d566c4ffaa405c9b85"
+      "sha256": "db01987643fe98d4a4db124b919787598f2b1fb82367f151c04d2a84ac53bb46"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -465,7 +469,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "d7b514da591d2b80f761e8e0a23e43f955e4e43194f611ed892bae4f5275251d"
+      "sha256": "c7e8d867e14b8046518767b1413b4dab685699962cc39c28ee6994e36c727a27"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -489,7 +493,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "650d6f7013e1656833d7205dc83166e65a68a0ca84202fb43690ac9822823b40"
+      "sha256": "13bf0013fe8f48217e296c1522c00a9f93d8edee74fa1e07b4dc74db0b73ea34"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -561,7 +565,7 @@
     },
     {
       "path": "05-conformance/account-password-native-change-test-plan.md",
-      "sha256": "4a212558544283620727fdfecd812f1dbd749a4f8684005d258161b853d1b6d5"
+      "sha256": "6b3bfd5053835648d7a3f71e5f1d58622430c987a92ee0a341b0320b457c194a"
     },
     {
       "path": "05-conformance/admin-web-management-acceptance-plan.md",
@@ -593,7 +597,11 @@
     },
     {
       "path": "05-conformance/native-creation-gate-test-plan.md",
-      "sha256": "339cba58b70e248cba70977d0847859ff814e99263362ab307350898722fa71e"
+      "sha256": "833e6ab2792fb21d49d04bfaf39626adbfb93e484ba94ff0e4bf39d7556d03e2"
+    },
+    {
+      "path": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
+      "sha256": "d8bc02df08b495134608321e617aa74313134a5a5e190fe430f45e12806c57b5"
     },
     {
       "path": "05-conformance/new-asset-validation-plan.md",
@@ -604,8 +612,16 @@
       "sha256": "f8ff54f07d80d4f2c5b51b269abc627fa56888a3230a2612db7e22f7c1f36a23"
     },
     {
+      "path": "05-conformance/party-monster-reward-test-plan.md",
+      "sha256": "f8335efcefc7b44f5ad1f9a636d7c8ef4085f6d6377d80ec3784022b53c6d8ae"
+    },
+    {
       "path": "05-conformance/shared-map-multiplayer-test-plan.md",
-      "sha256": "211178377dced49caa63c2d5c780d2cafb184cdf262ff86479581c1356b23648"
+      "sha256": "261184f674c96885f086cfb80e0c18dc1a84f4aa764f05e3c9fae0f77be0fd63"
+    },
+    {
+      "path": "05-conformance/tutorial-refuse-reask-test-plan.md",
+      "sha256": "a79f9b7f5d722d6d626ea9eea154bc92138a253d168c8d751477198546f26c84"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
@@ -613,11 +629,11 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "4c1f48b0cc957fc6af1b16d7189d10e75990aa8548d7bf2e2ebf0ebca622d7aa"
+      "sha256": "cf919ef1c30249283cd6449b04300ea5f7c00e137a00098abba20668cf4c3a92"
     },
     {
       "path": "README.md",
-      "sha256": "a7e43e69d974d397435f77d12cc53fa9f58a3c1488de582e52c053072a0c04c3"
+      "sha256": "73582e789bb3e16ac66972ce4d646e2fa83c02678c879f8223c54b9d75a6494e"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -930,10 +946,6 @@
     {
       "path": "tools/a028_newuser_response.py",
       "sha256": "900f6d08befd177fceb436a4724f0d30f565b9b1ff62f1bf39ed95279be02fc8"
-    },
-    {
-      "path": "tools/a029_password_change_contract.py",
-      "sha256": "1fb2fce18318e898084403ab28adb1ea16e63c014f87f0a5286314a2ecb628c0"
     },
     {
       "path": "tools/test_a015_content_probe.py",

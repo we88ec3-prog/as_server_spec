@@ -16,3 +16,7 @@
 |多角色同時 Join/Leave/MarkDead/Tick|單 Actor 版本序列化、無重複 Spawn/重複 reward /幽靈玩家；壓力下 Event queue 有界且可觀測|
 
 **Client E2E 的獨立出場**：在兩份原始 `Asgard.exe` 確認 A/B 互見、NPC/怪物同一顯示、死亡/重生及斷線、移圖，逐包保存 direction/opcode/body hash 與畫面；**未有 A-004/A-011/A-024 的 S→C/C→S layout 前不得假造封包**。個人 quest credit/loot/XP 尚無規則，不做成功測試聲明。
+
+## 最新隊伍傷害獎勵：CT-101（尚未實作）
+
+多人仍共享同一 Monster life/HP/Death；死亡時比較 **party aggregated valid damage**，得獎隊伍所有成員每人 **100% 基礎 EXP**、每人一次獨立 loot-table 判定。跨隊不能共享獎勵、重送/重啟不可重發；目前只規劃。隊伍有效成員/平手/入退隊與離線仍待界定。參閱 [詳細 CT-101](party-monster-reward-test-plan.md)。

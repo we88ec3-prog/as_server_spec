@@ -87,3 +87,14 @@ Roy1 A-012 補齊 C6C(1) 任務選項回覆的 ScriptRun context/key/value 與 C
 ## 新用戶決策：登入與創角是獨立入口，改密碼必須用遊戲 UI
 
 ONB-01 C03 登入原有 Account 及 ONB-02 C02 直接創角為**互不要求事先操作的兩個 Client 入口**；管理端仍獨占 Account.Create。創角要直接驗證本次 UI 的 existing 帳號＋密碼，錯密/不存在/停權應回原版可理解錯誤、不建任何草稿/角色/grant；不再要求先有 C03 AuthContext，原 C02 field1/field2 和錯誤 S02/status 待 A-027/028 native 證據。新增 ONB-07 玩家正常改密碼只走遊戲內原生 UI（A-029），管理端密碼 reset 僅救援。見 [主規格](three-native-account-entry-policy.md)；原版 Client 未修改、Server 邏輯修改尚未獲授權、Native E2E not-run。
+
+## 2026-10-31 三項新決策的交付欄
+
+- **ONB-02／DEV-040**：移除 **「先 C03 Authenticated Session」的必要條件**，改 `C02` 帳號＋密碼認證後限本次創角 proof；目前私有 Guard 仍使用 `loggedIn`，**尚未修改程式**；A-027/028 + CT-100。
+- **ONB-05／DEV-080**：怪物同 life 聚合每隊有效傷害、總傷害最高隊伍獨占、全員完整 100% EXP、各人獨立一次掉寶；其他隊伍無獎；需 party roster／winner/death/loot ledger；A-014/009/025/007 + CT-101。
+- **ONB-06／DEV-090**：「不入學」不修改進度/任務/資產/場景，可再次點 NPC 重新詢問，反覆拒絕後仍可接受；A-012/023/026 + CT-102。
+- 權威合併 [三項最新決策](three-policy-adjustments-20261031.md)；原生 Client CT 未執行，沒有修改私有 Server/Web/Asgard.exe。
+
+## ONB-02 / DEV-040-NATIVE：Client 創角斷線（2026-10-31，僅規劃）
+
+已核對 private Server 最新 source：C02/C04 一律 Close()（不發 S02），C15 empty 後 Close，TCP Host CloseConnection 即關 socket；CharacterCreationAccountGuard 的 loggedIn 要求另與產品政策不符，但 live C02 並**未執行 Guard**。優先在開發前做去敏 trace 辨 C02 前/後/C04 後/C15；後續改獨立 C02 AuthProof（無 prior C03）+ 欄位/地域 + 兩段 S02/C04/DB commit + C15 未提交清理 + native error mapping。A-030/CT-103..105 planned/not-run，正式 Server 實作仍需使用者另外確認。權威詳 [修正規劃](native-newuser-disconnect-remediation-20261031.md)。
