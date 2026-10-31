@@ -1,5 +1,8 @@
 # A-015／roy2 — 資料檔格式、語意與分享權利界線（BIN-first）
 
+> **2026-10-31 最新 MAP 座標／碰撞研究**：三個 MAP 原件已取得且獨立驗證 **494 地圖／7,701,805 tile**；原生 MAP tile 是 10B，Client 內部展開為 17B，index `x+y*width`。Client 有合法 tile 範圍檢查、48×32 畫面幾何，以及三種分離的碰撞相關資料（bit0、bit4 線段、獨立 u32 grid），但**原版玩家 passability/出生位置不可從 flags 自動推出**。詳見新增 [A-015 MAP 解析、碰撞與座標原件報告](A-015-map-coordinate-collision.md) 與 [CT-069/070](../../05-conformance/A-015-map-coordinate-test-plan.md)。以下歷史段落提到「未收到 MAP」的說明已被後續驗證取代。
+
+
 - 日期：2026-10-31；來自最新 `main` c544af35ceb7；現行既有 branch `task_a/roy2`，提交目錄 `task_a/roy2`（早期誤用 branch 已關閉 PR）。
 - 問題：R-016/SYS-CONTENT；清點 MAP、外觀 Human/YPF、Script、技能／物品資料的格式／欄位，給可重現的 **metadata-only** 抽查方式，釐清素材分享限制；下游 A-022/A-023/A-024、ONB-03、CT-018/CT-040。
 - 原始檔：`Asgard.exe` PE32 i386, 3,235,840 bytes, SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`；`Born.dat` 589 bytes, SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`。**未收到** Map0/1/2、Human 及原版技能／物品資源庫，原始完整客戶端配對版本仍不足。
@@ -121,3 +124,12 @@ python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat --json /privat
 ## 2026-10-31 研究範圍限定結案補正
 
 修正前面歷史文字中的「未收到 Map0/1/2」與「技能／物品與 Human 未研究完整」：三個 MAP 原件已全量通過 494/494；Human 全量圖片**不是 Server 資源格式交付的必要輸入**。技能/物品真正定義表與權威公式仍未知，交 A-007/A-010/A-011，不宣稱任何候選檔必含定義。Script 長度原先誤寫 `BE u16`，現更正為 `BE u32`（version `BE u16`）。A-015 的 **研究交接 ready 僅指來源盤點／格式／權利邊界**，完整遊戲內容 `implementation_ready=false`、原生 Client CT 尚未執行。正式完成條件／來源與待辦參照 [A-015-closure-review.md](A-015-closure-review.md)；舊段落保存為歷史分析記錄，不應引用其已被更新的缺檔／Script header 敘述。
+
+
+## 本次 A-015 MAP/碰撞追加研究已整合（2026-10-31）
+
+原版 `Asgard.exe` SHA 鎖定 26 native VA patterns PASS；`Map0.dat/Map1.dat/Map2.dat` 三庫 494/494、7,701,805 格原件解析 PASS。原生 `0x4B2C80` 將 `x+y*width` 展開成每格 17B 記憶體 tile，原件磁碟每格為 10B；`0x4B4920` 邊界檢查及 `0x4B4A3B/0x4B4A73` 的 32/48 像素 extent 已定位。tile bit0、線段 bit4 與 +0x258 u32 auxiliary grid **不是同一個已證玩家碰撞旗標**。(31,29) 在 477 張地圖尺寸內，該格 raw flags 0:242、1:109、17:126，不能視為可出生或可走座標。
+
+離線解析器 `a015_map_coordinate.py`、原生 PE 探針 `a015_map_native_probe.py`、測試 `test_a015_map_coordinate.py` 已提交並通過 [GitHub Actions run 41188097214](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41188097214)：**18/18** 新增 MAP 合成測試 PASS，既有 phase gates 同樣成功。`CT-069` offline evidence 已收；`CT-070` Native Client 撞牆/原生可通行點驗收 `not-run`。
+
+A-015 資源格式／索引與 tile bounds 研究 `integrated/ready`，**但完整玩家可用座標列表尚未得證，`implementation_ready=false`**（針對原版行走權威）。這不是因缺 Server NPC AI，而是原生 Client 對玩家步行／旗標的實際使用路徑與動態 trace 未證。**本回合不缺已指定的 MAP/EXE/Born 資源**；未來需要 native 成功/撞牆/回滾封包/錄影，或再追 player movement call graph。
