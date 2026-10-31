@@ -20,7 +20,7 @@ class CheckC35(unittest.TestCase):
     @staticmethod
     def make_map(tail7=b"",tail8=b"",tail16=b""):
         if len(tail7)%7 or len(tail8)%8 or len(tail16)%16:raise ValueError
-        return (struct.pack("<HHHBB",1,2,4,2,4)+b"\0"*4+b"\0"*80+
+        return (struct.pack("<HHHBB",1,2,4,2,4)+b"\0"*2+b"\0"*80+
                 struct.pack("<I",len(tail7)//7)+tail7+
                 struct.pack("<I",len(tail8)//8)+tail8+
                 struct.pack("<I",len(tail16)//16)+tail16)
