@@ -17,11 +17,11 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "743564519e4ade4fe4bf0d1273fd3ec320817fb792cb16dc55853ace47a7d15d"
+      "sha256": "87afa8beeb32694f3bf303cd04c0d5706ec5f0efc346afdb6002213a6cd8ac86"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
-      "sha256": "454eb25ae2e2263bc9753b6c859c93a5e54e87d10f1525207a200106368c8819"
+      "sha256": "aa13ed5eb267d02f6ec3ab9b9f7a07294b65ccc8fee4114f6fad3285ae198f49"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -49,7 +49,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "d0e31c7753ece127797ece28a11ee7f0f1b8a968e73cff28cfe8e95b85503680"
+      "sha256": "4e840af78780001c4d4dcab67b0b6b8f0dd9a48931cba9d7c940579eee30e99c"
     },
     {
       "path": "00-governance/workflow.md",
@@ -65,7 +65,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "3330ac6f55d6f12e97d3a82a25a0790c86124f97f4f1ca23484b4754bbad0984"
+      "sha256": "2234e1d2470c247199c64ca351dc08773372d0bdf2fcf4a2314c4d30c48cc5c5"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -105,11 +105,15 @@
     },
     {
       "path": "02-server-planning/expected-validation-failure-policy-20261101.md",
-      "sha256": "3ef28129bf33a274b0ecba1da6a25241d5ea04f2ae6af871ee7f9ef4ee714890"
+      "sha256": "ade2555741a636615829604b9acb015c0d6da44e3861e7c61dc6ee3f9d13ff47"
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
       "sha256": "ef9092db03274c1560c9d78abd6de9a2ef181c12bf3eaec98440054bbd475f0e"
+    },
+    {
+      "path": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "sha256": "e8338f4631dc4e9ec07f7dcb74f503e54bb148b3a71d602dbe24ae350cbd8be0"
     },
     {
       "path": "02-server-planning/idle-disconnect-observability.md",
@@ -173,7 +177,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "c0f0b6bc8596cd5078b6b8a8de98f4e5f5a7787f1e215fd15ca826557f171f13"
+      "sha256": "a12d5a51251f41c10c1ed908307d2ebf08fc229c934c10e7da364d8326b9fcc8"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
@@ -245,7 +249,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "16c60323c3b4a10cd2eac8c65d76fa8ec749c98f3f7dbcb2292f9d6d3bb1cd59"
+      "sha256": "cb4a7684d7fe48ead48b8498115e574a16da48e10de237a8136cf31c1a033beb"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -708,6 +712,10 @@
       "sha256": "9d153ca61aba4a62c7ef9d42dfd033c3b8fa74d746bbd23a4adc498587e0329b"
     },
     {
+      "path": "05-conformance/game-packet-observability-acceptance-20261101.md",
+      "sha256": "67937ffd23e4a9caf32ad213c04d1760e84918cc7427569319e96e99cdb7f283"
+    },
+    {
       "path": "05-conformance/implementer-guide.md",
       "sha256": "82672a871be350d4da3e1c870a1c2eeb801b9d23a86b0747ca1c3f631556ebbf"
     },
@@ -753,7 +761,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "179f1a26f1a0993bffd117e10f61eacef29a83a0e010266da55bf66732b09d5f"
+      "sha256": "513bd962dbfec3168aafe1634d10640b8c3b6c9806fbb2107467c15621319600"
     },
     {
       "path": "README.md",
