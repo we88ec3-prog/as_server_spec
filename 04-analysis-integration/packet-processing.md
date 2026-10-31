@@ -143,3 +143,18 @@ Client S08 由 Status::update 0x53F8A0 將數值寫至 Status 物件，再經 St
 |S08 Status|A-008 `0x586D40/0x53F8A0/0x540660`|獨立四組 resource current 通知；不由此證明 S13 一擊必對應 S08。|
 
 16 個原始 PE VA pattern + 5 RTTI **PASS**、15 組 synthetic 編解碼/截斷/負向測試 **PASS**；CT-063 offline static subset 有證，CT-064 原生 GUI **not-run**。**不得用 Native 只有 serializer/parser 的證據宣稱 hit/miss/crit 計算、原版死亡/復活時序或 Server 兩人同時死亡規則已還原。** Server 需自訂 session/epoch、range、cooldown、權威傷害、HP、死亡事件順序與去重（designed）。研究：[A-009](../task_a/roy2/A-009-analysis.md)；驗收：[CT-063/064](../05-conformance/A-009-combat-test-plan.md)。A-009 `integrated/partial`（核心 I/O 子集可交，複雜 subtype/GUI 仍未完整追通）。
+
+
+## A-024／roy2 原生 NPC／怪物物件收包清單：生成、移動、資訊、動作、死亡、移除（2026-10-31）
+
+本 Client profile 的完整 S2C 入口清單已整理於 [A-024 原始分析第六節](../task_a/roy2/A-024-analysis.md)。原始 `Asgard.exe` SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，原生 RTTI/vtable 與 opcode constructor / reader 核對如下：
+
+|用途|S→C|解析重點|
+|---|---|---|
+|非 Human 物件初次加入|S07|BE u16 count；每筆 11B 前綴後按 kind1/2/4（flags+string8）、3（5u8+string8）、5..12（無尾段）、13（string8）、14（2u8+u16）分派，**所有 1..14 kind 已有原件跳表解析**；0x228 是 Client 內部 stride，並非 wire。|
+|移動／路徑|S0C / S64|S0C BE u32,u16,u16,u8,u8；S64 BE u32,u16,u16,u8,count:u8,count bytes,u16,u16,u8。Server 安全 cap11 是 designed。|
+|物件資訊／UI 更新候選|S34 / S3C|S34 u8 subtype+BE u32+flags u8，subtype6 多10B，subtype11 多組動態列表另待 UI 追證；S3C BE u32+3u8。|
+|動作選項／效果候選|S62 / S63 / S29|S62 2u8+BE u16+3u8+4 string8+u8+BE u16+u8；S63 2u8（**不是**物件刪除）；S29 2 BE u32+2 BE u16+u8。不能擅自將 Action/Effect 全解作怪物狀態。|
+|死亡／物件真正移除|S5F / S0E|兩者皆 BE u32，但 **S5F 是 DieObjects、S0E 是 RemoveObjects**，原版是否死亡後立即移除未知。|
+
+本輪另外以 **20 個原件 VA 指令、14 type 跳表、6 RTTI** 證實相關 reader，生成 [安全 decoded-body codec](../task_a/roy2/a024_object_packets.py) 和 [新增測試](../task_a/roy2/test_a024_object_packets.py)；原生 World UI、NPC/Monster type 對應、官方怪物出生與原服 AI 均 **unknown/not-run**。Client 主動攻擊 C13、資訊請求 C43 已有 A-024/A-009，並非 S→C 更新。供 Server 設計採用 `FLOW-NPC-OBJECTS`，另見 [CT-065/066](../05-conformance/A-024-object-lifecycle-test-plan.md)。不要拿 Human S33/S06/S11 替代非 Human 物件包。
