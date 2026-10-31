@@ -541,7 +541,8 @@
         "A-004",
         "A-009",
         "A-015",
-        "A-023"
+        "A-023",
+        "A-011"
       ],
       "scenarios": [
         "SCN-011"
@@ -563,12 +564,20 @@
         "Kind1..14->NPC/monster/static sprite and object key registry mapping unknown",
         "S34 subtype11 display mapping to actual UI and S62/63 Action UI context unknown",
         "Original tutorial spawn map/NPC IDs and Server AI policies unknown",
-        "Native world object rendering/interaction E2E not run"
+        "Native world object rendering/interaction E2E not run",
+        "Native S07 1/2/4 -> MonsterObject and MonsterNN.dat archive/slot known via A-011; exact NPC class/name/sprite field, GUI chat binding and real native Client E2E still unknown"
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-024-analysis.md",
       "work_items": [],
-      "offline_validation": "GitHub Actions run 41185085803 passed phase gates, 19 new synthetic object packet tests, seven existing NPC tests"
+      "offline_validation": "GitHub Actions run 41185085803 passed phase gates, 19 new synthetic object packet tests, seven existing NPC tests",
+      "a011_original_client_id_mapping": "World resource libraries 7000..7023 -> World00..23.dat; Monster resource libraries 8000..8042 -> Monster00..42.dat. MonsterImageLib ID 0x4000+N maps library 8000+floor(N/10) and slot N%10 via VA 0x4D7530/0x4D7560. Registry pointer 0x5F1D3C skips literal @.",
+      "a011_native_object_and_interaction": "S07 World handler kind1/2/4 -> MonsterObject ctor VA 0x4D6FA0; native two C43 producers type1/subtype4 + BE u32, with UI exact NPC chat not yet proven; local motion selector 0..5 -> offsets 0x20/0x30/0x40 repeated.",
+      "a011_implementation_boundary": "Client library ID/asset image ID/Server actor EntityId different namespaces; no proof which official NPC species or S07 row maps to which MonsterNN.dat member; original Monster/World assets missing. Do not invent NPC chat or animation semantic names.",
+      "analysis_reports": [
+        "task_a/roy2/A-024-analysis.md",
+        "task_a/roy2/A-011-analysis.md"
+      ]
     }
   ]
 }

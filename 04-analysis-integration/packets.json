@@ -817,11 +817,15 @@
         "A006-E05",
         "A006-E06",
         "A006-E07",
-        "A006-E08"
+        "A006-E08",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "a004_ref": "task_a/roy2/A-004-analysis.md",
       "a004_note": "S33 first fields BE u16 x,y; u8 facing; BE u32 object; flags=0 profile S33 length 42+CP950-name-byte count; variable flags not covered.",
-      "a006_analysis": "task_a/roy2/A-006-analysis.md"
+      "a006_analysis": "task_a/roy2/A-006-analysis.md",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "visibility_scope": "other human with 32-bit object_ref, native AOI/ID lifetime unknown",
+      "native_client_validation": "not-run"
     },
     {
       "id": "PKT-S37",
@@ -1643,7 +1647,7 @@
         "PKT-C13",
         "PKT-S3D"
       ],
-      "layout_status": "disputed-cross-analysis-reader-attribution",
+      "layout_status": "disputed-native-reader-attribution-do-not-use-for-death",
       "profile": "TW-seed0-local-v0.1",
       "evidence_kinds": [
         "observed-static"
@@ -1657,11 +1661,12 @@
         "R-030"
       ],
       "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
-      "manual_validation": "not-run; conflict requires A-009/A-025 native decoder cross-check",
+      "manual_validation": "not-run",
       "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
       "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
-      "analysis_conflict": "roy1 labels S1E DieObjects using ctor 0x57E030 push 0x1E yet the cited 0x57E260 reader belongs to roy2-confirmed S5F DieObjects ctor 0x57E1B0 push 0x5F. Until S1E own vtable/reader verified, do not emit S1E as monster death."
+      "analysis_conflict": "roy1 labels S1E DieObjects using ctor 0x57E030 push 0x1E yet the cited 0x57E260 reader belongs to roy2-confirmed S5F DieObjects ctor 0x57E1B0 push 0x5F. Until S1E own vtable/reader verified, do not emit S1E as monster death.",
+      "source_correction": "A-004 roy1: prior label S1E DieObjects was mistaken; 0x57E260 reader is S5F, ctor0x57E1B0 push0x5f. S1E 0x57E030 push0x1e requires own class/reader mapping; do not send as death."
     },
     {
       "id": "PKT-C39",
@@ -1837,7 +1842,10 @@
         "A024-E07",
         "A024-E10",
         "A024-E11",
-        "A024-E12"
+        "A024-E12",
+        "ev_a004_20261031_world_entity_visibility_bin_static",
+        "A011-E04",
+        "A011-E08"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1853,7 +1861,25 @@
         "Official tutorial NPC map/spawn policy is Server content and not Client wire evidence"
       ],
       "native_probe": "task_a/roy2/a024_object_native_probe.py",
-      "offline_test": "task_a/roy2/test_a024_object_packets.py"
+      "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire.",
+      "a011_monster_creation": "In World S07 receive handler 0x4F17C0..0x4F1C4A, native kind1/2/4 call MonsterObject ctor 0x4D6FA0 at 0x4F1AEB,0x4F1BC7,0x4F1C31; linked to resource library via separate image ID quotient/remainder native 0x4D7530/0x4D7560. The precise S07 row field→asset image ID still NOT proven.",
+      "a011_analysis": "task_a/roy2/A-011-analysis.md",
+      "a011_resource_mapping": {
+        "native_monster_constructor": "0x4D6FA0",
+        "s07_kinds_with_monster_object_ctor": [
+          1,
+          2,
+          4
+        ],
+        "resource_library_range": "8000..8042",
+        "asset_template": "Monster%02d.dat",
+        "file_prefix_at": false,
+        "resource_image_id_formula": "library_id=8000+floor((image_id-0x4000)/10); slot=(image_id-0x4000)%10; bounded image ids 0x4000..0x41AD are Server safety guard, not original official range",
+        "limits": "Actual SpriteID mapping of row field +0x222 and actual asset contents not proven"
+      }
     },
     {
       "id": "PKT-S5F",
@@ -1890,7 +1916,10 @@
         "A024-E07",
         "A009-E06",
         "A009-E08",
-        "A024-E10"
+        "A024-E10",
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1909,7 +1938,15 @@
       ],
       "a009_contract": "task_a/roy2/A-009-analysis.md",
       "a009_addendum": "Original S5F BE u32 object opaque; S5F DieObjects != S0E RemoveObjects; death decision/animation/revive unknown.",
-      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "native_client_validation": "not-run",
+      "opcode_correction": "S1E is INVALID; S5F native verified from 0x57e1c9 direct ctor→0x578730; 0x57e298 push0x1e is allocation/debug argument",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-S0C",
@@ -1941,7 +1978,8 @@
         "A024-E05",
         "A024-E06",
         "A024-E07",
-        "A024-E10"
+        "A024-E10",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1958,7 +1996,10 @@
         "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
       ],
-      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-S64",
@@ -1990,7 +2031,8 @@
         "A024-E05",
         "A024-E06",
         "A024-E07",
-        "A024-E10"
+        "A024-E10",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -2007,7 +2049,10 @@
         "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
       ],
-      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-S0E",
@@ -2047,7 +2092,8 @@
         "A004-E06",
         "A004-E07",
         "A004-E08",
-        "A024-E10"
+        "A024-E10",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -2068,7 +2114,10 @@
       ],
       "a004_ref": "task_a/roy2/A-004-analysis.md",
       "a004_note": "Shared entity removal S0E BE u32; whether native client deletes Human and NPC via same registry is not proven.",
-      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-C43",
@@ -2092,7 +2141,9 @@
       ],
       "evidence_ids": [
         "A024-E08",
-        "A024-E09"
+        "A024-E09",
+        "A011-E06",
+        "A011-E08"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -2101,7 +2152,14 @@
         "R-029"
       ],
       "analysis_request": "A-024",
-      "contract_reference": "task_a/roy2/A-024-analysis.md"
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "a011_known_profile": "Two original producer paths: 0x479DDB +0x24=1, +0x28=[esi+0x48] opaque key, +0x2C=4; 0x4A2409 +0x24=1, +0x28=[esi+0x4C] opaque key, +0x2C=4. Encoded decoded C43 body 01 + BE u32 + 04. Not proven universal NPC click or direct NPCChatDialog trigger.",
+      "a011_analysis": "task_a/roy2/A-011-analysis.md",
+      "a011_native_ui_producers": [
+        "0x479DC7",
+        "0x4A23F8"
+      ],
+      "a011_known_body": "01 + BE u32 object_ref + 04; exact NPC click→chat response is still unknown"
     },
     {
       "id": "PKT-S06",
@@ -2177,7 +2235,8 @@
         "A004-E05",
         "A004-E06",
         "A004-E07",
-        "A004-E08"
+        "A004-E08",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "native-client-not-run",
       "requirements": [
@@ -2191,7 +2250,10 @@
         "Original client on-screen two-player join/move/turn/leave/disconnect E2E not-run",
         "S33 nonzero flags and conditionally present appearance/name fields not covered by fixed-profile helper",
         "Original Server AOI boundary/heartbeat/visibility radius and relog policy cannot be deduced from Client; belongs DEV/CT"
-      ]
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-S08",
@@ -2514,6 +2576,36 @@
         "Client GUI/world-object callback not fully traced",
         "Native E2E not-run; original Server NPC policies unknown"
       ]
+    },
+    {
+      "id": "PKT-S1A",
+      "opcode": "0x1a",
+      "name": "Motion",
+      "direction": "S2C",
+      "system": "SYS-WORLD",
+      "layout": "u32BE object_ref,u8 field0,u16BE field1,u8 field2 (8 bytes); animation/duration meanings unknown.",
+      "client_entry": "0x582f20 ctor push0x1a at0x582f39; 0x582fd0 reader",
+      "profile": "TW-seed0-local-v0.1",
+      "state_precondition": "InWorld with map loaded and reference scoped to current scene; native Server AOI constraints unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S15",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "layout_status": "observed-static-partial-semantics",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
     }
   ]
 }

@@ -174,7 +174,8 @@
         "A004-E05",
         "A004-E06",
         "A004-E07",
-        "A004-E08"
+        "A004-E08",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -217,10 +218,16 @@
         "Native PE32 SHA + 5 ctor/5 reader probes PASS; 9 synthetic/negative lifecycle tests PASS"
       ],
       "remaining_unknowns": [
-        "S33/S06/S11/S0E full MapPane receiver-to-ObjectRegistry callback, object ID equality and actual reuse/late packet handling not traced to native state mutation",
         "Original client on-screen two-player join/move/turn/leave/disconnect E2E not-run",
         "S33 nonzero flags and conditionally present appearance/name fields not covered by fixed-profile helper",
-        "Original Server AOI boundary/heartbeat/visibility radius and relog policy cannot be deduced from Client; belongs DEV/CT"
+        "Original Server AOI boundary/heartbeat/visibility radius and relog policy cannot be deduced from Client; belongs DEV/CT",
+        "Cross-packet MapPane u32 object reference equality and visual callback outcome for S0E vs S5F beyond static registry lookup; native two-client E2E not run",
+        "Original Server visibility radius/occlusion/interest update schedule and kind1..14 model/NPC/monster mapping",
+        "Wire u32 object_ref lifetime/scope/reuse policy across maps and disconnect and any authoritative persistent server EntityId relationship",
+        "S0E vs S5F complete native handler presentation/death/corpse semantics and resurrection/pickup effects",
+        "Original 2-Client same-map enter/leave/map-change/logout/reconnect runtime captures not run",
+        "Native S07 flags/color/string variants full safe parser, S64 path interpretation and S33 multi-subtype appearance across models partial",
+        "Original Server NPC spawn/content/map binding under A-024 remains unknown"
       ],
       "conformance": [
         "CT-054",
@@ -230,7 +237,12 @@
       "handoff_result": "A004 static Client I/O subset delivered; full native object-registry hook and original visibility trigger unknown",
       "source_branch": "task_a/roy2",
       "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
-      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
+      "secondary_analysis_reports": [
+        "03-analysis-requests/A-004-roy1-world-visibility.md"
+      ],
+      "registry_lookup_static": "Roy1 xref: DrawObjects handler 0x4F17C0 via 0x4EAC30 MapPane map at +0x94, u32 object_ref from S07/S0E/S5F; native callback and ID reuse policy still unverified.",
+      "source_incremental_commit": "c4d42ac0d45339b5abe93633864a56db6fc3ddfa"
     },
     {
       "id": "A-005",
@@ -621,11 +633,20 @@
       "title": "怪物/NPC與掉落",
       "method": "由資源、可見物件及互動UI追物件類別、外觀、AI動作與掉落。",
       "deliverable": "生成／移動／消失／互動對話的最小可驗收鏈。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A011-E01",
+        "A011-E02",
+        "A011-E03",
+        "A011-E04",
+        "A011-E05",
+        "A011-E06",
+        "A011-E07",
+        "A011-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -637,7 +658,66 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Original Client SpriteID↔MonsterNN.dat library, S07 kind1/2/4 MonsterObject and C43 client producers are observed-static; original Server NPC AI, spawn, rewards and full Client GUI are not proven.",
+      "analysis_document": "task_a/roy2/A-011-analysis.md",
+      "evidence_kind": "observed-static-original-client+synthetic-test",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Monster imageId 0x4000-based → Monster Library ID8000..8042 and slot modulo10; S07 kind1/2/4 → MonsterObject; two C43 type1/subtype4 UI producers, local six-way motion selection; NOT proven sprite row-field final linkage, NPC click to chat, actual YPF/DOI animation or drop data",
+      "original_npc_visual_mapping_ready": false,
+      "original_npc_click_dialog_ready": false,
+      "original_npc_animation_ready": false,
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "native_probe_offline_result": "Original provided Asgard.exe SHA locked; 29 PE VA byte-pattern checks + 4 native RTTI names + 3 UTF16 file name literals PASS",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "conformance": [
+        "CT-067",
+        "CT-068"
+      ],
+      "resource_candidates": [
+        "Monster00.dat",
+        "Monster01.dat",
+        "Monster42.dat",
+        "World00.dat",
+        "World23.dat",
+        "PaperDialog.dat"
+      ],
+      "client_io_handoff": {
+        "trigger": "In World receipt of S07 nonempty kind1/2/4 creates MonsterObject; two local UI request producer paths 0x479DC7/0x4A23F8 generate C43 type1/subtype4; local MonsterObject animation selector 0..5",
+        "client_sends": [
+          "PKT-C43",
+          "PKT-C13"
+        ],
+        "client_receives": [
+          "PKT-S07",
+          "PKT-S0C",
+          "PKT-S64",
+          "PKT-S34",
+          "PKT-S3C",
+          "PKT-S44",
+          "PKT-S5F",
+          "PKT-S0E"
+        ],
+        "client_reaction": "S07 world handler 0x4F17C0..0x4F1C4A dispatches kind1/2/4 to MonsterObject ctor 0x4D6FA0; MonsterImageLib image ID quotient and remainder route to MonsterXX.dat. C43 known writer u8+BE u32+u8, but response→NPCChat callback and actual asset animations not fully connected.",
+        "evidence": "task_a/roy2/A-011-analysis.md",
+        "unknowns": [
+          "Missing original MonsterNN.dat and WorldNN.dat archive members; no confirmed NPC species/monster sprite visual ID table",
+          "Unresolved exact S07 source field→final Monster ImageId and resource row-to-YPF/DOI animation group/frame/direction mapping",
+          "Unverified mouse click→C43→S34/S3C/S44→NPCChatDialog native callback chain",
+          "Original Server drop, NPC AI and spawn semantics not Client-authoritative; native Client GUI E2E CT-068 not-run"
+        ]
+      },
+      "open_items": [
+        "Missing original MonsterNN.dat and WorldNN.dat archive members; no confirmed NPC species/monster sprite visual ID table",
+        "Unresolved exact S07 source field→final Monster ImageId and resource row-to-YPF/DOI animation group/frame/direction mapping",
+        "Unverified mouse click→C43→S34/S3C/S44→NPCChatDialog native callback chain",
+        "Original Server drop, NPC AI and spawn semantics not Client-authoritative; native Client GUI E2E CT-068 not-run"
+      ],
+      "offline_test_result": "Original Asgard.exe PE 29 VA signatures, 4 RTTI, 3 UTF16 literals PASS; GitHub Actions run 41186221751 success: 16 A-011 unit tests and phase gates passed",
+      "static_validation_ci": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751",
+      "source_commit": "5c99fd334451624cb4d08d4a065e6f7cd838ab18",
+      "analysis_report": "task_a/roy2/A-011-analysis.md",
+      "next_client_io_handoff": "03-analysis-requests/post-merge-analysis-queue.md"
     },
     {
       "id": "A-012",
@@ -1498,7 +1578,8 @@
       "last_analysis_date": "2026-10-31",
       "source_branch": "task_a/roy1",
       "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
-      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
+      "s1e_correction": "Roy1 later A-004 confirmed previous S1E DieObjects attribution was mistaken; native DieObjects is S5F ctor 0x57E1B0 push 0x5F and reader 0x57E260. S1E source is quarantined; no original Client combat E2E."
     },
     {
       "id": "A-026",
