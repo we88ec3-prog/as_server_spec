@@ -771,7 +771,14 @@
         "A011-E06",
         "A011-E07",
         "A011-E08",
-        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static",
+        "A011-E09",
+        "A011-E10",
+        "A011-E11",
+        "A011-E12",
+        "A011-E13",
+        "A011-E14",
+        "A011-E15"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -791,7 +798,7 @@
       "evidence_kind": "observed-static-original-client+synthetic-test",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "implementation_ready": true,
-      "implementation_ready_scope": "Monster imageId 0x4000-based → Monster Library ID8000..8042 and slot modulo10; S07 kind1/2/4 → MonsterObject; two C43 type1/subtype4 UI producers, local six-way motion selection; NOT proven sprite row-field final linkage, NPC click to chat, actual YPF/DOI animation or drop data",
+      "implementation_ready_scope": "New fully static-proven Client visual-source S07 row field_c BEu16 (+0x0C) -> MonsterObject(1,2,4) -> 20B descriptor -> MonsterImageLib bank8000+floor((id-0x4000)/10),slot modulo10 for designed safe pool0x4000..0x41AD. Row variant_u16+0x222 separately converted to float not sprite. C43 native panel type1/subtype04,10,40 shares object-ref. Client image/visual codec only; NO original Monster DAT member/YPF/DOI animation identity, click→NPC dialogue chain, Server AI/drop/spawn policy, or original Client GUI E2E.",
       "original_npc_visual_mapping_ready": false,
       "original_npc_click_dialog_ready": false,
       "original_npc_animation_ready": false,
@@ -799,8 +806,9 @@
       "native_probe_offline_result": "Original provided Asgard.exe SHA locked; 29 PE VA byte-pattern checks + 4 native RTTI names + 3 UTF16 file name literals PASS",
       "synthetic_test": "task_a/roy2/test_a011_resource.py",
       "conformance": [
-        "CT-067",
-        "CT-068"
+        "CT-082",
+        "CT-083",
+        "CT-116"
       ],
       "resource_candidates": [
         "Monster00.dat",
@@ -811,7 +819,7 @@
         "PaperDialog.dat"
       ],
       "client_io_handoff": {
-        "trigger": "In World receipt of S07 nonempty kind1/2/4 creates MonsterObject; two local UI request producer paths 0x479DC7/0x4A23F8 generate C43 type1/subtype4; local MonsterObject animation selector 0..5",
+        "trigger": "World receives native S07 nonempty kind1/2/4 -> MonsterObject visual path; a separate original UI-panel mode change 0/1/2 may emit C43 type1/subtype04/10/40 with active object-ref. Not proof all NPC clicks use C43.",
         "client_sends": [
           "PKT-C43",
           "PKT-C13"
@@ -820,26 +828,28 @@
           "PKT-S07",
           "PKT-S0C",
           "PKT-S64",
+          "PKT-S11",
+          "PKT-S1A",
           "PKT-S34",
           "PKT-S3C",
           "PKT-S44",
           "PKT-S5F",
           "PKT-S0E"
         ],
-        "client_reaction": "S07 world handler 0x4F17C0..0x4F1C4A dispatches kind1/2/4 to MonsterObject ctor 0x4D6FA0; MonsterImageLib image ID quotient and remainder route to MonsterXX.dat. C43 known writer u8+BE u32+u8, but response→NPCChat callback and actual asset animations not fully connected.",
-        "evidence": "task_a/roy2/A-011-analysis.md",
+        "client_reaction": "S07 native reader 0x57E456 row+0x0C visual BEu16 -> 0x4F1A7F descriptor -> kind1/2/4 ctor0x4D6FA0 -> image factory0x4D2340 -> MonsterImageLib0x4D7530/0x4D7560 library/slot. Distinct row+0x222 variant_u16 is 9th ctor parameter converted to float at MonsterObject+0x27C, NOT image_id. C43 0x4A2376/0x4A2409/0x4A24B3/0x4A254F modes0/1/2 send subtype04/10/40 with BEu32 pane+0x4C ref; exact GUI meanings and first NPC interaction/Script binding still unknown.",
+        "evidence": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
         "unknowns": [
-          "Missing original MonsterNN.dat and WorldNN.dat archive members; no confirmed NPC species/monster sprite visual ID table",
-          "Unresolved exact S07 source field→final Monster ImageId and resource row-to-YPF/DOI animation group/frame/direction mapping",
-          "Unverified mouse click→C43→S34/S3C/S44→NPCChatDialog native callback chain",
-          "Original Server drop, NPC AI and spawn semantics not Client-authoritative; native Client GUI E2E CT-068 not-run"
+          "Actual Monster00..42.dat and World00..23.dat asset YPF/DOI members not available as raw bytes this turn: cannot map registered image slot to sprite/frame/direction/animation.",
+          "Native Client mouse click→C43 or C39→S34/S3C/S44→NPCChatDialog complete causal chain not proven; C43 subtype04/10/40 are only panel info request paths.",
+          "Original NPC template/entity→actual S07 resource field/merchant script binding, spawn, AI/loot/respawn and quest rules require original Server evidence.",
+          "Native GUI/render/move/motion/NPC interaction CT-083 still not-run."
         ]
       },
       "open_items": [
-        "Missing original MonsterNN.dat and WorldNN.dat archive members; no confirmed NPC species/monster sprite visual ID table",
-        "Unresolved exact S07 source field→final Monster ImageId and resource row-to-YPF/DOI animation group/frame/direction mapping",
-        "Unverified mouse click→C43→S34/S3C/S44→NPCChatDialog native callback chain",
-        "Original Server drop, NPC AI and spawn semantics not Client-authoritative; native Client GUI E2E CT-068 not-run"
+        "Missing original same-release Monster00.dat (or any MonsterNN) and World00.dat (or any WorldNN) binary to inspect YPF/DOI actual image frame/group/direction mapping.",
+        "Native mouse/UI event→C43(04/10/40)→S34/S3C/S44/NPCChatDialog round trip not fully proven.",
+        "Original npc/monster entity mapping, official content template id, spawn/AI/drop/quest policy unavailable from provided Client; original Server trace/config needed.",
+        "Original Client native CT-083 rendering/animation/click not-run; CT-116 static+synthetic only."
       ],
       "offline_test_result": "Original Asgard.exe PE 29 VA signatures, 4 RTTI, 3 UTF16 literals PASS; GitHub Actions run 41186221751 success: 16 A-011 unit tests and phase gates passed",
       "static_validation_ci": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751",
@@ -851,7 +861,22 @@
       "roy1_additional_analysis_test": "tools/a011_npc_asset_contract.py",
       "roy1_resource_registry": "02-server-planning/npc-monster-resource-index.json",
       "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
-      "new_resource_status": "Monster00.dat and World00.dat supplied, each 5 YPF members; specific imageID/animation/NPC mapping not proven"
+      "new_resource_status": "Original repo has historical metadata for Monster00.dat/World00.dat 5 YPF members each, but their actual binary bytes are not provided in this conversation; cannot independently verify image slot→member/animation. A011 S07 BEu16 field_c->image lookup static source is resolved.",
+      "last_analysis_date": "2026-11-01",
+      "latest_original_client_visual_report": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "latest_native_probe": "task_a/roy2/a011_s07_native_visual_probe.py",
+      "latest_s07_visual_projection": "task_a/roy2/a011_s07_visual_chain.py",
+      "latest_synthetic_test": "task_a/roy2/test_a011_s07_visual_chain.py",
+      "native_visual_probe_result": "PASS user-provided original Asgard.exe SHA-locked 43 native PE VA instruction anchors S07 visual source through MonsterImageLib plus C43 three-mode original UI senders.",
+      "native_visual_client_e2e_ready": false,
+      "original_s07_visual_source_ready": true,
+      "original_s07_variant_field_distinguished": true,
+      "original_c43_three_ui_modes_ready": true,
+      "original_npc_ai_drop_ready": false,
+      "legacy_conformance_ids": [
+        "CT-067",
+        "CT-068"
+      ]
     },
     {
       "id": "A-012",
