@@ -86,3 +86,7 @@ Spec main: 6bab003c38ade6122b72adc7a71309ca1d53630c。Server main（唯讀）: a
 ## 23:51 new main integration evidence: C02 received and explicitly closed (modified Client only)
 
 Another agent updated main after the start of this merge. The latest 2026-10-31 23:51 correlated local test found **modified main-menu-preview diagnostic Client** successfully sent C02, and the running private Server f2a4a38 logged C02(body length 15, ordinal5) then close reason `native-c02-fields-unknown-a030`, without S02. This is now runtime-confirmed for that test and is NOT a 60-second idle timeout; original unmodified Asgard.exe CT-103/104/105 remains not-run. Earlier stale-socket send=-1 is a separate event. The P0 task can shift from diagnosing that particular disconnect to NAME/EMAIL authoritative field map, C02 adapter and Client-supported error S02, without claiming full native acceptance.
+
+## 2026-11-01 最新 E-MAIL 決策取代舊候選
+
+前段「E-MAIL 是否需要保存尚待決」和「本次不變更 DB schema」僅是 10/31 當時的規劃範圍。**最新 R-035 要求保存 E-MAIL**：於既有 Account 新增 nullable `creation_email`（SQLite/Pg schema v5），成功 C04 與 Character 原子提交時才寫，沒有其他用途。A-030 對 E-MAIL 對應真實封包欄位仍未確認、不能憑 F4 猜測。另見 [2026-11-01 設計](newuser-email-persistence-20261101.md)。本輪 Spec 更新未修改 Server 或 DB。

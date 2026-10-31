@@ -102,3 +102,7 @@ ONB-01 C03 登入原有 Account 及 ONB-02 C02 直接創角為**互不要求事�
 ## ONB-02/ONB-07：Roy1/Roy2 2026-10-31 新資料進度
 
 最新 Server main f2a4a38 已完成獨立 C02 帳密後端認證/creation-only proof/C04 transaction、以及 RI-005 FormInput idle 600秒/absolute 1800秒和去敏 TCP 日誌；`LoginWireSession` 真正 C02/C04/C15 仍 fail-closed。Roy1 A-030 的 static field/region 與非零 S02 文字/C15 已整合，NAME/E-MAIL 必填/真語意與 Client GUI 未證；Roy1 A-029 原 Client C26 改密碼 wire 已證但回覆 status 尚未證；原版實機 CT 均 not-run。詳 [新版分期計畫](roy1-roy2-new-evidence-dev-plan-20261031.md)。
+
+## 2026-11-01：原版 Client「創角 → 登入 → 真地圖 → 可操作」最新優先路徑
+
+最新私人 Server `as_server_roy@a9326985` 的 credential proof、Character/E-MAIL v5、C03/S03/C10、合成 World/恢復/多人共享域均已存在；**live C02/C04/C15 仍 fail-close、C25 仍需合成 01 與 Development fixture、C11/C33 無正式 host route**。此前本板的早期「DEV-050 尚未做」、「E-MAIL 可不存」、「共享地圖未實作」是歷史快照，不能再當目前進度。真正的 native first-play 路徑請以 [DEV-ENTRY-00～06 完整規劃](native-playable-entry-roadmap-20261101.md) 及 [P0 A-030/031/032 分析派工](../03-analysis-requests/native-playable-entry-analysis-queue-20261101.md) 為最新基準。CT-107（創角到 C10）、CT-108（原生 C25/Map/C35）、CT-109（原生 C11/C33 可行走）均 **planned/not-run**。教學 NPC/怪物/戰鬥/任務/完成屬後續 ONB-05/06，非首個可操作世界前置門檻。

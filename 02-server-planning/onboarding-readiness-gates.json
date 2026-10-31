@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-31",
+  "as_of": "2026-11-01",
   "unmodified_client_required": true,
   "native_client_validation": "not-run",
   "gates": [
@@ -202,6 +202,80 @@
         "CT-105"
       ],
       "rule": "C02/C04 current Server unconditional Close diagnosed from source. To enable real native creation, trace which opcode triggers disconnect, prove region-specific ID/password/NAME/E-MAIL and Email-required gate, confirm native NewUser nonzero S02 status/message/C15 UI and post-second S02 return-to-login. No guessing, original client E2E not-run. A-030 statically recovered regional widget IDs and S02 text-modal; NAME/EMAIL required semantics and actual native GUI still unknown. RI-005 pre-submit idle and RI-001 submit failure are separate cases."
+    },
+    {
+      "id": "ENTRY-01",
+      "owner": "Server + A-030",
+      "mode": "needs-client-evidence",
+      "analysis": [
+        "A-030"
+      ],
+      "tests": [
+        "CT-105",
+        "CT-106",
+        "CT-107"
+      ],
+      "rule": "Native original Client NewUser region/account/password/NAME/EMAIL mapping and nonzero S02/C15 GUI before C02-C04 wire activation. Backend email v5 implemented synthetically only; no bypass by a guessed F3/F4."
+    },
+    {
+      "id": "ENTRY-02",
+      "owner": "Server + A-031",
+      "mode": "needs-client-evidence",
+      "analysis": [
+        "A-002",
+        "A-022",
+        "A-031"
+      ],
+      "tests": [
+        "CT-107",
+        "CT-108"
+      ],
+      "rule": "C03 for persisted Character -> S03 -> new TCP C10; real native World first opcode/C25 body must be verified, not synthetic 01; login/World grant separate from create proof."
+    },
+    {
+      "id": "ENTRY-03",
+      "owner": "Server + A-032",
+      "mode": "needs-client-evidence",
+      "analysis": [
+        "A-015",
+        "A-022",
+        "A-032"
+      ],
+      "tests": [
+        "CT-108"
+      ],
+      "rule": "Use versioned real MAP selected by Server with exact header word plus computed native structured C35 checksum, valid spawn. S14(2) means loading UI not tutorial completion."
+    },
+    {
+      "id": "ENTRY-04",
+      "owner": "Server + A-005/A-032",
+      "mode": "needs-client-evidence",
+      "analysis": [
+        "A-005",
+        "A-032"
+      ],
+      "tests": [
+        "CT-109"
+      ],
+      "rule": "Native world C11/C33 handled in InWorld, S0B authoritative movement and verified walkable path. Never infer can-walk from isolated bit0/bit4 or accept movement without authenticated lease."
+    },
+    {
+      "id": "ENTRY-05",
+      "owner": "DEV/CT",
+      "mode": "needs-client-evidence",
+      "analysis": [
+        "A-030",
+        "A-031",
+        "A-032"
+      ],
+      "tests": [
+        "CT-107",
+        "CT-108",
+        "CT-109"
+      ],
+      "rule": "Only original unmodified Asgard.exe can close creation-to-playable-world. Synthetic domain PASS is not native GUI PASS; basic entry not tutorial quest completion."
     }
-  ]
+  ],
+  "native_playable_entry_plan": "02-server-planning/native-playable-entry-roadmap-20261101.md",
+  "native_playable_entry_acceptance": "05-conformance/native-playable-entry-acceptance-20261101.md"
 }

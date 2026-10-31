@@ -1,4 +1,12 @@
 # 變更紀錄
+## 2026-11-01 原版 Client 完整創角至可操作入圖 P0 實作規劃
+
+對照 `as_server_spec/main@3cb220a2` 及私有 `as_server_roy/main@a9326985`，區分已有 Account/E-MAIL v5、Character/proof、C03/S03/C10、World DB/scene 合成後端，與未完成的 live C02/C04/C15、真 World C25、真 MAP C35、InWorld C11/C33。新增 DEV-ENTRY-00..06、P0 A-030 現有任務續查與新 A-031/032、CT-107..109、ONB/ready gates/traceability。原版 Asgard.exe 不修改；Server 原始碼/DB 未由本次 Spec 工作改動；原版 Client E2E 仍 not-run；NPC/怪物/任務不設為首次可操作入圖的先行阻塞。
+
+## 2026-11-01 R-035：創角 E-MAIL 開啟單純儲存規劃
+
+已決定原版創角 E-MAIL 應保存，暫無其他用途。新增 R-035、DEV-CREATE-EMAIL 設計、CT-106、ONB-02/traceability 與相關資料契約；SQLite/Pg Account nullable creation_email schema v5，僅隨 C04 角色成功原子提交。A-030 NAME/E-MAIL 對照仍需 native 實證，不能把猜測當結果。只改 Spec main，不修改 Server/DB/Client；原 Client E2E not-run。
+
 ## 2026-10-31 23:51 創角送出直接原因已確認
 
 新連線以 REA Client send 與 Server f2a4a38 本地去敏 close journal 關聯：C02 成功送出並收到，因 native-c02-fields-unknown-a030 立即關閉、未回 S02。將 RI-001 根因切片提升為 runtime-confirmed；A-030 僅補 A30-1，欄位與錯誤契約仍待研究。確認新版 FormInput idle600／absolute1800 已實作並在本次摘要生效，與舊60秒等待及前輪 send=-1 分開。不發布原始 journal／表單，Server 未由規格整合者修改或重啟；原版 CT 仍未通過。

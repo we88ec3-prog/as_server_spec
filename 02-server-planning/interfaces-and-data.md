@@ -62,3 +62,7 @@ Game Client C02 可能在 C03 之前送出；C02 region 封包布局已由 BIN �
 ## A-002 S03/C10 AuthSession / TransferGrant
 
 `AuthSession(account_id, character_id, generation, status)`、`TransferGrant(token_hash, account_id, character_id, generation, destination, expires_at, consumed)`、`WorldBinding(account_id, generation, connection_id)`；S03 對 Client 含 addr/port/u8 token length+raw token，新 TCP C10 **僅 raw token**。old login socket close 不能清除合法尚未兌換 grant，stale generation disconnect 不能刪新 World。以 CAS 消費 grant/推進 generation。原服 duplicate 政策 unknown，latest-auth-wins 只作 Server designed。參見 [交接契約](session-transfer-contract.md)。
+
+## 創角 E-MAIL 單純持久保存（R-035，2026-11-01）
+
+`AccountCredential` 同一 account_id 下新增獨立 nullable `creation_email` 欄位，並非登入憑證、CharacterName 或可供 Admin/UI 使用的聯絡資料。只在本次 C02 已驗證、C04 角色建立完成的 **同一 DB transaction** 保存；第一段 C02 不寫、失敗與 C15 不寫、重送不覆寫。E-MAIL 的原生來源仍待 A-030 region/widget/封包對照，不可把 F4 假說當已證。實際 SQLite/Pg v5 migration、隱私限制和 CT-106 詳 [最新契約](newuser-email-persistence-20261101.md)。

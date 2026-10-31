@@ -90,7 +90,8 @@
       "id": "ONB-02",
       "title": "創角／保存",
       "requirements": [
-        "R-026"
+        "R-026",
+        "R-035"
       ],
       "analysis_requests": [
         "A-003",
@@ -99,7 +100,8 @@
         "A-028",
         "A-016",
         "A-020",
-        "A-030"
+        "A-030",
+        "A-031"
       ],
       "scenarios": [
         "SCN-008"
@@ -118,7 +120,9 @@
         "CT-100",
         "CT-103",
         "CT-104",
-        "CT-105"
+        "CT-105",
+        "CT-106",
+        "CT-107"
       ],
       "depends_on": [],
       "readiness": "A-030 native field ordinal and S02 nonzero static integrated; NAME/EMAIL semantics and live C02 adapter still blocked",
@@ -160,7 +164,27 @@
         "latest_private_main": "f2a4a388013b11b5472c3b1022dea5c8176e503b",
         "revision": "IndependentCharacterCreation, ICreationCredentialVerifier, credential version fencing, phase-based form idle timeout, redacted diagnostic journal exist; LoginWireSession native C02/C04/C15 still fail-closed. No original Client E2E."
       },
-      "latest_a030_client_evidence": "region0 widget 1/2/3/F3=10; region2/3 widgets12/13/14/F3=15/F4=16; region4 widgets20/21/22/F3=23/F4=24; region1 mismatch; NAME/EMAIL labels and native S02 status still unproven"
+      "latest_a030_client_evidence": "region0 widget 1/2/3/F3=10; region2/3 widgets12/13/14/F3=15/F4=16; region4 widgets20/21/22/F3=23/F4=24; region1 mismatch; NAME/EMAIL labels and native S02 status still unproven",
+      "creation_email_storage": {
+        "decision": "approved-2026-11-01",
+        "db_column": "existing Account.creation_email nullable",
+        "write_stage": "C04 successful Character transaction only",
+        "scope": "storage-only; no other functions",
+        "status": "planned-not-implemented",
+        "native_field_gate": "A-030 authentic E-MAIL field map before native use",
+        "design_source": "02-server-planning/newuser-email-persistence-20261101.md",
+        "conformance": "CT-106",
+        "native_client_validation": "not-run"
+      },
+      "native_playable_entry": {
+        "design_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
+        "analysis_queue": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md",
+        "acceptance": "05-conformance/native-playable-entry-acceptance-20261101.md",
+        "work_scope": "DEV-ENTRY-00..02: native NewUser mapping, C02 credential proof, two-stage S02/C04 and R-035 email atomically persisted; does not require C03 first.",
+        "server_snapshot": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
+        "current_native_client_validation": "not-run",
+        "state": "planned-not-implemented"
+      }
     },
     {
       "id": "ONB-03",
@@ -175,7 +199,9 @@
         "A-023",
         "A-027",
         "A-016",
-        "A-019"
+        "A-019",
+        "A-031",
+        "A-032"
       ],
       "scenarios": [
         "SCN-009"
@@ -189,7 +215,10 @@
         "CT-046",
         "CT-067",
         "CT-068",
-        "CT-069"
+        "CT-069",
+        "CT-107",
+        "CT-108",
+        "CT-109"
       ],
       "depends_on": [
         "ONB-02"
@@ -221,6 +250,15 @@
         "analysis_status": "offline-partial",
         "native_client_validation": "not-run",
         "notes": "494/494 MAP offline and 26 native MAP anchors verified; Client actual walkability, spawn and C35 second checksum remain not-run/unknown"
+      },
+      "native_playable_entry": {
+        "design_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
+        "analysis_queue": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md",
+        "acceptance": "05-conformance/native-playable-entry-acceptance-20261101.md",
+        "work_scope": "DEV-ENTRY-03..05: actual post-C10 native World first C2S, versioned MAP + exact C35 pair, game playable including C11/C33; no synthetic C25=01.",
+        "server_snapshot": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
+        "current_native_client_validation": "not-run",
+        "state": "planned-not-implemented"
       }
     },
     {
@@ -232,7 +270,9 @@
       "analysis_requests": [
         "A-016",
         "A-022",
-        "A-002"
+        "A-002",
+        "A-031",
+        "A-032"
       ],
       "scenarios": [
         "SCN-010"
@@ -244,7 +284,10 @@
         "CT-037",
         "CT-038",
         "CT-045",
-        "CT-046"
+        "CT-046",
+        "CT-107",
+        "CT-108",
+        "CT-109"
       ],
       "depends_on": [
         "ONB-03"
@@ -263,7 +306,16 @@
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
-      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
+      "native_playable_entry": {
+        "design_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
+        "analysis_queue": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md",
+        "acceptance": "05-conformance/native-playable-entry-acceptance-20261101.md",
+        "work_scope": "DEV-ENTRY-06: original Client end-to-end replay, crash/restart, timeout and transaction recovery; synthetic and original Client proof separate.",
+        "server_snapshot": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
+        "current_native_client_validation": "not-run",
+        "state": "planned-not-implemented"
+      }
     },
     {
       "id": "ONB-05",

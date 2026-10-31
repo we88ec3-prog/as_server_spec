@@ -2175,6 +2175,96 @@
       "email_region2_4_candidate_ordinal": 4,
       "email_field4_report": "03-analysis-requests/A-030-roy1-email-c02-field.md",
       "offline_validation_extra": "2026-11-01 original EXE SHA and 15/15 new x86 anchors (UI extra second field -> packet+0x822 -> writer+0x816 -> C02 send); no native GUI test"
+    },
+    {
+      "id": "A-031",
+      "system": "SYS-WORLD",
+      "requirements": [
+        "R-004",
+        "R-027",
+        "R-028"
+      ],
+      "title": "原版 S03/C10 後的 World 首個 C2S、C25 真格式與 Client 入圖觸發",
+      "method": "BIN-first search real World writer, region/seed state, encrypted ordinal, plus anonymized original Client packet trace from persisted-character C03→S03→C10; previous 0x4A8370 misidentified as C25 is S03 handler.",
+      "deliverable": "Document exact first World C2S opcode/C25 if present, bytes/field map, region and Client state, required S2C, failure path and native evidence/unknowns for DEV-ENTRY-03.",
+      "dependencies": [
+        "A-002",
+        "A-022"
+      ],
+      "remaining_unknowns": [
+        "C10 follow-up first true native opcode and its body",
+        "C25 real writer/region-specific serialization and Client UI preconditions",
+        "Whether S02 is required after C10/World entry and its Client state"
+      ],
+      "priority": "P0",
+      "status": "open",
+      "assignee": "unassigned",
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run",
+      "evidence_kind": "unknown-pending-original-client",
+      "implementation_ready": false,
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Research native Client UI and C2S/S2C/layout only; Server decides authenticated Character, map selection/spawn, permissions and durable commit. No invented packets.",
+      "analysis_report": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md"
+    },
+    {
+      "id": "A-032",
+      "system": "SYS-WORLD",
+      "requirements": [
+        "R-004",
+        "R-005",
+        "R-027"
+      ],
+      "title": "原版選定 MAP 的 C35 完整校驗雙值與可操作安全入圖",
+      "method": "Use already provided Map0/1/2 full corpus and original EXE native MapData checksum xref 0x4B2EC0, confirm map_ref/header/checksum via original Client C35 and UI, record safe display spawn/viewport and short walkable path; no official Server spawn policy inference.",
+      "deliverable": "One reproducible versioned native MAP entry fixture with map_ref/archive SHA/width/height/C35 pair, verified visual spawn/viewport/path and explicitly unproven collision semantics for DEV-ENTRY-04/05.",
+      "dependencies": [
+        "A-015",
+        "A-022",
+        "A-005"
+      ],
+      "remaining_unknowns": [
+        "Fully reconstructed native 0x4B2EC0 structured checksum on selected original MAP",
+        "Correct map_ref/revision/Client displayed layout and safe spawn",
+        "Native C33 movement rollback at wall/invalid tile, if any",
+        "Identifying tutorial map vs verified interim map"
+      ],
+      "priority": "P0",
+      "status": "open",
+      "assignee": "unassigned",
+      "evidence_ids": [],
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run",
+      "evidence_kind": "unknown-pending-original-client",
+      "implementation_ready": false,
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "handoff_track": "client-io",
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "client_server_boundary": "Research native Client UI and C2S/S2C/layout only; Server decides authenticated Character, map selection/spawn, permissions and durable commit. No invented packets.",
+      "analysis_report": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md"
     }
   ]
 }

@@ -2898,6 +2898,158 @@
       ],
       "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
       "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown"
+    },
+    {
+      "id": "CT-106",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "db-migration-and-native-creation-email-persistence",
+      "requirements": [
+        "R-035"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-S02",
+        "PKT-C15"
+      ],
+      "input": {
+        "kind": "sqlite-postgres-synthetic-plus-separate-original-client-validation",
+        "reference": "05-conformance/newuser-email-persistence-test-plan.md",
+        "cases": [
+          "SQLite/Postgres fresh/v4->v5 preserve existing Account/Character/credential_version/ban",
+          "verified creation email saved only to correct owner account with C04 atomic commit and re-read after restart",
+          "wrong-password/ban/C15/stale-session/invalid-C04/rollback never write email",
+          "committed C04 replay does not overwrite creation_email",
+          "unknown F3/F4 or region1 wire mapping never assumed; empty string vs NULL distinguished",
+          "no Admin UI/API, auth, password-reset, notification, uniqueness or audit/trace use"
+        ]
+      },
+      "expected": "Proven native E-MAIL value is durable as Account.creation_email exactly once and only atomically with successful Character creation; migration non-destructive; all failures leave no update. Native Client verification separate and remains not-run.",
+      "evidence_kind": "user-decided-designed-not-implemented",
+      "analysis_dependency": [
+        "A-030"
+      ],
+      "design_source": "02-server-planning/newuser-email-persistence-20261101.md"
+    },
+    {
+      "id": "CT-107",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "evidence_kind": "Server-designed-contract-requires-original-client-e2e",
+      "implementation_status": "not-reported",
+      "evidence_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
+      "level": "original-native-new-user-to-authenticated-world-transfer",
+      "requirements": [
+        "R-025",
+        "R-026",
+        "R-027",
+        "R-028",
+        "R-035"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-C03",
+        "PKT-S03",
+        "PKT-C10"
+      ],
+      "input": {
+        "kind": "original-unmodified-Asgard.exe-plus-sqlite-postgres-restart",
+        "reference": "05-conformance/native-playable-entry-acceptance-20261101.md",
+        "cases": [
+          "new Admin-created Account no Character opens native NewUser",
+          "region-proven NAME/E-MAIL mapping and two-stage S02/C04 with atomic v5 persistence",
+          "original UI return to login and C03/S03/new TCP C10",
+          "invalid credentials/bans/C15 and replay/crash do not create Character or email",
+          "native S02 nonzero failure UI and C15/retry without generic socket disconnect"
+        ]
+      },
+      "expected": "One real Client workflow creates a persistently stored Character with Account.creation_email exactly once, returns to login and authenticates C03/S03/C10 without bypass or modifying native EXE. Synthetic Server domain results are distinct.",
+      "analysis_dependency": [
+        "A-030"
+      ]
+    },
+    {
+      "id": "CT-108",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "evidence_kind": "Server-designed-contract-requires-original-client-e2e",
+      "implementation_status": "not-reported",
+      "evidence_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
+      "level": "original-native-world-entry-after-c10-and-mapcrc",
+      "requirements": [
+        "R-004",
+        "R-027",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C10",
+        "PKT-C25",
+        "PKT-S02",
+        "PKT-S05",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04",
+        "PKT-S33"
+      ],
+      "input": {
+        "kind": "original-client-verified-world-first-packet-and-selected-map",
+        "reference": "05-conformance/native-playable-entry-acceptance-20261101.md",
+        "cases": [
+          "capture actual post-C10 native first World C2S, C25 or verified alternate",
+          "select real map with verified full MapData CRC and S15 compatibility",
+          "C35 same header/checksum verified before commit",
+          "wrong CRC/epoch/timeout/reconnect cannot skip or duplicate world entry",
+          "tutorial map vs interim genuine map properly distinguished"
+        ]
+      },
+      "expected": "No hardcoded synthetic C25=01 or guessed C35; real Client loads corresponding MAP and sees own Character, Server atomically records entry and not tutorial_completed.",
+      "analysis_dependency": [
+        "A-022",
+        "A-031",
+        "A-032"
+      ]
+    },
+    {
+      "id": "CT-109",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "evidence_kind": "Server-designed-contract-requires-original-client-e2e",
+      "implementation_status": "not-reported",
+      "evidence_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
+      "level": "original-native-in-world-turn-movement-and-restart",
+      "requirements": [
+        "R-005",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C11",
+        "PKT-C33",
+        "PKT-S0B",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S33"
+      ],
+      "input": {
+        "kind": "original-client-movement-and-authoritative-collision",
+        "reference": "05-conformance/native-playable-entry-acceptance-20261101.md",
+        "cases": [
+          "native Client movement and facing on verified valid path after S14(2)",
+          "C11 turn and C33 with seq7 successful move S0B, local coordinate changes",
+          "blocked/out-of-bounds/speed/duplicate don't corrupt position",
+          "restart/relogin restores legitimate position",
+          "second player in shared map cannot change first player's authority"
+        ]
+      },
+      "expected": "Original Client can walk and turn in a loaded real map with authoritative Server validation; visual loading without walking does not pass.",
+      "analysis_dependency": [
+        "A-005",
+        "A-032"
+      ]
     }
   ]
 }
