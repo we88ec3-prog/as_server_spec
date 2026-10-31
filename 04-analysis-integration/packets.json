@@ -1298,14 +1298,19 @@
         "A023-E14",
         "A023-E16",
         "ev_a020_20261031_asgard_prelogin_branch_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "A023-E19",
+        "A023-E23",
+        "A023-E24"
       ],
       "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
       "a020_prelogin_gate": "Local login C6C subtype3 is accepted without reply (designed minimal-profile); it does not start Born, does not prove Script state or authenticate Account; A-023 handles native script updates and Dispose",
       "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a023_born_close_warning": "Born PaperDialog OK triggers C6C subtype4 then default unreplied cleanup C6C subtype2 (previous native A023 evidence); not quest completion or grant. This turn original Born+Basic frame verified but PaperDialog original file not supplied; native GUI not-run.",
+      "a023_latest_report": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md"
     },
     {
       "id": "PKT-S18",
@@ -1416,7 +1421,13 @@
         "A023-E15",
         "A023-E17",
         "ev_a020_20261031_asgard_prelogin_branch_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "A023-E19",
+        "A023-E20",
+        "A023-E21",
+        "A023-E22",
+        "A023-E23",
+        "A023-E24"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
@@ -1427,7 +1438,11 @@
       "a020_prelogin_gate": "Not required in minimal prelogin fixture; S44 type1/subtype3 deletes/clears Script/*.dat in native Client. Must not synthesize fake ACK; follow A-023.",
       "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a023_type2_gui_original": "Native outer S44 handler0x4E0B70 always calls Script manager0x52C2A0 first, then if packet type2 and handler result nonzero: subtype0 manipulates GUI slot0x23 and pane components4/3/conditional7; subtype2 manipulates UI slot0x24 via 0x535590→0x4E3880. This is NOT S44 type1/0 Born.Main entry. 22 original SHA-locked VA signatures verified. Exact GUI text/dialog identity not proven.",
+      "a023_visual_dependency": "Born.Main → PaperDialog_Create (original PaperDialog.dat dependency verified historically; not provided this turn) → Basic.dat/AlertFrame.ypf. Original Born/Basic/AlertFrame SHA+indexed DAT offsets/YPF17 checked this run; NOT original Client GUI pass.",
+      "a023_latest_report": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md",
+      "native_client_validation": "not-run"
     },
     {
       "id": "PKT-C15",
