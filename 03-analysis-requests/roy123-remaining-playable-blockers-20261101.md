@@ -31,3 +31,17 @@
 使用者已明確決策 **一般驗證失敗不可由 Server 無回覆直接踢線**。A-030/A-028 需更精確交：原 Client NewUser state0x1d 與 state0x1e 各自的 `S02(nonzero,string8)` status → 本地錯誤訊息/焦點 → 是否送 `C15(empty)` → TCP 保留/Client 正常關閉 → 重新點「創角」時的第一次 C2S。錯密／停權／重名／C04 失敗對應的 **具體 status 尚無原版動態證據**，不用猜或從普通 C03 status3 複製。若原 Client 資料不足，交 `native-error-mapping-unverified` 和具體 Client 原始 TRACE 取樣步驟。
 
 原版 CT-112 負向 UI/C15、CT-113 Server 原因 Log，按 [ADR-009 規劃](../02-server-planning/expected-validation-failure-policy-20261101.md) 驗收。此工作可與 DEV-ENTRY、教學 A-012/023/026 並行；**沒有新增必缺的具名 DAT**。
+
+## 2026-11-01 真實創角後異常的新實測：S02(0)×2 → io-error，下一條 C42 是原版例外回報
+
+使用者提供三份本機 JSONL，已分析出 `2026-11-01 03:38:13 (UTC+8)` 的原始 Client C02→S02(0)→C04→S02(0)，Server 同 socket 4.313 秒後只記 `io-error`；另一條 Socket 30 秒後 C62→C42(body39) 被 Server 標 unknown 後斷線。**經相同 SHA 原版 EXE 靜態查證 C42 其實是 `CExceptionPacket`（ctor `0x5723C0`、RTTI `0x66940C`），屬 crash log 回報路徑，非 World 入口**。沒有同條連線的 S03/C10/C25/C35，也沒 Client PID/exception cause。成功建角回覆不能宣稱進地圖，不能把 io-error 當 Server 主動踢線，更不能假設 C42 是轉服。詳 [這次分析交接](../04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md)，P0 補查 A-028 final S02 callback、A-031 native World first socket、Client `Crash_as*.log`／WER；Server 修正交 DEV，分析者不修改程式。
+
+## 2026-11-01 RI-007：新增登入 Log 定位 World C25 後無回覆，Windows preview 當掉證據
+
+新附件（三份 `(2).jsonl`）確認 **03:47:31 C03→S03(成功) 正常轉服關線**、03:47:32 新 TCP C10→WorldGranted、03:47:33 Region3 C25(body_len16) `handled` 但 Server 沒有任何 S05/S15/S14，也沒有 C35、World trace 亦無 close summary。對照唯讀 `as_server_roy@e93c9a17` 的 `LoginWireSession.case 0x25`：`_worldFixture==null` 時只解析 Region3 billing C25、設定 `_billingSeen=true`、`return Continue()`（零回包，留 WorldGranted），**這就是登入後「伺服器無回應」的第一優先實作缺口**，不是 C03 帳密錯、C25 格式錯或 C35 CRC。不能用 synthetic `C25=01` 或合成 World fixture 替代原生證據。
+
+使用者 Windows Log 另顯示 03:38:13 的 `Application Error 1000` 為 **`Asgard-main-menu-preview.exe`**、03:38:17 WER1001；因此先前 RI-006「原版 Client 創角後崩潰」需要訂正為**預覽副本的 runtime 崩潰**，其完整 exception code/module/offset 尚未取得。`.NET Runtime 1000` 的 `GameTcpDiagnosticJournal` 標籤可能是 Server 日誌事件，並不能證明 Server 程式 crash。詳 [RI-007 整合報告](../04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md)。本次只更新規格與分析，不更改 Server/Client。
+
+## 2026-11-01 修改版 Client 的分析隔離要求（使用者明確更正）
+
+`Asgard-main-menu-preview.exe` 是**僅供排錯**的修改版。它的 WER `APPCRASH` (`0xC0000005`、RVA `0x00141264`) 及其 C02/C04/C25 操作只能當 `modified-preview-debug-only` 的現場線索，不能標為原版 `Asgard.exe` 任何動態行為已證、或把 RVA 直接對上原件同地址推定原版崩潰原因。原版 A-028/A-031 靜態證據仍由原始 SHA 鎖定 EXE 產生；若要原版 Native CT，須另外以**未修改的原件**執行。本輪 Server code `C25→Continue()` 零回包屬 source-proven，與 Preview 是否原版無關。完整隔離註記見 [RI-007](../04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md)。

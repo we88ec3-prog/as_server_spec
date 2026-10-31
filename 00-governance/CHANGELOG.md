@@ -1,4 +1,20 @@
 # 變更紀錄
+## 2026-11-01 RI-008：實際比對修改版 EXE 的 0xC0000005 崩潰位址
+
+讀取用戶提供的 Preview 與原件，確認修改版新增 .tipfix、.text 8 個差異區塊；Windows WER RVA 0x141264 的實際 Preview 指令為 mov [eax+4],edx。創角 S02(0) Region3 callback 是其可能 caller 之一，缺 EAX/stack 無法證實真正根因。列出 Preview Region3 條件跳轉等 Patch 候選，只供排錯，不能當原件 Client 研究成果。詳 [RI-008](../04-analysis-integration/20261101-preview-exe-crash-debug-diff.md)；未修改 Server 或任何 EXE。
+
+## 2026-11-01 修改版 Preview 僅供排錯，不得冒認原版遊戲分析
+
+使用者明確更正 `Asgard-main-menu-preview.exe` 經調整僅供排除錯誤；WER APPCRASH `0xC0000005` / RVA `0x00141264` 僅是修改版 debug evidence，不可直接套到原版 `Asgard.exe` 的 VA `0x00541264` 當成已證原版 faulting instruction。更新 RI-006/007 與 P0 分析隔離標記。Server C25 後 `Continue()` 零 S2C 屬程式碼事實，但原版 Native Client E2E 仍 not-run。只修改 `as_server_spec`；沒有修改 Server/遊戲 EXE。
+
+## 2026-11-01 RI-007：登入成功但 Native World C25 後沒有回覆；Windows preview.exe 當掉證據
+
+新上傳 84 packet／17 close／4 validation 累積 Log，確認一般 C03→S03(轉服)→新 TCP C10/C25 成功，卻停 WorldGranted 零 S2C。唯讀核對 Server `LoginWireSession.case 0x25` 的 `_worldFixture=null` → `return Continue()`，定位 DEV-ENTRY 原生地圖載入未接通；不是密碼、C25 或 C35 錯。Windows Application Error 1000 指向 `Asgard-main-menu-preview.exe`，校正先前 RI-006 原版 runtime 標示；例外模組/碼未提供。詳 [RI-007](../04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md)。只改 as_server_spec，沒有修改 Server/Client。
+
+## 2026-11-01 RI-006：C02/C04 成功後 Client 異常、C42=原件 CExceptionPacket
+
+從使用者 70 packet/16 close/4 validation JSONL 查出 03:38:13 C02→S02(0)→C04→S02(0)，03:38:17 Server io-error，03:38:47 另一 socket C62→C42 被擋；由未修改 Asgard.exe RTTI/constructor 取證 C42 是 exception report、非 World 登入，Client 可能另有 Crash_as*.log；沒有 OS crash dump 不能確認 fault cause，也未觀察到 World 包。新增 [RI-006 原始證據整合](../04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md)，追加 A-028/A-031、DEV-ENTRY、CT-107/108 缺口。**僅更新規格，未修改 Server/EXE**。
+
 ## 2026-11-01 R-037：補登分析者越界寫入的 TCP 逐包日誌／預期外標記，明確禁止後續直改 Server
 
 使用者糾正本工作應是分析與 Server 規劃，並問先前直接實作是否回補規格。確認已發生的 `as_server_roy/main` commits `95977823`（收發 Log、UNEXPECTED marker）與 `71ebd259`（log 文件修正）；先前 ADR-009/R-036 僅涵蓋驗證失敗原因 Log，未補完整逐包 contract。新增 [R-037 詳細規格／事實回補](../02-server-planning/game-packet-log-contract-and-backfill-20261101.md)、[CT-114](../05-conformance/game-packet-observability-acceptance-20261101.md)，更新需求、工作板、追蹤與角色確認關卡。純規格修改、**本次未觸碰 Server／DB／EXE、未撤銷他人開發變更**。舊程式僅記 source-implemented，原 Client E2E 仍 not-run。
