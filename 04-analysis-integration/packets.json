@@ -525,6 +525,13 @@
         "local_next_seq": "(sent_seq+1)&0x7f, immediately after enqueue",
         "mode": "third field can OR0x80; no unproven speed multiplier",
         "native_gui": "not-run"
+      },
+      "a005_native_path_predicate": {
+        "source": "task_a/roy3/A-005-native-path-collision-closure.md",
+        "client_local_only": true,
+        "predicate": "destEffective bit0 block, src bit3+dir byte block, actor lookup==1 block, dynamic overlay add/remove",
+        "native_gui": "not-run",
+        "warning": "C33 direction not yet proven equivalent to all local-path helper directions"
       }
     },
     {

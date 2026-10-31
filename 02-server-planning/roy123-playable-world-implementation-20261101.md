@@ -50,3 +50,9 @@ AdminCreatedAccount
 - CT 原生 GUI/TCP 是最終阻塞；開發期間仍可先提交 static/dry-run subset。所有 native 未跑的標記必須保留 `not-run`。
 
 [後續 Client 研究/實測所缺的真證據](../03-analysis-requests/roy123-remaining-playable-blockers-20261101.md)。
+
+## 最新 A-005 動態碰撞補證：DEV-ENTRY-05 額外接線邊界
+
+Roy3 A005-E15～E21 已查出 Client 的局部 **8方向**候選 gate，不應再寫「毫無碰撞讀取規則」：先做地圖 bounds，`effective_flags=(native_memory_flags|overlay_add)&~overlay_remove`；候選 destination 若 `bit0` 設置則拒絕，source `bit3` 設置且 in-memory direction mask 命中則拒絕，場景物件 lookup==1 另拒；未知 global bypass 不能讓 Server 開全圖通行。方向索引 0北1東2南3西4東北5東南6西南7西北只是 path helper 事實，**非已證所有 C33 方向**。除非 Client 實際走通和有可批准的 Server 障礙策略，仍不得直接用 raw flags0 作無限通行或「合法出生」。
+
+Server 可先製作 `TileEffectiveFlags`、`DynamicCollisionOverlay`、`CandidatePathPredicate` **純 domain 測試**，確認動態 add/remove、source direction、actor gate/越界拒絕；再以 CT-109 實際成功5步、撞牆回滾、重複 C33、seq127→0、雙角色同圖驗收。A005 source 是 [Roy3 追加](../task_a/roy3/A-005-native-path-collision-closure.md)；P0 **新缺口是原版 Client 實測／動態 overlay 寫入來源、出生點與 Server 權威碰撞政策**，不是再問 raw MAP flags 是多少。

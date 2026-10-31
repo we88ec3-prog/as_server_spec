@@ -258,7 +258,7 @@
       "tests": [
         "CT-109"
       ],
-      "rule": "A-005 Client C33 producer and native S0B consumer: reply low7 of status byte must be the current C33.seq, local Client next seq=(seq+1)&127; bit7 clear=authoritative correction/stop, set=predicted position compare+possible correction. Server C11/C33 InWorld route still absent; movement mask, speed, origin/path and native GUI/rollback remain unknown, raw tile flags0 does not prove passable."
+      "rule": "A-005 Client C33 producer and native S0B consumer: reply low7 of status byte must be the current C33.seq, local Client next seq=(seq+1)&127; bit7 clear=authoritative correction/stop, set=predicted position compare+possible correction. Server C11/C33 InWorld route still absent; movement mask, speed, origin/path and native GUI/rollback remain unknown, raw tile flags0 does not prove passable. Additional A-005 E15..E21 original-static local candidate predicate now proven: dest effective flags bit0 blocks, source bit3 plus direction mask blocks, object lookup==1 blocks, effective_flags=(memory_flags|dynamic_add)&~dynamic_remove, 8 path directions. This is NOT full Server authority or native walkability; CT-109 remains not-run."
     },
     {
       "id": "ENTRY-05",
@@ -305,7 +305,8 @@
       "A028_region3_postcreate_success_ui": "proven-static-LoginDialogPane-constructor-not-auto-login",
       "A031_region3_c10_c25": "proven-static-CBillingInfoPacket-3string8-no-interposed-S02",
       "A032_map6_structured_c35": "offline-original-asset-00040F90-not-network",
-      "A005_s0b_seq7_bit7": "proven-static-current-sequence-ack-correction"
+      "A005_s0b_seq7_bit7": "proven-static-current-sequence-ack-correction",
+      "A005_native_path_predicate": "verified-original-static-read-side-dest-bit0-src-bit3-direction-mask-dynamic-overlay-and-object-lookup;native-GUI-not-run"
     },
     "native_e2e": "not-run",
     "normal_login_separate_from_postcreate": true,

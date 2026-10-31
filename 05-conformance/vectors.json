@@ -3181,6 +3181,22 @@
         "bit7_set": "predicted-move check then correction on mismatch",
         "native_collision_and_gui": "not-run",
         "candidate_walk_path": "map6 (30,30)->(30,31)->(30,32)->(31,32)->(32,32) is unverified"
+      },
+      "roy3_native_path_evidence": {
+        "source": "task_a/roy3/A-005-native-path-collision-closure.md",
+        "static_handoff": "ready",
+        "native_gui": "not-run",
+        "raw_map6_counts": {
+          "flags0": 902,
+          "flags17": 2698,
+          "raw_bit0_clear": 902,
+          "raw_connected_candidate": 900
+        },
+        "requires": [
+          "validate overlay add/remove and source direction-bit conditional offline",
+          "do not enable global bypass or raw-only 900-cell whitelist as native walkable",
+          "actual client five-step path and wall rollback, seq127->0, multiuser S06/S11"
+        ]
       }
     },
     {

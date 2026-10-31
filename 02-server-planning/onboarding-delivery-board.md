@@ -114,3 +114,7 @@ ONB-01 C03 登入原有 Account 及 ONB-02 C02 直接創角為**互不要求事�
 ## 2026-11-01 Roy1/2/3 成果正式整合
 
 現行優先 P0 不是重新分析 C02 的 NAME/EMAIL 或整個 C25/MAP checksum：Region2～4 `C02.F3=NAME/F4=E-MAIL` 原件已證，Region3 `C25=CBillingInfoPacket/3×string8` 與一般 C10 後排隊順序已證，map6 初始 C35 `00040F90` 已由原件重算，S0B 低七位 seq/bit7 分支已證。**Server a9326985 仍 live C02/C04/C15 Close、C25=01 synthetic 且 C11/C33 無 Host route**；最大阻塞轉成原版成功創角後的自動 World 轉場、S02/C15 可見失敗、原版真 C35/合法 spawn／行走碰撞。詳細 [新版 DEV 分期](roy123-playable-world-implementation-20261101.md)／[A 剩餘](../03-analysis-requests/roy123-remaining-playable-blockers-20261101.md)；原版 CT=not-run。
+
+## Roy3 新一輪 A005 原版候選碰撞證據（2026-11-01）
+
+A005-E15～E21 已確認原版 Client 局部 path candidate：目標 effective flag bit0、來源 effective bit3+direction mask、object lookup、動態 overlay 加/除，8 鄰方向。Server 可實作該 predicate 的嚴格原版 read-side 候選，**不代表已可無限制走圖**；玩家合法 spawn、動態物件/遮罩寫入、Client 原版 C33/S0B GUI 和權威碰撞/速度政策仍是 CT-109 必驗，不能把900 raw bit0-clear 候選格當原版已走過。對照 [Roy3 新報告](../task_a/roy3/A-005-native-path-collision-closure.md)。

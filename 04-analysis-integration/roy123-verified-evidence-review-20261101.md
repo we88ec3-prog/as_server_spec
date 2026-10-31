@@ -38,3 +38,9 @@ map6 和 map10000 的原始 MAP member SHA 相同，但 Map identity 不同；Cl
 **整合結論：A 的已證子集現在足以開更多 native codec、MapCatalog 和 movement ACK 的 DEV 工作；但不能把原版 GUI 首次創角直接入 World、真出生、真步行、錯誤 UI 當已驗收。**
 
 [接續完整 DEV 計畫](../02-server-planning/roy123-playable-world-implementation-20261101.md) · [待分析](../03-analysis-requests/roy123-remaining-playable-blockers-20261101.md)。
+
+## 2026-11-01 Roy3 同步進行中追加 A-005 E15～E21（最新主線增量）
+
+最新追加 A-005 真原版 BIN `0x4BE470 → 0x4B8B20` 的**局部 path candidate** 判定：global bypass（語意未解）→允許；若 `0x4EA900(candidate,0)==1`→拒絕；destination 的 `effective_flags & 0x01`→拒絕；source `effective_flags & 0x08` 且 `source_direction_mask & (1<<direction)`→拒絕，否則通過。這是 **Client 局部尋路**而不是完整權威 Server 碰撞；原版 dynamic overlay 需由 `0x4C1850` 計算 `effective_flags=(memory_flags|dynamic_add)&~dynamic_remove`，方向遮罩來自內存 17B tile+0x0C，非 raw MAP 10B 欄位，**不能**把 raw bit0-clear 當唯一可走準則。方向 helper 的 0..7 是北/東/南/西/東北/東南/西南/西北；C33 direction 不可在未證前硬說全部相同。
+
+獨立驗證原件 Map0/00006.map 60×60 原始 flags 分布 `0=902`、`17=2698`；從 (30,30) 用 raw bit0-only 四鄰 flood fill=**900 個候選格**，尚無任何一格 native GUI verified walkable。A005 由 `integrated/partial` 增量至 **static handoff ready**，原版 GUI/Server motion CT-109 仍 **not-run**。完整來源 [native static 研究](../task_a/roy3/A-005-native-path-collision-closure.md)／[整合碰撞契約](A-005-native-path-collision-contract.md)。

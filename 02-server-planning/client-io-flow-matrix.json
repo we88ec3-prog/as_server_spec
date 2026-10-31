@@ -426,14 +426,15 @@
         "Server picks measured collision policy and speed/step threshold, not necessarily original; MAP bit4 native line test is NOT proven walking collision",
         "S0B with authoritative coordinate for candidate reject/correction; exact original failure status/GUI unknown; other observers use S06/S11"
       ],
-      "readiness": "A-005 Native C33 producer and S0B seq7/bit7 correction handler source-backed; C11 one byte, movement mode byte native OR0x80; actual player walkability, step/speed, GUI S0B and InWorld Host router pending.",
+      "readiness": "A005 native path candidate effective_flags/actor/source-dir-mask and C33/S0B seq7/bit7 static-ready; Server dynamic collision authority/spawn/speed and native GUI movement still not-run.",
       "unknowns": [
         "Which raw MAP flags decide player walking vs LOS/static blockers",
         "C33 direction/gait vs legal step/diagonal and tick (original Server policy)",
         "S0B bit7 failure handling and native rollback / resend state",
         "Original map content version-binding and selected world map",
         "Actual standing tile/collision requires native path trace; in-bounds or flags=0/1/17 are not enough; CT-091 not-run",
-        "S0B must carry triggering C33 seq7; bit7=0 corrective stop, bit7=1 compares predicted coordinates; Client current seq increments before S0B, first actual sequence must be captured."
+        "S0B must carry triggering C33 seq7; bit7=0 corrective stop, bit7=1 compares predicted coordinates; Client current seq increments before S0B, first actual sequence must be captured.",
+        "A005-E15..E21: client local candidate check now confirmed, but global bypass meaning, dynamic overlay writer, source direction mask update, C33 direction equivalence, full Server collision policy and CT-109 native GUI still unknown."
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-005-analysis.md",
@@ -441,7 +442,23 @@
         "ONB-04"
       ],
       "a015_collision_boundaries": "Native bit0 is locally mutable and separately consumed at 0x4D120B; bit4 (0x10) used in 0x4B4BB0 tile line test, not proven walking; secondary per-tile DWORD grid 0x4B3250/0x4B2D00 has separate neighbor predicate; no universal player-collision mask proven.",
-      "a015_native_map_readiness": "C33/S0B subset and original MAP addressing/flags observed; native player collision and rollback not ready"
+      "a015_native_map_readiness": "C33/S0B subset and original MAP addressing/flags observed; native player collision and rollback not ready",
+      "native_path_candidate": {
+        "source": "task_a/roy3/A-005-native-path-collision-closure.md",
+        "predicate": "if bypass allow; actorLookup==1 block; destEffectiveFlags&1 block; sourceEffectiveFlags&8 && srcDirectionMask&(1<<dir) block; otherwise local candidate pass",
+        "overlay": "(nativeMemoryFlags|add)&~remove",
+        "path_direction_order": [
+          "N",
+          "E",
+          "S",
+          "W",
+          "NE",
+          "SE",
+          "SW",
+          "NW"
+        ],
+        "native_walkable_verified": false
+      }
     },
     {
       "id": "FLOW-LOOK",

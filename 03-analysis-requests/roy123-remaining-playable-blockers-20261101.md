@@ -21,3 +21,7 @@
 4. 可另做錯密/停權／重名/空 E-MAIL：只記 S02(status/message length)、C15、socket timeout/FIN/RST，**不記原始明文/解密 C02 body**。異常斷線與正常 S03 transfer close 分開。
 
 動態實測是 Server/CT 出場門檻，A 靜態子集已可交 DEV；不要因無法同時做原版 Client E2E 而將已證 A 分析全重開。若提供額外**教學互動**資源可再指定 `PaperDialog.dat`，但**首次成功創角→可移動的 P0 沒有新必缺原件檔名**。
+
+## 2026-11-01 A-005 靜態結案後剩餘精準工作（覆蓋舊「位元全不明」）
+
+**已證**：局部 path gate 目的地 bit0、來源 bit3 + direction mask、場景 actor lookup、overlay add/remove、八鄰方向索引；map6 flags0=902/flags17=2698，bit0-clear 的 raw-only 候選 component=900。**未證**：dynamic overlay 寫入者、方向遮罩實際來源/更新、原版角色腳底／安全出生與 C33 方向是否全部同 path helper、合法速度與 GUI 真走路/撞牆回滾。DEV 可以依已證 read-side 設計候選/合成測試，但**不能僅憑 raw bit0 就讓正式玩家行走**。交 CT-109/E2E；完整補證 [Roy3](../task_a/roy3/A-005-native-path-collision-closure.md)。本追加**沒有新缺的原始檔名**。

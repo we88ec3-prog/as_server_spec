@@ -73,3 +73,7 @@
 - **C33/S0B 的原生 ACK 序號已進一步證實**：S0B low7 回本次 C33.seq、bit7=0 校正/停止、bit7=1 預測位置檢查（不符仍校正）；Client 送 C33 後本地 seq 先 +1 mod128。碰撞、速度及原版移動仍需 CT。
 - **創角直入世界是 ADR-008 使用者需求**。A-028 靜態確認 Region3 final success 建 `LoginDialogPane` 物件（不代表手動登入畫面），但背景是否發 C03/S03/C10、下一個 World packet 尚未證；Server 不得強迫 LoginDialog。
 - 詳細 [已驗證證據整合](../04-analysis-integration/roy123-verified-evidence-review-20261101.md)、[直接派給 Server 的 DEV-ENTRY-01～06 規劃](roy123-playable-world-implementation-20261101.md)、[剩餘 P0 分析](../03-analysis-requests/roy123-remaining-playable-blockers-20261101.md)。前文「A030 labels missing、C25 body unknown、沒有任何真 MAP checksum」為歷史快照，不再當新阻塞；`native_client_validation=not-run` 不變。
+
+## 2026-11-01 Roy3 A-005 最後一輪：Client 局部碰撞已查出
+
+`0x4BE470→0x4B8B20` 的 8 鄰局部候選 gate：dest effective bit0 擋、source bit3+direction mask 擋、場景物件 lookup==1 擋、overlay `(tileFlags|add)&~remove`；global bypass 原意未證，不能直接放行。map6 raw 60×60 格子中 flags0=902、flags17=2698，從 (30,30) raw-only 4 鄰可達900候選，但沒有 native GUI 走路證據。A005 **static-ready、native CT-109 not-run**；詳 [完整更新](roy123-playable-world-implementation-20261101.md) 和 [原 Client 契約](../task_a/roy3/A-005-native-path-collision-closure.md)。
