@@ -97,3 +97,8 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 ## A-013 / roy1：商店、Exchange、玩家交易 Client I/O
 
 [Native BIN-first 逐欄報告](A-013-roy1-economy-wire.md) / [安全 Server 交接契約](../04-analysis-integration/A-013-economy-contract.md) / [18 Native anchors + 10 offline tests](../tools/a013_economy_contract.py)。Client 的三對 packet 分別為 C39/S2F (Merchant)、C4A/S42 (Exchange)、C17/S6E (Trade)；已具不同 type/欄位/變長列表的實際 serializer/reader 靜態證據，但 UI 按鈕→subtype、購買/倉庫/交易完成時序和 Server 原版交易政策尚未確認。A-013 \`integrated/handoff partial/native-client not-run\`；CT-087..089 獨立追蹤。不能拿類別 \`ExchangeDialog\` 直接當官方倉庫，亦不可將 wire u32 寬度視為原服金錢上限。
+
+
+## A-012 / roy1：Script 對話選項與任務回覆（2026-10-31）
+
+[原 Client BIN-first 分析](A-012-roy1-quest-dialog.md)、[Server Domain / Client I/O 契約](../04-analysis-integration/A-012-quest-dialog-contract.md) 與 [20 個原件指令簽章＋14 個 offline tests](../tools/a012_quest_dialog_contract.py)。已追通 SendReply → C6C(1,name,context,pairs key/value)／runner replied flag 與 Dispose C6C(4)、無回覆清理 C6C(2) 的差異；本次獨立核對 Born.dat SHA、UTF16LE XML 與 CP950 CRC。S44(1,0) start/Main 與更新沿用 A-023。既有 nNewJoin01 的 STATE=ACCEPT/REFUSE 只表示 Client Script 回覆候選，不能當官方任務完成或獎勵；NPC→Script/正式 quest 資料、Client UI 實機仍 unknown。A-012 integrated/handoff partial，CT-090..092 planned、native-client not-run。

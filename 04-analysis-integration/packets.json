@@ -1010,7 +1010,9 @@
       "layout": "opcode 0x6c; body subtype u8: 0=string8; 1=string8,u32,u16 count,count*(string8,string8); 2/4=string8,u32; 3=no further payload. string8 length counts encoded bytes, no wire NUL; integers BE (writer ctor flag=1); string codepage selected by LanguageMan, CP950 at index4; see A023-E13.",
       "client_entry": "0x575140 ctor / 0x575210 serializer",
       "state_precondition": "see profile-login.md",
-      "related_packets": [],
+      "related_packets": [
+        "PKT-S44"
+      ],
       "layout_status": "partial",
       "evidence_kinds": [
         "observed-runtime-profile",
@@ -1020,7 +1022,8 @@
       "manual_validation": "normal login path passed; not all metadata/script branches",
       "requirements": [
         "R-001",
-        "R-002"
+        "R-002",
+        "R-013"
       ],
       "evidence_ids": [
         "A023-E02",
@@ -1029,14 +1032,24 @@
         "A023-E14",
         "A023-E16",
         "ev_a020_20261031_asgard_prelogin_branch_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a012_20261031_script_reply_choice_client_static"
       ],
       "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
       "a020_prelogin_gate": "Local login C6C subtype3 is accepted without reply (designed minimal-profile); it does not start Born, does not prove Script state or authenticate Account; A-023 handles native script updates and Dispose",
       "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a012_choice_lifecycle": {
+        "subtype1": "string8(name),u32BE(context),u16BE(pair_count),count*(string8 key,string8 value); native SendReply 0x51a9f0, 0x51ab33 sets replied; client text only, not trusted QuestCompleted",
+        "subtype4": "explicit client.Dispose(name,context); not quest completion",
+        "subtype2": "generic unreplied cleanup(name,context), gated by +0x23c flag; not quest completion",
+        "subtype3": "no fields; not a quest reply",
+        "evidence_id": "ev_a012_20261031_script_reply_choice_client_static",
+        "report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "PKT-S18",
@@ -1147,7 +1160,8 @@
         "A023-E15",
         "A023-E17",
         "ev_a020_20261031_asgard_prelogin_branch_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a012_20261031_script_reply_choice_client_static"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
@@ -1158,7 +1172,13 @@
       "a020_prelogin_gate": "Not required in minimal prelogin fixture; S44 type1/subtype3 deletes/clears Script/*.dat in native Client. Must not synthesize fake ACK; follow A-023.",
       "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a012_script_choice_handoff": {
+        "evidence_id": "ev_a012_20261031_script_reply_choice_client_static",
+        "client_start": "S44(1,0) resource/dependencies -> Main; actual first send timing controlled by Server",
+        "client_return": "C6C(1) key/value, C6C(4)/(2) close; NO automatic completion/reward",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "PKT-C15",

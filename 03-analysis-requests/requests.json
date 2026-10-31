@@ -734,11 +734,13 @@
       "title": "任務腳本與對話協定",
       "method": "查Script資料、執行環境、對話選項、任務條件、獎勵發放。",
       "deliverable": "區分client呈現與server規則；不可把client腳本當全部Server邏輯。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a012_20261031_script_reply_choice_client_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "latest_merged_evidence_focus": "A-023 confirms S44(1,0) starts named Main with dependencies, C6C(0) requests missing script, C6C(4) close and C6C(2) no-reply cleanup. Focus on original-server first-login send condition, PaperDialog lifecycle, quest authoritative meaning and recruiter/NPC script binding. No unsupported quest completion inference.",
       "client_io_scope_correction": "Client 收 Script/NPC/quest 包後所呈現 UI 及其 C→S 回應；Server 首次派送條件、任務完成判定與獎勵策略獨立規劃。",
@@ -753,7 +755,48 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "evidence_kind": "observed-static-plus-observed-resource-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C6C(0/1/2/3/4) native Script reply/lifecycle wire, S44(1,0/1/1) resource/runtime bootstrap from A-023, Born PaperDialog text/CRC, safe designed session/context/replay gates only; not authoritative original quest or NPC mapping",
+      "native_quest_rule_ready": false,
+      "native_npc_script_binding_ready": false,
+      "analysis_report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+      "analysis_contract": "04-analysis-integration/A-012-quest-dialog-contract.md",
+      "analysis_test": "tools/a012_quest_dialog_contract.py",
+      "conformance": [
+        "CT-090",
+        "CT-091",
+        "CT-092"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "remaining_unknowns": [
+        "Native NPC click target->script binding and Dialog GUI option trigger for all scripts",
+        "Official quest step IDs, progress requirements, acceptance/denial outcome and quest UI updates",
+        "Original Server-only first login script send policy, reward presence/content and completion/exit",
+        "PaperDialog/nNewJoin01 assets not mounted in this turn; earlier A-023 reports resource hashes/branches; original Client GUI not run"
+      ],
+      "client_io_handoff": {
+        "trigger": "S44(1,0) named start -> dependency/CRC -> Main/dialog; script SendReply or Dispose/cleanup native dispatch",
+        "client_sends": [
+          "PKT-C6C",
+          "PKT-C43",
+          "PKT-C39"
+        ],
+        "client_receives": [
+          "PKT-S44",
+          "PKT-S34",
+          "PKT-S3C"
+        ],
+        "client_reaction": "S44(1,0) loads script/dep/parameters and executes Main; SendReply issues C6C(1) with name/context/pairs and replied flag; Dispose issues C6C(4), unreplied cleanup C6C(2); NPC-info S34/S3C and dialog binding not yet proven",
+        "evidence": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+        "unknowns": [
+          "Original game NPC entity->script and UI choice->network callback for all scripts",
+          "Server quest completion, reward, save/relogin semantics unknown",
+          "Original Client runtime E2E not-run"
+        ]
+      }
     },
     {
       "id": "A-013",

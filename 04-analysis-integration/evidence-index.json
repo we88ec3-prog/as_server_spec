@@ -3569,6 +3569,50 @@
         "Original Server prices, warehouse binding, UI accept/cancel/disconnect, maximum currency value unknown",
         "Tests are byte signatures plus synthetic, not native live Client E2E"
       ]
+    },
+    {
+      "evidence_id": "ev_a012_20261031_script_reply_choice_client_static",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-plus-observed-resource",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "method": "Original Asgard.exe SHA locked; 20 x86 instruction signatures in CScript writer 0x575210, SendReply 0x526626/0x51a9f0, replied flag and cleanup 0x519450, S44 constructor; original Born.dat zlib/UTF16/CRC; 14 tests",
+      "scope": "Client script SendReply C6C subtype1 key-value selection, subtype4 Dispose and subtype2 no-reply cleanup; distinguishes from authoritative quest rules and C43/C39 NPC events",
+      "functions": [
+        "0x575159",
+        "0x575210",
+        "0x575240",
+        "0x575280",
+        "0x526626",
+        "0x526652",
+        "0x51A9F0",
+        "0x51AA5C",
+        "0x51AB33",
+        "0x526873",
+        "0x5268C6",
+        "0x519479",
+        "0x5194CE",
+        "0x5862F9"
+      ],
+      "resources": [
+        {
+          "filename": "Born.dat",
+          "sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+          "text_crc32_cp950": "1d87b0c0"
+        }
+      ],
+      "prior_resource_candidate": {
+        "filename": "nNewJoin01.dat",
+        "original_resource_not_mounted_in_this_turn": true,
+        "prior_report": "task_a/roy2/A-023-script-entry-contract.md"
+      },
+      "report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+      "contract": "04-analysis-integration/A-012-quest-dialog-contract.md",
+      "synthetic_test": "tools/a012_quest_dialog_contract.py",
+      "native_client_validation": "not-run",
+      "limits": [
+        "Unproven original Server quest objectives and rewards; client selection is not authoritative",
+        "Unproven recruiter NPC entity/map or actual Client UI option/callback chain; previous Script resource analysis is not new runtime validation"
+      ]
     }
   ]
 }

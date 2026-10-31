@@ -110,3 +110,8 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 — task_a/roy1 同步 main 並完成 A-013 Client Economy 靜態交接
 
 在指定原分支 \`task_a/roy1\` 以雙 parent merge commit \`09724d3\` 同步 \`main@8e4f42d\`，保留 A-011/A-022 獨立證據與測試，主線 Client I/O 安全規範優先。繼續以原始 Asgard.exe SHA 原件定位 CExchangePacket 0x4A/SExchangePacket0x42、CMerchantPacket0x39/SMerchantPacket0x2F、CTradePacket0x17/STradePacket0x6E；追 C4A subtype0..5、C39 7B common、C17 type0/3/128/130 list/numeric layout 及三個 S2C 變長 reader。18 處 native VA signatures + 6 RTTI + 10 個合成測試通過（非原 Client E2E）。新增 A-013 報告、安全 Server Domain 契約、offline tests、PKT/SCN-016/CT-087～089/證據；\`status=integrated/handoff=partial\`、\`native_client_validation=not-run\`。Exchange 不等於已證倉庫；交易確認/取消/官方金額/掉線回復不可冒稱已解。未新建 branch、不合 main 回主線。
+
+
+## task_a/roy1 — 2026-10-31 A-012 任務／對話 Client 收發與權威分界
+
+原始 Asgard.exe 相同 SHA 之 20 x86 byte anchors (C6C subtype 0..4, SendReply producer/runner replied flag, client.Dispose→C6C4，unreplied cleanup→C6C2，S44 ctor) 與本次 Born.dat 原始 UTF16/CP950 CRC 比對通過；新增 14 個 Python offline/synthetic tests；更新 A-012 report、Domain contract、PKT-C6C/S44、SCN-011/013、CT-090/091/092、evidence/traceability。A-012 僅 Client codec/Script lifecycle 可交付，原服首發策略、NPC→Script 綁定、任務完成與獎勵 unknown、native Client CT not-run；狀態 integrated/handoff partial。沿用原分支 task_a/roy1，不建新 branch。

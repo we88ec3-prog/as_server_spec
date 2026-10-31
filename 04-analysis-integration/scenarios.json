@@ -500,7 +500,8 @@
       "shared_map_policy": "same world/map shares one instance; actor death/respawn and state visible to two players; character progression remains per-character; native packet mapping unknown",
       "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md",
       "analysis_evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a012_20261031_script_reply_choice_client_static"
       ],
       "integration_sources": [
         {
@@ -523,7 +524,24 @@
         "A024-E05",
         "A024-E06",
         "A024-E07"
-      ]
+      ],
+      "a012_quest_dialog_handoff": {
+        "report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+        "contract": "04-analysis-integration/A-012-quest-dialog-contract.md",
+        "static_wires": [
+          "PKT-S44",
+          "PKT-C6C"
+        ],
+        "observed": "C6C(1) carries Script reply key/value; C6C(4)/(2) are Dispose/no-reply cleanup",
+        "original_quest_completion_ready": false,
+        "original_npc_binding_ready": false,
+        "ct": [
+          "CT-090",
+          "CT-091",
+          "CT-092"
+        ],
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "SCN-012",
@@ -620,7 +638,8 @@
       "packet_mapping": "unknown",
       "analysis_evidence_ids": [
         "ev_a025_20261031_attack_skill_bin_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a012_20261031_script_reply_choice_client_static"
       ],
       "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
       "a026_contract": "04-analysis-integration/A-026-tutorial-completion-contract.md",
@@ -638,7 +657,24 @@
           "notes": "已確認的教程條件成立後持久化完成進度，任何原版有的獎勵僅授予一次，按原生證據轉入一般地圖並可重登。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
           "packet_mapping": "unknown"
         }
-      ]
+      ],
+      "a012_quest_dialog_handoff": {
+        "report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+        "contract": "04-analysis-integration/A-012-quest-dialog-contract.md",
+        "static_wires": [
+          "PKT-S44",
+          "PKT-C6C"
+        ],
+        "observed": "C6C(1) carries Script reply key/value; C6C(4)/(2) are Dispose/no-reply cleanup",
+        "original_quest_completion_ready": false,
+        "original_npc_binding_ready": false,
+        "ct": [
+          "CT-090",
+          "CT-091",
+          "CT-092"
+        ],
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "SCN-014",

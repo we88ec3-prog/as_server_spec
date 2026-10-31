@@ -2387,6 +2387,89 @@
         ]
       },
       "expected": "Map each native C17 type to UI triggers and S6E type to response, plus authoritative once-only settlement; no original Client E2E yet"
+    },
+    {
+      "id": "CT-090",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+      "level": "script-client-reply-static-and-synthetic",
+      "requirements": [
+        "R-013"
+      ],
+      "packet_ids": [
+        "PKT-S44",
+        "PKT-C6C"
+      ],
+      "evidence_ids": [
+        "ev_a012_20261031_script_reply_choice_client_static"
+      ],
+      "input": {
+        "kind": "native-SHA/static-resource-plus-synthetic",
+        "reference": "tools/a012_quest_dialog_contract.py",
+        "cases": [
+          "Original Asgard.exe SHA and 20 x86 C6C/S44/SendReply/Dispose signatures",
+          "Born.dat hash, BE wrapper/UTF16LE XML, CP950 CRC and no explicit SendReply",
+          "Script subtype0..4 codecs and subtype1 pair key/value, 14 negative and security tests"
+        ]
+      },
+      "expected": "Offline evidence and synthetic tests PASS, never claim actual original Client UI, original quest reward/grant"
+    },
+    {
+      "id": "CT-091",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+      "level": "native-script-choice-and-dialog-ui",
+      "requirements": [
+        "R-013"
+      ],
+      "packet_ids": [
+        "PKT-S44",
+        "PKT-C6C",
+        "PKT-C43",
+        "PKT-S34",
+        "PKT-S3C"
+      ],
+      "evidence_ids": [
+        "ev_a012_20261031_script_reply_choice_client_static"
+      ],
+      "input": {
+        "kind": "native-client-e2e-plan",
+        "cases": [
+          "Original Client in isolated Script cache: S44(1,0) Born+PaperDialog correct exact CRC, verify PaperDialog displays and closes",
+          "Identify actual NPC->Script mapping with visible object ref; click choices for nNewJoin candidate and capture C6C(1) key/value and (4)/(2) close ordering",
+          "Deny/cancel and missing dependency should not be mislabeled quest completion; no intentional wrong CRC on live Client"
+        ]
+      },
+      "expected": "Exact UI-action->C6C payload, S44 startup, object ref, popup/close callbacks proven or documented unknown; all original Client tests currently not-run"
+    },
+    {
+      "id": "CT-092",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+      "level": "quest-replay-authorization-and-multiplayer",
+      "requirements": [
+        "R-013"
+      ],
+      "packet_ids": [
+        "PKT-C6C",
+        "PKT-S44",
+        "PKT-C43"
+      ],
+      "evidence_ids": [
+        "ev_a012_20261031_script_reply_choice_client_static"
+      ],
+      "input": {
+        "kind": "server-designed-and-native-client-followup",
+        "cases": [
+          "Script context/name/session/map generation mismatch and stale reply should reject",
+          "C6C(4) then C6C(2), repeated C6C(1), double-claim STATE=ACCEPT, disconnect and return preserve once-only interpretation",
+          "When official quest and reward rules established, replay/grant ledger and 2 clients in same map must remain per-character"
+        ]
+      },
+      "expected": "No unverified quest completion/reward on Close or untrusted Script string; native client E2E and official reward still unknown"
     }
   ]
 }
