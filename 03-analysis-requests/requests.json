@@ -1674,7 +1674,11 @@
           "Release identity pairing of Asgard.exe, Born.dat, Basic.dat and historically verified PaperDialog.dat unproven beyond independent SHA.",
           "PaperDialog.dat original bytes missing from this run, cannot re-verify PaperDialog XML or native UI; original Client CT-034/035 not-run."
         ]
-      }
+      },
+      "original_local_static_result": "PASS original Asgard.exe SHA-locked 22 S44 type1/type2 UI dispatcher VA; original Born.dat 589B+Basic.dat 5,282,488B hash/index and Basic/AlertFrame.ypf 177,648B SHA/YPF17; Born CP950 XML CRC1D87B0C0",
+      "synthetic_ci_result": "PASS GitHub Actions run 41230455292: 21/21 new A023 DAT/index/UTF16/zlib synthetic tests, prior A010/A011/A015/A024/A028/A031 tests and phase gates",
+      "offline_ci_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41230455292",
+      "original_native_gui_validation": "not-run"
     },
     {
       "id": "A-024",
