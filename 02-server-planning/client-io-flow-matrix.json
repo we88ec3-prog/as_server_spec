@@ -513,6 +513,60 @@
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-009-analysis.md",
       "work_items": []
+    },
+    {
+      "id": "FLOW-NPC-OBJECTS",
+      "label": "NPC／怪物生成、移動、資訊、動作、死亡與移除",
+      "client_trigger": "進入 World/map、AOI 內有非 Human 物件；Client 收 S07/S0C/S64/S34/S3C/S62/S63/S29/S5F/S0E；玩家攻擊或物件資訊請求另可送 C13/C43，但 NPC 對應 UI 未完全證",
+      "client_send": [
+        "PKT-C13",
+        "PKT-C43"
+      ],
+      "server_to_client": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S62",
+        "PKT-S63",
+        "PKT-S29",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "client_reaction": "S07 0x57E3E0 full type1..14 native row parse, nonempty variants 1/2/4,3,5..12,13,14; S0C fixed10B; S64 path15+N (cap11 designed); S34 object-info subtype6 and partial subtype11; S3C display info7B; S62 add action variable strings; S63 remove action2B; S29 effect13B; S5F death4B != S0E removal4B. Exact kind-to-NPC/monster map and GUI/object registry handlers still need CT.",
+      "evidence": [
+        "A-024",
+        "A-004",
+        "A-009",
+        "A-015",
+        "A-023"
+      ],
+      "scenarios": [
+        "SCN-011"
+      ],
+      "tests": [
+        "CT-021",
+        "CT-022",
+        "CT-034",
+        "CT-065",
+        "CT-066"
+      ],
+      "server_decisions": [
+        "Choose type and content map only from verified resource/version + designed data, do not assume kind1 is monster or Born(31,29) is NPC spawn.",
+        "Server defines authoritative NPC AI/respawn/visibility, map epoch, object generation and event ordering, with no claim of original Server timing.",
+        "Do not conflate S63 action removal, S5F death and S0E object removal; ensure invalid map, stale epoch, duplicate ID and excessive path counts fail closed."
+      ],
+      "readiness": "native-client-S07-nonempty-all-types-and-other-S2C-packet-schema-ready; classification/GUI/official-tutorial-content-not-verified",
+      "unknowns": [
+        "Kind1..14->NPC/monster/static sprite and object key registry mapping unknown",
+        "S34 subtype11 full dynamic GUI data and S62/63 Action UI context unknown",
+        "Original tutorial spawn map/NPC IDs and Server AI policies unknown",
+        "Native world object rendering/interaction E2E not run"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-024-analysis.md",
+      "work_items": []
     }
   ]
 }
