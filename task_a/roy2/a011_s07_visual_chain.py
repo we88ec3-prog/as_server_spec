@@ -69,3 +69,19 @@ def project_s07_visuals(decoded_body: bytes, *, max_records=1024):
             )
         )
     return tuple(visuals)
+
+
+def c43_known_three_mode_ui_request(scene_object_ref: int, ui_mode: int):
+    """Original panel method 0x4A2376..0x4A2558, three observed C43 modes.
+
+    All branches set type=1 and use current panel +0x4C object ref.
+    When UI mode changes, native sends subtype 0x04, 0x10, or 0x40.
+    It does NOT prove these are NPC click/attack/merchant intents.
+    """
+    import struct
+
+    if type(scene_object_ref) is not int or not 0 <= scene_object_ref <= 0xFFFFFFFF:
+        raise ValueError("scene object ref outside BE u32")
+    if type(ui_mode) is not int or not 0 <= ui_mode <= 2:
+        raise ValueError("only original UI panel modes 0/1/2 are proven")
+    return struct.pack(">BIB", 1, scene_object_ref, (0x04,0x10,0x40)[ui_mode])
