@@ -106,3 +106,30 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 - **A-029**：原生改密碼 C26（0x26）實際存在，body=Account/old/new 3×string8，確認新密碼本地比對，不傳第四欄；S02 generic handler 已定位但官方 status/原生 GUI 未驗。見 [A-029](A-029-roy1-native-password-change.md)、[整合契約](../04-analysis-integration/A-029-native-password-change-contract.md)。
 - **A-030**：原生 C02 的 region0/1/2..4 widget→field slot 及 S02 非零文字提示與 C15 分支可證，**NAME/E-MAIL 真欄位／必填仍 unknown**。見 [A-030](A-030-native-newuser-disconnect-fields.md)、[整合契約](../04-analysis-integration/A-030-newuser-s02-field-contract.md)。
 - 舊表格的 open/not-started 僅是歷史狀態；以最新 `requests.json` integrated/partial/native-not-run 與 [主線同步審查](../04-analysis-integration/roy1-roy2-password-newuser-sync-20261031.md) 為準。
+
+
+## A-030 E-MAIL/C02 靜態增量（2026-11-01）
+
+[確認 E-MAIL 候選實際封包路徑](A-030-roy1-email-c02-field.md)：原版 C02 opcode 0x02，Region2..4 F4 string8 由第二個額外 UI 控制項寫入（region4 widget0x18／region2、3 widget0x10），packet+0x822→serializer+0x816；確認頁也使用此字串。高可信對應 E-MAIL，但原版 literal label 尚需 `Locale.dat` 或原 Client GUI 驗證；不聲稱郵件必填。Region0/1 另有不含此 F4 的三字串結構。測試工具新增固定原件 x86 路徑驗證；不修改 Server/DB/Asgard.exe。
+
+
+## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
+
+配對原件 `Basic.dat` 確認 `BasicString.txt` **73 NAME／75 E-MAIL**，`SkinString.txt` 2153 名字／2154 E-Mail；EXE 確認畫面 F3/F4 key0x49/0x4B + C02 writer 原生對應 ⇒ **Region2～4 C02 第3個 string8=NAME、第4個 string8=E-MAIL 正式已證**（不再只是候選）。S02(status!=0,message) 原生 message dialog 建構＋C15(empty)/state1F 分支已證，但原版 GUI/TCP 實際 display 和 retry、錯密 status 官方意義仍未實測。A30 `integrated/resource-confirmed, runtime partial`；見 [原件資源與 EXE cross-reference](A-030-roy1-original-resource-proof-20261101.md) 與 [離線驗證](../tools/a030_resource_labels.py)。
+
+## A-031／roy2：C10 後原始 C25 及 World 入口證據（2026-11-01）
+
+原始 `Asgard.exe` SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 完成 BIN-first 靜態追查：C25 opcode0x25 真正的 native class 是 **`CBillingInfoPacket`**（ctor `0x5712E0`，writer `0x571420`，RTTI）；**Region3 寫三個 `string8`**（每欄 u8 byte length + encoded bytes，來源 global `[0x66D100]+0x0C/+0x20C/+0x40E`）。其他 Region 的 writer 不寫 payload，但**四條已追的 C25 原生送包入口全部受 region3 guard**，不能要求非3 Client 一定送 C25。
+
+已定位兩條原始 callback **C10 raw token enqueue → C25 enqueue**（`0x4A8446→0x4A84F3`、`0x52FB8C→0x52FC4B`），兩次送包之間沒有等待額外 S02。不能拿 Client class `CBillingInfoPacket` 的字串當角色/登入憑證，也不能以合成 `C25 body=01` 當真正 World 握手。實際 first S2C、map/S14/C35/GUI 與各非3 Region 完整動態時序仍在 **CT-108 native not-run**。
+
+[A-031 完整報告](../task_a/roy2/A-031-analysis.md) · [native 35 VA + RTTI probe](../task_a/roy2/a031_native_probe.py) · [decoded-body codec](../task_a/roy2/a031_world_entry_codec.py) · [CT-110 / CT-108](../05-conformance/A-031-native-world-entry-test-plan.md)。研究 `integrated/ready` 限於上述原生靜態 Client I/O；**不代表成功進 World**。無新增必需原版檔案；若要 runtime 驗收，需要同 SHA 原始 Client 去敏 S03→C10→C25/first World S2C 封包 trace。
+
+
+## A-028／roy2 完成後補證：C04 第二段 S02 成功的 UI／World 交接（2026-11-01）
+
+已從原始 `Asgard.exe` SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 追查 `state0x1e+S02(0)→0x4B206B`：確認此成功 callback 會**清理 0x0B/0x0C/0x0D/0x07 UI 槽位**，並且只有 **Region3** 在 `0x4B2109` 建立 `0x4A9380` 的 native class。透過 vtable `0x609BBC`→COL `0x625970`→TypeDescriptor `0x6665D8` 明確辨識為 **`LoginDialogPane`**。這是 Client 記憶體內的 UI 物件，**不代表玩家需要手動再次登入**，也不證明 Client 自動送 C03。
+
+獨立的 LoginDialogPane `0x4A8890` callback 可在參數非零時呼叫 C03 sender `0x4A7D10`；**final S02 success 是否自動觸發尚無原生 call/packet 證據**。S02 非零仍回 `C15(empty)`／state0x1f；Region3 state0x1e 的一般文字提示有特殊略過分支。**ADR-008 的產品需求仍是成功創角直接進 World、不需手動重登**，實際自動 World TCP 與首個 C2S/S2C 留給 CT-105/107/108 原版擷包；不以舊版推測的「回 LoginDialog 手動 C03」取代需求。
+
+[A-028 新增完整原件證據](../task_a/roy2/A-028-postcreate-ui-native-followup.md) · [31 VA/RTTI 原生驗證工具](../task_a/roy2/a028_native_postcreate_probe.py) · [合成狀態機](../task_a/roy2/a028_postcreate_model.py) · [CT-111/原生 CT 計畫](../05-conformance/A-028-postcreate-native-callback-test-plan.md) · [22 項合成回歸 GitHub CI](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277)。任務為 **`integrated/partial`**：已完成可證的 UI 靜態交接，但首次創角成功後 World 連線因果未證，**`native_client_validation=not-run`**；沒有新缺的具名遊戲檔案，真正需要原版 Client 去敏的創角最後 S02→World 封包及 UI 時序。

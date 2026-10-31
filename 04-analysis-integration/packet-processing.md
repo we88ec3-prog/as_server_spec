@@ -79,3 +79,11 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## 2026-10-31 Roy2 A-010 來源離線驗證增量
 
 Roy2 `ab2525bbe7f36d5cec89f35189e2d776ea5a8942` 補充 C4D BEu16 實際 Client producer、C56 u8 未追 UI producer、S52 BEu32/u8、S48 BEu32、S2C(0x2C) 動態 AddLastingSpell（BEu32/u8/BEu16/u8/string8/u8/BEu32/BEu32）、S2D(0x2D) BEu32 RemoveLastingSpell。以上是原始 Client **static decoded-body**，不是已知 spell ID、MP、cooldown、BUFF duration、UI response。Roy2 對應離線 [CI 41193941400](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41193941400) 已報 PASS，但 native Client GUI 尚未測；主線正式驗收為 **CT-095 offline / CT-096 native GUI**，不能照抄來源分支局部 CT-089/090。
+
+## A-031／roy2：原版 World 握手 C10→C25 勘誤（2026-11-01）
+
+`C25` 不是推測的 `WorldEntryMetadata`：**opcode0x25** 在原始 Client 的 native packet ctor `0x5712E0`／writer `0x571420`、RTTI 對到 **`CBillingInfoPacket`**。Region=3 寫 `string8×3`（各 u8 encoded-byte length + raw bytes，body **3+L0+L1+L2**）。資料來自 `[0x66D100]+0x0C/+0x20C/+0x40E`，**未驗證欄位是帳密、角色或地圖 ID**；非3 writer 本身為空，但原件已見的四個送包 producer 全部 Region3 guard，不能當其他 Region 的強制入圖前置。
+
+真實 S03 transfer callback `0x4A8370`：**C10** ctor `0x4A8415`／enqueue `0x4A8446`，再 **C25** ctor `0x4A8478`／enqueue `0x4A84F3`；另一次轉服 `0x52FAD0` 同樣為 `0x52FB8C` C10、Region3 `0x52FC4B` C25，**之間不等 S02**。Region!=3 的 0x52FAD0 path 可以只有 C10。**C10 raw token 才是 Server 的權威轉服驗證資料；合成 `C25 body=01` 不是原版 region3 Client 的 C25。**
+
+來源：[A-031 native binary 報告](../task_a/roy2/A-031-analysis.md)、[CT-110 offline 與 CT-108 native](../05-conformance/A-031-native-world-entry-test-plan.md)。35 PE VA＋CBillingInfoPacket RTTI 及 20 synthetic decoded-body tests 均有證，**不是** Native Client runtime TCP/成功進 World 證據；首個 S2C／S02錯誤／MAP初次入圖仍未確認。

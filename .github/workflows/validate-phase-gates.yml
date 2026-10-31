@@ -3,7 +3,7 @@ name: Validate phase-gated work contracts
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, task_a/roy2]
   workflow_dispatch:
 
 jobs:
@@ -20,3 +20,15 @@ jobs:
           python3 -m unittest discover -s task_a/roy2 -p 'test_a011_resource.py' -v
           python3 -m unittest discover -s task_a/roy2 -p 'test_a024_object_packets.py' -v
           python3 -m unittest discover -s task_a/roy2 -p 'test_a024_npc_codec.py' -v
+      - name: Validate A-031 original post-C10 region3 C25 BillingInfo native wire
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a031_world_entry.py' -v
+      - name: Validate A-015 original MAP geometry and coordinate evidence
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a015_map_coordinate.py' -v
+      - name: Validate A-010 original spell and lasting-effect decoded-body contracts
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a010_skill_codec.py' -v
+      - name: Validate A-028 original C04 final-S02 native UI callback and synthetic state
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a028_postcreate.py' -v

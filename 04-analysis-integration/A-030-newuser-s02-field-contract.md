@@ -33,3 +33,13 @@ Offline 30 EXE instruction signatures and full 29-entry focus selector, 15 synth
 ## 2026-11-01 ADR-008（覆蓋上文所有回登入假設）
 
 **原版 Client 成功 C04／第二段 S02(0) 後直接進遊戲、不返回 LoginDialog，玩家不需手動第二次 C03。** 上方舊有「成功後回登入」「手動重新登入」是過時 Server 規劃，不再做開發或 CT 出場條件；A-028 的 0x4b206b callback 無立即 S03 仍是有效靜態觀察，但後續背景授權/轉服/首 World opcode 必須由 A-028/A-031 補證，不能猜。已存在角色日後的一般 C03/S03/C10 登入不變。新正式需求見 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 Client E2E 未執行。
+
+
+## 2026-11-01 原始 EXE evidence addendum
+
+見 [A30 逐位址嚴格驗證](../03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md)。可直接解碼 Region2..4 `C02 F3/F4`，兩個 UI extra 值確實由原 Writer 送出；只有 **官方 NAME/E-MAIL label 必須先依 `Locale.dat` key0x49/0x4B 或未修改原版 Client 畫面＋去敏欄位長度對照才能將 F3/F4 登記為 CharacterName/Account.creation_email**。S02(nonzero, text) → 原生文字提示建立路徑（Region3/state0x1E 抑制例外）→ C15 空 body/state0x1F 已證 Client 組語，未取得正式 Server 的錯誤碼語意、真正 GUI 或 C15 後不斷線保證；供 DEV 使用的 status1 message 向量僅為 synthetic candidate。R-035 正式保存 E-MAIL 仍依現有 Server 設計，不可讓 A30 靜態研究越權修改 DB。
+
+
+## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
+
+**取代本文件以上「NAME/E-MAIL semantics unknown」限制（僅 Region2..4）：** 原件 Basic.dat `BasicString.txt` 73=NAME / 75=E-MAIL，`SkinString.txt` 2153=名字 / 2154=E-Mail；原 Client 確認頁以 F3 packet+0x624 + `0x49`、F4 packet+0x822 + `0x4B` 查同一語系表，因而可正式將 Region2..4 的 `C02 F3` 解碼為 **NAME**、`F4` 解碼為 **E-MAIL**。**Region0/1、不明 runtime region 不可套用；EMAIL 是否必填、原生 S02 故障 GUI/C15 後 TCP 保持與 retry 依然 not-run。** Spec R-035（只存 E-MAIL）是 Server 設計，需與同帳號驗證/原子建角綁定。詳 [來源/位址/檔案 SHA](../03-analysis-requests/A-030-roy1-original-resource-proof-20261101.md)。
