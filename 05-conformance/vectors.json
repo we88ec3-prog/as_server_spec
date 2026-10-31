@@ -3434,7 +3434,10 @@
       "native_animation_validation": "not-run",
       "native_npc_click_dialog_validation": "not-run",
       "original_monster_archive_member_validation": "missing-source",
-      "scope_boundary": "The original Client static visual-source field and library formula are proven, not actual Monster YPF/DOI frame/motion/name, original NPC/monster identity/AI/drop, original GUI or original Server policies."
+      "scope_boundary": "The original Client static visual-source field and library formula are proven, not actual Monster YPF/DOI frame/motion/name, original NPC/monster identity/AI/drop, original GUI or original Server policies.",
+      "offline_subset_result": "PASS: 43 original Asgard.exe SHA-locked native PE instruction VA anchors verified locally (S07 row field_c→MonsterObject descriptor→MonsterImageLib and C43 panel subtype04/10/40); GitHub Actions run 41233757360 completed success: 23/23 new A-011 S07/C43 synthetic tests and 16/16 previous A-011 synthetic tests, all other suites and phase gates passed (116 CT vectors). Original Monster/World DAT asset YPF/DOI and native Client GUI CT-083 NOT-RUN.",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41233757360",
+      "original_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
     }
   ]
 }
