@@ -117,3 +117,10 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 `S33` 原生 parser `0x585570` 已確認前段 BE u16 x/y、u8 facing、BE u32 object；flags=0 的 CP950 string8 名稱與髮色 +15..17、衣色 +30..32；`0x585667` bit0 額外 RGB、`0x58568B` bit4 額外 u16、`0x5856A4` bit1 額外 byte、`0x5856B4` bit7 額外 byte、`0x585719` bit13 額外 string8。**`42+CP950-name-bytes` 僅 flags=0 profile**。另在 `0x585780..0x5857F4` 有三色全零→FF00FF 的原生 sentinel 正規化分支，但不能據此推論所有黑色顏色禁用或 YPF 完整染色層行為。
 
 已知 profile viewport `(8,9)` 在 48×32、pane(-56,-36) 計算錨點 `(400,300)`，`(9,9)` 則 `(448,300)`；**此為畫面座標投影/既有公式，非原生截圖完成證據**。13 組原件 PE checks 與 10 項合成測試 PASS；CT-058 offline subset 已驗，CT-059 原生 8 向動作／髮衣獨立染色／換裝／切圖／重登**未執行**。參見 [A-006 原生 Client 報告](../task_a/roy2/A-006-analysis.md) 與 [驗收腳本](../05-conformance/A-006-appearance-test-plan.md)。A-006 `integrated / ready` 是 Client I/O **靜態交付完成**，不代表 renderer/YPF/DOI/native GUI fully validated。
+
+
+## A-009／roy2 原版攻擊與戰鬥效果（2026-10-31）
+
+已直接核對原始 `Asgard.exe`：`C13`（BE u32 攻擊請求）與兩條 native send producer；`S13`（14B 基礎效果資料、flags0x01 另加 17B、flags0x08/0x10 為原欄位拆分）；`S5F`（BE u32 死亡事件）；`C3D/S3D`（subtype0..15 多態戰鬥封包）。已證的 S3D 短格式可用安全 decoded-body codec，複雜 string/vector subtype 仍須 Native reader/UI 深查。
+
+**16 原件 PE 指令檢查 + 5 RTTI PASS；15 synthetic tests PASS**，不是原生 Client GUI 戰鬥驗收。完整詳見 [A-009 原生報告](../task_a/roy2/A-009-analysis.md)、[CT-063/064 計畫](../05-conformance/A-009-combat-test-plan.md)；`A-009 integrated/partial` 代表核心攻擊/效果/死亡 wire 可供 DEV 實作，尚未證明 hit/crit/死亡/復活公式或所有 S3D subtype。原服 Server 權威政策由 DEV 決定；`native_client_validation=not-run`。本輪不需追加原始素材檔。
