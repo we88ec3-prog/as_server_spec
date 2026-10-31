@@ -22,3 +22,6 @@ jobs:
       - name: Validate A-011 monster resource, click and motion mappings
         run: |
           python3 -m unittest discover -s task_a/roy2 -p 'test_a011_resource.py' -v
+      - name: Validate A-015 MAP geometry and collision evidence
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a015_map_coordinate.py' -v
