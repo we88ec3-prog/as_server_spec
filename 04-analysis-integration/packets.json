@@ -2183,7 +2183,12 @@
         "A024-E12",
         "ev_a004_20261031_world_entity_visibility_bin_static",
         "A011-E04",
-        "A011-E08"
+        "A011-E08",
+        "A011-E09",
+        "A011-E10",
+        "A011-E11",
+        "A011-E12",
+        "A011-E14"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -2217,7 +2222,10 @@
         "file_prefix_at": false,
         "resource_image_id_formula": "library_id=8000+floor((image_id-0x4000)/10); slot=(image_id-0x4000)%10; bounded image ids 0x4000..0x41AD are Server safety guard, not original official range",
         "limits": "Actual SpriteID mapping of row field +0x222 and actual asset contents not proven"
-      }
+      },
+      "a011_visual_source_proved": "Original S07 common fifth field BEu16 (decoded body first record offset11), native reader0x57E451->row+0x0C, handler0x4F1A7F->20B visual descriptor, kinds1/2/4 MonsterObject ctor0x4D6FA0, image factory0x4D2340 deref first u16 then MonsterImageLib0x4D7530/0x4D7560. Registered safe image namespace0x4000..0x41AD maps Monster00..42.dat (lib8000..8042) and 10 image slots each. Actual YPF/DOI member/frame/animation/monster identity NOT proven.",
+      "a011_variant_not_image_id": "Tail variant_u16 native row+0x222 (0x57E4B8), 9th MonsterObject ctor argument converted to float at0x4D7056 and stored MonsterObject+0x27C; NOT image ID. Separate BEu32 scene object_ref does not select asset bank.",
+      "a011_latest_report": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md"
     },
     {
       "id": "PKT-S5F",
@@ -2481,7 +2489,9 @@
         "A024-E08",
         "A024-E09",
         "A011-E06",
-        "A011-E08"
+        "A011-E08",
+        "A011-E13",
+        "A011-E14"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -2497,7 +2507,10 @@
         "0x479DC7",
         "0x4A23F8"
       ],
-      "a011_known_body": "01 + BE u32 object_ref + 04; exact NPC click→chat response is still unknown"
+      "a011_known_body": "01 + BE u32 object_ref + 04; exact NPC click→chat response is still unknown",
+      "a011_three_ui_panel_modes": "Original panel at0x4A2376..0x4A2558 has modes0/1/2 creating C43 packet type1, subtype0x04/0x10/0x40 with BEu32 object_ref from [pane+0x4C], enqueued by0x5788A0. Different producer0x479D8D..0x479DEB sends 1/4. Native Writer remains u8,u32BE,u8. These producers are info/UI actions and DO NOT prove all NPC click/chat/merchant routes.",
+      "a011_latest_report": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "native_client_validation": "not-run"
     },
     {
       "id": "PKT-S06",
