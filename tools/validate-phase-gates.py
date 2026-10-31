@@ -150,3 +150,31 @@ for tag in ("R-025,", "R-026,"):
             if line.startswith(tag)]
     require(len(rows) == 1 and "CT-054" in rows[0], tag + " missing traceability CT-054")
 print("Onboarding readiness gates valid: %d gates, CT-054 planned, Client original." % len(gates))
+
+# ADR-007: user-approved multiplayer map must be distinct from old per-character DEV-070 runtime
+shared = read("02-server-planning/shared-map-multiplayer-contract.json")
+require(shared.get("decision") == "user-approved-multiplayer-shared-map", "shared-map decision missing")
+require(shared.get("native_client_modified") is False, "original Client must remain unchanged")
+require(shared.get("native_client_validation") == "not-run", "shared-map native testing cannot be presumed")
+require(shared.get("development_status") == "design-approved-refactor-required", "shared-map refactor must not appear implemented")
+require(shared.get("map_instance_key") == ["world_id", "map_ref"], "shared map must not use per-character instance key")
+require(shared.get("same_map_content_revision_must_match") is True, "shared-map version safety missing")
+for ref in shared["analysis_requests"]:
+    require(ref in aid, "shared-map references unknown A " + ref)
+for ref in shared["work_items"]:
+    require(ref in wid, "shared-map references unknown ONB " + ref)
+for ref in shared["conformance"]:
+    require(ref in ctid, "shared-map references unknown CT " + ref)
+test = next((v for v in ct if v["id"] == "CT-055"), None)
+require(test is not None and test.get("status") == "planned" and
+        test.get("native_client_validation") == "not-run", "CT-055 must stay planned until real client tests")
+scene = next((x for x in w if x["id"] == "ONB-05"), None)
+require(scene is not None and scene.get("shared_map_contract") ==
+        "02-server-planning/shared-map-multiplayer-contract.json", "ONB-05 missing shared-map decision")
+require("CT-055" in scene["conformance"], "ONB-05 must track multiplayer acceptance")
+for id in ("SCN-005", "SCN-011", "SCN-012"):
+    scenario = next((v for v in read("04-analysis-integration/scenarios.json")["scenarios"]
+                     if v["id"] == id), None)
+    require(scenario is not None and scenario.get("shared_map_contract") ==
+            "02-server-planning/shared-map-multiplayer-contract.md", id + " missing ADR-007")
+print("Shared-map ADR-007 valid: public multiplayer scene planned, native CT-055 not-run.")

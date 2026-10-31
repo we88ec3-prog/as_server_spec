@@ -89,7 +89,7 @@
     },
     {
       "path": "02-server-planning/decisions.md",
-      "sha256": "d1ab5efff60c2428254ebcc02bebd86ac4e9837b0bb867f8ea35df134f62fb1c"
+      "sha256": "03c356a10c5d981ff709365ff6aaa715fd8b20c82286b6f0306fdbdcb34f7116"
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
@@ -505,7 +505,7 @@
     },
     {
       "path": "tools/validate-phase-gates.py",
-      "sha256": "f9f73adb236b486fe9b4f5aaa16b5b614e0d2af6fe65503099e05c92ecdf70b3"
+      "sha256": "b231a2fc1ba878ec4fb35530dbb32c073bd5e1270a23e5bb6fd505856cb6ef03"
     }
   ]
 }
