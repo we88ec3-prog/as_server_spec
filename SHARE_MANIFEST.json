@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "27da64c8b4a566dc5c4f5e01c7b0c259152f0730a8bceaca9b209019271decd4"
+      "sha256": "d9c809381482dbe3eca5d0f37bc099e5633383cf19f59a7dd78cd85f1b7a67c8"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -45,7 +45,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "00749c8fafea0489184132d251d61f0b707ad4030c14b6ee00f42c14657ac6aa"
+      "sha256": "7f7b6a44eab4f4ffeaae2abd5eb4c90727a50097d6abc83a6752737704101bf4"
     },
     {
       "path": "00-governance/workflow.md",
@@ -61,7 +61,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "3d8414d8642f8e184004d2c9a1cf1c14c92704383217e50c3faa4689f5dfa63b"
+      "sha256": "9e122cc77c4a618fd3b0b8b51526af49850a83a84f0a2ca50d577e9c29524f85"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -89,7 +89,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "50d0e469380def42c6752fda5ff3ce707235440a6f22de3a59288ffae3b72baa"
+      "sha256": "666a7aa80e588cf64bea8e0d1e9dd437f1c045e5d4c624b5193d182b9fc4d295"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -136,6 +136,10 @@
       "sha256": "282578be220e1bab856657cb7dcb29874fc86ae7b32a3527de179f76ca8c6b61"
     },
     {
+      "path": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
+      "sha256": "5f70e0999bf6022d66119cf43ad49aea579ccedd2511d6b62d4191b8112aecf7"
+    },
+    {
       "path": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
       "sha256": "3c671cc624b07951807faea6106cc1453f97e194f42856782ccef58ba9922370"
     },
@@ -149,11 +153,11 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "30bb922db706687414dfe6ef61c6068c016cd2cd52714b4408c5cf9880c6e281"
+      "sha256": "7e17ffbfbffbc179d31c815e9c5b310cd2535968a2284913d52797a24d6cbc93"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
-      "sha256": "a06f719fa48ebea4deb05236a5e4223477e9bc96742bb99e133ae4fc8103c350"
+      "sha256": "455d12d9af1cf980924951b53d7fcf332db5bcd9834fae7e6f1c6e2b7f1a175b"
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
@@ -205,7 +209,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "e5bd8e29faa2bc6ced4889ad6539658f5e529c8d04116df21c1c3a21e05acb8b"
+      "sha256": "ba122c7eb1f241ec169f2ed367cf163dabb3b478617fd191a50ce9f4e7a0caa9"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -292,12 +296,16 @@
       "sha256": "cff4b24d2c3517c36814e7d7f24986595e0f8dcf5f4bd7d02ecebe03897faaf4"
     },
     {
+      "path": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "sha256": "0609f78271b0ef45163dec27c2fd7375ad4213606134c00adf085b9f25f507ea"
+    },
+    {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
       "sha256": "8e3af1c4e2791bbeb72b01d806c2bff50b86d25d752dcc7d639bf32a72e4fdab"
     },
     {
       "path": "03-analysis-requests/next-client-io-evidence.md",
-      "sha256": "085d25ee10413e623cb22c184a58daa3e208aac2408f579fe60dcb693e2eb2af"
+      "sha256": "f6e348c9719b538eb2ac6e8d1b6a642b10ab77c1d62b2d743213a1cf87572aa6"
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
@@ -305,7 +313,7 @@
     },
     {
       "path": "03-analysis-requests/post-merge-analysis-queue.md",
-      "sha256": "449eb26c8e80079de01dd906999bda7de131f3ec5b6c361830e8b8ef63f2c727"
+      "sha256": "7cb05a109bac0c4c032bb0636d0939422c40416dcefebe7d0df804938c7e78ac"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -317,7 +325,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "8d95ee34d3e840de54b8f1445f8ac8e6df972502e11dcc4781e1af2e18953f4c"
+      "sha256": "38e0c70c6b28a9922322b35a11486e6ef8dee87670f05e245eba67a3e8f8b395"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -485,7 +493,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "918a6ffd55a45e38168e9a659a3f6f49361dde1b96b23ddeca47f1f5ea34dc0a"
+      "sha256": "13bf0013fe8f48217e296c1522c00a9f93d8edee74fa1e07b4dc74db0b73ea34"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -589,7 +597,11 @@
     },
     {
       "path": "05-conformance/native-creation-gate-test-plan.md",
-      "sha256": "922ef84a19bb675d92dcb51285287c608dec357eec3334284d738cbc833a815e"
+      "sha256": "833e6ab2792fb21d49d04bfaf39626adbfb93e484ba94ff0e4bf39d7556d03e2"
+    },
+    {
+      "path": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
+      "sha256": "d8bc02df08b495134608321e617aa74313134a5a5e190fe430f45e12806c57b5"
     },
     {
       "path": "05-conformance/new-asset-validation-plan.md",
@@ -617,11 +629,11 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "af6fc9fb9cbb951ae23399b85157734890ba8f7301db04c3e573a9df8476e12a"
+      "sha256": "cf919ef1c30249283cd6449b04300ea5f7c00e137a00098abba20668cf4c3a92"
     },
     {
       "path": "README.md",
-      "sha256": "3d23484041cdbc1123dc2ba90ea833ba9009f4e3d16bb2b35b133edec6c0937a"
+      "sha256": "73582e789bb3e16ac66972ce4d646e2fa83c02678c879f8223c54b9d75a6494e"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
