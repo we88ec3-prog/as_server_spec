@@ -124,3 +124,10 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 已直接核對原始 `Asgard.exe`：`C13`（BE u32 攻擊請求）與兩條 native send producer；`S13`（14B 基礎效果資料、flags0x01 另加 17B、flags0x08/0x10 為原欄位拆分）；`S5F`（BE u32 死亡事件）；`C3D/S3D`（subtype0..15 多態戰鬥封包）。已證的 S3D 短格式可用安全 decoded-body codec，複雜 string/vector subtype 仍須 Native reader/UI 深查。
 
 **16 原件 PE 指令檢查 + 5 RTTI PASS；15 synthetic tests PASS**，不是原生 Client GUI 戰鬥驗收。完整詳見 [A-009 原生報告](../task_a/roy2/A-009-analysis.md)、[CT-063/064 計畫](../05-conformance/A-009-combat-test-plan.md)；`A-009 integrated/partial` 代表核心攻擊/效果/死亡 wire 可供 DEV 實作，尚未證明 hit/crit/死亡/復活公式或所有 S3D subtype。原服 Server 權威政策由 DEV 決定；`native_client_validation=not-run`。本輪不需追加原始素材檔。
+
+
+## A-024／roy2：NPC／怪物原生 S2C 生成、移動、資訊、動作、死亡與移除已完成靜態交付（2026-10-31）
+
+已依原始 `Asgard.exe` 的 ctor/reader 與 jump-table 補齊 **S07 非空 type1..14 全部 wire row 分支**、S0C/S64 物件移動，以及額外資訊/互動狀態封包 **S34 subtype6/11、S3C、S62、S63、S29**，並區分 S5F 死亡事件與 S0E 物件真正移除；Human 的 S33/S06/S11 不混用於一般物件。**靜態 Client I/O 研究 ready** 只代表可解碼上述封包，不代表已知道每種 type 是哪一種 NPC/怪物、官方 spawn、sprite/動畫或原版 Server AI。
+
+[完整 A-024 報告](../task_a/roy2/A-024-analysis.md)；[收包 decoded-body 工具](../task_a/roy2/a024_object_packets.py)；[離線原件證據](../task_a/roy2/a024_object_native_probe.py)；[CT-065/066 規範](../05-conformance/A-024-object-lifecycle-test-plan.md)。已對原始 SHA 鎖定 EXE 驗證 **20 native pattern＋14 switch entries＋六 RTTI PASS**；[CI run 41185085803](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41185085803) 的 **19 新增＋7 既有 NPC 測試 PASS**。A-024 `integrated/ready`（限靜態 Client S2C），`native_client_validation=not-run`，原生畫面及教程內容仍由後續 DEV/CT 驗證。此次無新增必要資源檔案。
