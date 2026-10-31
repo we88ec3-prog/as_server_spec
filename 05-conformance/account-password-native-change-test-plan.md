@@ -1,6 +1,6 @@
 # 原版 Client 更改密碼 UI：A-029 / CT-098..099（全 planned）
 
-此功能由使用者指出**原遊戲內已經有更改密碼 UI**。但原版 `Asgard.exe` 對應的 Client C→S packet opcode、body、S→C 回覆、畫面回調、錯誤代碼、是否必須先登入、region 差異 **尚未有本研究證據**。**禁止替原 Client 自造更改密碼封包或改 EXE**。
+此功能由使用者指出**原遊戲內已經有更改密碼 UI**。A-029 已以原始 `Asgard.exe` 證實 C→S 為 **C26（account/old/new 三個 string8）**，UI 的確認欄只作本地比較，且 Client 共用 **S02** 回覆 handler；**C26 專屬成功/錯誤 status、是否必須先登入、region/畫面 E2E 仍未實機驗證**。**禁止替原 Client 自造更改密碼封包或改 EXE**。
 
 |測試|流程|要求|
 |---|---|---|

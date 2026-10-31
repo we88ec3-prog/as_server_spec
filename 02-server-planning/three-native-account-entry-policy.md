@@ -16,7 +16,7 @@
 |---|---|---|---|
 |登入|C03 `name:string8,password:string8,flag:u8`，S02/S03/C10|帳號/密碼存在且相符、未停權、credential version；grant 屬該已保存角色|**此入口本身是 C03**|
 |創角|NewUser UI → C02 region-dependent `string8` fields（第一欄為 account 候選、第二欄為 password 候選，見 A-027） → 成功 S02(status0) 觸發 C04 五u8 → C04 final S02|**從 C02 submitted account+password 直接驗證既有 Account**，建立 `CreateAuthProof(account_id,connection_generation,credential_version,expiry)`；綁同一連線的 `PendingCharacterIntent`，只提交 Character；錯誤返回原版 UI 可解析的失敗 S02（確切非零 status 待分析），不建立草稿|**不需要**|
-|遊戲內改密碼|**使用者確認 UI 存在**；其 native packet/opcode/欄位/回覆 **未查明**（A-029 P0）|驗證現有憑證及新密碼/確認欄，原子更新 credential_version/revoke grants/sessions、只留去敏稽核；失敗不變更原帳號|**不預設需要**；以原版 UI 真實憑證欄位／已驗證狀態為準|
+|遊戲內改密碼|**已證 Client C26（account / old / new 三個 string8，control11 確認不傳）；S02 共用回覆路由已證，C26 專屬 status 語意仍未證（A-029 integrated/partial）**|驗證現有憑證及新密碼/確認欄，原子更新 credential_version/revoke grants/sessions、只留去敏稽核；失敗不變更原帳號|**不預設需要**；以原版 UI 真實憑證欄位／已驗證狀態為準|
 
 **重要安全條件**：C02 在 C03 前出現，是原 Client 靜態證據支持的真實可能；不能拿「尚未發 C03」當作拒絕合法創角的唯一理由，也不能因此把 C02 視為匿名免密碼權限。只有通過 Account Store 的密碼雜湊比對才能建立 creation-only AuthProof，並且該 AuthProof 只能用來完成創角，不可直接取得登入或 World grants。若 C02 region/field2 真用途未證或無法驗證 owner，正式 native policy 仍 **fail closed**，待 A-027 補證。
 
@@ -38,7 +38,7 @@ Native Login UI                  Native Create UI
                                           → S02 final UI result (not auto S03)
                                           → player may use Login UI normally
 
-Native Change Password UI → native opcode UNKNOWN → account+old credential verification
+Native Change Password UI → native C26(account,old,new) → account+old credential verification
    → new password+confirm → atomic credential update → old password rejected by both paths
 ```
 
@@ -54,7 +54,7 @@ Native Change Password UI → native opcode UNKNOWN → account+old credential v
 
 - **A-027/A-021**：追創角 NewUser UI 第一／二輸入與 C02 每個 region 的 writer，確證管理預建 Account 名稱/密碼的原版欄位，及 S02 非零錯誤碼/錯密 UI；**不再把 C03→NewUser 自動跳轉當必須存在的前置條件**。
 - **A-028**：C02 初段成功/失敗 → C04 終局 S02(status0/非0)、C15、回登入 UI，真正原版互動與 DB status 的界線；只研究 Client 可證的顯示/封包。
-- **A-029（新增）**：定位遊戲**原有更改密碼 UI**及其提交、欄位驗證、封包 opcode/writer、收到的結果 parser/UI、取消/重送與 regional profile。找到後才能開始在 Server 端實作真正 native 改密碼路徑；本次**不創造自訂遊戲 opcode**，也不要求新資源檔。
+- **A-029（已完成靜態 Client 交接）**：已確認原生 LoginDialogPane event12 → C26 及本地確認、取消；S02 shared callback 已知，但 native C26 專屬 S02 成敗 code、主介面 region/斷線 GUI 仍需 CT-098；本次**不創造自訂遊戲 opcode**，不要求新資源檔。
 - **CT-097**：兩個入口分離、創角直接以原始帳密驗證及錯誤；**CT-098**：原版改密碼 UI 真人操作/封包/回覆；**CT-099**：改密碼成功/錯誤/並發、舊憑證失效與帳角不變；全部 `planned/native-client-validation=not-run`。
 
 ## 4. 實作權限界線
