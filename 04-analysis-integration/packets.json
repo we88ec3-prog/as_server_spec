@@ -180,9 +180,20 @@
         "A004-E05",
         "A004-E06",
         "A004-E07",
-        "A004-E08"
+        "A004-E08",
+        "A005-E01",
+        "A005-E02",
+        "A005-E03",
+        "A005-E04",
+        "A005-E05",
+        "A005-E06",
+        "A005-E07",
+        "A005-E08"
       ],
-      "a004_ref": "task_a/roy2/A-004-analysis.md"
+      "a004_ref": "task_a/roy2/A-004-analysis.md",
+      "a005_report": "task_a/roy2/A-005-analysis.md",
+      "a005_native_result": "0x571960 one byte writer",
+      "native_client_validation": "not-run"
     },
     {
       "id": "PKT-C1C",
@@ -294,11 +305,22 @@
         "A004-E05",
         "A004-E06",
         "A004-E07",
-        "A004-E08"
+        "A004-E08",
+        "A005-E01",
+        "A005-E02",
+        "A005-E03",
+        "A005-E04",
+        "A005-E05",
+        "A005-E06",
+        "A005-E07",
+        "A005-E08"
       ],
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "a016_recovery_note": "C33 3*u8 direction/sequence7/gait; sequence is modulo128 and only session-scoped, no global idempotency request ID. Server short-window dedup + generation fencing (designed).",
-      "a004_ref": "task_a/roy2/A-004-analysis.md"
+      "a004_ref": "task_a/roy2/A-004-analysis.md",
+      "a005_report": "task_a/roy2/A-005-analysis.md",
+      "a005_native_result": "0x573BF0 three byte writer",
+      "native_client_validation": "not-run"
     },
     {
       "id": "PKT-C35",
@@ -541,12 +563,23 @@
         "A004-E05",
         "A004-E06",
         "A004-E07",
-        "A004-E08"
+        "A004-E08",
+        "A005-E01",
+        "A005-E02",
+        "A005-E03",
+        "A005-E04",
+        "A005-E05",
+        "A005-E06",
+        "A005-E07",
+        "A005-E08"
       ],
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "a016_recovery_note": "S0B BE u16 x/y + u8 sequence/status; movement ACK does not imply durable character position database commit.",
       "a004_ref": "task_a/roy2/A-004-analysis.md",
-      "a004_note": "S0B native reader has no u32 actor ID; do not fan out self MoveAck as remote movement."
+      "a004_note": "S0B native reader has no u32 actor ID; do not fan out self MoveAck as remote movement.",
+      "a005_report": "task_a/roy2/A-005-analysis.md",
+      "a005_native_result": "0x583150 u16 BE,u16 BE,u8 read",
+      "native_client_validation": "not-run"
     },
     {
       "id": "PKT-S0F",

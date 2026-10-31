@@ -2586,6 +2586,150 @@
       "unit_test": "task_a/roy2/test_a004_visibility.py",
       "raw_assets_shared": false,
       "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E01",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x573BF0 native CMovePacket serializer reads object bytes +0x18,+0x19,+0x1A and calls u8 writer 0x45AB00 3 times; layout C33 u8 direction/u8 seq/u8 gait (names from prior profile).",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E02",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x571960 native CChangeDir serializer reads +0x18 and calls u8 writer 0x45AB00 once; C11 one byte.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E03",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x583150 native SMovePacket reader calls 0x45ADE0 twice and 0x45ADB0 once; S0B BE u16 x,y and u8 status/sequence. Existing CT-004 profile example C33 017f01 -> S0B 000b000aff; native reject UI not-run.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E04",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x4B3520..0x4B355C MAP loader reads original 10B tile 3*LE u16 + LE u32 offset+6 into native tile stride 17B; 0x4B2C80 indexes 17*(x+y*width) + base.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E05",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x4B4BB0 line/segment traversal checks native +6 flags bit4 0x10 three times, returning a branch on obstacle; this proves bit4 LINE test, NOT player step movement passability.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E06",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x4B2CA0 toggles tile +6 bit0 via OR 1/AND 0xfffffffe; 0x4D1206 tests bit0 in a separate grid/path algorithm; do not equate bit0 to bit4.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E07",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-original-resource",
+      "locator": "Map0.dat/Map1.dat/Map2.dat original SHA match, 288+184+22 maps and 7701805 tile full u32 flags distribution {0:2701300,1:496877,16:12,17:4503144,512:472}; all index/tile/tail/EOF validated. Flag512 would be miscounted using low byte only.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E08",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test + designed",
+      "locator": "7 actual original PE pattern checks PASS, 10 synthetic unittest codec/flags/epoch/sequence-wrap/duplicate/speed/collision/reject/map tail PASS; Server speed/flag collision logic are designed NOT native E2E. Scripts a005_native_probe.py,a005_collision_probe.py,a005_move_codec.py,test_a005_move.py.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
     }
   ]
 }

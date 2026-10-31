@@ -31,8 +31,8 @@ def audit(path):
         ("MAP line-check bit4",0x4b4be7,0x180,["b310","845806"]),
         ("MAP different consumer tests bit0",0x4d1204,0x12,["f6400601"]),
     ]
-    for name,va,n,ops in checks:
-        raw=read(va,n)
+    for name,va,check_size,ops in checks:
+        raw=read(va,check_size)
         if not all(bytes.fromhex(p) in raw for p in ops):
             raise AssertionError(name+" native bytes mismatch")
     return {"status":"PASS","native_checks":len(checks),"sha256":EXPECTED,

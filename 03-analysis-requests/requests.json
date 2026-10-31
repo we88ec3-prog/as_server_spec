@@ -239,11 +239,20 @@
       "title": "碰撞及移動權威",
       "method": "追map tile/block位元與尋路；正常／阻擋／邊界／速度超限／重送序號。",
       "deliverable": "碰撞資料語意及拒絕／校正向量；標記速度政策是否原服還原。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A005-E01",
+        "A005-E02",
+        "A005-E03",
+        "A005-E04",
+        "A005-E05",
+        "A005-E06",
+        "A005-E07",
+        "A005-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -255,7 +264,39 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_report": "task_a/roy2/A-005-analysis.md",
+      "native_probe": "task_a/roy2/a005_native_probe.py",
+      "map_probe": "task_a/roy2/a005_collision_probe.py",
+      "move_codec": "task_a/roy2/a005_move_codec.py",
+      "offline_tests": "task_a/roy2/test_a005_move.py",
+      "evidence_kind": "observed-static-client + observed-static-original-MAP + synthetic-test + designed-gate",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Known decoded C33/C11/S0B body, map flags full u32 provenance, original bit4 line-check and bit0 consumers; Server move/collision/speed policy remains designed, NOT proven original",
+      "client_io_completed": [
+        "C33 writer 0x573BF0 three u8; C11 writer 0x571960 one u8",
+        "S0B reader 0x583150 BE u16 x,y and one u8 status/seq",
+        "MAP loader 0x4B3520 copies 10B tile to 17B in-memory row; flag at +6 LE u32",
+        "0x4B4BB0 line test mask=0x10, 0x4B2CA0 bit0 mutation, 0x4D1206 bit0 read, separate consumers",
+        "494 original maps, 7701805 tiles, five full-u32 flag values verified",
+        "10 synthetic codec/epoch/dedupe/collision/negative tests PASS; 7 native PE code patterns PASS"
+      ],
+      "remaining_unknowns": [
+        "Exact native Client MapPane keyboard/mouse event -> C33/C11 producer and S0B ACK failure/reposition/render handler branch not fully traced",
+        "Native walking collision mask and path decision not proven; bit4 observed on line-check and bit0 on separate algorithm, must NOT assume flag values are definitive walkability",
+        "Original Server movement speed/tick limit, walking diagonals/corner cutting, collision occupancy, authority and failure code remain Server policy unknown",
+        "Original tutorial map ID, all map to Client version matching, native Client blocked-step and edge E2E not-run"
+      ],
+      "conformance": [
+        "CT-004",
+        "CT-056",
+        "CT-057"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "error_behavior": "Known S0B body supports returning BE u16 authoritative coords and status/seq; precise native failure bit7 and UI rollback NOT confirmed",
+      "asset_requirements": "No new assets needed; Asgard.exe, Map0.dat, Map1.dat, Map2.dat already supplied"
     },
     {
       "id": "A-006",
