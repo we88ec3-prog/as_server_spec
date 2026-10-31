@@ -55,3 +55,15 @@ python -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
 ```
 
 GitHub CI 只執行 21 個合成資源格式邊界測試；原件 SHA/22 VA 為本地獨立驗證。完整請看 [CT-112 細則](A-023-original-born-basic-ui-test-plan.md)、[原始 Client 與資源證據](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)。**PaperDialog.dat 的原件此輪未在本地，依賴只能沿用歷史已登記報告，不冒稱重跑全 GUI**。首次原服 Born 下發條件／女招募員 EntityId／Script 綁定與真正 Native GUI 必須在 CT-034/035 找到原始記錄或動態 UI 證據，不能以 synthetic S44／fake NPC 完工。
+
+## 2026-11-01 已取得四份 Script 原件後新增 CT-113
+
+**不需再要求** `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat`、`Merchant.dat`：本輪四檔全部 SHA、XML wrapper、CP950 CRC/函式表均已由 [A-023 原始資料驗證](../task_a/roy2/A-023-four-script-native-dependencies-20261101.md) 確認，新增 [CT-113 專項](A-023-four-script-verify-test-plan.md)／28 項 synthetic CI。
+```bash
+python task_a/roy2/a023_script_bundle_probe.py --script-dir <原件所在目錄> --born <Born.dat>
+python -m unittest discover -s task_a/roy2 -p 'test_a023_script_bundle.py' -v
+```
+
+**新 native GUI 驗收點**：PaperDialog02 button OK→PAPER02 START、CANCEL→NOT，但 cancelControl=OK，應另測 ESC；nNewJoin01 MerchantTalk 三頁最終 OK→STATE ACCEPT/CANCEL→REFUSE；抓 C6C(1) 的**ScriptRunner root + context**，不是盲填依賴檔名。成功 SendReply 再 Dispose 原生 C6C1→C6C4，unreplied Born 普通 OK C6C4→C6C2。多 ScriptRun 依賴名稱碰撞和缺 `QuestDialog_Create`／`MerchantDialog_Create`／`MerchantDirectTalk` 真定義時 fail-closed。
+
+CT-034/035 的原版首 NPC 身分/map/Script 綁定/首 Born 發包與可見 UI、選校／quest 權威狀態仍未驗；CT-113 的原件離線 PASS 不能升級這些 Native Client CT。
