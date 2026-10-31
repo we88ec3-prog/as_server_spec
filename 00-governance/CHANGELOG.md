@@ -155,3 +155,8 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 Roy1/Roy2 分支同步與原始 Client 核對
 
 Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研究已整合，新增 packet/evidence/status machine/readiness 引用，保持 A-029/A-030 integrated/partial、Client E2E not-run；Roy2 全部原提交先前已在 main。依最新 `as_server_roy@f2a4a38` 調整規劃：獨立創角 backend 已實作、Host native C02/C04/C15 仍 fail-closed，RI-005 表單 idle=600s/absolute=1800s 且原版 Client 未驗，RI-001 的 C02 提交斷線與事後 send=-1 不可混淆。見整合審查與新版 DEV 計畫；本次只更新規格。
+
+
+## 2026-11-01 A-030 補證：創角 E-MAIL 原生封包路徑
+
+固定原版 Asgard.exe SHA，新增 15/15 x86 指令簽章核對：C02 region2..4 F4 第二個額外 UI 欄位（region4 widget24/region2、3 widget16）→packet+0x822→writer+0x816→C02(send)；確認視窗引用同一欄和語系文字 ID 0x4B。C04 只有外觀，不送 E-MAIL。E-MAIL label 的字面與可空 gate 因 `Locale.dat`/GUI 缺少，維持 inferred-high，不冒稱完整原生驗收；A-030 integrated/partial。新增獨立報告與 probe test_16，更新 requests/evidence/PKT-C02/CT-104 和 manifest。

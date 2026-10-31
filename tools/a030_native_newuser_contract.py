@@ -37,6 +37,33 @@ A={
 "S02 message nonempty":(0x4b1dff,"66837f2600"),
 "S02 visible dialog builder":(0x4b1ebe,"e8ad06f9ff"),
 }
+# A-030 follow-up: extra chain verified from original x86; labels are NOT established by signatures.
+EMAIL_C02_CHAIN={
+ "extended region lower":(0x5742ec,"83f802"),
+ "extended region upper":(0x5742f1,"83f804"),
+ "field4 writer +0x816":(0x57430e,"8dbe16080000"),
+ "field4 string8 write call":(0x574321,"e88a6eeeff"),
+ "region4 extra fourth UI widget24":(0x4b2896,"6a18"),
+ "region2/3 extra fourth UI widget16":(0x4b28c2,"6a10"),
+ "packet +0x822 destination":(0x4b28bb,"81c122080000"),
+ "confirmation popup fourth value":(0x4b250f,"81c222080000"),
+ "confirmation popup fourth locale label ID":(0x4b2516,"6a4b"),
+ "region4 extra third UI widget23":(0x4b2877,"6a17"),
+ "region2/3 extra third UI widget15":(0x4b28a3,"6a0f"),
+ "field3 writer +0x618":(0x5742f6,"8dbe18060000"),
+ "extended tail flag u8":(0x574326,"0fb686160a0000"),
+ "nonextended third writer":(0x574338,"8dbe18040000"),
+ "confirmation C02 enqueue":(0x4b229f,"e8fc650c00"),
+}
+def verify_email_c02_chain(path=None):
+ d=Path(path or client_path()).read_bytes()
+ if hashlib.sha256(d).hexdigest()!=SHA:raise ValueError("Client SHA mismatch")
+ for description,(va,h) in EMAIL_C02_CHAIN.items():
+  literal=bytes.fromhex(h)
+  if d[va-0x400000:va-0x400000+len(literal)]!=literal:
+   raise ValueError("C02 field4 chain mismatch: "+description)
+ return len(EMAIL_C02_CHAIN)
+
 FOCUS_SELECTOR=bytes([0,1]+[4]*12+[2,3]+[4]*7+[1]+[4]*4+[3])
 WIDGETS={
  0:(1,2,3,10,None),
@@ -106,4 +133,7 @@ class TestA030(unittest.TestCase):
    with self.assertRaises(ValueError):decode_S02(b[:n])
  def test_15_no_success_as_error(self):
   with self.assertRaises(ValueError):encode_S02_nonzero(0,"Denied")
+ def test_16_native_extended_field4_chain(self):
+  if not client_path().is_file():self.skipTest("Original Asgard.exe absent; set ASGARD_EXE")
+  self.assertEqual(verify_email_c02_chain(),15)
 if __name__=="__main__":unittest.main(verbosity=2)

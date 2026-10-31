@@ -29,3 +29,8 @@ Original S02 parser 0x57dbc0: status:u8, string8 encoded text. For MakeInfoDialo
 
 ## CT closure
 Offline 30 EXE instruction signatures and full 29-entry focus selector, 15 synthetic unittest: PASS. CT-103/104/105 unchanged as **planned/native-client not-run**. Native completion requires documented visible NAME/E-MAIL widget IDs or user-verified UI resource mapping, region/seed/profile, two anonymized form submissions (EMAIL empty vs filled, NAME changed vs constant), S02 nonzero dialog observation and C15 trace plus no-disconnect proof. Source file is a *test of native static code and designed codec*, not a runtime client or server run. Full original Server auth/status logic remains unknown.
+
+
+## 2026-11-01 E-MAIL 欄位傳送路徑（A-030 增量）
+
+[完整證據及 15 個 x86 anchor](../03-analysis-requests/A-030-roy1-email-c02-field.md) 指向原版 **C2S C02** 的 region2..4 **F4 string8**（region4 widget24，region2/3 widget16；packet+0x822 / writer+0x816；C02 enqueue 0x4B229F）。不是 C04／沒有額外 E-MAIL opcode。使用者所見 E-MAIL 第五個表單欄位對應這第二個額外 UI 控制項是高可信推論，**原版 UI label 字面與空值 gate 尚未 native/resource 驗證**。Region0/1 writer 只發三個 string8；正式名稱欄位與 E-MAIL DB 欄位策略不由靜態 Client 決定。可用 `tools/a030_native_newuser_contract.py` 新 test_16 驗原件；缺 `Locale.dat` 的原生標籤證明。保持 `A-030 integrated/partial`、native Client `not-run`。

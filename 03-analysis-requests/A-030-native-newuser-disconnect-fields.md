@@ -71,3 +71,8 @@
 這只補 A30-1 的診斷切片；欄位／地區、錯誤 UI、取消與成功路徑仍待分析，不重做已證 serializer，也不把修改副本當原版 Client passed。新版 Server 已有 FormInput 600/1800秒政策；後續優先補可接通 C02 的合約，而非繼續調整同一個 timeout。原版 Client SHA 與原版 CT 的要求維持不變。
 
 This confirms A30-1 packet/close reason only for the **modified diagnostic Client**. Original Asgard.exe unmodified CT-103/104/105 remains not-run. Static Client NAME/EMAIL semantic and safe S02 failure mapping remain blocked.
+
+
+## 2026-11-01 E-MAIL 是否經 C02 發送：後續 BIN-first 核查
+
+已追通原版 region2..4 `C02` 第四個 `string8`：region4 widget `0x18`、region2/3 widget `0x10` → packet `+0x822` → writer this `+0x816` → native C02 send `0x4B229F`。確認畫面亦讀相同 F3/F4（label ID 0x49/0x4B）。**根據使用者畫面的欄位順序，F4 是 E-MAIL 高可信候選，但沒有 `Locale.dat` 或原 Client GUI 對照，尚不能把 E-MAIL 字樣當作已獨立確認的 UI label**。Region0/1 的三字串例外仍在，E-MAIL 是否可留空及 DB 儲存是不同議題。15/15 原始 EXE byte signature PASS；新 `test_16_native_extended_field4_chain` 可重現。詳細見 [A030 E-MAIL 封包確認](A-030-roy1-email-c02-field.md)。

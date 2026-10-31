@@ -2844,10 +2844,17 @@
         "A-030"
       ],
       "evidence_ids": [
-        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "ev_a030_20261101_email_c02_fourth_field_static"
       ],
       "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
-      "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown"
+      "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown",
+      "a030_email_followup": {
+        "report": "03-analysis-requests/A-030-roy1-email-c02-field.md",
+        "offline": "15/15 original EXE signature checks passed; expanded Python test has field4 static-anchor test; no native GUI",
+        "client_e2e": "still planned: Region4 widget24 & region2/3 widget16 literal E-MAIL label via matched Locale.dat or native UI, E-MAIL empty/filled decode length and S02/C15",
+        "native_label_verified": false
+      }
     },
     {
       "id": "CT-105",

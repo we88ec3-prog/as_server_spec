@@ -2086,7 +2086,8 @@
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
-        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "ev_a030_20261101_email_c02_fourth_field_static"
       ],
       "dependencies": [
         "A-020",
@@ -2115,7 +2116,6 @@
       "client_server_boundary": "Client native UI/wire evidence only; ordinary auth failure must not imply disconnect, and original Server policy is not analysis output; no Server code or DB writes",
       "analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
       "remaining_unknowns": [
-        "NAME/E-MAIL original visible text and control IDs not independently extracted; region2..4 F3/F4 likely candidates only; cannot claim true mapping",
         "Region0 has third string only, region1 UI-writer discrepancy, actual runtime selected region not confirmed",
         "E-MAIL blank vs filled effect on actual native Client submission not observed",
         "S02 status1 nonempty printable message has native static modal path; actual GUI acceptance and official status meanings unknown",
@@ -2124,7 +2124,8 @@
         "Whether Email field is mandatory for UI submission and absent vs blank wire representation",
         "A-003/A-027 minimum12 first-field gate vs Admin allowed3..32 and actual selected Client region",
         "Which nonzero S02 status/message reliably shows native Create form error and emits C15 without generic disconnected popup",
-        "C15 state1f retry and C04 final success to independent login UI navigation"
+        "C15 state1f retry and C04 final success to independent login UI navigation",
+        "Region2..4 extra fourth wire field confirmed; whether original localised UI label is exactly E-MAIL and NAME corresponds F3 still needs Locale.dat/actual original GUI"
       ],
       "conformance": [
         "CT-103",
@@ -2167,7 +2168,13 @@
         ]
       },
       "integration_baseline": "Roy1 static integrated with main c453538; private Server f2a4a38 has backend proof and phase deadlines but native C02/C04 still fail closed",
-      "runtime_diagnostic_client_scope": "Modified main-menu-preview diagnostic client; not original Asgard.exe E2E"
+      "runtime_diagnostic_client_scope": "Modified main-menu-preview diagnostic client; not original Asgard.exe E2E",
+      "email_packet_confirmed": "PKT-C02 (C2S opcode 0x02) in region2..4, fourth string8 from extra UI widget16/24; UI label semantic remains inferred, not original resource/GU I-confirmed",
+      "email_c02_wire_field_confirmed": true,
+      "email_native_ui_label_confirmed": false,
+      "email_region2_4_candidate_ordinal": 4,
+      "email_field4_report": "03-analysis-requests/A-030-roy1-email-c02-field.md",
+      "offline_validation_extra": "2026-11-01 original EXE SHA and 15/15 new x86 anchors (UI extra second field -> packet+0x822 -> writer+0x816 -> C02 send); no native GUI test"
     }
   ]
 }

@@ -56,7 +56,8 @@
         "ev_a027_20261031_asgard_identity_static",
         "ev_a028_20261031_asgard_c04_response_static",
         "ev_a003_20261031_asgard_create_palette_ui_static",
-        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "ev_a030_20261101_email_c02_fourth_field_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
@@ -113,6 +114,21 @@
           "email_required": "unknown"
         },
         "original_client_e2e": "not-run"
+      },
+      "a030_email_c02_field4": {
+        "evidence_id": "ev_a030_20261101_email_c02_fourth_field_static",
+        "report": "03-analysis-requests/A-030-roy1-email-c02-field.md",
+        "original_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+        "observed_static": "Region2..4: fourth string8 is the second extra form UI input, region4 widget0x18 (24), region2/3 widget0x10 (16); packet object+0x822, serializer this+0x816; order F1,F2,F3,F4,u8. F4 is E-MAIL candidate from reported visible form order, not verified literal locale label.",
+        "trigger": "MakeInfoDialog confirm 0x4b21e0 and C02 enqueue 0x4b229f",
+        "exclusions": [
+          "PKT-C04 does not include email",
+          "Region0 and Region1 have only 3 string8, differ in UI source",
+          "EMAIL mandatory or optional unknown"
+        ],
+        "native_gui_label_confirmed": false,
+        "native_client_validation": "not-run",
+        "codepage": "LanguageMan-dependent CP950 at TW locale index4 only"
       }
     },
     {
@@ -179,7 +195,8 @@
         "A006-E06",
         "A006-E07",
         "A006-E08",
-        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
+        "ev_a030_20261101_email_c02_fourth_field_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "response_flow": "After C04 Client local state0x1e; S02(status0) enters 0x4b206b UI branch, not immediate S03/World; S02(nonzero) emits empty C15 and state0x1f",
@@ -203,7 +220,12 @@
       "a003_explicit_character_name_in_body": false,
       "a003_native_sex_hair_valid_enum_known": false,
       "a003_original_server_rgb_restriction_known": false,
-      "a006_analysis": "task_a/roy2/A-006-analysis.md"
+      "a006_analysis": "task_a/roy2/A-006-analysis.md",
+      "a030_email_exclusion": {
+        "evidence_id": "ev_a030_20261101_email_c02_fourth_field_static",
+        "report": "03-analysis-requests/A-030-roy1-email-c02-field.md",
+        "observed_static": "C04 is only appearance five u8; not E-MAIL source"
+      }
     },
     {
       "id": "PKT-C10",

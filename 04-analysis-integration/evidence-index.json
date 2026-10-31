@@ -3901,6 +3901,32 @@
         "No status1 native GUI run or official Server error code semantics",
         "No decrypted actual account/password/email trace; no original Server or DB modification"
       ]
+    },
+    {
+      "evidence_id": "ev_a030_20261101_email_c02_fourth_field_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-11-01",
+      "source_branch": "task_a/roy1",
+      "evidence_kind": "observed-static-original-exe",
+      "locator": "C02 writer 0x5742b0..0x574352, extended-region branch 0x5742ec/0x5742f1; UI 0x4b286d/0x4b2896 (region4 field3/4) and 0x4b289a/0x4b28c2 (region2/3); packet owner+0x822 0x4b28bb, writer subobj+0x816 0x57430e; confirmation 0x4b24e7..0x4b2532 uses both fields; 0x4b229f send",
+      "native_anchors": 15,
+      "offline_test": "tools/a030_native_newuser_contract.py",
+      "report_path": "03-analysis-requests/A-030-roy1-email-c02-field.md",
+      "raw_assets_shared": false,
+      "packet_id": "PKT-C02",
+      "wire_field": "region2..4 ordinal4 string8; fifth tail u8 flag",
+      "gui_label_proof": "not-run; field's visible E-MAIL label remains inferred",
+      "missing_resources": [
+        "Locale.dat",
+        "Basic.dat (optional UI layout verification)"
+      ],
+      "native_client_validation": "not-run",
+      "limits": [
+        "No original UI label verification; labels/translated index 0x4b not extracted",
+        "Region0/1 different writer, email semantic not applicable without new evidence",
+        "No original Server email DB policy or UI E-MAIL blank acceptance evidence"
+      ]
     }
   ]
 }

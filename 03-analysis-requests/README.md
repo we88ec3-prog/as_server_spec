@@ -106,3 +106,8 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 - **A-029**：原生改密碼 C26（0x26）實際存在，body=Account/old/new 3×string8，確認新密碼本地比對，不傳第四欄；S02 generic handler 已定位但官方 status/原生 GUI 未驗。見 [A-029](A-029-roy1-native-password-change.md)、[整合契約](../04-analysis-integration/A-029-native-password-change-contract.md)。
 - **A-030**：原生 C02 的 region0/1/2..4 widget→field slot 及 S02 非零文字提示與 C15 分支可證，**NAME/E-MAIL 真欄位／必填仍 unknown**。見 [A-030](A-030-native-newuser-disconnect-fields.md)、[整合契約](../04-analysis-integration/A-030-newuser-s02-field-contract.md)。
 - 舊表格的 open/not-started 僅是歷史狀態；以最新 `requests.json` integrated/partial/native-not-run 與 [主線同步審查](../04-analysis-integration/roy1-roy2-password-newuser-sync-20261031.md) 為準。
+
+
+## A-030 E-MAIL/C02 靜態增量（2026-11-01）
+
+[確認 E-MAIL 候選實際封包路徑](A-030-roy1-email-c02-field.md)：原版 C02 opcode 0x02，Region2..4 F4 string8 由第二個額外 UI 控制項寫入（region4 widget0x18／region2、3 widget0x10），packet+0x822→serializer+0x816；確認頁也使用此字串。高可信對應 E-MAIL，但原版 literal label 尚需 `Locale.dat` 或原 Client GUI 驗證；不聲稱郵件必填。Region0/1 另有不含此 F4 的三字串結構。測試工具新增固定原件 x86 路徑驗證；不修改 Server/DB/Asgard.exe。
