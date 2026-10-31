@@ -133,3 +133,9 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 獨立的 LoginDialogPane `0x4A8890` callback 可在參數非零時呼叫 C03 sender `0x4A7D10`；**final S02 success 是否自動觸發尚無原生 call/packet 證據**。S02 非零仍回 `C15(empty)`／state0x1f；Region3 state0x1e 的一般文字提示有特殊略過分支。**ADR-008 的產品需求仍是成功創角直接進 World、不需手動重登**，實際自動 World TCP 與首個 C2S/S2C 留給 CT-105/107/108 原版擷包；不以舊版推測的「回 LoginDialog 手動 C03」取代需求。
 
 [A-028 新增完整原件證據](../task_a/roy2/A-028-postcreate-ui-native-followup.md) · [31 VA/RTTI 原生驗證工具](../task_a/roy2/a028_native_postcreate_probe.py) · [合成狀態機](../task_a/roy2/a028_postcreate_model.py) · [CT-111/原生 CT 計畫](../05-conformance/A-028-postcreate-native-callback-test-plan.md) · [22 項合成回歸 GitHub CI](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277)。任務為 **`integrated/partial`**：已完成可證的 UI 靜態交接，但首次創角成功後 World 連線因果未證，**`native_client_validation=not-run`**；沒有新缺的具名遊戲檔案，真正需要原版 Client 去敏的創角最後 S02→World 封包及 UI 時序。
+
+## A-023／roy2 原版 Born、Basic 與 S44 GUI 分派再次補證（2026-11-01）
+
+本輪 **直接讀取使用者提供的原件**：`Born.dat`（zlib native Script、Main、CP950 XML CRC `1d87b0c0`）、`Basic.dat`（39 slots/38 members，完整 indexed DAT）與 `Basic.dat/AlertFrame.ypf`（offset13196、size177648、SHA `b641441d1f0378de04b6f7929c333d95e6ad7df451f3927432e5c4d0305602ce`、YPF v17）。同 SHA `Asgard.exe` 再驗 **22 個原生 S44 dispatch 指令**：`S44(type2/subtype0)` 使用 UI slot0x23＋components3/4，`S44(type2/subtype2)` 使用 slot0x24；**與已證 Born `S44(1,0)→Main` 不同**。新增 21 個 synthetic DAT/index/UTF16/zlib 正負向測試及 `CT-112`。完整 [原件報告](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)／[驗收](../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
+
+本次未收到 `PaperDialog.dat` 原始檔，只能引用先前已驗證的相符 hash 與函式；**如要重新獨立比對完整紙張依賴，確切需 `PaperDialog.dat`**。首發 Born 的原服規則、女招募員 EntityId/map/spawn 與 NPC→`nNewJoin01.dat` 綁定依然無原服／Native GUI 證據，A-023 保持 `integrated/partial`、`native_client_validation=not-run`，不是漏做 Client S44 啟動機制。Server 最小入圖/行走 P0 不依賴這個 P1 教學 NPC 與 Script 自動派送。
