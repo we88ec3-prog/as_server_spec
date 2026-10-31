@@ -3069,7 +3069,8 @@
       "original_probe": "task_a/roy2/a031_native_probe.py",
       "offline_test": "task_a/roy2/test_a031_world_entry.py",
       "native_client_validation": "not-run",
-      "offline_subset_result": "Original SHA-locked Asgard.exe 35 native instruction VA anchors + RTTI CBillingInfoPacket validated locally; synthetic CI pending. World Client GUI/real frame capture CT-108 not-run."
+      "offline_subset_result": "PASS original local Asgard.exe SHA-locked 35 native instruction VA anchors plus CBillingInfoPacket RTTI; GitHub Actions run 41224805425 success, 20/20 A-031 synthetic C10/C25 tests plus project 32-A/7-DEV/110-CT phase gates and other suites passed. Actual native World TCP/GUI CT-108 not-run.",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41224805425"
     }
   ]
 }
