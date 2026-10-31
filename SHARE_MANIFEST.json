@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "7009464f9f364705d3b7d4a29c8dcb0936fa45503716cbcf2f15be467705bd71"
+      "sha256": "4267d00c670e48e699ba3b3e65ca72b0371e8d90ce61d0f221c288790cac4cbc"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "638e8a1c3a1d6bea565598649cd5ebb93a77dc4d5c33b1b76bf42fc137b3db10"
+      "sha256": "1741683ee1ae06aa4e029e651c3d848509c5835eea0a3426f86a0bb7c2bdc0c7"
     },
     {
       "path": "00-governance/workflow.md",
@@ -201,7 +201,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "6c2cfc6523773ccafb92a8376a93b9aa223d1f4cd16c18f1db812af00370c346"
+      "sha256": "9fd98ee5a4550c17b4f5dd4474e5caf8d37fdfdf28d041f8aad5f19329ed6f85"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -273,7 +273,7 @@
     },
     {
       "path": "04-analysis-integration/appearance.md",
-      "sha256": "91aeaab9303e5d73067ec10cdac9b617f2a515884c1ef5ea8959f547e0afbd36"
+      "sha256": "7b4cb965cc2a9e022cf8139dd80279bab613ef87672ce2287a92469c136d5a22"
     },
     {
       "path": "04-analysis-integration/client-compatibility.md",
@@ -297,7 +297,7 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "345ba9a7e70d700945da0eea5f4c0bb6b4fe232c0645e2054549512e292a996d"
+      "sha256": "632b74253efb81d77be977b82346769e17a1f160c5e3829701568548c6e5ba1d"
     },
     {
       "path": "04-analysis-integration/packets.json",
@@ -337,7 +337,7 @@
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
-      "sha256": "28a8333b4b0d4fa167e13f340bfccfb178a86b87ace1ce4c65896d130138d07a"
+      "sha256": "6a7789384464ef711f18f921aedbecdec33271a4677c492293314b6f76778742"
     },
     {
       "path": "05-conformance/A-005-movement-test-plan.md",
@@ -389,7 +389,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "7b13ba7cc49bcbbdc9abdc9175f89feed8e737c28dc8e29a07e2a25b3b1112b5"
+      "sha256": "26de80ffe8976b6a61c8ffecd5b233fdbcb0c7ef4bf038c7953e8db4095095bc"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
