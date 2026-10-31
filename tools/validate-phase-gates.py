@@ -178,3 +178,31 @@ for id in ("SCN-005", "SCN-011", "SCN-012"):
     require(scenario is not None and scenario.get("shared_map_contract") ==
             "02-server-planning/shared-map-multiplayer-contract.md", id + " missing ADR-007")
 print("Shared-map ADR-007 valid: public multiplayer scene planned, native CT-055 not-run.")
+
+# Merge 2026-10-31: evidence lineage, CT remapping and status boundaries
+EVIDENCE_IDS = {v["evidence_id"] for v in read("04-analysis-integration/evidence-index.json")["evidence"]}
+require(len(EVIDENCE_IDS) == len(read("04-analysis-integration/evidence-index.json")["evidence"]),
+        "duplicate evidence ids")
+for x in a:
+    if x["status"] == "integrated":
+        require(all(e in EVIDENCE_IDS for e in x.get("evidence_ids", [])),
+                x["id"] + " has evidence ID absent from shared index")
+for packet in read("04-analysis-integration/packets.json")["packets"]:
+    require(all(v in packet_ids for v in packet.get("related_packets", [])),
+            packet["id"] + " related_packets has unknown id")
+remap = read("05-conformance/ct-id-remap-roy1-roy2.json")
+require(len(remap["mapping"]) == 26, "source branch CT IDs must be remapped to 26 unique main IDs")
+require(len({m["main"] for m in remap["mapping"]}) == 26, "CT remap collisions")
+for mapping in remap["mapping"]:
+    require(mapping["main"] in ctid and mapping["source"] not in {"CT-054", "CT-055"}
+            or mapping["main"] in ctid, "invalid CT remap target")
+require(all(next((x for x in ct if x["id"] == m["main"]), {}).get("native_client_validation") == "not-run"
+            for m in remap["mapping"]), "merging static evidence must not automatically pass native CT")
+require(next(x for x in packet_ids if x == "PKT-S5F") == "PKT-S5F", "S5F monster death packet missing")
+s1e = next(x for x in read("04-analysis-integration/packets.json")["packets"] if x["id"] == "PKT-S1E")
+require("disputed" in s1e["layout_status"], "must not mistake S1E for confirmed S5F DieObjects")
+for p in ("02-server-planning/post-roy-merge-implementation-plan.md",
+          "03-analysis-requests/post-merge-analysis-queue.md",
+          "05-conformance/ct-id-remap-roy1-roy2.md"):
+    require((ROOT / p).is_file(), "missing integrated planning " + p)
+print("Roy1/Roy2 merge evidence and CT lineage: PASS")
