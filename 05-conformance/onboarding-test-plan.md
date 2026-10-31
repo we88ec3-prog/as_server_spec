@@ -58,4 +58,4 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 
 ## P0 / DEV-030 密碼長度相容性驗收（2026-10-31；未執行）
 
-原 Client 使用者回報登入密碼欄**最多 8 字元**，現私有 Server `Pbkdf2PasswordHasher.ValidatePassword` **10～128** 不相容。依 [原生 8 字遊戲密碼政策](../02-server-planning/native-game-password-8char-policy.md) 在既有 **CT-019/CT-037/CT-050** 增列測試，不新增測試編號：管理員建帳及重設有效的8字 ASCII 英數成功；7/9/10/12字、控制/空白/非 ASCII、非法字元拒絕；大小寫敏感；SQLite/PostgreSQL 一致；舊 10+ 字密碼不截斷、需重設；重設後舊 grants/token 失效但角色保留；Admin X-Admin-Key 不縮短。**真正原版 Client** 必須親自鍵入8字並證明 C03 不丟字，成功/錯密/停權與 transfer，否則 Client CT=not-run；合成 C03 fixture 成功只能算 unit/integration。
+原 Client 使用者回報登入密碼欄**最多 8 字元**，現私有 Server `Pbkdf2PasswordHasher.ValidatePassword` **10～128** 不相容。依 [原生 4～8 字遊戲密碼政策](../02-server-planning/native-game-password-4to8-policy.md) 在既有 **CT-019/CT-037/CT-050** 增列測試，不新增測試編號：管理員建帳及重設 4/5/6/7/8 字 ASCII 英數成功；3/9/10/12 字、控制/空白/非 ASCII、非法字元拒絕；大小寫敏感；SQLite/PostgreSQL 一致；舊 10+ 字密碼不截斷、需重設；重設後舊 grants/token 失效但角色保留；Admin X-Admin-Key 不縮短。**真正原版 Client** 必須親自鍵入4字及8字並證明 C03 不丟字，成功/錯密/停權與 transfer，否則 Client CT=not-run；合成 C03 fixture 成功只能算 unit/integration。

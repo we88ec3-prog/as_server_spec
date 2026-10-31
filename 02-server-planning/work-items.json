@@ -51,18 +51,19 @@
       "native_creation_activation_gate": "Native C02/C04 remains fail-closed until A-027 proves C03 no-character to NewUser native route and C02 account field; Server SAFE-01..04 is design-ready.",
       "latest_merged_analysis": "roy1 A-020/025/026 and roy2 A-004/005/006/008/009/024 static/partial; original Client E2E remains not-run",
       "native_game_password_p0_compatibility": {
-        "source": "02-server-planning/native-game-password-8char-policy.md",
+        "source": "02-server-planning/native-game-password-4to8-policy.md",
         "observed_client_ui_max": 8,
         "observed_by": "user report; native xref verification pending A-020/A-002",
         "verified_existing_dev030_minimum": 10,
-        "required_dev030_change": "game password new/reset exactly 8 ASCII alnum, case-sensitive, no truncation; independent admin key",
+        "required_dev030_change": "new/reset game password 4..8 ASCII alnum, case-sensitive, no truncation; auto-generate 8 random; separate admin key; patched Client future profile requires explicit approval",
         "implementation_status": "not-reported",
         "native_client_validation": "not-run",
         "conformance": [
           "CT-019",
           "CT-037",
           "CT-050"
-        ]
+        ],
+        "future_modified_client_gate": "not approved or enabled; distinct client build hash/profile, verified UI/C03 bytes and original-client compatibility gate"
       }
     },
     {

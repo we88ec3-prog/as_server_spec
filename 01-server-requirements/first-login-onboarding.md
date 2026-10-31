@@ -34,6 +34,6 @@ SCN-007 管理建帳與玩家首次登入；SCN-008 原 Client 創角；SCN-009 
 
 ## P0 原版登入密碼最多 8 字元（2026-10-31 使用者回報）
 
-原版 `Asgard.exe` 登入欄位依使用者實測最多 8 字元，與目前私有 DEV-030 `Pbkdf2PasswordHasher.ValidatePassword` 的 **10～128 字**政策衝突（使用者原先描述至少12字，已查目前 main 源碼實際是至少10字）。**R-025 新需求**：管理員建立及重設的**遊戲**帳號密碼採本 Server **恰好8個 ASCII 英數字元，大小寫敏感**，可用安全亂數產生；Admin 自身的 X-Admin-Key/強憑證保持獨立，絕不可因此降低；不要截斷任何舊密碼。DEV-030 要修改 SQLite/PostgreSQL 憑證入口及原生 Client 測試，原 Server 實作目前**尚未**由本規格 repo 修正。
+原版 `Asgard.exe` 登入欄位依使用者觀察最多 8 字元，與目前私有 DEV-030 `Pbkdf2PasswordHasher.ValidatePassword` 的 **10～128 字**政策衝突（已查目前 main 源碼實際是至少10字，不是原先所述至少12字）。**R-025 最新決策**：管理員建立及重設的**遊戲**帳號密碼改為 **4～8 個 ASCII 英數字元，大小寫敏感**；管理員自動產生時建議使用安全亂數 8 字。Admin X-Admin-Key/強憑證不受限，不能截斷舊密碼。DEV-030 要同步修改 SQLite/PostgreSQL 與 Client 驗收，目前只是規劃，私有 Server 程式碼尚未修正。後續**可能**由使用者另行批准修改 `Asgard.exe` 延長輸入限制，目前不修改，須建立獨立 Client profile 後才能改長度。
 
-細節：[Native 8 字相容契約](../02-server-planning/native-game-password-8char-policy.md)。此為 `reported-client-UI` + `verified-server-source` + `designed-policy` 三種證據分開，原生 C03 GUI/送包 A-020/A-002 仍須實測，CT-019/037/050 仍待執行。
+細節：[Native 8 字相容契約](../02-server-planning/native-game-password-4to8-policy.md)。此為 `reported-client-UI` + `verified-server-source` + `designed-policy` 三種證據分開，原生 C03 GUI/送包 A-020/A-002 仍須實測，CT-019/037/050 仍待執行。

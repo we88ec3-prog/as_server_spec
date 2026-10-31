@@ -248,13 +248,13 @@
       "system": "SYS-AUTH",
       "priority": "P0",
       "title": "管理員建帳、玩家僅 Client 登入",
-      "acceptance": "僅授權管理員可透過獨立管理 API 建立帳號；玩家 Client 不可建立 Account，只能登入已存在且未停權帳號；管理操作有稽核。；原版 Client UI 密碼輸入最多8字（使用者回報）：管理建帳及重設的遊戲密碼採恰好8個 ASCII 英數、大小寫敏感，Admin key 不受8字限制；Server 必須用原版 Client 驗證 C03 登入且不得截斷長密碼。",
+      "acceptance": "僅授權管理員可透過獨立管理 API 建立帳號；玩家 Client 不可建立 Account，只能登入已存在且未停權帳號；管理操作有稽核。；原版 Client UI 密碼輸入最多8字（使用者回報）：管理建帳及重設的遊戲密碼採4～8個 ASCII 英數、大小寫敏感，Admin key 不受8字限制；Server 必須用原版 Client 驗證 C03 登入且不得截斷長密碼。",
       "baseline": "需求方已確認；未實作/未驗收",
       "status": "specified",
       "stage": "requirement",
       "evidence_kind": "designed",
-      "credential_policy_source": "02-server-planning/native-game-password-8char-policy.md",
-      "credential_compatibility_status": "P0-designed-await-DEV030-and-native-client-CT"
+      "credential_policy_source": "02-server-planning/native-game-password-4to8-policy.md",
+      "credential_compatibility_status": "P0-designed-4to8-await-DEV030-and-native-client-CT; future patched client needs separately approved version profile"
     },
     {
       "id": "R-026",
