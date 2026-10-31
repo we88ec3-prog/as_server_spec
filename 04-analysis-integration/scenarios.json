@@ -49,10 +49,34 @@
       "packets": [
         "PKT-C33",
         "PKT-S0B",
-        "PKT-C11"
+        "PKT-C11",
+        "PKT-S06",
+        "PKT-S11"
       ],
       "status": "manual-pass-subset",
-      "notes": "正常步伐已驗證；障礙、速度裁定與校正失敗分支待A-005。"
+      "notes": "Existing normal-step profile/manual-pass-subset preserved; A005 10 synthetic + 7 native original static checks PASS, CT-057 native rejection/collision E2E remains not-run",
+      "a005_report": "task_a/roy2/A-005-analysis.md",
+      "a005_evidence_ids": [
+        "A005-E01",
+        "A005-E02",
+        "A005-E03",
+        "A005-E04",
+        "A005-E05",
+        "A005-E06",
+        "A005-E07",
+        "A005-E08"
+      ],
+      "move_client_io": "C33 u8,u8,u8; C11 u8; S0B BE u16,u16,u8; other observers S06/S11. Original static native writer/reader verified; native fail/rollback handler not-run.",
+      "map_flag_warning": "Original MAP tile LE u32 flags at offset+6; native bit4 line obstruction test and separate bit0 consumer verified; player walkability mask NOT proved.",
+      "failure_cases": [
+        "C33 sequence 127→0 after 128",
+        "duplicate C33 on same generation",
+        "stale map epoch and late S0B",
+        "invalid direction and truncated decoded body",
+        "blocked destination / failed collision projection",
+        "speed above DESIGNED Server threshold",
+        "bad MAP checksum/version, edge tile and diagonal corner"
+      ]
     },
     {
       "id": "SCN-003",

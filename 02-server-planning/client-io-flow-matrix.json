@@ -326,6 +326,53 @@
         "ONB-04"
       ],
       "analysis_report": "task_a/roy2/A-004-analysis.md"
+    },
+    {
+      "id": "FLOW-MOVE",
+      "label": "角色移動／轉向與 S0B 校正",
+      "client_trigger": "玩家於已載入合法 MAP 的 World 畫面進行移動或轉向（C33/C11 native writer fields 已證，真正鍵盤 UI 事件/handler 對應未全追）",
+      "client_send": [
+        "PKT-C33",
+        "PKT-C11"
+      ],
+      "server_to_client": [
+        "PKT-S0B",
+        "PKT-S06",
+        "PKT-S11"
+      ],
+      "client_reaction": "自身 S0B 讀 BE16 x/y + status-seq u8；他人 S06/S11 需帶 u32 ID；正常/拒絕/重定位 GUI 的精確 handler 尚未測；S0B 不包含第三方 ID",
+      "evidence": [
+        "A-005",
+        "A-004",
+        "A-015",
+        "A-022"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-005"
+      ],
+      "tests": [
+        "CT-004",
+        "CT-056",
+        "CT-057"
+      ],
+      "server_decisions": [
+        "Server authoritative coordinate, instance, world generation, monotone sequence modulo128; duplicate/old epoch reject（designed）",
+        "Server picks measured collision policy and speed/step threshold, not necessarily original; MAP bit4 native line test is NOT proven walking collision",
+        "S0B with authoritative coordinate for candidate reject/correction; exact original failure status/GUI unknown; other observers use S06/S11"
+      ],
+      "readiness": "C33/C11/S0B codec and original-map-bit-consumer static-ready; true native walking collision, fail status and UI E2E pending",
+      "unknowns": [
+        "Which raw MAP flags decide player walking vs LOS/static blockers",
+        "C33 direction/gait vs legal step/diagonal and tick (original Server policy)",
+        "S0B bit7 failure handling and native rollback / resend state",
+        "Original map content version-binding and selected world map"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-005-analysis.md",
+      "work_items": [
+        "ONB-04"
+      ]
     }
   ]
 }

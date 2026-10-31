@@ -1324,6 +1324,54 @@
       "evidence_kind": "designed-test",
       "native_client_validation": "not-run",
       "analysis_request": "A-004"
+    },
+    {
+      "id": "CT-056",
+      "status": "planned",
+      "level": "original-MAP-and-synthetic-movement-body",
+      "requirements": [
+        "R-005"
+      ],
+      "packet_ids": [
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "original-client-static-plus-synthetic",
+        "reference": "05-conformance/A-005-movement-test-plan.md"
+      },
+      "expected": "Original PE 7 native patterns and original 494 MAP 7701805 tile flag metadata PASS; decoded C33/C11/S0B strict + negative movement gate synthetic 10 cases PASS. Native Client GUI not-run.",
+      "evidence_kind": "observed-static-client+observed-original-resource+synthetic-test",
+      "offline_subset_result": "7 PE static checks; 494 MAP/7,701,805 tiles; 10 synthetic tests PASS",
+      "original_probe": "task_a/roy2/a005_native_probe.py",
+      "map_probe": "task_a/roy2/a005_collision_probe.py",
+      "offline_test": "task_a/roy2/test_a005_move.py",
+      "analysis_request": "A-005",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-057",
+      "status": "planned",
+      "level": "native-client-blocked-move-and-correction",
+      "requirements": [
+        "R-005"
+      ],
+      "packet_ids": [
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B",
+        "PKT-S06",
+        "PKT-S11"
+      ],
+      "input": {
+        "kind": "native-client-required",
+        "reference": "05-conformance/A-005-movement-test-plan.md"
+      },
+      "expected": "Actual native World move/turn, blocked tile, edge/corner, failed correction S0B, 0x7f→0x00 wrap, replay, speed and map-epoch reset must be observed before claiming compatible; bit4 line check cannot stand in for walking collision",
+      "evidence_kind": "designed-test",
+      "analysis_request": "A-005",
+      "native_client_validation": "not-run"
     }
   ]
 }
