@@ -69,3 +69,7 @@
 ## 新版工作規範與 Client 收發導向 Server 路線（2026-10-31）
 
 **所有接案者先讀**：[工作軌／責任／禁止自行建分支](00-governance/task-ownership-and-client-io.md) → [Client I/O 交付規範](03-analysis-requests/client-io-handoff-standard.md) → [新版任務模板](03-analysis-requests/request-template.md)。新增 [Server 可開發的 DEV-IO-01～06 縱切規劃](02-server-planning/client-io-delivery-plan.md)、[6 條機讀 Client I/O／Server decision 矩陣](02-server-planning/client-io-flow-matrix.json) 與 [分段驗收計畫](05-conformance/client-io-verification-plan.md)。CI 將強制 A 任務分類與交付要求；實機 CT 全部仍須獨立執行。
+
+## 暫行創角帳號一致性政策
+
+玩家在原 Client 創角輸入的帳號與已驗證登入帳號不同時，Server **拒絕創角**；無登入也拒絕。Client 不修改、輸入框不鎖定。詳見 [創角帳號比對規劃](02-server-planning/character-account-match-policy.md)；A-027 的原生 UI 入口仍 partial。

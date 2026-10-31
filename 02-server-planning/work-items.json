@@ -40,7 +40,9 @@
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
-      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
+      "temporary_creation_account_policy": "Server must reject C02 submitted account name != authenticated login AccountIdentity.Name; without valid login also reject; account equivalence is ASCII case-insensitive per admin store, no trim/aliases. C02 field1 and native no-character route not yet proven.",
+      "creation_account_policy_source": "02-server-planning/character-account-match-policy.md"
     },
     {
       "id": "ONB-02",
@@ -84,7 +86,9 @@
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
-      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
+      "temporary_creation_account_policy": "Server must reject C02 submitted account name != authenticated login AccountIdentity.Name; without valid login also reject; account equivalence is ASCII case-insensitive per admin store, no trim/aliases. C02 field1 and native no-character route not yet proven.",
+      "creation_account_policy_source": "02-server-planning/character-account-match-policy.md"
     },
     {
       "id": "ONB-03",

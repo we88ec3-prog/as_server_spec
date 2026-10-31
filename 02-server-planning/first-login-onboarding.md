@@ -45,3 +45,11 @@ A-001 補齊 seed0..9 的候選 binary mask/加密格式、C00/S00/string8 codec
 ## 調整：原生 Client 相容性與 Server 權威責任（2026-10-31）
 
 前述「預建帳號認領／教學固定出生點／原服首次任務發送」屬 **Server 設計政策**；A-027/A-022/A-023 不再需要以原服內部策略證明才能結案。A 交付 UI/操作→C→S→S→C→Client UI/state 的可觀察行為。Admin Account 驗證、C02 owner、初始 map/spawn、何時派 Born、任務旗標由新 Server 決定；但 Server 僅能發送 Client 能理解的原生格式，且 C02 不能在未驗證 Account 時直接賦權。參考 [責任分界](client-server-responsibility.md)。
+
+## 暫行創角帳號比對政策（使用者決策，2026-10-31）
+
+**不修改 Client，也不禁止編輯原生帳號輸入框。** 在原 Client 的 NewUser/C02 第一欄被確認為帳號欄、且存在與此創角會話相同 generation 的 Server 已驗證登入 Account 後，Server 只接受 **輸入帳號與該登入帳號相同** 的創角請求；不符必須失敗，且不得建立 PendingCharacterIntent/Character、改別人帳號、核發 Grant 或送會觸發 C04 的 S02(status0)。帳號相等依現有管理帳號規格使用 3～32 ASCII 字母/數字/底線且大小寫不敏感比較（不 trim、無別名），實際角色 owner 一律使用 Server account_id。
+
+**無有效登入 AuthContext → 一律拒絕**，即使字串剛好相同；匹配成功只通過此檢查，另需帳號未停權、有效 session/generation、角色/外觀唯一性等規則。A-027 仍未確認 C03 無角色→NewUser 原生可達及 C02 第1欄確為既有登入帳號，因此正式 native C02/C04 仍必須 fail closed，直到證據足夠；不得把原服註冊 UI 直接當作新 Server 的角色創建授權。原生錯誤回覆 status 尚未知：拒絕時不得發 S02(status0) 或亂猜 status；目前安全實作可結束未授權連線。這是 **Server designed**，不宣稱原版原本有相同限制。
+
+[完整 Server 比對契約](../02-server-planning/character-account-match-policy.md)。

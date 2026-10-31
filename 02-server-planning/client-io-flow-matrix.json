@@ -83,13 +83,15 @@
       ],
       "server_decisions": [
         "R-025: Client 不建立 Account，C02 不可無認證認領其他預建帳號",
-        "合法 owner + PendingCharacterIntent 才能回引發 C04 的 S02(0)；C04 原子保存後再依合法 UI 回覆"
+        "合法 owner + PendingCharacterIntent 才能回引發 C04 的 S02(0)；C04 原子保存後再依合法 UI 回覆",
+        "暫行 R-026：只有已登入 AccountIdentity，且創角輸入帳號依現有 ASCII 不分大小寫規則等於已驗證登入帳號時，才可進入建角其他檢查；不相同/無登入拒絕且不可發 S02(0)。C02 第一欄帳號語意仍需 A-027 核對"
       ],
       "readiness": "wire-and-ui-partial-auth-route-unproven",
       "unknowns": [
         "C03 無角是否可到 NewUser UI",
         "C02 各 region 真正欄位語意與安全認證條件",
-        "錯誤碼的原服文字含義"
+        "錯誤碼的原服文字含義",
+        "尚未證明 C02 field1 是已登入 Account 名稱；這項設計守衛不能使原生建角路徑自動 ready"
       ],
       "native_client_validation": "not-run",
       "work_items": [

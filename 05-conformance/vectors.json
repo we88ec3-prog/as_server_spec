@@ -897,7 +897,8 @@
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
       "merge_source_id": "CT-039",
-      "merge_note": "roy1 CT CT-039 renumbered to CT-041 because roy2 A-015 retains CT-039/040; native Client not-run"
+      "merge_note": "roy1 CT CT-039 renumbered to CT-041 because roy2 A-015 retains CT-039/040; native Client not-run",
+      "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
     },
     {
       "id": "CT-042",
@@ -990,7 +991,8 @@
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "merge_source_id": "CT-042",
-      "merge_note": "roy1 CT CT-042 renumbered to CT-044 because roy2 A-015 retains CT-039/040; native Client not-run"
+      "merge_note": "roy1 CT CT-042 renumbered to CT-044 because roy2 A-015 retains CT-039/040; native Client not-run",
+      "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
     },
     {
       "id": "CT-045",
@@ -1241,7 +1243,9 @@
           "same account duplicate intent idempotent",
           "same character display-name two owners unique",
           "C15 empty after committed does not delete character",
-          "S02 errors do not have native text mapping yet"
+          "S02 errors do not have native text mapping yet",
+          "authenticated account A, submitted different account B denied without draft/character",
+          "authenticated A, submitted same account with different ASCII letter case passes name gate only"
         ]
       },
       "expected": "No Account INSERT via Client, no Character without verified owner and pending intent; same pending/body succeeds once; duplicate name/account conflict and delayed C15 have zero unintended effects; full native new-user UI/Server error status not-run",
@@ -1249,7 +1253,8 @@
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md",
       "source_ct_renumbered_from": "CT-048",
-      "merge_note": "CT CT-048 in source roy1 A-003 was renamed to CT-053; main CT-047/048 are A-014 social"
+      "merge_note": "CT CT-048 in source roy1 A-003 was renamed to CT-053; main CT-047/048 are A-014 social",
+      "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
     }
   ]
 }
