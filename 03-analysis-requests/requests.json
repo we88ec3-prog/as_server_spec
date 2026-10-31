@@ -2514,10 +2514,11 @@
         "A-005"
       ],
       "remaining_unknowns": [
-        "Actual original Client C35 packet capture to compare expected 00040F90 for 00006.map",
-        "Native GUI displayed map and safe spawn: x/y, S04 viewport pair, facing/S33, input units",
-        "Native C33/C11 walking and wall rollback/S0B; tile flags=0 only geometric path, not passability",
-        "Identifying native tutorial map; map_ref=6 is interim candidate only"
+        "Original Windows Client S14(1)→C35 exact 4-byte TCP packet for map_ref6 must still be captured to compare offline 00040F90; live ordinal/seed not observed",
+        "Actual original tutorial map_ref not identified; map_ref6 is interim original asset fixture, not official tutorial map",
+        "Real original Client GUI/S04 four-BEu16 spawn x/y, viewport, S33 facing and visible landscape not-run",
+        "Native original C33/C11 movement, wall collision, S0B correction and dynamic object/overlay path gates not-run",
+        "Original Server legal spawn/AI/Map instance rule not deducible from static EXE; Server production World entry still blocked by native CT108/109"
       ],
       "priority": "P0",
       "status": "integrated",
@@ -2527,12 +2528,19 @@
         "A032-E02",
         "A032-E03",
         "A032-E04",
-        "A032-E05"
+        "A032-E05",
+        "A032-E06",
+        "A032-E07",
+        "A032-E08",
+        "A032-E09",
+        "A032-E10",
+        "A032-E11",
+        "A032-E12"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
       "native_client_validation": "not-run",
-      "evidence_kind": "observed-static-original-MAP-reconstructed-C35-not-native-GUI",
+      "evidence_kind": "observed-original-exe-7-edge-15-anchor-plus-all-494-original-map-structured-checksums-and-designed-pending-context-tests",
       "implementation_ready": false,
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
@@ -2547,33 +2555,55 @@
         "unknowns"
       ],
       "client_server_boundary": "Research native Client UI and C2S/S2C/layout only; Server decides authenticated Character, map selection/spawn, permissions and durable commit. No invented packets.",
-      "analysis_report": "task_a/roy3/A-032-roy3-native-map-c35.md",
-      "analysis_contract": "04-analysis-integration/A-032-structured-c35-contract.md",
-      "analysis_test": "task_a/roy3/test_a032_c35_probe.py",
-      "analysis_probe": "task_a/roy3/a032_c35_probe.py",
-      "offline_validation": "Original EXE SHA and Map0/1/2 SHA matched; selected real MAP structured C35 computed, duplicate payload checksum agrees; synthetic CRC/norm/bounds cases replicated locally; native TCP not-run",
+      "analysis_report": "task_a/roy3/A-032-roy3-full-c35-analysis.md",
+      "analysis_contract": "04-analysis-integration/A-032-roy3-full-c35-contract.md",
+      "analysis_test": "task_a/roy3/test_a032_roy3_full_c35_atlas.py",
+      "analysis_probe": "task_a/roy3/a032_roy3_full_c35_atlas.py",
+      "offline_validation": "All 494/494 original MAP metadata/pair computations PASS; 330 unique payloads and C35, 33 repeated-pair clusters, corpus SHA256 8a0b...c375a; original EXE SHA and native S14-C35 7/7 edges,15/15 byte anchors PASS. 20 new regression test definitions checked into branch; no GitHub CI/native GUI status yet.",
       "client_io_handoff": {
-        "trigger": "Server sends S15(map_ref), S14(1) after World loading starts",
+        "trigger": "Authenticated World loading S15(map_ref) then S14(1), original Client native handler 0x4F23CB.",
         "client_sends": [
-          "PKT-C35 two BEu16 on S14(1); real native wire capture not-run",
-          "C33/C11 movement pending runtime"
+          "C35 exact 4 decoded bytes: BEu16(current active MapData header+4), BEu16(MapData structured cached CRC), native ctor 0x5733E0 and send 0x5788A0; no map_ref/epoch in body",
+          "C33/C11 walking pending native GUI CT"
         ],
         "client_receives": [
-          "PKT-S15",
-          "PKT-S14",
-          "PKT-S04",
-          "PKT-S33",
-          "PKT-S0B"
+          "S15 map_ref (selected server pending context)",
+          "S14 subtype1 checksum request",
+          "S04/S33/S14 subtype2 later World UI (not live verified)"
         ],
-        "client_reaction": "Native MAP loader and CRC call flow static verified; chosen map spawn/facing/viewport and actual GUI movement not-run",
-        "evidence": "task_a/roy3/A-032-roy3-native-map-c35.md",
+        "client_reaction": "Original 0x4F240E and 0x4F241D getters read current MapData; all 494 real resource C35 pairs computed offline; Client may display actual map and move only after real World entry; not captured.",
+        "evidence": "task_a/roy3/A-032-roy3-full-c35-analysis.md; atlas SHA 8a0ba7ebe767385db7296de1ca0c3b999aa620e05e6ab1793db0e640f30c375a; static emitter original EXE 7 E8/E9 edges/15 anchors, 494 original MAP full scan",
         "unknowns": [
-          "Original Client C35 emission on map_ref=6 versus predicted 00040F90",
-          "Observed legal spawn S04 four u16/viewport/facing/S33 and displayed map",
-          "Native walkable tile/path/collision correction, including C33/C11/S0B",
-          "Is map_ref=6 tutorial? (No evidence; selected interim only)"
+          "Original Windows Client S14(1)→C35 exact 4-byte TCP packet for map_ref6 must still be captured to compare offline 00040F90; live ordinal/seed not observed",
+          "Actual original tutorial map_ref not identified; map_ref6 is interim original asset fixture, not official tutorial map",
+          "Real original Client GUI/S04 four-BEu16 spawn x/y, viewport, S33 facing and visible landscape not-run",
+          "Native original C33/C11 movement, wall collision, S0B correction and dynamic object/overlay path gates not-run",
+          "Original Server legal spawn/AI/Map instance rule not deducible from static EXE; Server production World entry still blocked by native CT108/109"
         ]
-      }
+      },
+      "baseline_static_report": "task_a/roy3/A-032-roy3-native-map-c35.md",
+      "native_emit_probe": "task_a/roy3/a032_roy3_native_c35_emit.py",
+      "native_emit_test": "task_a/roy3/test_a032_roy3_native_c35_emit.py",
+      "full_c35_summary_fixture": "task_a/roy3/a032_roy3_full_c35_fixture.json",
+      "native_ct108_109_plan": "05-conformance/A-032-roy3-native-map-acceptance.md",
+      "client_c35_full_map_atlas_static_ready": true,
+      "client_s14_to_c35_native_emitter_static_ready": true,
+      "full_atlas_counts": {
+        "Map0": 288,
+        "Map1": 184,
+        "Map2": 22,
+        "total": 494,
+        "unique_payload": 330,
+        "unique_pair": 330,
+        "duplicate_pair_clusters": 33,
+        "extra_refs_sharing_pairs": 164,
+        "largest_duplicate_group": 23
+      },
+      "full_c35_atlas_digest_sha256": "8a0ba7ebe767385db7296de1ca0c3b999aa620e05e6ab1793db0e640f30c375a",
+      "complete_original_client_map_c35_static_result": "All 494 original MAP member CRC pairs reconstructed from SHA pinned assets; original S14 subtype1 -> C35 ctor -> current MapData header+cachedCRC getters -> writer -> C2S queue static call graph verified.",
+      "last_analysis_date": "2026-11-01",
+      "source_branch": "task_a/roy3",
+      "implementation_ready_scope": "All original Map0/1/2 C35 pair versions and S14(1) sender static complete and may be used for strict Server fixture and pending_map_ref protection; legal original native World spawn/facing/viewport and walking/collision not verified, so original World entry is not production-ready."
     }
   ]
 }
