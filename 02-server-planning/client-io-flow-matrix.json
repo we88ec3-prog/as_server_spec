@@ -57,7 +57,7 @@
       "server_to_client": [
         "PKT-S02"
       ],
-      "client_reaction": "state 0x1d 收 S02(0) 發 C04/進0x1e；0x1e 成功走 UI；非零錯誤可觸發 C15 空 body/0x1f；最新需求：C04 第二次 S02(0) 成功後直接進 World，不顯示 LoginDialog；後續自動封包 A-028/A-031 未證",
+      "client_reaction": "state0x1d 收第一次 S02(0) 發 C04 五個 u8 並進 state0x1e；第二次 S02(0) 進 0x4B206B：Native UI manager 0B/0C/0D/07 清理，Region3 建構 RTTI 為 LoginDialogPane 的物件（0x4A9380）。Ctor 未直接發 C03；另一獨立 LoginDialog callback 可條件發 C03，但沒有證明 final S02 自動觸發。S02 非零發空 C15/state1f。產品要求創角完成直接 World、無手動重新登入；背景實際 TCP/封包未證。",
       "evidence": [
         "A-003",
         "A-021",
@@ -88,7 +88,8 @@
         "CT-103",
         "CT-104",
         "CT-105",
-        "CT-107"
+        "CT-107",
+        "CT-111"
       ],
       "server_decisions": [
         "R-025/R-026: C02 絕不可建立 Account；直接用本次 C02 提交的 existing Account name + Password 於同一 DB CredentialVerifier 驗證；**無需 prior C03 Session**，帳號/密碼不符、停權/角色已存在 → 原版可辨識錯誤、不建 Pending/Character、不發 S02(0)。",
@@ -108,7 +109,8 @@
         "NAME and E-MAIL original form->C02 field mapping and E-MAIL required gate, region1 writer discrepancy",
         "Which native S02 nonzero status+message renders credential/duplicate errors, C15 retry/socket semantics",
         "Observed popup first actual TCP breakpoint: C02 before or after, C04 after, C15 after; original Client native trace not-run",
-        "Roy1 A-030 verified C02 regional widget ordinals; NAME/EMAIL exact label, E-MAIL mandatory and native error S02 remain unproven"
+        "Roy1 A-030 verified C02 regional widget ordinals; NAME/EMAIL exact label, E-MAIL mandatory and native error S02 remain unproven",
+        "A-028: final S02(0) success -> background World socket/first packet or separate LoginDialogPane conditional C03 callback causal chain unknown. Region3 LoginDialogPane ctor is static-proof object construction, not manual-login requirement or automatic C03 proof."
       ],
       "native_client_validation": "not-run",
       "work_items": [
@@ -116,7 +118,8 @@
         "ONB-02"
       ],
       "next_iteration": "02-server-planning/native-creation-next-iteration.md",
-      "post_create_direct_world_decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md"
+      "post_create_direct_world_decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md",
+      "a028_native_postcreate": "0x4B206B success UI clear slots 0B/0C/0D via0x535510, slot07 via0x5354B0; Region3 guard0x4B20C5 and ctor0x4A9380 vtable0x609BBC/RTTI LoginDialogPane; no direct C03/C10 in callback. Source task_a/roy2/A-028-postcreate-ui-native-followup.md"
     },
     {
       "id": "FLOW-TRANSFER",
@@ -133,7 +136,8 @@
       "evidence": [
         "A-002",
         "A-016",
-        "A-031"
+        "A-031",
+        "A-028"
       ],
       "scenarios": [
         "SCN-001",
@@ -158,7 +162,8 @@
         "原服重複登入策略與 S02 拒絕碼",
         "Native packet capture seed/ordinal/billing string values and other region 0/1/2/4 World follow-up beyond C10",
         "Actual World first S2C or S02 error branch and native GUI first map display after transfer CT-108 not-run",
-        "First creation post-C04 seamless World transition differs from returning-character C03/S03/C10; A-028 still needs native call chain."
+        "First creation post-C04 seamless World transition differs from returning-character C03/S03/C10; A-028 still needs native call chain.",
+        "ADR-008 first-create World seamless callback 0x4B206B does not directly send C03/C10; Region3 constructs LoginDialogPane but it is not proven to be automatic transfer. Cannot require returning-character C03/S03/C10 sequence."
       ],
       "native_client_validation": "not-run",
       "work_items": [
