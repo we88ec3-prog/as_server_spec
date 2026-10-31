@@ -478,11 +478,20 @@
       "title": "攻擊命中傷害死亡",
       "method": "從輸入→C2S→動畫／傷害／HP→死亡→復活，查失敗與中斷。",
       "deliverable": "完整收發時序、公式來源、權威裁定及同時死亡策略。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A009-E01",
+        "A009-E02",
+        "A009-E03",
+        "A009-E04",
+        "A009-E05",
+        "A009-E06",
+        "A009-E07",
+        "A009-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -494,7 +503,45 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Original Client native C13/S13/S5F and S3D packet subsets are observed-static; original Server hit/damage/AI/revive/simultaneous-death rules unknown. ServerOwner defines authoritative designed policies separately, with original native CT pending.",
+      "evidence_kind": "observed-static",
+      "analysis_document": "task_a/roy2/A-009-analysis.md",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C13 BE u32 request, S13 conditional effect 14/31B and packed IDs, S5F BE u32 death, C3D/S3D subtype dispatch and proven short S3D variants only",
+      "static_validation": "Original Asgard.exe SHA locked: 16 native instruction byte patterns and five RTTI PASS; 15 decoded-body synthetic tests PASS; native GUI E2E not-run",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "conformance": [
+        "CT-063",
+        "CT-064"
+      ],
+      "client_io_handoff": {
+        "trigger": "Two native attack C13 producers at VA 0x55709E and 0x557A5F. Separate C3D subtype sender.",
+        "client_sends": [
+          "PKT-C13",
+          "PKT-C3D"
+        ],
+        "client_receives": [
+          "PKT-S13",
+          "PKT-S3D",
+          "PKT-S08",
+          "PKT-S5F",
+          "PKT-S0E"
+        ],
+        "client_reaction": "S13 parsed as 14-byte fixed prefix with bit0 optional 17 bytes; S3D battle subtype variadic; A008 S08 Status refresh independent; S5F death event is separate from S0E removal. Exact visual callback, packet timing and revival are not proven.",
+        "evidence": "task_a/roy2/A-009-analysis.md",
+        "unknowns": [
+          "Complete S3D/C3D complex subtype layouts/UI actions",
+          "S13 and S5F object registry, damage display, and visual callback XREF",
+          "Original hit/miss/critical formula, HP=0/death/revive protocol and error codes",
+          "Native Client battle/attack/death E2E not-run"
+        ]
+      },
+      "open_items": [
+        "Complete S3D/C3D complex subtype layouts/UI actions",
+        "S13 and S5F object registry, damage display, and visual callback XREF",
+        "Original hit/miss/critical formula, HP=0/death/revive protocol and error codes",
+        "Native Client battle/attack/death E2E not-run"
+      ]
     },
     {
       "id": "A-010",
