@@ -805,7 +805,14 @@
         "A015-E18",
         "A015-E19",
         "A015-E20",
-        "A015-E21"
+        "A015-E21",
+        "A015-E22",
+        "A015-E23",
+        "A015-E24",
+        "A015-E25",
+        "A015-E26",
+        "A015-E27",
+        "A015-E28"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "ready",
@@ -825,7 +832,9 @@
         "原生 tutorial map_id、spawn(x/y/facing)、女性招募員 NPC/spawn、MAP collision 與 C35 structured checksum 尚未由本 A 證明：交 A-005/A-022/A-023/A-024/CT-040",
         "Client、Born.dat 與 Map0/1/2.dat 的 SHA 已保存，但沒有官方 release manifest 證實同一版；需要版本綁定時不得靜默接受錯版",
         "Human/YPF 完整動作與外觀 ID 範圍是 A-006/A-007 深入項；不要求提供整包美術資源",
-        "遊戲素材散布／公開營運權利未獲證明；格式可讀不構成使用權"
+        "遊戲素材散布／公開營運權利未獲證明；格式可讀不構成使用權",
+        "Client original walking collision/passable tile mask remains unknown: tile bit0 != bit4 != independent 4-byte grid; 48x32 pixel geometry not proven character feet grid",
+        "Official tutorial map id/character spawn point/bit-field passability/Client rollback and selected-map native GUI CT-070 not-run"
       ],
       "map_corpus_report": "04-analysis-integration/a015-map-corpus.json",
       "map_corpus_offline_validation": "pass-all-494",
@@ -853,7 +862,25 @@
         "client_usage",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Original native MAP parser, 17B client tile stride, indexed row-major grid, map x/y bounds, bit0/bit4 consumers and secondary u32 grid observed; exact player walkability, native GUI coordinate/pivot, selected tutorial map/spawn and original Server authority are not proven. DEV must distinguish coordinate-in-bounds from passable.",
+      "map_coordinate_analysis": "task_a/roy2/A-015-map-coordinate-collision.md",
+      "map_coordinate_codec": "task_a/roy2/a015_map_coordinate.py",
+      "map_coordinate_native_probe": "task_a/roy2/a015_map_native_probe.py",
+      "map_coordinate_synthetic_test": "task_a/roy2/test_a015_map_coordinate.py",
+      "map_coordinate_original_corpus_status": "all Map0.dat/Map1.dat/Map2.dat SHA match, 494 map layouts 7,701,805 tiles PASS; bit0 count 5,000,021, bit4 count 4,503,156; (31,29) in 477 maps with raw flags 0:242,1:109,17:126",
+      "map_coordinate_evidence_status": "observed-native-PE + observed-original-three-MAP + synthetic; tile row-major, raw 10B, client 17B, bounded x/y, candidate 48x32 UI grid; bit0/bit4/secondary-u32-grid are distinct consumers",
+      "map_coordinate_native_probe_result": "26 original Asgard.exe SHA-locked VA checks PASS",
+      "map_coordinate_offline_tests": "18 synthetic MAP geometry / archive corruption tests PASS via GitHub CI; native Client E2E not-run",
+      "original_player_walkability_ready": false,
+      "original_spawns_and_tutorial_map_ready": false,
+      "map_coordinate_handoff": "ready-for-raw-MAP-grid-and-in-bounds-only; NOT ready for native-passability/original-spawn-position",
+      "implementation_ready_scope": "Map parser/read-only tile/flag/bounds/viewport candidate available to DEV; player walkability/true native spawn not implementation ready",
+      "conformance": [
+        "CT-039",
+        "CT-040",
+        "CT-069",
+        "CT-070"
+      ]
     },
     {
       "id": "A-016",
