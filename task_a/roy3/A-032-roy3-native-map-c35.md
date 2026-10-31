@@ -73,4 +73,4 @@ objdump -d -M intel --start-address=0x43e0a0 --stop-address=0x43e0bf Asgard.exe
 - **已完成**：原件 hash、MAP 索引版本、完整 0x4B2EC0 靜態資料流、原始 MAP 的離線 C35 pair、跨庫相同 payload 的 CRC 一致、嚴格 bounds 與未驗候選路徑。
 - **尚未完成（A32 全量 Gate）**：原版不修改 Client 擷取一次 C35 body 核對 00040F90；驗證 S15 選 map_ref=6 的 UI 正常顯示；從一個經本地 GUI 觀察到的合法 spawn（含原生 S04 viewport/facing）成功沿候選點移動、撞牆並觀察 S0B/回滾。這些需要先打通 A-031/DEV World Loading 後由 CT-108/109 進行，否則任何「安全出生」聲稱都缺證。
 - 原版實機測試 **not-run**；沒有新的 A32 必要資源缺檔。缺的是 Client GUI/World 連線封包/測試執行記錄，而不是 Map0/1/2 重新上傳。需要的去敏 trace 欄位：Client SHA、map_ref、S15 摘要、S14(1)→C35 兩個 BEu16、S04 座標四欄、facing 封包、C33/C11/S0B、屏幕畫面及撞牆前後位置。
-- 研究階段建議：A-032=review、handoff_status=partial、native_client_validation=not-run、implementation_ready=false（就出生/可走路整體而言）；**不要宣稱整個 A32 已驗收完成**。
+- 登錄狀態：A-032=integrated（僅靜態 checksum 與 MAP 子集）、handoff_status=partial、native_client_validation=not-run、implementation_ready=false（就出生/可走路整體而言）；**不要宣稱整個 A32 已驗收完成**。
