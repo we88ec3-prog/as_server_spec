@@ -106,3 +106,11 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 - **A-029**：原生改密碼 C26（0x26）實際存在，body=Account/old/new 3×string8，確認新密碼本地比對，不傳第四欄；S02 generic handler 已定位但官方 status/原生 GUI 未驗。見 [A-029](A-029-roy1-native-password-change.md)、[整合契約](../04-analysis-integration/A-029-native-password-change-contract.md)。
 - **A-030**：原生 C02 的 region0/1/2..4 widget→field slot 及 S02 非零文字提示與 C15 分支可證，**NAME/E-MAIL 真欄位／必填仍 unknown**。見 [A-030](A-030-native-newuser-disconnect-fields.md)、[整合契約](../04-analysis-integration/A-030-newuser-s02-field-contract.md)。
 - 舊表格的 open/not-started 僅是歷史狀態；以最新 `requests.json` integrated/partial/native-not-run 與 [主線同步審查](../04-analysis-integration/roy1-roy2-password-newuser-sync-20261031.md) 為準。
+
+## A-031／roy2：C10 後原始 C25 及 World 入口證據（2026-11-01）
+
+原始 `Asgard.exe` SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 完成 BIN-first 靜態追查：C25 opcode0x25 真正的 native class 是 **`CBillingInfoPacket`**（ctor `0x5712E0`，writer `0x571420`，RTTI）；**Region3 寫三個 `string8`**（每欄 u8 byte length + encoded bytes，來源 global `[0x66D100]+0x0C/+0x20C/+0x40E`）。其他 Region 的 writer 不寫 payload，但**四條已追的 C25 原生送包入口全部受 region3 guard**，不能要求非3 Client 一定送 C25。
+
+已定位兩條原始 callback **C10 raw token enqueue → C25 enqueue**（`0x4A8446→0x4A84F3`、`0x52FB8C→0x52FC4B`），兩次送包之間沒有等待額外 S02。不能拿 Client class `CBillingInfoPacket` 的字串當角色/登入憑證，也不能以合成 `C25 body=01` 當真正 World 握手。實際 first S2C、map/S14/C35/GUI 與各非3 Region 完整動態時序仍在 **CT-108 native not-run**。
+
+[A-031 完整報告](../task_a/roy2/A-031-analysis.md) · [native 35 VA + RTTI probe](../task_a/roy2/a031_native_probe.py) · [decoded-body codec](../task_a/roy2/a031_world_entry_codec.py) · [CT-110 / CT-108](../05-conformance/A-031-native-world-entry-test-plan.md)。研究 `integrated/ready` 限於上述原生靜態 Client I/O；**不代表成功進 World**。無新增必需原版檔案；若要 runtime 驗收，需要同 SHA 原始 Client 去敏 S03→C10→C25/first World S2C 封包 trace。
