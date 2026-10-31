@@ -66,3 +66,9 @@ Server 可先製作 `TileEffectiveFlags`、`DynamicCollisionOverlay`、`Candidat
 ## 2026-11-01 真實創角後異常的新實測：S02(0)×2 → io-error，下一條 C42 是原版例外回報
 
 使用者提供三份本機 JSONL，已分析出 `2026-11-01 03:38:13 (UTC+8)` 的原始 Client C02→S02(0)→C04→S02(0)，Server 同 socket 4.313 秒後只記 `io-error`；另一條 Socket 30 秒後 C62→C42(body39) 被 Server 標 unknown 後斷線。**經相同 SHA 原版 EXE 靜態查證 C42 其實是 `CExceptionPacket`（ctor `0x5723C0`、RTTI `0x66940C`），屬 crash log 回報路徑，非 World 入口**。沒有同條連線的 S03/C10/C25/C35，也沒 Client PID/exception cause。成功建角回覆不能宣稱進地圖，不能把 io-error 當 Server 主動踢線，更不能假設 C42 是轉服。詳 [這次分析交接](../04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md)，P0 補查 A-028 final S02 callback、A-031 native World first socket、Client `Crash_as*.log`／WER；Server 修正交 DEV，分析者不修改程式。
+
+## 2026-11-01 RI-007：新增登入 Log 定位 World C25 後無回覆，Windows preview 當掉證據
+
+新附件（三份 `(2).jsonl`）確認 **03:47:31 C03→S03(成功) 正常轉服關線**、03:47:32 新 TCP C10→WorldGranted、03:47:33 Region3 C25(body_len16) `handled` 但 Server 沒有任何 S05/S15/S14，也沒有 C35、World trace 亦無 close summary。對照唯讀 `as_server_roy@e93c9a17` 的 `LoginWireSession.case 0x25`：`_worldFixture==null` 時只解析 Region3 billing C25、設定 `_billingSeen=true`、`return Continue()`（零回包，留 WorldGranted），**這就是登入後「伺服器無回應」的第一優先實作缺口**，不是 C03 帳密錯、C25 格式錯或 C35 CRC。不能用 synthetic `C25=01` 或合成 World fixture 替代原生證據。
+
+使用者 Windows Log 另顯示 03:38:13 的 `Application Error 1000` 為 **`Asgard-main-menu-preview.exe`**、03:38:17 WER1001；因此先前 RI-006「原版 Client 創角後崩潰」需要訂正為**預覽副本的 runtime 崩潰**，其完整 exception code/module/offset 尚未取得。`.NET Runtime 1000` 的 `GameTcpDiagnosticJournal` 標籤可能是 Server 日誌事件，並不能證明 Server 程式 crash。詳 [RI-007 整合報告](../04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md)。本次只更新規格與分析，不更改 Server/Client。

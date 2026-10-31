@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 RI-007：登入成功但 Native World C25 後沒有回覆；Windows preview.exe 當掉證據
+
+新上傳 84 packet／17 close／4 validation 累積 Log，確認一般 C03→S03(轉服)→新 TCP C10/C25 成功，卻停 WorldGranted 零 S2C。唯讀核對 Server `LoginWireSession.case 0x25` 的 `_worldFixture=null` → `return Continue()`，定位 DEV-ENTRY 原生地圖載入未接通；不是密碼、C25 或 C35 錯。Windows Application Error 1000 指向 `Asgard-main-menu-preview.exe`，校正先前 RI-006 原版 runtime 標示；例外模組/碼未提供。詳 [RI-007](../04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md)。只改 as_server_spec，沒有修改 Server/Client。
+
 ## 2026-11-01 RI-006：C02/C04 成功後 Client 異常、C42=原件 CExceptionPacket
 
 從使用者 70 packet/16 close/4 validation JSONL 查出 03:38:13 C02→S02(0)→C04→S02(0)，03:38:17 Server io-error，03:38:47 另一 socket C62→C42 被擋；由未修改 Asgard.exe RTTI/constructor 取證 C42 是 exception report、非 World 登入，Client 可能另有 Crash_as*.log；沒有 OS crash dump 不能確認 fault cause，也未觀察到 World 包。新增 [RI-006 原始證據整合](../04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md)，追加 A-028/A-031、DEV-ENTRY、CT-107/108 缺口。**僅更新規格，未修改 Server/EXE**。

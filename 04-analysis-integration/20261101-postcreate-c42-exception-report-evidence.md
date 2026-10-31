@@ -48,3 +48,9 @@
 - 同時提供 Windows Application Log 中 2026-11-01 **03:38:13～03:38:48（台灣時間）** 的 `Application Error` / `Windows Error Reporting` 事件1000/1001摘要，或 `.dmp`（若系統已有產生；目前未證有 minidump）。找不到 Crash Log，不代表沒有 exception；可能移走、被清理或報告到其他資料夾。
 
 **禁止跨越證據**：Server S02(0) 表示寫出回覆，不等於 Native Client 已進入 World；C42 是例外回報，不是 World 手續；近似時間不證同一 Client PID；無例外 dump 不宣稱特定 crash fault address。
+
+## 2026-11-01 Windows Event 重要校正（RI-007）
+
+使用者補充 Windows Application Error ID 1000 訊息：**失敗的應用程式名稱為 `Asgard-main-menu-preview.exe`**，不是 `Asgard.exe` 原始檔名。先前依原始 `Asgard.exe` 靜態查證 C42=`CExceptionPacket` 仍有效，但**該次 Runtime 記錄不能再被描述為「已在未修改原版 Asgard.exe GUI 上重現」**；預覽副本版本 2.1.2...，實際 SHA 與 native UI 反應仍待記錄。03:38:13 Application Error 與 03:38:17 WER 1001 支援預覽程式發生應用錯誤，仍缺 faulting module/exception code/offset；附近的 .NET Runtime 1000 `GameTcpDiagnosticJournal` 可能是 Server EventLog 日誌，不能直接當 Server .NET 崩潰。
+
+另 03:47:31～33 新的 C03/S03→C10→C25 登入測試，停在 WorldGranted 且無 S05/S15/S14；原因見 [RI-007](20261101-native-c25-wait-and-preview-app-error.md)。本次兩個事件不得混為同一會話、或把 C42 當 World 入口。

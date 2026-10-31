@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "586527454b9ba65a056fe7685860c61fd3a7b80d04205e0cca0da3885c4eec72"
+      "sha256": "a838d174f2ad7e1b729d90c5e72a255a14e2b1fbce12fb28dda88c21fe87e3b4"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -201,7 +201,7 @@
     },
     {
       "path": "02-server-planning/roy123-playable-world-implementation-20261101.md",
-      "sha256": "c6a7cef612e4b2fc70b28d273392d1c83f468ce53f829e85bddf15658e50c122"
+      "sha256": "02e8ce97aa22d9a07888af8d5e7ad11e603f838e287505ecafbb7f57ffa67ad8"
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
@@ -389,15 +389,19 @@
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
-      "sha256": "b78a01fc264e1014492c3a1483f41e696b969c82c60a293296aa3ccd1a83e04d"
+      "sha256": "d29d5692d180fd13b504c42291628bd5561fa711f78ddcd25f9b807cae9b66c5"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
       "sha256": "d5d9f67bf8039f454c6e35a48a7f1fe8f1e491c13143553d099eea3ff314d760"
     },
     {
+      "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
+      "sha256": "fdafbaea4d12f0ba41821e177778fecb4f66ddf75a5880563cf9b5cfea431abf"
+    },
+    {
       "path": "04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md",
-      "sha256": "27f872ecc8ff43162f1ad43527176bde7822f8339f819d25011ef473a2e301c0"
+      "sha256": "fe4d91718fcac2183566a9915cf74700bce2fd6ccd63d812e86f932d4f43ecaa"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -733,7 +737,7 @@
     },
     {
       "path": "05-conformance/native-playable-entry-acceptance-20261101.md",
-      "sha256": "ef38f2880c419fd8bfc83c792eaaebd8e3d823a1e83030fb1a2d1704b582076a"
+      "sha256": "c24cc98a03faf55c19e3e27411ba570c209d9bdf30c6bada56632fa4ecfb4bf3"
     },
     {
       "path": "05-conformance/new-asset-validation-plan.md",
