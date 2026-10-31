@@ -46,5 +46,58 @@
   "report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
   "test": "tools/a011_npc_asset_contract.py",
   "world00_sample": "World00.dat; five YPF members",
-  "note": "10 MonsterImageLib image slots/archive are not 5 physical YPF file members"
+  "note": "10 MonsterImageLib image slots/archive are not 5 physical YPF file members",
+  "s07_visual_source_native_original": {
+    "status": "observed-static-proven",
+    "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+    "packet": "PKT-S07",
+    "kind_values": [
+      1,
+      2,
+      4
+    ],
+    "wire_image_field": "fifth common field BEu16, first record starts body offset11",
+    "native_row_memory_offset": "+0x0C",
+    "native_chain": [
+      "0x57E456",
+      "0x4F1A7F",
+      "0x4D6FA0",
+      "0x4D7020",
+      "0x4D70A6",
+      "0x4D2340",
+      "0x4D235C",
+      "0x4D7530",
+      "0x4D7560"
+    ],
+    "safe_registered_image_min_hex": "0x4000",
+    "safe_registered_image_max_hex": "0x41AD",
+    "library_expression": "8000+floor((field_c-0x4000)/10)",
+    "archive_expression": "Monster%02d.dat with index floor((field_c-0x4000)/10)",
+    "slot_expression": "(field_c-0x4000)%10",
+    "not_image_fields": [
+      "scene object_ref BEu32",
+      "S07 kind1/2/4 variant_u16 native row+0x222"
+    ],
+    "variant_u16_native_effect": "0x4D7056 fild int; MonsterObject+0x27C float at0x4D7061, semantic name unknown",
+    "original_member_ypf_frame_direction_ready": false,
+    "original_client_gui_ready": false,
+    "report": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md"
+  },
+  "c43_panel_native_original": {
+    "status": "observed-static-proven",
+    "packet": "PKT-C43",
+    "type": 1,
+    "subtype_by_local_mode": {
+      "0": 4,
+      "1": 16,
+      "2": 64
+    },
+    "wire_decoded_body": "u8(1),BEu32 pane object_ref,u8 subtype",
+    "producer_va_range": "0x4A2376..0x4A2558",
+    "pane_object_ref_memory_offset": "+0x4C",
+    "another_producer": "0x479DEB mode1/04",
+    "is_universal_npc_click": false,
+    "native_client_gui_ready": false
+  },
+  "current_analysis_file_access": "Actual Monster00.dat and World00.dat raw bytes not mounted in the current A-011 conversation, even though historical SHA/index metadata previously recorded in this repository. Do not treat index metadata as archive-content verification this turn."
 }
