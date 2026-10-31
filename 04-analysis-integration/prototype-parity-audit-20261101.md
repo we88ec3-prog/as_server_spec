@@ -4,6 +4,8 @@
 
 ## 判讀基線
 
+**需求來源更正**：本頁的「差距」是把既有使用者需求／回報與目前實作比較；不代表這些功能需求由分析程式產生。登入、創角、入圖、換衣、立即切圖、Web管理、BGM、獨立衣色與人物置中均有使用者來源。S66/C75、wire欄位等屬程式分析；epoch／冪等／資料模型屬Server設計。逐項來源見 [需求歸因](../00-governance/requirement-origin-policy.md) 與機讀待辦的`provenance`。
+
 - **原型**：單人、本地測試用衣櫃與地圖設定。既有紀錄曾實測登入失敗→成功、建角／外觀、map0 入圖移動、兩衣切換與重啟恢復；之後使用者確認立即切圖、位置保存、更衣面向、BGM。置中與獨立衣色有靜態／合成修正，最後畫面驗收仍缺；曾有 tooltip 懸停無回應，修改副本 workaround 的通過不能外推原版穩定性。
 - **新版**：SQLite/PostgreSQL、Account/Character 分離、管理身份、停權／憑證版本、世代／epoch、共享場景與診斷更完整。合成 codec、domain 或 API 已實作，與 Host 接上原生操作、實機通過是三種不同狀態。
 - Client 身份固定記 SHA／region／seed。原型的隔離設定、跳動畫、tooltip、手動 ID／主選單預覽各屬不同變體；不把修改副本結果移植為未修改 `Asgard.exe` 的通過紀錄。最新 RI-006/007 另見 [現場派工](../03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md)。

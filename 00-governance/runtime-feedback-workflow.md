@@ -12,6 +12,8 @@
 
 ## 問題到交付
 
+收件時另按 [需求來源規範](requirement-origin-policy.md) 記錄使用者功能目的與原始回報，與程式分析、Server設計分開；不能在整合後把使用者提出的需求改寫成分析程式新發現的需求。
+
 1. **收件**：使用者可直接描述症狀或在本地 Web 回報，不需代轉兩邊的分析文字。整合者先讀可取得的本地紀錄，再補問確實缺少的重現資訊。紀錄不含密碼等秘密。
 2. **版本辨識**：記錄 Client SHA256／是否修改、Server repository 與 commit、地區／seed／編碼。舊 Python 原型與新 Server 分開，不因相同症狀就視為同一根因。
 3. **問題登錄**：更新 [runtime-issues.json](../03-analysis-requests/runtime-issues.json)，使用穩定 `RI-xxx`，保留失敗與更正歷史；同一問題掛回既有 A／CT，不重開同義研究任務。

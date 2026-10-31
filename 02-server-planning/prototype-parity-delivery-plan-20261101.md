@@ -4,6 +4,8 @@
 
 ## 批次與先後順序
 
+以下批次與技術合約是Server設計；其中多項功能目的來自**使用者明確需求／回報**，不歸因為程式分析新提出的需求。各PAR的`provenance`分列user_scope、analysis_scope與design_scope；精確來源見 [歸因規範](../00-governance/requirement-origin-policy.md)。使用者未指定S66/C75或5秒週期等細節。
+
 |批次|差距項／現有責任|交付內容與完成條件|
 |---|---|---|
 |P0-A 入圖阻塞|PAR-001/002；DEV-ENTRY-01～04；RI-001/006/007|先對已存在角色打通C03/S03/C10後的原生World初始化；與新角C04後自動入World獨立驗證。重用opt-in C02/C04成功路徑，補負向S02/C15及原版callback，不能讓manual C03代替ADR-008。|

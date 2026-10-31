@@ -1,5 +1,7 @@
 # 紀錄契約與規格完整度
 
+需求來源另依 [來源歸因規範](requirement-origin-policy.md)：R／PAR的`provenance`將使用者功能目的、程式分析依據與Server設計增量分開。`source_ids`連到 [來源登錄](requirement-origins.json)；原話、既有決策轉述與來源待補不能混用。此欄位不代表實作或原版驗收狀態。
+
 JSON中ID與關聯是機讀追蹤來源；Markdown是人讀說明／表格，traceability.csv是衍生索引。修改時一併更新對應說明、索引、向量和變更紀錄，再刷新審查manifest。驗證工具能查斷鏈及hash，不能代替語意審查。
 
 R：id、system、priority、title、acceptance、baseline、status。SYS：id、requirements、analysis_requests及責任說明。A：id、system、requirements、method、deliverable、priority、status、assignee、evidence_ids；接手時補前置依賴與Client身份。

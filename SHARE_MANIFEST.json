@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "876e57977557b87e15132d1b01dfe6a33e73bac97d70e28a24a7f4ae11b541bd"
+      "sha256": "b830aef4bc32853cfed4beb38da82d028bee0472b4edac05215cde5e33f34a25"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -33,11 +33,11 @@
     },
     {
       "path": "00-governance/record-contracts.md",
-      "sha256": "d6bbb44169d1b6a1b14dc1077e24010e109c52e43a30197e221cfd0b6879fdde"
+      "sha256": "476d44b7e34398f075d16f746ab966ca1cf9ce7db2cab34b3ba8a9a4f1651bb9"
     },
     {
       "path": "00-governance/runtime-feedback-workflow.md",
-      "sha256": "40950f5c4c972d9fc9492dc8e763f365e296a2882734ef7613b7acd46f673bac"
+      "sha256": "26c9d8079a07cdc8993bec58f98944f65f461aef47b64ebadd4b491dbb31571d"
     },
     {
       "path": "00-governance/sharing-and-license.md",
@@ -65,7 +65,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "2234e1d2470c247199c64ca351dc08773372d0bdf2fcf4a2314c4d30c48cc5c5"
+      "sha256": "57e732f79934eee137f112ad0981d10f19d4276a0c41b92683e15ddc1612187a"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -537,7 +537,7 @@
     },
     {
       "path": "04-analysis-integration/client-compatibility.md",
-      "sha256": "c8b7ab0a32ee178cb2c5dd5d11059435894593e35f4398a127ef73d156f940d6"
+      "sha256": "e65a68f3c83c98f6fadee693c7fd72bfa385988c3989b2dc1ef28b6dfcd70149"
     },
     {
       "path": "04-analysis-integration/content-resource-catalog.json",
@@ -781,7 +781,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "633f3af5ec0ddfc009823f4191e99c897e691c0fc036054e0c28eb6206c467d6"
+      "sha256": "54037c5ce9734f39ea3f9868dc12f0cb0658118387169ebd168dc4507774bfc3"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -1197,15 +1197,15 @@
     },
     {
       "path": "04-analysis-integration/prototype-parity-audit-20261101.md",
-      "sha256": "23bba77a0f8afa1306d63b8e90261ba2143fbd7b1a03842a0aefdbd4655ac7c7"
+      "sha256": "d41974002859b49c19d9d57fb45e90a17aea19e8c7bcfe88b971ec40a662665d"
     },
     {
       "path": "02-server-planning/prototype-parity-delivery-plan-20261101.md",
-      "sha256": "aa46372037751b5126f4d21fd4a122a84006229f74b6ebed7cd989f26d5c31fc"
+      "sha256": "8b576ec0d033e67ffa79824c4dc7cc16234e723281d3e2d4838520a8def35a79"
     },
     {
       "path": "02-server-planning/prototype-parity-backlog.json",
-      "sha256": "11e682c2f3c48f94694a8e2d415f4eb25f27b86c1a1bd695ae075fa22f0c1bf4"
+      "sha256": "b18e600df97a6dee23f072856c97236c953025a1035b0fd6afaa27b2838dc3bd"
     },
     {
       "path": "05-conformance/prototype-parity-regression-20261101.md",
@@ -1214,6 +1214,14 @@
     {
       "path": "05-conformance/time-check-parity-test-plan.md",
       "sha256": "d0c2c1d8c9890f1be65f4a6c73333d66604a0285a9fc0d3860d2f70a789fe5df"
+    },
+    {
+      "path": "00-governance/requirement-origin-policy.md",
+      "sha256": "dc8fbdfca021e65d75ecc8742cd7c2072c1cca159d6a6f56d73433dc40c45bb2"
+    },
+    {
+      "path": "00-governance/requirement-origins.json",
+      "sha256": "8babfe729ec3bcf2a85b515f5520324f7630fffbec586c5bf321a7c6a679862e"
     }
   ]
 }

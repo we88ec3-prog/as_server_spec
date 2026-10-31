@@ -10,7 +10,18 @@
       "acceptance": "分段／合併 frame、版本拒絕、錯誤長度和逾時均有明確行為。",
       "baseline": "已知部分",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-001",
+          "USR-011"
+        ],
+        "user_scope": "可連線登入，創角等待不應被一般60秒期限中斷",
+        "analysis_scope": "版本／frame／Client phase從分析得出",
+        "design_scope": "期限分類、長度上限與資源保護由Server設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-002",
@@ -20,7 +31,18 @@
       "acceptance": "密碼錯誤後可重試；交接憑證一次性、會過期、不能跨角色重用。",
       "baseline": "原型已驗收",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-001",
+          "USR-008"
+        ],
+        "user_scope": "登入帳號、錯誤後接續測試成功登入",
+        "analysis_scope": "原生登入／轉服封包及順序由分析確認",
+        "design_scope": "一次性grant、TTL與跨角色防護由設計補充",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-003",
@@ -30,7 +52,17 @@
       "acceptance": "符合客戶端合法性別／髮型／顏色範圍，兩階段建立失敗不得留下半成品。",
       "baseline": "所測選項已驗收",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-001"
+        ],
+        "user_scope": "可創角色並選髮型等外觀",
+        "analysis_scope": "C02/C04／原生合法值由分析",
+        "design_scope": "交易／半成品清理由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-004",
@@ -40,7 +72,19 @@
       "acceptance": "初始化順序、載入確認、地圖失敗、切圖中斷及回復策略均有情境規格。",
       "baseline": "正常路徑已驗收",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-001",
+          "USR-003",
+          "USR-004"
+        ],
+        "user_scope": "能進地圖、切換地圖，立即切圖不用重登",
+        "analysis_scope": "載入封包／C35／資源限制由分析",
+        "design_scope": "epoch、回滾與權威spawn由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-005",
@@ -50,7 +94,18 @@
       "acceptance": "伺服器裁定位置、障礙與速度；步伐確認、轉向、序號環回及校正可重現。",
       "baseline": "確認已知；碰撞待分析",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-007",
+          "USR-014"
+        ],
+        "user_scope": "使用者回報走停顯示及接受移動位置保存／更衣面向",
+        "analysis_scope": "方向、序號、ACK及視角由分析",
+        "design_scope": "權威速度／碰撞／重播政策由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-006",
@@ -60,7 +115,20 @@
       "acceptance": "髮型、髮色、衣服、染色、面向獨立；多人可見且重登一致。",
       "baseline": "部分實機；最新顯示修正待驗收",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-001",
+          "USR-003",
+          "USR-007",
+          "USR-014"
+        ],
+        "user_scope": "換衣與更多衣服、獨立衣色、人物置中、更衣保留面向",
+        "analysis_scope": "RGB／slot／錨點／Client投影由分析",
+        "design_scope": "外觀模型及更新一致性由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-007",
@@ -71,7 +139,17 @@
       "baseline": "待分析／開發",
       "status": "specified",
       "stage": "requirement",
-      "shared_map_policy": "User-approved: players in the same public world+map share one scene, see each other when visible and observe one authoritative NPC/Monster population. Player progress remains individual. Client wire requires A-004/A-011/A-024."
+      "shared_map_policy": "User-approved: players in the same public world+map share one scene, see each other when visible and observe one authoritative NPC/Monster population. Player progress remains individual. Client wire requires A-004/A-011/A-024.",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "REC-002"
+        ],
+        "user_scope": "既有決策記錄同圖多人共享NPC／怪物",
+        "analysis_scope": "可見性wire與Client registry由分析",
+        "design_scope": "AOI／shared scene key／世代由設計",
+        "attribution_confidence": "recorded-spec-decision"
+      }
     },
     {
       "id": "R-008",
@@ -81,7 +159,18 @@
       "acceptance": "物品實例、堆疊、裝備槽、使用、脫裝與刪除均由伺服器驗證。",
       "baseline": "目前只有測試衣櫃",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-001",
+          "USR-003"
+        ],
+        "user_scope": "使用衣服替換與更多可選衣服；不等於使用者指定完整背包經濟規則",
+        "analysis_scope": "背包／裝備原生封包由分析",
+        "design_scope": "instance、數量、交易安全及其他物品生命週期由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-009",
@@ -91,7 +180,17 @@
       "acceptance": "等級、HP/MP、屬性、裝備修正及客戶端狀態欄同步。",
       "baseline": "待分析",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "unconfirmed",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的；此項細部需求尚未在本次找到原始明確指示",
+        "analysis_scope": "各A可支持技術事實，不證明是使用者逐項指定",
+        "design_scope": "既有系統拆分／驗收保留；不將本次歸因修正當作取消需求",
+        "attribution_confidence": "original-detail-source-not-recovered"
+      }
     },
     {
       "id": "R-010",
@@ -101,7 +200,17 @@
       "acceptance": "命中／傷害／資源消耗／死亡／復活為可測試的權威狀態轉移。 同怪一個 life_generation 結算共享場景有效傷害，依隊伍聚合並保護傷害/死亡去重（R-033）。",
       "baseline": "待分析",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "unconfirmed",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的；此項細部需求尚未在本次找到原始明確指示",
+        "analysis_scope": "各A可支持技術事實，不證明是使用者逐項指定",
+        "design_scope": "既有系統拆分／驗收保留；不將本次歸因修正當作取消需求",
+        "attribution_confidence": "original-detail-source-not-recovered"
+      }
     },
     {
       "id": "R-011",
@@ -111,7 +220,17 @@
       "acceptance": "目標、距離、施法、冷卻、持續效果、取消及異常狀態有清楚規則。",
       "baseline": "待分析",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "unconfirmed",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的；此項細部需求尚未在本次找到原始明確指示",
+        "analysis_scope": "各A可支持技術事實，不證明是使用者逐項指定",
+        "design_scope": "既有系統拆分／驗收保留；不將本次歸因修正當作取消需求",
+        "attribution_confidence": "original-detail-source-not-recovered"
+      }
     },
     {
       "id": "R-012",
@@ -121,7 +240,17 @@
       "acceptance": "生成、AI、仇恨、互動、掉落及重生；AI不阻塞網路迴圈。 擊殺獎勵由總有效傷害最高隊伍取得，隊伍成員全額 EXP 並各自一次掉落解析（R-033）。",
       "baseline": "待分析",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "unconfirmed",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的；此項細部需求尚未在本次找到原始明確指示",
+        "analysis_scope": "各A可支持技術事實，不證明是使用者逐項指定",
+        "design_scope": "既有系統拆分／驗收保留；不將本次歸因修正當作取消需求",
+        "attribution_confidence": "original-detail-source-not-recovered"
+      }
     },
     {
       "id": "R-013",
@@ -131,7 +260,17 @@
       "acceptance": "對話選擇、任務狀態、條件與獎勵可保存；重送不得重複領獎。 新手招募 NPC 選不入學應零進度/資產/地圖副作用、可再次點同 NPC 詢問（R-034）。",
       "baseline": "待分析",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "unconfirmed",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的；此項細部需求尚未在本次找到原始明確指示",
+        "analysis_scope": "各A可支持技術事實，不證明是使用者逐項指定",
+        "design_scope": "既有系統拆分／驗收保留；不將本次歸因修正當作取消需求",
+        "attribution_confidence": "original-detail-source-not-recovered"
+      }
     },
     {
       "id": "R-014",
@@ -141,7 +280,17 @@
       "acceptance": "商店、玩家交易、倉庫及製作各有原子提交、取消與中斷測試。",
       "baseline": "功能範圍及原規則待確認",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "unconfirmed",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的；此項細部需求尚未在本次找到原始明確指示",
+        "analysis_scope": "各A可支持技術事實，不證明是使用者逐項指定",
+        "design_scope": "既有系統拆分／驗收保留；不將本次歸因修正當作取消需求",
+        "attribution_confidence": "original-detail-source-not-recovered"
+      }
     },
     {
       "id": "R-015",
@@ -151,7 +300,17 @@
       "acceptance": "頻道、密語、組隊、權限和離線情境；公會依客戶端證據擴充。",
       "baseline": "待分析",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "unconfirmed",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的；此項細部需求尚未在本次找到原始明確指示",
+        "analysis_scope": "各A可支持技術事實，不證明是使用者逐項指定",
+        "design_scope": "既有系統拆分／驗收保留；不將本次歸因修正當作取消需求",
+        "attribution_confidence": "original-detail-source-not-recovered"
+      }
     },
     {
       "id": "R-016",
@@ -161,7 +320,17 @@
       "acceptance": "資源存在與功能正確分開；地圖、物品、技能定義有版本、來源及校驗。",
       "baseline": "已有資源清單",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "design-proposal",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的，未找到逐項指定此驗收條件的原始訊息",
+        "analysis_scope": "可有Client／運作限制證據，並非需求提出者",
+        "design_scope": "資源版本綁定／相容性由Server規劃補充；既有另案決策需精確引用再提高歸因",
+        "attribution_confidence": "scope-derived-not-explicit-detail"
+      }
     },
     {
       "id": "R-017",
@@ -171,7 +340,18 @@
       "acceptance": "角色和資產變更有交易邊界；重啟、重送及失敗回復不複製物品或遺失已承諾交易。",
       "baseline": "單人位置／衣服已驗收",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-014",
+          "USR-002"
+        ],
+        "user_scope": "使用者接受位置／面向保存，且要求完整Server",
+        "analysis_scope": "原生狀態與重登入觀察由分析",
+        "design_scope": "atomicity／fencing／故障持久化由設計，不是使用者逐條指定",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-018",
@@ -181,7 +361,18 @@
       "acceptance": "管理操作身分、權限、稽核及限制與遊戲連線分離。",
       "baseline": "目前僅本機測試管理",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-003",
+          "USR-004"
+        ],
+        "user_scope": "Web管理角色／衣服／地圖及立即切圖",
+        "analysis_scope": "Client與既有管理功能差距由分析",
+        "design_scope": "API、稽核、權限與遠端營運擴充由設計；未全部逐項指定",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-019",
@@ -191,7 +382,18 @@
       "acceptance": "可追 session／場景／opcode／狀態；不記明文密碼、token或完整敏感封包。",
       "baseline": "已有最小 trace",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-009",
+          "USR-008"
+        ],
+        "user_scope": "監測主程式、連續批次測試與交接操作",
+        "analysis_scope": "程序／socket／UI／封包的觀測由分析",
+        "design_scope": "事件分類、trace關聯與保留期由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-020",
@@ -201,7 +403,17 @@
       "acceptance": "先驗證2個客戶端，再設可量測負載目標；延遲、佇列、儲存耗時均有基線。",
       "baseline": "容量目標待量測",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "design-proposal",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的，未找到逐項指定此驗收條件的原始訊息",
+        "analysis_scope": "可有Client／運作限制證據，並非需求提出者",
+        "design_scope": "容量、效能與可用性由Server規劃補充；既有另案決策需精確引用再提高歸因",
+        "attribution_confidence": "scope-derived-not-explicit-detail"
+      }
     },
     {
       "id": "R-021",
@@ -211,7 +423,17 @@
       "acceptance": "封包長度、速率、狀態、權限及伺服器權威檢查不得以信任客戶端取代。",
       "baseline": "待完善",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "design-proposal",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server的廣義目的，未找到逐項指定此驗收條件的原始訊息",
+        "analysis_scope": "可有Client／運作限制證據，並非需求提出者",
+        "design_scope": "安全與濫用控制由Server規劃補充；既有另案決策需精確引用再提高歸因",
+        "attribution_confidence": "scope-derived-not-explicit-detail"
+      }
     },
     {
       "id": "R-022",
@@ -221,7 +443,17 @@
       "acceptance": "播放／停止與切圖順序可測；曲目對應未知時標本機設計。",
       "baseline": "聲音已驗收；原曲目對應未知",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "user-feedback",
+        "source_ids": [
+          "USR-006"
+        ],
+        "user_scope": "回報沒有背景音樂並要求處理",
+        "analysis_scope": "S19、檔案與播放參數由分析",
+        "design_scope": "map→track自訂政策／重播去重由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-023",
@@ -231,7 +463,17 @@
       "acceptance": "不同語言的Server可只依共享規格與向量實作；不得依賴私有原始碼。",
       "baseline": "本次建立基線",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-013"
+        ],
+        "user_scope": "其他人與作者依同一Server規劃各自開發",
+        "analysis_scope": "原生profile與限制由分析提供",
+        "design_scope": "獨立實作與相容性驗收方法由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-024",
@@ -241,7 +483,19 @@
       "acceptance": "本作者的私有實作與其他實作採同一規格版本、測試與偏差登錄。",
       "baseline": "本次建立基線",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-002",
+          "USR-010",
+          "USR-013"
+        ],
+        "user_scope": "分區規劃／分析／整合並維護共享spec Git，實作獨立",
+        "analysis_scope": "現有資料覆蓋與差距由分析",
+        "design_scope": "ID／schema／phase gate／版本流程由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "R-025",
@@ -255,7 +509,17 @@
       "evidence_kind": "designed",
       "credential_policy_source": "02-server-planning/native-game-password-4to8-policy.md",
       "credential_compatibility_status": "P0-designed-4to8-await-DEV030-and-native-client-CT; future patched client needs separately approved version profile",
-      "three_entry_policy_source": "02-server-planning/three-native-account-entry-policy.md"
+      "three_entry_policy_source": "02-server-planning/three-native-account-entry-policy.md",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "REC-001"
+        ],
+        "user_scope": "僅管理員建帳、玩家由Client登入",
+        "analysis_scope": "Client入口／wire由分析",
+        "design_scope": "CredentialStore與授權架構由設計",
+        "attribution_confidence": "recorded-spec-decision"
+      }
     },
     {
       "id": "R-026",
@@ -284,6 +548,18 @@
         "field_map": "C02 Region2..4 NAME F3, EMAIL F4 original-resource-verified; C02 first/second credential still must verify existing Account",
         "native_error_status": "not-run",
         "native_postcreate_world": "ADR-008 no manual login, callback first World pending"
+      },
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-001",
+          "REC-001",
+          "REC-004"
+        ],
+        "user_scope": "管理員預建無角帳號後可獨立創角，不要求先C03",
+        "analysis_scope": "UI欄位／C02/S02/C04由分析",
+        "design_scope": "proof／TTL／transaction由設計",
+        "attribution_confidence": "direct-user-message+recorded-spec-decision"
       }
     },
     {
@@ -304,6 +580,17 @@
         "safe_spawn": "unknown",
         "walkability": "unknown",
         "tutorial_map_id": "unknown"
+      },
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "REC-001",
+          "REC-005"
+        ],
+        "user_scope": "既有決策指定首次進教學地圖與建角後直接入World",
+        "analysis_scope": "原生轉場、map／C35由分析",
+        "design_scope": "合法spawn及首次入圖保存由Server選定，不冒稱原服政策",
+        "attribution_confidence": "recorded-spec-decision"
       }
     },
     {
@@ -315,7 +602,17 @@
       "baseline": "尚未驗收",
       "status": "specified",
       "stage": "requirement",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "provenance": {
+        "kind": "design-proposal",
+        "source_ids": [
+          "USR-002"
+        ],
+        "user_scope": "完整Server範圍；沒有將每個故障與冪等機制歸為使用者逐項要求",
+        "analysis_scope": "Client中斷／重送／回覆限制由分析",
+        "design_scope": "首次流程恢復、outbox與冪等為Server設計",
+        "attribution_confidence": "scope-derived-not-explicit-detail"
+      }
     },
     {
       "id": "R-029",
@@ -327,7 +624,18 @@
       "status": "specified",
       "stage": "requirement",
       "evidence_kind": "designed",
-      "shared_map_policy": "User-approved: players in the same public world+map share one scene, see each other when visible and observe one authoritative NPC/Monster population. Player progress remains individual. Client wire requires A-004/A-011/A-024."
+      "shared_map_policy": "User-approved: players in the same public world+map share one scene, see each other when visible and observe one authoritative NPC/Monster population. Player progress remains individual. Client wire requires A-004/A-011/A-024.",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-002",
+          "REC-001"
+        ],
+        "user_scope": "使用者要求完整Server；既有決策記錄首次教學範圍，但未於本次核對到逐條指定本項細節的原始訊息",
+        "analysis_scope": "封包／資源／行動由分析",
+        "design_scope": "AI／重生與Server內容政策由設計",
+        "attribution_confidence": "scope-derived-and-recorded-base; exact-detail-source-unconfirmed"
+      }
     },
     {
       "id": "R-030",
@@ -338,7 +646,18 @@
       "baseline": "設計需求，原 Client 玩法待 A-023..026 取證",
       "status": "specified",
       "stage": "requirement",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-002",
+          "REC-001"
+        ],
+        "user_scope": "使用者要求完整Server；既有決策記錄首次教學範圍，但未於本次核對到逐條指定本項細節的原始訊息",
+        "analysis_scope": "Client技能／戰鬥效果由分析",
+        "design_scope": "目標進度與任務條件由設計",
+        "attribution_confidence": "scope-derived-and-recorded-base; exact-detail-source-unconfirmed"
+      }
     },
     {
       "id": "R-031",
@@ -349,7 +668,18 @@
       "baseline": "設計需求，原 Client 玩法待 A-023..026 取證",
       "status": "specified",
       "stage": "requirement",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-002",
+          "REC-001"
+        ],
+        "user_scope": "使用者要求完整Server；既有決策記錄首次教學範圍，但未於本次核對到逐條指定本項細節的原始訊息",
+        "analysis_scope": "Client腳本／傳送由分析",
+        "design_scope": "獎勵ledger與出口政策由設計，具體規則另定",
+        "attribution_confidence": "scope-derived-and-recorded-base; exact-detail-source-unconfirmed"
+      }
     },
     {
       "id": "R-032",
@@ -362,7 +692,17 @@
       "stage": "requirement",
       "evidence_kind": "designed",
       "policy_source": "02-server-planning/three-native-account-entry-policy.md",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "REC-003"
+        ],
+        "user_scope": "正常改密碼走原生Client，Admin reset僅救援",
+        "analysis_scope": "C26與結果UI由分析",
+        "design_scope": "憑證版本／撤銷與安全交易由設計",
+        "attribution_confidence": "recorded-spec-decision"
+      }
     },
     {
       "id": "R-033",
@@ -375,7 +715,17 @@
       "stage": "requirement",
       "evidence_kind": "designed",
       "design_source": "02-server-planning/three-policy-adjustments-20261031.md",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "REC-004"
+        ],
+        "user_scope": "最高隊伍總傷害歸屬、全員完整EXP與各自掉落",
+        "analysis_scope": "Client戰鬥／獎勵投影由分析",
+        "design_scope": "tie／roster／ledger／重送機制由設計",
+        "attribution_confidence": "recorded-spec-decision"
+      }
     },
     {
       "id": "R-034",
@@ -388,7 +738,17 @@
       "stage": "requirement",
       "evidence_kind": "designed",
       "design_source": "02-server-planning/three-policy-adjustments-20261031.md",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "REC-004"
+        ],
+        "user_scope": "拒絕入學不改狀態，可再點NPC重問",
+        "analysis_scope": "Script回應與Client關閉由分析",
+        "design_scope": "intent／replay／無副作用政策實現由設計",
+        "attribution_confidence": "recorded-spec-decision"
+      }
     },
     {
       "id": "R-035",
@@ -402,7 +762,17 @@
       "evidence_kind": "designed",
       "design_source": "02-server-planning/newuser-email-persistence-20261101.md",
       "implementation_status": "not-reported",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "REC-006"
+        ],
+        "user_scope": "創角EMAIL只保存、不新增其他用途",
+        "analysis_scope": "UI→wire mapping由分析",
+        "design_scope": "nullable欄位與atomic寫入等為設計",
+        "attribution_confidence": "recorded-spec-decision"
+      }
     },
     {
       "id": "R-036",
@@ -420,7 +790,17 @@
       "conformance": [
         "CT-112",
         "CT-113"
-      ]
+      ],
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "REC-007"
+        ],
+        "user_scope": "預期失敗有可讀錯誤、可重試、保留失敗原因",
+        "analysis_scope": "原生錯誤構型與GUI由分析",
+        "design_scope": "failure taxonomy與安全紀錄細節由設計",
+        "attribution_confidence": "recorded-spec-decision"
+      }
     },
     {
       "id": "R-037",
@@ -438,7 +818,17 @@
       "native_client_validation": "not-run",
       "conformance": [
         "CT-114"
-      ]
+      ],
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "REC-008"
+        ],
+        "user_scope": "既有spec記錄逐包log／未預期標記／安全留存目的",
+        "analysis_scope": "方向與opcode／phase判讀由分析",
+        "design_scope": "檔名、rotation／保留與I/O策略由設計，非原話",
+        "attribution_confidence": "recorded-spec-decision"
+      }
     }
   ]
 }

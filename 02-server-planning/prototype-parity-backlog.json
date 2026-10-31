@@ -178,7 +178,19 @@
       "remaining_analysis": "補實際region、非零S02可見與C15 retry；F3/F4靜態已證不重做",
       "server_delivery": "沿用verifier/pending，接原生可理解負向回覆，分類與reason log，無未授權建角",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-001",
+          "REC-001",
+          "REC-007"
+        ],
+        "user_scope": "登入／創角可用且失敗可理解",
+        "analysis_scope": "C02/C04/S02與region是分析依據",
+        "design_scope": "proof／transaction／failure分類是設計",
+        "attribution_confidence": "direct-user-message+recorded-spec-decision"
+      }
     },
     {
       "id": "PAR-002",
@@ -206,7 +218,18 @@
       "remaining_analysis": "補postcreate callback與首個S2C、真C35/spawn；重用已有MAP靜態值",
       "server_delivery": "C10 owner、同版MapCatalog、正確UI初始化和C35 epoch；新角不靠人工再次C03",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-001",
+          "REC-005"
+        ],
+        "user_scope": "進圖、既有決策指定建角後直接World",
+        "analysis_scope": "入口／首個S2C／C35由分析",
+        "design_scope": "MapCatalog／spawn／epoch由設計",
+        "attribution_confidence": "direct-user-message+recorded-spec-decision"
+      }
     },
     {
       "id": "PAR-003",
@@ -236,7 +259,18 @@
       "remaining_analysis": "補動態overlay/spawn與原版合法路徑、負向校正",
       "server_delivery": "權威接受序列、最新map/x/y/facing與恢復水位；重播不多走",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-007",
+          "USR-014"
+        ],
+        "user_scope": "走停顯示問題與位置／面向保留期望",
+        "analysis_scope": "C11/C33/S0B／碰撞候選由分析",
+        "design_scope": "權威移動／持久化水位由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "PAR-004",
@@ -264,7 +298,18 @@
       "remaining_analysis": "補各phase與重送／失配行為；不可推論創角會定期保活",
       "server_delivery": "有界challenge、TTL及metadata，與表單期限及Client responsiveness分開",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "analysis-derived",
+        "source_ids": [
+          "USR-009",
+          "USR-011"
+        ],
+        "user_scope": "使用者要求監測／穩定與表單等待；未要求指定heartbeat",
+        "analysis_scope": "S66/C75是程式分析衍生的技術補齊項",
+        "design_scope": "5秒、TTL／challenge窗口與階段政策屬設計；非使用者要求的數值",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "PAR-005",
@@ -294,7 +339,18 @@
       "remaining_analysis": "重用已證衣服use-kind5／變長S0F/S37，補其他物品分支不猜",
       "server_delivery": "區分instance/slot/appearance，owner交易、數量守恆、自他投影與重登",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-001",
+          "USR-003"
+        ],
+        "user_scope": "可換衣、更多衣服",
+        "analysis_scope": "slot／C1C／S0F/S37/S33由分析",
+        "design_scope": "持有／instance／數量與穿戴交易由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "PAR-006",
@@ -321,7 +377,18 @@
       "remaining_analysis": "八向與各viewport GUI對照、素材染色層",
       "server_delivery": "hair/tint分離保存，S05/S33一致，更新不重設位置或面向",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-007",
+          "USR-014"
+        ],
+        "user_scope": "獨立衣色、人物置中、更衣保方向",
+        "analysis_scope": "RGB／sentinel／S04錨點由分析",
+        "design_scope": "保存模型與更新一致性由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "PAR-007",
@@ -353,7 +420,18 @@
       "remaining_analysis": "補已驗兩圖、合法目的地與失敗回復；非494圖全可用",
       "server_delivery": "TeleportIntent、owner/epoch、C35提交、AOI遷移與冪等管理請求",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-003",
+          "USR-004"
+        ],
+        "user_scope": "即時切圖、不必每次重登",
+        "analysis_scope": "切圖wire與C35由分析",
+        "design_scope": "TeleportIntent、epoch／AOI／冪等由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "PAR-008",
@@ -378,7 +456,17 @@
       "remaining_analysis": "原服map→track unknown，明示designed mapping可先開發",
       "server_delivery": "S19 kind1/repeat0/track，0停止、版本／epoch、在線變更和重登；不改Client音量",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-feedback",
+        "source_ids": [
+          "USR-006"
+        ],
+        "user_scope": "處理沒背景音樂",
+        "analysis_scope": "S19及原生音樂行為由分析",
+        "design_scope": "map曲目／epoch／保存政策由設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "PAR-009",
@@ -408,7 +496,18 @@
       "remaining_analysis": "查清資源profile與每項權限，非重新做P0",
       "server_delivery": "先邏輯API與版本／audit再頁面，沿用localhost Admin Key；不開啟遠端",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "USR-003",
+          "USR-004"
+        ],
+        "user_scope": "Web管理角色、衣服／地圖與相關測試操作",
+        "analysis_scope": "現有API／原型能力差距是分析結果",
+        "design_scope": "工作台API命名、權限／version／UI分期是設計",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "PAR-010",
@@ -432,7 +531,19 @@
       "remaining_analysis": "Client原版/preview crash分軌，RI-006既有派工不重複",
       "server_delivery": "report revision保留原件，case結果/Client hash/Server build/匿名trace關聯，Git只存摘要",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-008",
+          "USR-009",
+          "USR-010"
+        ],
+        "user_scope": "批次測試、監測並由spec角色收集問題",
+        "analysis_scope": "process／TCP／phase等觀測由分析",
+        "design_scope": "回報schema、revision／trace關聯、工作台是設計；非使用者逐條指定",
+        "attribution_confidence": "direct-user-message"
+      }
     },
     {
       "id": "PAR-011",
@@ -457,7 +568,17 @@
       "remaining_analysis": "補C26專用S02狀態／GUI，不套C03",
       "server_delivery": "驗舊密碼、輪替憑證版本並撤銷授權；保留角色，不用Web代替玩家UI",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "user-request",
+        "source_ids": [
+          "REC-003"
+        ],
+        "user_scope": "玩家正常改密碼走原生UI",
+        "analysis_scope": "C26與原生回應由分析",
+        "design_scope": "版本撤銷／CredentialStore交易由設計",
+        "attribution_confidence": "recorded-spec-decision"
+      }
     },
     {
       "id": "PAR-012",
@@ -508,8 +629,23 @@
       "remaining_analysis": "沿用各A的unknown，不把未知原服政策當所有Server開發前提",
       "server_delivery": "ONB05/06與M2..M5逐段接native；雙人及故障／恢復，非原型倒退項",
       "status": "planned-handoff",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "provenance": {
+        "kind": "mixed",
+        "source_ids": [
+          "USR-002",
+          "REC-001",
+          "REC-002",
+          "REC-004"
+        ],
+        "user_scope": "完整Server與既有教學／共享地圖／獎勵決策",
+        "analysis_scope": "各系統wire／資源證據由分析",
+        "design_scope": "M2～M5系統分解／營運機制由設計；非每條都使用者明列",
+        "attribution_confidence": "direct-user-message+recorded-spec-decision"
+      }
     }
   ],
-  "dependency_policy": "Dependencies gate the corresponding mutation/acceptance; read-only queries or independently ready components may be delivered first."
+  "dependency_policy": "Dependencies gate the corresponding mutation/acceptance; read-only queries or independently ready components may be delivered first.",
+  "origin_policy": "00-governance/requirement-origin-policy.md",
+  "origin_registry": "00-governance/requirement-origins.json"
 }

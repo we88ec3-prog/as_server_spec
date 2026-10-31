@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-01",
+  "policy": "00-governance/requirement-origin-policy.md",
+  "kinds": [
+    "user-request",
+    "user-feedback",
+    "analysis-derived",
+    "design-proposal",
+    "mixed",
+    "unconfirmed"
+  ],
+  "notice": "Origin labels identify who requested the purpose. Program evidence and server-design constraints are independent; no source message is fabricated. Existing spec decisions are secondary attribution, not exact user transcripts.",
+  "sources": [
+    {
+      "id": "USR-001",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "目前目標如下\n\n1. 可以登入帳號\n2. 可以創建角色(可以選擇髮型等)\n3. 可以進入地圖\n4. 可以更換角色裝備(主要是衣服外觀)",
+      "note": ""
+    },
+    {
+      "id": "USR-002",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "我想開發完整Server端的話，請你幫我規畫專案架構",
+      "note": "原始長訊息亦要求Server需求、規劃、分析需求、分析整合與獨立私有開發分區；此為精確節錄，不推成所有細部機制都被逐項指定。"
+    },
+    {
+      "id": "USR-003",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "該如何創新帳號/角色\n我想切換地圖/想給角色更多衣服替換\n以上能提供web端管理嗎?",
+      "note": ""
+    },
+    {
+      "id": "USR-004",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "目前測試問題已透過web回報，另外期望能快速切換地圖而非每次都要重登，還有開頭動畫目前期望暫時跳過，直接進入輸入帳密",
+      "note": ""
+    },
+    {
+      "id": "USR-005",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "開頭動畫之後可能會加回",
+      "note": ""
+    },
+    {
+      "id": "USR-006",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "另外新增沒背景音樂問題",
+      "note": "來自使用者確認先前三項通過的訊息之精確節錄；後續回報有聲音屬驗收，非S19技術來源。"
+    },
+    {
+      "id": "USR-007",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "有聲音了，接下來處理原本的角色顯示問題與衣服顏色獨立\n目前角色位置是正確的，就是人物不在螢幕正中間",
+      "note": ""
+    },
+    {
+      "id": "USR-008",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "請一次測試多項，像剛剛登入失敗後可以接著測試成功與創角",
+      "note": ""
+    },
+    {
+      "id": "USR-009",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "你能監測主程式狀態嗎?",
+      "note": "使用者亦指定可在其操作後交由代理接手；這不是指定某個heartbeat opcode或週期。"
+    },
+    {
+      "id": "USR-010",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "你不要修改as_server_roy，你的工作是將Server規劃做修正給負責as_server_roy的人進行修正",
+      "note": ""
+    },
+    {
+      "id": "USR-011",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "創角畫面放置不會交互連線嗎?如果不會60秒未收到資料時關閉連線可能要將創角畫面排除",
+      "note": "這是畫面等待／逾時需求與提問，不是已證Client會或不會保活的技術結論。"
+    },
+    {
+      "id": "USR-012",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "有些需求是我提的，這部分請標註是使用者需求而非分析程式產生的需求",
+      "note": ""
+    },
+    {
+      "id": "USR-013",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "更正，別人可以看我的Server規劃自己開發出屬於自己的Server",
+      "note": "另有明確補充「我自己也是照這份Server規劃下去開發」及將Server-Spec放入Git的指示。"
+    },
+    {
+      "id": "USR-014",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "3. **回報修正**：已加入移動位置保存，以及換衣服時保留面向。",
+      "note": "使用者將此列為已通過項目；是對功能／回歸期望的回報確認，不推成epoch或每步DB寫入也是其要求。"
+    },
+    {
+      "id": "REC-001",
+      "source_type": "recorded-spec-decision",
+      "document": "01-server-requirements/first-login-onboarding.md",
+      "recorded_scope": "既有文件記載使用者確認僅管理員建帳、玩家原生創角與新手教學範圍；不是BIN得出的Server產品政策。",
+      "note": "Existing spec attribution; original user message is not reproduced or independently reconstructed here."
+    },
+    {
+      "id": "REC-002",
+      "source_type": "recorded-spec-decision",
+      "document": "02-server-planning/shared-map-multiplayer-contract.json",
+      "recorded_scope": "user-approved shared public world/map NPC/monster decision",
+      "note": "Existing spec attribution; original user message is not reproduced or independently reconstructed here."
+    },
+    {
+      "id": "REC-003",
+      "source_type": "recorded-spec-decision",
+      "document": "02-server-planning/admin-web-management-interface-plan.md",
+      "recorded_scope": "使用原生UI正常改密碼，管理重設僅救援的既有決策",
+      "note": "Existing spec attribution; original user message is not reproduced or independently reconstructed here."
+    },
+    {
+      "id": "REC-004",
+      "source_type": "recorded-spec-decision",
+      "document": "02-server-planning/three-policy-adjustments-20261031.md",
+      "recorded_scope": "獨立創角、最高隊伍傷害歸屬、隊員完整EXP與各自掉落、拒絕入學可重問的使用者決策",
+      "note": "Existing spec attribution; original user message is not reproduced or independently reconstructed here."
+    },
+    {
+      "id": "REC-005",
+      "source_type": "recorded-spec-decision",
+      "document": "02-server-planning/post-create-direct-world-decision-20261101.md",
+      "recorded_scope": "ADR-008記載使用者指定建角成功後直接進World、無人工第二次C03",
+      "note": "Existing spec attribution; original user message is not reproduced or independently reconstructed here."
+    },
+    {
+      "id": "REC-006",
+      "source_type": "recorded-spec-decision",
+      "document": "02-server-planning/newuser-email-persistence-20261101.md",
+      "recorded_scope": "既有產品決策：創角EMAIL只保存、不附加其他用途",
+      "note": "Existing spec attribution; original user message is not reproduced or independently reconstructed here."
+    },
+    {
+      "id": "REC-007",
+      "source_type": "recorded-spec-decision",
+      "document": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "recorded_scope": "ADR-009記載使用者決定預期驗證失敗可讀、可重試且記原因",
+      "note": "Existing spec attribution; original user message is not reproduced or independently reconstructed here."
+    },
+    {
+      "id": "REC-008",
+      "source_type": "recorded-spec-decision",
+      "document": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "recorded_scope": "R-037既有逐包metadata、未預期標記及留存決策；原始訊息尚未於本次重新核對",
+      "note": "Existing spec attribution; original user message is not reproduced or independently reconstructed here."
+    }
+  ]
+}
