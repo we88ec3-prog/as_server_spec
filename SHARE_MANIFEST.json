@@ -104,8 +104,16 @@
       "sha256": "147ff541406de192390e91355a138c2405f0120c84aff9820e24740c216188e3"
     },
     {
+      "path": "02-server-planning/native-creation-next-iteration.md",
+      "sha256": "fad6dec8e96333e33d9cbac7c509b3ff60d7a6e9edd702b50ae27063af14033f"
+    },
+    {
       "path": "02-server-planning/onboarding-delivery-board.md",
       "sha256": "085c888f613e3f8e65c8db58243b74e214bd5b03031b2f740b958934e208f663"
+    },
+    {
+      "path": "02-server-planning/onboarding-readiness-gates.json",
+      "sha256": "cc88481500667f3e431a1c78b031581d730feb39159c944526c31cf17c952c40"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -182,6 +190,10 @@
     {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
       "sha256": "8e3af1c4e2791bbeb72b01d806c2bff50b86d25d752dcc7d639bf32a72e4fdab"
+    },
+    {
+      "path": "03-analysis-requests/next-client-io-evidence.md",
+      "sha256": "9ece101b63d3521ff52a26258588cf3c9154e83d597203367db34bd745740a77"
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
@@ -354,6 +366,10 @@
     {
       "path": "05-conformance/implementer-guide.md",
       "sha256": "82672a871be350d4da3e1c870a1c2eeb801b9d23a86b0747ca1c3f631556ebbf"
+    },
+    {
+      "path": "05-conformance/native-creation-gate-test-plan.md",
+      "sha256": "0a3d9d15b81d2f061b9ff151968044eece35d71d177543d2c2d359e98fca9879"
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
