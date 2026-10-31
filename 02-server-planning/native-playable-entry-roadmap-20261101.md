@@ -1,5 +1,19 @@
 # 原版 Asgard.exe 從創角到可操作進入遊戲：Server 實作路線（2026-11-01）
 
+## A-031 原版 World 入口 C25 BIN-first 修正（2026-11-01；DEV-ENTRY-03 立即採用）
+
+**原生靜態分析已完成，原版 GUI E2E 尚未執行。** [A-031 原始 Client 證據](../task_a/roy2/A-031-analysis.md) 證實本版 opcode `0x25` 是 **`CBillingInfoPacket`**（ctor `0x5712E0`、writer `0x571420`、native RTTI），**不是通用 WorldEntryMetadata**，也不含 map_id 或已證 credential。Region3 native writer 寫 **3×string8**（各 `u8 encodedByteLength + raw bytes`，三組本地欄位源 `[0x66D100]+0x0C/+0x20C/+0x40E`），decoded body 長度 `3+L0+L1+L2`（3..768）。非3 Region 的 writer 若被調用不寫欄位，但已辨識的四條 native C25 直接送包路徑**均僅在 region3**；不能要求其他 Region 送出 C25。
+
+已驗原始 Region3 transfer callback `0x4A8370` 在 **`0x4A8446` 送 C10 raw token，接著 `0x4A84F3` 送 C25**；另一個 `0x52FAD0` 轉服處理器在 `0x52FB8C` 送 C10，Region3 在 `0x52FC4B` 送 C25。兩次 send 之間**沒有等待額外 S02 成功**；這不代表否定所有後續 S02 error 的可能。
+
+**對 DEV-ENTRY-03 的具體交付要求：**
+1. 真實 Client 只以原始 **C10 一次性 token** 作已驗角色的 World authority；**不要求所有 Client 都送 C25**，也不把 billing 三字串拿來驗帳密/角色身份。
+2. Region3 收到 C25 時，按 **三個 length-prefixed raw encoded string8** 嚴格解析並限制 255B 每欄；不得再把 Development synthetic `C25=01` 當原版成功或可進世界的條件。
+3. 既存 persisted Character 的 C03→S03→C10 後，Server 應按已證 World-loading 流程繼續，但**首個必要 S2C、任何第二個 S02、地圖顯示/CRC及非3 Region 後續封包尚未做 native CT-108**。不可將這些 unknown 自動宣告 PASS。
+4. 新增 `CT-110` 靜態／合成檢查和 [獨立原生 CT-108 擷包條件](../05-conformance/A-031-native-world-entry-test-plan.md)：Client SHA、Region/seed、S03→C10→C25（條件式）、first S2C、S15/S14/C35/S04/S33 及重試/失敗要有實機去敏封包與畫面。**C10 raw transfer token、C25 文字原值不得寫入 log**。
+
+本修正不選擇教程 map、不自行定義出生點，A-032/DEV-ENTRY-04 原件 map CRC 任務仍是獨立 gate。此輪沒有缺少其他具名資源檔案；需要的是原版 Client 對實際 World TCP 的 **去敏 wire capture**。
+
 ## 0. 範圍、基線與「成功」定義
 - 規格基準：`as_server_spec/main@3cb220a2`；唯讀對照私有 Server `as_server_roy/main@a9326985b1d2`。以後續工作實際開始時各 main 為準；不要把本頁快照當成永遠最新。
 - **目標是無修改的原版 `Asgard.exe`，管理後台建一筆新 Account → Client 的 NewUser 創角色（C02/S02/C04/S02）→ 返回原生登入 → C03 驗證 → S03 發轉服令牌 → 新 TCP C10 → 用本版 Client 真正送出的 World entry 封包入圖 → 載入地圖、定位與回應 C35 → 在地圖上至少能移動／轉向，重登仍保留角色與首次進圖狀態**。
