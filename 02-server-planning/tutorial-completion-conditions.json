@@ -5,7 +5,7 @@
   "evidence_id": "ev_a026_20261031_born_merchant_exit_bin_static",
   "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
   "born_dat_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
-  "analysis_status": "observed-static + observed-static-resource and designed Server model",
+  "analysis_status": "native Client/static I/O research ready (original Server completion/reward/exit UNKNOWN)",
   "native_client_validation": "not-run",
   "original_server_policy_observed": false,
   "original_first_login_script_trigger": null,
@@ -120,7 +120,7 @@
     "Original Server tutorial/quest/NPC/exit handler or configuration",
     "First/returning login through recruit→completion→exit→relogin Server trace"
   ],
-  "notes": "NULL means unknown, not zero/empty/default. Do not hardcode Born (31,29) as spawn or tutorial exit. State and transaction design is not a recovered native Server policy. Five newly supplied resource files verified locally, including admission/script reply values. This does NOT prove NPC binding, native school transfer, reward or tutorial completion; Client E2E not-run.",
+  "notes": "Unknown original Server quest/reward/exit values stay null; static Client I/O handoff ready does not mean original tutorial replay ready. nNewJoin01.dat, PaperDialog.dat, PaperDialog02.dat already hash-verified in repository in an earlier source session; current local files not mounted for independent new extraction. Born(31,29) is an NPC waypoint only.",
   "new_script_resource_validation": {
     "date": "2026-10-31",
     "evidence": "04-analysis-integration/new-asset-samples-20261031.md",
@@ -162,5 +162,76 @@
       "archive_member_count": 5,
       "native_scene_id_mapping_verified": false
     }
+  },
+  "roy3_static_handoff_status": "ready",
+  "roy3_evidence_ids": [
+    "A026-E01",
+    "A026-E02",
+    "A026-E03",
+    "A026-E04",
+    "A026-E05",
+    "A026-E06",
+    "A026-E07"
+  ],
+  "roy3_native_probe": "task_a/roy3/a026_roy3_native_probe.py",
+  "roy3_client_io_contract": "04-analysis-integration/A-026-roy3-client-io-contract.md",
+  "roy3_native_ct_plan": "05-conformance/A-026-roy3-native-acceptance.md",
+  "verified_local_basic": {
+    "filename": "Basic.dat",
+    "sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+    "slot_count": 39,
+    "member_count": 38,
+    "ui_members": {
+      "AlertButton.ypf": {
+        "offset": 1408,
+        "bytes": 11788
+      },
+      "AlertFrame.ypf": {
+        "offset": 13196,
+        "bytes": 177648
+      },
+      "QuestImage.ypf": {
+        "offset": 3883501,
+        "bytes": 1555
+      }
+    },
+    "npc_binding_verified": false
+  },
+  "c39_roy3_native_static": {
+    "opcode_hex": "39",
+    "source_va": "0x573860",
+    "base_body": [
+      "u8 object+0x19",
+      "u32_be object+0x1c",
+      "u16_be object+0x20"
+    ],
+    "internal_selector_field": "object+0x18 NOT in serialized fixed body",
+    "variants": {
+      "3": [
+        "string8 +0x22",
+        "string8 +0x222"
+      ],
+      "1/2/4/6/7": [
+        "string8 +0x22"
+      ],
+      "5/8/9": [
+        "u8 +0x22"
+      ]
+    },
+    "original_npc_entity_binding_verified": false
+  },
+  "s2f_roy3_native_static": {
+    "opcode_hex": "2f",
+    "read_va": "0x581ca0",
+    "selector_range": "0..9",
+    "cases": {
+      "0": "count-u8 array string+u16",
+      "1": "string count-u8 array string+u16",
+      "3": "string+u16",
+      "4": "u16+string+u16count array u16/u32/string/string",
+      "2/5/8/9": "u16",
+      "6/7": "u16+u16count array u32/string"
+    },
+    "quest_completion_or_reward_semantics_verified": false
   }
 }
