@@ -131,3 +131,10 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 已依原始 `Asgard.exe` 的 ctor/reader 與 jump-table 補齊 **S07 非空 type1..14 全部 wire row 分支**、S0C/S64 物件移動，以及額外資訊/互動狀態封包 **S34 subtype6/11、S3C、S62、S63、S29**，並區分 S5F 死亡事件與 S0E 物件真正移除；Human 的 S33/S06/S11 不混用於一般物件。**靜態 Client I/O 研究 ready** 只代表可解碼上述封包，不代表已知道每種 type 是哪一種 NPC/怪物、官方 spawn、sprite/動畫或原版 Server AI。
 
 [完整 A-024 報告](../task_a/roy2/A-024-analysis.md)；[收包 decoded-body 工具](../task_a/roy2/a024_object_packets.py)；[離線原件證據](../task_a/roy2/a024_object_native_probe.py)；[CT-065/066 規範](../05-conformance/A-024-object-lifecycle-test-plan.md)。已對原始 SHA 鎖定 EXE 驗證 **20 native pattern＋14 switch entries＋六 RTTI PASS**；[CI run 41185085803](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41185085803) 的 **19 新增＋7 既有 NPC 測試 PASS**。A-024 `integrated/ready`（限靜態 Client S2C），`native_client_validation=not-run`，原生畫面及教程內容仍由後續 DEV/CT 驗證。此次無新增必要資源檔案。
+
+
+## A-011／roy2：NPC／怪物資源 ID、點擊封包、外觀與動畫 Client 靜態研究（2026-10-31）
+
+原始 Asgard.exe 的 World 註冊庫 **7000..7023**（`World00..23.dat`）、Monster 註冊庫 **8000..8042**（`Monster00..42.dat`）及 MonsterImageLib image ID `0x4000+N` → `8000+N//10` / `slot=N%10`，已有原生 binary 證據。注意字串內雖有 `@Monster%02d.dat`，**註冊實際跳過字面 @**。World S07 kind 1/2/4 原生 handler 會呼叫 `MonsterObject` ctor；兩個 C43 request producer 原生寫 `u8=1, BE u32 object, u8=4`。MonsterObject 的六種 selector 對應 `+0x20/+0x30/+0x40`（各重複一次），不能據此擅自命名具體動作動畫。
+
+[完整 A-011 研究](../task_a/roy2/A-011-analysis.md) · [原件 probe](../task_a/roy2/a011_native_probe.py) · [資源 ID/click codec](../task_a/roy2/a011_resource_codec.py) · [CT-067/CT-068 計畫](../05-conformance/A-011-npc-resource-click-animation-test-plan.md)。29 個 original PE anchors + 4 RTTI + 3 UTF16 檔名 literal PASS；[GitHub CI](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751) **16/16 tests PASS**。**`integrated/partial`（已證靜態子集；完整 NPC 物件貼圖/YPF/DOI 原生 GUI mapping 未完成）**、native Client CT-068 `not-run`。精確需補的範例檔名：`Monster00.dat` 與 `World00.dat`（僅為格式模板的實際樣本，非宣稱原檔必然存在）。
