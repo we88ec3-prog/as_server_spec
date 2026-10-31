@@ -534,7 +534,7 @@
         "PKT-S5F",
         "PKT-S0E"
       ],
-      "client_reaction": "S07 0x57E3E0 full type1..14 native row parse, nonempty variants 1/2/4,3,5..12,13,14; S0C fixed10B; S64 path15+N (cap11 designed); S34 object-info subtype6 and partial subtype11; S3C display info7B; S62 add action variable strings; S63 remove action2B; S29 effect13B; S5F death4B != S0E removal4B. Exact kind-to-NPC/monster map and GUI/object registry handlers still need CT.",
+      "client_reaction": "S07 0x57E3E0 full type1..14 native row parse, nonempty variants 1/2/4,3,5..12,13,14; S0C fixed10B; S64 path15+N (cap11 designed); S34 object-info subtype6 plus subtype11 full native six flag-based groups; S3C display info7B; S62 add action variable strings; S63 remove action2B; S29 effect13B; S5F death4B != S0E removal4B. Exact kind-to-NPC/monster map and GUI/object registry handlers still need CT.",
       "evidence": [
         "A-024",
         "A-004",
@@ -557,16 +557,17 @@
         "Server defines authoritative NPC AI/respawn/visibility, map epoch, object generation and event ordering, with no claim of original Server timing.",
         "Do not conflate S63 action removal, S5F death and S0E object removal; ensure invalid map, stale epoch, duplicate ID and excessive path counts fail closed."
       ],
-      "readiness": "native-client-S07-nonempty-all-types-and-other-S2C-packet-schema-ready; classification/GUI/official-tutorial-content-not-verified",
+      "readiness": "S07 kind1..14 complete static row schema, S34 subtype6/11 full conditional decoded-body and other object S2C packet inventory ready; renderer/monster-kind mapping/native GUI still separate",
       "unknowns": [
         "Kind1..14->NPC/monster/static sprite and object key registry mapping unknown",
-        "S34 subtype11 full dynamic GUI data and S62/63 Action UI context unknown",
+        "S34 subtype11 display mapping to actual UI and S62/63 Action UI context unknown",
         "Original tutorial spawn map/NPC IDs and Server AI policies unknown",
         "Native world object rendering/interaction E2E not run"
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-024-analysis.md",
-      "work_items": []
+      "work_items": [],
+      "offline_validation": "GitHub Actions run 41185085803 passed phase gates, 19 new synthetic object packet tests, seven existing NPC tests"
     }
   ]
 }
