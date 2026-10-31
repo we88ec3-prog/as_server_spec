@@ -28,3 +28,18 @@ S02 parser `0x57dbc0` 是 `u8 status,string8 message`；C15 constructor `0x5715f
 ## 2026-11-01 ADR-008（覆蓋上文所有回登入假設）
 
 **原版 Client 成功 C04／第二段 S02(0) 後直接進遊戲、不返回 LoginDialog，玩家不需手動第二次 C03。** 上方舊有「成功後回登入」「手動重新登入」是過時 Server 規劃，不再做開發或 CT 出場條件；A-028 的 0x4b206b callback 無立即 S03 仍是有效靜態觀察，但後續背景授權/轉服/首 World opcode 必須由 A-028/A-031 補證，不能猜。已存在角色日後的一般 C03/S03/C10 登入不變。新正式需求見 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 Client E2E 未執行。
+
+
+## A-028／roy2 後續原生追查：Region3 真正的 LoginDialogPane（2026-11-01）
+
+[詳細 BIN-first 報告](../task_a/roy2/A-028-postcreate-ui-native-followup.md) 確認：C04 後 `state=0x1e` 收第二段 S02(0) 會進 `0x4B206B`。此 callback 先操作 MakeInfoDialog `+0x26C` widget，經 `0x535510` 清掉 manager UI slots `0x0C/0x0B/0x0D`，經 `0x5354B0` release slot `0x07`；**這是本地 UI object lifetime，不是 World transfer 或角色刪除**。
+
+- **Region3**：`0x4B20C0..0x4B20C8` 檢查 region=3；`0x4B2109` 呼叫 `0x4A9380`。其 vtable `0x609BBC`、COL `0x625970`、TypeDescriptor `0x6665D8` 對應 **`LoginDialogPane`**，所以不能再稱未知 popup 類型。
+- 這不代表使用者必然看到登入畫面。Ctor `0x4A9380..0x4A9651` 包含本地 UI setup/event，但沒有直接發 `C03`。另一獨立 callback `0x4A8890` 在參數非零時才於 `0x4A889D` 呼叫 `0x4A7D10` 的 C03 sender；**本次無證據可將 final S02 成功自動接到這個 callback**。
+- **Region !=3**：在此函式釋放 UI 後直接離開，不呼叫 `0x4A9380`；其實際背景 World 入口仍需 native runtime/其他回呼。
+- **S02 非零**：仍產 `C15` 空 body + `state=0x1f`；Region3+state1e 的非空 message 可能略過一般 modal，不能解讀為無錯或 Server rollback。S02 code 的官方業務語意未知。
+- **ADR-008 優先**：使用者確認創角成功直接進遊戲、無手動二次登入。過時「成功後只能要求玩家回 LoginDialog 手動 C03」不可實作。本次確定「建立 LoginDialogPane object」不等於「手動登入」也不等於「背景 C03 已證」。只有原版 Client UI＋C2S/S2C 擷包能證實 final S02→first World transfer。
+
+可重現 `task_a/roy2/a028_native_postcreate_probe.py` **31 native VA＋LoginDialogPane RTTI**、`task_a/roy2/test_a028_postcreate.py` 合成回歸；獨立 **CT-111** 靜態驗收，**CT-105/107/108 原版 E2E not-run**。Server 仍需 owner/generation 綁定 C04 durable commit，再依真正 Client 下一包做 postcreate grant，不能因 `LoginDialogPane` 存在猜 grant 或改用 A031 returning-character C10/C25。
+
+**此輪未缺新的具名資源檔。** 原版的下一步缺去敏 `C02→S02→C04→S02→first World S2C/C2S` GUI/packet timeline；禁止將帳密、角色名、信箱、token 原值寫入 Git。
