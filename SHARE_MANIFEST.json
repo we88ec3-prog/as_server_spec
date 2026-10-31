@@ -189,7 +189,7 @@
     },
     {
       "path": "02-server-planning/three-native-account-entry-policy.md",
-      "sha256": "a24777b9f337b125fca8545942ca6bbb88a3bee87661f9a8643a0e3fc4c0da0c"
+      "sha256": "a3653007a947298aba18f3835c76854dde81805e804709a4f70d27de5919f57f"
     },
     {
       "path": "02-server-planning/tutorial-completion-conditions.json",
@@ -561,7 +561,7 @@
     },
     {
       "path": "05-conformance/account-password-native-change-test-plan.md",
-      "sha256": "67f54f8d7192a7f30eb54129bbfa3989c6302d5be21406f96ff815181ab0994e"
+      "sha256": "4a212558544283620727fdfecd812f1dbd749a4f8684005d258161b853d1b6d5"
     },
     {
       "path": "05-conformance/admin-web-management-acceptance-plan.md",
