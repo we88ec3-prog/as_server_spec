@@ -3005,7 +3005,8 @@
         "A-022",
         "A-031",
         "A-032"
-      ]
+      ],
+      "a031_original_c25_refinement": "C25 (opcode0x25) is native CBillingInfoPacket, not map/WorldEntryMetadata. Region3 native C10→C25 has three string8 fields, other region's C25 send not established. Original C25 body01 developer fixture invalid for real Client. Source task_a/roy2/A-031-analysis.md; native CT-108 not-run."
     },
     {
       "id": "CT-109",
@@ -3043,6 +3044,32 @@
         "A-005",
         "A-032"
       ]
+    },
+    {
+      "id": "CT-110",
+      "status": "planned",
+      "level": "original-Asgard-C10-region3-C25-billing-info-static-and-synthetic",
+      "requirements": [
+        "R-004",
+        "R-027",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-S03",
+        "PKT-C10",
+        "PKT-C25"
+      ],
+      "analysis_request": "A-031",
+      "input": {
+        "kind": "sha-locked-original-client-PE32-plus-synthetic-wire-bodies",
+        "reference": "05-conformance/A-031-native-world-entry-test-plan.md"
+      },
+      "expected": "Original Asgard.exe 35 VA anchors + CBillingInfoPacket RTTI; C25 ctor0x5712E0 opcode0x25, native writer0x571420 only writes 3xstring8 for region3. Two original callbacks enqueue C10 raw token then C25 without waiting for S02. Native original C25 body=3+L0+L1+L2, each L<=255. Non3 C25 not proven; synthetic C25 body01 is not real. Synthetic strict lengths/truncation and region gating 20 tests.",
+      "evidence_kind": "observed-static-original-client-and-synthetic-decoded-body",
+      "original_probe": "task_a/roy2/a031_native_probe.py",
+      "offline_test": "task_a/roy2/test_a031_world_entry.py",
+      "native_client_validation": "not-run",
+      "offline_subset_result": "Original SHA-locked Asgard.exe 35 native instruction VA anchors + RTTI CBillingInfoPacket validated locally; synthetic CI pending. World Client GUI/real frame capture CT-108 not-run."
     }
   ]
 }
