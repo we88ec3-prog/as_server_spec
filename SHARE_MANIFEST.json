@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "38cb80cae1333011843a07aae2f0ec227fa0073f8fc63022b32396679add532c"
+      "sha256": "8c4fc91e8e3f79fd0b23da43d50f5705be2baa4fd61e02f9feae5e30c980e7af"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "145b60066dedf5af8f34a830ff5fe0da3c15a4419296474d8750e8823bd81bae"
+      "sha256": "6af236adc8e07f9b237c8a5fa658b8901596f9eda846a2b7c161532dbc782012"
     },
     {
       "path": "00-governance/workflow.md",
@@ -100,6 +100,10 @@
       "sha256": "80f4aa9f39e65e84c763d750290326643dcf9fac91c01157ad2b19700b546251"
     },
     {
+      "path": "02-server-planning/map-geometry-evidence.json",
+      "sha256": "6f4a4d4221fc9b8e7a3e2fdd3420231caa76c84c5e869a74e073f0b7589e48d3"
+    },
+    {
       "path": "02-server-planning/map-music-evidence.json",
       "sha256": "ca4b2c7bc4fec203ad9afb2c9be2c11b4aead385a3c393c66a5ab557a82ce7e7"
     },
@@ -122,6 +126,10 @@
     {
       "path": "02-server-planning/novice-school-admission-flow.md",
       "sha256": "45bf409bd4efb19f3aa22bab51326d50dc0d00e0580c2f9347ce718eec1da4e0"
+    },
+    {
+      "path": "02-server-planning/npc-monster-resource-index.json",
+      "sha256": "7d4fdcdb54ae7a6122c4f5e564a065081b2abde40ff37cebf6b432d227ed2fc8"
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
@@ -196,6 +204,14 @@
       "sha256": "1d0b5e26b1bef6c967b529a2aa76e4c814abd309a1d27c86ea66b4c6eed18786"
     },
     {
+      "path": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "sha256": "6495299e8aceae05b0e09d121332fa5bc3c0a6fbef35db9d45ba48450abd4b4b"
+    },
+    {
+      "path": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "sha256": "2272557b80e1d78f678eabfe76ad6aa360d7d924a80efa49b6dafd19efc3578a"
+    },
+    {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "sha256": "d4069165b56341272e0fe58879b797f89372ac6852a787505c0b6cb06e7e5047"
     },
@@ -225,7 +241,11 @@
     },
     {
       "path": "03-analysis-requests/A-022-roy1-bin-analysis.md",
-      "sha256": "1b54aa79d8ef5880741c550d7203ac65c75e0ae43387dcaabf06a6520190fe6c"
+      "sha256": "6dc512df68155a32932ebb9b3d7be086cc3f8fe2c12fd9d27c8c1a2d6a0d20b8"
+    },
+    {
+      "path": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "sha256": "142fecbf7b4e2a7bf1b546d8dd7444f9cdde81c7f635966de89e554afb7d52c7"
     },
     {
       "path": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
@@ -261,7 +281,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "88e1fcb2a3bedc447c4d0e28569e782d0f9d394ba5fbdadd499d25b356b9b952"
+      "sha256": "1e613b5c43d467ff583fdbcc8d65856600aca304b7a99e4acd5df368f247c4c0"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -269,7 +289,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "805fc3eb33bd1ab5815e43841f050e8668d6bbfa32ea2005c20904a95f9f1e27"
+      "sha256": "b69a4dab7d8c2293a3386aed562a3b00e8a82887e347fc29d4295e42ac360827"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -290,6 +310,14 @@
     {
       "path": "04-analysis-integration/A-007-inventory-domain-contract.md",
       "sha256": "a5f09ea59b9286509172ce6be2772461092aad0bb4043802e3e72d7c23fb012c"
+    },
+    {
+      "path": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
+      "sha256": "d6b368344eeb980349200f4a89ee95787927670d614a2e7d59a01487b1c1133b"
+    },
+    {
+      "path": "04-analysis-integration/A-013-economy-contract.md",
+      "sha256": "5064fdb02c3afe55b98433a1bb92dc6557dfb413a9c8fdd1f53b2bb61c118265"
     },
     {
       "path": "04-analysis-integration/A-016-idempotency-recovery.md",
@@ -320,8 +348,12 @@
       "sha256": "e9d3f2882c5e80b8fcf51061aa6392ee53e22b92e7fe9670d904f9b979708be4"
     },
     {
+      "path": "04-analysis-integration/A-022-map-geometry-contract.md",
+      "sha256": "edc44c2942911e17ce27629faa188d4262dab0ef916854ee14bf1d5bcc819427"
+    },
+    {
       "path": "04-analysis-integration/A-022-map-loading-crc.md",
-      "sha256": "2fae4f8a2c84ebd7065b2308e2b4d502a6f02aba883098c204a80939163f2d2c"
+      "sha256": "9c71b823dd41f0422c943f9bce5fd7588636412b39dc63221f7e3ae3d4c6159e"
     },
     {
       "path": "04-analysis-integration/A-025-tutorial-combat-contract.md",
@@ -369,7 +401,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "40e6e8be0a90f9d0787c20429ce4e0bd2ced0379d72765e5cb466ed53fb4f2e2"
+      "sha256": "38cbcf5fe7901ecd03c0ba4968458e95d31160966c6988bf51611077c57f98b0"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -389,7 +421,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "e8e854771aa49bc0f2c7158811aa9790c789a3acf3dcacd04c60350db7053175"
+      "sha256": "bdd2ca9f181ea759bdb9f10f1d43d8c763410e87507a4cab710a5d309507fdb3"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -409,7 +441,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "6b7be61cab3dff057344e7335d538ec6580b2589d60ced1c9c2deec79830c018"
+      "sha256": "f8e7fb800ba5cadab93f0b87f9c604ca024cdd4212c72aef855367bd10aea281"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -513,7 +545,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "8640474e239c533b3c6b9996a6a49c4d42fd79c95a907e7aa7ded90e996aa052"
+      "sha256": "c68e3982f26ce3e24cf81bb63b9a5f05ced14de0e71fd72cec52db89a5a969ce"
     },
     {
       "path": "README.md",
@@ -744,6 +776,14 @@
       "sha256": "d96123b62bfc4725b38ded9b6b8f56285ab4af55286a955a6768108b4b00df86"
     },
     {
+      "path": "tools/a011_npc_asset_contract.py",
+      "sha256": "acf747f9dd97221d603564973465db4363d74cde5c6a54b5647bca59c024b4da"
+    },
+    {
+      "path": "tools/a013_economy_contract.py",
+      "sha256": "8fd00ebb0d1a6ab100df33a950a96c1128b67be2b2a50d213d20fd3f0d9a2e72"
+    },
+    {
       "path": "tools/a015_content_probe.py",
       "sha256": "35fe2f349eac1c201cd234bbf2247ecd6fd6a1644f8f896ba23dd6c6a7376c22"
     },
@@ -766,6 +806,10 @@
     {
       "path": "tools/a020_prelogin_contract.py",
       "sha256": "2036129e6abcd38ec557c9a7c6c44da5755b3c6efaee711d1006c2f1b54272f6"
+    },
+    {
+      "path": "tools/a022_map_geometry_probe.py",
+      "sha256": "843ae2739abc6ff7b5a2cdfe385159aa8c080d1f81be5dbb6a632abd857a92ae"
     },
     {
       "path": "tools/a025_tutorial_combat_model.py",
