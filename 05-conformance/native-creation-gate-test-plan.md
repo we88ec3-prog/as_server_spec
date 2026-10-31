@@ -22,3 +22,7 @@
 ## 新增 CT-103..105：提交後斷線與一般驗證錯誤（planned/not-run）
 
 Server main@ad84f9 的 C02/C04 會 return Close()，**不會驗證輸入的 Account/Password，更不會發創角 S02**；C15 empty 亦 Close。這是程式來源事實，不是原版 Client popup 已錄影封包。完整測試請參見 [斷線驗收矩陣](native-newuser-disconnect-acceptance-plan.md)：區分 C02 前／後／C04 後／C15、實際資料庫及原生 UI。EMAIL 是否必填與 NAME/C02 source 需 A-030；錯誤 status 不得套用 C03 的自訂 status3。原 Client E2E 未執行；不得以合成 PASS 充作實機完成。
+
+## 2026-11-01 ADR-008：成功建角直接進遊戲（覆蓋舊推定）
+
+**使用者明確確認：創角成功後不回登入畫面、不需要再手動 C03，而是由原版 Client 直接進入遊戲世界。** 本檔早期「創角後回登入」「從 LoginDialog 再認證」僅是過時假設，不再作為 Server 實作或 CT 驗收標準；後續由 A-028 的 C04 final S02 callback `0x4b206b` 與 A-031 的新角色原生 World 轉場封包研究確定安全的 post-create authorization、socket 與 Client 需要的 S2C。日後已存在角色的普通登入 C03/S03/C10 保留，與首次創角分開驗證。參閱 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 GUI E2E 仍為 not-run。

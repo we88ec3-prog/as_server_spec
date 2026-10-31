@@ -41,3 +41,7 @@ SCN-007 管理建帳與玩家首次登入；SCN-008 原 Client 創角；SCN-009 
 ## 2026-11-01 新決策 R-035：創角 E-MAIL 只保存
 
 原生 NewUser 的 E-MAIL 應保存為既有 Account 的 nullable `creation_email`；C04 角色原子提交時才一起寫入，未提交/失敗不可寫，既有未填資料為 NULL，成功重送不覆寫。**目前沒有其他用途**（不能當登入憑證、寄信、驗證、密碼找回或管理端新功能）。此產品決策取代舊文候選「E-MAIL 可選擇不存」，但 A-030 仍未證真實 NAME/E-MAIL wire 映射，原版 adapter 必須先查證。詳 [保存規劃](../02-server-planning/newuser-email-persistence-20261101.md)／CT-106；本次只更新 Spec。
+
+## 2026-11-01 ADR-008（覆蓋上文所有回登入假設）
+
+**原版 Client 成功 C04／第二段 S02(0) 後直接進遊戲、不返回 LoginDialog，玩家不需手動第二次 C03。** 上方舊有「成功後回登入」「手動重新登入」是過時 Server 規劃，不再做開發或 CT 出場條件；A-028 的 0x4b206b callback 無立即 S03 仍是有效靜態觀察，但後續背景授權/轉服/首 World opcode 必須由 A-028/A-031 補證，不能猜。已存在角色日後的一般 C03/S03/C10 登入不變。新正式需求見 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 Client E2E 未執行。

@@ -5,12 +5,12 @@
 ## P0-A：A-030（已有 integrated/partial，需原版 UI 動態補證）
 - **為何阻塞**：現有 private Server 的 C02 明確 `native-c02-fields-unknown-a030` Close。Region2..4 F3/F4 UI→packet ordinal 已知，**NAME/E-MAIL 語意尚未證明**；Region1 UI/write mismatch；失敗 S02(status!=0) 只靜態知道可顯示訊息與送 C15，不知道可靠狀態／重試 UI。帳號正確也不會發第一個 S02(0)。
 - **由 roy1 / A-030 追**：在同一原版 EXE SHA 下記錄選定 region、版號、原版 NewUser 的每個可見 label→widget ID→C02 F1/F2/F3/F4/flag；比較僅改 NAME、僅改 E-MAIL、E-MAIL 留空時，Client 是否真正發包，記去敏欄位數/編碼 bytes 長度；另檢驗原版 ID 最低輸入限制與現有 Admin Account 3..32 相容。
-- **S02 與回登入**：以隔離測試帳號觀察非零 S02(status,string8) 讓 Client 顯示訊息、是否送 C15、後續能否 retry、TCP 是否仍活；成功兩段 S02(0) 後原生 UI 下一步（不可假設自動 C03）。不能用一般 C03 LoginFailure(status3) 假冒創角官方錯誤。
+- **S02 與創角後直接入 World**：以隔離測試帳號觀察非零 S02(status,string8) 讓 Client 顯示訊息、是否送 C15、後續能否 retry、TCP 是否仍活；成功兩段 S02(0) 後**不回 LoginDialog** 的原生 UI/Socket/封包後續（不可猜背景是否 C03）。不能用一般 C03 LoginFailure(status3) 假冒創角官方錯誤。
 - **輸出**：每區域帶證據的 region→source-widget→field→NAME/EMAIL 表、空信箱 gate、正/負時序、具體錯誤 UI+回覆、遮罩 packet metadata，或明確 `unknown`；原生實機/修改 Client 測試不同標。參照原 A-030；本次**不重開相同 A 任務，也不抹除已有靜態證據**。
 
 ## P0-B：A-031（新開，Client World 入圖第一封包）
-- **必須定位**：S03 完成→新 TCP C10 後，原版 Client 實際送什麼，C25 的建構/serializer/UI 觸發/region 分支與完整 body；現有 `0x4A8370` 是 S03 callback，**不是 C25 writer**。確定 C25 是否必要或其他 World C2S 先發、加密 ordinal/session phase。
-- **方法**：EXE BIN-first xrefs/原生 Client 本機去敏 trace 對照；從預建且有角色的測試帳號開始，避免 A-030 阻塞 World packet 研究。必須記同版 Client SHA、可重現 opcode/位址/packet body/layout/field byte-order、region branch、下游 S02/S05/S15/S14 的可觀察 UI。
+- **必須定位**：首次創角 final S02(0)→callback 0x4b206b 後的直接入 World UI／背景認證或轉服封包；另查一般登入 S03 完成→新 TCP C10 後，原版 Client 實際送什麼，C25 的建構/serializer/UI 觸發/region 分支與完整 body；現有 `0x4A8370` 是 S03 callback，**不是 C25 writer**。確定 C25 是否必要或其他 World C2S 先發、加密 ordinal/session phase。
+- **方法**：EXE BIN-first xrefs/原生 Client 本機去敏 trace 對照；可先用已存角色的測試帳號獨立查一般 C03/S03/C10 後 World 首包，避免 A-030 阻擋這個子研究；但不能將其視為首次創角的自動轉場，後者仍需 A-028/A-031 原版 Client 證據。必須記同版 Client SHA、可重現 opcode/位址/packet body/layout/field byte-order、region branch、下游 S02/S05/S15/S14 的可觀察 UI。
 - **允許部分交付**：能嚴格證明某個 region 的 World 首包即可提供 DEV region-scoped adapter；其他 region fail-closed。不要把合成 body `01` 當原生 C25。
 - **交給**：DEV-ENTRY-03，CT-108。分析來源 A-002/A-022，後續 A-031 完成時標 `integrated/partial` 亦可，不要求 Server 先通過原版 CT。
 
@@ -33,3 +33,7 @@ A-030：合法直接創角所需 Account/NAME/E-MAIL/失敗 S02 原生語意可�
 A-031：C10 後確定 native World entry opcode/body；
 A-032：至少一張選定地圖的正確 C35 pair、合法 spawn、可操作路徑。
 三者可分工同步進行，並各自追加 CT/DEV 交接；不能因 A-030 未結束而阻止 A-031/A-032 分析。
+
+## 2026-11-01 新決策：A-028／A-031 直接 World 轉場優先
+
+正式操作是 **NewUser 成功後直接遊戲，不回 LoginDialog**。A-028 需追 0x4b206b 後續 UI/連線與封包；A-031 應分別交付「C04 final S02→自動 World」和「日後 C03/S03/C10→World」，不可把一般登入路由假定為創角下游。實際背景 C03/S03/C10 是否發生須由證據確認。參考 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。
