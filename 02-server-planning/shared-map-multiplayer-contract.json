@@ -31,12 +31,13 @@
     "reward_ledger"
   ],
   "do_not_decide_yet": [
-    "shared_kill_credit",
-    "party_experience_distribution",
-    "loot_ownership",
     "npc_exact_ids",
     "native_client_actor_packet_opcodes",
-    "native_aoi_radius"
+    "native_aoi_radius",
+    "damage_tie_between_parties",
+    "party_member_eligibility_when_offline_or_cross_map",
+    "party_join_leave_during_monster_life",
+    "party_disband_during_monster_life"
   ],
   "failure_policy": [
     "stale logout cannot retire another participant or shared scene",
@@ -58,16 +59,33 @@
     "A-022",
     "A-024",
     "A-025",
-    "A-026"
+    "A-026",
+    "A-014",
+    "A-009",
+    "A-007"
   ],
   "scenarios": [
     "SCN-005",
     "SCN-011",
-    "SCN-012"
+    "SCN-012",
+    "SCN-018"
   ],
   "conformance": [
     "CT-021",
     "CT-022",
-    "CT-055"
-  ]
+    "CT-055",
+    "CT-101"
+  ],
+  "reward_allocation": {
+    "decision": "user-approved-top-aggregate-party-damage",
+    "unit": "monster_instance_id+life_generation",
+    "damage": "actual server-validated effective HP damage grouped by party_id at damage event, solo is singleton party",
+    "winner": "single team with highest total; ties policy pending",
+    "experience": "100% monster base EXP credited to each eligible winner member, not split",
+    "drop": "each winner member independently resolves full loot table once; item not guaranteed; loser parties none",
+    "audit": "persistent once-only damage/death/reward roll per monster life and character",
+    "status": "design-approved-implementation-pending",
+    "policy_source": "02-server-planning/three-policy-adjustments-20261031.md",
+    "native_client_validation": "not-run"
+  }
 }

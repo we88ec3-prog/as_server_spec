@@ -16,7 +16,7 @@
         "CT-041",
         "CT-097"
       ],
-      "rule": "Use single Server CredentialVerifier for Login C03 and independent NewUser C02 using entered existing account+password. Both require validated credentials, account not suspended and current credential_version; creation-only proof not a login/World grant. No C03 prerequisite for create."
+      "rule": "Use single Server CredentialVerifier for Login C03 and independent NewUser C02 using entered existing account+password. Both require validated credentials, account not suspended and current credential_version; creation-only proof not a login/World grant. No C03 prerequisite for create. Actual private CharacterCreationAccountGuard loggedIn requirement is an implementation gap; authenticated C02 proof is separate from C03."
     },
     {
       "id": "SAFE-02",
@@ -71,9 +71,10 @@
       ],
       "tests": [
         "CT-054",
-        "CT-097"
+        "CT-097",
+        "CT-100"
       ],
-      "rule": "Validate independent native NewUser UI, C02 first/second fields genuine existing Account+Password and original nonzero S02 failure UI; do NOT demand C03(no character)->NewUser callback as prerequisite. Native C02/C04 fail closed until source/profile proven."
+      "rule": "Validate independent native NewUser UI, C02 first/second fields genuine existing Account+Password and original nonzero S02 failure UI; do NOT demand C03(no character)->NewUser callback as prerequisite. Native C02/C04 fail closed until source/profile proven. Private Guard now observed requiring loggedIn and must be refactored after explicit DEV authorization."
     },
     {
       "id": "WIRE-02",
@@ -140,6 +141,35 @@
         "CT-098"
       ],
       "rule": "Identify and verify game's existing password-change UI, original C2S and S2C writer/reader, success/error/cancel display, regional path; no new client and no native-ready claim before evidence."
+    },
+    {
+      "id": "REWARD-01",
+      "owner": "Server",
+      "mode": "develop-now",
+      "analysis": [
+        "A-014",
+        "A-009",
+        "A-025",
+        "A-007"
+      ],
+      "tests": [
+        "CT-101"
+      ],
+      "rule": "Design shared-monster life effective damage ledger grouped by party; single highest aggregated team awards full base EXP to every qualifying member plus independent loot-table resolution once each. Party tie/eligibility remains implementation prerequisite. Native packet projection unverified."
+    },
+    {
+      "id": "ADMISSION-01",
+      "owner": "Server",
+      "mode": "develop-now",
+      "analysis": [
+        "A-012",
+        "A-023",
+        "A-026"
+      ],
+      "tests": [
+        "CT-102"
+      ],
+      "rule": "Recruiter STATE=REFUSE is domain no-op; no quest/admission/reward/teleport flags and NPC remains repeatable. New click obtains new run/context. Script close alone never quest completes."
     }
   ]
 }

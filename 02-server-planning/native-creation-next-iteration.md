@@ -20,3 +20,7 @@
 Server 實作仍需另行批准；能先設計 Account Store 共用 CredentialVerifier、creation-only proof、登入/創角/改密碼 rate limit 和限時性。**不能**因原版有 NewUser UI 就開放免驗證自助 AccountCreate，不能在同名失敗時修改帳號、不能回捏造的 S02 成功/錯誤狀態。**所有原生 CT 目前未執行**。
 
 [總契約](three-native-account-entry-policy.md) · [Gate](onboarding-readiness-gates.json) · [原生測試](../05-conformance/native-creation-gate-test-plan.md)。
+
+## DEV-040 Guard 更正（2026-10-31；尚未實作）
+
+實際 `CharacterCreationAccountGuard.cs` 仍拒絕 `loggedIn=null`，違反已確認的「兩個原版入口獨立」。規劃的修正不是移除授權，而是改由 `C02(account,password)` 直接透過存量 `CredentialVerifier` 認證已存在且未停權 Account，產生**限創角用 AuthProof**（不是 LoginSession/WorldGrant），後續 C04 綁同 connection/generation/credential version/TTL。未登入但正確帳密應成功；錯密即使有登入身分也必須失敗，不得只比帳號名稱。符合原版 S02 UI 的錯誤碼仍待 A-027/028，未取得證據不能擅自送 S02(0)。詳 [最新三項政策](three-policy-adjustments-20261031.md) 及 CT-100。

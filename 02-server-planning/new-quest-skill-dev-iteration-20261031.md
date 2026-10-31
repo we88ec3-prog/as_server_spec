@@ -30,3 +30,11 @@
 **仍需 A 分析**：A-010 C56 producer、S2C/S2D 持續效果 UI 及 skill-id/official spell resources 的真實定義；A-012 NPC→Script/Quest response callback；A-022 tutorial map/C35；A-027 空角登入可達創角 UI。這些 A 已交付其部分靜態證據，Native Client CT 獨立保持 not-run。
 
 既有使用者政策不變：管理員預建 Account，創角帳號不同拒絕、多人進同一地圖、密碼 **4～8 字**；未授權修改原版 `Asgard.exe`。
+
+## 最新入學選擇：拒絕＝無副作用、可重問（2026-10-31）
+
+使用者已決定 `nNewJoin01.dat STATE=REFUSE` 對應的**不入學**意圖在 Server Quest Domain 是 **no-op**：不給任務／獎勵／角色旗標、不傳送／換圖、不移除 NPC、不封鎖選項。允許本次對話結束，但每次新點 NPC 都可以再次取得全新合法 ScriptRun/context，**反覆拒絕後仍能選入學**。多玩家各自回答互不影響。只有經 A-012/A-023/026 證明 NPC→Script→C6C 選項的原生 UI，才可開 native; `STATE=ACCEPT` 同樣只是意圖，不直接當任務完成。見 [決策文件](three-policy-adjustments-20261031.md) 與 [驗收](../05-conformance/tutorial-refuse-reask-test-plan.md)。
+
+### DEV-080 最新隊伍獎勵
+
+共享怪物一次死亡時，各隊有效傷害累計後**最高傷害隊伍得獎**，該隊全體成員各得**全額經驗**、各自**一套獨立掉落抽選**；其他隊伍零獎，重送不重發。隊伍/傷害/死亡/掉寶都以 Server 自己的 PartyRevision、MonsterLife、個別 RewardLedger 進行權威結算。打平、離線/跨圖、入退隊變動仍待政策確定，不可擅自處理。A-014/009/025/007 為 Client I/O 取證，不是要分析者還原原服獎勵演算法。見 [獎勵驗收](../05-conformance/party-monster-reward-test-plan.md)。

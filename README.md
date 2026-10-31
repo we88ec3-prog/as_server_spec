@@ -111,3 +111,11 @@ Roy1 新增 C6C(1) name/context/key-value ScriptReply 與 C6C(4/2) close/cleanup
 ## 最新玩家帳號流程：登入、創角、遊戲內改密碼是獨立入口（2026-10-31）
 
 **使用者已確認**：管理員先建 Account，原版 Client 的 **登入 C03** 和 **創角 NewUser C02** 是兩個獨立入口。玩家創角直接輸入預建帳號及密碼，Server 驗同一 CredentialStore 才能建角色；錯密/不存在/停權應回原版 UI 錯誤、無草稿/Character/Grant。**舊「創角一定先 C03 登入」假設作廢**。玩家正常改密碼必須使用原版遊戲內 **修改密碼 UI**，管理端重設僅救援；其真正 opcode/回覆目前待 A-029。新增 [三入口權威契約](02-server-planning/three-native-account-entry-policy.md) 與 CT-097..099 規劃。**本輪只規劃，不修改 Server/Client/Web 程式，Web 日後實作仍需再次確認**。
+
+## 最新三項 Server 規則（2026-10-31；僅規劃）
+
+1. **創角 Guard** 不須先登入 C03：本次 C02 既有帳號+密碼驗證，產生僅限創角授權 proof；私有 Guard `loggedIn` 依賴目前仍是舊實作，待另行確認開發。
+2. **共享怪物**：累加各隊有效傷害，**最高總傷害隊伍**得獎；隊伍全員各得完整怪物 EXP，並且每人**獨立判定一次掉寶**，不平分，也不是每人必掉。
+3. **新手入學**：選「不入學」是沒有任務/獎勵/場景副作用的拒絕，可再次點 NPC 重問，也可以稍後接受。
+
+完整 [最新決策](02-server-planning/three-policy-adjustments-20261031.md)、[CT-101](05-conformance/party-monster-reward-test-plan.md)、[CT-102](05-conformance/tutorial-refuse-reask-test-plan.md)。新增 R-033/034、SCN-018/019、CT-100～102 仍 planned/not-run；**這輪不修改 Server/Client/Web 程式**。

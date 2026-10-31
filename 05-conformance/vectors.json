@@ -2652,6 +2652,108 @@
       "evidence_kind": "designed; native-path-unverified",
       "analysis_request": "A-029",
       "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-100",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "character-create-without-prior-c03-guard",
+      "requirements": [
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-S02",
+        "PKT-C15"
+      ],
+      "input": {
+        "kind": "server-auth-domain-synthetic-plus-native-e2e",
+        "reference": "05-conformance/native-creation-gate-test-plan.md",
+        "cases": [
+          "loggedIn=null but valid admin-created account+password direct C02",
+          "loggedIn=null with wrong password or nonexistent account",
+          "loggedIn=A but direct C02(B,correctBpassword) must use B independent proof",
+          "valid C02 then C04 on stale generation, different connection or credential-version mismatch"
+        ]
+      },
+      "expected": "C02 existing account+password match creates creation-only proof without any C03 logged-in Session and may authorize same connection/generation C04; cannot create account, grant world access or accept name-only/invalid credential. Private Guard still requires loggedIn: planned code update pending confirmation, native fail reply/status A-027/028 unknown.",
+      "evidence_kind": "designed-not-implemented",
+      "analysis_dependency": [
+        "A-027",
+        "A-028"
+      ]
+    },
+    {
+      "id": "CT-101",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "monster-top-damage-party-full-exp-personal-loot",
+      "requirements": [
+        "R-010",
+        "R-012",
+        "R-033"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-S13",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "input": {
+        "kind": "server-domain-damage-party-reward-ledger",
+        "reference": "05-conformance/party-monster-reward-test-plan.md",
+        "cases": [
+          "party A 60+40 vs party B solo 90 -> A wins, both full EXP",
+          "party member 0 damage still eligible if winner party member",
+          "each eligible member independent loot resolution exactly once",
+          "loser members zero reward",
+          "damage replay, duplicate death, reconnect/restart and new respawn life",
+          "tie, join/leave, offline/cross-map explicitly pending policy"
+        ]
+      },
+      "expected": "Sum only effective server damage per party per monster life, single highest party owns reward; each winner member gets 100% monster base EXP (no split) and exactly one independent loot-table resolution (not guaranteed item); other parties none, idempotent per life+character, unresolved eligibility/ties not silently guessed.",
+      "evidence_kind": "user-decided-server-domain-not-implemented",
+      "analysis_dependency": [
+        "A-014",
+        "A-009",
+        "A-025",
+        "A-007"
+      ]
+    },
+    {
+      "id": "CT-102",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "tutorial-admission-refuse-noop-repeatable-npc",
+      "requirements": [
+        "R-013",
+        "R-031",
+        "R-034"
+      ],
+      "packet_ids": [
+        "PKT-C43",
+        "PKT-S44",
+        "PKT-C6C"
+      ],
+      "input": {
+        "kind": "server-script-state-machine-plus-original-native-ui",
+        "reference": "05-conformance/tutorial-refuse-reask-test-plan.md",
+        "cases": [
+          "click recruiter choose REFUSE -> only dialog closes, no state mutation",
+          "reclick recruiter and reask after refusal multiple times",
+          "later choose ACCEPT -> authorized acceptance not automatic quest completion",
+          "two players reply separately, shared NPC stays live",
+          "duplicate/stale C6C close/refuse and disconnect"
+        ]
+      },
+      "expected": "REFUSE yields no Quest/Admission/Onboarding/reward/EXP/item/map/Actor side effects and never permanently disables recruiter; each new click can open new context with same choice. C6C close not a quest completion event. Native click->script binding remains unverified.",
+      "evidence_kind": "user-decided-domain-plus-resource-intent-not-implemented",
+      "analysis_dependency": [
+        "A-012",
+        "A-023",
+        "A-026"
+      ]
     }
   ]
 }

@@ -60,3 +60,7 @@ Native Change Password UI → native opcode UNKNOWN → account+old credential v
 ## 4. 實作權限界線
 
 此文件**只更新 `as_server_spec` 規格**；私有 `as_server_roy` 是否要修改 C02 Auth Guard、加入 password-change wire handler、調整 Admin UI，都需另一次用戶明確授權／確認，尤其 Web UI 不得未經確認自行實作。既有 `Asgard.exe` 不是待改標的。
+
+## 2026-10-31 創角 Guard 實際程式缺口（以本節為準）
+
+最新使用者再次指定：**創角不需要已登入 Session**。私有 `as_server_roy/main@ad84f9fb11606a318aff6bd67e065aa0ee07cc45` 的 `CharacterCreationAccountGuard.RequireMatch(loggedIn, generation, submittedAccount)` 與 `AuthenticatedCharacterCreation.BeginFromClientAsync` 仍要求先登入，**尚未實作與規劃一致的直接 C02 帳密驗證**。不能僅刪 `loggedIn` null check 就讓任何 C02 認領帳號；後續 Server 開發應用 **C02 本次 submittedAccount+submittedPassword → 與後端比對 → 簽發限本次創角的 proof (account_id,credential_version,connection,generation,TTL) → pending C04** 代替 Guard 的「已登入身分姓名一致」門檻。原 Client C02 第二欄語意、錯密 S02 回覆仍需 A-027/028；未查實前 live native 路由繼續安全拒絕。詳 [三項決策](three-policy-adjustments-20261031.md) 與 [CT-100](../05-conformance/native-creation-gate-test-plan.md)。

@@ -81,12 +81,14 @@
         "CT-052",
         "CT-053",
         "CT-054",
-        "CT-097"
+        "CT-097",
+        "CT-100"
       ],
       "server_decisions": [
         "R-025/R-026: C02 絕不可建立 Account；直接用本次 C02 提交的 existing Account name + Password 於同一 DB CredentialVerifier 驗證；**無需 prior C03 Session**，帳號/密碼不符、停權/角色已存在 → 原版可辨識錯誤、不建 Pending/Character、不發 S02(0)。",
         "成功憑證只建立 creation-only owner proof (account_id, credential_version, connection/generation, TTL) 與 PendingCharacterIntent，C04 同 proof 才一次性提交 Character；這不授權 World grant。",
-        "原生 field1/field2 和錯誤 status 的 Client evidence 仍缺 A-027/A-028；Native enablement 必須 fail closed，不能亂猜 status。"
+        "原生 field1/field2 和錯誤 status 的 Client evidence 仍缺 A-027/A-028；Native enablement 必須 fail closed，不能亂猜 status。",
+        "Live private CharacterCreationAccountGuard loggedIn requirement is obsolete; direct C02 valid account+password must produce creation-only proof regardless of prior C03; Host wire still not native-tested."
       ],
       "readiness": "original C02/C04 decoded-body ready, direct credential auth designed; native field semantics + error UI not proven",
       "unknowns": [
@@ -209,7 +211,8 @@
         "A-023"
       ],
       "scenarios": [
-        "SCN-011"
+        "SCN-011",
+        "SCN-019"
       ],
       "tests": [
         "CT-033",
@@ -217,20 +220,24 @@
         "CT-035",
         "CT-092",
         "CT-093",
-        "CT-094"
+        "CT-094",
+        "CT-102"
       ],
       "server_decisions": [
         "WorldReady 或指定受控事件觸發一次合法 ScriptRun（Server 自訂教學政策）",
-        "資源 revision/CRC/依賴相符才送 S44；C6C close 只表示生命周期，不等於任務完成"
+        "資源 revision/CRC/依賴相符才送 S44；C6C close 只表示生命周期，不等於任務完成",
+        "STATE=REFUSE on recruiter admission is no-op; closing dialog may be UI-only and NPC may be clicked again to obtain fresh run/context, repeated refusals never block future acceptance."
       ],
       "readiness": "script-client-lifecycle-ready-dispatch-policy-designed",
       "unknowns": [
         "原服首次派發 Born 的時刻不是 Client 研究必答",
-        "當前缺完整 PaperDialog.dat 原件可作獨立依賴驗證"
+        "當前缺完整 PaperDialog.dat 原件可作獨立依賴驗證",
+        "Recruiter NPC real script binding and native STATE=REFUSE UI callback unverified."
       ],
       "native_client_validation": "not-run",
       "work_items": [
-        "ONB-05"
+        "ONB-05",
+        "ONB-06"
       ]
     },
     {
@@ -263,7 +270,9 @@
       "scenarios": [
         "SCN-011",
         "SCN-012",
-        "SCN-013"
+        "SCN-013",
+        "SCN-018",
+        "SCN-019"
       ],
       "tests": [
         "CT-021",
@@ -276,11 +285,14 @@
         "CT-028",
         "CT-034",
         "CT-095",
-        "CT-096"
+        "CT-096",
+        "CT-101",
+        "CT-102"
       ],
       "server_decisions": [
         "Server 自訂 NPC/怪物 spawn、AI、技能判定與 QuestGoal/RewardLedger；以已證 wire adapter 映射到 Client",
-        "無已證 NPC/技能/任務 opcode 時保留 mock-only 子域測試，不向原 Client 送猜測回包"
+        "無已證 NPC/技能/任務 opcode 時保留 mock-only 子域測試，不向原 Client 送猜測回包",
+        "Party highest total damage wins all party members full experience and own independent loot roll; REFUSE recruit never mutates quest or NPC, may re-ask; native wire unknown."
       ],
       "readiness": "requires-client-io-evidence",
       "unknowns": [
@@ -509,28 +521,38 @@
       "evidence": [
         "A-009",
         "A-008",
-        "A-024"
+        "A-024",
+        "A-014",
+        "A-025",
+        "A-007"
       ],
-      "scenarios": [],
+      "scenarios": [
+        "SCN-018"
+      ],
       "tests": [
         "CT-078",
-        "CT-079"
+        "CT-079",
+        "CT-101"
       ],
       "server_decisions": [
         "World session、map epoch、object generation、合法目標/距離/冷卻及生命狀態由 Server 審核；C13 不可指定傷害值（designed）",
         "命中、傷害、減免、HP、同 tick 雙方死亡和事件排序由 DEV 自訂權威運算；原服公式未知，不可冒充 observed",
-        "S13 效果／S08 數值／S5F 死亡／S0E 移除為不同 Client packet，Server 設計一致的投影排序及重送去重（designed）"
+        "S13 效果／S08 數值／S5F 死亡／S0E 移除為不同 Client packet，Server 設計一致的投影排序及重送去重（designed）",
+        "User policy: aggregated effective damage by party, highest party takes reward, each member full EXP and one independent loot-table resolution, once-only ledger per life/member; no assumption about original reward opcode."
       ],
       "readiness": "C13/S13/S5F core native static wire ready; C3D/S3D partial polymorphic variants; native GUI and original math unknown",
       "unknowns": [
         "C13 target u32 由何 UI control/object registry 產生、原生拒絕時的 UI 與特殊 S2C",
         "S3D/C3D 複雜 subtype 完整 payload、真實顯示/動作用途",
         "S13 效果/命中受擊者、S5F 死亡與 S08/復活的真實 UI 事件排序",
-        "原服命中/傷害/死亡策略、Server 客製同時死亡判定與重送策略屬 DEV，不是 Client static truth"
+        "原服命中/傷害/死亡策略、Server 客製同時死亡判定與重送策略屬 DEV，不是 Client static truth",
+        "Party roster native UI, team tie/eligibility policy and EXP/loot projection not yet proven."
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-009-analysis.md",
-      "work_items": []
+      "work_items": [
+        "ONB-05"
+      ]
     },
     {
       "id": "FLOW-NPC-OBJECTS",

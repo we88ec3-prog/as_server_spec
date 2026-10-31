@@ -121,3 +121,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 玩家更正：三個原生帳號入口 + 舊創角身份假設作廢
 
 使用者確認**登入、創角兩獨立 UI 入口**；管理先建立 Account，創角直接以既有帳號＋密碼對後端同一 CredentialStore 驗證，錯誤需回 UI 而不寫角色，**不要求先 C03**。另原版有**更改密碼 UI**，玩家正常修改必須用此入口，管理 `credential-reset` 改定位為救援。新增 R-032/A-029/ONB-07/SCN-017/CT-097..099 與三入口安全、原生測試文件；A-027需核 C02 field1/field2 與 native error status，A-029需定位 change-password opcode/回覆，未證一律 unknown。維持4～8密碼、原 Client不修改、僅設計不實作、後續 Web 實作前必須確認。
+
+## 2026-10-31 使用者最新三項規劃覆蓋：C02 Guard、最高隊伍傷害、拒絕入學可重問
+
+核對私有 `CharacterCreationAccountGuard.RequireMatch(loggedIn,...)` 仍需已登入身份，標記 DEV-040 未實作最新要求：創角直接核對 C02 既有帳密後發限創角授權 proof，免 C03；原生失敗碼待 A-027/028。共享怪同 Monster life 依**隊伍總有效傷害**選唯一贏家，贏家**所有成員每人完整 EXP + 各人一次獨立掉寶判定**， ledger 冪等；party/tie/offline/中途異動保留實作前決策。 `nNewJoin01 STATE=REFUSE` 代表 Server 不入學 no-op、NPC 可再點擊/再拒絕/稍後接受，無其他角色副作用。新增 R-033/034、SCN-018/019、CT-100/101/102，保留現有 A-014/A-009/025、A-012/023/026 精準取證，不新 branch，不改程式，不宣稱 native CT passed。

@@ -593,7 +593,8 @@
       ],
       "source_branch": "task_a/roy2",
       "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
-      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
+      "reward_damage_client_io_focus": "Native attack hit vs real damage/death client observation, Server damage ledger allocation policy is designed R-033."
     },
     {
       "id": "A-010",
@@ -870,7 +871,8 @@
           "Original Client runtime E2E not-run"
         ]
       },
-      "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md"
+      "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
+      "admission_refuse_policy": "R-034 STATE=REFUSE means no Server domain mutation, repeat click dialog available; verify original ScriptReply client UI and candidate nNewJoin01 binding only."
     },
     {
       "id": "A-013",
@@ -947,7 +949,8 @@
       "id": "A-014",
       "system": "SYS-SOCIAL",
       "requirements": [
-        "R-015"
+        "R-015",
+        "R-033"
       ],
       "priority": "P2",
       "title": "聊天／組隊／公會",
@@ -989,7 +992,8 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "reward_party_client_io_focus": "Find native party membership/party roster, invites/leaves/disband C12/C2E/S58/S3A UI/packet mapping; Server's top-total-damage winner/full XP/individual loot is policy, NOT original-server proof."
     },
     {
       "id": "A-015",
@@ -1555,7 +1559,8 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "admission_refuse_policy": "R-034 selected NOT ENROLL should be no-op and NPC repeatable; native NPC->Script association not proven."
     },
     {
       "id": "A-024",
@@ -1778,7 +1783,8 @@
       "source_branch": "task_a/roy1",
       "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
       "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
-      "s1e_correction": "Roy1 later A-004 confirmed previous S1E DieObjects attribution was mistaken; native DieObjects is S5F ctor 0x57E1B0 push 0x5F and reader 0x57E260. S1E source is quarantined; no original Client combat E2E."
+      "s1e_correction": "Roy1 later A-004 confirmed previous S1E DieObjects attribution was mistaken; native DieObjects is S5F ctor 0x57E1B0 push 0x5F and reader 0x57E260. S1E source is quarantined; no original Client combat E2E.",
+      "reward_allocation_crossref": "R-033 user decided team aggregation/full party experience/one independent loot resolution per member; A only needs attack/death/exp/loot Client-visible evidence, not original Server reward formula."
     },
     {
       "id": "A-026",
@@ -1844,7 +1850,8 @@
       "last_analysis_date": "2026-10-31",
       "source_branch": "task_a/roy1",
       "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
-      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
+      "admission_refuse_policy": "R-034 REFUSE is not quest completed, reward, transport or permanent refusal. New NPC interaction may ask again; ACCEPT is intent only."
     },
     {
       "id": "A-027",
@@ -1888,7 +1895,8 @@
         "region1 third-field UI/serializer discrepancy",
         "exact server status/error for unauthorized C02 and final C04 status (A-028)",
         "C02 field1/field2 exact name/password semantics for TW region and which S02 nonzero error is actually displayed for unknown account vs wrong password",
-        "Direct NewUser launch does not require C03; confirm native event/control availability and correct C02 submit/reply sequence"
+        "Direct NewUser launch does not require C03; confirm native event/control availability and correct C02 submit/reply sequence",
+        "Direct NewUser C02 field1/field2 original native account/password UI and S02 wrong-credential result for no-prior-C03 client operation"
       ],
       "security_decision": "fail-closed: C02 parser may run but cannot claim existing Account, issue S02 success, create pending owner or Character unless independent authenticated credential or verified bound C03 session path is demonstrated",
       "last_analysis_date": "2026-10-31",
@@ -1906,7 +1914,8 @@
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
       "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md",
-      "latest_user_decision": "Login and NewUser are independent Client entry points. C02 direct pre-C03 account+password must authenticate an existing provisioned Account against same Server verifier; not just name match. Earlier mandatory C03 path is superseded. Native UI field1/2 and S02 failure code still require evidence."
+      "latest_user_decision": "Login and NewUser are independent Client entry points. C02 direct pre-C03 account+password must authenticate an existing provisioned Account against same Server verifier; not just name match. Earlier mandatory C03 path is superseded. Native UI field1/2 and S02 failure code still require evidence.",
+      "guard_correction": "Private CharacterCreationAccountGuard loggedIn prereq is obsolete; direct C02 name+password authenticates independent of C03; native C02 field1/field2 and error response still research required. Do not treat existing login name as owner."
     },
     {
       "id": "A-028",

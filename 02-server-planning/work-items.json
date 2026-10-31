@@ -112,7 +112,8 @@
         "CT-043",
         "CT-044",
         "CT-054",
-        "CT-097"
+        "CT-097",
+        "CT-100"
       ],
       "depends_on": [],
       "readiness": "codec-partial-native-authorization-blocked",
@@ -133,7 +134,7 @@
       "creation_account_policy_source": "02-server-planning/three-native-account-entry-policy.md",
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
       "next_iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
-      "native_creation_activation_gate": "A-027 field1/account and field2/password native UI/wire + error S02 mapping before release, A-028 terminal native E2E; not C03(no character) auto-route",
+      "native_creation_activation_gate": "No prior C03 required; A-027/028 must confirm C02 account/password field and native error reply before enabling live route; proof must bind account_id+version+connection+generation+TTL.",
       "provisioning_dependency": "ONB-01 authorized admin-provisioned Account record required, but ONB-01 C03 login action is NOT required before C02",
       "latest_three_entry_decision": {
         "source": "02-server-planning/three-native-account-entry-policy.md",
@@ -142,7 +143,8 @@
         "existing_account_only": true,
         "requires_prior_c03": false,
         "creation_only_auth_proof": true
-      }
+      },
+      "creation_guard_status": "Private CharacterCreationAccountGuard.cs still enforces loggedIn; needs separate coding authorization to replace with verified C02-account+password creation-only proof; do NOT delete credential guard."
     },
     {
       "id": "ONB-03",
@@ -252,7 +254,8 @@
       "title": "教學 NPC/怪物/戰鬥",
       "requirements": [
         "R-029",
-        "R-030"
+        "R-030",
+        "R-033"
       ],
       "analysis_requests": [
         "A-023",
@@ -265,11 +268,14 @@
         "A-006",
         "A-008",
         "A-009",
-        "A-010"
+        "A-010",
+        "A-014",
+        "A-007"
       ],
       "scenarios": [
         "SCN-011",
-        "SCN-012"
+        "SCN-012",
+        "SCN-018"
       ],
       "conformance": [
         "CT-021",
@@ -302,7 +308,8 @@
         "CT-085",
         "CT-086",
         "CT-095",
-        "CT-096"
+        "CT-096",
+        "CT-101"
       ],
       "depends_on": [
         "ONB-03"
@@ -320,7 +327,8 @@
       "client_io_flows": [
         "FLOW-SCRIPT",
         "FLOW-GAMEPLAY",
-        "FLOW-SKILL"
+        "FLOW-SKILL",
+        "FLOW-COMBAT"
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
@@ -346,22 +354,26 @@
         "can_build": "C4D/C56/S52/S48/S2C/S2D decoded-body codecs and stateful Server policy",
         "native_client_validation": "not-run",
         "original_spell_cost_cooldown_and_ui": "unknown"
-      }
+      },
+      "party_reward_policy": "User decided: highest aggregated valid damage party gets rewards; every member full base EXP and personal independent loot roll once. Monster death and reward ledgers idempotent; party ties and roster/remote eligibility not resolved."
     },
     {
       "id": "ONB-06",
       "title": "教學完成/出口",
       "requirements": [
-        "R-031"
+        "R-031",
+        "R-034"
       ],
       "analysis_requests": [
         "A-026",
         "A-012",
         "A-016",
-        "A-025"
+        "A-025",
+        "A-023"
       ],
       "scenarios": [
-        "SCN-013"
+        "SCN-013",
+        "SCN-019"
       ],
       "conformance": [
         "CT-026",
@@ -372,7 +384,8 @@
         "CT-063",
         "CT-092",
         "CT-093",
-        "CT-094"
+        "CT-094",
+        "CT-102"
       ],
       "depends_on": [
         "ONB-04",
@@ -385,7 +398,8 @@
       "client_acceptance_owner": "DEV/CT",
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
       "client_io_flows": [
-        "FLOW-GAMEPLAY"
+        "FLOW-GAMEPLAY",
+        "FLOW-SCRIPT"
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
@@ -400,7 +414,8 @@
         "can_build": "C6C(1) key/value reply context and safe replay fence, QuestIntent ledger",
         "native_client_validation": "not-run",
         "original_quest_completion": "unknown"
-      }
+      },
+      "admission_refusal": "STATE=REFUSE or confirmed native Not Enroll is no-op, no quest/admission/reward/transfer changes, NPC remains clickable and reasks indefinitely; every run has independent context, ACCEPT is only intent."
     },
     {
       "id": "ONB-07",

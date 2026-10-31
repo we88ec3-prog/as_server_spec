@@ -330,7 +330,11 @@
       "native_creation_evidence_required": "A-027 native C02 account+password field mapping, native error S02 and A-028 C04 final; no C03(no-character)->NewUser precondition",
       "a003_character_creation": "C02 field1 UI local length region0 skipped / nonzero 12; C04 no name field, ten RGB UI palette values known. Native account/character name binding, sex/hair original enums and one-account-many-character unknown; designed owner/uniqueness safety only.",
       "native_character_creation_ready": false,
-      "latest_user_decision_contract": "02-server-planning/three-native-account-entry-policy.md"
+      "latest_user_decision_contract": "02-server-planning/three-native-account-entry-policy.md",
+      "conformance": [
+        "CT-100"
+      ],
+      "creation_guard_new_decision": "No previously authenticated C03 LoginSession required. C02 submitted existing account+password must verify via server before any creation proof; private Guard still requires loggedIn (implementation gap)."
     },
     {
       "id": "SCN-009",
@@ -532,7 +536,8 @@
       "requirements": [
         "R-010",
         "R-011",
-        "R-030"
+        "R-030",
+        "R-033"
       ],
       "packets": [
         "PKT-C13",
@@ -580,7 +585,8 @@
           "notes": "合法施放/攻擊經 Server 驗證目標、資源、冷卻與狀態，再產生效果與可去重的任務進度事件；原版是否要求攻擊待 A-025。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
           "packet_mapping": "unknown"
         }
-      ]
+      ],
+      "reward_policy": "Top party aggregate of effective damage to same monster life gets 100% base EXP per winner member + one independent loot-table resolution per member; no split or individual top-DPS winner; Server designed and not implemented."
     },
     {
       "id": "SCN-013",
@@ -588,7 +594,8 @@
       "requirements": [
         "R-013",
         "R-017",
-        "R-031"
+        "R-031",
+        "R-034"
       ],
       "packets": [
         "PKT-S44",
@@ -639,7 +646,8 @@
           "notes": "已確認的教程條件成立後持久化完成進度，任何原版有的獎勵僅授予一次，按原生證據轉入一般地圖並可重登。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
           "packet_mapping": "unknown"
         }
-      ]
+      ],
+      "refusal_policy": "STATE=REFUSE no domain state change, NPC can re-open dialog again, repeat refusal or later ACCEPT; original NPC binding not proven."
     },
     {
       "id": "SCN-014",
@@ -783,6 +791,89 @@
       "ui_test": "CT-098",
       "security_test": "CT-099",
       "policy_source": "02-server-planning/three-native-account-entry-policy.md"
+    },
+    {
+      "id": "SCN-018",
+      "system": "SYS-COMBAT",
+      "title": "共享怪物死亡時由最高總傷害隊伍領全員經驗與各人掉落",
+      "requirements": [
+        "R-010",
+        "R-012",
+        "R-033"
+      ],
+      "analysis_requests": [
+        "A-014",
+        "A-009",
+        "A-025",
+        "A-007"
+      ],
+      "packets": [
+        "PKT-C13",
+        "PKT-S13",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "status": "analysis-required",
+      "evidence_kind": "user-approved-server-designed",
+      "native_client_validation": "not-run",
+      "design_source": "02-server-planning/three-policy-adjustments-20261031.md",
+      "preconditions": [
+        "single shared Monster life_generation",
+        "validated hit damage ledger and authoritative party roster"
+      ],
+      "designed": "Rank parties by sum of effective server HP damage (unpartied counted as one-person party), reward single top party, each winner member receives FULL base EXP and one INDEPENDENT loot-table resolution",
+      "failure_cases": [
+        "highest individual damage belongs to loser group",
+        "same damage event replay or excess damage above HP",
+        "duplicate monster death or restart",
+        "losing team gets any reward",
+        "party member with zero personal damage wrongly excluded",
+        "shared loot roll instead of independent per-person roll",
+        "all members guaranteed drop rather than drop probability",
+        "party tie or roster change without explicitly defined policy"
+      ],
+      "unknowns": [
+        "native Client party membership UI and update packets A-014",
+        "native EXP/Item projection A-007/A-009",
+        "tie and member eligibility on join/leave, offline or cross-map"
+      ]
+    },
+    {
+      "id": "SCN-019",
+      "system": "SYS-QUEST",
+      "title": "新手教學 NPC 拒絕入學不發生變化且可重新詢問",
+      "requirements": [
+        "R-013",
+        "R-031",
+        "R-034"
+      ],
+      "analysis_requests": [
+        "A-012",
+        "A-023",
+        "A-026"
+      ],
+      "packets": [
+        "PKT-C43",
+        "PKT-S44",
+        "PKT-C6C"
+      ],
+      "status": "analysis-required",
+      "evidence_kind": "user-approved-server-designed-plus-quoted-script-resource",
+      "native_client_validation": "not-run",
+      "design_source": "02-server-planning/three-policy-adjustments-20261031.md",
+      "designed": "No-op on native refusal intent; dialog close only, no admission/quest/progress/level/items/map effects; NPC still clickable, new script context each click, future accept allowed",
+      "failure_cases": [
+        "REFUSE writes permanent refusal state or quest flag",
+        "REFUSE starts quest or triggers travel/reward",
+        "NPC disabled after refusal",
+        "second click reuses stale ScriptRun/context",
+        "rejecting player A affects player B",
+        "C6C(4)/C6C(2) treated as completion"
+      ],
+      "unknowns": [
+        "Recruiter NPC entity/script mapping",
+        "UI choice -> C6C key/value -> native reply semantics"
+      ]
     }
   ]
 }
