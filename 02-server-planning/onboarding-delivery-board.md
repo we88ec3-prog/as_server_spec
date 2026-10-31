@@ -55,3 +55,7 @@ A-002 新增 C03 登入欄位、S03 host/port/opaque token、C10 raw token，及
 ## 最新 Client I/O 型開發切片（2026-10-31）
 
 [可並行 DEV-IO-01～06](client-io-delivery-plan.md)／[6 條 Client 收發流程](client-io-flow-matrix.json)。正式 ONB 每項新增 `client_io_flows` 連結，明確分成 Client 可證事件、Server 自主決策與原生 CT。**不再把原服原始出生座標、首次 Born 派送時刻、原服驗證方式當 A/DEV 全部開工必要條件**；仍不得在沒有 C03 無角→NewUser UI 證據時宣稱原生完整創角成功，亦不可用未授權 C02 認領管理員帳號。
+
+## 下一輪安全創角與 Native Client 的兩層出場門檻（2026-10-31）
+
+[可繼續開發 SAFE-01～04 / 後續 WIRE-01～02](native-creation-next-iteration.md) 與 [機讀就緒關卡](onboarding-readiness-gates.json) 已建立。**Server AuthContext、登入帳號比對、PendingIntent/C04 原子性、C15/重送可立即繼續設計或合成測試**。但不能因帳號字串相同就開放 native C02：A-027 仍未證實 C03(no-character)→NewUser UI 或 C02 field1 真實帳號語意。新 CT-054 為 planned/not-run，不修改 Client，不猜非零 S02 錯誤碼。ONB-03/04 Map/CRC/Transfer、ONB-05 Script Domain 與此並行，不須推論原服出生/首次派任務政策。

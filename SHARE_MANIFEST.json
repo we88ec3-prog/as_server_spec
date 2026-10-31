@@ -41,7 +41,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "4b6754404e887f20b1994589ef125d113e93982fcd5d0a71567fe10aa9a688e6"
+      "sha256": "63c3f113c7c362f004d7df4ae2e7d094caa5dd8626c567d282699e37bda2aed2"
     },
     {
       "path": "00-governance/workflow.md",
@@ -109,7 +109,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "085c888f613e3f8e65c8db58243b74e214bd5b03031b2f740b958934e208f663"
+      "sha256": "49e5634aa3371530e4b78f7b1ca2f346e1453a1dfb6a5e342c13b523a76993b8"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
@@ -317,7 +317,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "c1e758c7233640adfad66e84be0f53e4c981f86c4f860025ddd69a487c3cd467"
+      "sha256": "ca605c1471c1f3b69087ccbb695f9df4487759aed9107768a0144e940484d431"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -373,7 +373,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "d8f0b70b4d887ce1ecea011faf75ebaedec7f93db59758c0fcc51f8ea97b4baf"
+      "sha256": "26de80ffe8976b6a61c8ffecd5b233fdbcb0c7ef4bf038c7953e8db4095095bc"
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
