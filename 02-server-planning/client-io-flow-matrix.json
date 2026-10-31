@@ -471,6 +471,48 @@
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-008-analysis.md",
       "work_items": []
+    },
+    {
+      "id": "FLOW-COMBAT",
+      "label": "原生攻擊／戰鬥效果／死亡 Client I/O",
+      "client_trigger": "已入 World，至少兩條 native attack producer 0x55709E/0x557A5F 產 C13；C3D 是額外 subtype 分支，不得等同基本攻擊或已證教學需求",
+      "client_send": [
+        "PKT-C13",
+        "PKT-C3D"
+      ],
+      "server_to_client": [
+        "PKT-S13",
+        "PKT-S3D",
+        "PKT-S08",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "client_reaction": "C13 BE u32 一欄；S13 14B base + flags0x01 17B optional（0x08/0x10 僅重解既有 u32）；S3D subtype0..15 多態，簡單分支已證，其餘動態；S08 由 A-008 刷新 Status；S5F 死亡 packet != S0E 移除 packet；完整 GUI damage/death handler、復活與原包順序仍 unknown",
+      "evidence": [
+        "A-009",
+        "A-008",
+        "A-024"
+      ],
+      "scenarios": [],
+      "tests": [
+        "CT-063",
+        "CT-064"
+      ],
+      "server_decisions": [
+        "World session、map epoch、object generation、合法目標/距離/冷卻及生命狀態由 Server 審核；C13 不可指定傷害值（designed）",
+        "命中、傷害、減免、HP、同 tick 雙方死亡和事件排序由 DEV 自訂權威運算；原服公式未知，不可冒充 observed",
+        "S13 效果／S08 數值／S5F 死亡／S0E 移除為不同 Client packet，Server 設計一致的投影排序及重送去重（designed）"
+      ],
+      "readiness": "C13/S13/S5F core native static wire ready; C3D/S3D partial polymorphic variants; native GUI and original math unknown",
+      "unknowns": [
+        "C13 target u32 由何 UI control/object registry 產生、原生拒絕時的 UI 與特殊 S2C",
+        "S3D/C3D 複雜 subtype 完整 payload、真實顯示/動作用途",
+        "S13 效果/命中受擊者、S5F 死亡與 S08/復活的真實 UI 事件排序",
+        "原服命中/傷害/死亡策略、Server 客製同時死亡判定與重送策略屬 DEV，不是 Client static truth"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-009-analysis.md",
+      "work_items": []
     }
   ]
 }
