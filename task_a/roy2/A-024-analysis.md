@@ -1,5 +1,7 @@
 # A-024／roy2 — 原版 NPC／怪物「Client I/O」BIN-first 交付
 
+> **最新版裁定（2026-10-31）**：第六節更新後，S07 非空 kind1..14 與 S34 subtype11 已依原始 EXE 補齊 wire schema；前四節保留為早期研究歷程，舊的「非空 S07 未解／partial」不得覆蓋第六節結論。靜態 Client 收包交付 `integrated / ready`，Native Client E2E 尚未執行。
+
 - 原件：`Asgard.exe` PE32 SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，ImageBase `0x400000`；`Born.dat` SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`；Map0/1/2 三庫共 494 MAP。2026-10-31，既有分支／目錄 `task_a/roy2`。
 - 範圍：A-024 / R-012,R-027,R-029。**Client 收到何種物件生成/移動/死亡/移除包，Client 如何解析，以及互動候選的傳送入口**。不把 Server NPC AI/重生計數當 A 任務完成門檻；不推論遠端 Server 原服策略。別將「分析已交付」與「新手教學已能跑」混淆。
 - 證據分層：**observed-static**＝使用者原始 EXE 位址/組合語言；**observed-static-resource**＝原始 MAP/Born 結構；**synthetic-test**＝本機造包/epoch 模型；**inferred**＝類別名所暗示功能；**unknown**＝原服內容/行為/實測。
@@ -10,7 +12,7 @@
 
 |包 / 原生類別|原生依據|已證 body|不能外推|
 |---|---|---|---|
-|S07 `SDrawObjectsPacket`|type name 0x669CBC；ctor `0x57E310` push 0x07；reader `0x57E3E0`|先 `count:u16 BE`，每列先取 `u16,u16,u8,u32,u16`，type 1..14 的後續走條件分支，`0x57E45A..0x57E5CD`；內部分配 `0x228` bytes/record|0x228 是 **Client local struct** 非 wire 固定長度；type→NPC/Monster/Static 的逐項語意未證，不能假裝完整非空 S07 可安全編碼|
+|S07 `SDrawObjectsPacket`|type name 0x669CBC；ctor `0x57E310` push 0x07；reader `0x57E3E0`|先 `count:u16 BE`，每列先取 `u16,u16,u8,u32,u16`，type 1..14 的後續走條件分支，`0x57E45A..0x57E5CD`；內部分配 `0x228` bytes/record|0x228 是 **Client local struct** 非 wire 固定長度；已於第六節補證 type1..14 非空 row 全部 decoded body；但 kind→NPC/Monster/Static 的逐項語意仍未證|
 |S5F `SDieObjectsPacket`|type 0x669C9C；ctor `0x57E1B0` push 0x5F；reader `0x57E260`|一個 `u32 BE`，寫 local +0x18|這個值與 entity ID 的對應要靠 handler 證實，不能當官方死亡/掉落公式|
 |S0C `SMoveObjectPacket`|type 0x669E98；ctor `0x5833A0` push 0x0C；reader `0x583450`|BE `u32,u16,u16,u8,u8`，至 packet local +0x21|座標/方向欄位名仍是**候選**，不做原版行走速度/碰撞權威宣稱|
 |S64 `SMovePathPacket`|type 0x669EB8；ctor `0x583530` push 0x64；reader `0x5835E0`|BE `u32,u16,u16,u8,count:u8,count×u8 path_bytes,u16,u16,u8`|path 存本機 +0x23；後續欄始 +0x2E，留 **11 byte**；EXE 未見此迴圈對 count 的顯式 cap，對 native 發包須保守拒絕 count>11（**designed safety gate**）|
@@ -50,9 +52,9 @@ objdump -d -M intel --start-address=0x585e60 --stop-address=0x585f20 Asgard.exe
 python -m unittest discover -s task_a/roy2 -p 'test_a024_npc_codec.py'
 ```
 
-6 項 synthetic unit tests **PASS**（decoded fixed S5F/S0E/S0C、S64 path、S07 零列、epoch/replay negative cases），不包含遊戲資料或原版 E2E。詳見 `a024_npc_codec.py` 與測試檔。對 S07 **非空物件**和未證 native handler，驗證器刻意 fail closed。
+6 項 synthetic unit tests **PASS**（decoded fixed S5F/S0E/S0C、S64 path、S07 零列、epoch/replay negative cases），不包含遊戲資料或原版 E2E。詳見 `a024_npc_codec.py` 與測試檔。早期工具 `a024_npc_codec.py` 對非空 S07 fail closed；新工具 `a024_object_packets.py` 已解析 kind1..14 非空記錄，未知 UI handler 仍保留。
 
-**A-024 結論**：已交付有據的 Client 收包、欄位型別和初步狀態模型，`status=integrated`，`handoff_status=partial`（真正教學 NPC/map 綁定和非空 S07 對應仍不完整），`native_client_validation=not-run`。不是原生整段教學成功，也不應自稱完整生成/AI/重生的原服還原。CT-021/022/034 須在 Client/資源/內容條件可用後補測。
+**A-024 結論**：已交付有據的 Client 收包、欄位型別和初步狀態模型，`status=integrated`，`handoff_status=ready`（目前 Client 收包靜態欄位已交付；教學 NPC/map 綁定及 Native renderer 仍未驗），`native_client_validation=not-run`。不是原生整段教學成功，也不應自稱完整生成/AI/重生的原服還原。CT-021/022/034 須在 Client/資源/內容條件可用後補測。
 
 
 ## 五、Client 主動動作補查：攻擊 C13 與物件資訊 C43
@@ -113,7 +115,7 @@ BE u32 opaque_object_key; BE u16 field_c;
 
 ### 6.3 S34 / S3C / S62 / S63 / S29 資訊與動作 packet 補證
 
-- **S34** reader `0x584540`：通用前綴 **u8 subtype, BE u32, u8 flags（6 bytes）**。subtype **6**（`0x58492A`）另外依序讀 **BE u16、u8、BE u32、u8、u8、u8（10B）**，總共16B。subtype **11**（`0x584571`）根據 flags：bit0 string8+2u8+u32；bit1 BE u16 count 及 count bytes raw block（`0x45BAB0`）；bit2 count u8，依每筆 u8,u8,string8；bit3 count u8，依每筆 u8,u16,三個 u8,u8,string8；bit4 count u8，依每筆 2×string8+2u8+string8；bit6 count u8，依每筆 u8；其資料在 Client 以 0x202/0x40E/0x602 等 stride 存於本地，不可當 wire row size。**subtype11 暫不加入安全可執行 codec**，待 subtype11 UI/資源具體對照。
+- **S34** reader `0x584540`：通用前綴 **u8 subtype, BE u32, u8 flags（6 bytes）**。subtype **6**（`0x58492A`）另外依序讀 **BE u16、u8、BE u32、u8、u8、u8（10B）**，總共16B。subtype **11**（`0x584571`）根據 flags：bit0 string8+2u8+u32；bit1 BE u16 count 及 count bytes raw block（`0x45BAB0`）；bit2 count u8，依每筆 u8,u8,string8；bit3 count u8，依每筆 u8,u16,三個 u8,u8,string8；bit4 count u8，依每筆 2×string8+2u8+string8；bit6 count u8，依每筆 u8；其資料在 Client 以 0x202/0x40E/0x602 等 stride 存於本地，不可當 wire row size。**subtype11 的全部六種 flags 資料組合已加入安全 decoded-body codec**（`a024_object_packets.py`），但各組的 GUI 顯示語意與實際用途仍需 Native CT。
 - **S3C** 0x586AD0 依序 0x45AEB0（BE u32）＋3 次 0x45ADB0（u8），完整為7B；不是 S34。
 - **S62** 0x579020 先兩個 u8、一個 BE u16、三個 u8，接續四次 `0x45B7A0` 解析 string8，再 u8、BE u16、u8；`S63` 0x585950 只有兩個 u8。這是「動作選項」資料鏈，不代表怪物每一步移動都必發 S62。
 - **S29** 0x57E750 先2×`0x45AEB0`、2×`0x45ADE0`、1×`0x45ADB0`，後在本機條件將部分 u32 拆半保存；**不額外讀 wire**。因此 S29 的固定13B不等於任何當前 HP 修改。
@@ -134,8 +136,23 @@ Server 若要避免 bug，需依**自行設計**的 `(map instance, entity id, g
 ### 6.5 交付與驗證
 
 - [metadata-only 原件驗證](a024_object_native_probe.py)：SHA 鎖定，**20 個 native instruction anchors、14 個 kind jump-table entry、6 個 RTTI** 均已從原始 Asgard.exe 獨立核對通過。
-- [非空 S07 與資訊封包 decoder](a024_object_packets.py)，包含 kind1..14、S3C/S34 subtype6、S62/S63/S29；[合成測試](test_a024_object_packets.py) 包含所有 kind、條件欄、CP950 原始 bytes、count、截斷、未知 subtype，與早先的 [NPC 測試](test_a024_npc_codec.py) 分離。
+- [非空 S07 與資訊封包 decoder](a024_object_packets.py)，包含 kind1..14、S3C/S34 subtype6＋subtype11 六組動態欄位、S62/S63/S29；[合成測試](test_a024_object_packets.py) 包含所有 kind、條件欄、CP950 原始 bytes、count、截斷、未知 subtype，與早先的 [NPC 測試](test_a024_npc_codec.py) 分離。
 - 既有 S0C/S64/S5F/S0E 由 `a024_npc_codec.py` 檢查，不使用新 opcode 冒充舊物件更新。**Native Client 端對端 GUI 未執行；不能據此宣稱所有物件圖片／動畫／AI 已正常運行。**
 - **已可交 DEV**：S07 非空 type1..14 decoded body、安全序列、已證單步／路徑／死亡／移除與補充資訊／動作封包，附 CT-065 靜態／合成、CT-066 Native 客戶端鏈路驗收。
-- **剩餘 unknown**：各 type 真正 NPC/Monster/非生命物件分類；object key 與 renderer/registry 的消費端 XREF；S34 subtype11 全部動態資料及 UI；NPC 具體貼圖/定位/動畫與第一次教學實際 NPC 設定；原 Client native E2E。故 A-024 可標**靜態 Client 收包清單已完成**，原生 GUI、教程內容與 Server 原服 AI 仍列獨立驗收，不可標已全解。
+- **剩餘 unknown**：各 type 真正 NPC/Monster/非生命物件分類；object key 與 renderer/registry 的消費端 XREF；S34 subtype11 各欄的原生 GUI 顯示語意；NPC 具體貼圖/定位/動畫與第一次教學實際 NPC 設定；原 Client native E2E。故 A-024 可標**靜態 Client 收包清單已完成**，原生 GUI、教程內容與 Server 原服 AI 仍列獨立驗收，不可標已全解。
 - **缺件**：完成此收包結構研究**無需新增檔案**。若要補具體 NPC/怪物內容與圖像綁定，原件可查的檔名模板是 `World%02d.dat`、`@Monster%02d.dat`，欲進一步對照可提供**實際存在**的 `World00.dat`、`@Monster00.dat` 範例（不保證原版真的有這兩個數字）；不要再要求已有的 Asgard.exe / Map0..2 / Born.dat。
+
+
+### 6.6 S34 subtype11 六組資料完全解碼與 CI 結果
+
+新增 decoder 已依 `0x58457D..0x584913` native parser 的 **flags 0x01/0x02/0x04/0x08/0x10/0x40** 順序執行：
+- bit0：string8、u8×2、BE u32；
+- bit1：BE u16 count、count 個 raw bytes；
+- bit2：u8 count、每項 `u8,u8,string8`；
+- bit3：u8 count、每項 `u8,BE u16,u8×4,string8`；
+- bit4：u8 count、每項 `string8,string8,u8×2,string8`；
+- bit6：u8 count、count 個 u8。
+
+可空組、混合 flags、255 元素、截斷與尾段過量均由 `test_a024_object_packets.py` 檢查。**GitHub Actions 2026-10-31 run [41185085803](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41185085803) 成功**：phase-gates PASS、**19 個新增 S07/S34/S3C/S62/S63/S29 測試 PASS + 7 個舊 NPC 測試 PASS**。另已對本地原始 EXE 直接核對 **20 個 native instruction anchors、14 個 S07 type 跳表、6 個 RTTI PASS**，這是原件靜態而非真實封包 E2E。
+
+**A-024 最終靜態交付**：`integrated/ready` 代表「Client 收到哪些包以及能安全解碼其已追查 S2C body」已解，**不代表** Client 真的載入哪一種怪物圖、NPC 點擊事件一定對應 C43、原版怪物 AI 與資料表還原，或 native Client CT-066 已通過。缺少新增必需檔案：無。
