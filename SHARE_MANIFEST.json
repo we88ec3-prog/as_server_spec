@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "e258fc23281e4acab256c76d83d87c60477e5694498799bf58568e865f27c5a0"
+      "sha256": "7009464f9f364705d3b7d4a29c8dcb0936fa45503716cbcf2f15be467705bd71"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "c9529807faf4b1e4e8219d5ee7aa9590d7b0318e17a928debdc1c32cd506faaa"
+      "sha256": "638e8a1c3a1d6bea565598649cd5ebb93a77dc4d5c33b1b76bf42fc137b3db10"
     },
     {
       "path": "00-governance/workflow.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "d98997d714fb1b4b79f8ce08862ef0b696ebd9886dfd2277f339760947b67467"
+      "sha256": "3b4e2e9c28d98a152284b52c73e2cabe6e3a2c9b18f343311d26ba54b15d68de"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -189,7 +189,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "4270ba5e13cf9212e4adb1c08346d167f1b7758f47401478b449fe9e6de4ad86"
+      "sha256": "6c2cfc6523773ccafb92a8376a93b9aa223d1f4cd16c18f1db812af00370c346"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -197,7 +197,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "ec726358cb99828a7408aad91191e4de75aae139d82c5c61242c23149b5ec237"
+      "sha256": "2798595a25afa650a82012bfc93d1a7df2ba4a1548cff48d72c79b9a5a3b1e42"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -273,7 +273,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "7b3f16919ee266f088cc8938919931dd7c802c26baa4de9ee31bde28f5e522ae"
+      "sha256": "40caf92bb81d68659411dddd804c6169fb0d6cbd7fc7a5394dff674d3ab81ce4"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -285,11 +285,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "256eaf042fe78a563740c2fd863993bd76e80f2585192ef53dfa4ff7ba0fac70"
+      "sha256": "345ba9a7e70d700945da0eea5f4c0bb6b4fe232c0645e2054549512e292a996d"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "b114fcedcdbccc01bb8f588cc1fe6c8068c1271392136be3da316232afeb3f97"
+      "sha256": "23eb32a4fb65acc211010e920fb684f13e7e9364e3d6231a3f23081d04a03a6d"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -305,7 +305,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "92fb0987a97ac4f5851e5a987e37280b54d4b9cbf86fc6fe1a29eafacd326ad5"
+      "sha256": "4d86bd811c24b37e21cf5dfb0f414153615be42db65a68b6788ddd38295083ea"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -365,7 +365,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "594b6663b0fecfdb1169d545c89348330a2d331329b9947661710a4b828524d4"
+      "sha256": "313342804d225c7f4724b8fe7222edf67c2465a0ac58ace5d0c8c8ff2856f14f"
     },
     {
       "path": "README.md",
