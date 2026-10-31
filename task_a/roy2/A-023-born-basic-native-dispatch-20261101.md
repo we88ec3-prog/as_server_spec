@@ -77,3 +77,7 @@ python -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
 **可完整交接的 Client 靜態部分**：S44 type1 start、Script cache/CRC/依賴、Born Main/紙張、C6C(4)/(2) lifecycle、type2/0／2 的 GUI slot 分支與 Basic 可用素材 metadata。
 
 **仍未能宣稱原服完整新手教學**：第一次登入是否必須自動發 Born／在哪個 map 時刻、真正女性招募員 NPC EntityId／首次點擊→具體 script 綁定、原服 quest 初始化／完成及退出／重登政策、原生 UI/網路端到端。這些不從資源檔名字／推論補猜，CT-034／CT-035 native **not-run**；A-023 保持 `integrated/partial`，**不是「全部內容已知」**。
+
+## 2026-11-01 同日後續收到四份 Script（舊缺檔說法已解）
+
+上述「`PaperDialog.dat` 在本輪缺少」指**先前該次上傳的時間點**，目前使用者已另外上傳 `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat`、`Merchant.dat`。四份現已由真正原件 SHA+XML/CRC/函式驗證，詳 [A-023 四 Script 原件新報告](A-023-four-script-native-dependencies-20261101.md) 及 [CT-113](../../05-conformance/A-023-four-script-verify-test-plan.md)。之前的「PaperDialog 缺檔」不再是最新未解事項。**剩餘的不是這四份**，而是 Merchant/Quest 共用函式 `QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk` 所在的其他 Script 原件（檔名尚未確認），以及原服招募員 NPC binding、首次 Born 政策與原版 GUI 動態證據。
