@@ -1573,7 +1573,16 @@
         "A023-E21",
         "A023-E22",
         "A023-E23",
-        "A023-E24"
+        "A023-E24",
+        "A023-E25",
+        "A023-E26",
+        "A023-E27",
+        "A023-E28",
+        "A023-E29",
+        "A023-E30",
+        "A023-E31",
+        "A023-E32",
+        "A023-E33"
       ],
       "dependencies": [
         "A-011",
@@ -1588,21 +1597,23 @@
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-023-script-entry-contract.md",
       "remaining_unknowns": [
-        "Original Server first/returning-login S44(1,0) Born push policy and exact first UI timing not in Client source, requires original Server traffic/config.",
-        "Actual female recruiter EntityId/map/spawn, NPC click→script name nNewJoin01 / Merchant binding not in provided original content.",
-        "Original quest initialization/completion/exit durable flags and Server rewards must be separately proven; C6C(4)/(2) just runner close.",
-        "Release identity pairing of Asgard.exe, Born.dat, Basic.dat and historically verified PaperDialog.dat unproven beyond independent SHA.",
-        "PaperDialog.dat original bytes missing from this run, cannot re-verify PaperDialog XML or native UI; original Client CT-034/035 not-run."
+        "Original Server first/returning-login S44(1,0) Born push policy and exact map S14(2) timing not known from Client.",
+        "Female recruiter original NPC EntityId/map/spawn, interaction opcode/callback → original S44 root and dependencies unknown.",
+        "Actual original source files of QuestDialog_Create, MerchantDialog_Create and MerchantDirectTalk unresolved in four provided original Scripts; QuestDialog.dat/MerchantDialog.dat only candidate names.",
+        "PaperDialog/PaperDialog02 share function names PaperDialogProc and ShowIndexedHelp; original multi-import collision ordering/behavior and native GUI ESC vs CANCEL untested.",
+        "Original quest flags/completion/reward/next-map and client version release manifest beyond individual SHA not proven.",
+        "Native Client first-Born/School recruit GUI, true C6C(1) frame and Server authorizing progression CT-034/035 not-run."
       ],
       "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
-      "resource_client_version_binding": "unverified",
+      "resource_client_version_binding": "per-file-SHA-and-codepage-crc-originals-verified; official same release manifest unverified",
       "implementation_ready": false,
-      "implementation_ready_scope": "Known Client Script start/cache/Main/dispose+S44 type2 GUI slots and local Born/Basic frame metadata can be implemented as limited verified subset; full native first tutorial NPC/quest binding and Server original first-push policy NOT implementation-ready.",
+      "implementation_ready_scope": "Ready: Client original S44(type1 start/dependency/CRC, type2 GUI), Born→PaperDialog/Basic metadata, Merchant.Main/nNewJoin three-page reply, PaperDialog02 choices, C6C(1) root/context and C6C(4)/(2) lifecycle; original Server NPC-binding, unknown UI external function definitions, quest flags and Native GUI are NOT proven. No artificial first NPC or quest completion.",
       "conformance": [
         "CT-033",
         "CT-034",
         "CT-035",
-        "CT-112"
+        "CT-112",
+        "CT-113"
       ],
       "last_analysis_date": "2026-11-01",
       "dependency_report": "task_a/roy2/entry-dependency-verification.json",
@@ -1634,7 +1645,7 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Original Client Script S44/C6C wire, native handlers and Born/Basic on-disk content observed; Server chooses first-push conditions, ScriptRun/context and NPC mapping. No fake auto-first-Born, NPC identity, quest completion or reward claim.",
+      "client_server_boundary": "User-provided original Script XML proves definitions/choices/dependencies, not Server first NPC/quest policy. S44 ScriptRunner root controls C6C packet name, Server validates active root/context/generation. C6C replies are intents, not QuestCompleted; no original GUI TCP proof.",
       "admission_refuse_policy": "R-034 selected NOT ENROLL should be no-op and NPC repeatable; native NPC->Script association not proven.",
       "latest_analysis_addendum": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md",
       "original_resource_probe": "task_a/roy2/a023_born_basic_probe.py",
@@ -1648,37 +1659,60 @@
         "Locale.dat",
         "Map0.dat",
         "Map1.dat",
-        "Map2.dat"
-      ],
-      "known_not_available_this_run": [
+        "Map2.dat",
         "PaperDialog.dat",
+        "PaperDialog02.dat",
         "nNewJoin01.dat",
         "Merchant.dat"
       ],
-      "known_required_script_dependency": "PaperDialog.dat is required for Born.Main PaperDialog_Create; historical original version SHA5b86a4..., not reverified this turn.",
+      "known_not_available_this_run": [],
+      "known_required_script_dependency": "PaperDialog.dat now original SHA+CRC/three functions directly verified in this turn; Born→PaperDialog_Create→Basic.dat/AlertFrame.ypf ready for static dependency, but original Gui CT-034/035 not-run.",
       "native_s44_type2_ui_scope": "Outer packet handler0x4E0B70 invokes0x52C2A0 Script handler; type2/0 with successful handler selects GUI slot0x23 and components3/4, type2/2 GUI slot0x24; type1/0 invokes Script runner Main. Not an NPC identifier or Born first-login proof.",
       "client_io_handoff": {
-        "trigger": "Server S44(1,0) script start with original matching text CRC and explicit dependency; not proven automatically initiated by original Server on first login. S44 type2 GUI is separate.",
+        "trigger": "Original ScriptRunner S44(type1/subtype0) with explicit root script, matching CP950 text CRC, dependency list and legal Script/World context. Original Server auto-first-Born policy and female NPC source unknown.",
         "client_sends": [
           "PKT-C6C"
         ],
         "client_receives": [
           "PKT-S44"
         ],
-        "client_reaction": "S44(1,0) Script manager checks Born XML+PaperDialog dependency then executes Main; UI frame Basic.dat/AlertFrame.ypf original resource verified. Normal OK leads C6C(4) then, without SendReply, C6C(2). S44(type2/0) additionally accesses UI slot0x23/components3/4; type2/2 slot0x24. GUI rendering and actual first NPC unverified.",
-        "evidence": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md",
+        "client_reaction": "Born.Main imports PaperDialog helper, shows Basic.dat/AlertFrame.ypf paper; on OK no SendReply→C6C4 then unreplied C6C2. PaperDialog02 helper OK sends PAPER02=START/CANCEL PAPER02=NOT; both then Dispose so C6C1→C6C4. nNewJoin01 MerchantTalk→three QuestDialog pages, final OK STATE=ACCEPT/CANCEL STATE=REFUSE via ClientReply global initialized by Merchant.Main. C6C1 script name equals current S44 ScriptRunner ROOT, not nNewJoin01 resource filename. UI callback names collide if two paper variants unconditionally imported. Native GUI/first NPC not-run.",
+        "evidence": "task_a/roy2/A-023-four-script-native-dependencies-20261101.md",
         "unknowns": [
-          "Original Server first/returning-login S44(1,0) Born push policy and exact first UI timing not in Client source, requires original Server traffic/config.",
-          "Actual female recruiter EntityId/map/spawn, NPC click→script name nNewJoin01 / Merchant binding not in provided original content.",
-          "Original quest initialization/completion/exit durable flags and Server rewards must be separately proven; C6C(4)/(2) just runner close.",
-          "Release identity pairing of Asgard.exe, Born.dat, Basic.dat and historically verified PaperDialog.dat unproven beyond independent SHA.",
-          "PaperDialog.dat original bytes missing from this run, cannot re-verify PaperDialog XML or native UI; original Client CT-034/035 not-run."
+          "Need native resource source of QuestDialog_Create, MerchantDialog_Create and MerchantDirectTalk before declaring school NPC GUI fully loadable",
+          "Need original-server female recruiter mapping to real S44 root/dependencies and first-login flags",
+          "PaperDialog02 keyboard cancelControl=OK may send START on ESC; original GUI trace required to prove",
+          "Native CT-034/035 not-run; Server choices never imply quest completion or reward without authoritative rule"
         ]
       },
       "original_local_static_result": "PASS original Asgard.exe SHA-locked 22 S44 type1/type2 UI dispatcher VA; original Born.dat 589B+Basic.dat 5,282,488B hash/index and Basic/AlertFrame.ypf 177,648B SHA/YPF17; Born CP950 XML CRC1D87B0C0",
       "synthetic_ci_result": "PASS GitHub Actions run 41230455292: 21/21 new A023 DAT/index/UTF16/zlib synthetic tests, prior A010/A011/A015/A024/A028/A031 tests and phase gates",
       "offline_ci_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41230455292",
-      "original_native_gui_validation": "not-run"
+      "original_native_gui_validation": "not-run",
+      "client_script_dependency_bundle_ready": "true-for-four-provided-original-files; false-for-unresolved QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk",
+      "latest_original_four_script_report": "task_a/roy2/A-023-four-script-native-dependencies-20261101.md",
+      "latest_original_four_script_manifest": "task_a/roy2/a023-four-script-verification.json",
+      "latest_original_four_script_probe": "task_a/roy2/a023_script_bundle_probe.py",
+      "latest_original_four_script_test": "task_a/roy2/test_a023_script_bundle.py",
+      "original_four_script_resource_shas": {
+        "PaperDialog.dat": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+        "PaperDialog02.dat": "49a618b9a59bda1294df6cbd8fa57e07c6e42c7647602dd988decf4a147bf22a",
+        "nNewJoin01.dat": "8410064a564e381bfe941c71af3fc70598ea2325df69c3d216d7fbba1c7f79ae",
+        "Merchant.dat": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350"
+      },
+      "resource_bundle_result": "All four original uploaded resource sha256, native BEu16+BEu32 UTF16LE zlib XML, CP950 CRC/fns and Script choice callback sequence verified. PaperDialog02 cancelControl OK despite separate CANCEL. nNewJoin01 offers STATE ACCEPT/REFUSE via Merchant-main-provided ClientReply. ScriptRunner root name vs imported dependency distinguished.",
+      "original_script_ui_external_dependencies": [
+        "QuestDialog_Create",
+        "MerchantDialog_Create",
+        "MerchantDirectTalk"
+      ],
+      "unverified_potential_dependency_filenames": [
+        "QuestDialog.dat",
+        "MerchantDialog.dat"
+      ],
+      "original_npc_binding_proven": false,
+      "original_server_first_script_push_proven": false,
+      "native_script_gui_e2e_ready": false
     },
     {
       "id": "A-024",
