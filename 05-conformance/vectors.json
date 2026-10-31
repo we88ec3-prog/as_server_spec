@@ -1699,12 +1699,13 @@
       },
       "expected": "SHA-locked PE 26 native VA patterns; original Map0/1/2 494 MAP and 7,701,805 tiles; raw 10B tile→Client memory17B row-major accessor; x/y bounds; bit0/bit4 distinct, auxiliary u32 grid, 48x32 candidate viewport; 18 synthetic negative/positive parser tests; keep walkability unverified.",
       "evidence_kind": "observed-static-PE+original-MAP-corpus+synthetic-test",
-      "offline_subset_result": "26 native SHA-locked PE anchors PASS, original Map0/1/2 494/494 and 7,701,805 tiles PASS; 18 unit tests PASS with CI (native client E2E not-run)",
+      "offline_subset_result": "PASS original EXE 26 SHA-locked VA byte signatures and all 494 original MAP/7,701,805 tiles; GitHub Actions run 41188097214 PASS with 18 synthetic MAP coordinate tests, 19+7 A024 and 16 A011 tests, phase gates successful; native Client CT-070 NOT RUN.",
       "original_probe": "task_a/roy2/a015_map_native_probe.py",
       "offline_probe": "task_a/roy2/a015_map_coordinate.py",
       "offline_test": "task_a/roy2/test_a015_map_coordinate.py",
       "analysis_request": "A-015",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41188097214"
     },
     {
       "id": "CT-070",
