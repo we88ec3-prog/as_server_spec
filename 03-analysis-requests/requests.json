@@ -2258,7 +2258,10 @@
           "Non-region3 next World entry C2S or first S2C beyond C10 and original failure status/UI not established",
           "Map revision/entry map_id, native S14/C35 and persistence checkpoint belong to A-032 / DEV-ENTRY-04, not a C25 field"
         ]
-      }
+      },
+      "original_native_probe_result": "Original SHA-locked Asgard.exe local 35 VA instruction signatures + CBillingInfoPacket RTTI PASS",
+      "synthetic_ci_result": "GitHub Actions run 41224805425 success; A-031 20/20 synthetic C10/C25 decoded-body tests PASS; full phase gates and prior A010/A011/A015/A024 tests pass",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41224805425"
     },
     {
       "id": "A-032",
