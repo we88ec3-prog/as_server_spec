@@ -85,3 +85,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 — 使用者新增暫行創角帳號比對限制
 
 不修改 Asgard.exe。已驗證登入帳號與原生創角輸入帳號不匹配 → Server 直接拒絕，不建立 Character/草稿或 grant；無登入亦拒絕。ASCII 帳號大小寫不敏感、不 trim。更新 R-026/SCN-007/008/ONB-01/02、FLOW-NEWUSER 與 CT-041/044/053；Client 原生 C02 名稱欄與 UI 入口仍 unknown，不能因新限制假稱 native creation ready。
+
+## 2026-10-31 — 下一輪 SAFE/WIRE/WORLD/SCRIPT 可開工規劃
+
+新增 `02-server-planning/native-creation-next-iteration.md`、`onboarding-readiness-gates.json`、`03-analysis-requests/next-client-io-evidence.md`、`05-conformance/native-creation-gate-test-plan.md`。收斂 A-027/028/022 method/deliverable 為 Client UI/封包行為，保留 A integrated/partial 的實證與 unknown。新增 CT-054 planned/not-run 追原生已驗登入空角→NewUser UI/帳號欄；ONB、SCN、FLOW、traceability/manifest 更新。SAFE-01～04 不需等待原服 Server 資料庫/出生點/派任務，Native C02/C04 仍 fail-closed；沒有執行原 Client E2E。

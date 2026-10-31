@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "58b09e7c877253bf25164f71fa1a9376359be208a689d5530c22723f718b2418"
+      "sha256": "31833dfc7063ede80e72b254d204cce4dc9c6b6f1aef920b6182f1262998d157"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -117,7 +117,7 @@
     },
     {
       "path": "02-server-planning/roadmap.md",
-      "sha256": "fadd4db5501a2d2df7331437f713e7d8fe5a5d783c44a2f2ad89fc3b8dc33c6f"
+      "sha256": "2de2cd20c55d2bbc51dab68f844cd9f734ce9b61698f99dcae4614d850c79da9"
     },
     {
       "path": "02-server-planning/script-lifecycle-contract.md",
@@ -493,7 +493,7 @@
     },
     {
       "path": "tools/validate-phase-gates.py",
-      "sha256": "a1f840457eee6e8c33dd2b6cad830f59df8b16df1d9108373abce30d7d073f07"
+      "sha256": "f9f73adb236b486fe9b4f5aaa16b5b614e0d2af6fe65503099e05c92ecdf70b3"
     }
   ]
 }
