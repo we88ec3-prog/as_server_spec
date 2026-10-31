@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "6135ef22a4dcf1b66b44f248acb644e528fefd06b4aaa663131c644a67741eed"
+      "sha256": "5fbd56fc1e2f6e4ced04bb49234f67d18dcd3c6fc532c02d9ed2f4e0ad839bc6"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "cca78a4ef1c1d16007a06b6b5e8ced32ce1c5f57d0606e64288578f9d688148d"
+      "sha256": "62593aa8e6a46df8a7025462f69ca39ad18080cbd7f70501f1be60e95ccbd94c"
     },
     {
       "path": "00-governance/workflow.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "2a4e51d821b9f47a469d01010b8398217b2bfdbf3b4ba090602824b13f6daf81"
+      "sha256": "1ed75fc128a5a819d1db01675ee5cfe2973f87383e6a6d6e28e6bb508190e832"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -109,7 +109,7 @@
     },
     {
       "path": "02-server-planning/map-resource-actor-plan-20261031.md",
-      "sha256": "1c0d56d238c899989a0d3fdcfc88ef374aba46f0b108611e17ee0be22203752d"
+      "sha256": "9dd199d4acce32201d5f05f2a7ee83d18ac70a9047e1a464db4d6d4ad63b0542"
     },
     {
       "path": "02-server-planning/merge-20261031-roy1-roy2.md",
@@ -128,6 +128,10 @@
       "sha256": "282578be220e1bab856657cb7dcb29874fc86ae7b32a3527de179f76ca8c6b61"
     },
     {
+      "path": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
+      "sha256": "17f8f16bceeb31801418fe920ca9c8136113c7f78917ec015aef63c9db6f25e6"
+    },
+    {
       "path": "02-server-planning/novice-school-admission-flow.md",
       "sha256": "45bf409bd4efb19f3aa22bab51326d50dc0d00e0580c2f9347ce718eec1da4e0"
     },
@@ -137,7 +141,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "75ad725dbf6e01b654bba922615157a93623b0d01ae92c8366da10d6659f94ab"
+      "sha256": "f6bc3fa5629b57a4f705a29f2c1634159d2084f613001e03b60b196d4570c023"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
@@ -145,7 +149,7 @@
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
-      "sha256": "7c2575e87516deb05de20f460020f2a3e028639de1160482a85fd8b1f5f0c53a"
+      "sha256": "32d895aa7b008b7625137cae1209c4bfdc2727f7eb34bd7f922266c52362968b"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -185,7 +189,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "5e636a7717c7d6e8b598a17480fc97a168d563ea9c984a3e7e24edfd71ecceb2"
+      "sha256": "d587aba039b718eff66918fbca67e7815ae8b6e20815a19218b7e8bdf290a5bd"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -210,6 +214,10 @@
     {
       "path": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
       "sha256": "d334f761be68adeb009dde094ca181a09d0f63d7512e3085107d3bbcb05f4452"
+    },
+    {
+      "path": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+      "sha256": "505cc6a793d776cae12933c94460ac4d77b4210c77641cf8133e8c7c1a5977a5"
     },
     {
       "path": "03-analysis-requests/A-013-roy1-economy-wire.md",
@@ -281,7 +289,7 @@
     },
     {
       "path": "03-analysis-requests/post-merge-analysis-queue.md",
-      "sha256": "081ae8f83cd9390a99a012878a20c67c2c24928eec555d244198a4380c55d9e0"
+      "sha256": "4884484a60e25988024f4e4cfc60bd8e0e7ffdd3ce1c6cb244ba701baacf11f7"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -293,7 +301,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "43a99f5b81833552f231a5b81c1b7a0349a6c296763f449a1553442d0cda46fb"
+      "sha256": "1e0b4659ddb03cbbf73db886401a3307c19af35292502306b5b88e31acb1f41f"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -318,6 +326,10 @@
     {
       "path": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
       "sha256": "5446e96ff9b0cad89baaa5e95bebc127db30695c948836bc2f43b60e2a49dd4c"
+    },
+    {
+      "path": "04-analysis-integration/A-012-quest-dialog-contract.md",
+      "sha256": "d1af8bec899828838852cbf4989621b6a69ddb33d20a8af568ba864586c8f119"
     },
     {
       "path": "04-analysis-integration/A-013-economy-contract.md",
@@ -405,7 +417,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "c2cd7211b59beb97f6d45907a1bd66aa7fa6a77c92595c960a9ba08528003910"
+      "sha256": "db01987643fe98d4a4db124b919787598f2b1fb82367f151c04d2a84ac53bb46"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -420,6 +432,10 @@
       "sha256": "d50d5782e92850ca5bbbdb91e8a7a89932fded870783e5938080e51f2574abc8"
     },
     {
+      "path": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
+      "sha256": "8736e8982b6bd0ee0ec85bbbef5d39b2d4d1251905a0a9f26079bc7437b2b99d"
+    },
+    {
       "path": "04-analysis-integration/new-asset-samples-20261031.md",
       "sha256": "0a50673de8989e3be1cdf348c41146b4958cb8ce13e0ec0bc85fe5949833047e"
     },
@@ -429,7 +445,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "bdd2ca9f181ea759bdb9f10f1d43d8c763410e87507a4cab710a5d309507fdb3"
+      "sha256": "c7e8d867e14b8046518767b1413b4dab685699962cc39c28ee6994e36c727a27"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -486,6 +502,10 @@
     {
       "path": "05-conformance/A-009-combat-test-plan.md",
       "sha256": "7634467b9557c7c6d5853ecbd73820f6fba72d94157c5b6b5c1b235e5b09938a"
+    },
+    {
+      "path": "05-conformance/A-010-skill-cast-lifecycle-test-plan.md",
+      "sha256": "69afddbf2019e7d9becd3c9f1dd1122d491f97c769327b1cde7c521d3b2a45fc"
     },
     {
       "path": "05-conformance/A-011-npc-resource-click-animation-test-plan.md",
@@ -561,11 +581,11 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "dedf6114db002a790874266a96d7047dc1a4501d6fad2d2f11e4a95984b3fd83"
+      "sha256": "a668e811fb69fe5b84a058ee5c86a4ff2edb867c997f0921ab6dbfb7f4a575e5"
     },
     {
       "path": "README.md",
-      "sha256": "140192635669a48351c01273467906bb7fb736b24eb10a9e7bc640660dbc22e8"
+      "sha256": "0613be31574560ff327891fae4bb6a94236277dbc11106b052aa90d1a86e4a61"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -594,6 +614,10 @@
     {
       "path": "task_a/roy2/A-009-analysis.md",
       "sha256": "6e22e95372f6c233811829f1ced94b205508a92786e7eb19b7b318fe814024fe"
+    },
+    {
+      "path": "task_a/roy2/A-010-analysis.md",
+      "sha256": "98817f205e9c6c4506d19408f1b080b721c93ba2f4b534e0743980a3ebb8c4e9"
     },
     {
       "path": "task_a/roy2/A-011-analysis.md",
@@ -684,6 +708,14 @@
       "sha256": "87b50b3708fa9d6aeea66a59ca7b90cc2f34f8156bf673235ccdd19274bc5e18"
     },
     {
+      "path": "task_a/roy2/a010_native_probe.py",
+      "sha256": "57e5ed79b6f03ab39d0fee39fffa5fee616bc0620642b938e6ed2c1d72504f72"
+    },
+    {
+      "path": "task_a/roy2/a010_skill_codec.py",
+      "sha256": "d4becab1163ac3660adf0e163d877bd59dda6e012660ced5f443da070731d17b"
+    },
+    {
       "path": "task_a/roy2/a011_native_probe.py",
       "sha256": "d44aded7e12f9c1c578fdfc6c778ef378d94f94cafc53b19fa0a8f2156c5a2ee"
     },
@@ -752,6 +784,10 @@
       "sha256": "2bd44f4fb19fe3909fb9854af414feddb52e277991c2dd7c349b09e3141b2ea5"
     },
     {
+      "path": "task_a/roy2/test_a010_skill_codec.py",
+      "sha256": "d1c2a0b3c09ba016fa0012904d64c60154e7451ac1cccfb9a9c22dcb6642360e"
+    },
+    {
       "path": "task_a/roy2/test_a011_resource.py",
       "sha256": "1eeba7a3768c5b320f48b86adf78bcaec1a693329de9c63f5eb1bff9c6fb4471"
     },
@@ -810,6 +846,10 @@
     {
       "path": "tools/a011_npc_asset_contract.py",
       "sha256": "acf747f9dd97221d603564973465db4363d74cde5c6a54b5647bca59c024b4da"
+    },
+    {
+      "path": "tools/a012_quest_dialog_contract.py",
+      "sha256": "7c0a24dc659654384f428bb3a7a29a4663953fab634af70774505a2ea490deb6"
     },
     {
       "path": "tools/a013_economy_contract.py",
