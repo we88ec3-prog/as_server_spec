@@ -1,6 +1,6 @@
 """Synthetic S07 visual-source tests; never claim original monster sprite render."""
 import unittest
-from a011_s07_visual_chain import project_s07_visuals
+from a011_s07_visual_chain import project_s07_visuals, c43_known_three_mode_ui_request
 from a024_object_packets import PacketError
 
 
@@ -90,6 +90,28 @@ class A011VisualChainTests(unittest.TestCase):
         o=project_s07_visuals(packet(row(1,image=7000)))[0]
         self.assertIsNone(o.archive)
         self.assertNotEqual(o.image_id,o.scene_object_ref)
+
+    def test_19_three_ui_c43_branch_opcodes(self):
+        actual=[c43_known_three_mode_ui_request(0x12345678,n).hex() for n in range(3)]
+        self.assertEqual(actual,["011234567804","011234567810","011234567840"])
+
+    def test_20_three_ui_c43_unsigned_ref_bounds(self):
+        self.assertEqual(c43_known_three_mode_ui_request(0,0).hex(),"010000000004")
+        self.assertEqual(c43_known_three_mode_ui_request(0xffffffff,2).hex(),"01ffffffff40")
+
+    def test_21_three_ui_c43_reject_unknown_mode(self):
+        for n in (-1,3,4,0x10,True,"0"):
+            with self.subTest(mode=n),self.assertRaises(ValueError):
+                c43_known_three_mode_ui_request(99,n)
+
+    def test_22_three_ui_c43_reject_bad_ref(self):
+        for n in (-1,0x100000000,None,True,"100"):
+            with self.subTest(ref=n),self.assertRaises(ValueError):
+                c43_known_three_mode_ui_request(n,1)
+
+    def test_23_three_ui_modes_have_same_scene_ref(self):
+        self.assertEqual({c43_known_three_mode_ui_request(2,n)[1:5] for n in range(3)},
+                         {b"\\x00\\x00\\x00\\x02"})
 
 
 if __name__ == "__main__":
