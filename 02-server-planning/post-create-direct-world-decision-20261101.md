@@ -35,3 +35,14 @@
 Server 的 PostCreateEntryContext 需保留相同 Account/Character/generation/credential version 的授權，只有實際 Client 後續合法封包出現才進行 World transition。C15 繼續只能取消尚未提交草稿；不由本地 UI slot 清理或新建 LoginDialogPane 推導 Server Account/Character 撤銷或建立新帳號。
 
 新增 CT-111 原始 PE 靜態＋合成測試，原版 Native E2E 保持 not-run。
+
+
+## A-028 Roy3 新原件結論：Region3 有條件自動 C03（2026-11-01）
+
+**本節以原始 Asgard.exe SHA db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145 的新 x86 證據，取代上節「尚未證明 LoginDialogPane 能自動 C03」的舊分析限制。** A028 原版 Client 靜態證據確認的「可執行分支」，仍與玩家實際 GUI/網路 E2E 不同。
+
+Region3：final S02(0) → 0x4B206B UI cleanup → 0x4B2109 建 0x4A9380 LoginDialogPane → ctor 在 [0x66D10C]+4 及 +0x204 的兩個 UTF16 開頭字元非0，且 USER32.GetAsyncKeyState(0x11 VK_CONTROL) 回 signed SHORT 非負時，0x4A9617 以 event4 調 0x4A8950，經 event 跳表0x4A8D34[0]=0x4A8996 → 0x4A8A30 直接呼叫 0x4A7D10 C03 發送流程，不經手動登入按鈕。auto C03 是兩個 string8 + u8=0；另一獨立 LoginDialogPane callback 的 nonzero 分支 C03 最後 u8=1。
+
+這說明產品要求「創角完成不用重新手動輸入帳密/按登入」**不等於禁止 Client 在背景再送 C03**。但 constructor 快取非空不證明送出的帳密有效，Region3 以外入口亦未證；若觸發成功仍須 Server 正規驗證 Account/Character/Session，按真正 S03/C10/C25/World 收包進行授權與畫面驗收。不要把「靜態已發現有條件自動 C03 入口」推成「創角成功一定收到 S03、一定可以登入 World」。
+
+研究資料：task_a/roy3/A-028-roy3-conditional-auto-c03.md、04-analysis-integration/A-028-roy3-automatic-c03-contract.md；原件 7 native E8 direct calls、42 opcode anchors、5 Region entries、10 event entries、12 offline tests。CT-105/107/108 原版 GUI/TCP 仍 not-run。原版 Client、DB、Server 程式未因本次補充而修改。
