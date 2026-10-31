@@ -45,3 +45,8 @@ objdump -d -Mintel --start-address=0x5742B0 --stop-address=0x574353 Asgard.exe
 原始 EXE 有實際 UTF16 檔名 **`Locale.dat`**（PE VA `0x5F1F84`），而確認畫面取當地化 label ID **0x49 / 0x4B**。要把「F4 這個欄位在原版繁中畫面是否確實印成 **E-MAIL**」由高度可信推論提升為 **observed-resource**，需提供與此版 Client 發行配對的 `Locale.dat` 並核對文字索引；若 UI 控制項/版面仍不明，EXE 也引用 `Basic.dat`（VA `0x5F1FC4`），可再用它追 UI layout。兩個檔在本次分析工作目錄均未提供，**不是說已證它們一定含最終 label**。也可由未修改原版 Client 的創角畫面/已遮蔽的 C02 四欄長度差異做最後實機對應。
 
 **DEV handoff**：對匹配 profile、確定 Region2..4 的 C02，正式 decoder 應保留 **field4** 作 E-MAIL 候選字串（不要從 C04 取）；在 label 語意與產品規格/DB 決策確認前，不應憑推測移入角色 NAME 欄或認定 E-MAIL 必填/可空。既有 A-030 維持 `integrated/partial`，不宣稱完整 Client/Server native-ready。未改原版檔或現有 Server。
+
+
+## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
+
+`Basic.dat` 真實 `BasicString.txt` key73 `NAME`、key75 `E-MAIL`、`SkinString.txt` key2153 `名字`、key2154 `E-Mail` 已與 EXE 確認頁 `0x49/0x4B` 完成比對。**因此不再把 Region2..4 的 C02 F3 NAME、F4 E-MAIL 當作尚未確認的推論**。此前提及需提供 `Locale.dat` 已由使用者提供，但其內容是伺服器列表而非 label 來源；解決 label 的實際檔案是 `Basic.dat`。不推廣到 Region0/1；不據此推斷原版 UI E-MAIL 必填。詳 [A-030 原件解析證明](A-030-roy1-original-resource-proof-20261101.md)。

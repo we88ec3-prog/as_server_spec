@@ -111,3 +111,8 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 ## A-030 E-MAIL/C02 靜態增量（2026-11-01）
 
 [確認 E-MAIL 候選實際封包路徑](A-030-roy1-email-c02-field.md)：原版 C02 opcode 0x02，Region2..4 F4 string8 由第二個額外 UI 控制項寫入（region4 widget0x18／region2、3 widget0x10），packet+0x822→serializer+0x816；確認頁也使用此字串。高可信對應 E-MAIL，但原版 literal label 尚需 `Locale.dat` 或原 Client GUI 驗證；不聲稱郵件必填。Region0/1 另有不含此 F4 的三字串結構。測試工具新增固定原件 x86 路徑驗證；不修改 Server/DB/Asgard.exe。
+
+
+## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
+
+配對原件 `Basic.dat` 確認 `BasicString.txt` **73 NAME／75 E-MAIL**，`SkinString.txt` 2153 名字／2154 E-Mail；EXE 確認畫面 F3/F4 key0x49/0x4B + C02 writer 原生對應 ⇒ **Region2～4 C02 第3個 string8=NAME、第4個 string8=E-MAIL 正式已證**（不再只是候選）。S02(status!=0,message) 原生 message dialog 建構＋C15(empty)/state1F 分支已證，但原版 GUI/TCP 實際 display 和 retry、錯密 status 官方意義仍未實測。A30 `integrated/resource-confirmed, runtime partial`；見 [原件資源與 EXE cross-reference](A-030-roy1-original-resource-proof-20261101.md) 與 [離線驗證](../tools/a030_resource_labels.py)。

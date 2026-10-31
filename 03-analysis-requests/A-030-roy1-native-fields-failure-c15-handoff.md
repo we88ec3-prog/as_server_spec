@@ -75,3 +75,8 @@ python tools/a030_native_newuser_contract.py
 ```
 
 本地 EXE 原件雜湊 PASS、40/40 追鏈簽章 PASS、6 個針對本次證據的 offline unit tests PASS；新增工具嚴格簽章 26 處與 6 個測試。若沒有 EXE 檔，工具須 skip native signature 而非導致 CI 因缺遊戲私有素材失敗。不要在 Git 提交 EXE、Locale、Basic、原始帳密、EMAIL、整份解密 C02 或包含敏感值的擷取。
+
+
+## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
+
+本報告前段「原始 label 尚待 Locale.dat」**已由新原件取代**：`Basic.dat` 中 `BasicString.txt` 73 NAME／75 E-MAIL、`SkinString.txt` 2153 名字／2154 E-Mail，直接對上 EXE 0x4B24ED 的 0x49（F3）和 0x4B2516 的 0x4B（F4）。**Region2..4 C02 NAME=F3，EMAIL=F4 已確認**；Locale.dat 含伺服器列表。S02 的 status+message→原生 message dialog 建立→C15(empty)/state1F 指令證據仍有效，**原 Client Windows GUI/TCP/E2E 未執行**，不聲稱 status1 有原服錯密含義。詳 [原件交叉驗證](A-030-roy1-original-resource-proof-20261101.md)。

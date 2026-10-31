@@ -172,3 +172,8 @@ Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研�
 ## 2026-11-01 / A-030 roy1 native field and error UI evidence
 
 在既有 `task_a/roy1` 追通原始 `Asgard.exe` Region2..4 C02 F3/F4 資料流、確認視窗 locale keys 0x49/0x4B、S02(u8/string8) 失敗訊息 dialog 建構、C15 opcode0x15 empty body 送出和 state0x1F；Region3/state0x1E 抑制訊息是例外。原件40個 x86 anchors PASS + 離線6 tests PASS；擴充工具原生簽章 26 個、合成 unit case 6 個，native original GUI not-run。新報告 `03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md` 與 requests/packets/evidence/scenarios/CT-103～106 交接更新。仍需 `Locale.dat` label 與原 Client CT；R-035 只保存 email 產品決策不受影響。無 Server/DB/EXE 修改，無新分支。
+
+
+## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
+
+已核對使用者新提供 `Basic.dat`、`Locale.dat` 原件 SHA；Basic.dat 的 UTF-16LE archive resources BasicString[73]=NAME、[75]=E-MAIL，SkinString[2153]=名字、[2154]=E-Mail；原始 Asgard.exe confirmation lookup 0x49(F3)/0x4B(F4) 和 C02 UI+writer 相對偏移交叉證實 Region2..4 NAME 第三字串、E-MAIL 第四字串。更正舊 A30 只推論 label 或要求從 Locale.dat 找 label 的陳述。提交 Python 資源解析+三原件 SHA/26 x86 anchors 測試，本機 7 PASS；S02 非零原生對話／C15(empty) 靜態路徑已核對，原版 GUI/TCP native E2E not-run，A30 `integrated/partial`。不修改 Asgard.exe/Server/DB，沿用 `task_a/roy1`。

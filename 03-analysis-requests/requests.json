@@ -2089,7 +2089,8 @@
       "evidence_ids": [
         "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
         "ev_a030_20261101_email_c02_fourth_field_static",
-        "ev_a030_20261101_native_name_email_s02_c15_strict"
+        "ev_a030_20261101_native_name_email_s02_c15_strict",
+        "ev_a030_20261101_basicdat_original_name_email_resource"
       ],
       "dependencies": [
         "A-020",
@@ -2099,7 +2100,7 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "observed-static-original-exe-plus-synthetic-offline-not-native-GUI",
+      "evidence_kind": "original-client-exe-observed-static-and-matching-original-Basic.dat-observed-resource; original-GUI-E2E-not-run",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
       "native_client_validation": "not-run",
@@ -2118,12 +2119,12 @@
       "client_server_boundary": "Client native UI/wire evidence only; ordinary auth failure must not imply disconnect, and original Server policy is not analysis output; no Server code or DB writes",
       "analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
       "remaining_unknowns": [
-        "Matching Locale.dat must resolve confirmation labels key0x49/key0x4B and visible widgets; NAME=F3/EMAIL=F4 semantic high-confidence only, cannot mark native-ready from EXE alone",
-        "Region0/1 encode exactly 3 string8, Region1 UI writes extra fields but writer uses packet+0x424 not populated in traced path",
-        "Is E-MAIL mandatory/optional in original unmodified client, and does blank value emit an actual C02? no original GUI trace",
-        "Official S02 business failure status for wrong credentials/ban/name collision and actual rendered dialog not observed; status1 string8 is synthetic static-path candidate",
-        "C15 after nonzero S02 is native C2S empty body and state0x1F; server socket-close/continued-retry, real client GUI and post-create direct-World native transition not run",
-        "Client region/codepage/seed and H0/H1/H2/H3 packet timestamp in original client still unknown"
+        "Region0/1 C02 has 3 string8 only; Region1 extra UI widget/third field serializer offset mismatch remains unresolved",
+        "Current runtime Client region/seed selected at original GUI startup not captured; Region2..4 label-to-wire verified statically and from resource only",
+        "Whether original UI permits blank EMAIL and whether it submits C02 with F4 empty or refuses locally remains untested in unmodified original Client",
+        "Original Server-specific S02 status for wrong password/duplicate/ban and visual GUI response are unknown; synthetic status1 generic message only source-level confirmed",
+        "C15(empty) sent on nonzero S02 and state1F is original Client code; TCP FIN/RST, retry behavior and reconnect are Server+GUI E2E unverified",
+        "ADR-008 post-create direct-World next original Client protocol and full GUI flow requires A-028/A-031, not inferred from A30"
       ],
       "conformance": [
         "CT-103",
@@ -2140,11 +2141,11 @@
       ],
       "runtime_diagnostic_status": "A30-1 partial: C02 explicit close runtime-confirmed on modified diagnostic client, 2026-10-31 23:51 UTC+8; field/error research still open",
       "runtime_diagnostic_report": "02-server-planning/idle-disconnect-observability.md",
-      "implementation_ready_scope": "C02 region-aware UI ordinal/writer fields; S02(nonzero,string8) text-dialog branch, C15(empty) + state1f, S02(0) two-stage C04; no official NAME/E-MAIL mapping or native error status semantics",
+      "implementation_ready_scope": "Original Region2..4 C02 F3 NAME F4 E-MAIL semantic/codec ready from Basic.dat and Asgard.exe; original S02(nonzero,string8) native text-dialog/C15(empty) code path ready; native GUI/TCP/client region/test status and Server writer/DB readiness remain unverified",
       "analysis_contract": "04-analysis-integration/A-030-newuser-s02-field-contract.md",
       "analysis_test": "tools/a030_native_newuser_contract.py",
       "analysis_date": "2026-10-31",
-      "native_name_email_mapping_ready": false,
+      "native_name_email_mapping_ready": true,
       "native_s02_failure_gui_ready": false,
       "offline_validation": "Original Asgard.exe SHA256 plus 30 x86 signatures, 29 focus table selector bytes, 15 synthetic tests PASS; UI E2E not-run",
       "client_io_handoff": {
@@ -2157,24 +2158,24 @@
         "client_receives": [
           "PKT-S02"
         ],
-        "client_reaction": "region2..4 F3/F4 extra fields serialized; S02 nonzero with text uses 0x442570 dialog builder (except region3+state1e suppression), sends C15 empty & local state1F; S02(0) in state1D sends C04 and state1E; state1E successful S02 enters local success",
-        "evidence": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+        "client_reaction": "C02 Region2..4 F3 NAME + F4 E-MAIL source verified from original BasicString/SkinString and native x86; S02(nonzero,message) shows native message dialog code branch except region3/state1e; C15 empty and local state1f; status0 sends C04 state1e",
+        "evidence": "03-analysis-requests/A-030-roy1-original-resource-proof-20261101.md",
         "unknowns": [
-          "Matching Locale.dat must resolve confirmation labels key0x49/key0x4B and visible widgets; NAME=F3/EMAIL=F4 semantic high-confidence only, cannot mark native-ready from EXE alone",
-          "Region0/1 encode exactly 3 string8, Region1 UI writes extra fields but writer uses packet+0x424 not populated in traced path",
-          "Is E-MAIL mandatory/optional in original unmodified client, and does blank value emit an actual C02? no original GUI trace",
-          "Official S02 business failure status for wrong credentials/ban/name collision and actual rendered dialog not observed; status1 string8 is synthetic static-path candidate",
-          "C15 after nonzero S02 is native C2S empty body and state0x1F; server socket-close/continued-retry, real client GUI and post-create direct-World native transition not run",
-          "Client region/codepage/seed and H0/H1/H2/H3 packet timestamp in original client still unknown"
+          "Region0/1 C02 has 3 string8 only; Region1 extra UI widget/third field serializer offset mismatch remains unresolved",
+          "Current runtime Client region/seed selected at original GUI startup not captured; Region2..4 label-to-wire verified statically and from resource only",
+          "Whether original UI permits blank EMAIL and whether it submits C02 with F4 empty or refuses locally remains untested in unmodified original Client",
+          "Original Server-specific S02 status for wrong password/duplicate/ban and visual GUI response are unknown; synthetic status1 generic message only source-level confirmed",
+          "C15(empty) sent on nonzero S02 and state1F is original Client code; TCP FIN/RST, retry behavior and reconnect are Server+GUI E2E unverified",
+          "ADR-008 post-create direct-World next original Client protocol and full GUI flow requires A-028/A-031, not inferred from A30"
         ],
-        "evidence_classification": "EXE observed-static: C02/C04/C15 wire+UI callbacks; user-reported labels: NAME/EMAIL; translated label mapping and original client E2E: unknown; server DB/auth/result: designed only"
+        "evidence_classification": "original x86 + original Basic.dat resources prove Region2..4 NAME/EMAIL; S02/C15 code path original x86; GUI/TCP behavior and Server official status semantics not captured"
       },
       "integration_baseline": "Roy1 static integrated with main c453538; private Server f2a4a38 has backend proof and phase deadlines but native C02/C04 still fail closed",
       "runtime_diagnostic_client_scope": "Modified main-menu-preview diagnostic client; not original Asgard.exe E2E",
       "post_create_user_decision": "Direct World after C04 final success, no manual re-login; A-028/A-031 native packet next steps unknown.",
-      "email_packet_confirmed": "C02 (C2S opcode 0x02), region2..4 F4 string8 second extra form input; E-MAIL native literal label unverified (Locale.dat absent)",
+      "email_packet_confirmed": "Region2..4 C02 C2S opcode0x02 F4 string8; confirmed BasicString[75]=E-MAIL vs EXE confirm popup lookup0x4B; SkinString[2154]=E-Mail",
       "email_c02_wire_field_confirmed": true,
-      "email_native_ui_label_confirmed": false,
+      "email_native_ui_label_confirmed": true,
       "email_region2_4_candidate_ordinal": 4,
       "email_field4_report": "03-analysis-requests/A-030-roy1-email-c02-field.md",
       "offline_validation_extra": "2026-11-01 original EXE SHA and 15/15 new x86 anchors (UI extra second field -> packet+0x822 -> writer+0x816 -> C02 send); no native GUI test",
@@ -2182,7 +2183,28 @@
       "a030_final_bin_handoff": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
       "native_s02_c15_static_confirmed": true,
       "native_failure_result_display_ready": false,
-      "offline_validation_20261101": "Original EXE SHA256 and 40 native x86 anchors pass plus 6 independent local offline tests; repository tool expanded with 26 extra native signatures / six tests, native GUI not-run"
+      "offline_validation_20261101": "Original EXE SHA256 and 40 native x86 anchors pass plus 6 independent local offline tests; repository tool expanded with 26 extra native signatures / six tests, native GUI not-run",
+      "native_name_email_mapping_scope": "confirmed original resource ID and C02 serializer for Region2,3,4 only; original GUI runtime profile not-run; Region0/1 not resolved",
+      "name_native_ui_label_confirmed": true,
+      "name_packet_confirmed": "Region2..4 C02 C2S opcode0x02 F3 string8; confirmed BasicString[73]=NAME vs EXE confirm popup lookup0x49; SkinString[2153]=名字",
+      "exact_client_label_evidence": {
+        "basic_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+        "locale_sha256": "813f2800696555f16ec6c4bfc5975b649332340b5a6975d7aeba4c4e77380161",
+        "basic_string_member_span": "0x2e97c..0x32356",
+        "skin_string_member_span": "0x3ccbc9..0x3cf08d",
+        "basic_confirm_keys": {
+          "0x49": "73 NAME",
+          "0x4b": "75 E-MAIL"
+        },
+        "skin_labels": {
+          "2153": "名字",
+          "2154": "E-Mail"
+        },
+        "report": "03-analysis-requests/A-030-roy1-original-resource-proof-20261101.md",
+        "probe": "tools/a030_resource_labels.py"
+      },
+      "resource_original_validation": "Basic.dat, Locale.dat, Asgard.exe SHA256 match; BasicString 72/73/75 + SkinString 2150..2154 + 26 native x86 anchors; 7 offline unittest passed",
+      "native_resource_report": "03-analysis-requests/A-030-roy1-original-resource-proof-20261101.md"
     },
     {
       "id": "A-031",

@@ -52,3 +52,8 @@ spec SHA、server SHA、client SHA256、region/seed/codepage、timestamp、trace
 ## A30 新取得的原 Client 靜態路徑（2026-11-01）
 
 [完整 A30 Client I/O 追鏈](../03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md)；40 native instruction signatures locally verified。Region2/3 F3/F4 widgets15/16，Region4 widgets23/24，C02 writer+0x618/+0x816，確認 popup locale keys0x49/0x4B；Region0/1 不可使用四字串假設。實際 NAME/E-MAIL 字樣仍需 `Locale.dat`／native GUI。S02(nonzero text) 在 NewUser 可走文字對話窗 + C15(empty)/state0x1F；Region3/state0x1E 不走文字窗仍 C15。合成 status1/string8 `Request rejected` 僅供**隔離測試**。CT-104 須捕捉原始 client 的 UI text、C15、TCP FIN/RST 主動端、同連線 retry；不得因看見 C15 就宣稱 socket 保持，亦不能套 C03 LoginFailure status3 原服語意。CT-103/105/106 planned/not-run，勿與 offline PASS 混淆。
+
+
+## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
+
+CT-104 的「Region2..4 NAME/E-MAIL 是哪個 C02 欄位？」**靜態與原件資源部分已結案**：Basic.dat 的 BasicString key73 NAME/key75 E-MAIL，EXE confirm key0x49（F3）/key0x4B（F4），及 SkinString 2153/2154 再確認。已新增 [原始資源離線測試](../tools/a030_resource_labels.py)（本機 7 PASS、26 original x86 anchors）；`CT-104` 自身仍 **planned/native-client not-run**：必須另在原版 EXE GUI 確認選取 Region、空 E-MAIL submit、S02(nonzero,有文字) 的畫面與 focus、C15(empty) 輸出、C15 後 TCP/重試。CT-103/105/106 不得因資源與靜態測試通過而冒充原版 Server/client E2E。詳 [A30 完整證據](../03-analysis-requests/A-030-roy1-original-resource-proof-20261101.md)。

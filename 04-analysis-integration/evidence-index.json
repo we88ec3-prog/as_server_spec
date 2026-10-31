@@ -3953,6 +3953,31 @@
         "No original client resource localization input provided"
       ],
       "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "ev_a030_20261101_basicdat_original_name_email_resource",
+      "date": "2026-11-01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "original-resource-and-original-exe-static-cross-reference",
+      "source_branch": "task_a/roy1",
+      "report_path": "03-analysis-requests/A-030-roy1-original-resource-proof-20261101.md",
+      "validation_tool": "tools/a030_resource_labels.py",
+      "original_asset_sha256": {
+        "basic": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+        "locale": "813f2800696555f16ec6c4bfc5975b649332340b5a6975d7aeba4c4e77380161",
+        "exe": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+      },
+      "locator": "Basic.dat archive BasicString.txt 0x2e97c..0x32356 UTF16LE keys73 NAME,75 E-MAIL; SkinString.txt 0x3ccbc9..0x3cf08d keys2153 名字,2154 E-Mail; EXE MakeInfoDialog confirmation 0x4b24ed push0x49 (F3 packet+0x624),0x4b2516 push0x4B (F4 packet+0x822) via 0x498010; UI widgets region2/3 15/16,region4 23/24; C02 writer 0x5742f6/0x57430e; S02 0x4b1dff/0x4b1ebe, C15 0x4b1f1d/0x4b1f2f/0x4b1f34",
+      "original_member_sha256": {
+        "BasicString.txt": "fa92f7a3cf544ff9e141d98620943b362e2d3dcc6e327878a818ebaa6ac3123b",
+        "SkinString.txt": "7ba039919300dccf595fc5f5f4e6d79156b8b96c23a56fa3118d1e55847f199c"
+      },
+      "original_x86_anchors": 26,
+      "local_unittest_passed": 7,
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run",
+      "remaining_unknowns": "Runtime region and GUI display status; original Server business status codes; C15 post-send TCP retry; Region0/1 mapping and email blank local gate"
     }
   ]
 }

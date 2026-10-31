@@ -82,3 +82,8 @@ This confirms A30-1 packet/close reason only for the **modified diagnostic Clien
 原始 EXE 40/40 machine-code anchors 本地 PASS、6 項離線驗證 PASS。**完整整理**：[A30 NAME/E-MAIL、S02/C15 最終靜態交接](A-030-roy1-native-fields-failure-c15-handoff.md)。Region2..4 F3/F4 實際 UI→C02 confirmed（widget15/16 或 23/24；writer+0x618/+0x816）；確認 popup 以語系 keys **0x49/0x4B** 分別顯示，唯 **key0x49 是 NAME、key0x4B 是 E-MAIL 的原始翻譯文字尚待 `Locale.dat`**。Region1 的 writer 缺 F4 且第三欄來源疑點保留；不把產品 R-035 E-MAIL 保存需求當成已證 Client label。
 
 S02 parser (u8/string8)，非零 status 觸發 Client message modal（非空文字且非 Region3/state0x1E suppress），再 C15 opcode0x15、empty body、local state0x1F，已經 EXE 指令層確認；**不能證明實際 GUI 文案、原版 Server 錯誤碼含義、C15 後 TCP 繼續與重試**。本次工具新增 S02/C15 更嚴格簽章與對應合成模型，原始 Client GUI 未跑；A30 `integrated/partial`，不可誤標 native-ready。
+
+
+## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
+
+**更正既有分析：** 已取得兩份原件 `Basic.dat` (SHA256 `0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96`) 和 `Locale.dat` (SHA256 `813f2800696555f16ec6c4bfc5975b649332340b5a6975d7aeba4c4e77380161`)。真正的 NAME/E-MAIL 語系表在 `Basic.dat` 內 `BasicString.txt` / `SkinString.txt`，**不是** Locale.dat；後者有 Servers.txt。BasicString key73 = NAME、key75 = E-MAIL，SkinString key2153 = 名字、key2154 = E-Mail，與 EXE `0x4B24ED: push 0x49` (F3) 、`0x4B2516: push 0x4B` (F4) 完整吻合。**Region2..4 F3 NAME/F4 E-MAIL 已有 original-resource-and-static 雙源確認，先前只列 candidate 的章節以此為準。** Region0/1 例外、EMAIL 空值 UI gate、真 GUI/Socket 則仍待實測。原件驗證/測試見 [新資源證據](A-030-roy1-original-resource-proof-20261101.md) 和 [離線工具](../tools/a030_resource_labels.py)。
