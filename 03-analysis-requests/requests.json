@@ -409,10 +409,12 @@
       "method": "由狀態UI讀取、封包parser、裝備修正追所有顯示與單位。",
       "deliverable": "初始數值、更新、溢位與死亡邊界；未知公式獨立列出。",
       "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "assignee": "roy2",
+      "evidence_ids": [
+        "ev_a008_20261031_exe_rtti_class_inventory"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -424,7 +426,17 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "analysis_document": "task_a/roy2/A-008-analysis.md",
+      "evidence_kind": "observed-static",
+      "implementation_ready": false,
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "open_items": [
+        "SStatusPacket ctor/opcode/reader and Status field offsets",
+        "CAddAbilityPacket opcode/serializer/UI trigger",
+        "StatusDialog and ExpBarDialog callbacks",
+        "HP/MP/EXP initial/update/overflow/death native boundary"
+      ]
     },
     {
       "id": "A-009",
