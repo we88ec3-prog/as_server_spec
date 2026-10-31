@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "c44aa538415a7897afd1fc1f7b47c4a224e80f6f312e3761bef5f53562fc3c50"
+      "sha256": "fd2948d30d2afb6e779fc2437d7790e14bd00557c81396f713aa78e5cd0e6541"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -268,12 +268,16 @@
       "sha256": "d334f761be68adeb009dde094ca181a09d0f63d7512e3085107d3bbcb05f4452"
     },
     {
+      "path": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
+      "sha256": "3ab8f2709c373fe892260342592e0ca08bd13ab91aca52e5618a060da88499e3"
+    },
+    {
       "path": "03-analysis-requests/A-012-roy1-quest-dialog.md",
-      "sha256": "2a7086a67cbbed216f895201369e4b5368383176d4bc98471dce4827b806b8b4"
+      "sha256": "71bfc1fc5236b0c01871602e92c1da9a167c3ba119daccca28724fb74032b504"
     },
     {
       "path": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
-      "sha256": "332ff58fea531d5775cb7b3162765e2eaea8c0f4cc1ec129fdf973f3b64818d7"
+      "sha256": "012b1b29d214cdec87be19b84061e2a7906d2c2572e9e103c4cf30ef1b9e334f"
     },
     {
       "path": "03-analysis-requests/A-013-roy1-economy-wire.md",
@@ -373,7 +377,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "be931641c3e3a817a6cf8be72f94607aceb9d43fc51e2ea95145ad5208fe6217"
+      "sha256": "dd0a9986db5cdf7d91438d94b537ae68f0b7ca56166cce81ddfa5b268f7eff72"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -381,7 +385,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "50f57b71e46573da76e98d2111280c586185e45d976e8c7a49614fdbc71dfe84"
+      "sha256": "f64fe9a70a47f517453895aad1935687922acfb25a9a0894bd0b0e181f563507"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -425,7 +429,7 @@
     },
     {
       "path": "04-analysis-integration/A-012-quest-dialog-contract.md",
-      "sha256": "f9dd08823c35743fe732b653227862b06b02df0bb6b0417d96ea805fa0e853db"
+      "sha256": "a3ae67f4f3e869f3dec55536eb373c52bac8ebf77d099b677ce8073043d7e1d1"
     },
     {
       "path": "04-analysis-integration/A-013-economy-contract.md",
@@ -525,7 +529,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "9b4dd8853446167978fe1001373d30ee58d4981e9070dc603f19299837b632ea"
+      "sha256": "c747c75b606719a43ce7db2dda3c03bf2ff5102e0f0396408524e756ed733daa"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -557,7 +561,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "17929b0bc9ce3c0d251ed6ff144ff1f8fe52618ae55fec90bafd1ec8fd2103d3"
+      "sha256": "dcc32b5e89092d0b72d259ecb76bc582d6fcef7e061b11e02842a96acc2c6e8e"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -589,7 +593,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "bc072f749ceb350f937d00b295f2a3b3819901f0d0c1bea4e555b51d01a1bfa6"
+      "sha256": "e6cc139da48ba616427869dd46cc728343b3fc5c08e02a0b0cbb5f077c2d8794"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -645,7 +649,7 @@
     },
     {
       "path": "05-conformance/A-012-script-dialog-native-acceptance-20261101.md",
-      "sha256": "0f301a36888fd1eb51048b6a7a76626a6003dbf42d32759cf9db735c2bc8a6b5"
+      "sha256": "bc23f1737065a8b38c63ceb87fba1493de239a68e82f19c97ee54b4b2506db3f"
     },
     {
       "path": "05-conformance/A-014-social-test-plan.md",
@@ -753,7 +757,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "94edff4a14b942d722b7da0917a5b9dcb407e2626e0cc9b4b38e95d29a965307"
+      "sha256": "9ba02235b2f916c08ead688c70f0077abbffc69f81dd94b68ce08cf53699d9bc"
     },
     {
       "path": "README.md",
@@ -1094,6 +1098,10 @@
     {
       "path": "tools/a011_npc_asset_contract.py",
       "sha256": "acf747f9dd97221d603564973465db4363d74cde5c6a54b5647bca59c024b4da"
+    },
+    {
+      "path": "tools/a012_dialog_option_native_probe.py",
+      "sha256": "e21454a38c4f4c7634e901852859c9cd67ab2760b0e630ee1b0ce4b337c8523e"
     },
     {
       "path": "tools/a012_quest_dialog_contract.py",
