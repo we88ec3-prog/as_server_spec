@@ -133,3 +133,7 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 獨立的 LoginDialogPane `0x4A8890` callback 可在參數非零時呼叫 C03 sender `0x4A7D10`；**final S02 success 是否自動觸發尚無原生 call/packet 證據**。S02 非零仍回 `C15(empty)`／state0x1f；Region3 state0x1e 的一般文字提示有特殊略過分支。**ADR-008 的產品需求仍是成功創角直接進 World、不需手動重登**，實際自動 World TCP 與首個 C2S/S2C 留給 CT-105/107/108 原版擷包；不以舊版推測的「回 LoginDialog 手動 C03」取代需求。
 
 [A-028 新增完整原件證據](../task_a/roy2/A-028-postcreate-ui-native-followup.md) · [31 VA/RTTI 原生驗證工具](../task_a/roy2/a028_native_postcreate_probe.py) · [合成狀態機](../task_a/roy2/a028_postcreate_model.py) · [CT-111/原生 CT 計畫](../05-conformance/A-028-postcreate-native-callback-test-plan.md) · [22 項合成回歸 GitHub CI](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277)。任務為 **`integrated/partial`**：已完成可證的 UI 靜態交接，但首次創角成功後 World 連線因果未證，**`native_client_validation=not-run`**；沒有新缺的具名遊戲檔案，真正需要原版 Client 去敏的創角最後 S02→World 封包及 UI 時序。
+
+## 2026-11-01 不需 WinDbg 的三張正式分析派工單
+
+使用者明確要求根據 Windows WER、原件 EXE／修改版 Preview byte diff 和兩批 TCP JSONL 先派分析。**沿用原有 A-028(Roy2)／A-031(Roy2)／A-020(Roy1)**，不要重開 A 編號、不要重設已整合的靜態子成果。已建立 GitHub [#7](https://github.com/we88ec3-prog/as_server_spec/issues/7)、[#8](https://github.com/we88ec3-prog/as_server_spec/issues/8)、[#9](https://github.com/we88ec3-prog/as_server_spec/issues/9)，登記 `queued/awaiting-claim`，**沒有假稱 GitHub 個人已接受指派**。原件仍是 SHA 鎖定 `Asgard.exe`；修改版 `Asgard-main-menu-preview.exe` 只能作 `modified-preview-debug-only`。見 [派工與完整交付規範](dispatch-20261101-preview-crash-and-world-entry.md)。分析角色不改 Server 或遊戲執行檔，不新增 Branch。

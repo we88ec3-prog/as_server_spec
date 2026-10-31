@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 不裝 WinDbg 先派 Client 分析任務：A-028/A-031/A-020
+
+使用者要求以既有 WER、修改版 EXE 的差異、Server JSONL 和原件分析派工。已建立 GitHub Issues [#7 A-028/Roy2](https://github.com/we88ec3-prog/as_server_spec/issues/7)、[#8 A-031/Roy2](https://github.com/we88ec3-prog/as_server_spec/issues/8)、[#9 A-020/Roy1](https://github.com/we88ec3-prog/as_server_spec/issues/9)；更新 `requests.json` queued follow-ups、`runtime-issues.json` 新 RI-006/007、[統一派工文件](../03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md) 與 Runtime feedback handoff。保留既有 A 的 integrated 靜態成果，修改版僅排錯，不需要 WinDbg 作靜態分析前提；GitHub 人員尚未認領。**僅變更 as_server_spec/main，不更改 Server/EXE/DB，也未建立分支**。
+
 ## 2026-11-01 RI-008：實際比對修改版 EXE 的 0xC0000005 崩潰位址
 
 讀取用戶提供的 Preview 與原件，確認修改版新增 .tipfix、.text 8 個差異區塊；Windows WER RVA 0x141264 的實際 Preview 指令為 mov [eax+4],edx。創角 S02(0) Region3 callback 是其可能 caller 之一，缺 EAX/stack 無法證實真正根因。列出 Preview Region3 條件跳轉等 Patch 候選，只供排錯，不能當原件 Client 研究成果。詳 [RI-008](../04-analysis-integration/20261101-preview-exe-crash-debug-diff.md)；未修改 Server 或任何 EXE。

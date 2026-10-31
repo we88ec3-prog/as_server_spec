@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "58162a103663d1197e7d4fc80b0a70abdfa785d9853cfd792e4edbed796b0e63"
+      "sha256": "95821889fe6c6c571b719e91b0c75a7f8bddabc747499e000c384ccf2a52bd5c"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -205,7 +205,7 @@
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
-      "sha256": "41062bde8462ca90db33125b3ee2c12d9556cd587fb14127deb43c89596645b1"
+      "sha256": "fd7c8d8a7c9dc94b475221b46e1d5b00a9206862a8a5c94bd15b65e832b8c58a"
     },
     {
       "path": "02-server-planning/script-lifecycle-contract.md",
@@ -360,6 +360,10 @@
       "sha256": "8e3af1c4e2791bbeb72b01d806c2bff50b86d25d752dcc7d639bf32a72e4fdab"
     },
     {
+      "path": "03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md",
+      "sha256": "1d4f69fa73936158394beb0f0b0f8c0eed77eeb2afebe43feb44eb9b552c9008"
+    },
+    {
       "path": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md",
       "sha256": "5a365bb6931fcf37dc2d1e893021e6021d48328bcf1eaa2ca750f0561677e224"
     },
@@ -377,7 +381,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "db8e8a713630603ee4c6292afbd81c40b9d56af65abf78dd8fe5125802735ab8"
+      "sha256": "72258c834d88cdee77c652bfe3ef5bf2e19f72bd1864ac5727194381b606e3e5"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -385,7 +389,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "77d93c79856b739985c19a953db34906cb58c33b92e8f9e967b7f4b485707a91"
+      "sha256": "4e6d871441e2127b65c1f2b4d8f3ac4e3399974fff7d17da97bc012e96816671"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -393,7 +397,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "d5d9f67bf8039f454c6e35a48a7f1fe8f1e491c13143553d099eea3ff314d760"
+      "sha256": "f5af08baf7a8e5981757a8efa6abb324e56a05c05dbd1092d2671cf1c84c9d01"
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",

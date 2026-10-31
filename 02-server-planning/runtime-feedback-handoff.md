@@ -46,3 +46,7 @@
 延遲 tooltip 副本曾獲使用者確認；不能由此推定 Windows Update 是原因，也不能推定目前 Server 有相同缺陷。重新發生時先取得版本及重現／程序狀態，禁止把補丁視為原版 Client 必需條件。
 
 2026-10-31 的主選單診斷副本曾實際顯示 **New／Connect／Exit**，但只確認可見畫面，沒有按下後完成創角。相關原生入口的靜態整合見 [本地登入／創角入口補充](../04-analysis-integration/local-account-entry-observations-20261031.md)。這項結果不計入 CT-105。
+
+## 2026-11-01 RI-006／RI-007：已派分析、Server 仍須由 DEV 處理
+
+用戶選擇**先不安裝 WinDbg**。已建立 [三張分析工單](../03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md)：[#7 A-028/Roy2](https://github.com/we88ec3-prog/as_server_spec/issues/7) 釐清原件創角 S02 成功後 UI 轉場及修改版崩潰的靜態排錯假設；[#8 A-031/Roy2](https://github.com/we88ec3-prog/as_server_spec/issues/8) 釐清 World C25 後 Client 預期的真正 S2C；[#9 A-020/Roy1](https://github.com/we88ec3-prog/as_server_spec/issues/9) 釐清原件 C42 例外回報路徑。修改版 WER `0xC0000005` 不能當成原始 Client 故障事實，EAX/caller 缺 dump 保留 unknown。**已確認 Server source 的 Native C25 → `Continue()` 零回覆仍是 DEV-ENTRY-04 實作缺口**，不得由分析者直接修 Server。RI-006／RI-007 已在 `runtime-issues.json` 登記，原版 CT-107/108/109 全部未通過。

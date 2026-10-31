@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-31",
+  "updated_on": "2026-11-01",
   "purpose": "Sanitized local feedback; status is scoped to the recorded runtime, not a declaration that every server version has the same defect.",
   "spec_baseline_before_integration": "6b935906dbfa8db118aa058c73e880d6409bbf90",
   "implementation_review": {
@@ -165,6 +165,86 @@
       "next_action": "Verify legitimate form waiting independently on original Client beyond60s and at configured bounds. Keep earlier unknown close and stale-socket retry distinct from the latest confirmed C02 explicit close.",
       "native_client_validation": "not-run",
       "handoff_document": "02-server-planning/idle-disconnect-observability.md"
+    },
+    {
+      "id": "RI-006",
+      "title": "修改版 Preview 的創角最終 S02(0) 後應用程式崩潰（0xC0000005）",
+      "priority": "P0",
+      "status": "analysis-dispatched",
+      "runtime_scope": "2026-11-01 03:38:13 UTC+8, modified Asgard-main-menu-preview.exe version 2.1.2.0; original Asgard.exe native E2E not-run",
+      "source": "User-provided Windows Application Error 1000, Windows Error Reporting 1001, game-packets/game-tcp 20261031(1) metadata and user-supplied modified preview EXE debug-only comparison.",
+      "analysis_requests": [
+        "A-028",
+        "A-020"
+      ],
+      "conformance_tests": [
+        "CT-107"
+      ],
+      "evidence_classification": [
+        "user-reported",
+        "observed-runtime-modified-preview-only",
+        "observed-static-original",
+        "observed-static-modified-preview"
+      ],
+      "current_facts": [
+        "At 03:38:13 modified preview.exe APPCRASH exception code 0xC0000005, fault RVA 0x00141264, faulting module equals exe, WER report 8410ed03-4f93-4691-9b86-0d5ed08b48cb.",
+        "Actual modified preview opcode bytes at 0x00541264 are mov [eax+4],edx; original EXE bytes same at that offset, but callstack and EAX are unavailable.",
+        "Original Region3 final S02(0) callback 0x4B206B may call 0x541250 via 0x4B212A; this is one of many callsites and does not prove actual crash caller.",
+        "Modified preview has .tipfix and changes to UI conditional branching; binary is not suitable as original Client evidence.",
+        "Matching Server trace c126a05e shows C02->S02(0)->C04->S02(0) then io-error, not confirmed server-first close."
+      ],
+      "unknowns": [
+        "Actual EAX, invalid memory address and actual caller at failure; WER dump not available in chat",
+        "Which preview patch (if any) invalidates the object; ability to reproduce with unmodified Asgard.exe unknown",
+        "Whether preview crash is causally related to final S02 response or local UI state"
+      ],
+      "next_action": "Roy2 A-028 issue #7 original UI callgraph and preview binary-diff debug separation, no WinDbg prerequisite. Roy1 A-020 issue #9 original C42 reporter protocol; native CT remains not-run.",
+      "native_client_validation": "not-run",
+      "test_client_identity": "modified-preview-debug-only",
+      "github_issues": [
+        "https://github.com/we88ec3-prog/as_server_spec/issues/7",
+        "https://github.com/we88ec3-prog/as_server_spec/issues/9"
+      ],
+      "handoff_document": "03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md"
+    },
+    {
+      "id": "RI-007",
+      "title": "登入成功 C03/S03/C10/Region3 C25 後停留 WorldGranted 且無後續 S2C",
+      "priority": "P0",
+      "status": "analysis-dispatched-to-A-and-DEV-gap",
+      "runtime_scope": "2026-11-01 03:47:31~33 UTC+8, Server build e93c9a1748fbca539106cba5e75458757c8e490d; current test Client native identity unverified/possibly modified preview",
+      "source": "User-uploaded game-packets-20261031(2).jsonl, game-tcp-20261031(2).jsonl and read-only as_server_roy LoginWireSession.case 0x25@e93c9a17",
+      "analysis_requests": [
+        "A-028",
+        "A-031",
+        "A-032"
+      ],
+      "conformance_tests": [
+        "CT-108",
+        "CT-109"
+      ],
+      "evidence_classification": [
+        "observed-runtime-server-metadata",
+        "observed-static-server-source",
+        "unknown-original-client-ui"
+      ],
+      "current_facts": [
+        "C03 authenticated and S03 normal transfer close; new socket C10 accepted -> WorldGranted; C25 body_len16 accepted.",
+        "No World S05/S15/S14 output or client C35 within captured log window; World TCP has no close summary in supplied files.",
+        "When _worldFixture is null and Region3 C25 arrives, source marks billingSeen and returns Continue() with zero S2C frames.",
+        "Synthetic fixture C25 body 01 is not the real native Region3 C25 format and cannot be used to mark native completed."
+      ],
+      "unknowns": [
+        "First original-client expected World S2C order, region-specific map/spawn/viewport and real C35 runtime",
+        "Exact Client UI timeout timing after C25, and native-first-create versus existing-character route",
+        "Whether unmodified original Client reproduces same UI state in a fully configured native Server"
+      ],
+      "next_action": "Roy2 A-031 issue #8 Client receive/order analysis; DEV-ENTRY-04 owner implements native World path separately; do not change Server from analysis role.",
+      "native_client_validation": "not-run",
+      "github_issues": [
+        "https://github.com/we88ec3-prog/as_server_spec/issues/8"
+      ],
+      "handoff_document": "03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md"
     }
   ]
 }

@@ -1399,7 +1399,20 @@
         "CT-103",
         "CT-104",
         "CT-105"
-      ]
+      ],
+      "analysis_dispatch_followup": {
+        "dispatch_date": "2026-11-01",
+        "dispatch_ref": "03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md",
+        "github_issue": "https://github.com/we88ec3-prog/as_server_spec/issues/9",
+        "owner_workstream": "roy1",
+        "status": "queued-awaiting-claim",
+        "research_kind": "original-client-exception-report-packet",
+        "original_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+        "debug_client_sha256": null,
+        "native_client_validation": "not-run",
+        "no_new_branch": true,
+        "analyze_only_no_server_implementation": true
+      }
     },
     {
       "id": "A-021",
@@ -2095,7 +2108,20 @@
       "original_native_world_entry_e2e_ready": false,
       "native_static_validation": "PASS user-provided original Asgard.exe SHA256 and 31 PE instruction VA anchors plus LoginDialogPane vtable/COL/RTTI, locally verified 2026-11-01",
       "synthetic_offline_validation": "PASS GitHub Actions 41226689277: 22 A028 S02/C04/C15 UI-state tests, all existing A010/A011/A015/A024/A031 suites, and phase gates",
-      "offline_ci_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277"
+      "offline_ci_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277",
+      "analysis_dispatch_followup": {
+        "dispatch_date": "2026-11-01",
+        "dispatch_ref": "03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md",
+        "github_issue": "https://github.com/we88ec3-prog/as_server_spec/issues/7",
+        "owner_workstream": "roy2",
+        "status": "queued-awaiting-claim",
+        "research_kind": "original-client-static-plus-preview-debug-only",
+        "original_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+        "debug_client_sha256": "e834a07d21807748561bafa7e9cca97195234a9b664ea9c20f9e83faafc8cb9d",
+        "native_client_validation": "not-run",
+        "no_new_branch": true,
+        "analyze_only_no_server_implementation": true
+      }
     },
     {
       "id": "A-029",
@@ -2395,7 +2421,20 @@
       },
       "original_native_probe_result": "Original SHA-locked Asgard.exe local 35 VA instruction signatures + CBillingInfoPacket RTTI PASS",
       "synthetic_ci_result": "GitHub Actions run 41224805425 success; A-031 20/20 synthetic C10/C25 decoded-body tests PASS; full phase gates and prior A010/A011/A015/A024 tests pass",
-      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41224805425"
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41224805425",
+      "analysis_dispatch_followup": {
+        "dispatch_date": "2026-11-01",
+        "dispatch_ref": "03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md",
+        "github_issue": "https://github.com/we88ec3-prog/as_server_spec/issues/8",
+        "owner_workstream": "roy2",
+        "status": "queued-awaiting-claim",
+        "research_kind": "original-client-world-receive-order",
+        "original_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+        "debug_client_sha256": null,
+        "native_client_validation": "not-run",
+        "no_new_branch": true,
+        "analyze_only_no_server_implementation": true
+      }
     },
     {
       "id": "A-032",
