@@ -62,3 +62,7 @@ Server 可先製作 `TileEffectiveFlags`、`DynamicCollisionOverlay`、`Candidat
 此規則 **覆蓋本頁一切「正常業務錯誤直接 fail-closed／Close」的暫行路線**。C02 錯密、停權、重名、C04 外觀失敗和後續技能、任務、物品等正常拒絕，不能只 `Close()`；應經已證 Client 原生 S2C 返回錯誤/校正，保留合法取消/重試路徑，避免 Client 顯示「連線中斷」。C02 失敗優先 `S02(nonzero,string8)` → Client 錯誤 GUI → 原生 C15 可能清理，再依本次 region/profile 確認恢復，不能自行假定 C15 後一定應 Close。
 
 **Native 尚有阻塞**：原版 S02 失敗 status 與 C15 後 socket/retry 行為仍未確認；不可直接選 C03 的自訂 status3、不猜 codec。無已證回覆時先維持安全拒絕，但記 `NATIVE_ERROR_MAPPING_UNVERIFIED`、列為未完成 P0 而非正常驗收；不能宣稱「無提示保持連線」完成。新增 DEV-REJECT-01～06、[實作政策](expected-validation-failure-policy-20261101.md)、[CT-112／113](../05-conformance/expected-validation-failure-acceptance-20261101.md)。Server C2S/S2C packet meta Log 已有，但缺 Domain `[VALIDATION_FAILED]` reason_code 和業務拒絕的語意化結果，不能以既有 `[PACKET]` 代替。**本次只改規格，Server 程式未修改**。
+
+## 2026-11-01 真實創角後異常的新實測：S02(0)×2 → io-error，下一條 C42 是原版例外回報
+
+使用者提供三份本機 JSONL，已分析出 `2026-11-01 03:38:13 (UTC+8)` 的原始 Client C02→S02(0)→C04→S02(0)，Server 同 socket 4.313 秒後只記 `io-error`；另一條 Socket 30 秒後 C62→C42(body39) 被 Server 標 unknown 後斷線。**經相同 SHA 原版 EXE 靜態查證 C42 其實是 `CExceptionPacket`（ctor `0x5723C0`、RTTI `0x66940C`），屬 crash log 回報路徑，非 World 入口**。沒有同條連線的 S03/C10/C25/C35，也沒 Client PID/exception cause。成功建角回覆不能宣稱進地圖，不能把 io-error 當 Server 主動踢線，更不能假設 C42 是轉服。詳 [這次分析交接](../04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md)，P0 補查 A-028 final S02 callback、A-031 native World first socket、Client `Crash_as*.log`／WER；Server 修正交 DEV，分析者不修改程式。

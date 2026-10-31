@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 RI-006：C02/C04 成功後 Client 異常、C42=原件 CExceptionPacket
+
+從使用者 70 packet/16 close/4 validation JSONL 查出 03:38:13 C02→S02(0)→C04→S02(0)，03:38:17 Server io-error，03:38:47 另一 socket C62→C42 被擋；由未修改 Asgard.exe RTTI/constructor 取證 C42 是 exception report、非 World 登入，Client 可能另有 Crash_as*.log；沒有 OS crash dump 不能確認 fault cause，也未觀察到 World 包。新增 [RI-006 原始證據整合](../04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md)，追加 A-028/A-031、DEV-ENTRY、CT-107/108 缺口。**僅更新規格，未修改 Server/EXE**。
+
 ## 2026-11-01 R-037：補登分析者越界寫入的 TCP 逐包日誌／預期外標記，明確禁止後續直改 Server
 
 使用者糾正本工作應是分析與 Server 規劃，並問先前直接實作是否回補規格。確認已發生的 `as_server_roy/main` commits `95977823`（收發 Log、UNEXPECTED marker）與 `71ebd259`（log 文件修正）；先前 ADR-009/R-036 僅涵蓋驗證失敗原因 Log，未補完整逐包 contract。新增 [R-037 詳細規格／事實回補](../02-server-planning/game-packet-log-contract-and-backfill-20261101.md)、[CT-114](../05-conformance/game-packet-observability-acceptance-20261101.md)，更新需求、工作板、追蹤與角色確認關卡。純規格修改、**本次未觸碰 Server／DB／EXE、未撤銷他人開發變更**。舊程式僅記 source-implemented，原 Client E2E 仍 not-run。

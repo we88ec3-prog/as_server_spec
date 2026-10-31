@@ -25,3 +25,7 @@
 - A-032 MAP 靜態重算確認 map_ref=6 C35=`00040F90`，map_ref=0/10000/18001/20001 請見 [整合報告](../04-analysis-integration/roy123-verified-evidence-review-20261101.md)；**未抓到原版 Client 真 C35**、spawn/view/facing、教學圖 id 仍 unknown，CT-108 不可提早通過。
 - A-005 native S0B bit7/low7 分支已證，**回當次 C33 sequence**；合法移動/阻擋 rollback GUI 未執行，CT-109 不可提早通過。
 - [完整新驗收操作/次序](../02-server-planning/roy123-playable-world-implementation-20261101.md)，錯誤／待取證由 [A 精準清單](../03-analysis-requests/roy123-remaining-playable-blockers-20261101.md) 跟蹤。
+
+## 2026-11-01 真實創角後異常的新實測：S02(0)×2 → io-error，下一條 C42 是原版例外回報
+
+使用者提供三份本機 JSONL，已分析出 `2026-11-01 03:38:13 (UTC+8)` 的原始 Client C02→S02(0)→C04→S02(0)，Server 同 socket 4.313 秒後只記 `io-error`；另一條 Socket 30 秒後 C62→C42(body39) 被 Server 標 unknown 後斷線。**經相同 SHA 原版 EXE 靜態查證 C42 其實是 `CExceptionPacket`（ctor `0x5723C0`、RTTI `0x66940C`），屬 crash log 回報路徑，非 World 入口**。沒有同條連線的 S03/C10/C25/C35，也沒 Client PID/exception cause。成功建角回覆不能宣稱進地圖，不能把 io-error 當 Server 主動踢線，更不能假設 C42 是轉服。詳 [這次分析交接](../04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md)，P0 補查 A-028 final S02 callback、A-031 native World first socket、Client `Crash_as*.log`／WER；CT-107/108 仍未通過；需要原版進 World 的實機路徑與異常證據。

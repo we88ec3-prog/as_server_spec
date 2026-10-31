@@ -31,3 +31,7 @@
 使用者已明確決策 **一般驗證失敗不可由 Server 無回覆直接踢線**。A-030/A-028 需更精確交：原 Client NewUser state0x1d 與 state0x1e 各自的 `S02(nonzero,string8)` status → 本地錯誤訊息/焦點 → 是否送 `C15(empty)` → TCP 保留/Client 正常關閉 → 重新點「創角」時的第一次 C2S。錯密／停權／重名／C04 失敗對應的 **具體 status 尚無原版動態證據**，不用猜或從普通 C03 status3 複製。若原 Client 資料不足，交 `native-error-mapping-unverified` 和具體 Client 原始 TRACE 取樣步驟。
 
 原版 CT-112 負向 UI/C15、CT-113 Server 原因 Log，按 [ADR-009 規劃](../02-server-planning/expected-validation-failure-policy-20261101.md) 驗收。此工作可與 DEV-ENTRY、教學 A-012/023/026 並行；**沒有新增必缺的具名 DAT**。
+
+## 2026-11-01 真實創角後異常的新實測：S02(0)×2 → io-error，下一條 C42 是原版例外回報
+
+使用者提供三份本機 JSONL，已分析出 `2026-11-01 03:38:13 (UTC+8)` 的原始 Client C02→S02(0)→C04→S02(0)，Server 同 socket 4.313 秒後只記 `io-error`；另一條 Socket 30 秒後 C62→C42(body39) 被 Server 標 unknown 後斷線。**經相同 SHA 原版 EXE 靜態查證 C42 其實是 `CExceptionPacket`（ctor `0x5723C0`、RTTI `0x66940C`），屬 crash log 回報路徑，非 World 入口**。沒有同條連線的 S03/C10/C25/C35，也沒 Client PID/exception cause。成功建角回覆不能宣稱進地圖，不能把 io-error 當 Server 主動踢線，更不能假設 C42 是轉服。詳 [這次分析交接](../04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md)，P0 補查 A-028 final S02 callback、A-031 native World first socket、Client `Crash_as*.log`／WER；Server 修正交 DEV，分析者不修改程式。

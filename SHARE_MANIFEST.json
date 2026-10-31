@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "87afa8beeb32694f3bf303cd04c0d5706ec5f0efc346afdb6002213a6cd8ac86"
+      "sha256": "586527454b9ba65a056fe7685860c61fd3a7b80d04205e0cca0da3885c4eec72"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -201,7 +201,7 @@
     },
     {
       "path": "02-server-planning/roy123-playable-world-implementation-20261101.md",
-      "sha256": "f762f9cc9e6673623cb73d232ce5c000019cc2fa56e94626eff4a491cca366d8"
+      "sha256": "c6a7cef612e4b2fc70b28d273392d1c83f468ce53f829e85bddf15658e50c122"
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
@@ -389,11 +389,15 @@
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
-      "sha256": "94442edd6dcb2b29f8a183cfa7a2e893b4caa89503afd2d12f4a1ec4d1307da2"
+      "sha256": "b78a01fc264e1014492c3a1483f41e696b969c82c60a293296aa3ccd1a83e04d"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
       "sha256": "d5d9f67bf8039f454c6e35a48a7f1fe8f1e491c13143553d099eea3ff314d760"
+    },
+    {
+      "path": "04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md",
+      "sha256": "27f872ecc8ff43162f1ad43527176bde7822f8339f819d25011ef473a2e301c0"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -729,7 +733,7 @@
     },
     {
       "path": "05-conformance/native-playable-entry-acceptance-20261101.md",
-      "sha256": "4c58b6b23bf051812f33290d27d34b7b693b3478f7a8ca6240c9d6a044ee36ba"
+      "sha256": "ef38f2880c419fd8bfc83c792eaaebd8e3d823a1e83030fb1a2d1704b582076a"
     },
     {
       "path": "05-conformance/new-asset-validation-plan.md",
