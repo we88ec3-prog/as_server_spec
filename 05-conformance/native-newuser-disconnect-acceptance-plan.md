@@ -2,6 +2,8 @@
 
 **全部 planned / native_client_validation=not-run**；目前只規劃。原版 Asgard.exe SHA256 db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145，Server 正式改動前另行向使用者確認；合成與原版實機不可混淆。
 
+2026-10-31 進度註記：下面「原 main 無條件 Close」指歷史查核版本 `ad84f9`，不是永遠對目前 main 的判斷。唯讀核對 `b8e212e` 已有後端創角／診斷實作，原生 C02/C04/C15 adapter 仍以明確原因關閉，尚無本次原版實測。見 [RI-001 交接](../02-server-planning/runtime-feedback-handoff.md)；此註記不將任何 CT 改為 passed。
+
 ## Test matrix
 
 |#|情境|Server 合成／DB 驗收|原版 Client 驗收|

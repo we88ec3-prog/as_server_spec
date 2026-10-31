@@ -6,6 +6,12 @@
 
 本版是可繼續補完的規格基線，**不是完整遊戲協定已還原的宣告**。目前主要證據來自指定台灣版 Client 與單人原型；戰鬥、多人、經濟等缺口明確列在分析需求。原型的實作行為不得直接當成原服規則。
 
+## 本地問題與 Server 修正交接（2026-10-31）
+
+本工作負責收集本地測試問題、補分析與修正共享規格，**不修改 `as_server_roy`**。目前入口：[問題紀錄](03-analysis-requests/runtime-issues.json) → [給 Server 開發者的修正交接](02-server-planning/runtime-feedback-handoff.md) → [收件／驗收流程](00-governance/runtime-feedback-workflow.md)。使用者直接回報即可，由規格整合者整理成可實作、可驗收的契約。
+
+交接已按 `as_server_roy@b8e212e` 唯讀核對：後端創角驗證及部分診斷已有實作，原生創角 wire 仍待 A-030。舊原型的置中、獨立衣色及修改 Client 的主選單預覽分別標記，不能當成新 Server 原版驗收。以下保留的歷史進度應按所載 commit／日期閱讀；帳號入口的最新政策是 Login／NewUser／ChangePassword 獨立，不要求 C02 前先 C03。
+
 ## 從這裡開始
 
 1. [共同開發流程](00-governance/workflow.md)：需求到驗收的固定編號與交付規則。

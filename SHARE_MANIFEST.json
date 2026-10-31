@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "d9c809381482dbe3eca5d0f37bc099e5633383cf19f59a7dd78cd85f1b7a67c8"
+      "sha256": "90a1a768c3cca6695ef376bb7a53a1ec9989447395d34bf2cb6ed90b2fc6f0c7"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -77,7 +77,7 @@
     },
     {
       "path": "02-server-planning/architecture.md",
-      "sha256": "adc208a7c36fdbe17659c6207f597a4a86f362fc7fdf7e9e9fd29ba2d32f78be"
+      "sha256": "95f687a4e7eec4b4a1a43d465d06e6d489c4d164d6d7b0ce3fa3907b88f53ec8"
     },
     {
       "path": "02-server-planning/character-account-match-policy.md",
@@ -541,7 +541,7 @@
     },
     {
       "path": "05-conformance/A-014-social-test-plan.md",
-      "sha256": "36611d265386fb0e9ce62865bfed6a564ececcb2750d32c5a35dd7464c2e0f39"
+      "sha256": "919c44175516cbb7e6c14bbcafb6dc78c02d54a586f5a79ab322d214e1e1bc92"
     },
     {
       "path": "05-conformance/A-015-content-test-plan.md",
@@ -601,7 +601,7 @@
     },
     {
       "path": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
-      "sha256": "d8bc02df08b495134608321e617aa74313134a5a5e190fe430f45e12806c57b5"
+      "sha256": "e7cd6cfc608bb10c3d6f2cd39c947793eed6f8ed0f512c2884b98e2fb7010c1a"
     },
     {
       "path": "05-conformance/new-asset-validation-plan.md",
@@ -633,7 +633,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "73582e789bb3e16ac66972ce4d646e2fa83c02678c879f8223c54b9d75a6494e"
+      "sha256": "5970074d0610bcac076cffa53ec2200ec8c62595e1d887f38283910f2364b9dc"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -673,11 +673,11 @@
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
-      "sha256": "3274236f3e9d148b867bda3d282bc159247c9f9c5496c2fbbdb7d798d75aba6e"
+      "sha256": "706069fee473d93fb08142e75f7e68f8823b36abc7d6c671b88eec56d8cc2e0d"
     },
     {
       "path": "task_a/roy2/A-014-packet-index.json",
-      "sha256": "9f8bb169acc3a209dba64973a68574b85f246430fd3f0465a3179f08f0d0175b"
+      "sha256": "3703bcead91ea9fc8cd7d9cb5a45135fbc348fc2f342ba2e949c26459ecf1d43"
     },
     {
       "path": "task_a/roy2/A-015-analysis.md",
@@ -709,7 +709,7 @@
     },
     {
       "path": "task_a/roy2/A-024-analysis.md",
-      "sha256": "edf9e734f2fc084755143126f721ab60b092588d1ec1ec86bf70cb3ef84cf9d6"
+      "sha256": "b130499a0e00554f031e8d2e68085b87aad9cfa9826c561994f90c60feb39652"
     },
     {
       "path": "task_a/roy2/a004_native_probe.py",
@@ -958,6 +958,22 @@
     {
       "path": "tools/validate-phase-gates.py",
       "sha256": "74be584ced556a544b84a50da19496686bb8b43f326cb01c5ec17201b7f46ff5"
+    },
+    {
+      "path": "00-governance/runtime-feedback-workflow.md",
+      "sha256": "40950f5c4c972d9fc9492dc8e763f365e296a2882734ef7613b7acd46f673bac"
+    },
+    {
+      "path": "02-server-planning/runtime-feedback-handoff.md",
+      "sha256": "8e952464a08912e15f30237ac2b6c68be6c721b3d1d5b4bbb7e96115fdb7b39d"
+    },
+    {
+      "path": "03-analysis-requests/runtime-issues.json",
+      "sha256": "44028b56a6a17845c1fdfd4165afab7f283cf991f8aa2e52eb73fb7ab564f465"
+    },
+    {
+      "path": "04-analysis-integration/local-account-entry-observations-20261031.md",
+      "sha256": "9a88a22ca893010448b60fe5d06b317cb1bff89bf5f7d5ce13e6d8dd5c2dd56f"
     }
   ]
 }

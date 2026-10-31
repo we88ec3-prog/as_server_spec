@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-31",
+  "purpose": "Sanitized local feedback; status is scoped to the recorded runtime, not a declaration that every server version has the same defect.",
+  "spec_baseline_before_integration": "6b935906dbfa8db118aa058c73e880d6409bbf90",
+  "implementation_review": {
+    "repository": "we88ec3-prog/as_server_roy",
+    "commit": "b8e212ecc4d962b3fb68007b8204036c2ba48b6a",
+    "mode": "read-only source and documentation review; no native run in this integration"
+  },
+  "issues": [
+    {
+      "id": "RI-001",
+      "title": "原生 NewUser 提交後出現重新連線提示",
+      "priority": "P0",
+      "status": "open",
+      "runtime_scope": "as_server_roy; exact server/client build of the reported failing run is not recorded here",
+      "source": "Existing A-030 user-report intake and native-newuser-disconnect-remediation-20261031.md; no new failure was executed by this integrator.",
+      "analysis_requests": ["A-020", "A-021", "A-027", "A-028", "A-030"],
+      "conformance_tests": ["CT-103", "CT-104", "CT-105"],
+      "evidence_classification": ["user-reported", "observed-static", "implementation-reported"],
+      "current_facts": [
+        "Earlier ad84f9 review identified unconditional C02/C04 closure with no S02; this is historical source evidence, not a captured runtime trace.",
+        "At b8e212e backend creation credential/proof handling and close diagnostics are reported implemented; live C02/C04/C15 handling still explicitly closes pending A-030 evidence.",
+        "A generic reconnect popup cannot identify whether C02 was sent or which endpoint initiated closure."
+      ],
+      "unknowns": ["Current failing-run version and sanitized opcode timeline", "Native NAME/EMAIL/region mapping and compatible nonzero S02 response/retry behavior"],
+      "next_action": "Complete the missing A-030 Client evidence; hand off the validated field/error contract and use CT-103..105 for the wire adapter and native acceptance.",
+      "native_client_validation": "not-run",
+      "handoff_document": "02-server-planning/runtime-feedback-handoff.md"
+    },
+    {
+      "id": "RI-002",
+      "title": "站立與移動的角色螢幕錨點不一致",
+      "priority": "P1",
+      "status": "pending-native-validation",
+      "runtime_scope": "Historical Python prototype; current as_server_roy defect has not been demonstrated",
+      "source": "User clarified that world position is correct but the standing sprite is off center; local curated screen-centering.md, 2026-10-25.",
+      "analysis_requests": ["A-006"],
+      "conformance_tests": [],
+      "evidence_classification": ["user-reported", "observed-static"],
+      "current_facts": ["For the recorded 800x600 profile, native viewport/pane and S04 formulas give standing anchor (448,300) at offsets (9,9), versus walking (400,300). Offsets (8,9) align the derived anchors without changing world x/y.", "Historical prototype synthetic checks passed; no matching native acceptance is recorded here."],
+      "unknowns": ["Native standing/eight-direction walking acceptance on the target server build"],
+      "next_action": "Review A-006 and existing S04 contract; validate the target viewport/profile and test stationary/movement/map transitions without changing world coordinates.",
+      "native_client_validation": "not-run",
+      "handoff_document": "02-server-planning/runtime-feedback-handoff.md"
+    },
+    {
+      "id": "RI-003",
+      "title": "衣服顏色被髮色帶動",
+      "priority": "P1",
+      "status": "pending-native-validation",
+      "runtime_scope": "Historical Python prototype; current as_server_roy defect has not been demonstrated",
+      "source": "User feedback and local curated clothing-colors.md, 2026-10-25.",
+      "analysis_requests": ["A-006"],
+      "conformance_tests": [],
+      "evidence_classification": ["user-reported", "observed-static"],
+      "current_facts": ["Native S05/S33 have independent hair and clothing RGB fields; historical prototype reused the hair color for clothing.", "Native S33 normalizes RGB 000000 to ff00ff; the latter is the no-tint sentinel. Synthetic prototype validation is not native color acceptance."],
+      "unknowns": ["Target server native appearance and persistence acceptance across clothing changes, map changes and relogin"],
+      "next_action": "Keep hair and clothing tint independent in model and S05/S33 output; follow A-006 and test original color plus independent custom tint on a material with a dye layer.",
+      "native_client_validation": "not-run",
+      "handoff_document": "02-server-planning/runtime-feedback-handoff.md"
+    },
+    {
+      "id": "RI-004",
+      "title": "滑鼠移過右側及聊天按鈕時停止回應",
+      "priority": "P1",
+      "status": "historical-workaround-accepted",
+      "runtime_scope": "Historical client diagnostic copy with tooltip delay; not an unmodified-client or current roy acceptance",
+      "source": "User first associated the hang with inventory, then reported hover without clicks and accepted the delayed variant.",
+      "analysis_requests": ["A-020"],
+      "conformance_tests": [],
+      "evidence_classification": ["user-reported"],
+      "current_facts": ["User confirmed the delayed diagnostic variant worked; the first inventory-only hypothesis is insufficient.", "No evidence here proves Windows Update caused the issue."],
+      "unknowns": ["Reproduction and root cause on the original client with current runtime environment"],
+      "next_action": "If the hang recurs, record client hash, hover target, timing and process responsiveness before assigning a Server packet defect; do not apply the diagnostic patch as a production requirement.",
+      "native_client_validation": "not-run",
+      "handoff_document": "02-server-planning/runtime-feedback-handoff.md"
+    }
+  ]
+}
