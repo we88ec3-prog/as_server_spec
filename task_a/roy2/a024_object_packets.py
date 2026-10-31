@@ -55,7 +55,7 @@ def draw_objects_s07(body, *, max_records=1024):
             row["variant_u16"] = r.u16()
             flags = row["variant_flags_u32"] = r.u32()
             if flags & 0x01:
-                row["optional_rgb3"] = list(r.take(3))
+                row["optional_u8x3"] = list(r.take(3))
             if flags & 0x02:
                 row["optional_u8"] = r.u8()
             if flags & 0x10:
