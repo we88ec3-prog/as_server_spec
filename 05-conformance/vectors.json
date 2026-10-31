@@ -2801,7 +2801,12 @@
         "A-021",
         "A-027",
         "A-030"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+      ],
+      "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown"
     },
     {
       "id": "CT-104",
@@ -2836,7 +2841,12 @@
         "A-027",
         "A-028",
         "A-030"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+      ],
+      "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown"
     },
     {
       "id": "CT-105",
@@ -2874,7 +2884,12 @@
         "A-027",
         "A-028",
         "A-030"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+      ],
+      "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+      "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown"
     }
   ]
 }

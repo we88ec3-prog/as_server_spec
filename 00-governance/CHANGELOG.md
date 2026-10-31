@@ -134,3 +134,8 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 task_a/roy1 與 main 重新同步：A-029 原版改密碼研究
 
 保留 main 的 A-030 新需求、DEV 創角斷線規劃與各 CT；合入 roy1 已完成 A-029：原生 C26 三字串/登入介面 callback，S02 共用回覆但改密錯誤碼 unknown；A-029 integrated/partial、Client GUI not-run。A-030 接續研究 C02 NAME/E-MAIL 原生欄位和 S02 非零顯示，未修改 Server/DB/Client。
+
+
+## task_a/roy1 2026-10-31 — A-030 原版 C02 欄位／S02 文字提示
+
+以原始 Asgard.exe SHA-locked EXE 30 處 x86 anchor、29 個 nonzero S02 focus-selector 實證 region0/1/2/3/4 的 UI widget→writer field ordinals（NAME/E-MAIL labels 仍需原 Client GUI 比對）。S02(nonzero,text) 在 NewUser 有原生 dialog/C15/state0x1F 路徑，status1 非空合成向量可做下一步安全候選，並非原服指定錯密狀態碼。另交付 Python 15 offline synthetic unit tests，更新 A-030 requests/evidence/PKT-C02/S02/C15/C04/SCN-008/CT-103/104/105。保留 integrated/partial、implementation_ready=false、native_client_validation=not-run；不修改 Server/DB/EXE、不新增分支。

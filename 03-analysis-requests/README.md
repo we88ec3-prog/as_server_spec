@@ -105,3 +105,8 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 ## A-029（2026-10-31，roy1 完成 Client 靜態交付）
 
 原始 Asgard.exe 中 `CChangePasswordPacket` 的 C→S opcode **0x26** 已證，writer 依序發 **account / old password / new password 三個 string8**；LoginDialogPane 的第四個確認欄僅用於本地比對，取消不送 C26。共用 `S02` 原生 callback 已追至 status/UI switch，但 **改密成功與錯密的原服 status/文案尚無證據**，不能套登入/創角的 status 語意。詳見 [A029 BIN-first](A-029-roy1-native-password-change.md)、[Server 契約](../04-analysis-integration/A-029-native-password-change-contract.md) 與 [離線 probe](../tools/a029_password_change_contract.py)。A gate integrated/partial；native CT-098/099 planned/not-run，Server 邏輯與原 Client 仍未修改。
+
+
+## A-030（2026-10-31，roy1 Client I/O 靜態交付）
+
+[原件控制項與 S02 失敗回應](A-030-native-newuser-disconnect-fields.md)、[受限 Client→Server 契約](../04-analysis-integration/A-030-newuser-s02-field-contract.md)、[SHA+30 native anchor/29 status-map/15 Python tests](../tools/a030_native_newuser_contract.py)。Region0 C02 第三欄 widget0x0A；Region2/3 額外欄位 widget0x0F/0x10；region4 widget0x17/0x18；region1 extra UI/writer 差異仍存。**官方 NAME/E-MAIL 對哪個 widget 尚不可由已提供 EXE/資源確證，不能當 Server ready**。非零 S02 且非空文字可走 native dialog→C15/state0x1F（region3 + state0x1E 有顯示抑制例外）；status1 ASCII 訊息為合成候選，不是原服錯誤碼。A-030 integrated/partial，Client GUI CT-103/104/105 not-run。

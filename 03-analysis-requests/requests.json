@@ -2077,9 +2077,11 @@
       "title": "原版創角斷線切片：ID/PASSWORD/CONFIRM/NAME/E-MAIL、C02 region、S02 非零錯誤/UI 和 C15 重試",
       "method": "只補既有 A-020/A-021/A-027/A-028 的殘留缺口；BIN-first 原版 Client 控件 label/widget/callback/xref 與 region-based C02 serializer，去敏 C2S/S2C trace + 原 Client UI 重現 H0..H4；追 Email 空值是否阻止 C02、NAME 的 wire 來源、S02 非零 status 顯示/cancel/retry、成功回 Login。不得把原服 Server 帳密算法或未證 Client E2E 當成已知。",
       "deliverable": "逐區 widget/field1..4/flag 的 source→wire→label mapping（NAME/EMAIL 必填與否），獨立 NewUser 最短合法前置封包、錯誤 S02(status/message) 對焦點/顯示/是否 C15、送包及 TCP close 時點、可重試/回登入的原生客戶端演示；6 欄 handoff + 未解/需要精確資源檔名。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
+      ],
       "dependencies": [
         "A-020",
         "A-021",
@@ -2088,9 +2090,9 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "current-server-source-and-user-reported-native-popup; new-client-observation-pending",
+      "evidence_kind": "observed-static-original-exe-plus-synthetic-offline-not-native-GUI",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "implementation_ready": false,
       "analysis_scope": "Client I/O only: original NewUser UI field/region/submit, S02 failure focus/message, C15, popup and successful login navigation; Server rule and DB remain DEV scope",
@@ -2107,12 +2109,11 @@
       "client_server_boundary": "Client native UI/wire evidence only; ordinary auth failure must not imply disconnect, and original Server policy is not analysis output; no Server code or DB writes",
       "analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
       "remaining_unknowns": [
-        "Exact C02 native submitted ID/password/name/email widget and serializer field in current region, especially region1 mismatch",
-        "Whether Email field is mandatory for UI submission and absent vs blank wire representation",
-        "A-003/A-027 minimum12 first-field gate vs Admin allowed3..32 and actual selected Client region",
-        "Which nonzero S02 status/message reliably shows native Create form error and emits C15 without generic disconnected popup",
-        "Concrete Client region/seed prelogin handshake and exact point of socket close in user-reported reproduction",
-        "C15 state1f retry and C04 final success to independent login UI navigation"
+        "NAME/E-MAIL original visible text and control IDs not independently extracted; region2..4 F3/F4 likely candidates only; cannot claim true mapping",
+        "Region0 has third string only, region1 UI-writer discrepancy, actual runtime selected region not confirmed",
+        "E-MAIL blank vs filled effect on actual native Client submission not observed",
+        "S02 status1 nonempty printable message has native static modal path; actual GUI acceptance and official status meanings unknown",
+        "C15 post-error socket and retry, full login return, H0-H4 actual disconnect timestamp/trace unknown"
       ],
       "conformance": [
         "CT-103",
@@ -2126,7 +2127,32 @@
         "S02 status+string8 parser",
         "C15 zero-byte body",
         "0x1d/0x1e client transition already static proven"
-      ]
+      ],
+      "implementation_ready_scope": "C02 region-aware UI ordinal/writer fields; S02(nonzero,string8) text-dialog branch, C15(empty) + state1f, S02(0) two-stage C04; no official NAME/E-MAIL mapping or native error status semantics",
+      "analysis_contract": "04-analysis-integration/A-030-newuser-s02-field-contract.md",
+      "analysis_test": "tools/a030_native_newuser_contract.py",
+      "analysis_date": "2026-10-31",
+      "native_name_email_mapping_ready": false,
+      "native_s02_failure_gui_ready": false,
+      "offline_validation": "Original Asgard.exe SHA256 plus 30 x86 signatures, 29 focus table selector bytes, 15 synthetic tests PASS; UI E2E not-run",
+      "client_io_handoff": {
+        "trigger": "MakeInfoDialog region-dependent first/second/confirm controls and extra widget(s), confirm button and actual C02 send; local state 0x1d/0x1e S02 callback",
+        "client_sends": [
+          "PKT-C02",
+          "PKT-C04",
+          "PKT-C15"
+        ],
+        "client_receives": [
+          "PKT-S02"
+        ],
+        "client_reaction": "nonzero S02 with text (except region3+state1e display-suppression) builds text dialog and sends C15 state1f; S02(0) state1d sends C04/state1e; NAME/EMAIL labels not independently resolved",
+        "evidence": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
+        "unknowns": [
+          "NAME and E-MAIL actual UI label-to-widget IDs and per-region semantic mapping require actual GUI/control/resource evidence",
+          "E-MAIL required/optional gate unknown (no extra explicit nonempty gate in submitted slice)",
+          "S02 nonzero status original Server semantics and actual rendered UI, C15 postresponse socket behavior remain unverified"
+        ]
+      }
     }
   ]
 }
