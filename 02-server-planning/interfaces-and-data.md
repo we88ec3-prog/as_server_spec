@@ -66,3 +66,7 @@ Game Client C02 可能在 C03 之前送出；C02 region 封包布局已由 BIN �
 ## 創角 E-MAIL 單純持久保存（R-035，2026-11-01）
 
 `AccountCredential` 同一 account_id 下新增獨立 nullable `creation_email` 欄位，並非登入憑證、CharacterName 或可供 Admin/UI 使用的聯絡資料。只在本次 C02 已驗證、C04 角色建立完成的 **同一 DB transaction** 保存；第一段 C02 不寫、失敗與 C15 不寫、重送不覆寫。E-MAIL 的原生來源仍待 A-030 region/widget/封包對照，不可把 F4 假說當已證。實際 SQLite/Pg v5 migration、隱私限制和 CT-106 詳 [最新契約](newuser-email-persistence-20261101.md)。
+
+## 2026-11-01 ADR-008：成功建角直接進遊戲（覆蓋舊推定）
+
+**使用者明確確認：創角成功後不回登入畫面、不需要再手動 C03，而是由原版 Client 直接進入遊戲世界。** 本檔早期「創角後回登入」「從 LoginDialog 再認證」僅是過時假設，不再作為 Server 實作或 CT 驗收標準；後續由 A-028 的 C04 final S02 callback `0x4b206b` 與 A-031 的新角色原生 World 轉場封包研究確定安全的 post-create authorization、socket 與 Client 需要的 S2C。日後已存在角色的普通登入 C03/S03/C10 保留，與首次創角分開驗證。參閱 [ADR-008](post-create-direct-world-decision-20261101.md)。原版 GUI E2E 仍為 not-run。

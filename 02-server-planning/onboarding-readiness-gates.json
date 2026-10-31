@@ -101,7 +101,7 @@
         "CT-043",
         "CT-105"
       ],
-      "rule": "C02 S02(0) triggers C04 and state1e; C04 S02(0) goes to local UI, not automatic S03; nonzero S02 leads C15."
+      "rule": "C02 S02(0) triggers C04 and state1e; C04 S02(0) goes to local UI, not automatic S03; nonzero S02 leads C15. User confirms final C04 S02 success leads directly to World without visible LoginDialog; continuation A-028/A-031 unknown."
     },
     {
       "id": "WORLD-01",
@@ -201,7 +201,7 @@
         "CT-104",
         "CT-105"
       ],
-      "rule": "C02/C04 current Server unconditional Close diagnosed from source. To enable real native creation, trace which opcode triggers disconnect, prove region-specific ID/password/NAME/E-MAIL and Email-required gate, confirm native NewUser nonzero S02 status/message/C15 UI and post-second S02 return-to-login. No guessing, original client E2E not-run. A-030 statically recovered regional widget IDs and S02 text-modal; NAME/EMAIL required semantics and actual native GUI still unknown. RI-005 pre-submit idle and RI-001 submit failure are separate cases."
+      "rule": "C02/C04 current Server unconditional Close diagnosed from source. To enable real native creation, trace which opcode triggers disconnect, prove region-specific ID/password/NAME/E-MAIL and Email-required gate, confirm native NewUser nonzero S02 status/message/C15 UI and post-second S02 seamless direct-to-World transition. No guessing, original client E2E not-run. A-030 statically recovered regional widget IDs and S02 text-modal; NAME/EMAIL required semantics and actual native GUI still unknown. RI-005 pre-submit idle and RI-001 submit failure are separate cases."
     },
     {
       "id": "ENTRY-01",
@@ -224,13 +224,14 @@
       "analysis": [
         "A-002",
         "A-022",
-        "A-031"
+        "A-031",
+        "A-028"
       ],
       "tests": [
         "CT-107",
         "CT-108"
       ],
-      "rule": "C03 for persisted Character -> S03 -> new TCP C10; real native World first opcode/C25 body must be verified, not synthetic 01; login/World grant separate from create proof."
+      "rule": "Two independent routes: creation final S02(0) → native seamless World transfer (no manual second C03/LoginDialog), and later regular LoginDialog C03/S03/new TCP C10. Post-create World handoff requires committed owner proof and A-028/A-031 native evidence, never invented S03 or synthetic C25=01."
     },
     {
       "id": "ENTRY-03",
@@ -273,9 +274,26 @@
         "CT-108",
         "CT-109"
       ],
-      "rule": "Only original unmodified Asgard.exe can close creation-to-playable-world. Synthetic domain PASS is not native GUI PASS; basic entry not tutorial quest completion."
+      "rule": "Only original unmodified Asgard.exe can close creation-to-playable-world. Synthetic domain PASS is not native GUI PASS; basic entry not tutorial quest completion. First creation E2E must not return to LoginDialog; ordinary later C03 login is separate."
+    },
+    {
+      "id": "ENTRY-06",
+      "owner": "Server + Client research",
+      "mode": "needs-client-evidence",
+      "analysis": [
+        "A-028",
+        "A-030",
+        "A-031"
+      ],
+      "tests": [
+        "CT-105",
+        "CT-107",
+        "CT-108"
+      ],
+      "rule": "User confirmed native post-C04 success direct-to-World without visible login or manual second C03; trace 0x4b206b and client next packets, secure PostCreateEntryContext. Native E2E not-run."
     }
   ],
   "native_playable_entry_plan": "02-server-planning/native-playable-entry-roadmap-20261101.md",
-  "native_playable_entry_acceptance": "05-conformance/native-playable-entry-acceptance-20261101.md"
+  "native_playable_entry_acceptance": "05-conformance/native-playable-entry-acceptance-20261101.md",
+  "post_create_direct_world_decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md"
 }

@@ -97,3 +97,7 @@ python3 tools/a028_newuser_response.py
 ```
 
 讀 PE file section：`.text` RVA0x1000/raw0x1000、`.rdata` RVA0x1f1000/raw0x1f1000；在 `0x613690` 的原生 vtable 中 `0x5716a0` 對應空 serializer，`0x6136a4` 為 UTF-16 `./packet/ccancelnewuser.cpp`。僅附 VA/合成向量，不上傳遊戲 EXE 或使用者資料。
+
+## 2026-11-01 ADR-008：成功建角直接進遊戲（覆蓋舊推定）
+
+**使用者明確確認：創角成功後不回登入畫面、不需要再手動 C03，而是由原版 Client 直接進入遊戲世界。** 本檔早期「創角後回登入」「從 LoginDialog 再認證」僅是過時假設，不再作為 Server 實作或 CT 驗收標準；後續由 A-028 的 C04 final S02 callback `0x4b206b` 與 A-031 的新角色原生 World 轉場封包研究確定安全的 post-create authorization、socket 與 Client 需要的 S2C。日後已存在角色的普通登入 C03/S03/C10 保留，與首次創角分開驗證。參閱 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 GUI E2E 仍為 not-run。

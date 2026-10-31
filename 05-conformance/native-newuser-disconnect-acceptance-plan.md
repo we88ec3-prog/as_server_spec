@@ -43,3 +43,7 @@ spec SHA、server SHA、client SHA256、region/seed/codepage、timestamp、trace
 - CT-104 **UI labels/field order**：確定實際 region 與 seed；在原生 NewUser 先保持 ID/PASSWORD 固定，把 NAME 改動一次、E-MAIL 留白/填入合成值各一次；只記 C02 field ordinal 與**長度**，不得留 decrypted body/真正帳密/郵件。Region0 只有第3字串、Region1 第4個 UI 額外控件不一定上線；Region2/3 第3/4控制為 0x0F/0x10，Region4 為 0x17/0x18。不得把候選 F3 NAME/F4 EMAIL 寫成已確證。
 - CT-104 **可顯示錯誤的獨立試驗**：在完成 NewUser state0x1D 且 Client UI 上下文有效時，送 S02 **synthetic body** `01 10 526571756573742072656a6563746564` (status1 + ASCII `Request rejected`)；錄畫面焦點/文字顯示、後續 C15(empty)、local0x1F、TCP 是否保留。status=1 只是無專屬 focus 的靜態可達候選，**非已證原服錯密狀態**。state0x1E+region3 的 message 抑制例外另測；優先使用隔離環境。
 - CT-103/105：對照實際輸入 → 最後 native C02/C04/C15 的 opcode/frame length/timestamp，匹配 Server source-level Close origin；兩段合法 success S02(0) → C04 → final S02(0)，後續回獨立 Login UI 仍需實機證據。**合成測試通過不代表這三項 native CT 通過**。
+
+## 2026-11-01 ADR-008（覆蓋上文所有回登入假設）
+
+**原版 Client 成功 C04／第二段 S02(0) 後直接進遊戲、不返回 LoginDialog，玩家不需手動第二次 C03。** 上方舊有「成功後回登入」「手動重新登入」是過時 Server 規劃，不再做開發或 CT 出場條件；A-028 的 0x4b206b callback 無立即 S03 仍是有效靜態觀察，但後續背景授權/轉服/首 World opcode 必須由 A-028/A-031 補證，不能猜。已存在角色日後的一般 C03/S03/C10 登入不變。新正式需求見 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 Client E2E 未執行。

@@ -36,7 +36,7 @@ Native Login UI                  Native Create UI
                                           → C04 appearance (same connection/generation)
                                           → atomic Character INSERT bound account_id
                                           → S02 final UI result (not auto S03)
-                                          → player may use Login UI normally
+                                          → original Client automatically continues into World (no manual login)
 
 Native Change Password UI → native opcode UNKNOWN → account+old credential verification
    → new password+confirm → atomic credential update → old password rejected by both paths
@@ -46,14 +46,14 @@ Native Change Password UI → native opcode UNKNOWN → account+old credential v
 - Server 按 Admin Account canonical-name 查帳號（既有管理帳號 3～32 ASCII 字母數字底線，大小寫不敏感）；密碼驗證大小寫**敏感**、不截斷、不 trim、不由任何 C02 可選欄位或 UI 本地確認結果代替。返回錯誤對「帳號不存在／密碼錯」使用**相同公開訊息/狀態**，避免帳號枚舉；真 S02(status!=0) code 與 UI focus/message 意義仍需 A-027/A-028 實際核對，**禁止亂猜某個 status 然後宣稱 native 成功**。
 - 帳號被停權、角色已存在、異常字元或密碼長度不合法、並發重送、C04 缺有效 proof、別人 account、過期 proof 或不同連線必須拒絕；無 `S02(0)` 讓 Client 誤發 C04。失敗記錄 **去敏 reason**，不能透露明文、hash 或 token。
 - C04 限持同一 `CreateAuthProof` / `PendingCharacterIntent` 的 connection + generation，一帳一角（目前保守新 Server 政策）及角色名稱唯一/外觀合法；DB transaction 原子提交，C15 只取消同 session 未提交 pending，不撤銷已提交角色。
-- 本設計與原生 A-028 不衝突：**C02 的 S02(0) 不是創角完成**；C04 後 state0x1e 接另一個 S02(0) 才走 UI 完成，而不會當場自動 S03。回到登入的實際點擊/畫面仍待 A-028 native E2E。
+- 本設計與原生 A-028 不衝突：**C02 的 S02(0) 不是創角完成**；C04 後 state0x1e 接另一個 S02(0) 才走 UI 完成，而不會當場自動 S03。**使用者已確認創角成功直接進 World、不返回 LoginDialog**；0x4b206b 後續背景授權／封包仍待 A-028/A-031 原生取證，不可從 callback 沒有立即 S03 推定回登入。
 - 密碼變更後，**登入與創角**都驗新密碼；舊密碼及所有跨階段短期授權失效。有效舊角色/進度不變；若更改過程斷線須有可確定的 DB commit 結果、不因回包丟失而誤恢復舊密碼。
 - **4字密碼安全性較弱**：C03、C02 與改密碼 UI 都要 per-account+per-IP 登入/認證速率限制、通用錯誤、審計/告警和有界退避；不可只保護登入 C03。
 
 ## 3. 分析責任與驗收（皆未實機）
 
 - **A-027/A-021**：追創角 NewUser UI 第一／二輸入與 C02 每個 region 的 writer，確證管理預建 Account 名稱/密碼的原版欄位，及 S02 非零錯誤碼/錯密 UI；**不再把 C03→NewUser 自動跳轉當必須存在的前置條件**。
-- **A-028**：C02 初段成功/失敗 → C04 終局 S02(status0/非0)、C15、回登入 UI，真正原版互動與 DB status 的界線；只研究 Client 可證的顯示/封包。
+- **A-028**：C02 初段成功/失敗 → C04 終局 S02(status0/非0)、C15、成功後直接 World UI/socket/packet，真正原版互動與 DB status 的界線；只研究 Client 可證的顯示/封包。
 - **A-029（新增）**：定位遊戲**原有更改密碼 UI**及其提交、欄位驗證、封包 opcode/writer、收到的結果 parser/UI、取消/重送與 regional profile。找到後才能開始在 Server 端實作真正 native 改密碼路徑；本次**不創造自訂遊戲 opcode**，也不要求新資源檔。
 - **CT-097**：兩個入口分離、創角直接以原始帳密驗證及錯誤；**CT-098**：原版改密碼 UI 真人操作/封包/回覆；**CT-099**：改密碼成功/錯誤/並發、舊憑證失效與帳角不變；全部 `planned/native-client-validation=not-run`。
 
@@ -70,3 +70,7 @@ Native Change Password UI → native opcode UNKNOWN → account+old credential v
 **已取得原 Client 的更改密碼封包**：`PKT-C26` C2S opcode **0x26**，原 `CChangePasswordPacket` ctor `0x571a10/0x571a29`，writer `0x571ac0` 依序三個 `string8`：（1）原生 UI control8 的 Account 候選，（2）control9 舊密碼，（3）control10 新密碼。control11 再輸入新密碼只在本地確認相等，不在 wire；新舊密碼相同時也只本地提示並拒送。原生 widget 對密碼 controls9～11 設 UI length 8。所需 Client opcode **不再未知，絕不自造 opcode**。
 
 S→C 走共用 `PKT-S02` selector2→`0x4a8d60` status/UI callback，**專屬 C26 的成功、舊密碼錯、停權等 S02 status-to-UI 意義仍 unknown，原生 Client GUI 未測**。所以只開放規格的 C26 decoder/authority 設計，不能宣稱改密碼 E2E 已可正式上線；`4～8 ASCII 英數` 仍由新 Server 執行帳號 policy（本次未由原版完整驗證 4 字下限與字元集）。原 Account 同時供 C03 登入與 C02 無前置登入直接創角，原子 credential rotation / char retention / revoke 仍是 Server 設計，不能當作原版 Server 事實。本次只改 `as_server_spec`；未觸碰 Server 或管理 Web。詳 [A-029](../03-analysis-requests/A-029-roy1-native-password-change.md)、[契約](../04-analysis-integration/A-029-native-password-change-contract.md)、[CT-098/099](../05-conformance/account-password-native-change-test-plan.md)。
+
+## 2026-11-01 ADR-008 最新決策
+
+首次 NewUser C02/C04 成功**不回登入畫面、不需玩家手動再次 C03，而是直接進遊戲**；既有角色日後一般登入仍走 C03/S03/C10。此前回登入假設均由 [ADR-008](post-create-direct-world-decision-20261101.md) 覆蓋。Server 建角 commit 才能使安全的 PostCreateEntryContext 接到原版後續入世界流程；A-028/A-031 必須先證真正封包、授權/連線時機。

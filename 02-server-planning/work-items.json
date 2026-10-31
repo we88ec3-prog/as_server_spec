@@ -132,7 +132,7 @@
       "client_acceptance_owner": "DEV/CT",
       "analysis_prerequisite": "Only evidence-backed subset required for this implementation; pending native Client CT is not a prerequisite for A handoff",
       "blocked_native_scope": "C02 pre-C03 cannot grant character creation authority until A-027 proves owner binding. C04 reply and final transition require A-028.",
-      "latest_evidence_gate": "C02 S02(status0)→C04; C04 S02(status0)→local UI not S03; status!=0→empty C15/state1f; original preprovisioned owner route still blocked.",
+      "latest_evidence_gate": "C02 S02(status0)→C04; C04 S02(status0)→local UI not S03; status!=0→empty C15/state1f; original preprovisioned owner route still blocked. Latest user decision: post-C04 final S02 success directly transitions to World, not LoginDialog; A-028/A-031 next wire unresolved.",
       "client_io_flows": [
         "FLOW-NEWUSER"
       ],
@@ -184,6 +184,14 @@
         "server_snapshot": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
         "current_native_client_validation": "not-run",
         "state": "planned-not-implemented"
+      },
+      "post_create_direct_world": {
+        "source": "02-server-planning/post-create-direct-world-decision-20261101.md",
+        "user_confirmed": true,
+        "visible_login_screen": false,
+        "requires_manual_second_login": false,
+        "client_packet_path": "A-028/A-031 not proven",
+        "native_client_validation": "not-run"
       }
     },
     {
@@ -255,10 +263,18 @@
         "design_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
         "analysis_queue": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md",
         "acceptance": "05-conformance/native-playable-entry-acceptance-20261101.md",
-        "work_scope": "DEV-ENTRY-03..05: actual post-C10 native World first C2S, versioned MAP + exact C35 pair, game playable including C11/C33; no synthetic C25=01.",
+        "work_scope": "DEV-ENTRY-03..05: first post-create seamless World entry and separate ordinary C03/S03/C10 login; native C25/CRC and C11/C33 required.",
         "server_snapshot": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
         "current_native_client_validation": "not-run",
         "state": "planned-not-implemented"
+      },
+      "post_create_direct_world": {
+        "source": "02-server-planning/post-create-direct-world-decision-20261101.md",
+        "user_confirmed": true,
+        "visible_login_screen": false,
+        "requires_manual_second_login": false,
+        "client_packet_path": "A-028/A-031 not proven",
+        "native_client_validation": "not-run"
       }
     },
     {
@@ -272,7 +288,8 @@
         "A-022",
         "A-002",
         "A-031",
-        "A-032"
+        "A-032",
+        "A-028"
       ],
       "scenarios": [
         "SCN-010"
@@ -315,6 +332,14 @@
         "server_snapshot": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
         "current_native_client_validation": "not-run",
         "state": "planned-not-implemented"
+      },
+      "post_create_direct_world": {
+        "source": "02-server-planning/post-create-direct-world-decision-20261101.md",
+        "user_confirmed": true,
+        "visible_login_screen": false,
+        "requires_manual_second_login": false,
+        "client_packet_path": "A-028/A-031 not proven",
+        "native_client_validation": "not-run"
       }
     },
     {

@@ -9,10 +9,10 @@
 |SAFE-01：共用憑證服務|`CredentialVerifier` 同時服務 C03 登入、C02 創角、原版改密碼（當其 wire 已查明）。既有帳號唯一，停權/過期/credential_version 一致，4～8 ASCII 英數；C03 和 C02 必須分別認證，不拿帳號名當 owner|C03 已證；C02 第二欄雖高度符合 password，需 A-027 查 native fields|
 |SAFE-02：獨立創角會話|NewUser C02 **不要求之前有 C03 Session**；只有本次 C02 正確帳號及密碼才發 creation-only `CreateAuthProof`，它不得直接授權 World 登入或修改其他 Account|A-027 C02 UI/region 欄位及原版錯誤 S02 status|
 |SAFE-03：創角負面安全|未知/錯帳號、錯密、停權、重放、同帳號已創角，均不發會觸發 C04 的 S02 success；原版 UI 要有錯誤提示但 wire/status 先查證|A-027/A-028 原生 status/focus/message；不能猜用 S02(3) 表示錯密|
-|SAFE-04：C04 提交|同 connection/generation/proof 的 C04 才可原子建 Character；C15 取消未提交、不動別人帳號、不誤刪角色；已成功 C04 的 UI 回登入不直接 S03|A-028 相關 Client callback 部分已證，最終原生 E2E 未測|
+|SAFE-04：C04 提交|同 connection/generation/proof 的 C04 才可原子建 Character；C15 取消未提交、不動別人帳號、不誤刪角色；已成功 C04 的 UI **自動進 World、不回登入頁**；不代表該 callback 立即 S03，後續 native 待 A-028/A-031|A-028 相關 Client callback 部分已證，最終原生 E2E 未測|
 |SAFE-05：原生改密碼|由遊戲原生密碼 UI 觸發，驗舊憑證、新憑證符合 4～8、原子更新同一 hash/credential_version + 撤銷舊 grant/sessions，保留角色與進度|**A-029 P0** 原 Client UI、C2S opcode/body/S2C UI、region 鍵值 unknown；未證前不能發未知封包|
 |WIRE-01|Client NewUser 是否可自主開啟、C02 第1/2欄是否輸出帳密、錯誤如何顯示|A-027/A-021；**不再要求 C03(no character)→NewUser 自動跳轉**|
-|WIRE-02|C02 的 S02(0)→C04；C04 的 S02(0)→本地 UI，失敗 C15；原版實際回登入步驟|A-028|
+|WIRE-02|C02 的 S02(0)→C04；C04 的 S02(0)→本地 UI，失敗 C15；原版成功後直接入遊戲之 UI/socket/packet 步驟|A-028|
 |WIRE-03|改密碼 UI→C2S→S2C→成功/失敗提示|A-029|
 
 ## 出場與交付
@@ -24,3 +24,7 @@ Server 實作仍需另行批准；能先設計 Account Store 共用 CredentialVe
 ## DEV-040 Guard 更正（2026-10-31；尚未實作）
 
 實際 `CharacterCreationAccountGuard.cs` 仍拒絕 `loggedIn=null`，違反已確認的「兩個原版入口獨立」。規劃的修正不是移除授權，而是改由 `C02(account,password)` 直接透過存量 `CredentialVerifier` 認證已存在且未停權 Account，產生**限創角用 AuthProof**（不是 LoginSession/WorldGrant），後續 C04 綁同 connection/generation/credential version/TTL。未登入但正確帳密應成功；錯密即使有登入身分也必須失敗，不得只比帳號名稱。符合原版 S02 UI 的錯誤碼仍待 A-027/028，未取得證據不能擅自送 S02(0)。詳 [最新三項政策](three-policy-adjustments-20261031.md) 及 CT-100。
+
+## ADR-008：創角後自動進遊戲，覆蓋舊返回登入假設
+
+使用者已確認創角成功直接進 World；A-028 追 0x4b206b callback 後續，A-031 追自動轉場／World 首 C2S；一般日後登入 C03/S03/C10 獨立保留。未驗證實際背景封包前不能自行推送 S03。詳 [正式決策](post-create-direct-world-decision-20261101.md)。
