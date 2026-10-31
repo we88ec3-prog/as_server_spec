@@ -1293,15 +1293,15 @@
       "name": "DrawObjects",
       "system": "SYS-NPC",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u16 count; each row prefix BE u16,u16,u8,u32,u16, then type(1..14)/flags dependent variable fields; full row schema unknown",
-      "client_entry": "0x57E310 ctor;0x57E3E0 parser",
+      "layout": "BE u16 count; each row prefix BE u16 field_a,BE u16 field_b,u8 kind,BE u32 object opaque,BE u16 field_c (11B); type 1/2/4:+5xu8,BE u16,BE u32 flags (bit0:+3xu8;bit1:+u8;bit4:+BE u16),string8 CP950; type3:+5xu8,string8; type5..12:+none; type13:+string8; type14:+2xu8,BE u16. Type 1..14 jump table original VA 0x57E5D4/0x57E5E8. 0x228 is local row stride ONLY.",
+      "client_entry": "0x57E310 ctor push 0x07; 0x57E3E0 reader; variant switch 0x57E45A; jump data 0x57E5D4/0x57E5E8",
       "state_precondition": "Object projection/World map context must exist; original order unknown",
       "related_packets": [
         "PKT-S15",
         "PKT-S04",
         "PKT-S44"
       ],
-      "layout_status": "partial",
+      "layout_status": "observed-static-native-type1-14-nonempty-schema; client-display-semantics-pending",
       "evidence_kinds": [
         "observed-static"
       ],
@@ -1312,7 +1312,10 @@
         "A024-E04",
         "A024-E05",
         "A024-E06",
-        "A024-E07"
+        "A024-E07",
+        "A024-E10",
+        "A024-E11",
+        "A024-E12"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1323,12 +1326,12 @@
       "analysis_request": "A-024",
       "contract_reference": "task_a/roy2/A-024-analysis.md",
       "unknowns": [
-        "S07 type 1..14 非空 row 的完整 Client 物件建構/欄位判別、最初 NPC/怪物 type/schema 和完整登記與消失 handler 尚需逐路徑追查",
-        "A-022 原版首次新手 map_id/spawn/版本未知；Map0/1/2 共494張雖可解析，但未證原版 NPC/entity 綁定",
-        "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
-        "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
-        "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
-      ]
+        "Native object kind 1..14 classification (NPC/monster/item) and render model bindings not determined from packet alone",
+        "S07 object registry and drawable callback/native E2E not yet proven",
+        "Official tutorial NPC map/spawn policy is Server content and not Client wire evidence"
+      ],
+      "native_probe": "task_a/roy2/a024_object_native_probe.py",
+      "offline_test": "task_a/roy2/test_a024_object_packets.py"
     },
     {
       "id": "PKT-S5F",
@@ -1346,7 +1349,10 @@
         "PKT-S44",
         "PKT-S13",
         "PKT-S08",
-        "PKT-S0E"
+        "PKT-S0E",
+        "PKT-S07",
+        "PKT-S34",
+        "PKT-S3C"
       ],
       "layout_status": "partial",
       "evidence_kinds": [
@@ -1361,7 +1367,8 @@
         "A024-E06",
         "A024-E07",
         "A009-E06",
-        "A009-E08"
+        "A009-E08",
+        "A024-E10"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1379,7 +1386,8 @@
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
       ],
       "a009_contract": "task_a/roy2/A-009-analysis.md",
-      "a009_addendum": "Original S5F BE u32 object opaque; S5F DieObjects != S0E RemoveObjects; death decision/animation/revive unknown."
+      "a009_addendum": "Original S5F BE u32 object opaque; S5F DieObjects != S0E RemoveObjects; death decision/animation/revive unknown.",
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
     },
     {
       "id": "PKT-S0C",
@@ -1394,7 +1402,10 @@
       "related_packets": [
         "PKT-S15",
         "PKT-S04",
-        "PKT-S44"
+        "PKT-S44",
+        "PKT-S07",
+        "PKT-S34",
+        "PKT-S3C"
       ],
       "layout_status": "partial",
       "evidence_kinds": [
@@ -1407,7 +1418,8 @@
         "A024-E04",
         "A024-E05",
         "A024-E06",
-        "A024-E07"
+        "A024-E07",
+        "A024-E10"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1423,7 +1435,8 @@
         "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
         "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
-      ]
+      ],
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
     },
     {
       "id": "PKT-S64",
@@ -1438,7 +1451,10 @@
       "related_packets": [
         "PKT-S15",
         "PKT-S04",
-        "PKT-S44"
+        "PKT-S44",
+        "PKT-S07",
+        "PKT-S34",
+        "PKT-S3C"
       ],
       "layout_status": "partial",
       "evidence_kinds": [
@@ -1451,7 +1467,8 @@
         "A024-E04",
         "A024-E05",
         "A024-E06",
-        "A024-E07"
+        "A024-E07",
+        "A024-E10"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1467,7 +1484,8 @@
         "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
         "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
-      ]
+      ],
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
     },
     {
       "id": "PKT-S0E",
@@ -1482,7 +1500,10 @@
       "related_packets": [
         "PKT-S15",
         "PKT-S04",
-        "PKT-S44"
+        "PKT-S44",
+        "PKT-S07",
+        "PKT-S34",
+        "PKT-S3C"
       ],
       "layout_status": "partial",
       "evidence_kinds": [
@@ -1503,7 +1524,8 @@
         "A004-E05",
         "A004-E06",
         "A004-E07",
-        "A004-E08"
+        "A004-E08",
+        "A024-E10"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1523,7 +1545,8 @@
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
       ],
       "a004_ref": "task_a/roy2/A-004-analysis.md",
-      "a004_note": "Shared entity removal S0E BE u32; whether native client deletes Human and NPC via same registry is not proven."
+      "a004_note": "Shared entity removal S0E BE u32; whether native client deletes Human and NPC via same registry is not proven.",
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
     },
     {
       "id": "PKT-C13",
@@ -1874,6 +1897,211 @@
       "unknowns": [
         "Exact attacker/target meaning of opaque fields needs handler XREF",
         "Miss/crit, original damage formula and update ordering unknown"
+      ]
+    },
+    {
+      "id": "PKT-S34",
+      "direction": "S2C",
+      "opcode": "0x34",
+      "name": "ObjectInfoReply",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 subtype, BE u32 object-key candidate, u8 flags; subtype6 adds BE u16,u8,BE u32,u8,u8,u8 (10B), subtype11 flags-dependent dynamic string8/count vectors (see A-024 report; safe codec excludes 11)",
+      "client_entry": "0x5844B0 ctor push0x34; 0x584540 reader",
+      "state_precondition": "Client World/object-info event context; exact receiver callback and NPC applicability unknown",
+      "related_packets": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S0E",
+        "PKT-C43"
+      ],
+      "layout_status": "observed-static-native-fields; object-type-usage-unknown",
+      "evidence_kinds": [
+        "observed-static",
+        "synthetic-test"
+      ],
+      "evidence_ids": [
+        "A024-E13",
+        "A024-E18"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "native_probe": "task_a/roy2/a024_object_native_probe.py",
+      "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "semantics_boundary": "object information/status reply; per-kind GUI unknown",
+      "unknowns": [
+        "Client GUI/world-object callback not fully traced",
+        "Native E2E not-run; original Server NPC policies unknown"
+      ]
+    },
+    {
+      "id": "PKT-S3C",
+      "direction": "S2C",
+      "opcode": "0x3c",
+      "name": "ShowObjectInfo",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32 object-key candidate, u8,u8,u8 (7B)",
+      "client_entry": "0x586A20 ctor push0x3C; 0x586AD0 reader",
+      "state_precondition": "Client World/object-info event context; exact receiver callback and NPC applicability unknown",
+      "related_packets": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S0E",
+        "PKT-C43"
+      ],
+      "layout_status": "observed-static-native-fields; object-type-usage-unknown",
+      "evidence_kinds": [
+        "observed-static",
+        "synthetic-test"
+      ],
+      "evidence_ids": [
+        "A024-E14",
+        "A024-E18"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "native_probe": "task_a/roy2/a024_object_native_probe.py",
+      "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "semantics_boundary": "object info display candidate; not proof of NPC AI update",
+      "unknowns": [
+        "Client GUI/world-object callback not fully traced",
+        "Native E2E not-run; original Server NPC policies unknown"
+      ]
+    },
+    {
+      "id": "PKT-S62",
+      "direction": "S2C",
+      "opcode": "0x62",
+      "name": "AddAction",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8,u8,BE u16,3xu8,4xstring8 CP950,u8,BE u16,u8 (variable)",
+      "client_entry": "0x578F70 ctor push0x62; 0x579020 reader",
+      "state_precondition": "Client World/object-info event context; exact receiver callback and NPC applicability unknown",
+      "related_packets": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S0E",
+        "PKT-C43"
+      ],
+      "layout_status": "observed-static-native-fields; object-type-usage-unknown",
+      "evidence_kinds": [
+        "observed-static",
+        "synthetic-test"
+      ],
+      "evidence_ids": [
+        "A024-E15",
+        "A024-E18"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "native_probe": "task_a/roy2/a024_object_native_probe.py",
+      "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "semantics_boundary": "action state/UI candidate, not equivalent to spawn",
+      "unknowns": [
+        "Client GUI/world-object callback not fully traced",
+        "Native E2E not-run; original Server NPC policies unknown"
+      ]
+    },
+    {
+      "id": "PKT-S63",
+      "direction": "S2C",
+      "opcode": "0x63",
+      "name": "RemoveAction",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8,u8 (2B)",
+      "client_entry": "0x5858A0 ctor push0x63; 0x585950 reader",
+      "state_precondition": "Client World/object-info event context; exact receiver callback and NPC applicability unknown",
+      "related_packets": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S0E",
+        "PKT-C43"
+      ],
+      "layout_status": "observed-static-native-fields; object-type-usage-unknown",
+      "evidence_kinds": [
+        "observed-static",
+        "synthetic-test"
+      ],
+      "evidence_ids": [
+        "A024-E16",
+        "A024-E18"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "native_probe": "task_a/roy2/a024_object_native_probe.py",
+      "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "semantics_boundary": "remove action/UI, NOT remove object",
+      "unknowns": [
+        "Client GUI/world-object callback not fully traced",
+        "Native E2E not-run; original Server NPC policies unknown"
+      ]
+    },
+    {
+      "id": "PKT-S29",
+      "direction": "S2C",
+      "opcode": "0x29",
+      "name": "Effect",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32,BE u32,BE u16,BE u16,u8 (13B); some u32 fields reinterpreted client-side, no extra body",
+      "client_entry": "0x57E6A0 ctor push0x29; 0x57E750 reader",
+      "state_precondition": "Client World/object-info event context; exact receiver callback and NPC applicability unknown",
+      "related_packets": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S0E",
+        "PKT-C43"
+      ],
+      "layout_status": "observed-static-native-fields; object-type-usage-unknown",
+      "evidence_kinds": [
+        "observed-static",
+        "synthetic-test"
+      ],
+      "evidence_ids": [
+        "A024-E17",
+        "A024-E18"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "native_probe": "task_a/roy2/a024_object_native_probe.py",
+      "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "semantics_boundary": "effect candidate, NOT HP authoritative update",
+      "unknowns": [
+        "Client GUI/world-object callback not fully traced",
+        "Native E2E not-run; original Server NPC policies unknown"
       ]
     }
   ]
