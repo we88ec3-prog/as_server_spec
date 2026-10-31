@@ -111,7 +111,7 @@ class A011VisualChainTests(unittest.TestCase):
 
     def test_23_three_ui_modes_have_same_scene_ref(self):
         self.assertEqual({c43_known_three_mode_ui_request(2,n)[1:5] for n in range(3)},
-                         {b"\\x00\\x00\\x00\\x02"})
+                         {bytes.fromhex("00000002")})
 
 
 if __name__ == "__main__":
