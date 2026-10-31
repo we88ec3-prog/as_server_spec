@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "f3c3d28a05e923e95897c63052e3cea13c416b82edb68d59b9c0d91b32e15828"
+      "sha256": "f03daab3391e69ba7b7da81c4e638600780a7eda12d30257b3a621abd2cc4fb5"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -325,7 +325,15 @@
     },
     {
       "path": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
-      "sha256": "f6369460b5d7221f158f991a4e0cd3c16a1a6f1a39122fe48ddd2c43d55e96a8"
+      "sha256": "ba0db152f0994f4a5e412f475f7672be52e9a2af641e6efbbbf398c1e3240d3f"
+    },
+    {
+      "path": "03-analysis-requests/A-030-roy1-email-c02-field.md",
+      "sha256": "b4283414dedceb1b160373178445a1df35347d570fcef9bb8840dc23c9013efc"
+    },
+    {
+      "path": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
+      "sha256": "e5fc1865d8d5c2b86d0f2b7780db37056ab64ab7f96f9a2fa11c2c36922b15e1"
     },
     {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
@@ -349,7 +357,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "cd0332f327824beababde52223fc9e07c0ec4c987cec065cde94cec729f837b8"
+      "sha256": "67483a4416198895b8f5c12d5b342fc782be87b0a851b2bb9c66f57759198541"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -357,7 +365,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "840c2c54b6f6eb049a67949ec76b7915f5d36c01a1bdc09a2a72ef7300953b2b"
+      "sha256": "dcb202226c5a4638350846a49df6105a64eec092948e5cd2f7188307fa0cf504"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
@@ -453,7 +461,7 @@
     },
     {
       "path": "04-analysis-integration/A-030-newuser-s02-field-contract.md",
-      "sha256": "9e6a06a887f40b0de0cf1dd25d10ac59f645c06ad386bddeb22c0ae1daf46127"
+      "sha256": "66491325e4ccb11d12fc3e7712e75f6bf5fe72940165a8ae0542c6fb6de17eeb"
     },
     {
       "path": "04-analysis-integration/A015-A016-A027-A028-validation.md",
@@ -485,7 +493,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "efd3cac042b76c2409979c3540c617f1d9453267870e04e057967fe3b60fcd0b"
+      "sha256": "bb5ed6f061d1b40b141dd9d1cec6aa1e00c39b283ba04c6c3508d85d032935c1"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -517,7 +525,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "45b09b74575966fe7759899f6e26546a2d8cccec47b66c92ad763dc6d9ee9254"
+      "sha256": "f90853e8bdea0bc287fd3da4aa5a6e47e8a96887c057753debbc736925cca7c5"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -545,7 +553,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "fbf75246c482471d81363d8dd03fc65e5c755d00ccc5c235ad38b3a5c324f369"
+      "sha256": "9c8e4875d5871ab27831e7fb30d541bbd537cf7a82eb9d86b12f12410e75b6cd"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -653,7 +661,7 @@
     },
     {
       "path": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
-      "sha256": "96ba8cf757e4476024255a15e7b7a69f385e4652815f80d57f48f09ad95e428f"
+      "sha256": "cc81e66abf05b9fceeef6101c824b950dc21f236c50cbcf127985d157e99d089"
     },
     {
       "path": "05-conformance/native-playable-entry-acceptance-20261101.md",
@@ -689,7 +697,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "9a21aeb4fd657c45d6ba4c6fdb7d0c6d1291373ba7af2149d46d71afc082fc05"
+      "sha256": "51127d17d8bddc097f4b87dfa65ee4172c53ef4132d8cd0926206cba8a1481d5"
     },
     {
       "path": "README.md",
@@ -1013,7 +1021,7 @@
     },
     {
       "path": "tools/a030_native_newuser_contract.py",
-      "sha256": "618a5df40e5f96e3d5512cb398d4c23d99adc7fa07bbdf26379ca538d08571e6"
+      "sha256": "e9b8a33342c6ff6dc558e78d5077b8bce8e5ce7351139dcda8696d170e8be0f4"
     },
     {
       "path": "tools/test_a015_content_probe.py",
