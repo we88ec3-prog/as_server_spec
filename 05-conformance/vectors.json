@@ -2346,6 +2346,59 @@
       "evidence_kind": "designed-future-test",
       "analysis_request": "A-015",
       "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-089",
+      "status": "planned",
+      "level": "original-native-static-CastSpell-and-LastingSpell-codec",
+      "requirements": [
+        "R-011"
+      ],
+      "packet_ids": [
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-S52",
+        "PKT-S48",
+        "PKT-S2C",
+        "PKT-S2D"
+      ],
+      "input": {
+        "kind": "same-SHA-original-Asgard-exe-static-plus-synthetic",
+        "reference": "05-conformance/A-010-skill-cast-lifecycle-test-plan.md"
+      },
+      "expected": "SHA-locked original 25 VA instruction patterns, 6 packet RTTI; C4D BEu16 actual producer [ebx+0x80E], C56 u8; S52 BEu32/u8, S48 BEu32, S2C BEu32/u8/BEu16/u8/string8/u8/BEu32/BEu32, S2D BEu32; fail-closed truncation, dynamic string8 and opaqueness preserved. Native GUI not-run.",
+      "evidence_kind": "observed-static-original-client+synthetic-test",
+      "original_probe": "task_a/roy2/a010_native_probe.py",
+      "offline_test": "task_a/roy2/test_a010_skill_codec.py",
+      "analysis_request": "A-010",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-090",
+      "status": "planned",
+      "level": "native-original-client-spell-select-cast-cancel-lasting-effect-and-expiry",
+      "requirements": [
+        "R-011"
+      ],
+      "packet_ids": [
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-S52",
+        "PKT-S48",
+        "PKT-S2C",
+        "PKT-S2D",
+        "PKT-S08",
+        "PKT-S13",
+        "PKT-S07"
+      ],
+      "input": {
+        "kind": "native-original-client-and-game-resource-or-legal-traffic-trace",
+        "reference": "05-conformance/A-010-skill-cast-lifecycle-test-plan.md"
+      },
+      "expected": "Demonstrate actual UI skill selection, real C56 producer, opcode sequence, cancellation/failed cast, lasting effect add/update/removal/expiry and exact display; verify single-target/AOE/heal/buff/summon categories only with original skill identities. Original costs/cooldown/server rules unknown.",
+      "evidence_kind": "designed-native-client-test-not-yet-run",
+      "analysis_request": "A-010",
+      "native_client_validation": "not-run"
     }
   ]
 }
