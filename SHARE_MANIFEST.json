@@ -57,7 +57,7 @@
     },
     {
       "path": "01-server-requirements/first-login-onboarding.md",
-      "sha256": "7149550deb2cf398bde0b083709e50fe9df20d8e35c647beb7976d0041e3679c"
+      "sha256": "c3ef1c501a1e4c0f085ae690c4148b9dd04231315ee59f420d2522003561925e"
     },
     {
       "path": "01-server-requirements/README.md",
@@ -105,7 +105,7 @@
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
-      "sha256": "4e041cfecf89d27ae6ad465b13bffbfa5960dd80d8eca7aa038203b608f519ec"
+      "sha256": "ef9092db03274c1560c9d78abd6de9a2ef181c12bf3eaec98440054bbd475f0e"
     },
     {
       "path": "02-server-planning/idle-disconnect-observability.md",
@@ -113,7 +113,7 @@
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
-      "sha256": "6c1167e6d9f1bc4d3b532c2d3c9a4c6df6432d96cba3531c83355e2d5b76453d"
+      "sha256": "4ac1d1c716df0a0f3af23db3c770166a9dcd90fde590f1b50fec9aa01372c3c5"
     },
     {
       "path": "02-server-planning/map-geometry-evidence.json",
@@ -133,7 +133,7 @@
     },
     {
       "path": "02-server-planning/native-creation-next-iteration.md",
-      "sha256": "59108a829c8129c5f248762b03f9236e86b2449afe94344b071e0f4ddedfbb89"
+      "sha256": "9c03d75959401805834796da13dd30268317da06cb9c58ecc6f6a81ba09f2136"
     },
     {
       "path": "02-server-planning/native-game-password-4to8-policy.md",
@@ -145,7 +145,7 @@
     },
     {
       "path": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
-      "sha256": "8731f02a37141da693dc2422c306679be1409ee65c4f9781c2dc5f32db813256"
+      "sha256": "262d7ae0957971fec8854904110e4342e672d0a8663cc0440332fce63a84002c"
     },
     {
       "path": "02-server-planning/native-playable-entry-roadmap-20261101.md",
@@ -169,7 +169,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "3924b70258f223aa72cbe0db0951626b2c54e1ed0f33f3b10e17b824871206bb"
+      "sha256": "3ed89a1d7b02549112764e4e71f6b8885b7be1925850452620f27ff7e4ccf5d2"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
@@ -185,11 +185,11 @@
     },
     {
       "path": "02-server-planning/roadmap.md",
-      "sha256": "df11b0ec75acdafd79beea5176112d1f3d03c41b5326b6fd76b99aaeb9452315"
+      "sha256": "fd02f6410458c809301771104d81a0c8e281853d3d0a31eef9852e6c3f2e4e14"
     },
     {
       "path": "02-server-planning/roy1-roy2-new-evidence-dev-plan-20261031.md",
-      "sha256": "90030a1af65b11d3e8c382e28d3a76eee86c05926138b19a271867b0665c3eca"
+      "sha256": "044e58ec6e30dd0a65e5fcc8f64f85a9fb34b02a447c6270b478fc4a7dc87c12"
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
@@ -221,7 +221,7 @@
     },
     {
       "path": "02-server-planning/three-native-account-entry-policy.md",
-      "sha256": "a27d7481b433ace2dad7dd292f77608154cb70e2cdce24fbe3282365f5e377e7"
+      "sha256": "d09418927dcf52ab23957ca890ea49965e62880fd8fcfe3e82a33c5ff19966de"
     },
     {
       "path": "02-server-planning/three-policy-adjustments-20261031.md",
@@ -449,7 +449,7 @@
     },
     {
       "path": "04-analysis-integration/A-028-newuser-terminal-contract.md",
-      "sha256": "6e1e71e357173c93dded6be4642b451d3951fdf1c104696957acf87c90f771d8"
+      "sha256": "b899fa6968e1d6687b43a01f240485b60573556f13353d5365b4d63e0893721c"
     },
     {
       "path": "04-analysis-integration/A-029-native-password-change-contract.md",
@@ -457,7 +457,7 @@
     },
     {
       "path": "04-analysis-integration/A-030-newuser-s02-field-contract.md",
-      "sha256": "9e6a06a887f40b0de0cf1dd25d10ac59f645c06ad386bddeb22c0ae1daf46127"
+      "sha256": "38eb64a0d1daad55aead57c7e06b63a82316cb4d399c7966dba886956836c8a3"
     },
     {
       "path": "04-analysis-integration/A015-A016-A027-A028-validation.md",
@@ -657,7 +657,7 @@
     },
     {
       "path": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
-      "sha256": "96ba8cf757e4476024255a15e7b7a69f385e4652815f80d57f48f09ad95e428f"
+      "sha256": "d02119c465e7646deee52c4174ddaf508e3b55ce47d69e62329486a24e893d09"
     },
     {
       "path": "05-conformance/native-playable-entry-acceptance-20261101.md",
