@@ -72,6 +72,10 @@
       "sha256": "adc208a7c36fdbe17659c6207f597a4a86f362fc7fdf7e9e9fd29ba2d32f78be"
     },
     {
+      "path": "02-server-planning/character-account-match-policy.md",
+      "sha256": "37723dc0e41fa69a6dd55c734390d8fcad3a57b9d53fd789495a383bb6c1c97b"
+    },
+    {
       "path": "02-server-planning/client-io-delivery-plan.md",
       "sha256": "5375895ad5d001f9af16a24c04704ca11f6a1d4678b6fae0ff37deac567ba99b"
     },

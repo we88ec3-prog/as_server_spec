@@ -12,3 +12,7 @@
 每項 CT 的 status 仍以 `05-conformance/vectors.json` 為唯一來源；此計畫**沒有執行任何 CT**，也不以單元測試假冒原 Client 通過。
 
 **Bug triage**：原 Client 操作/收發不合預期→補 A Client I/O；Server 的權威判定/持久化/錯誤狀態→DEV；原 Client 與新 Server 可互操作→CT passed（需真 Client 步驟/證據）。保留先前已證的靜態子集。
+
+## 暫行創角帳號不一致拒絕（R-025/026；CT-041/044/053）
+
+建立已驗證登入 A 的 fixture，送創角帳號 B；預期沒有 PendingCharacterIntent/Character/WorldGrant，也不能送引發 C04 的 S02(0)。無登入而傳 A 一律拒絕；A/a 的差異依現有 ASCII 帳號大小寫不敏感一致規則，只通過名稱 gate，仍需其他驗證。真正的 C02 第一欄帳號語意及 C03→NewUser 入口未證實，**Client 原生測試保持 not-run**。
