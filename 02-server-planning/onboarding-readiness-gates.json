@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-31",
+  "unmodified_client_required": true,
+  "native_client_validation": "not-run",
+  "gates": [
+    {
+      "id": "SAFE-01",
+      "owner": "Server",
+      "mode": "develop-now",
+      "analysis": [
+        "A-002",
+        "A-027"
+      ],
+      "tests": [
+        "CT-041"
+      ],
+      "rule": "AuthContext requires validated C03 credentials; bind account_id and session_generation; no owner from Client strings."
+    },
+    {
+      "id": "SAFE-02",
+      "owner": "Server",
+      "mode": "develop-now",
+      "analysis": [
+        "A-003",
+        "A-021",
+        "A-027"
+      ],
+      "tests": [
+        "CT-052"
+      ],
+      "rule": "Decode C02 region variants but do not assume its field1 is authenticated account name."
+    },
+    {
+      "id": "SAFE-03",
+      "owner": "Server",
+      "mode": "develop-now",
+      "analysis": [
+        "A-027"
+      ],
+      "tests": [
+        "CT-041",
+        "CT-053"
+      ],
+      "rule": "Create input account name != authenticated login (case-insensitive ASCII canonical) -> deny with no S02(0), draft, Character or Grant; unauthenticated always deny."
+    },
+    {
+      "id": "SAFE-04",
+      "owner": "Server",
+      "mode": "develop-now",
+      "analysis": [
+        "A-016",
+        "A-028"
+      ],
+      "tests": [
+        "CT-044",
+        "CT-053"
+      ],
+      "rule": "Owner+generation pending; C04 atomic one-time commit; C15 only cancels uncommitted draft."
+    },
+    {
+      "id": "WIRE-01",
+      "owner": "Client research",
+      "mode": "needs-client-evidence",
+      "analysis": [
+        "A-027",
+        "A-021"
+      ],
+      "tests": [
+        "CT-054"
+      ],
+      "rule": "Prove native authenticated C03 no-character -> NewUser UI (or another authenticated native route) and actual C02 account field. Native C02/C04 remain fail-closed."
+    },
+    {
+      "id": "WIRE-02",
+      "owner": "Client research",
+      "mode": "partial-client-evidence",
+      "analysis": [
+        "A-028"
+      ],
+      "tests": [
+        "CT-032",
+        "CT-043"
+      ],
+      "rule": "C02 S02(0) triggers C04 and state1e; C04 S02(0) goes to local UI, not automatic S03; nonzero S02 leads C15."
+    },
+    {
+      "id": "WORLD-01",
+      "owner": "Server + Client research",
+      "mode": "develop-now",
+      "analysis": [
+        "A-002",
+        "A-015",
+        "A-022"
+      ],
+      "tests": [
+        "CT-039",
+        "CT-040"
+      ],
+      "rule": "Server selects valid map/spawn; Client must accept S15/S14/C35/S04/S33; no invented native C25."
+    },
+    {
+      "id": "SCRIPT-01",
+      "owner": "Server",
+      "mode": "develop-now",
+      "analysis": [
+        "A-023",
+        "A-012"
+      ],
+      "tests": [
+        "CT-033",
+        "CT-034"
+      ],
+      "rule": "S44/C6C Script lifecycle; Server decides first dispatch and quest rules, close is not completion."
+    }
+  ]
+}

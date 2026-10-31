@@ -104,8 +104,16 @@
       "sha256": "147ff541406de192390e91355a138c2405f0120c84aff9820e24740c216188e3"
     },
     {
+      "path": "02-server-planning/native-creation-next-iteration.md",
+      "sha256": "fad6dec8e96333e33d9cbac7c509b3ff60d7a6e9edd702b50ae27063af14033f"
+    },
+    {
       "path": "02-server-planning/onboarding-delivery-board.md",
       "sha256": "085c888f613e3f8e65c8db58243b74e214bd5b03031b2f740b958934e208f663"
+    },
+    {
+      "path": "02-server-planning/onboarding-readiness-gates.json",
+      "sha256": "cc88481500667f3e431a1c78b031581d730feb39159c944526c31cf17c952c40"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -184,6 +192,10 @@
       "sha256": "8e3af1c4e2791bbeb72b01d806c2bff50b86d25d752dcc7d639bf32a72e4fdab"
     },
     {
+      "path": "03-analysis-requests/next-client-io-evidence.md",
+      "sha256": "9ece101b63d3521ff52a26258588cf3c9154e83d597203367db34bd745740a77"
+    },
+    {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
       "sha256": "0555bacea93f0df7f36256e0bf9be4e356bcdf871191a87e2f7769a131e07bec"
     },
@@ -197,7 +209,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "6814f97db554f319d025feec11428b25672ded50d05d69755c45b9107c96b049"
+      "sha256": "8f46b2e2103e924ba5ea4afaa7898dfd31e90467270d551c70f71ab4b24bde6e"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -342,6 +354,10 @@
     {
       "path": "05-conformance/implementer-guide.md",
       "sha256": "82672a871be350d4da3e1c870a1c2eeb801b9d23a86b0747ca1c3f631556ebbf"
+    },
+    {
+      "path": "05-conformance/native-creation-gate-test-plan.md",
+      "sha256": "0a3d9d15b81d2f061b9ff151968044eece35d71d177543d2c2d359e98fca9879"
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",

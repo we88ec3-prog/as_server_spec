@@ -752,7 +752,8 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
     },
     {
       "id": "A-021",
@@ -824,8 +825,8 @@
       ],
       "priority": "P0",
       "title": "原生首次新手教學地圖、出生點與載入恢復",
-      "method": "新角色首次進圖追 C25/S15/S14/C35/S04 與原始地圖資源；確認真實教學 map ID、出生座標、朝向、首次判定、CRC/逾時/斷線與進度旗標。",
-      "deliverable": "A 交付：原始 Client/資源/BIN 證據支援的教學 map/出生設定（查無即明列 unknown）、C25/S15/C35 預期語意、CRC/失敗/重登已知矩陣及 CT-018 執行方案；完整新 Server 上的原生教學入圖由 DEV/CT 驗證，不是 A-022 先決條件。",
+      "method": "分析原始 Client 接 S15/S14/S04/S33 如何選 MAP、回 C35、呈現位置及失敗/重送；不要求推論原服固定出生點。",
+      "deliverable": "MAP map_ref/雙 u16 校驗/ Client 顯示與 C25 真實觸發/格式（若可查），原件/VA/必要封包逐欄證據。",
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
@@ -874,7 +875,8 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
     },
     {
       "id": "A-023",
@@ -1007,7 +1009,8 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
     },
     {
       "id": "A-025",
@@ -1105,8 +1108,8 @@
       ],
       "priority": "P0",
       "title": "C02 預先建帳身份／憑證與原版空角創角入口（安全阻塞）",
-      "method": "BIN-first 追 C02 每個 string8 的來源與用途、server 如何在 C03 之前驗證 pre-provisioned Account、是否使用 token/password/session 或其他授權關聯、無角色帳號的原版 UI 到達創角的條件。以 Client 原生 parser/serializer/UI handler 與資料來源證明，任何推測皆 unknown，不得讓 C02 直接認領或建立 Account。",
-      "deliverable": "可追溯 BIN/資源證據，C02 各欄位原語意、帳號身份/憑證證明時機、冒用／同名／非法登入失敗分支、合法轉入 C04 的前置條件及封包/狀態矩陣。未能證實時明確宣布預建帳號的原生創角路由 blocked；不要求先完成新 Server 或 CT 實機。",
+      "method": "BIN-first 追 C03 成功無角帳號→MakeInfoDialog/NewUser 是否有原生 Client callback/畫面操作路徑，並核對 C02 第一欄 UI 標籤/來源。不要把原服 Account DB/授權算法當研究目標。",
+      "deliverable": "提供 C03→NewUser 的 Client xref/畫面/封包時序或已查範圍的反證，field1 帳號語意、各錯誤/UI 分支及 CT-054 操作重現。無原服 Server 證據保持 unknown。",
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
@@ -1150,7 +1153,8 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
     },
     {
       "id": "A-028",
@@ -1162,8 +1166,8 @@
       ],
       "priority": "P0",
       "title": "C04 後 S02 回覆、角色提交與轉服／重登終局",
-      "method": "由 MakeInfoDialog C02(status0)→C04 與 UI state 0x1e 追全部後續 S02/其他回覆 parser、角色建立成功/拒絕/取消、關閉視窗、重登或 transfer to World 的轉場。不可由 0x1d 收到 status0 推定 C04 已建角成功。",
-      "deliverable": "BIN/原資源證據、0x1e 後狀態機、Client response handler、字段/失敗碼/轉場、Server 角色原子提交的回覆時機、可執行 CT-031/CT-032 測試腳本；未知保持 partial，不要求先以新 Server 實機通過。",
+      "method": "Client state0x1d/0x1e 的 S02→C04/C15 已知；補查 0x4B206B 成功 UI 後按鈕、返回登入與下一封包，不要求推論原服 DB commit。",
+      "deliverable": "C04→S02 成功/失敗後的 Client callback/UI 與實際下一步，已知 status 分支和未知文字語意清楚分級。",
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
@@ -1205,7 +1209,8 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
     }
   ]
 }
