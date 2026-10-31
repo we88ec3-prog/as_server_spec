@@ -5,7 +5,7 @@
   "files": [
     {
       "path": ".github/workflows/validate-phase-gates.yml",
-      "sha256": "7295a721cb05a97e2345194d0852a92c54d7b55035d77de23dfac492c0f66113"
+      "sha256": "b8eac2827364979ffbe53e41964df7e06880501dd8ec286b96bec8d01b17a23b"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "71f0a2ff1ea595fc74e0eb31d7329f1e6992a05c0a86455407d1169540288a24"
+      "sha256": "18d1157e8305598fbf186e1c11b0fc28a72cae0421c6e709ca9be7f5564433eb"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -49,7 +49,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "16505c8d0be57b169f59688861837a5b54447aaabd489c89fb6e18c450116ff7"
+      "sha256": "71aa923c9674433ee44a267d659edb34d9ee289541063ede73014ef0950ba100"
     },
     {
       "path": "00-governance/workflow.md",
@@ -65,7 +65,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "99e16de3bca01087c08d53639181d99a954154c11390b6a5c36948b0376f8b8b"
+      "sha256": "39b3b1d83886fba37509d6175f01546305e0a5ef5accc341045338da062ccbd5"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -93,7 +93,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "cffc03e1e63c44f237b0db42c3e28fd9d846c69b799689ce8f83782a04c33523"
+      "sha256": "9d2f63aa6ead83b503b971ea1a14c7175954a53197c1f9e9196836ee4611a2f7"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -149,7 +149,7 @@
     },
     {
       "path": "02-server-planning/native-playable-entry-roadmap-20261101.md",
-      "sha256": "8f1d64c313e3bd319858290fd310aad4ec0fa2e538ad449a90ff90f8e85bea41"
+      "sha256": "6927e3c87fa07950ccfc4710b2cbb25ccb791b51619399d53b768b78ffc86efd"
     },
     {
       "path": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
@@ -169,15 +169,15 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "3ed89a1d7b02549112764e4e71f6b8885b7be1925850452620f27ff7e4ccf5d2"
+      "sha256": "b77b7385b02c5768ebd67a2df048e8237e892680a417a91913e8a47b8c3d1870"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
-      "sha256": "0e63ceb70ffee2934c0110948d026f1be629229d1f11991bc2306c3bbe10ddbb"
+      "sha256": "581241d2ad6355178abba64611cf0243476343811f89eec9065ff321a7f176b7"
     },
     {
       "path": "02-server-planning/post-create-direct-world-decision-20261101.md",
-      "sha256": "ccb4256e043cc455b5e65df5efaffa1acbe0e77f9b73d985c718bdae2e769736"
+      "sha256": "2dbb5b7bdd0a0c701db90413bb990764eaccb191db25e5e5ffcde19e8dbc85cd"
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
@@ -190,6 +190,10 @@
     {
       "path": "02-server-planning/roy1-roy2-new-evidence-dev-plan-20261031.md",
       "sha256": "044e58ec6e30dd0a65e5fcc8f64f85a9fb34b02a447c6270b478fc4a7dc87c12"
+    },
+    {
+      "path": "02-server-planning/roy123-playable-world-implementation-20261101.md",
+      "sha256": "cddd9fa04cbe9081da3d2c9891001b7587e48b6e158ea466ed523eaabe78777e"
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
@@ -237,7 +241,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "9a61d14b442b94c72fca4fdddd4f61303beaa31581a67d36213e14bcb35c4e07"
+      "sha256": "c233020f910a58e5de2dd70417904f8fa540892696d2a2a5a96752d050b53093"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
