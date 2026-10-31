@@ -2295,6 +2295,151 @@
       "legacy_source_ct_id": "CT-068",
       "merge_source_branch": "task_a/roy2",
       "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+    },
+    {
+      "id": "CT-087",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "economy-native-static-and-synthetic",
+      "analysis_report": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "packet_ids": [
+        "PKT-C17",
+        "PKT-S6E",
+        "PKT-C39",
+        "PKT-S2F",
+        "PKT-C4A",
+        "PKT-S42"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "input": {
+        "kind": "native-exe-static-and-synthetic",
+        "reference": "tools/a013_economy_contract.py",
+        "cases": [
+          "EXE SHA and 18 original x86 byte anchors / 6 RTTI classes",
+          "C4A subtype0..5, C39 common prefix, C17 special types0/3/128/130 and negative malformed/overflows",
+          "Server-only SQLite ledger replay/collision, insufficient balance, overflow, no pre-confirm mutation"
+        ]
+      },
+      "expected": "Offline bytes + synthetic tests PASS; never claim native Server trade policy, original Client runtime or official price limits"
+    },
+    {
+      "id": "CT-088",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "economy-merchant-exchange-original-client",
+      "analysis_report": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "packet_ids": [
+        "PKT-C39",
+        "PKT-S2F",
+        "PKT-C4A",
+        "PKT-S42",
+        "PKT-S0F",
+        "PKT-S10"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "input": {
+        "kind": "two-way-native-client-e2e-plan",
+        "cases": [
+          "Open Merchant UI, click item, buy/sell, request discount/invalid gold and capture bidirectional framed packets/UI outcomes",
+          "Open ExchangeDialog and verify whether storage/vault is really implemented; deposit/withdraw and close/denial paths",
+          "Record visual item-stack and balance before/after with native S0F/S10 as needed"
+        ]
+      },
+      "expected": "Exact on-click subtype and S42/S2F response→GUI action, currency displayed/max and fail/cancel proven; until then unknown"
+    },
+    {
+      "id": "CT-089",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "economy-trade-two-client-recovery",
+      "analysis_report": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "packet_ids": [
+        "PKT-C17",
+        "PKT-S6E",
+        "PKT-S0F",
+        "PKT-S10"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "input": {
+        "kind": "two-native-client-e2e-plan",
+        "cases": [
+          "Two clients offer item and money, edit offer after ready, accept/decline/close",
+          "One party disconnects before both confirm; reconnect, retry same packet; verify no duplicated assets",
+          "Boundary tests item owner, wrong slot, stacked quantity, money overflow, expired interaction and moved map"
+        ]
+      },
+      "expected": "Map each native C17 type to UI triggers and S6E type to response, plus authoritative once-only settlement; no original Client E2E yet"
+    },
+    {
+      "id": "CT-090",
+      "status": "planned",
+      "level": "original-Asgard-MAP-raw-to-client-tile-coordinate-offline",
+      "requirements": [
+        "R-016"
+      ],
+      "packet_ids": [
+        "PKT-C35",
+        "PKT-S15",
+        "PKT-S14"
+      ],
+      "input": {
+        "kind": "original-client-and-original-MAP-plus-synthetic",
+        "reference": "05-conformance/A-015-map-coordinate-test-plan.md"
+      },
+      "expected": "SHA-locked PE 26 native VA patterns; original Map0/1/2 494 MAP and 7,701,805 tiles; raw 10B tile→Client memory17B row-major accessor; x/y bounds; bit0/bit4 distinct, auxiliary u32 grid, 48x32 candidate viewport; 18 synthetic negative/positive parser tests; keep walkability unverified.",
+      "evidence_kind": "observed-static-PE+original-MAP-corpus+synthetic-test",
+      "offline_subset_result": "PASS original EXE 26 SHA-locked VA byte signatures and all 494 original MAP/7,701,805 tiles; GitHub Actions run 41188097214 PASS with 18 synthetic MAP coordinate tests, 19+7 A024 and 16 A011 tests, phase gates successful; native Client CT-091 NOT RUN.",
+      "original_probe": "task_a/roy2/a015_map_native_probe.py",
+      "offline_probe": "task_a/roy2/a015_map_coordinate.py",
+      "offline_test": "task_a/roy2/test_a015_map_coordinate.py",
+      "analysis_request": "A-015",
+      "native_client_validation": "not-run",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41188097214",
+      "origin_branch_ct": "CT-087"
+    },
+    {
+      "id": "CT-091",
+      "status": "planned",
+      "level": "original-native-client-player-walkability-and-spawn-coordinate",
+      "requirements": [
+        "R-016",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C33",
+        "PKT-S0B",
+        "PKT-C35",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "native-original-client-map-and-move-packet-trace-required",
+        "reference": "05-conformance/A-015-map-coordinate-test-plan.md"
+      },
+      "expected": "On one version-verified original MAP, link actual move/collision/rollback to raw flags 0/1/16/17/512, auxiliary grid, pixel 48x32 candidate, true character feet coordinates, S0B correction and legal spawn. Do not infer original Server policy or exact passability from bounds.",
+      "evidence_kind": "designed-future-test",
+      "analysis_request": "A-015",
+      "native_client_validation": "not-run",
+      "origin_branch_ct": "CT-088"
     }
   ]
 }

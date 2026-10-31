@@ -720,6 +720,35 @@
         "S0F/S37 variable payload truncation"
       ],
       "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+    },
+    {
+      "id": "SCN-016",
+      "system": "SYS-ECONOMY",
+      "title": "Merchant/Exchange/trade Client packet paths and safe settlement",
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "analysis_requests": [
+        "A-013"
+      ],
+      "packet_ids": [
+        "PKT-C4A",
+        "PKT-S42",
+        "PKT-C39",
+        "PKT-S2F",
+        "PKT-C17",
+        "PKT-S6E"
+      ],
+      "status": "analysis-required",
+      "native_client_validation": "not-run",
+      "observed": "Original Client reader/writer shapes partially known, no end-to-end UI or real Server economy observed",
+      "designed": "Authoritative pricing, double confirmation with offer revision, atomic double-entry transfer, no negative/overflow, idempotency on reconnect",
+      "unknowns": [
+        "Vault/Exchange actual identity",
+        "Client accept/cancel exact type and handler",
+        "Original trade rollback vs success/death/disconnect outcomes"
+      ]
     }
   ]
 }

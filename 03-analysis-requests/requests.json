@@ -643,7 +643,8 @@
         "A011-E05",
         "A011-E06",
         "A011-E07",
-        "A011-E08"
+        "A011-E08",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -717,7 +718,13 @@
       "static_validation_ci": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751",
       "source_commit": "5c99fd334451624cb4d08d4a065e6f7cd838ab18",
       "analysis_report": "task_a/roy2/A-011-analysis.md",
-      "next_client_io_handoff": "03-analysis-requests/post-merge-analysis-queue.md"
+      "next_client_io_handoff": "03-analysis-requests/post-merge-analysis-queue.md",
+      "roy1_additional_analysis_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "roy1_additional_analysis_contract": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
+      "roy1_additional_analysis_test": "tools/a011_npc_asset_contract.py",
+      "roy1_resource_registry": "02-server-planning/npc-monster-resource-index.json",
+      "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
+      "new_resource_status": "Monster00.dat and World00.dat supplied, each 5 YPF members; specific imageID/animation/NPC mapping not proven"
     },
     {
       "id": "A-012",
@@ -761,11 +768,13 @@
       "title": "商店／倉庫／玩家交易",
       "method": "逐情境拆開追選擇、價格、堆疊、鎖定、確認、取消及斷線。",
       "deliverable": "各情境交易邊界及防重領測試；金額上限與編碼來源。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -777,7 +786,47 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "evidence_kind": "observed-static-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C4A/C39/C17 and S42/S2F/S6E native codec bounded subset, Server-safe designed economy ledgers only; not original prices/warehouse/accept/cancel UI",
+      "native_economy_semantics_ready": false,
+      "analysis_report": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "analysis_contract": "04-analysis-integration/A-013-economy-contract.md",
+      "analysis_test": "tools/a013_economy_contract.py",
+      "client_io_handoff": {
+        "trigger": "ExchangeDialog/Merchant/TradeDialog native packet families exist; actual user action->subtype producer mapping pending UI xrefs",
+        "client_sends": [
+          "PKT-C4A",
+          "PKT-C39",
+          "PKT-C17"
+        ],
+        "client_receives": [
+          "PKT-S42",
+          "PKT-S2F",
+          "PKT-S6E"
+        ],
+        "client_reaction": "Native S42/S2F/S6E reader branch support confirmed; exact original UI response, acceptance, cancellation, close and disconnect not mapped",
+        "evidence": "03-analysis-requests/A-013-roy1-economy-wire.md",
+        "unknowns": [
+          "ExchangeDialog is not proven to be vault/storage",
+          "No native successful purchase, refund, cancellation or trade accept UI/result mapping",
+          "Original prices, money cap, stack restrictions, fees and disconnected trade outcome unknown"
+        ]
+      },
+      "remaining_unknowns": [
+        "ExchangeDialog is not proven to be vault/storage",
+        "No native successful purchase, refund, cancellation or trade accept UI/result mapping",
+        "Original prices, money cap, stack restrictions, fees and disconnected trade outcome unknown"
+      ],
+      "conformance": [
+        "CT-087",
+        "CT-088",
+        "CT-089"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md"
     },
     {
       "id": "A-014",
@@ -860,7 +909,14 @@
         "A015-E18",
         "A015-E19",
         "A015-E20",
-        "A015-E21"
+        "A015-E21",
+        "A015-E22",
+        "A015-E23",
+        "A015-E24",
+        "A015-E25",
+        "A015-E26",
+        "A015-E27",
+        "A015-E28"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "ready",
@@ -880,7 +936,9 @@
         "原生 tutorial map_id、spawn(x/y/facing)、女性招募員 NPC/spawn、MAP collision 與 C35 structured checksum 尚未由本 A 證明：交 A-005/A-022/A-023/A-024/CT-040",
         "Client、Born.dat 與 Map0/1/2.dat 的 SHA 已保存，但沒有官方 release manifest 證實同一版；需要版本綁定時不得靜默接受錯版",
         "Human/YPF 完整動作與外觀 ID 範圍是 A-006/A-007 深入項；不要求提供整包美術資源",
-        "遊戲素材散布／公開營運權利未獲證明；格式可讀不構成使用權"
+        "遊戲素材散布／公開營運權利未獲證明；格式可讀不構成使用權",
+        "Client original walking collision/passable tile mask remains unknown: tile bit0 != bit4 != independent 4-byte grid; 48x32 pixel geometry not proven character feet grid",
+        "Official tutorial map id/character spawn point/bit-field passability/Client rollback and selected-map native GUI CT-091 not-run"
       ],
       "map_corpus_report": "04-analysis-integration/a015-map-corpus.json",
       "map_corpus_offline_validation": "pass-all-494",
@@ -908,7 +966,26 @@
         "client_usage",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Original native MAP parser, 17B client tile stride, indexed row-major grid, map x/y bounds, bit0/bit4 consumers and secondary u32 grid observed; exact player walkability, native GUI coordinate/pivot, selected tutorial map/spawn and original Server authority are not proven. DEV must distinguish coordinate-in-bounds from passable.",
+      "map_coordinate_analysis": "task_a/roy2/A-015-map-coordinate-collision.md",
+      "map_coordinate_codec": "task_a/roy2/a015_map_coordinate.py",
+      "map_coordinate_native_probe": "task_a/roy2/a015_map_native_probe.py",
+      "map_coordinate_synthetic_test": "task_a/roy2/test_a015_map_coordinate.py",
+      "map_coordinate_original_corpus_status": "all Map0.dat/Map1.dat/Map2.dat SHA match, 494 map layouts 7,701,805 tiles PASS; bit0 count 5,000,021, bit4 count 4,503,156; (31,29) in 477 maps with raw flags 0:242,1:109,17:126",
+      "map_coordinate_evidence_status": "observed-native-PE + observed-original-three-MAP + synthetic; tile row-major, raw 10B, client 17B, bounded x/y, candidate 48x32 UI grid; bit0/bit4/secondary-u32-grid are distinct consumers",
+      "map_coordinate_native_probe_result": "26 original Asgard.exe SHA-locked VA checks PASS",
+      "map_coordinate_offline_tests": "18 synthetic MAP geometry / archive corruption tests PASS via GitHub CI; native Client E2E not-run",
+      "original_player_walkability_ready": false,
+      "original_spawns_and_tutorial_map_ready": false,
+      "map_coordinate_handoff": "ready-for-raw-MAP-grid-and-in-bounds-only; NOT ready for native-passability/original-spawn-position",
+      "implementation_ready_scope": "Map parser/read-only tile/flag/bounds/viewport candidate available to DEV; player walkability/true native spawn not implementation ready",
+      "conformance": [
+        "CT-039",
+        "CT-040",
+        "CT-090",
+        "CT-091"
+      ],
+      "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md"
     },
     {
       "id": "A-016",
@@ -1219,7 +1296,9 @@
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a022_20261031_map_archive_collision_resource",
+        "A022-MERGE-491-494-CORRECTION-20261031"
       ],
       "dependencies": [
         "A-015",
@@ -1265,7 +1344,11 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md",
+      "roy1_additional_analysis_report": "03-analysis-requests/A-022-roy1-bin-analysis.md",
+      "resource_geometry_evidence": "02-server-planning/map-geometry-evidence.json",
+      "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
+      "map_archive_corrected": "494/494; historical Roy1 491/494 is four-byte offset error"
     },
     {
       "id": "A-023",

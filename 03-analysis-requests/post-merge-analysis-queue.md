@@ -40,3 +40,11 @@
 ## P0／A-020 + A-002：原版密碼欄 8 字限制定位（2026-10-31）
 
 使用者實際觀察遊戲登入密碼欄只容納 8 字元。請以相符原件 `Asgard.exe` 追**登入 C03** 的 password control（不是創角 C02 region1 >=12 gate），交付 max-length 初始化 VA、鍵入第 9 字/貼上/大小寫/CP950 轉碼之 UI 效果、C03 `string8` 長度及實際送入 bytes。原生 CT-037 用 8 ASCII 英數確認，這是 Client I/O 精準分析，不要求還原原服密碼政策。Server 先依 [TW-native-4to8](../02-server-planning/native-game-password-4to8-policy.md) 自訂 4～8 ASCII 英數遊戲憑證並作 P0 DEV-030 修正；將來 Client 修改如獲批准需獨立 profile，不得默默更改原版限制；尚未獨立反組譯證實 8 字 UI，標 `reported-client-UI`。
+
+## 2026-10-31 新研究缺口（Roy1/Roy2已完成來源部分）
+
+- A-005/A-015/A-022：Client C33 玩家真正移動/碰壁、S0B回滾與 C35 第二欄 structured checksum；不要再要求重做494 MAP parser。
+- A-011/A-024：Client S07/MonsterObject→Monster00真正 imageId→YPF member及動畫、NPC click C43/C39→對話回覆；已取得 Monster00/World00，但不是NPC身份證明。
+- A-013：在真實 Exchange/Merchant/TradeDialog 中點擊確認/取消、玩家雙邊交易，補 C4A/S42、C17/S6E、C39/S2F UI producer/receiver 去敏 trace；價格/倉庫未證。
+- A-027/A-021：已登入零角色帳號原生創角入口；A-020/A-002：原版最多8字密碼框、Server採4～8字政策。
+- 編號 main CT-087～089(交易)、CT-090/091(MAP)，舊 CT-069 audio、CT-070多人不動。完整 [審核](../04-analysis-integration/merge-review-roy1-roy2-20261031.md)。

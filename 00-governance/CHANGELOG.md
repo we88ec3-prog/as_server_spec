@@ -105,3 +105,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 P0 密碼需求改版：4～8 字（取代固定 8 字）
 
 依使用者最新決策，R-025/ONB-01 遊戲帳號密碼由上一版「**恰好 8 位 ASCII 英數**」調整為**4～8 位 ASCII 英數**、大小寫敏感；自動產生仍推薦最長8位安全亂數。管理後台 key 規則與玩家帳號分開，短密碼加強限速、防暴力登入，原長密碼不可截斷。未來**可能**調整 `Asgard.exe`，但本次未授權/未修改；須獨立驗證修改版 Client build/profile 再提高上限。舊文件保留導向 [最新版](../02-server-planning/native-game-password-4to8-policy.md)，驗收測點更新至4、8及上下界；私有 DEV-030 尚未依此修正。
+
+## 2026-10-31 Roy1/Roy2 最新分支整合與 A-022 勘誤
+
+將 task_a/roy1 新 A-011/A-022/A-013 與 task_a/roy2 A-015 的最新驗證成果以保留歷史方式整合到 main。原件 Asgard.exe 的 MAP 26/26 VA + 交易 18/18 VA/6 RTTI，地圖 Map0/1/2 共494/494/7,701,805 tile；更正 Roy1 把首 MAP 起點多4 bytes、誤判成491/494 的錯誤。CT碰撞分配 A-013交易087～089、A-015地圖090～091，原版 Client native not-run。建立 DEV-060/070-M/090 與經濟 Domain 下一階段 Server 需求；原Client不改、4～8字密碼、多玩家同地圖共用 NPC/怪物政策不變。

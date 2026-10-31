@@ -71,3 +71,7 @@ A-004/005/006/008/009/024（Roy2）與 A-007/019/020/025/026（Roy1）已回寫 
 ## P0 密碼相容性阻塞（使用者觀察，2026-10-31）
 
 **目前原 Client 登入欄最多 8 字**，而 `as_server_roy/main` 的 `Pbkdf2PasswordHasher.ValidatePassword` 實際限制 **10～128 字**；ONB-01 即使帳號存在也可能登入失敗。**規格已更新但 DEV-030 程式尚未修正**：遊戲建帳/重設採4～8 ASCII 英數（自動產生仍建議8字）、Admin 身份/密鑰不受影響；原長密碼需管理員重設，不截斷；C03 正常登入與原始 UI 需 CT-019/037/050 驗證。此為本期**先修再測**的 P0 工作，不依賴 A-027 創角 UI。詳見 [4～8 字相容政策](native-game-password-4to8-policy.md)。
+
+## Roy1/Roy2 再同步後的進度（2026-10-31）
+
+ONB-03 MAP 494/494 可安全讀取，原版 Client 26/26 VA錨點核對，Roy1 的491是假陰性；可開始 DEV-060 MapResourceCatalog/TileQuery，但真正合法可走/出生/C35尚未證。ONB-05 多玩家共圖的 Monster00/World00各5個 YPF member已取得、Roy1 A-011資源庫與 S1A/C39可用；NPC imageID→YPF/motion及點擊畫面不明。R-014 商店/玩家交易 A-013已證部分 C4A/S42 C17/S6E C39/S2F，可先 Domain transaction，不能宣稱原 Client 可交易。詳 [新規劃](map-resource-actor-plan-20261031.md)。

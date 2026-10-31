@@ -85,3 +85,7 @@ Script 既有簡化 `BE u16 length` 的錯誤已更正為 **BE u16 version + BE 
 已收到並離線解出 `Monster00.dat`、`World00.dat`：各自 `LE u32 slots=6`（含 sentinel），五筆 YPF payload，offset0=220、最後 offset=EOF。Monster 索引為五個 M_00_*（모스／모스워리어／나이트모스／드라스／모스캡틴）；World 索引為 TS_000_AnimStatic、AnimStaticShadows、Static、StaticShadows、Tile 的 .ypf。**這是索引存在與 member 名稱，不是 NPC spawn 種類、World 物件資料表或完整動畫解碼**；A-011 的「每 Monster archive 十個 client image slots」**不是**「十個 YPF member」。資產 SHA、長度詳 [實證](new-asset-samples-20261031.md)。
 
 `nNewJoin01.dat`、`PaperDialog.dat`、`PaperDialog02.dat` 以既有 Script `BE u16 version + BE u32 UTF16 units` 及 CP950 CRC 驗證：nNewJoin01 `d9390353`，PaperDialog `f870c574`，PaperDialog02 `42683546`。初級學校三頁選擇是 `STATE=ACCEPT/REFUSE`；PaperDialog02 另外產生 `PAPER02=START/NOT`，其同名 callback 不可與 PaperDialog 直接合併。資源行為不證明原服的學校 NPC 綁定／切圖政策。完整 Server 交接見 [入學規劃](../02-server-planning/novice-school-admission-flow.md)。
+
+## Roy1/Roy2 MAP 4-byte offset 誤判更正（2026-10-31）
+
+Roy1 曾以 `8+36*n` 起始解出首 MAP，實際 indexed DAT 是 `LEu32 n` + `n×(LEu32 start + 32B name)`，首資料起點 **`4+36*n`**。三庫 494/494 MAP 都符合原始完整 payload/EOF，7,701,805 tiles；`00000/10000/20000.map` 不是被證實的三張無效特殊圖。bit0 runtime/bit4 line test/aux u32 grid 分離；格子可讀≠原版角色可走/出生。參見 [整合審查](merge-review-roy1-roy2-20261031.md)。

@@ -171,22 +171,27 @@
         "CT-017",
         "CT-018",
         "CT-039",
-        "CT-040"
+        "CT-040",
+        "CT-090",
+        "CT-091"
       ],
       "server_decisions": [
         "自行選合法 map_id、可呈現 spawn/朝向、版本和校驗配對",
         "載入單一 pending epoch；重連/錯版/重送 fail closed；入圖不等於教學完成"
       ],
-      "readiness": "loading-codec-ready-content-mapping-partial",
+      "readiness": "original-MAP-parser/raw-tile-coordinate/in-bounds-ready; native walkability/spawn CT-070 pending",
       "unknowns": [
         "目前驗證過的 494 MAP 之 map_id/相容版本與原生顯示完整映射",
-        "合法出生點、碰撞與 C35 配對需要對具體選定地圖完成測試"
+        "合法出生點、碰撞與 C35 配對需要對具體選定地圖完成測試",
+        "Map tile in-bounds != actual player-passable/spawn-safe; selected original map and native pixel-foot mapping unknown"
       ],
       "native_client_validation": "not-run",
       "work_items": [
         "ONB-03",
         "ONB-04"
-      ]
+      ],
+      "a015_coordinate_mapping": "Native MAP 0x4B33A0: header 3 LEu16, width,height u8, block ceil(w/2)*ceil(h/4)*2, raw tile 10B, native expanded tile 17B, index x+y*width; x<width,y<height gate; viewport width*48,height*32 is candidate pixel geometry, not feet/movement proof.",
+      "a015_native_original_audit": "Map0.dat/Map1.dat/Map2.dat SHA verified: 494 MAP, 7,701,805 tiles; (31,29) within 477 maps, tile raw flags 0:242,1:109,17:126; Born waypoint is not verified spawn."
     },
     {
       "id": "FLOW-SCRIPT",
@@ -360,7 +365,11 @@
       "tests": [
         "CT-004",
         "CT-071",
-        "CT-072"
+        "CT-072",
+        "CT-056",
+        "CT-057",
+        "CT-090",
+        "CT-091"
       ],
       "server_decisions": [
         "Server authoritative coordinate, instance, world generation, monotone sequence modulo128; duplicate/old epoch reject（designed）",
@@ -372,13 +381,16 @@
         "Which raw MAP flags decide player walking vs LOS/static blockers",
         "C33 direction/gait vs legal step/diagonal and tick (original Server policy)",
         "S0B bit7 failure handling and native rollback / resend state",
-        "Original map content version-binding and selected world map"
+        "Original map content version-binding and selected world map",
+        "Actual standing tile/collision requires native path trace; in-bounds or flags=0/1/17 are not enough; CT-091 not-run"
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-005-analysis.md",
       "work_items": [
         "ONB-04"
-      ]
+      ],
+      "a015_collision_boundaries": "Native bit0 is locally mutable and separately consumed at 0x4D120B; bit4 (0x10) used in 0x4B4BB0 tile line test, not proven walking; secondary per-tile DWORD grid 0x4B3250/0x4B2D00 has separate neighbor predicate; no universal player-collision mask proven.",
+      "a015_native_map_readiness": "C33/S0B subset and original MAP addressing/flags observed; native player collision and rollback not ready"
     },
     {
       "id": "FLOW-LOOK",

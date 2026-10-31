@@ -95,3 +95,7 @@
 ## P0：原版 Client 遊戲密碼允許 4～8 字（2026-10-31 最新決策）
 
 使用者發現遊戲登入框最多 8 字；實際私有 Server `as_server_roy/main` 的憑證驗證目前卻要求**至少10字**，因此不相容。已新增 [原生 4～8 字遊戲密碼相容政策／DEV-030 修正清單](02-server-planning/native-game-password-4to8-policy.md)：新建／重設遊戲密碼採4～8 ASCII 英數（自動產生建議8字）、**不截斷舊密碼**，管理 API key 不受此規則限制，加入線上登入限速等補償；未來可能修改主程式延長長度，必須另立已驗證 Client profile，現在不修改。A-020/A-002 仍需證實原 Client UI/送包；本次是規劃與交接，**Server 程式未在本 repo 修改，Client CT 未驗收**。
+
+## Roy1/Roy2 當前分支最新成果再整合（2026-10-31）
+
+Roy1 A-011/A-022/A-013 及 Roy2 A-015 已交叉核對；原件 MAP 494/494，Roy1 491/494 由索引+4B錯誤造成，已修正。新增商店/玩家交易部分 Client I/O (CT-087～089) 與地圖原件/實機驗收 (CT-090/091)。詳 [整合審查](04-analysis-integration/merge-review-roy1-roy2-20261031.md)、[Server 下一輪需求](02-server-planning/map-resource-actor-plan-20261031.md)。保留 Client 不改、4～8字遊戲密碼、多玩家共用地圖決策；原生 Client E2E 尚未完成。

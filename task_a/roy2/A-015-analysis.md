@@ -1,5 +1,8 @@
 # A-015／roy2 — 資料檔格式、語意與分享權利界線（BIN-first）
 
+> **2026-10-31 main 更新**：Roy2 原件 26/26 PE anchors，Map0/1/2 **494/494、7,701,805 tiles**；同期 Roy1 491/494 是 MAP 首資料偏移多4 bytes 的誤判。 [MAP/座標專項](A-015-map-coordinate-collision.md)、[parser](a015_map_coordinate.py)、[native anchor](a015_map_native_probe.py)、[單元測試](test_a015_map_coordinate.py) 已同步。main CT-090/091；下文早期「未取得 Map*.dat」屬當時狀態，已不適用。無原生 Client E2E。
+
+
 - 日期：2026-10-31；來自最新 `main` c544af35ceb7；現行既有 branch `task_a/roy2`，提交目錄 `task_a/roy2`（早期誤用 branch 已關閉 PR）。
 - 問題：R-016/SYS-CONTENT；清點 MAP、外觀 Human/YPF、Script、技能／物品資料的格式／欄位，給可重現的 **metadata-only** 抽查方式，釐清素材分享限制；下游 A-022/A-023/A-024、ONB-03、CT-018/CT-040。
 - 原始檔：`Asgard.exe` PE32 i386, 3,235,840 bytes, SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`；`Born.dat` 589 bytes, SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`。**未收到** Map0/1/2、Human 及原版技能／物品資源庫，原始完整客戶端配對版本仍不足。

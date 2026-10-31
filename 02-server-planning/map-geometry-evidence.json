@@ -1,0 +1,45 @@
+{
+  "schema_version": 2,
+  "report": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
+  "original_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "index_format": "LE u32 slot count from byte0; n×[LEu32 START offset, name32] from byte4; first payload 4+36*n; last sentinel=EOF",
+  "roy1_error": "8+36*n skipped first 4 bytes of first payload, producing false 491/494",
+  "archives": [
+    {
+      "filename": "Map0.dat",
+      "count": 288,
+      "tiles": 4347940,
+      "sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761"
+    },
+    {
+      "filename": "Map1.dat",
+      "count": 184,
+      "tiles": 2983365,
+      "sha256": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b"
+    },
+    {
+      "filename": "Map2.dat",
+      "count": 22,
+      "tiles": 370500,
+      "sha256": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb"
+    }
+  ],
+  "valid_maps": 494,
+  "total_tiles": 7701805,
+  "flag_counts": {
+    "0": 2701300,
+    "1": 496877,
+    "16": 12,
+    "17": 4503144,
+    "512": 472
+  },
+  "born_waypoint_31_29_in_bounds": 477,
+  "original_exe_va_anchors": 26,
+  "collision_bit0": "client runtime dynamic flag",
+  "collision_bit4": "line test, not full player walkability",
+  "additional_grid": "separate per-cell u32",
+  "native_client_validation": "not-run",
+  "tutorial_map_spawn_verified": false,
+  "player_walkability_verified": false,
+  "raw_assets_committed": false
+}

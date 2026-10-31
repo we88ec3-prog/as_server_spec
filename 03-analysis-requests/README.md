@@ -92,3 +92,7 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 ## 2026-10-31 Roy1/Roy2 最新分析交接
 
 11 項新 integrated/handoff 子集：Roy1 A-007/019/020/025/026，Roy2 A-004/005/006/008/009/024。**已證 S07 14 kind 解碼，不再回報「非空 S07 未解」**；真正需要補的是 kind→Client sprite/renderer/EntityId，以及 A-027 原生登入後創角、地圖真 C25/CRC、S1E/S5F 死亡類別爭議、教學 NPC/Quest UI。見 [新待分析列表](post-merge-analysis-queue.md)。Native E2E 是 CT 工作，不是 A 靜態 handoff 必要條件。
+
+## 2026-10-31 現行 task_a/roy1 + task_a/roy2 再同步
+
+Roy1 A-013 的商店/交易原生 codec 與 A-011 的 Monster bank/S1A/C39，以及 Roy2 A-015 MAP/collision 研究已驗證增量整合；Roy1 A-022 地圖 index 多4B錯誤修正為494/494 MAP，不採491/494。主線新增經濟 CT-087/088/089、MAP CT-090/091（原版 Client E2E 未執行），詳 [整合審查](../04-analysis-integration/merge-review-roy1-roy2-20261031.md)。不修改原版 Client，遊戲密碼4～8字、多玩家同圖不變。

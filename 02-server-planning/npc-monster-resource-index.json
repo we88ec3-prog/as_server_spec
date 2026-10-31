@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "task": "A-011",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "evidence": "ev_a011_20261031_monster_bank_s07_c39_motion_static",
+  "resource_registration": {
+    "pattern": "Monster%02d.dat",
+    "start_index": 8000,
+    "end_index": 8042,
+    "start_hex": "0x1f40",
+    "end_hex": "0x1f6a",
+    "count": 43,
+    "filenames_range": [
+      "Monster00.dat",
+      "Monster42.dat"
+    ],
+    "format_string_va": "0x5f1d3c",
+    "loop_va": "0x404371..0x4043b0",
+    "register_resource_call": "0x440720",
+    "file_assets_present_in_current_upload": true,
+    "provided_filename": "Monster00.dat",
+    "provided_archive_sha256": "ef45faefd96572695e0086753b2c881a218df2730d1cd5a0c40bf5d26c3ba505",
+    "sample_ypf_member_count": 5
+  },
+  "additional_resource": "Basic.dat",
+  "source_type": "original Client resource-registration and S07/S1A/C39 wire static",
+  "native_type_to_asset_map_ready": false,
+  "native_animation_map_ready": false,
+  "native_npc_click_binding_ready": false,
+  "native_drop_table_ready": false,
+  "server_id_namespace_rule": "Monster bank index != persistent NPC or Monster TemplateID != 32-bit wire object_ref",
+  "related_native_packets": [
+    "PKT-S07",
+    "PKT-S33",
+    "PKT-S1A",
+    "PKT-S11",
+    "PKT-S0C",
+    "PKT-S64",
+    "PKT-C39",
+    "PKT-C0C",
+    "PKT-C13",
+    "PKT-S0E",
+    "PKT-S5F"
+  ],
+  "missing_exact_files_note": "Monster00.dat and World00.dat supplied; other MonsterNN.dat/Basic.dat only if explicitly linked by image ID or Client; NPC spawn config filename unknown",
+  "report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+  "test": "tools/a011_npc_asset_contract.py",
+  "world00_sample": "World00.dat; five YPF members",
+  "note": "10 MonsterImageLib image slots/archive are not 5 physical YPF file members"
+}

@@ -69,3 +69,7 @@ DEV-070-M 可以立即增加 `MonsterResourceCatalog` 及由原始 id→檔名/�
 **DEV-070-M ContentRegistry** 可用 `Monster00.dat`（五個具名怪物 YPF）和 `World00.dat`（五個地景 YPF）做 archive SHA/index/payload 版本 pin；不能把五個封裝 member index 混同 A-011 原 EXE 的每 archive 十個 image slots。若要原版 NPC/怪物顯示仍待 imageID→YPF member、S07 type、ObjectRegistry 及 NPC 互動 UI 鏈。**使用者已提供五個原件，不再算原件缺失**。
 
 完整 [新手就學流程契約](novice-school-admission-flow.md)、[原件 SHA 與證據](../04-analysis-integration/new-asset-samples-20261031.md)、[新驗收用例](../05-conformance/new-asset-validation-plan.md)。原版 Client CT 全部維持 `not-run`；不改 Asgard.exe，不建新分支。
+
+## 2026-10-31 新分支第二輪：DEV-060/070-M/090與Economy
+
+最新 Roy1/Roy2 的 MAP/交易分析驗證結果已合併，MAP 真正是494/494而非491，交易 A-013 Codec 原生指令有據、GUI語意未證。保留先前順序，加入 [DEV-060 安全地圖 → DEV-070-M 共享世界 → DEV-090 初級學校，經濟模組並行](map-resource-actor-plan-20261031.md)。主線 CT-087～089 交易、CT-090～091 MAP；原始 Client E2E 保持 not-run。
