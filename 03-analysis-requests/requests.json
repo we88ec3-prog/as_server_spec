@@ -1642,7 +1642,7 @@
       "method": "在 A-022 確認的教學地圖追初始 NPC/怪物種類/出生/可見性、行動/攻擊/死亡/清除/重生及原 Client handler；對照 A-004/011/023。",
       "deliverable": "提供 Client SHA、資源位置、生成/動作/消失封包字段及狀態、時間/坐標單位、動態證據與失敗/重送 CT，原服未知 AI 參數保留 unknown。",
       "status": "integrated",
-      "assignee": "roy2",
+      "assignee": "roy3 (continuation of roy2)",
       "evidence_ids": [
         "A024-E01",
         "A024-E02",
@@ -1662,7 +1662,15 @@
         "A024-E16",
         "A024-E17",
         "A024-E18",
-        "A024-E19"
+        "A024-E19",
+        "A024-E20",
+        "A024-E21",
+        "A024-E22",
+        "A024-E23",
+        "A024-E24",
+        "A024-E25",
+        "A024-E26",
+        "A024-E27"
       ],
       "dependencies": [
         "A-004",
@@ -1672,7 +1680,7 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "observed-static-client + original-S07-jumptable + synthetic-codec + designed-epoch-policy",
+      "evidence_kind": "original-client-native-static-reader-and-event-handlers-plus-synthetic-C43-codec-tests",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "ready",
       "native_client_validation": "not-run",
@@ -1694,15 +1702,16 @@
       "analysis_report": "task_a/roy2/A-024-analysis.md",
       "codec_probe": "task_a/roy2/a024_npc_codec.py",
       "implementation_ready": true,
-      "implementation_ready_scope": "Native Client S2C object/event bodies: full S07 kind1..14 nonempty rows; S0C/S64 movements; S34 subtype6 and subtype11 all six flag-dependent groups; S3C info; S62/S63 action; S29 effect; S5F death/S0E removal. Actual GUI, object-kind content bindings, original AI still unknown.",
+      "implementation_ready_scope": "Original native S07 kind1..14 reader and runtime handler dispatch, registry spawn/scene attach, S0C/S64 position/path updates, S0E scene removal, S5F separate death handler, S29/S62/S63 and two observed C43 producers; original NPC/monster resource binding and Server AI/spawn still UNKNOWN.",
       "original_tutorial_spawn_ready": false,
       "native_npc_interaction_ready": false,
       "npc_ai_parameters_known": false,
       "remaining_unknowns": [
-        "S07 kind1..14 -> NPC/Monster/static visual classification and resource mapping",
-        "Native client world-object registry/rendering callbacks and C43 NPC click specificity",
-        "Original Server tutorial NPC/map/spawn/AI policies, outside Client wire scope",
-        "Native Client E2E CT-081 still not-run"
+        "S07 kind1..14 to real NPC/Monster/static resource and sprite animation mapping",
+        "Exact female recruiter entity/map and actual NPC click C43/C39/S44/C6C Script context binding",
+        "S34/S3C GUI/object update handlers in other Client dispatch phases",
+        "Original Server tutorial spawn/AI/movement tick/death/respawn behavior (DEV source only), not derivable from Client",
+        "Native Windows original Client CT-081 E2E not-run"
       ],
       "resource_name_candidates": [
         "World%02d.dat",
@@ -1715,7 +1724,7 @@
         "CT-080",
         "CT-081"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-01",
       "client_action_attacks_found": true,
       "client_action_info_request_found": true,
       "client_sends": [
@@ -1734,7 +1743,7 @@
         "native original monster AI tick/respawn interval are Server policy not A Client I/O blocker"
       ],
       "native_reader_probe": "task_a/roy2/a024_object_native_probe.py",
-      "native_reader_probe_result": "Original Asgard.exe SHA locked, 20 instruction anchors + S07 14 type switch entries + six RTTI PASS",
+      "native_reader_probe_result": "Roy2 S07 14-kind parser and RTTI 20 anchors PASS; Roy3 original native handler 8/8 dispatcher entries, 21 E8 call edges, 39 instruction anchors PASS.",
       "nonempty_s07_codec": "task_a/roy2/a024_object_packets.py",
       "nonempty_s07_test": "task_a/roy2/test_a024_object_packets.py",
       "server_receives_client_packets": [
@@ -1754,37 +1763,44 @@
         "PKT-S0E"
       ],
       "client_io_handoff": {
-        "trigger": "Client in-world receives decoded S07 object list; subsequent move, path, info, effect, action, die, remove packets. Client may send C13/C43 for actions.",
+        "trigger": "Original in-world S07 spawn, S0C/S64 movement, S0E remove, S5F death, S29 effect/S62/S63 action; user C43 object info and C13 attack request. UI click-to-specific-recruiter remains unproven.",
         "client_sends": [
-          "PKT-C13",
-          "PKT-C43"
+          "PKT-C43 u8,BEu32,u8; two exact original caller paths produce 01+BEu32(key)+04; not necessarily NPC-specific",
+          "PKT-C13 BEu32 target attack (Roy2)"
         ],
         "client_receives": [
           "PKT-S07",
           "PKT-S0C",
           "PKT-S64",
-          "PKT-S34",
-          "PKT-S3C",
+          "PKT-S0E",
+          "PKT-S5F",
+          "PKT-S29",
           "PKT-S62",
           "PKT-S63",
-          "PKT-S29",
-          "PKT-S5F",
-          "PKT-S0E"
+          "PKT-S34/S3C parser present; phase-specific handler separate"
         ],
-        "client_reaction": "Native readers for S07 full nonempty type1..14, S0C/S64 move, S34/S3C info, S62/S63 action, S29 effects, S5F death and S0E removal verified by PE instructions; graphic/UI object registry callbacks and native E2E not yet verified.",
-        "evidence": "task_a/roy2/A-024-analysis.md#六a-024-追加完成實際收包清單與-s07-非空-14-type-靜態解析2026-10-31",
+        "client_reaction": "Dispatcher 0x4F48A0 selects S07 0x4F17C0, S0C 0x4F1610, S64 0x4F1750, S0E 0x4F1DA0, S5F 0x4F2BB0, S29 0x4F1DC0, S62 0x4F2CD0, S63 0x4F2F10. S07 routes kinds to scene constructors/update, S0C object registry lookup/vtable position and orientation, S64 0x47C9C0 path, S0E 0x4BA0C0 remove, S5F separate death processing.",
+        "evidence": "task_a/roy3/A-024-roy3-native-object-handlers.md A024-E20..E27; SHA-locked original EXE native probe; 10 local regression tests",
         "unknowns": [
-          "S07 kind1..14 -> NPC/Monster/static visual classification and resource mapping",
-          "Native client world-object registry/rendering callbacks and C43 NPC click specificity",
-          "Original Server tutorial NPC/map/spawn/AI policies, outside Client wire scope",
-          "Native Client E2E CT-081 still not-run"
+          "S07 kind1..14 to real NPC/Monster/static resource and sprite animation mapping",
+          "Exact female recruiter entity/map and actual NPC click C43/C39/S44/C6C Script context binding",
+          "S34/S3C GUI/object update handlers in other Client dispatch phases",
+          "Original Server tutorial spawn/AI/movement tick/death/respawn behavior (DEV source only), not derivable from Client",
+          "Native Windows original Client CT-081 E2E not-run"
         ]
       },
-      "handoff_deliverable_status": "Complete native-static Client S2C object packet inventory and validated decoded wire groups; native rendering & server content semantics separately pending",
-      "offline_test_result": "GitHub Actions run 41185085803 PASS: 19 native-schema synthetic object tests and seven existing NPC tests; phase-gates PASS",
+      "handoff_deliverable_status": "Complete original native-static Client object codec and true runtime handler dispatch+callbacks; NPC kind->resource and real tutorial content/GUI separate CT/DEV.",
+      "offline_test_result": "Original Asgard.exe SHA db3df...: 8/8 phase-specific dispatch targets, 21/21 original x86 calls, 39/39 opcode anchors, 10/10 local tests PASS; native Client GUI E2E not-run; previous Roy2 synthetic packet tests unchanged.",
       "source_branch": "task_a/roy2",
       "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
-      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
+      "roy2_analysis_report": "task_a/roy2/A-024-analysis.md",
+      "roy3_analysis_report": "task_a/roy3/A-024-roy3-native-object-handlers.md",
+      "roy3_native_handler_probe": "task_a/roy3/a024_roy3_handler_probe.py",
+      "roy3_native_handler_tests": "task_a/roy3/test_a024_roy3_handler_probe.py",
+      "roy3_runtime_fixture": "task_a/roy3/a024_runtime_handler_fixture.json",
+      "roy3_client_io_contract": "04-analysis-integration/A-024-roy3-object-handler-contract.md",
+      "roy3_ct081_plan": "05-conformance/A-024-roy3-native-object-lifecycle.md"
     },
     {
       "id": "A-025",
