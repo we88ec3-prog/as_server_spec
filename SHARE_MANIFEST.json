@@ -41,7 +41,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "7a9897f28c49674d47ef152c8fe79bd7298852543d1ea7c67532a96f3762c074"
+      "sha256": "145b60066dedf5af8f34a830ff5fe0da3c15a4419296474d8750e8823bd81bae"
     },
     {
       "path": "00-governance/workflow.md",
@@ -773,7 +773,7 @@
     },
     {
       "path": "tools/validate-phase-gates.py",
-      "sha256": "203095dd99dfc0d9fd78dc12ed5f0ce3cee6334f1f41079e43d1bf2cbff3aed2"
+      "sha256": "74be584ced556a544b84a50da19496686bb8b43f326cb01c5ec17201b7f46ff5"
     }
   ]
 }

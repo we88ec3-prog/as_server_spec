@@ -214,3 +214,20 @@ require(all(f"A011-E{i:02d}" in EVIDENCE_IDS for i in range(1,9)), "A-011 missin
 require("PKT-S1A" in packet_ids, "A-004 Motion packet not merged")
 require(all(f"CT-{i:03d}" in ctid for i in range(82,87)), "new CT-082..086 not registered")
 print("Roy1 A-004 / Roy2 A-011 incremental evidence: PASS")
+
+# Final integration traceability contract, including incremental A-004/A-011 CT-082..086
+import csv as _csv
+with (ROOT / "00-governance/traceability.csv").open(encoding="utf-8", newline="") as _f:
+    _rows = list(_csv.DictReader(_f))
+require(len(_rows) == len(r), "traceability.csv must cover each R exactly once")
+_by_requirement = {record["requirement"]: record for record in _rows}
+require(len(_by_requirement) == len(_rows), "traceability.csv duplicate requirement")
+for _vector in ct:
+    for _rid in _vector.get("requirements", []):
+        require(_rid in _by_requirement and _vector["id"] in
+                _by_requirement[_rid]["conformance"].split(","),
+                _rid + " missing " + _vector["id"] + " traceability")
+for _id in ("CT-082", "CT-083", "CT-084", "CT-085", "CT-086"):
+    require(_id in ctid and next(x for x in ct if x["id"] == _id)["native_client_validation"] == "not-run",
+            _id + " native-client status must remain not-run")
+print("CT per-requirement traceability and incremental native gates: PASS")
