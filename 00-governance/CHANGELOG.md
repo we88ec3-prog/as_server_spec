@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 原版 Client 完整創角至可操作入圖 P0 實作規劃
+
+對照 `as_server_spec/main@3cb220a2` 及私有 `as_server_roy/main@a9326985`，區分已有 Account/E-MAIL v5、Character/proof、C03/S03/C10、World DB/scene 合成後端，與未完成的 live C02/C04/C15、真 World C25、真 MAP C35、InWorld C11/C33。新增 DEV-ENTRY-00..06、P0 A-030 現有任務續查與新 A-031/032、CT-107..109、ONB/ready gates/traceability。原版 Asgard.exe 不修改；Server 原始碼/DB 未由本次 Spec 工作改動；原版 Client E2E 仍 not-run；NPC/怪物/任務不設為首次可操作入圖的先行阻塞。
+
 ## 2026-11-01 R-035：創角 E-MAIL 開啟單純儲存規劃
 
 已決定原版創角 E-MAIL 應保存，暫無其他用途。新增 R-035、DEV-CREATE-EMAIL 設計、CT-106、ONB-02/traceability 與相關資料契約；SQLite/Pg Account nullable creation_email schema v5，僅隨 C04 角色成功原子提交。A-030 NAME/E-MAIL 對照仍需 native 實證，不能把猜測當結果。只改 Spec main，不修改 Server/DB/Client；原 Client E2E not-run。

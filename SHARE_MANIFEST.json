@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "f5abcb843f51d44e7d3a242ba21e0acd80ae5e59d117e4116cd49785f17c6029"
+      "sha256": "f3c3d28a05e923e95897c63052e3cea13c416b82edb68d59b9c0d91b32e15828"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -49,7 +49,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "0888e0d8bd2b6e80c61bf78469e71e70ed278844b39a515600355e9307d00975"
+      "sha256": "16505c8d0be57b169f59688861837a5b54447aaabd489c89fb6e18c450116ff7"
     },
     {
       "path": "00-governance/workflow.md",
@@ -148,6 +148,10 @@
       "sha256": "8731f02a37141da693dc2422c306679be1409ee65c4f9781c2dc5f32db813256"
     },
     {
+      "path": "02-server-planning/native-playable-entry-roadmap-20261101.md",
+      "sha256": "5f7ba7147656a93025bf4faf7288f32ae9503aeb56a833d722f094ec31aa9c55"
+    },
+    {
       "path": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
       "sha256": "3c671cc624b07951807faea6106cc1453f97e194f42856782ccef58ba9922370"
     },
@@ -165,11 +169,11 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "8b57efd33bb9a3330f5c7b456245aa5fb53a4de8b093d3b2e17da03636733c9f"
+      "sha256": "3924b70258f223aa72cbe0db0951626b2c54e1ed0f33f3b10e17b824871206bb"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
-      "sha256": "04c3cce413596a3947ee6f153efae6d17e2032d2fffb7d8889642a49dac8139b"
+      "sha256": "b1f90752dc94bafb9e9279a823249a7feae53c13b4dcb91ec1a15c3117300f93"
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
@@ -229,7 +233,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "37f75f12347a8ddc30e43c1010b58d9b74673f0fa0e11442cf882a549750f50f"
+      "sha256": "0253de02c57cfbe0c54b50dcd5681c13edd36a5bc46ef7791fb5cec176283c66"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -328,6 +332,10 @@
       "sha256": "8e3af1c4e2791bbeb72b01d806c2bff50b86d25d752dcc7d639bf32a72e4fdab"
     },
     {
+      "path": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md",
+      "sha256": "3f2474d8700198a0feb37eab876b02b86d0b80aac4dd795317288dfc74e76c75"
+    },
+    {
       "path": "03-analysis-requests/next-client-io-evidence.md",
       "sha256": "f6e348c9719b538eb2ac6e8d1b6a642b10ab77c1d62b2d743213a1cf87572aa6"
     },
@@ -349,7 +357,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "6e0729340564ae9ab40e01b3afa5982f2a290b1df7a1ac88178cead1052b8259"
+      "sha256": "840c2c54b6f6eb049a67949ec76b7915f5d36c01a1bdc09a2a72ef7300953b2b"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
@@ -648,6 +656,10 @@
       "sha256": "96ba8cf757e4476024255a15e7b7a69f385e4652815f80d57f48f09ad95e428f"
     },
     {
+      "path": "05-conformance/native-playable-entry-acceptance-20261101.md",
+      "sha256": "971d654a2b7c5019993d6be8ee8b01b8bcc542f11112a488040a89655a198161"
+    },
+    {
       "path": "05-conformance/new-asset-validation-plan.md",
       "sha256": "3400a3d60aa3703c652a1e855e3b5658b2e62a7861f0425918e8b240820cf9a4"
     },
@@ -677,7 +689,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "73f314175183371ef3cbce73f6f7236768231cc18d6aeaa5b87c943f216110e9"
+      "sha256": "9a21aeb4fd657c45d6ba4c6fdb7d0c6d1291373ba7af2149d46d71afc082fc05"
     },
     {
       "path": "README.md",
