@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "analysis_id": "A-005",
+  "source": "original-exe-static-and-original-map-raw-only",
+  "exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "map0_sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+  "native_x86_edges": 13,
+  "native_instruction_windows": 18,
+  "offline_tests": 8,
+  "map_ref": 6,
+  "member": "00006.map",
+  "width": 60,
+  "height": 60,
+  "raw_flag_counts": {
+    "0": 902,
+    "17": 2698
+  },
+  "raw_bit0_clear": 902,
+  "raw_four_neighbor_connected_from_30_30": 900,
+  "path": [
+    [
+      30,
+      30
+    ],
+    [
+      30,
+      31
+    ],
+    [
+      30,
+      32
+    ],
+    [
+      31,
+      32
+    ],
+    [
+      32,
+      32
+    ]
+  ],
+  "native_e2e": "not-run",
+  "native_walkable_verified": 0,
+  "caveat": "Candidate path only; dynamic tile OR/remove, source direction byte and scene objects absent from raw MAP-only model."
+}
