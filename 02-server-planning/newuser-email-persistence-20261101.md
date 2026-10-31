@@ -26,3 +26,8 @@ E-MAIL **不得**用於身份驗證、登入、密碼重設、帳號救援、郵
 - 不增加必填、正規化、唯一、驗證、寄信、登入或管理功能；不外洩敏感值，原版 Client E2E 與 synthetic 分開標示。
 
 追蹤：R-026/R-035、A-030、ONB-02、PKT-C02/C04/S02/C15、SCN-008、CT-105/CT-106。
+
+
+## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
+
+此前本文件「F4 是否就是 E-MAIL 尚未確認」**已由 2026-11-01 A30 原件驗證更新**：配對 `Basic.dat` 內 `BasicString.txt` keys73/75 = NAME/E-MAIL，`SkinString.txt` 2153/2154=名字/E-Mail，EXE 確認頁以 F3+0x49、F4+0x4B 查表。**原版 Region2..4 的 C02 F3 NAME、F4 E-MAIL 已確認可給 DEV codec/Domain 值來源**；目前實際 Client region、E-MAIL 留空可否提交，以及原生 GUI/錯誤回覆仍未 E2E。Region0/1 的三字串格式與 Region1 異常仍 fail-closed。原決策 **E-MAIL 只儲存，不作其他用途** 及 C04 同 transaction commit 不變，不可當作 Server 實作已完成。參見 [A-030 資源證明](../03-analysis-requests/A-030-roy1-original-resource-proof-20261101.md)。
