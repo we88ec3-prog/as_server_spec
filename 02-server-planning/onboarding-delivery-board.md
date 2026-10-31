@@ -118,3 +118,7 @@ ONB-01 C03 登入原有 Account 及 ONB-02 C02 直接創角為**互不要求事�
 ## Roy3 新一輪 A005 原版候選碰撞證據（2026-11-01）
 
 A005-E15～E21 已確認原版 Client 局部 path candidate：目標 effective flag bit0、來源 effective bit3+direction mask、object lookup、動態 overlay 加/除，8 鄰方向。Server 可實作該 predicate 的嚴格原版 read-side 候選，**不代表已可無限制走圖**；玩家合法 spawn、動態物件/遮罩寫入、Client 原版 C33/S0B GUI 和權威碰撞/速度政策仍是 CT-109 必驗，不能把900 raw bit0-clear 候選格當原版已走過。對照 [Roy3 新報告](../task_a/roy3/A-005-native-path-collision-closure.md)。
+
+## 2026-11-01 ADR-009：預期內拒絕不可默認踢線／缺原因 Log（本次只改規劃）
+
+對照 Server main `71ebd259`：C02 credential fail、C04 `CharacterCreationDenied/Conflict`、C15 cancel 等仍會 Close；C03 invalid credential 已有 S02 且連線保持，但未打 `[VALIDATION_FAILED]` 精確 reason。規劃 DEV-REJECT-01～06 以 `BusinessRejected`／`ProtocolUnexpected`／`SecurityFatal`／`ClientCancelled` 分類；**普通驗證失敗走原版可理解的錯誤回覆、保留可重試連線**，外部錯誤文字不能洩露帳號是否存在，內部安全原因碼要可追查。原版 S02 非零 status/C15 socket-retry 由 A-030/A-028 補證，不猜 status。正式 CT-112/113 `planned/not-run`。詳 [ADR-009／R-036](expected-validation-failure-policy-20261101.md)。
