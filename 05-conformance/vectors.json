@@ -1277,32 +1277,37 @@
     {
       "id": "CT-054",
       "status": "planned",
-      "level": "world-visibility-decoded-body-and-synthetic-lifecycle",
+      "level": "native-client-authenticated-no-character-to-newuser-ui",
+      "title": "原 Client 已登入空角帳號可否進入 NewUser 與 C02 帳號欄",
       "requirements": [
-        "R-004",
-        "R-007"
+        "R-025",
+        "R-026"
       ],
       "packet_ids": [
-        "PKT-S33",
-        "PKT-S06",
-        "PKT-S11",
-        "PKT-S0E",
-        "PKT-C33",
-        "PKT-C11",
-        "PKT-S0B",
-        "PKT-S04"
+        "PKT-C03",
+        "PKT-S02",
+        "PKT-C02",
+        "PKT-C04"
       ],
       "input": {
-        "kind": "synthetic",
-        "reference": "05-conformance/A-004-visibility-test-plan.md"
+        "kind": "native-client-test-design",
+        "reference": "05-conformance/native-creation-gate-test-plan.md",
+        "cases": [
+          "C03 authenticates pre-provisioned account A with no Character",
+          "record original Client UI event/callback leading to NewUser, or report route not present",
+          "verify whether C02 first field is the logged-in account name",
+          "if native authenticated route exists, try A vs B submitted name and observe response"
+        ]
       },
-      "expected": "S33 profile flags0 CP950, S06/S11/S0E/S0B strict BE body lengths; duplicate, removal, stale map epoch and invalid options fail closed",
-      "evidence_kind": "observed-static-plus-designed-synthetic",
-      "offline_subset_result": "9 synthetic tests PASS and 5 original constructors + 5 reader sequences static probe PASS; native Client NOT RUN",
-      "offline_test": "task_a/roy2/test_a004_visibility.py",
-      "original_probe": "task_a/roy2/a004_native_probe.py",
+      "expected": "No invented C03(no-character) -> NewUser path: prove UI callback and C02 account name mapping or record absent Client route. If authenticated creation is possible, mismatch B must be rejected without draft/Character/Grant and matched A still needs all other permissions. Anonymous C02 is never proof of owner.",
+      "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_request": "A-004"
+      "analysis_dependency": [
+        "A-027",
+        "A-021",
+        "A-028"
+      ],
+      "note": "Test design only; original client E2E not executed; no modified client."
     },
     {
       "id": "CT-055",
@@ -1427,6 +1432,36 @@
       "evidence_kind": "designed-test",
       "native_client_validation": "not-run",
       "analysis_request": "A-006"
+    },
+    {
+      "id": "CT-060",
+      "status": "planned",
+      "level": "world-visibility-decoded-body-and-synthetic-lifecycle",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0E",
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "synthetic",
+        "reference": "05-conformance/A-004-visibility-test-plan.md"
+      },
+      "expected": "S33 profile flags0 CP950, S06/S11/S0E/S0B strict BE body lengths; duplicate, removal, stale map epoch and invalid options fail closed",
+      "evidence_kind": "observed-static-plus-designed-synthetic",
+      "offline_subset_result": "9 synthetic tests PASS and 5 original constructors + 5 reader sequences static probe PASS; native Client NOT RUN",
+      "offline_test": "task_a/roy2/test_a004_visibility.py",
+      "original_probe": "task_a/roy2/a004_native_probe.py",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-004"
     }
   ]
 }

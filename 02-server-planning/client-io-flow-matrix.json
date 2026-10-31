@@ -79,7 +79,8 @@
         "CT-043",
         "CT-044",
         "CT-052",
-        "CT-053"
+        "CT-053",
+        "CT-054"
       ],
       "server_decisions": [
         "R-025: Client 不建立 Account，C02 不可無認證認領其他預建帳號",
@@ -91,13 +92,15 @@
         "C03 無角是否可到 NewUser UI",
         "C02 各 region 真正欄位語意與安全認證條件",
         "錯誤碼的原服文字含義",
-        "尚未證明 C02 field1 是已登入 Account 名稱；這項設計守衛不能使原生建角路徑自動 ready"
+        "尚未證明 C02 field1 是已登入 Account 名稱；這項設計守衛不能使原生建角路徑自動 ready",
+        "A-027 C03(no-character)->NewUser UI and C02 first account field not native-proven; CT-054 remains not-run"
       ],
       "native_client_validation": "not-run",
       "work_items": [
         "ONB-01",
         "ONB-02"
-      ]
+      ],
+      "next_iteration": "02-server-planning/native-creation-next-iteration.md"
     },
     {
       "id": "FLOW-TRANSFER",
@@ -309,7 +312,7 @@
         "SCN-005"
       ],
       "tests": [
-        "CT-054",
+        "CT-060",
         "CT-055"
       ],
       "server_decisions": [
