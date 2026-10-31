@@ -76,3 +76,7 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-026 原生教程完成/可選獎勵/出口（2026-10-31）
 
 [原件分析](../03-analysis-requests/A-026-roy1-tutorial-completion.md)、[完成與退出安全契約](../04-analysis-integration/A-026-tutorial-completion-contract.md)、[測試工具](../tools/a026_tutorial_completion_model.py)。CT-026/027/028 仍 planned、native E2E not-run；CT-054/055/056 是 synthetic/designed。先用受控 sandbox/合法身份和同版資源確認 Born.Main→PaperDialog→C6C4→C6C2 **只做 ScriptClose**；再真正進行招募員 NPC C39 互動與完整 Script/Quest reply capture，不可把 STATE=ACCEPT 候選當官方完成。沒有 original verified quest rule 時拒絕 completed；沒有 verified reward 時 reward=NULL；有驗證後以唯一交易 + outbox 保證回覆丟失/重登不重發。只有原服確定的 exit map/ref/coord/revision 才可 S15/S14/C35/S04，C35 不含 epoch，負面測同 pair overlap、錯 CRC、crash/reopen 位置/狀態恢復。完整 Client「登入→教學互動→完成→正常出圖→重登」仍需 CT-028；原始 Server 資料未提供，不可把離線測試標成 Client 已通關。
+
+## A-007 物品與裝備的原生 Client 驗收補強（CT-057～059 planned）
+
+[A-007](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) 列出已證 opcode：C1C type1..9 變長，C1E，C08 Drop，C0C PutRequest，S0F/S37 變長，S10/S38 removal。CT-057 核所有 branch 的 body length/字段與截斷拒絕；CT-058 在原 Client 具真實 resource/catalog 的環境確認 S0F mode0/1/2、S37 descriptors 並測 bag sync/remove。CT-059 在獨立 Server DB 測 item owner、slot+instance unique、split/consume、滿背包卸裝、不同 owner/replay/斷線/重啟及 outbox；再以原 Client GUI 確認物品顯示與裝備外觀。離線 Python 12 unittest 通過只證設計模型，**未執行原版 Client 真實物品生命週期**；不能把衣櫃的 01 slot 00 05 當全部物品 use packet。

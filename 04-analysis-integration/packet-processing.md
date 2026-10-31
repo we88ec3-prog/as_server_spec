@@ -83,3 +83,7 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## A-026 / roy1：新手教學完成不由 Client C6C 或載圖封包直接證明
 
 [原件研究](../03-analysis-requests/A-026-roy1-tutorial-completion.md)／[Server 契約](A-026-tutorial-completion-contract.md)：Born.dat（hash 固定）只有 PaperDialog 到 (31,29) 招募員的文字導引。S44(1,0) 可啟動 Born；PaperDialog OK → C6C(4,name,context) 且未 reply 時 C6C(2,name,context) 只代表腳本關閉。原版 C39 Merchant ctor 0x5737c9，writer 0x573860 common u8,u32BE,u16BE 並依 subtype1..9 有其他欄位；**C39 是否對應原版女性招募員及完成任務未證**。C0B Quit writer 0x574c50 無 body，非教學離開事件。S15/S14(1)/C35/S04 只是 Map/CRC/Position 通用接口，沒有可證原版 exit map/ref/coord；C35 不含 epoch，在同 pair 重疊時不可辨。Server 不能把 ScriptClose/點 NPC/換圖/死亡或 Quit 直接當作 Completed/Reward；需 original-server verified objective 再 atomically append completion + optional reward + outbox，且原版合法出口 map 被證明後才安全切圖。CT-054～056 planned，SCN-013 analysis-required。
+
+## A-007 / roy1：完整背包/裝備指令與同步有界規格（2026-10-31）
+
+[A-007 詳盡分支](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) / [Safe Domain](A-007-inventory-domain-contract.md)：C1C `0x1c` **四個 u8 + use_kind1..9 變長尾部**，並非先前本機服裝使用的固定 `01 slot 00 05`。另外 C1E `0x1e` u8、C08 Drop `0x08` 3×u8、C0C PutRequest `0x0c` u32BE；Drop/Put 真正效果未證，不可將數值直接當持久 item ID。新增 S10 RemoveInventory `0x10` 3×u8、S38 RemoveEquipment `0x38` u8+u8（第二欄 bool transform `raw==1`）；S0F 的 0/1/2 數量模式與 S37 變長描述不能編成固定封包。C1E(C2S) 與 S1E(S2C DieObjects) opcode 相同但方向/類別不同。新 Server 應用內部 item instance/owner/stack/slot/revision、transaction+unique ledger+outbox，失敗不先改 S33 appearance；任何未證 use_kind 業務拒絕，SCN-015/CT-057～059 planned。

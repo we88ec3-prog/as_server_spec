@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "18fac60a2e464e80cd1d799fdd87c8a9acdc8159927486984bfd48e09475a995"
+      "sha256": "ab08aed76699a93aa4ca0a8c8a09c40b729cf97742103089346352fc3176626e"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "7fe5e2d34633f663fd9cff863fc17c341a9dcbe7b300459fef3761f1e1a86eb7"
+      "sha256": "209d033f6a9bc3f88ee83f18ed2bbe0ee36ab3f416444680b8700476a0315e63"
     },
     {
       "path": "00-governance/workflow.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "175cc5bae8a30aa8ec102f511edd9a8fbfcea574d09f68d5d45f0008074b1ba8"
+      "sha256": "ec06901f510aac994713485b391c82beeb399d45ed55a364142a10dab7fbf24b"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -118,6 +118,10 @@
     {
       "path": "03-analysis-requests/A-003-roy1-create-legal-values.md",
       "sha256": "ddb9d32dfdacdfae4c0c4c289352a2f7d9e2c2831ee6063b30d343a02c7f1316"
+    },
+    {
+      "path": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "sha256": "1d0b5e26b1bef6c967b529a2aa76e4c814abd309a1d27c86ea66b4c6eed18786"
     },
     {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
@@ -169,7 +173,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "63ab26fad7cba4664ec92fedc456aaf59324156acce852893c3de3a0fe662a40"
+      "sha256": "3925cc03f45d2103a118dc2ff063f8a39680d69cb04b626c78ff3d0bd12b01a9"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -177,7 +181,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "0747f739faf8a13fa1f4d70c5ac7755672bbc5a0708e6c03e8db191e19bbd800"
+      "sha256": "c400f3882271a688fb611f6f29ec91b60e7bb0dfd44c5d6ff4c7791ca549310d"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -186,6 +190,10 @@
     {
       "path": "04-analysis-integration/A-003-character-create-contract.md",
       "sha256": "34457268b62672562b826cc9029aa9a461da021ada4c43b2e4ffef78d79b76fb"
+    },
+    {
+      "path": "04-analysis-integration/A-007-inventory-domain-contract.md",
+      "sha256": "a5f09ea59b9286509172ce6be2772461092aad0bb4043802e3e72d7c23fb012c"
     },
     {
       "path": "04-analysis-integration/A-016-idempotency-recovery.md",
@@ -249,7 +257,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "5e98ce25dd459034e234159b9476f5030890b8c009dc9bd5f4926355de8e5ef8"
+      "sha256": "95c16c5b29ef4de89cca8ca0554448685013c9f5a1064e604b3d49fe43d53a87"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -257,15 +265,15 @@
     },
     {
       "path": "04-analysis-integration/items.md",
-      "sha256": "f7615f76468131a51bd1232df5359ba3125341a27fdb63acecc2c19cbaea4a9b"
+      "sha256": "18888135d23e91e183b350d7bb65d7c1dd370456c3d9e9c89949388b030024e8"
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "908c998773ac75e10122cde227f821f31944663a428c84ccf829537f91ec8920"
+      "sha256": "aec46d851031bb6342d7a5fc89a9a3881010dadf1144803e7a05a04ec5d91dd5"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "83cba205f31f32e5f6538ef4882487c890b5fa74c519e9a8e346f801cf387fa9"
+      "sha256": "6ce174cf2ff34c2bb3b0dfe50dea92e9f49bee5f983d37584024a201922699db"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -281,11 +289,11 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "1a951f9ed591d576d2ebc884bbe890bb14f80407484edd058f7f2dab2770b3fe"
+      "sha256": "41030db332d4206be809471d27be4cdef79eda53e9490e2adba9c4b521d0538d"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "ea12bdc5a151facaeacbf99b59b9aea7e87d5e86dbf9df8ea0540dbf5b2862da"
+      "sha256": "881686659e6abdbd4535640e351604649ec6d777c70a69db87a2b7093b1ca3d2"
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
@@ -309,7 +317,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "c1724cdee70afa9f95cf3e5183110474de393d998c8cec0486c1bae5c54b12d2"
+      "sha256": "88028548380b716c6ae0e16812e6b078e7e6ec3b8b75514c2538d8e334e4e543"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
@@ -317,7 +325,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "3540e5d67ef8c86f7d08314b8f9877194a1353a0a76914b287678225410ff426"
+      "sha256": "6f937dbbb50340d3bc9b951e3f62ff22f6abe776efd2bc0e393e357c32d95405"
     },
     {
       "path": "README.md",
@@ -366,6 +374,10 @@
     {
       "path": "tools/a003_create_contract.py",
       "sha256": "00b8ee1d644211c0993203dfc35cbbd93fab14001e2485508876959cc6382a7d"
+    },
+    {
+      "path": "tools/a007_inventory_contract.py",
+      "sha256": "d96123b62bfc4725b38ded9b6b8f56285ab4af55286a955a6768108b4b00df86"
     },
     {
       "path": "tools/a016_recovery_model.py",

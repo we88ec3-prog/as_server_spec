@@ -173,12 +173,34 @@
       "title": "完整背包與裝備生命週期",
       "method": "追CUseInventory、CWear、脫裝、物品刪減、數量、槽位、持久物品ID。",
       "deliverable": "實體物品模型及非衣櫃情境：使用失敗／背包滿／斷線／重送。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "evidence_kind": "observed-static-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C1C type1..9 codec, C1E/C08/C0C minimum request codec, S10/S38 removal codec and bounded S0F/S37 synthetic subbranches; designed owner/item instance/stack/slot/transaction/idempotency skeleton only",
+      "native_full_item_lifecycle_ready": false,
+      "native_original_item_catalog_ready": false,
+      "native_original_item_economy_ready": false,
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "analysis_contract": "04-analysis-integration/A-007-inventory-domain-contract.md",
+      "analysis_test": "tools/a007_inventory_contract.py",
+      "remaining_unknowns": [
+        "Original item template catalog/resource release and actual persistent ID format not established",
+        "C1C use_kind1..9 semantic effects, C08 Drop three-u8 meanings, C0C PutRequest object identity and response semantics unknown",
+        "Full S0F mode2 record field/tail meanings and S37 extra descriptions/unknown flags incomplete",
+        "Original unequip source and client UI sender/completion status, bag/equipment slot caps/stack limits/compatibility unproven",
+        "Official world drop, merchant/bank/trade item transfers A-013 incomplete",
+        "Original Client manual item pickup/use/equip/unequip/fullbag/CRC reconnect E2E not run"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-008",

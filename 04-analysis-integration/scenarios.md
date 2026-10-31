@@ -72,3 +72,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-026 / roy1：SCN-013 完成教學／發獎／出圖的有界證據
 
 [A-026 原版 Client/資源核對](../03-analysis-requests/A-026-roy1-tutorial-completion.md) / [安全 Domain 設計](A-026-tutorial-completion-contract.md)。Client 只證：S44 指名 Born Main → 紙張引導 (31,29) 招募員 → C6C4/C6C2 lifecycle close；另有 C39 generic Merchant NPC、C0B Quit empty、S15/S14/C35/S04 generic map load。**沒有**證實的 Server quest completion、npc id/script binding、可選獎勵、退出目的 map/x/y 或重登入恢復政策。SCN-013 不得因 C6C close、C39 click、S1E death、C35 或 S14 control2 標 completed。只在 verified original rule + authoritative event 時做單事務 Complete+optional Reward+Outbox，only verified exit map/revision 能切圖；失敗時保留 durable completion 並按上次 map/pos 恢復。CT-026～028 仍 planned，另 CT-054～056 synthetic/design；原 Client not-run。
+
+## A-007：SCN-015 物品實例、裝備、背包數量/移除及重登
+
+[原版 Client packet 分流](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) / [安全開發接口](A-007-inventory-domain-contract.md)。C1C use_kind1..9 變長、C1E slot、C08 Drop 3u8、C0C PutRequest u32BE、S0F/S37 變長加物品與裝備、S10 3u8 和 S38 2u8 移除／更新。這些都是 Client 協定能力，不代表原服堆疊上限、拾取地面物件 id 或卸裝 UI 已知。Server-only ItemInstance/owner+revision+unique op ledger 用來保障物品不可複製/重領/跨帳移動；滿背包卸裝需原子拒絕且原裝備保持，Client C1C 無原生 globally unique transaction ID，無法只靠重送 raw bytes 永遠識別重複指令。SCN-015 `analysis-required`、CT-057/058/059 planned，原版 Client 全程/物品 economy 仍未實機驗收。

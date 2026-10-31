@@ -69,3 +69,7 @@ A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/hando
 ## A-026 / roy1：ONB-06 教學完成與出口的限制（2026-10-31）
 
 [A-026 BIN-first](../03-analysis-requests/A-026-roy1-tutorial-completion.md) / [安全完成契約](../04-analysis-integration/A-026-tutorial-completion-contract.md) / [機讀未知規則](tutorial-completion-conditions.json)。原版 Born Script 只建引導紙張，C6C4/2 關閉**不構成畢業**；C39 Merchant 為 Client 互動子集、NPC/Script/完成 rule 未綁；C0B Quit 非教程出圖；原版 S15/S14/C35/S04 支援一般換圖，出口 map/xy/獎勵仍 unknown。ONB-06 可以 DEV 實作 verified-rule gating、unique Completion/optional Reward ledger/outbox 與 fenced ExitIntent/crash recovery；**不可打開原生教學畢業/發獎/轉圖**，直到 A-012/015/024 的原服規則及目的地核實。A-026 integrated/handoff partial; CT-026～028/054～056 planned/native not-run。
+
+## A-007 / roy1 物品/裝備交付邊界（2026-10-31）
+
+[A-007 原版協定分支](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) / [可開發的資產安全骨架](../04-analysis-integration/A-007-inventory-domain-contract.md)。Server 可先實作 C1C use_kind1..9、C1E、C08、C0C 的有界 decoder、S10/S38 的 reader schema、S0F/S37 合成分支與 item instance/slot/owner/revision unique transaction/outbox。**不代表完整官方背包、卸裝、交易已經 Client 驗收或原服策略已知**。既有衣櫃 C1C(type5) 是本機用例，不能替代真正 item 掉落/使用/背包滿；A-013 交易/A-015 模板/原服 trace 是下游阻塞。CT-057/058/059 planned，native validation not-run。

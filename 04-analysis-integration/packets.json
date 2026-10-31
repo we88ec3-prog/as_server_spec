@@ -199,8 +199,8 @@
       "name": "UseInventory",
       "system": "SYS-ITEM",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 kind,u8 slot,u8 flag,u8 use_kind；本profile use_kind5無尾部",
-      "client_entry": "0x577800",
+      "layout": "u8 kind,u8 slot,u8 flag,u8 use_kind; native branch1 string8; branch2 u32BE; branch3 4×u16BE; branch4 3×u16BE; branch5 no tail; branch6 2×u16BE; branch7 u16BE; branch8 2×u8; branch9 2×u16BE. jump table 0x577920; all type semantic effects UNKNOWN",
+      "client_entry": "0x577750 ctor push 0x1c at 0x577769; 0x577800 writer; 0x577831 subtype dispatch",
       "state_precondition": "已進世界且格位有效",
       "related_packets": [
         "PKT-S37",
@@ -213,6 +213,11 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-008"
+      ],
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
       ]
     },
     {
@@ -222,8 +227,8 @@
       "name": "Wear",
       "system": "SYS-ITEM",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 slot；遊戲實測換裝主要走C1C",
-      "client_entry": "0x578010",
+      "layout": "u8 inventory/equipment selector opaque slot; native writer 0x578010. Full equip/unequip UI meaning unknown",
+      "client_entry": "0x577f60 ctor push 0x1e at 0x577f79; 0x578010 writer",
       "state_precondition": "已進世界",
       "related_packets": [
         "PKT-S37",
@@ -236,6 +241,11 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-008"
+      ],
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
       ]
     },
     {
@@ -549,8 +559,8 @@
       "name": "AddInventory",
       "system": "SYS-ITEM",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "變長物品欄；詳細已知分支見items.md",
-      "client_entry": "0x57a3f0",
+      "layout": "SAddInventory variable: u8 kind,u8 slot,u16BE icon, RGB3, flags/use_kind, string8 labels/descriptions and mode0 u16BE count; mode1 u8; mode2 u8,u8 count, repeated extra item descriptors; trailing variable fields. Branch payload not fully recovered; see items.md",
+      "client_entry": "0x57a1c0 ctor; 0x57a3f0 reader, mode branches at 0x57a4f8",
       "state_precondition": "進圖初始化／背包變更",
       "related_packets": [],
       "layout_status": "profile-documented",
@@ -560,6 +570,11 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-008"
+      ],
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
       ]
     },
     {
@@ -670,8 +685,8 @@
       "name": "AddEquipment",
       "system": "SYS-ITEM",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "變長裝備欄；見items.md",
-      "client_entry": "0x579830",
+      "layout": "SAddEquipment variable: u8 slot,u16BE icon,RGB3,flags,string8 name,string8 description, additional flags+bool and variable description list; see items.md. Full original descriptions/flags unknown",
+      "client_entry": "0x579170 ctor; 0x579830 reader",
       "state_precondition": "穿戴成功／裝備恢復",
       "related_packets": [],
       "layout_status": "profile-documented",
@@ -681,6 +696,11 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-008"
+      ],
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
       ]
     },
     {
@@ -1262,6 +1282,98 @@
       ],
       "manual_validation": "not-run",
       "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+    },
+    {
+      "id": "PKT-C08",
+      "direction": "C2S",
+      "opcode": "0x08",
+      "name": "Drop",
+      "system": "SYS-ITEM",
+      "layout": "3×u8 exactly, fields semantic roles (slot/count/location) UNKNOWN; do not grant World drop based on guesses",
+      "client_entry": "0x571f40 constructor push 0x08 at 0x571f59; 0x571ff0 writer",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+    },
+    {
+      "id": "PKT-C0C",
+      "direction": "C2S",
+      "opcode": "0x0c",
+      "name": "PutRequest",
+      "system": "SYS-ITEM",
+      "layout": "u32 BE opaque object reference; not proven persistent inventory instance ID or final pickup acceptance",
+      "client_entry": "0x574a40 ctor push 0x0c at 0x574a59; 0x574af0 writer",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+    },
+    {
+      "id": "PKT-S10",
+      "direction": "S2C",
+      "opcode": "0x10",
+      "name": "RemoveInventory",
+      "system": "SYS-ITEM",
+      "layout": "3×u8; parser stores fields at +0x18,+0x19,+0x1a; original action/count/slot meaning not verified",
+      "client_entry": "0x585b80 ctor push 0x10 at 0x585b99; 0x585c30 parser",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+    },
+    {
+      "id": "PKT-S38",
+      "direction": "S2C",
+      "opcode": "0x38",
+      "name": "RemoveEquipment",
+      "system": "SYS-ITEM",
+      "layout": "u8 slot, u8 raw_flag; parser boolean cast is (raw_flag==1), business meaning UNKNOWN",
+      "client_entry": "0x585a10 ctor push 0x38 at 0x585a29; 0x585ac0 parser",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "layout_status": "observed-static",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
     }
   ]
 }

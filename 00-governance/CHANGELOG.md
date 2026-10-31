@@ -81,3 +81,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-026 教學完成、獎勵、出圖與恢復
 
 從原件 Asgard.exe（SHA256 固定）驗 C39 Merchant constructor 0x5737c9 / writer 0x573860 的 u8,u32BE,u16BE + subtype1..9 多態、C0B Quit constructor 0x574bb9 / empty writer 0x574c50、S15/S14/C35/S04 通用 Map/Loading/Position；直接解壓 Born.dat 的 BE wrapper+UTF-16LE Main，只有 PaperDialog 導引 (31,29)，並沿 A-023 補證 C6C4→C6C2 ScriptClose。沒有原服任務完成 rule、獎勵存在與內容、NPC entity/script 綁定、官方出口 map/xy。新增 A-026 BIN-first、Domain 交接、機讀 unknowns、Python 11 signature/10 unittest 合成測試、PKT-C39/PKT-C0B、CT-054/055/056，更新 SCN-013、CT-026/027/028、packet/evidence/Manifest。A-026 integrated/handoff partial，native tutorial complete/reward/exit 不可實作啟用。
+
+## task_a/roy1 — 2026-10-31 A-007 背包、裝備生命週期的原生封包矩陣
+
+原版 Asgard.exe SHA256 固定，追 C1C 0x577800/0x577920 use_kind1..9、C1E 0x578010、C08 Drop 0x571ff0、C0C PutRequest 0x574af0；S0F AddInventory 0x57a3f0 分支 mode0/1/2、S37 AddEquipment 0x579830、S10 RemoveInventory 0x585c30 3u8、S38 RemoveEquipment 0x585ac0 u8+u8 raw flag。對地圖/背包/物品圖示/原服實例 id 禁止無證推論。新增 A-007 BIN-first/Domain 契約/Python 15 signature +12 unittest、4 個 PKT、SCN-015、CT-057/058/059，修改 Manifest/治理及 packet traces；A-007 integrated/handoff partial，native Client E2E not-run、物品正式模板與業務規則 still unknown。

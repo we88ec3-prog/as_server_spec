@@ -2059,6 +2059,43 @@
         "C35 contains no epoch; same-pair overlap ambiguous",
         "Native Client E2E not-run"
       ]
+    },
+    {
+      "evidence_id": "ev_a007_20261031_inventory_lifecycle_static",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "method": "original Asgard.exe objdump x86 + UTF16 packet RTTI/vtable/constructor opcode dual match, writer/reader branch table and 15 original byte signature checks; Python SQLite synthetic 12 tests",
+      "scope": "A-007 C1C use subtype1..9; C1E/C08/C0C; S0F/S37 branch modes; S10/S38 remove sync; designed item instance/slot/quantity/owner/idempotency contract",
+      "functions": [
+        "0x577769",
+        "0x577800",
+        "0x577831",
+        "0x577920",
+        "0x577f79",
+        "0x578010",
+        "0x571f59",
+        "0x571ff0",
+        "0x574a59",
+        "0x574af0",
+        "0x585b99",
+        "0x585c30",
+        "0x585a29",
+        "0x585ac0",
+        "0x57a3f0",
+        "0x57a4f8",
+        "0x579830"
+      ],
+      "report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "contract": "04-analysis-integration/A-007-inventory-domain-contract.md",
+      "synthetic_test": "tools/a007_inventory_contract.py",
+      "limits": [
+        "Original Server item persistent identity/catalog/stacks/capacity not observed",
+        "No native equip/unequip/drop/pickup E2E traces or full business status mapping",
+        "S0F/S37 extended layouts partial",
+        "Local prototype wardrobe is not original item economy",
+        "Designed SQLite transaction/ledger is not original Server behavior"
+      ]
     }
   ]
 }

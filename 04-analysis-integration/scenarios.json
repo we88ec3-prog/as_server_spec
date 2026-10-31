@@ -488,6 +488,45 @@
       ],
       "native_client_validation": "not-run",
       "notes": "Designed admin API contract only, not recovered original GM opcode, original Server roles or deployed admin web UI"
+    },
+    {
+      "id": "SCN-015",
+      "title": "Inventory / equipment lifecycle, stack changes and durable reconnect",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "packets": [
+        "PKT-C1C",
+        "PKT-C1E",
+        "PKT-C08",
+        "PKT-C0C",
+        "PKT-S0F",
+        "PKT-S10",
+        "PKT-S37",
+        "PKT-S38",
+        "PKT-S33"
+      ],
+      "status": "analysis-required",
+      "evidence_kind": "observed-static-plus-designed",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "packet_mapping": "C1C 1..9 variable; C1E u8; C08 3×u8; C0C u32BE; S0F variable mode0/1/2; S37 variable; S10 3×u8; S38 u8+u8; S33 appearance. Original item semantics/IDs/stack/slot caps UNKNOWN",
+      "notes": "A-007 exact native codec subset known, local wardrobe is only a designed test. Server-only stable item_instance/owner + unique ledger/transaction/outbox. Original item catalog/unequip/drop/pickup/merchant flow unknown; do not turn designed policies into native claims.",
+      "failure_cases": [
+        "invalid item/slot/count",
+        "wrong owner/session generation",
+        "full bag unequip rollback",
+        "duplicate operation different body",
+        "same C1C wire replay ambiguous without transaction id",
+        "disconnect/restart between DB commit and S37/S33 projection",
+        "S0F/S37 variable payload truncation"
+      ],
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
     }
   ]
 }

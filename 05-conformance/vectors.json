@@ -1451,6 +1451,98 @@
       },
       "expected": "Exit map checkpoint only after verified original exit route and safe C35 barrier; Client C35 has no epoch; no duplicate reward or position drift on crash",
       "evidence_kind": "designed"
+    },
+    {
+      "id": "CT-057",
+      "status": "planned",
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "level": "inventory-use-remove-codec",
+      "requirements": [
+        "R-008"
+      ],
+      "packet_ids": [
+        "PKT-C1C",
+        "PKT-C1E",
+        "PKT-C08",
+        "PKT-C0C",
+        "PKT-S10",
+        "PKT-S38"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic",
+        "reference": "tools/a007_inventory_contract.py",
+        "cases": [
+          "C1C use_kind1..9 exact tail length and BE",
+          "unknown kind/short/trailing reject",
+          "C1E slot u8",
+          "C08 3 u8 / C0C u32 BE",
+          "S10 3 u8 and S38 slot + flag boolean"
+        ]
+      },
+      "expected": "Original byte signatures pass, type codec/strict parsing; no claim native item effects/unknown use_kind enum meanings",
+      "evidence_kind": "observed-static-plus-synthetic"
+    },
+    {
+      "id": "CT-058",
+      "status": "planned",
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "level": "inventory-equipment-variable-sync",
+      "requirements": [
+        "R-008"
+      ],
+      "packet_ids": [
+        "PKT-S0F",
+        "PKT-S37",
+        "PKT-S10",
+        "PKT-S38"
+      ],
+      "input": {
+        "kind": "static-parser-branches",
+        "reference": "04-analysis-integration/items.md",
+        "cases": [
+          "S0F mode0 u16,count; mode1 u8; mode2 nested list bounded",
+          "S37 extra description count bounded and tail checked",
+          "wrong slot/codepage/overflow fail closed",
+          "snapshot consistency after equip/unequip/reconnect"
+        ]
+      },
+      "expected": "No fixed length invented for variable S0F/S37; native body variants decoded and Client UI actual stock/revision validation required",
+      "evidence_kind": "observed-static-plus-designed"
+    },
+    {
+      "id": "CT-059",
+      "status": "planned",
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "level": "durable-item-instance-lifecycle",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "packet_ids": [
+        "PKT-C1C",
+        "PKT-C1E",
+        "PKT-S10",
+        "PKT-S38",
+        "PKT-S0F",
+        "PKT-S37"
+      ],
+      "input": {
+        "kind": "designed-sqlite-synthetic",
+        "reference": "tools/a007_inventory_contract.py",
+        "cases": [
+          "same item instance unique owner+slot",
+          "equip/unequip full bag rollback",
+          "count split/consume underflow rejects",
+          "cross-owner and unverified item ref rejected",
+          "same op replay once / changed digest reject",
+          "disconnect and SQLite reopen retains exactly one item and outbox event"
+        ]
+      },
+      "expected": "Server creates unique internal item_instance_id and operations committed once without dupes. No original Server policy inferred.",
+      "evidence_kind": "designed"
     }
   ]
 }

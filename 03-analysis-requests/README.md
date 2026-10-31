@@ -104,3 +104,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-026 / roy1：教學完成、可能獎勵、出圖與中斷恢復（2026-10-31）
 
 [完整 BIN-first／Born 資源交叉核對](A-026-roy1-tutorial-completion.md)、[Server 安全設計](../04-analysis-integration/A-026-tutorial-completion-contract.md)、[10 項合成測試](../tools/a026_tutorial_completion_model.py)、[機讀完成條件／所有未知欄](../02-server-planning/tutorial-completion-conditions.json)。Born.Main 只有招募員 PaperDialog 導引 (31,29)（**非出口/出生**），C6C4→C6C2 只關 Script；C39 Merchant subtype1..9 有 native 入口，NPC/Script 真實綁定未知；C0B Quit empty 非畢業；S15/S14/C35/S04 支援通用切圖，但沒有原服出口目的地。原版任務完成 rule、獎勵是否存在/內容、官方出口 map/xy、重登政策 unknown。A-026 integrated/handoff partial，可交 DEV 安全 once-only Completion/optional Reward/Exit ledger，**不代表原生教學可通關**。SCN-013 仍 analysis-required，CT-026～028/054～056 planned/not-run。
+
+## A-007 / roy1：完整背包與裝備生命週期（2026-10-31）
+
+[原生 C1C/C1E/C08/C0C/S0F/S37/S10/S38 證據](A-007-roy1-inventory-lifecycle.md)、[Server item instance 領域契約](../04-analysis-integration/A-007-inventory-domain-contract.md)、[離線原件 signature 與 SQLite 測試](../tools/a007_inventory_contract.py)。原 Client C1C `use_kind=1..9` 有多種變長尾部、S0F 數量 mode0/1/2、S37 變長裝備、S10/S38 明確移除 reader；原本衣櫃 type5 僅一個 profile。不以名稱推斷真實交易/數量/裝備槽政策；正式 Server 使用內部 item instance id、owner+slot/revision/quantity、唯一 ledger/outbox 及背包滿回滾。A-007 integrated/partial，原服 item template/合法值/掉落拾取/全 Client E2E 未知；SCN-015、CT-057～059 planned。
