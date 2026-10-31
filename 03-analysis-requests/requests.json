@@ -255,7 +255,7 @@
       "method": "追map tile/block位元與尋路；正常／阻擋／邊界／速度超限／重送序號。",
       "deliverable": "碰撞資料語意及拒絕／校正向量；標記速度政策是否原服還原。",
       "status": "integrated",
-      "assignee": "roy3 (Roy2 baseline retained)",
+      "assignee": "roy3 (continuation of roy2)",
       "evidence_ids": [
         "A005-E01",
         "A005-E02",
@@ -270,10 +270,17 @@
         "A005-E11",
         "A005-E12",
         "A005-E13",
-        "A005-E14"
+        "A005-E14",
+        "A005-E15",
+        "A005-E16",
+        "A005-E17",
+        "A005-E18",
+        "A005-E19",
+        "A005-E20",
+        "A005-E21"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "partial",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -288,14 +295,14 @@
       "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
       "profile": "TW-seed0-local-v0.1",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "analysis_report": "task_a/roy2/A-005-analysis.md",
+      "analysis_report": "task_a/roy3/A-005-native-path-collision-closure.md",
       "native_probe": "task_a/roy2/a005_native_probe.py",
       "map_probe": "task_a/roy2/a005_collision_probe.py",
       "move_codec": "task_a/roy2/a005_move_codec.py",
       "offline_tests": "task_a/roy2/test_a005_move.py",
-      "evidence_kind": "observed-original-exe-static-client-producer-consumer-plus-original-MAP-structure-and-synthetic-branch-tests",
+      "evidence_kind": "observed-original-exe-static-path-gate-and-dynamic-overlay-plus-original-MAP-and-synthetic-branch-tests",
       "implementation_ready": true,
-      "implementation_ready_scope": "Original decoded C33/C11/S0B, native C33 seq increment, S0B high-bit branch and authoritative correction can inform DEV; no verified player collision rule or path and no native-ready full movement",
+      "implementation_ready_scope": "Native Client decoded C33/C11/S0B, seq/reposition, read-side local path candidate gate (effective destination bit0; source bit3+direction byte; scene lookup), dynamic tile overlay. Actual server authoritative collision, dynamic map state and native world GUI are NOT ready.",
       "client_io_completed": [
         "C33 writer 0x573BF0 three u8; C11 writer 0x571960 one u8",
         "S0B reader 0x583150 BE u16 x,y and one u8 status/seq",
@@ -308,13 +315,18 @@
         "S0B consume handler 0x558670 via 0x4F1606/0x4F4904; both high-bit branches compare (received_low7+1)&127 with local next sequence",
         "S0B bit7 clear authoritative reposition/path reset; bit7 set predicted-position comparison then continue or correction",
         "C11 native producers 0x555B07/0x555EAE, path builder 0x4BE470 and waypoint tile lookup 0x4B4920",
-        "13 original PE call/jump + 15 native instruction windows and 5 unittest original/synthetic PASS"
+        "13 original PE call/jump + 15 native instruction windows and 5 unittest original/synthetic PASS",
+        "Original 0x4BE470 399-node 21x19 local grid / 8-neighbor predicate 0x4B8B20, dynamic actor lookup and global bypass",
+        "0x4B8B20 effective destination tile flags bit0 reject, effective source bit3+in-memory Tile+12 byte directional mask reject",
+        "0x4B4920 bounds and 0x4C1850 tile memory+6 11byte projection; overlay flags=(memory_flags|dynamic_add)&~dynamic_remove",
+        "0x4431E0 native adjacent path-direction index 0..7; does not establish every C33 UI direction mapping",
+        "Map0 ref6 original static raw-only four-neighbor component 900 of 902 bit0-clear cells, never labeled native passable"
       ],
       "remaining_unknowns": [
-        "Exact native player tile/block/auxiliary/dynamic object passability from 0x4BE470 and 0x4C1850, direction/corner-cut rule, not derivable from flags=0/bit0/bit4 alone",
-        "Original native GUI C33/S0B successful blocked-step and reposition visualization, unmodified Client not-run",
-        "Original Server exact speed tick/stride, replay/failure semantics; these are designed Server policy and not recoverable from client alone",
-        "Map/ref spawn/facing viewport and runtime C35 must be validated in A032/CT108/109 before claiming walkable path"
+        "Original Windows GUI and native C33/S0B blocked/accepted/corrected movement, CT-109 not-run",
+        "Scene object 0x4EA900 dynamic types, overlay write sources and memory Tile+12 directional mask mutation lifecycle; original MAP cannot alone provide full effective collision state",
+        "Original Server authoritative speed/tick/diagonal-corner-cut, retries/owner/session policies (Server decisions, not implied by Client path)",
+        "Original World map_ref6 first spawn/viewport/facing and live C35 still require A032/DEV/CT; raw candidate not native walkable"
       ],
       "conformance": [
         "CT-004",
@@ -322,7 +334,7 @@
         "CT-072"
       ],
       "last_analysis_date": "2026-11-01",
-      "error_behavior": "Native receiver 0x558670 demonstrates two status high-bit correction branches and low7 seq next-compare; no original server error status table or GUI collision test",
+      "error_behavior": "Native local path rejects effective dest bit0, source bit3 directional bit or object lookup return1 (except global bypass); C33/S0B native correction/seq branches documented. No original Server failure-code policy or GUI rollback capture.",
       "asset_requirements": "No new assets needed; Asgard.exe, Map0.dat, Map1.dat, Map2.dat already supplied",
       "source_branch": "task_a/roy2",
       "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
@@ -332,26 +344,32 @@
       "roy3_test": "task_a/roy3/test_a005_native_move_chain.py",
       "roy3_handoff_contract": "04-analysis-integration/A-005-move-ack-branch-contract.md",
       "roy3_native_ct_plan": "05-conformance/A-005-native-movement-ack-test-plan.md",
-      "offline_validation": "Original EXE SHA db3df...: 13/13 x86 E8/E9 destinations and 15/15 code windows PASS; 5/5 synthetic+optional-original unittest PASS; native Client E2E not-run",
+      "offline_validation": "Original SHA verified: 13/13 native E8/E9 edges, 18/18 native byte anchors; eight tests with original EXE/Map0 and synthetic predicate PASS. Map0 ref6 902/3600 raw bit0 clear, raw-only 4-neighbor component from (30,30) 900. Native GUI not-run.",
       "client_io_handoff": {
-        "trigger": "Original local movement path 0x557AC0 and direction action 0x555B07/0x555EAE; exact input widget unknown",
+        "trigger": "Client local route 0x557AC0→0x4BE470→0x4B8B20; C33/C11 send producers; S0B received by 0x558670",
         "client_sends": [
-          "PKT-C33 direction/sequence/local-mode byte",
-          "PKT-C11 direction byte"
+          "C33 direction:u8, seq:u8, local movement mode:u8",
+          "C11 direction:u8"
         ],
         "client_receives": [
-          "PKT-S0B x/y BEu16 + status-sequence byte",
-          "PKT-S06/S11 for other entities"
+          "S0B x:u16BE,y:u16BE,status_sequence:u8",
+          "S06/S11 for other visible entities"
         ],
-        "client_reaction": "0x558670 compares ((S0B.low7+1)&127) against local next seq; bit7=0 authoritative reset, bit7=1 prediction compare then continue/rebase",
-        "evidence": "task_a/roy3/A-005-roy3-native-movement.md A005-E09..E14",
+        "client_reaction": "Client route uses effective tile dynamic flags, object lookup, source directional mask; C33 send increments next seq modulo128; S0B checks ack low7+1 against next seq; bit7 selects authoritative stop/rebase vs predicted path comparison",
+        "evidence": "task_a/roy3/A-005-native-path-collision-closure.md; original Asgard.exe SHA and original Map0 ref6",
         "unknowns": [
-          "Exact native player tile/block/auxiliary/dynamic object passability from 0x4BE470 and 0x4C1850, direction/corner-cut rule, not derivable from flags=0/bit0/bit4 alone",
-          "Original native GUI C33/S0B successful blocked-step and reposition visualization, unmodified Client not-run",
-          "Original Server exact speed tick/stride, replay/failure semantics; these are designed Server policy and not recoverable from client alone",
-          "Map/ref spawn/facing viewport and runtime C35 must be validated in A032/CT108/109 before claiming walkable path"
+          "Original Windows GUI and native C33/S0B blocked/accepted/corrected movement, CT-109 not-run",
+          "Scene object 0x4EA900 dynamic types, overlay write sources and memory Tile+12 directional mask mutation lifecycle; original MAP cannot alone provide full effective collision state",
+          "Original Server authoritative speed/tick/diagonal-corner-cut, retries/owner/session policies (Server decisions, not implied by Client path)",
+          "Original World map_ref6 first spawn/viewport/facing and live C35 still require A032/DEV/CT; raw candidate not native walkable"
         ]
-      }
+      },
+      "baseline_analysis_report": "task_a/roy2/A-005-analysis.md",
+      "native_path_probe": "task_a/roy3/a005_roy3_collision_recovery.py",
+      "native_path_tests": "task_a/roy3/test_a005_roy3_collision_recovery.py",
+      "native_path_fixture": "task_a/roy3/a005_native_path_fixture.json",
+      "native_path_contract": "04-analysis-integration/A-005-native-path-collision-contract.md",
+      "native_path_ct_plan": "05-conformance/A-005-native-path-collision-test-plan.md"
     },
     {
       "id": "A-006",
