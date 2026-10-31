@@ -138,3 +138,10 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 原始 Asgard.exe 的 World 註冊庫 **7000..7023**（`World00..23.dat`）、Monster 註冊庫 **8000..8042**（`Monster00..42.dat`）及 MonsterImageLib image ID `0x4000+N` → `8000+N//10` / `slot=N%10`，已有原生 binary 證據。注意字串內雖有 `@Monster%02d.dat`，**註冊實際跳過字面 @**。World S07 kind 1/2/4 原生 handler 會呼叫 `MonsterObject` ctor；兩個 C43 request producer 原生寫 `u8=1, BE u32 object, u8=4`。MonsterObject 的六種 selector 對應 `+0x20/+0x30/+0x40`（各重複一次），不能據此擅自命名具體動作動畫。
 
 [完整 A-011 研究](../task_a/roy2/A-011-analysis.md) · [原件 probe](../task_a/roy2/a011_native_probe.py) · [資源 ID/click codec](../task_a/roy2/a011_resource_codec.py) · [CT-067/CT-068 計畫](../05-conformance/A-011-npc-resource-click-animation-test-plan.md)。29 個 original PE anchors + 4 RTTI + 3 UTF16 檔名 literal PASS；[GitHub CI](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751) **16/16 tests PASS**。**`integrated/partial`（已證靜態子集；完整 NPC 物件貼圖/YPF/DOI 原生 GUI mapping 未完成）**、native Client CT-068 `not-run`。精確需補的範例檔名：`Monster00.dat` 與 `World00.dat`（僅為格式模板的實際樣本，非宣稱原檔必然存在）。
+
+
+## A-015／roy2 MAP→Tile→碰撞證據→可用座標（2026-10-31）
+
+這次以同一原始 `Asgard.exe`＋`Map0.dat/Map1.dat/Map2.dat` 追到完整 **MAP raw 10B tile → Client memory 17B tile → index=x+y*width**。Native `0x4B4920` 只證合法 tile 邊界，`0x4B4A3B/0x4B4A73` 的 32×48 視窗單元是像素→tile 的**候選**；tile bit0、bit4 線段測試和獨立每格 4B grid 具有不同用途，尚不能自稱原版玩家 walkable map。
+
+原始 494 地圖／7,701,805 tile 重新掃描且 SHA 全部吻合；477 張地圖包含 Born(31,29) ，該格 flags 0:242／1:109／17:126，絕不能當玩家出生點證據。**26 原始 PE signatures PASS、18 synthetic map tests PASS**（[GitHub Actions run 41188097214](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41188097214)）；[完整分析](../task_a/roy2/A-015-map-coordinate-collision.md)、[metadata-only MAP codec](../task_a/roy2/a015_map_coordinate.py)、[26 PE checks](../task_a/roy2/a015_map_native_probe.py)、[CT-069/070](../05-conformance/A-015-map-coordinate-test-plan.md)。資源/地圖解析研究已交付，完整原版 passability / native Client GUI **未驗證**；不需要再提供 Asgard/Map0/1/2/Born，同版真實走路／撞牆 trace 有助於後續結案。
