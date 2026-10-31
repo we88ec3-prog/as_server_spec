@@ -209,7 +209,7 @@
     },
     {
       "path": "03-analysis-requests/A-012-roy1-quest-dialog.md",
-      "sha256": "1990bfff1d7ab12e4fa8d7226bd6268aeb01ee637f43a279d4cb0d9be0c2c176"
+      "sha256": "317334f02dbd226496034c9b3c2307bb304bd6c31db2c38a8f8fb79ea5ad7418"
     },
     {
       "path": "03-analysis-requests/A-013-roy1-economy-wire.md",
@@ -321,7 +321,7 @@
     },
     {
       "path": "04-analysis-integration/A-012-quest-dialog-contract.md",
-      "sha256": "182bdfc37ba3b57bb52a5450faad0376e475072a938d76b721a873fe8361581b"
+      "sha256": "e6ecff21a8c54429e3ec0f59bcdeaf27cbf9fd7c71148ecb40dcb77ace32ace6"
     },
     {
       "path": "04-analysis-integration/A-013-economy-contract.md",
