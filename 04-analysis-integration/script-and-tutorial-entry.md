@@ -29,3 +29,11 @@ PaperDialog 關閉時的 client.Dispose 會送 C6C(4,name,context)，並在尚�
 直接 Script 依賴已補查（A023-E12）：`PaperDialog.dat` 定義 Born 所需的 `PaperDialog_Create` 及翻頁／關閉 callback。Born 單頁資料使 PREV/NEXT 隱藏，預設／取消均指向 OK；OK 依序呼叫 `dialog.Dispose`、`client.Dispose`。資源沒有顯式 SendReply 或 quest 修改，native Dispose 內部效果仍未知。視覺引用為 `Basic.dat/AlertFrame.ypf` 與按鈕 object 11/12/13，尚未驗證視覺資產載入。詳見報告 A023-E12 與 `task_a/roy2/entry-dependency-verification.json`；不可把關閉紙張視窗當成原服任務完成。
 
 589-byte zlib SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98` 解壓為 1154-byte UTF-16LE XML，唯一 `Main` 執行 `client.CreateArray` → `page.Insert` → `PaperDialog_Create`；紙張引導提及 **(31,29)** 女性招募員與滑鼠點選。這個座標**不是已證實出生點**。本 Main 無顯式 NPC/quest/SendReply，是否首次自動觸發與 NPC/quest ID 仍 unknown。另 EXE IAT `0x5f11fc=DeleteFileA` 確認 S44 Script 清除風險。見 [資源機讀摘要](tutorial-born-resource.json) 和 [驗證工具](../task_a/roy2/verify_born.py)。
+
+## 2026-11-01 A-023 精確原件增量（E19～E24）
+
+本回合原始 `Born.dat`、`Basic.dat` 皆在模型側實際解讀、比對 hash；Basic indexed DAT **39 slots/38 members**，`AlertFrame.ypf` 偏移13196、長177648、SHA `b641441d1f0378de04b6f7929c333d95e6ad7df451f3927432e5c4d0305602ce`，YPF **17**；搭配 Born.Main **CP950 text CRC `1d87b0c0`** 證明紙張依賴的原始 Frame 資料確實存在，**不是** GUI 已成功顯示。PaperDialog.dat 的 XML 是既有歷史報告的來源，該檔本輪未上傳，不能稱重跑原件全鏈。
+
+額外原件 22 VA native-static：`S44(2,0)` 外層 handler 對 **UI slot0x23**／components3/4；`S44(2,2)` 操作 **slot0x24**；兩者均需與 `S44(1,0)→ScriptRunner Main` 分開，不可用 type2 偽造 Born start 或 script ACK。既有 `C6C(4)`＋`C6C(2)` Born normal close **不表示** quest 完成。完整精確證據與 21 合成邊界測試：[A-023 補證](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)、[CT-112](../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
+
+**Server gate**：P0 登入／地圖顯示／可移動不須等待原服未知的第一名招募員或 Born 自動發送政策。P1 本地 Script schema/資源/安全 runner 可開發；真正 first-login S44 push、NPC EntityId/map/spawn、NPC→nNewJoin01/Quest flags 仍 unknown，Native CT-034/035 `not-run`。不要延用上文將 `S03→C10→C25` 當所有 region/第一次創角必須路由的舊推定；A-028/A-031 已證明應分路。
