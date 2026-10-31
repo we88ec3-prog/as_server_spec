@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "558209584715f24e511b7f05c433e29ffe8939e7731f87c12c56505324281052"
+      "sha256": "27da64c8b4a566dc5c4f5e01c7b0c259152f0730a8bceaca9b209019271decd4"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -45,7 +45,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "43f9cd27b437557a98cadc2cd9cebdb2fadbae66ccaed6acaac05d20dc075e41"
+      "sha256": "00749c8fafea0489184132d251d61f0b707ad4030c14b6ee00f42c14657ac6aa"
     },
     {
       "path": "00-governance/workflow.md",
@@ -61,11 +61,11 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "d552f0101ae53a7115c4811efea84984f0a24dca6f0051efa9be86ac28eb33f3"
+      "sha256": "3d8414d8642f8e184004d2c9a1cf1c14c92704383217e50c3faa4689f5dfa63b"
     },
     {
       "path": "02-server-planning/admin-operations.json",
-      "sha256": "df881e9d386cb2ad03f7b17f20738fa6d4b00c71c247b13ab55c6a5964fd82e5"
+      "sha256": "6087ea3c093a678c24e5a4ee9d2efd34a4efabc70c8b62e4f929b89f16fce5d4"
     },
     {
       "path": "02-server-planning/admin-web-management-interface-plan.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/character-account-match-policy.md",
-      "sha256": "e20752538cdfb6ec3e0a7488e315bf0920ba97f6c54bf1216c2a86b39faf62de"
+      "sha256": "360043ce03d3aa92fab4427d38f681160cf119e33de4b86266704b473f091c9f"
     },
     {
       "path": "02-server-planning/client-io-delivery-plan.md",
@@ -89,7 +89,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "781f366e944588cf2852414a1eea822e7186927d083fc2946b938f544e816f45"
+      "sha256": "50d0e469380def42c6752fda5ff3ce707235440a6f22de3a59288ffae3b72baa"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -125,7 +125,7 @@
     },
     {
       "path": "02-server-planning/native-creation-next-iteration.md",
-      "sha256": "2e2fc7781c370d72880e839b452692d1ee184c67e1ee92b1e09f542bb33b87ec"
+      "sha256": "59108a829c8129c5f248762b03f9236e86b2449afe94344b071e0f4ddedfbb89"
     },
     {
       "path": "02-server-planning/native-game-password-4to8-policy.md",
@@ -137,7 +137,7 @@
     },
     {
       "path": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
-      "sha256": "17f8f16bceeb31801418fe920ca9c8136113c7f78917ec015aef63c9db6f25e6"
+      "sha256": "3c671cc624b07951807faea6106cc1453f97e194f42856782ccef58ba9922370"
     },
     {
       "path": "02-server-planning/novice-school-admission-flow.md",
@@ -149,11 +149,11 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "bee9c07a6267bfd81c47d57720954472a604e52378bbd4f87ad2c32d748a0601"
+      "sha256": "30bb922db706687414dfe6ef61c6068c016cd2cd52714b4408c5cf9880c6e281"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
-      "sha256": "5f7f4badc844b85ad1a345483ded1506472b344767e413d58cd79532ed15928a"
+      "sha256": "a06f719fa48ebea4deb05236a5e4223477e9bc96742bb99e133ae4fc8103c350"
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
@@ -173,11 +173,11 @@
     },
     {
       "path": "02-server-planning/shared-map-multiplayer-contract.json",
-      "sha256": "d789e043c856ba99b2496e3838ce26a2ad0fc034bc3e87e8f0598007a39cd434"
+      "sha256": "713ecb60cc4685b8829e47eae46abc5d8c554fed2be4751bafc0a74b5fc26daa"
     },
     {
       "path": "02-server-planning/shared-map-multiplayer-contract.md",
-      "sha256": "0ec5bd6885d29ef482bd1ac6616da74b0a92385ef4e93818b8fd71c9f00cc07c"
+      "sha256": "0c68688a7bcc5c4c9abf8f6cedc68ca0ade45cdc5acc37b0ce7cabd043945379"
     },
     {
       "path": "02-server-planning/social-contract.md",
@@ -189,7 +189,11 @@
     },
     {
       "path": "02-server-planning/three-native-account-entry-policy.md",
-      "sha256": "0f9fcf0fc75161538f421c176bc83be48c4d29863d5ff3e9c05f864cfd987050"
+      "sha256": "675edc1074157259f01ae2663a26f0c7abde274d1af5c6cc81f09d73bdf23315"
+    },
+    {
+      "path": "02-server-planning/three-policy-adjustments-20261031.md",
+      "sha256": "e0d4f57d312a74960b78c63a2224396371e602b7aa50cfc025fdc6d074ffa847"
     },
     {
       "path": "02-server-planning/tutorial-completion-conditions.json",
@@ -201,7 +205,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "1145c28e2cf48fd7a1a6c208afe49f141b1a0f5b24c10c12328c16e658c8fb66"
+      "sha256": "e5bd8e29faa2bc6ced4889ad6539658f5e529c8d04116df21c1c3a21e05acb8b"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -293,7 +297,7 @@
     },
     {
       "path": "03-analysis-requests/next-client-io-evidence.md",
-      "sha256": "c6c30d7333391e8ee828c24ceffa4830294a8ca2ecfdf5e1f37d9261e027f158"
+      "sha256": "085d25ee10413e623cb22c184a58daa3e208aac2408f579fe60dcb693e2eb2af"
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
@@ -301,7 +305,7 @@
     },
     {
       "path": "03-analysis-requests/post-merge-analysis-queue.md",
-      "sha256": "2d355d07661b9ca36f2aa162a9452dd810f5e6b1e9805730db812d8531e2a63f"
+      "sha256": "449eb26c8e80079de01dd906999bda7de131f3ec5b6c361830e8b8ef63f2c727"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -313,7 +317,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "f2e259476c2ad620948300f46a0584acdc95dea7cd0775507db35efeeedf5f30"
+      "sha256": "8d95ee34d3e840de54b8f1445f8ac8e6df972502e11dcc4781e1af2e18953f4c"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -481,7 +485,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "84e719043c8b478ec2ab493c3eac03506b26ab484f4a3dcc99466829a8eac69a"
+      "sha256": "918a6ffd55a45e38168e9a659a3f6f49361dde1b96b23ddeca47f1f5ea34dc0a"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -585,7 +589,7 @@
     },
     {
       "path": "05-conformance/native-creation-gate-test-plan.md",
-      "sha256": "339cba58b70e248cba70977d0847859ff814e99263362ab307350898722fa71e"
+      "sha256": "922ef84a19bb675d92dcb51285287c608dec357eec3334284d738cbc833a815e"
     },
     {
       "path": "05-conformance/new-asset-validation-plan.md",
@@ -596,8 +600,16 @@
       "sha256": "f8ff54f07d80d4f2c5b51b269abc627fa56888a3230a2612db7e22f7c1f36a23"
     },
     {
+      "path": "05-conformance/party-monster-reward-test-plan.md",
+      "sha256": "f8335efcefc7b44f5ad1f9a636d7c8ef4085f6d6377d80ec3784022b53c6d8ae"
+    },
+    {
       "path": "05-conformance/shared-map-multiplayer-test-plan.md",
-      "sha256": "211178377dced49caa63c2d5c780d2cafb184cdf262ff86479581c1356b23648"
+      "sha256": "261184f674c96885f086cfb80e0c18dc1a84f4aa764f05e3c9fae0f77be0fd63"
+    },
+    {
+      "path": "05-conformance/tutorial-refuse-reask-test-plan.md",
+      "sha256": "a79f9b7f5d722d6d626ea9eea154bc92138a253d168c8d751477198546f26c84"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
@@ -605,11 +617,11 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "6d7d32da82ce9be1c2f219ae65dbc5a3a1ee9abc81c0cf404b58911d3118e261"
+      "sha256": "af6fc9fb9cbb951ae23399b85157734890ba8f7301db04c3e573a9df8476e12a"
     },
     {
       "path": "README.md",
-      "sha256": "a7e43e69d974d397435f77d12cc53fa9f58a3c1488de582e52c053072a0c04c3"
+      "sha256": "3d23484041cdbc1123dc2ba90ea833ba9009f4e3d16bb2b35b133edec6c0937a"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
