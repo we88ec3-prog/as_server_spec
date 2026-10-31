@@ -590,6 +590,53 @@
         "task_a/roy2/A-024-analysis.md",
         "task_a/roy2/A-011-analysis.md"
       ]
+    },
+    {
+      "id": "FLOW-SKILL",
+      "label": "原生技能開始／施放／取消／持續效果 Client I/O",
+      "client_trigger": "在 World 的原版 spell selected state: 0x402034 new CStartCastSpellPacket, 0x402045 read [ebx+0x80E] selected u16, 0x402052 enqueue; actual C56 UI producer unknown",
+      "client_send": [
+        "PKT-C4D",
+        "PKT-C56"
+      ],
+      "server_to_client": [
+        "PKT-S52",
+        "PKT-S48",
+        "PKT-S2C",
+        "PKT-S2D",
+        "PKT-S08",
+        "PKT-S13",
+        "PKT-S07"
+      ],
+      "client_reaction": "C4D has real producer; C56 writer u8 exists without full handler. S52 BEu32/u8, S48 BEu32, S2C BEu32/u8/BEu16/u8/string8/u8/BEu32/BEu32, S2D BEu32 native parser observed; SkillSpellDialog/LastingSpellDialog RTTI exists but exact UI dispatcher/expiration not proven.",
+      "evidence": [
+        "A-010",
+        "A-025",
+        "A-009",
+        "A-008"
+      ],
+      "scenarios": [
+        "SCN-012"
+      ],
+      "tests": [
+        "CT-089",
+        "CT-090"
+      ],
+      "work_items": [],
+      "server_decisions": [
+        "Server validates learned skill, map epoch, actor/target identity, LOS/range, cast phase, MP/resources, cooldown and invulnerability; all are designed authority checks, not original Client-derived formulas.",
+        "Effect add/removal should be idempotent per server effect key + map/session generation; Server chooses stacking, duration, expire/cancel semantics and outbox order independently.",
+        "S2C opcode0x2C means AddLastingSpell, not a direction shorthand. S2D opcode0x2D removes lasting effect, not object; S48 means cast cancel. Do not conflate with S5F DieObjects or S0E RemoveObjects."
+      ],
+      "readiness": "original-skill-wire-static-ready; native GUI/category/cost/cooldown/lasting-expiry-unknown",
+      "unknowns": [
+        "C56 UI producer and whether C4D/C56 form a required two-phase native sequence",
+        "S52 u8 status and S48 cancel original GUI/timeout semantics",
+        "S2C/S2D identity matching, string codepage variants, lasting effect stack/duration/refresh/expiration callbacks",
+        "Official original skill IDs/category/target/range/resource cost/cooldown and summon ownership not confirmed"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-010-analysis.md"
     }
   ]
 }
