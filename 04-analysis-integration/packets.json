@@ -1301,7 +1301,14 @@
         "ev_a026_20261031_born_merchant_exit_bin_static",
         "A023-E19",
         "A023-E23",
-        "A023-E24"
+        "A023-E24",
+        "A023-E25",
+        "A023-E26",
+        "A023-E27",
+        "A023-E28",
+        "A023-E29",
+        "A023-E31",
+        "A023-E33"
       ],
       "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
@@ -1310,7 +1317,11 @@
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
       "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
       "a023_born_close_warning": "Born PaperDialog OK triggers C6C subtype4 then default unreplied cleanup C6C subtype2 (previous native A023 evidence); not quest completion or grant. This turn original Born+Basic frame verified but PaperDialog original file not supplied; native GUI not-run.",
-      "a023_latest_report": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md"
+      "a023_latest_report": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md",
+      "original_a023_reply_name_rule": "C6C(1)'s script:string8 originates from active S44 ScriptRunner ROOT. A nNewJoin01 imported helper SendReply does NOT force the wire name nNewJoin01: if root Merchant, C6C1 name Merchant. Root/context must be correlated with actual issued ScriptRun, not assumed from resource file.",
+      "a023_original_choice_sources": "PaperDialog.dat OK no SendReply: C6C4 then (when unreplied) C6C2; PaperDialog02.dat OK PAPER02=START, CANCEL PAPER02=NOT; nNewJoin01.dat final OK STATE=ACCEPT, CANCEL STATE=REFUSE; latter choices invoke SendReply C6C1 then client.Dispose C6C4 with no subsequent unreplied C6C2. Original content static verified, real native GUI C6C capture not-run.",
+      "a023_esc_caution": "Original PaperDialog02 cancelControl=OK despite separate CANCEL control, so keyboard cancel likely follows OK branch; original GUI not-run, do not equate Escape with PAPER02 NOT.",
+      "a023_contract_addendum": "task_a/roy2/A-023-four-script-native-dependencies-20261101.md"
     },
     {
       "id": "PKT-S18",
@@ -1427,7 +1438,15 @@
         "A023-E21",
         "A023-E22",
         "A023-E23",
-        "A023-E24"
+        "A023-E24",
+        "A023-E25",
+        "A023-E26",
+        "A023-E27",
+        "A023-E28",
+        "A023-E29",
+        "A023-E30",
+        "A023-E32",
+        "A023-E33"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
@@ -1442,7 +1461,15 @@
       "a023_type2_gui_original": "Native outer S44 handler0x4E0B70 always calls Script manager0x52C2A0 first, then if packet type2 and handler result nonzero: subtype0 manipulates GUI slot0x23 and pane components4/3/conditional7; subtype2 manipulates UI slot0x24 via 0x535590→0x4E3880. This is NOT S44 type1/0 Born.Main entry. 22 original SHA-locked VA signatures verified. Exact GUI text/dialog identity not proven.",
       "a023_visual_dependency": "Born.Main → PaperDialog_Create (original PaperDialog.dat dependency verified historically; not provided this turn) → Basic.dat/AlertFrame.ypf. Original Born/Basic/AlertFrame SHA+indexed DAT offsets/YPF17 checked this run; NOT original Client GUI pass.",
       "a023_latest_report": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "original_four_script_dependency_result": "Original uploaded PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat all SHA/UTF16-XML/CP950 textCRC verified; Born.Main→PaperDialog_Create, PaperDialog02 helper OK PAPER02=START/CANCEL NOT, Merchant.Main initializes ClientReply for candidate nNewJoin01 MerchantTalk→3 QuestDialog pages and STATE ACCEPT/REFUSE. PaperDialog variants collide on ShowIndexedHelp/PaperDialogProc. Root name/context selected by Server original S44, not necessarily dependency name.",
+      "a023_unresolved_external_functions": [
+        "QuestDialog_Create",
+        "MerchantDialog_Create",
+        "MerchantDirectTalk"
+      ],
+      "a023_native_gui_boundary": "Four uploaded Script source files are confirmed, but dependencies of Merchant/Quest dialog still missing and original Client GUI/npc binding CT-034/035 not-run. PaperDialog02 cancelControl set OK despite visible CANCEL; ESC runtime unverified.",
+      "a023_contract_addendum": "task_a/roy2/A-023-four-script-native-dependencies-20261101.md"
     },
     {
       "id": "PKT-C15",
