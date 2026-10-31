@@ -164,11 +164,20 @@
       "title": "多人進出視野",
       "method": "兩原客戶端與MapPane/object registry；追加入、移除、死亡、斷線與ID重用。",
       "deliverable": "確定出生／更新／移除封包、ID生命週期、作用域與可見性情境。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A004-E01",
+        "A004-E02",
+        "A004-E03",
+        "A004-E04",
+        "A004-E05",
+        "A004-E06",
+        "A004-E07",
+        "A004-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -180,7 +189,48 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "observed-static-client + synthetic-test + designed-model",
+      "analysis_report": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "offline_codec": "task_a/roy2/a004_visibility.py",
+      "implementation_ready": true,
+      "implementation_ready_scope": "S33(flags=0 profile), S06/S11/S0E/S0B decoded body and identity/epoch designed Server guards only; original MapPane registry mapping not proven",
+      "client_io_packet_ids": [
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0B",
+        "PKT-S0E"
+      ],
+      "client_io_scope_completed": [
+        "S33 PutHuman first x/y/facing/u32 ID and profile name/appearance; variable flags remain partial",
+        "S06 MoveHumanAck u32/u16/u16",
+        "S11 ChangeDirection u32/u8",
+        "S0B MoveAck u16/u16/u8 is NOT remote actor broadcast",
+        "S0E RemoveObjects u32 shared NPC/other objects",
+        "C33/C11 sender movement/turn from existing SYS-MOVE",
+        "Native PE32 SHA + 5 ctor/5 reader probes PASS; 9 synthetic/negative lifecycle tests PASS"
+      ],
+      "remaining_unknowns": [
+        "S33/S06/S11/S0E full MapPane receiver-to-ObjectRegistry callback, object ID equality and actual reuse/late packet handling not traced to native state mutation",
+        "Original client on-screen two-player join/move/turn/leave/disconnect E2E not-run",
+        "S33 nonzero flags and conditionally present appearance/name fields not covered by fixed-profile helper",
+        "Original Server AOI boundary/heartbeat/visibility radius and relog policy cannot be deduced from Client; belongs DEV/CT"
+      ],
+      "conformance": [
+        "CT-054",
+        "CT-070"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "handoff_result": "A004 static Client I/O subset delivered; full native object-registry hook and original visibility trigger unknown",
+      "source_branch": "task_a/roy2",
+      "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-005",
@@ -192,11 +242,20 @@
       "title": "碰撞及移動權威",
       "method": "追map tile/block位元與尋路；正常／阻擋／邊界／速度超限／重送序號。",
       "deliverable": "碰撞資料語意及拒絕／校正向量；標記速度政策是否原服還原。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A005-E01",
+        "A005-E02",
+        "A005-E03",
+        "A005-E04",
+        "A005-E05",
+        "A005-E06",
+        "A005-E07",
+        "A005-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -208,7 +267,42 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_report": "task_a/roy2/A-005-analysis.md",
+      "native_probe": "task_a/roy2/a005_native_probe.py",
+      "map_probe": "task_a/roy2/a005_collision_probe.py",
+      "move_codec": "task_a/roy2/a005_move_codec.py",
+      "offline_tests": "task_a/roy2/test_a005_move.py",
+      "evidence_kind": "observed-static-client + observed-static-original-MAP + synthetic-test + designed-gate",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Known decoded C33/C11/S0B body, map flags full u32 provenance, original bit4 line-check and bit0 consumers; Server move/collision/speed policy remains designed, NOT proven original",
+      "client_io_completed": [
+        "C33 writer 0x573BF0 three u8; C11 writer 0x571960 one u8",
+        "S0B reader 0x583150 BE u16 x,y and one u8 status/seq",
+        "MAP loader 0x4B3520 copies 10B tile to 17B in-memory row; flag at +6 LE u32",
+        "0x4B4BB0 line test mask=0x10, 0x4B2CA0 bit0 mutation, 0x4D1206 bit0 read, separate consumers",
+        "494 original maps, 7701805 tiles, five full-u32 flag values verified",
+        "10 synthetic codec/epoch/dedupe/collision/negative tests PASS; 7 native PE code patterns PASS"
+      ],
+      "remaining_unknowns": [
+        "Exact native Client MapPane keyboard/mouse event -> C33/C11 producer and S0B ACK failure/reposition/render handler branch not fully traced",
+        "Native walking collision mask and path decision not proven; bit4 observed on line-check and bit0 on separate algorithm, must NOT assume flag values are definitive walkability",
+        "Original Server movement speed/tick limit, walking diagonals/corner cutting, collision occupancy, authority and failure code remain Server policy unknown",
+        "Original tutorial map ID, all map to Client version matching, native Client blocked-step and edge E2E not-run"
+      ],
+      "conformance": [
+        "CT-004",
+        "CT-071",
+        "CT-072"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "error_behavior": "Known S0B body supports returning BE u16 authoritative coords and status/seq; precise native failure bit7 and UI rollback NOT confirmed",
+      "asset_requirements": "No new assets needed; Asgard.exe, Map0.dat, Map1.dat, Map2.dat already supplied",
+      "source_branch": "task_a/roy2",
+      "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-006",
@@ -220,11 +314,20 @@
       "title": "螢幕置中及獨立染色驗收",
       "method": "依8/9鏡頭及S05/S33已知RGB，批次站立、八向移動、更衣、切圖、重登。",
       "deliverable": "先交付 S05/S33/RGB 等靜態證據、Client UI 預期和八向移動/更衣/切圖/重登的人工驗收腳本；已有可用的環境時可增加 observed-runtime，尚未開發新 Server 的最終 Client 人工驗收屬 CT，不應成為逆向研究失敗的理由。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A006-E01",
+        "A006-E02",
+        "A006-E03",
+        "A006-E04",
+        "A006-E05",
+        "A006-E06",
+        "A006-E07",
+        "A006-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -236,7 +339,44 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-static-client+synthetic-test+profile-projection+designed-CT",
+      "analysis_report": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "offline_tests": "task_a/roy2/test_a006_look.py",
+      "conformance": [
+        "CT-003",
+        "CT-007",
+        "CT-008",
+        "CT-073",
+        "CT-074"
+      ],
+      "implementation_ready": true,
+      "implementation_ready_scope": "S05 flags0/0x1000 29B, S33 flags0 42+CP950-name, independent RGB, S04 8/9 viewport anchored projection; optional flags/renderer must not use fixed schema",
+      "client_io_completed": [
+        "S05 0x5895A0 BE u32 plus cloth/hair RGB & flag-dependent reader; 29B flags0/0x1000 profile",
+        "S33 0x585570 BE u16 x/y/u8 facing/BE u32 actor; CP950 string8; flag0 fixed-profile body",
+        "S33 bit0 RGB, bit4 BE u16, bit1 u8, bit7 u8, bit13 string8 optional native branches",
+        "S33 0x585780..0x5857F4 zero-RGB sentinel ff00ff normalization for specified color groups",
+        "S04 0x589990 BE u16×4 + profile viewport8,9 center (400,300) derivation vs9,9 (448,300)",
+        "13 native PE pattern probes PASS, 10 synthetic decoded-body/viewport tests PASS"
+      ],
+      "remaining_unknowns": [
+        "Native YPF/DOI animation eight direction/frame and true skin/hair clothing dye layer reproduction requires real resource+GUI validation",
+        "Native S05/S33 all optional flags and secondary string8 variants not fully parsed; 29B/42+n only supported fixed profiles",
+        "Native self/other renderer matching colors, re-login, equipment C1C→S37/S05/S33 handoff not runtime verified",
+        "Viewport8/9 center (400,300) is formula/profile projection; original native GUI screenshot CT-074 not-run",
+        "Original Server persistence and sending times for new clothing/hair/realm are DEV policy"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "scoped_research_complete": true,
+      "full_native_display_pass": false,
+      "assets_needed_for_research": "none; source Asgard.exe provided; full sprite/animation validation would need selected Human YPF/DOI and native screenshots",
+      "source_branch": "task_a/roy2",
+      "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-007",
@@ -249,11 +389,13 @@
       "title": "完整背包與裝備生命週期",
       "method": "追CUseInventory、CWear、脫裝、物品刪減、數量、槽位、持久物品ID。",
       "deliverable": "實體物品模型及非衣櫃情境：使用失敗／背包滿／斷線／重送。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -265,7 +407,30 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "evidence_kind": "observed-static-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C1C type1..9 codec, C1E/C08/C0C minimum request codec, S10/S38 removal codec and bounded S0F/S37 synthetic subbranches; designed owner/item instance/stack/slot/transaction/idempotency skeleton only",
+      "native_full_item_lifecycle_ready": false,
+      "native_original_item_catalog_ready": false,
+      "native_original_item_economy_ready": false,
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "analysis_contract": "04-analysis-integration/A-007-inventory-domain-contract.md",
+      "analysis_test": "tools/a007_inventory_contract.py",
+      "remaining_unknowns": [
+        "Original item template catalog/resource release and actual persistent ID format not established",
+        "C1C use_kind1..9 semantic effects, C08 Drop three-u8 meanings, C0C PutRequest object identity and response semantics unknown",
+        "Full S0F mode2 record field/tail meanings and S37 extra descriptions/unknown flags incomplete",
+        "Original unequip source and client UI sender/completion status, bag/equipment slot caps/stack limits/compatibility unproven",
+        "Official world drop, merchant/bank/trade item transfers A-013 incomplete",
+        "Original Client manual item pickup/use/equip/unequip/fullbag/CRC reconnect E2E not run"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "source_branch": "task_a/roy1",
+      "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-008",
@@ -277,11 +442,20 @@
       "title": "數值／狀態面板",
       "method": "由狀態UI讀取、封包parser、裝備修正追所有顯示與單位。",
       "deliverable": "初始數值、更新、溢位與死亡邊界；未知公式獨立列出。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A008-E01",
+        "A008-E02",
+        "A008-E03",
+        "A008-E04",
+        "A008-E05",
+        "A008-E06",
+        "A008-E07",
+        "A008-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -293,7 +467,43 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "analysis_document": "task_a/roy2/A-008-analysis.md",
+      "evidence_kind": "observed-static",
+      "implementation_ready": true,
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "open_items": [
+        "Native GUI value labels and units including ExpBarDialog percentage",
+        "Original Server formula for equipment/modifiers and ability effects",
+        "Original Server HP=0 death/revive and error response policy",
+        "Native Client first S08 ordering and E2E post-C47 status UI acceptance"
+      ],
+      "implementation_ready_scope": "S08 flags-based body and C47 single-byte ability request only; no native GUI or original numeric algorithms claimed",
+      "client_io_handoff": {
+        "trigger": "StatusDialog event IDs 0x13..0x17; UI receives S08",
+        "client_sends": [
+          "PKT-C47"
+        ],
+        "client_receives": [
+          "PKT-S08"
+        ],
+        "client_reaction": "S08 decoded by native parser 0x586D40, Status update 0x53F8A0, StatusDialog callback 0x540660 and refresh 0x540050",
+        "evidence": "task_a/roy2/A-008-analysis.md",
+        "unknowns": [
+          "Native GUI value labels and units including ExpBarDialog percentage",
+          "Original Server formula for equipment/modifiers and ability effects",
+          "Original Server HP=0 death/revive and error response policy",
+          "Native Client first S08 ordering and E2E post-C47 status UI acceptance"
+        ]
+      },
+      "static_validation": "15 original EXE instruction patterns + four RTTI classes PASS, 10 decoded-body/C47 synthetic tests PASS",
+      "conformance": [
+        "CT-076",
+        "CT-077"
+      ],
+      "source_branch": "task_a/roy2",
+      "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-009",
@@ -305,11 +515,20 @@
       "title": "攻擊命中傷害死亡",
       "method": "從輸入→C2S→動畫／傷害／HP→死亡→復活，查失敗與中斷。",
       "deliverable": "完整收發時序、公式來源、權威裁定及同時死亡策略。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A009-E01",
+        "A009-E02",
+        "A009-E03",
+        "A009-E04",
+        "A009-E05",
+        "A009-E06",
+        "A009-E07",
+        "A009-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -321,7 +540,48 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "evidence_kind": "observed-static",
+      "analysis_document": "task_a/roy2/A-009-analysis.md",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C13 BE u32 request, S13 conditional effect 14/31B and packed IDs, S5F BE u32 death, C3D/S3D subtype dispatch and proven short S3D variants only",
+      "static_validation": "Original Asgard.exe SHA locked: 16 native instruction byte patterns and five RTTI PASS; 15 decoded-body synthetic tests PASS; native GUI E2E not-run",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "conformance": [
+        "CT-078",
+        "CT-079"
+      ],
+      "client_io_handoff": {
+        "trigger": "Two native attack C13 producers at VA 0x55709E and 0x557A5F. Separate C3D subtype sender.",
+        "client_sends": [
+          "PKT-C13",
+          "PKT-C3D"
+        ],
+        "client_receives": [
+          "PKT-S13",
+          "PKT-S3D",
+          "PKT-S08",
+          "PKT-S5F",
+          "PKT-S0E"
+        ],
+        "client_reaction": "S13 parsed as 14-byte fixed prefix with bit0 optional 17 bytes; S3D battle subtype variadic; A008 S08 Status refresh independent; S5F death event is separate from S0E removal. Exact visual callback, packet timing and revival are not proven.",
+        "evidence": "task_a/roy2/A-009-analysis.md",
+        "unknowns": [
+          "Complete S3D/C3D complex subtype layouts/UI actions",
+          "S13 and S5F object registry, damage display, and visual callback XREF",
+          "Original hit/miss/critical formula, HP=0/death/revive protocol and error codes",
+          "Native Client battle/attack/death E2E not-run"
+        ]
+      },
+      "open_items": [
+        "Complete S3D/C3D complex subtype layouts/UI actions",
+        "S13 and S5F object registry, damage display, and visual callback XREF",
+        "Original hit/miss/critical formula, HP=0/death/revive protocol and error codes",
+        "Native Client battle/attack/death E2E not-run"
+      ],
+      "source_branch": "task_a/roy2",
+      "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-010",
@@ -706,11 +966,13 @@
       "title": "原地圖音樂配置",
       "method": "追原資料是否含map→track對應；找不到時保持明示自訂配置。",
       "deliverable": "原曲目對應有證據，或明確宣告未知；不可把測試曲1當官方配置。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a019_20261031_music_s19_map_index_bin_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -722,7 +984,32 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "observed-static-client-and-Map-archive-index",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Native S19 kind1 music and kind!=1 sound discriminator with conditional repeat/u16 track codec; 3 Map*.dat directory and SHA audit, designed provenance-gated cue catalog and epoch fence. NOT native map-to-track mapping",
+      "native_map_track_mapping_ready": false,
+      "native_original_music_catalog_ready": false,
+      "original_server_music_policy_proven": false,
+      "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "analysis_contract": "04-analysis-integration/A-019-map-music-contract.md",
+      "analysis_catalog": "02-server-planning/map-music-evidence.json",
+      "analysis_test": "tools/a019_music_map_probe.py",
+      "analysis_scope": "Client S19 ctor/parser/handler→Music filename and Map archive directory/index only, map-ref to original song ID not found; explicit designed local vs native provenance",
+      "remaining_unknowns": [
+        "Original Server map_ref→track_id/repeat configuration and when it emits S19 across maps/reconnect",
+        "Any track mapping hidden inside encrypted/unparsed MAP payload or additional Script/other content, versus original Server-only logic",
+        "Audio asset files Music/*.mp3 missing locally (Music/00018.mp3 is track18 fixture target, not proof of native map mapping)",
+        "Original Server correlated map transition and S19 packet captures not provided",
+        "Original Asgard.exe and Map*.dat publication/release pairing unverified despite fixed individual hashes",
+        "Original Client music playback on real map and all S19 kind branches native E2E not run"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "source_branch": "task_a/roy1",
+      "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-020",
@@ -735,11 +1022,13 @@
       "title": "完整登入前metadata／Script／清單分支",
       "method": "以已知最小登入情境為基線，追C6C/C0F/C57/C4B與S18/S56/S60的種類、更新及失敗分支。",
       "deliverable": "各封包入口、完整欄位與狀態轉移；最小本機回覆和原生必要語意分開。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "latest_merged_evidence_focus": "A-001 has resolved seed0..9 mask codec, C00 width and S00 result0/1/2 parser structure; focus on actual regional seed/key selection, nonzero S00 UI results, metadata/Script timing and account proof handoff. Do not mark client region login confirmed solely from synthetic codec tests.",
       "handoff_track": "client-io",
@@ -752,8 +1041,28 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md",
+      "evidence_kind": "observed-static",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C0F(3/other),S18 kind0/kind1 discriminant,C57(0/1),S56 zlib multi-entry,C4B empty,S60(0/1),C6C/S44 A-023 cross-reference and safe local-profile state gate; original Server sequencing/regional/policy unknown",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "analysis_contract": "04-analysis-integration/A-020-prelogin-contract.md",
+      "analysis_test": "tools/a020_prelogin_contract.py",
+      "analysis_scope": "Metadata, Script, MultiServer, Stipulation native packet discriminants and local minimal login vs original server-policy boundary",
+      "remaining_unknowns": [
+        "Region-specific seed/key selection and S00 result1/2 real failure UI, login metadata timing remain A-001 residual",
+        "C0F types other than3 option/text original purpose and matching S18 kind1 downloaded resource semantics unresolved",
+        "Native S18 kind1 compressed content, original response errors/retries and S56 multi-host list in official region unverified",
+        "Whether original Server replies S60 to C57(0) or C4B and type0 vs type1 timing unknown",
+        "Original prelogin Script catalog timing and first Born/S44 trigger vs C6C3 local no-op unresolved",
+        "No native Client E2E for region, metadata error/reconnect, selector invalid, zlib negative cases"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "source_branch": "task_a/roy1",
+      "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-021",
@@ -981,9 +1290,29 @@
       "title": "新手教學 NPC／怪物生成、AI 行動與消失",
       "method": "在 A-022 確認的教學地圖追初始 NPC/怪物種類/出生/可見性、行動/攻擊/死亡/清除/重生及原 Client handler；對照 A-004/011/023。",
       "deliverable": "提供 Client SHA、資源位置、生成/動作/消失封包字段及狀態、時間/坐標單位、動態證據與失敗/重送 CT，原服未知 AI 參數保留 unknown。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A024-E01",
+        "A024-E02",
+        "A024-E03",
+        "A024-E04",
+        "A024-E05",
+        "A024-E06",
+        "A024-E07",
+        "A024-E08",
+        "A024-E09",
+        "A024-E10",
+        "A024-E11",
+        "A024-E12",
+        "A024-E13",
+        "A024-E14",
+        "A024-E15",
+        "A024-E16",
+        "A024-E17",
+        "A024-E18",
+        "A024-E19"
+      ],
       "dependencies": [
         "A-004",
         "A-011",
@@ -992,9 +1321,9 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static-client + original-S07-jumptable + synthetic-codec + designed-epoch-policy",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
       "latest_merged_evidence_focus": "A-023 nNewJoin01 merchant school-join script is an inferred candidate only, with no verified NPC entity/map binding. Identify recruiter spawn, entity id, interaction packet and A-011 NPC visibility/actions using original MAP/NPC assets or observed packet/event evidence, not name similarity.",
       "client_io_scope_correction": "Client 收到 NPC/怪物生成/動作/消失包的解析與渲染、點擊 NPC/攻擊會送的 opcode；Server NPC AI、固定出生數量與權威策略不作 A 完成門檻。",
@@ -1009,8 +1338,102 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md",
+      "analysis_report": "task_a/roy2/A-024-analysis.md",
+      "codec_probe": "task_a/roy2/a024_npc_codec.py",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Native Client S2C object/event bodies: full S07 kind1..14 nonempty rows; S0C/S64 movements; S34 subtype6 and subtype11 all six flag-dependent groups; S3C info; S62/S63 action; S29 effect; S5F death/S0E removal. Actual GUI, object-kind content bindings, original AI still unknown.",
+      "original_tutorial_spawn_ready": false,
+      "native_npc_interaction_ready": false,
+      "npc_ai_parameters_known": false,
+      "remaining_unknowns": [
+        "S07 kind1..14 -> NPC/Monster/static visual classification and resource mapping",
+        "Native client world-object registry/rendering callbacks and C43 NPC click specificity",
+        "Original Server tutorial NPC/map/spawn/AI policies, outside Client wire scope",
+        "Native Client E2E CT-081 still not-run"
+      ],
+      "resource_name_candidates": [
+        "World%02d.dat",
+        "@Monster%02d.dat"
+      ],
+      "conformance": [
+        "CT-021",
+        "CT-022",
+        "CT-034",
+        "CT-080",
+        "CT-081"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "client_action_attacks_found": true,
+      "client_action_info_request_found": true,
+      "client_sends": [
+        {
+          "packet_id": "PKT-C13",
+          "layout": "BE u32",
+          "trigger": "CAttack ctor from native callers 0x55709E/0x557A5F; exact target acquisition/UI condition needs tracing"
+        },
+        {
+          "packet_id": "PKT-C43",
+          "layout": "u8 + BE u32 + u8",
+          "trigger": "CObjectInfoRequest native producers including 0x479DC7; not yet proven recruiter-specific click"
+        }
+      ],
+      "unknowns_not_required_for_server_ai": [
+        "native original monster AI tick/respawn interval are Server policy not A Client I/O blocker"
+      ],
+      "native_reader_probe": "task_a/roy2/a024_object_native_probe.py",
+      "native_reader_probe_result": "Original Asgard.exe SHA locked, 20 instruction anchors + S07 14 type switch entries + six RTTI PASS",
+      "nonempty_s07_codec": "task_a/roy2/a024_object_packets.py",
+      "nonempty_s07_test": "task_a/roy2/test_a024_object_packets.py",
+      "server_receives_client_packets": [
+        "PKT-C13",
+        "PKT-C43"
+      ],
+      "client_receives_server_packets": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S62",
+        "PKT-S63",
+        "PKT-S29",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "client_io_handoff": {
+        "trigger": "Client in-world receives decoded S07 object list; subsequent move, path, info, effect, action, die, remove packets. Client may send C13/C43 for actions.",
+        "client_sends": [
+          "PKT-C13",
+          "PKT-C43"
+        ],
+        "client_receives": [
+          "PKT-S07",
+          "PKT-S0C",
+          "PKT-S64",
+          "PKT-S34",
+          "PKT-S3C",
+          "PKT-S62",
+          "PKT-S63",
+          "PKT-S29",
+          "PKT-S5F",
+          "PKT-S0E"
+        ],
+        "client_reaction": "Native readers for S07 full nonempty type1..14, S0C/S64 move, S34/S3C info, S62/S63 action, S29 effects, S5F death and S0E removal verified by PE instructions; graphic/UI object registry callbacks and native E2E not yet verified.",
+        "evidence": "task_a/roy2/A-024-analysis.md#六a-024-追加完成實際收包清單與-s07-非空-14-type-靜態解析2026-10-31",
+        "unknowns": [
+          "S07 kind1..14 -> NPC/Monster/static visual classification and resource mapping",
+          "Native client world-object registry/rendering callbacks and C43 NPC click specificity",
+          "Original Server tutorial NPC/map/spawn/AI policies, outside Client wire scope",
+          "Native Client E2E CT-081 still not-run"
+        ]
+      },
+      "handoff_deliverable_status": "Complete native-static Client S2C object packet inventory and validated decoded wire groups; native rendering & server content semantics separately pending",
+      "offline_test_result": "GitHub Actions run 41185085803 PASS: 19 native-schema synthetic object tests and seven existing NPC tests; phase-gates PASS",
+      "source_branch": "task_a/roy2",
+      "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-025",
@@ -1025,9 +1448,11 @@
       "title": "教學首個技能或攻擊與任務目標事件",
       "method": "追原 Client 教學必要的技能/攻擊 C2S、S2C 效果、目標/距離/冷卻/消耗、傷害/死亡及任務進度；若教程並不要求技能需提出證據並調整情境。",
       "deliverable": "交付逐欄 opcode、權威驗證、效果/計數、非法目標與重送案例，公式未知明示，附 Client 重現和 CT 提案。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
       "dependencies": [
         "A-008",
         "A-009",
@@ -1037,9 +1462,9 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "client_io_scope_correction": "Client 使用技能/攻擊時的送包、收到效果/HP/狀態包後的 UI/動畫及取消重送；Server 計算傷害/冷卻和任務計數的策略獨立設計。",
       "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
@@ -1053,7 +1478,27 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C13 attack-u32, C4D start-spell-u16, C56 cast-u8, C3D/S3D Battle subtype0..15 discriminator, S52 u32+u8 and S1E u32 codec plus designed fail-closed combat authority/event ledger. NOT full battle variant/skill/quest implementation",
+      "native_tutorial_combat_requirement_proven": false,
+      "native_quest_progress_mapping_ready": false,
+      "native_combat_e2e_ready": false,
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "analysis_contract": "04-analysis-integration/A-025-tutorial-combat-contract.md",
+      "analysis_test": "tools/a025_tutorial_combat_model.py",
+      "analysis_scope": "Native Client attack/spell intent sender and packet type, selected server effect readers, combat variant discriminator, Born.dat limited no-combat-condition observation; designed objective event idempotency",
+      "remaining_unknowns": [
+        "A-024 actual tutorial NPC/monster entity IDs, spawn map, action and target bindings unknown",
+        "A-008/009/010 full skill catalog, damage and cooldown/resource formula, C56 stage, C3D/S3D subtype0..15 layouts and successful result enum not completed",
+        "A-012/A-026 original tutorial quest prerequisite and whether combat mandatory unproven; Born script only gives recruiter paper guide",
+        "Native original Server hit/kill authority and quest trigger/complete/award event unavailable from Client EXE",
+        "Native Client interaction capture/World login to first fight and back, packet failure/retry cases not-run"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "source_branch": "task_a/roy1",
+      "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-026",
@@ -1067,9 +1512,11 @@
       "title": "教學完成條件、獎勵與退出地圖",
       "method": "追教學步驟、任務/NPC 對話、完成觸發、原服是否發獎、正常出口 map/座標與斷線重登恢復；對照 A-012/016/022/023/025。",
       "deliverable": "A 交付：BIN/Script/資源證據支持的完成條件與已知/未知步驟、原版是否存在獎勵、退出地圖已知欄位、回復語意、CT-028 原 Client 測試腳本；真正執行完整新 Server 的端到端原 Client 測試由 DEV/CT 負責。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
       "dependencies": [
         "A-012",
         "A-016",
@@ -1079,9 +1526,9 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "unknown",
+      "evidence_kind": "observed-static-plus-resource",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "client_io_scope_correction": "Client 看到的任務完成提示／獎勵/轉圖接收封包與玩家交回動作的送包；Server 何時判完成、發獎及保存獨立設計。",
       "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
@@ -1095,7 +1542,29 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Native Born Script lifecycle and generic C39 Merchant, C0B Quit/map loading fields; designed durable completion/optional reward ledger and fenced exit recovery; original Server rule/reward/exit NOT proven",
+      "native_tutorial_complete_ready": false,
+      "native_reward_proven": false,
+      "native_exit_destination_proven": false,
+      "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "analysis_contract": "04-analysis-integration/A-026-tutorial-completion-contract.md",
+      "analysis_test": "tools/a026_tutorial_completion_model.py",
+      "analysis_schema": "02-server-planning/tutorial-completion-conditions.json",
+      "analysis_scope": "Born ScriptClose not quest complete; C39 Merchant generic NPC; S15/S14/C35/S04 exit mechanics and C0B quit; completion/reward/exitmap original policies unknown",
+      "remaining_unknowns": [
+        "Original Server tutorial completion rule/required quest NPC flags and proof event unknown",
+        "Recruiter entity/map and Script binding unproven, nNewJoin01.dat candidate only",
+        "Native reward existence/type/quantity/experience/gold unknown",
+        "Native exit map_ref/x/y/revision/C35 expected pair unknown",
+        "First to returning login original Client full tutorial E2E not-run",
+        "PaperDialog.dat and nNewJoin01.dat not provided locally; A-023 earlier resource analysis exists"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "source_branch": "task_a/roy1",
+      "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
     },
     {
       "id": "A-027",
