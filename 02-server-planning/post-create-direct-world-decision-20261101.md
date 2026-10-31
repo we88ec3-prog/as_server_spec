@@ -24,3 +24,14 @@
 - CT-105/CT-107：**回 LoginDialog 或要求玩家重新輸入帳密即不通過**；CT-108/109：原生真 MAP/C35／移動必須連續成立。日後普通 C03 登入另測。
 
 本決策只更新共同規格，未修改 as_server_roy 或 Asgard.exe；原版 Client E2E 全部 `not-run`。現有 `Asgard.exe`、`Map0.dat`、`Map1.dat`、`Map2.dat`、`Born.dat` 已提供，不需重傳。
+
+
+## A-028 原版 Client callback 新實證（2026-11-01）
+
+原始 `Asgard.exe` 與 [A-028 後續 BIN-first 報告](../task_a/roy2/A-028-postcreate-ui-native-followup.md) 已確認 final `S02(0)` 在 `state0x1e` 走 `0x4B206B`，並清除 UI slots `0x0B/0x0C/0x0D/0x07`。**Region3** 除了清除外，`0x4B2109` 會建立 `0x4A9380` 原生 **LoginDialogPane**（vtable `0x609BBC`／MSVC TypeDescriptor `0x6665D8`）。它是記憶體內的 UI 物件，**不等同玩家會看見要求手動登入的畫面，也沒有證明自動送出 C03**。此 success callback 本身沒有直接 C03/C10/new World TCP constructor；其他 Region 在此處不建立這個 pane。
+
+獨立 LoginDialogPane `0x4A8890` 在參數為 nonzero 時可呼叫 C03 送包 `0x4A7D10`，**未證 final S02 success 會自動觸發該 callback**。因此保留 ADR-008：**使用者不需要再次手動登入，創角成功直接進遊戲**；但完整背景封包因果仍需 Native CT-105/107/108 去敏 Client TCP/GUI trace。A-031 的常規已存在角色 C03/S03/C10/C25 證據不能不經驗證就當第一次創角的動態順序。
+
+Server 的 PostCreateEntryContext 需保留相同 Account/Character/generation/credential version 的授權，只有實際 Client 後續合法封包出現才進行 World transition。C15 繼續只能取消尚未提交草稿；不由本地 UI slot 清理或新建 LoginDialogPane 推導 Server Account/Character 撤銷或建立新帳號。
+
+新增 CT-111 原始 PE 靜態＋合成測試，原版 Native E2E 保持 not-run。

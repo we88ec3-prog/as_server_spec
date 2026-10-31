@@ -222,7 +222,11 @@
         "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
         "ev_a030_20261101_email_c02_fourth_field_static",
         "ev_a030_20261101_native_name_email_s02_c15_strict",
-        "ev_a030_20261101_basicdat_original_name_email_resource"
+        "ev_a030_20261101_basicdat_original_name_email_resource",
+        "A028-E01",
+        "A028-E02",
+        "A028-E03",
+        "A028-E04"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "response_flow": "After C04 Client local state0x1e; S02(status0) enters 0x4b206b UI branch, not immediate S03/World; S02(nonzero) emits empty C15 and state0x1f",
@@ -251,7 +255,9 @@
         "evidence_id": "ev_a030_20261101_email_c02_fourth_field_static",
         "report": "03-analysis-requests/A-030-roy1-email-c02-field.md",
         "observed_static": "C04 is only appearance five u8; not E-MAIL source"
-      }
+      },
+      "a028_original_completion": "Original local C04 send at0x4B205A state1E0x4B205F. Second S02(0) UI0x4B206B; in Region3 constructs LoginDialogPane object, not proof of manual login or automatic C03. World transfer unknown; Server owner/commit designed independently.",
+      "a028_followup_report": "task_a/roy2/A-028-postcreate-ui-native-followup.md"
     },
     {
       "id": "PKT-C10",
@@ -263,7 +269,10 @@
       "layout": "raw opaque token bytes, no u8 length prefix or string8 wrapper; native constructor 0x577330, writer 0x5773e0 -> 0x45b4c0; C2S plaintext exception",
       "client_entry": "runtime-transfer",
       "state_precondition": "轉服新連線首包",
-      "related_packets": [],
+      "related_packets": [
+        "PKT-C25",
+        "PKT-S03"
+      ],
       "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
@@ -275,11 +284,15 @@
       ],
       "evidence_ids": [
         "ev_a002_20261031_asgard_login_transfer_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "A031-E04",
+        "A031-E06",
+        "A031-E09"
       ],
       "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "Opaque raw token, no extra len; Server designed one-shot consumption cannot infer original expiration from Client."
+      "a016_recovery_note": "Opaque raw token, no extra len; Server designed one-shot consumption cannot infer original expiration from Client.",
+      "a031_native_sender": "In native Region3 S03 callback0x4A8370: C10 ctor0x4A8415/send0x4A8446 followed by conditional C25 ctor0x4A8478/send0x4A84F3. Other transfer callback0x52FAD0 C10 ctor0x52FB5B/send0x52FB8C then region3 C25 at0x52FC4B. C10 decoded body token raw (not length-prefixed)."
     },
     {
       "id": "PKT-C11",
@@ -395,33 +408,48 @@
       "id": "PKT-C25",
       "direction": "C2S",
       "opcode": "0x25",
-      "name": "WorldEntryMetadata",
+      "name": "BillingInfo",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "World entry metadata: region-specific layout partial; do NOT cite 0x4a8370 as C25, that VA is S03 transfer handler",
-      "client_entry": "unresolved; previously misattributed 0x4a8370 is S03 callback",
-      "state_precondition": "token交接完成",
+      "layout": "Original CBillingInfoPacket: native writer region==3 only: string8 opaque_billing_0, string8 opaque_billing_1, string8 opaque_billing_2 (u8 encoded-byte length + that many codepage-encoded bytes each; decoded body 3+L0+L1+L2, L_i<=255). Native writer region!=3 emits empty body IF CALLED, but four known direct Client producers guard region3 and no non3 C25 send is proven. NOT World map ID/WorldEntryMetadata, NOT body=01.",
+      "client_entry": "0x5712E0 ctor push0x25 at 0x5712F9; 0x571420 writer checks 0x498000 region==3; RTTI CBillingInfoPacket via vtable0x61360C/COL0x62BB84. S03 handler0x4A8370 region3 enqueues C10 at0x4A8446 then C25 at0x4A84F3; alternate 0x52FB8C then0x52FC4B.",
+      "state_precondition": "REGION3 Client native transfer: C10 raw token queued on new TCP, then conditional C25 billing-info 3xstring8; non3 no C25 required by discovered callsites; original World S2C ordering unknown",
       "related_packets": [
         "PKT-S02",
         "PKT-S05",
         "PKT-S15",
-        "PKT-S14"
+        "PKT-S14",
+        "PKT-C10",
+        "PKT-S03"
       ],
-      "layout_status": "partial",
+      "layout_status": "observed-static-region3-3x-string8; runtime TCP not-run",
       "evidence_kinds": [
-        "prior-static-analysis"
+        "observed-static-original-client",
+        "synthetic-encoded-wire"
       ],
-      "manual_validation": "see scenario; not every branch validated",
+      "manual_validation": "35 original PE anchors and CBillingInfoPacket RTTI PASS offline. Native Client actual TCP capture / initial S2C / region0..4 GUI not-run.",
       "requirements": [
         "R-004",
         "R-007"
       ],
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
-        "ev_a002_20261031_asgard_login_transfer_static"
+        "ev_a002_20261031_asgard_login_transfer_static",
+        "A031-E01",
+        "A031-E02",
+        "A031-E03",
+        "A031-E04",
+        "A031-E05",
+        "A031-E06",
+        "A031-E07",
+        "A031-E08",
+        "A031-E09"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
-      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
+      "a031_report": "task_a/roy2/A-031-analysis.md",
+      "a031_sender_fields": "global [0x66D100]+0x0C,+0x20C,+0x40E -> local packet +0x18,+0x218,+0x418; original semantics remain opaque",
+      "a031_server_warning": "Existing Development-only synthetic C25 body=01 is NOT original region3 C25; don't gate all World entries on C25; C10 token is authority."
     },
     {
       "id": "PKT-C33",
@@ -613,7 +641,12 @@
         "ev_a029_20261031_native_c26_password_change_static",
         "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
         "ev_a030_20261101_native_name_email_s02_c15_strict",
-        "ev_a030_20261101_basicdat_original_name_email_resource"
+        "ev_a030_20261101_basicdat_original_name_email_resource",
+        "A028-E01",
+        "A028-E02",
+        "A028-E03",
+        "A028-E04",
+        "A028-E07"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
@@ -679,7 +712,9 @@
         "original_resource_status": "NAME/EMAIL confirmed from Basic.dat independent from S02, S02 failure text is from S02 message not BasicString NAME/EMAIL",
         "client_static": "S02 u8 status, string8 message; nonzero+nonempty generic dialog path 0x4b1ebe, then C15 empty 0x4b1f2f local state0x1f; region3/state1e suppress; original GUI not-run",
         "official_nonzero_status_meanings": "unknown"
-      }
+      },
+      "a028_original_postcreate_callback": "MakeInfoDialog state1D+S02(0) sends C04/state1E; state1E+S02(0) local UI success0x4B206B clears slots0B/0C/0D/07, Region3 constructs RTTI LoginDialogPane0x4A9380, no direct C03/C10. Different conditional LoginDialogPane callback may send C03, causality not proven. S02!=0 emits empty C15/state1F. Direct-to-World seamless user requirement; native TCP trace not-run.",
+      "a028_followup_report": "task_a/roy2/A-028-postcreate-ui-native-followup.md"
     },
     {
       "id": "PKT-S03",
@@ -1352,7 +1387,8 @@
         "ev_a003_20261031_asgard_create_palette_ui_static",
         "ev_a030_20261031_newuser_regions_s02_failure_bin_static",
         "ev_a030_20261101_native_name_email_s02_c15_strict",
-        "ev_a030_20261101_basicdat_original_name_email_resource"
+        "ev_a030_20261101_basicdat_original_name_email_resource",
+        "A028-E07"
       ],
       "native_static_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "server_handling": "Designed: cancel only uncommitted matching owner+generation pending operation; never rollback already durable Character, cannot grant account ownership",
@@ -1376,7 +1412,9 @@
         "evidence_id": "ev_a030_20261101_basicdat_original_name_email_resource",
         "original_client_static": "C15=empty body after S02 nonzero, local state1f",
         "test_status": "source-level verified, original Client GUI/TCP not-run"
-      }
+      },
+      "a028_static_failure": "Native S02(nonzero) produces empty C15 then state1F. Region3+state1E suppresses normal text-modal construction, but not C15. Server cancellation only of uncommitted matching draft is designed.",
+      "a028_followup_report": "task_a/roy2/A-028-postcreate-ui-native-followup.md"
     },
     {
       "id": "PKT-C0E",
