@@ -24,3 +24,7 @@ S02 parser `0x57dbc0` 是 `u8 status,string8 message`；C15 constructor `0x5715f
 5. C04 後 success 的 UI 已被證明不是立即 S03；只有走合法 C03、S03 World grant、C10 的已證登入路徑才可以進入 World。**原版 UI 後續回登入入口的操作仍 unknown，不得假裝由 S02 success 自動完成**。
 
 測試：既有 CT-031/032 + 新 CT-043/044。合成 Python fixture `tools/a028_newuser_response.py` 可單獨跑（S02 parse、C04 五 u8、C15/error state、角色單次提交），但不代表實機 CT 過關。A-028 `integrated/handoff_status=partial/native_creation_commit_ready=false`；原生完整建角仍受 A-027、A-003 與實際 Server/Client 回覆證據限制。
+
+## 2026-11-01 ADR-008（覆蓋上文所有回登入假設）
+
+**原版 Client 成功 C04／第二段 S02(0) 後直接進遊戲、不返回 LoginDialog，玩家不需手動第二次 C03。** 上方舊有「成功後回登入」「手動重新登入」是過時 Server 規劃，不再做開發或 CT 出場條件；A-028 的 0x4b206b callback 無立即 S03 仍是有效靜態觀察，但後續背景授權/轉服/首 World opcode 必須由 A-028/A-031 補證，不能猜。已存在角色日後的一般 C03/S03/C10 登入不變。新正式需求見 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 Client E2E 未執行。

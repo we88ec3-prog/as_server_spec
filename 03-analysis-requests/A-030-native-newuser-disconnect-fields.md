@@ -72,10 +72,9 @@
 
 This confirms A30-1 packet/close reason only for the **modified diagnostic Client**. Original Asgard.exe unmodified CT-103/104/105 remains not-run. Static Client NAME/EMAIL semantic and safe S02 failure mapping remain blocked.
 
+## 2026-11-01 ADR-008：成功建角直接進遊戲（覆蓋舊推定）
 
-## 2026-11-01 E-MAIL 是否經 C02 發送：後續 BIN-first 核查
-
-已追通原版 region2..4 `C02` 第四個 `string8`：region4 widget `0x18`、region2/3 widget `0x10` → packet `+0x822` → writer this `+0x816` → native C02 send `0x4B229F`。確認畫面亦讀相同 F3/F4（label ID 0x49/0x4B）。**根據使用者畫面的欄位順序，F4 是 E-MAIL 高可信候選，但沒有 `Locale.dat` 或原 Client GUI 對照，尚不能把 E-MAIL 字樣當作已獨立確認的 UI label**。Region0/1 的三字串例外仍在，E-MAIL 是否可留空及 DB 儲存是不同議題。15/15 原始 EXE byte signature PASS；新 `test_16_native_extended_field4_chain` 可重現。詳細見 [A030 E-MAIL 封包確認](A-030-roy1-email-c02-field.md)。
+**使用者明確確認：創角成功後不回登入畫面、不需要再手動 C03，而是由原版 Client 直接進入遊戲世界。** 本檔早期「創角後回登入」「從 LoginDialog 再認證」僅是過時假設，不再作為 Server 實作或 CT 驗收標準；後續由 A-028 的 C04 final S02 callback `0x4b206b` 與 A-031 的新角色原生 World 轉場封包研究確定安全的 post-create authorization、socket 與 Client 需要的 S2C。日後已存在角色的普通登入 C03/S03/C10 保留，與首次創角分開驗證。參閱 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 GUI E2E 仍為 not-run。
 
 
 ## 2026-11-01 嚴格追鏈完成（Client 靜態證據）

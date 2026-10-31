@@ -111,8 +111,3 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 ## A-030 E-MAIL/C02 靜態增量（2026-11-01）
 
 [確認 E-MAIL 候選實際封包路徑](A-030-roy1-email-c02-field.md)：原版 C02 opcode 0x02，Region2..4 F4 string8 由第二個額外 UI 控制項寫入（region4 widget0x18／region2、3 widget0x10），packet+0x822→serializer+0x816；確認頁也使用此字串。高可信對應 E-MAIL，但原版 literal label 尚需 `Locale.dat` 或原 Client GUI 驗證；不聲稱郵件必填。Region0/1 另有不含此 F4 的三字串結構。測試工具新增固定原件 x86 路徑驗證；不修改 Server/DB/Asgard.exe。
-
-
-## A-030 新進度（2026-11-01，roy1）
-
-[NAME/E-MAIL 真實 C02 來源與 S02 失敗／C15 原版指令追鏈](A-030-roy1-native-fields-failure-c15-handoff.md)：原始 EXE 40/40 靜態 signature + 本地 6 個離線驗證 PASS；Region2..4 C02 F3/F4 送出及確認視窗 key0x49/0x4B，S02(nonzero,有文字) 的彈窗建構／C15(empty)/state0x1F；Region3/state0x1E 訊息抑制已查。原生繁中 NAME/E-MAIL label、空 E-MAIL gate、實機畫面/失敗回覆與 C15 後 Socket 均未驗證，**不能宣稱全部 A30 原生驗收完成**。缺具名 `Locale.dat`，必要時 `Basic.dat`；A30 保留 integrated/partial。

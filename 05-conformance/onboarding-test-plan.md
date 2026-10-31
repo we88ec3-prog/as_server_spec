@@ -63,3 +63,7 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## 最新 R-026 身份流程取代原有「先 C03」假設（2026-10-31）
 
 **本附錄優先於本文早期 CT-030/041/053/054 的「匿名 C02 一律拒絕、必須先 C03」文字**：使用者已確認登入與創角是兩個獨立 Client 入口；有效直接創角的 C02 含既有 Account 的**帳號＋正確密碼**，由 Server CredentialVerifier 驗明文比對雜湊後才建立 creation-only AuthProof；**不要求先有 C03 Session**。只帶名稱/錯密/未知帳號/停權的 C02 仍拒絕，不發誘發 C04 的 S02(0)，且要讓原版 UI 顯示可理解的失敗（S02 非零碼待 A-027/A-028 驗證）。C04 成功/失敗、C15 取消/重送均需同 owner/connection/generation。CT-097 加測原版直接創角的正確/錯誤帳密；CT-098/099 新增遊戲內原生改密碼 UI 與共用帳密更新/撤銷測試。詳 [新版原生創角驗收](native-creation-gate-test-plan.md) 與 [改密碼測試](account-password-native-change-test-plan.md)，Native E2E **全部尚未執行**。
+
+## 2026-11-01 ADR-008：成功建角直接進遊戲（覆蓋舊推定）
+
+**使用者明確確認：創角成功後不回登入畫面、不需要再手動 C03，而是由原版 Client 直接進入遊戲世界。** 本檔早期「創角後回登入」「從 LoginDialog 再認證」僅是過時假設，不再作為 Server 實作或 CT 驗收標準；後續由 A-028 的 C04 final S02 callback `0x4b206b` 與 A-031 的新角色原生 World 轉場封包研究確定安全的 post-create authorization、socket 與 Client 需要的 S2C。日後已存在角色的普通登入 C03/S03/C10 保留，與首次創角分開驗證。參閱 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 GUI E2E 仍為 not-run。

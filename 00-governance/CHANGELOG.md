@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 ADR-008：使用者確認創角成功直接進遊戲、不返回登入畫面
+
+以本輪使用者明確要求覆蓋先前規劃錯誤：新角色 C02→S02(0)→C04→S02(0) 後直接由原版 Client 自動入 World，**不得要求回 LoginDialog 人工再次 C03**；日後有角色的一般 LoginDialog C03/S03/C10 仍保留。新增 ADR-008，調整 R-026/027、ONB-02/03/04、A-028/030/031、SCN-008/009/010、DEV-ENTRY-02/03、readiness/Client I/O matrix、CT-105/107/108 與相關文件。已知 C04 callback 0x4b206b 不立即 S03，但其後原版自動入世界 packet 仍需取證；不因此標記原生 Client E2E 成功。只修規格、不改 Server/DB/EXE。
+
 ## 2026-11-01 原版 Client 完整創角至可操作入圖 P0 實作規劃
 
 對照 `as_server_spec/main@3cb220a2` 及私有 `as_server_roy/main@a9326985`，區分已有 Account/E-MAIL v5、Character/proof、C03/S03/C10、World DB/scene 合成後端，與未完成的 live C02/C04/C15、真 World C25、真 MAP C35、InWorld C11/C33。新增 DEV-ENTRY-00..06、P0 A-030 現有任務續查與新 A-031/032、CT-107..109、ONB/ready gates/traceability。原版 Asgard.exe 不修改；Server 原始碼/DB 未由本次 Spec 工作改動；原版 Client E2E 仍 not-run；NPC/怪物/任務不設為首次可操作入圖的先行阻塞。
@@ -163,11 +167,6 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 Roy1/Roy2 分支同步與原始 Client 核對
 
 Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研究已整合，新增 packet/evidence/status machine/readiness 引用，保持 A-029/A-030 integrated/partial、Client E2E not-run；Roy2 全部原提交先前已在 main。依最新 `as_server_roy@f2a4a38` 調整規劃：獨立創角 backend 已實作、Host native C02/C04/C15 仍 fail-closed，RI-005 表單 idle=600s/absolute=1800s 且原版 Client 未驗，RI-001 的 C02 提交斷線與事後 send=-1 不可混淆。見整合審查與新版 DEV 計畫；本次只更新規格。
-
-
-## 2026-11-01 A-030 補證：創角 E-MAIL 原生封包路徑
-
-固定原版 Asgard.exe SHA，新增 15/15 x86 指令簽章核對：C02 region2..4 F4 第二個額外 UI 欄位（region4 widget24/region2、3 widget16）→packet+0x822→writer+0x816→C02(send)；確認視窗引用同一欄和語系文字 ID 0x4B。C04 只有外觀，不送 E-MAIL。E-MAIL label 的字面與可空 gate 因 `Locale.dat`/GUI 缺少，維持 inferred-high，不冒稱完整原生驗收；A-030 integrated/partial。新增獨立報告與 probe test_16，更新 requests/evidence/PKT-C02/CT-104 和 manifest。
 
 
 ## 2026-11-01 / A-030 roy1 native field and error UI evidence

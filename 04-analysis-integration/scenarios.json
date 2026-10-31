@@ -312,7 +312,7 @@
         "C04 durable commit success but final S02 lost and retry duplicates Character",
         "C15 after nonzero S02 erroneously deletes committed character"
       ],
-      "notes": "原生 C02/C04 與 S02 成功/失敗轉場待 A-021；Character 原子保存，不創建 Account。 Roy1 static evidence shows state0x1d + S02(status0) triggers C04 then state0x1e; this is not final character creation. Account binding must be proven by A-027, C04 final status by A-028. A-028 static: after C04 Client state0x1e; later S02(status0) acts on UI at 0x4b206b, no immediate S03; nonzero S02 emits C15 CancelNewUser (empty body) and state0x1f. Original Server commit and secure owner unverified.",
+      "notes": "原生 C02/C04 與 S02 成功/失敗轉場待 A-021；Character 原子保存，不創建 Account。 Roy1 static evidence shows state0x1d + S02(status0) triggers C04 then state0x1e; this is not final character creation. Account binding must be proven by A-027, C04 final status by A-028. A-028 static: after C04 Client state0x1e; later S02(status0) acts on UI at 0x4b206b, no immediate S03; nonzero S02 emits C15 CancelNewUser (empty body) and state0x1f. Original Server commit and secure owner unverified. ADR-008 user confirmed success C04 final S02 goes directly into World without login screen/manual C03; wire still A-028/A-031 unknown.",
       "analysis_blockers": [
         "A-027",
         "A-028",
@@ -363,6 +363,13 @@
         "native_client_validation": "not-run"
       },
       "native_client_validation": "not-run",
+      "post_create_direct_world": {
+        "decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md",
+        "visible_login_screen_after_create": false,
+        "manual_second_c03_required": false,
+        "wire_research": "A-028/A-031",
+        "native_client_validation": "not-run"
+      },
       "a030_strict_handoff": {
         "report": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
         "evidence_id": "ev_a030_20261101_native_name_email_s02_c15_strict",
@@ -405,7 +412,7 @@
         "地圖缺失/CRC 異常/逾時",
         "載入中斷線"
       ],
-      "notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。 A-028: post-C04 S02 success is local UI and does NOT by itself prove direct S03/World; entry still awaits proven login/role grant path.",
+      "notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。 A-028: post-C04 S02 success is local UI and does NOT by itself prove direct S03/World; entry still awaits proven login/role grant path. ADR-008 postcreate world entry is automatic and separate from normal returning login C03; actual next packet unknown.",
       "analysis_blockers": [
         "A-028",
         "A-022"
@@ -462,7 +469,14 @@
         "validation_note": "Born/PaperDialog and original EXE bytes verified offline; native Client not-run; original NPC binding and quest policy unresolved",
         "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
       },
-      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred."
+      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
+      "post_create_direct_world": {
+        "decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md",
+        "visible_login_screen_after_create": false,
+        "manual_second_c03_required": false,
+        "wire_research": "A-028/A-031",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "SCN-010",
@@ -502,7 +516,14 @@
       "a022_map_analysis_notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-022 designed: epoch/resource version binds expected C35; wrong or old checksums rejected, reconcile after crash/disconnect; tutorial_entry_committed distinct from tutorial_completed.",
       "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
       "recovery_contract": "04-analysis-integration/A-016-idempotency-recovery.md",
-      "a003_character_creation": "C02 field1 UI local length region0 skipped / nonzero 12; C04 no name field, ten RGB UI palette values known. Native account/character name binding, sex/hair original enums and one-account-many-character unknown; designed owner/uniqueness safety only."
+      "a003_character_creation": "C02 field1 UI local length region0 skipped / nonzero 12; C04 no name field, ten RGB UI palette values known. Native account/character name binding, sex/hair original enums and one-account-many-character unknown; designed owner/uniqueness safety only.",
+      "post_create_direct_world": {
+        "decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md",
+        "visible_login_screen_after_create": false,
+        "manual_second_c03_required": false,
+        "wire_research": "A-028/A-031",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "SCN-011",

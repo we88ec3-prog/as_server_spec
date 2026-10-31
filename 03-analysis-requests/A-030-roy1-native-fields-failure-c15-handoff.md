@@ -30,7 +30,7 @@ UI 持有 C02 物件於 MakeInfoDialog+0x58；UI 本地 `0x4B27BE`（F1）、`0x
 1. `0x4B1DA9..0x4B1DEB` 讀 status，focus switch 覆蓋 3..31 共 29 項。**status3/4/18/26/31** 針對 UI 第1輸入欄設焦點；**status17** 針對第2輸入欄，其餘無此明確焦點效果。這**不是** server error business reason mapping。
 2. `0x4B1DFF` 若 message UTF16 首字非零會進展示分支（`0x4B1E2E/0x4B1E77..0x4B1EC3`，`0x442570` 與 widget factory），**但是** local state0x1E 且 Region3 會經 `0x4B1E1E..0x4B1E21` 略過文字對話分支。若 message 空，亦不建立這段文字窗。
 3. `0x4B1EE9..0x4B1EEE` 再讀 status；**非零**時 `0x4B1F1D` ctor `CCancelNewUser`、`0x4B1F2F` enqueue、`0x4B1F34` 設 local state **0x1F**，然後跳離成功路徑。C15 ctor `0x571609 push 0x15`、writer `0x5716A0: ret`，因此 **C2S C15 body 為空**；並非 S02 在 wire 上回傳 C15，也非 Client 必定自行關 TCP。
-4. **status0** 才可走 `0x4B1F46` state0x1D → `0x4B2021` 建 C04／`0x4B205A` send → state0x1E；若原本 state0x1E，走 `0x4B206B` 本地完成 UI。沒有此處自動送 C03/S03 的證據。
+4. **status0** 才可走 `0x4B1F46` state0x1D → `0x4B2021` 建 C04／`0x4B205A` send → state0x1E；若原本 state0x1E，走 `0x4B206B` 本地完成 UI。沒有此處自動送 C03/S03 的證據。依使用者最新 ADR-008 決策，成功後應**直接進 World（無手動重登入）**；下一個真正原生 World C2S/S2C 封包由 A-028/A-031 分析，不能依本回調猜測。
 
 ### 可以給 DEV 的「靜態可走、尚未 GUI 驗收」失敗回覆
 
@@ -55,7 +55,7 @@ UI 持有 C02 物件於 MakeInfoDialog+0x58；UI 本地 `0x4B27BE`（F1）、`0x
 ## 三、交付 DEV 的最小合法範圍與阻塞
 
 - **已可採用的 wire**：Region2..4 C02 F1/F2/F3/F4/u8 body，Region0/1 C02 F1/F2/F3；S02 status+message; C15 zero-body；成功 C02→S02(0)→C04→S02(0) 的 Client 本地轉場；nonzero S02→可能提示→C15/state0x1F。
-- **尚不可宣告原生可用的語意**：真正 NAME/E-MAIL label→widget、Region1 第3欄來源、EMail 是否必填/可空、原版特定錯誤 status semantics、未改 Client popup/render、C15 後 retry/是否維持同 TCP、成功最後自動回 LoginDialog。
+- **尚不可宣告原生可用的語意**：真正 NAME/E-MAIL label→widget、Region1 第3欄來源、EMail 是否必填/可空、原版特定錯誤 status semantics、未改 Client popup/render、C15 後 retry/是否維持同 TCP、依 ADR-008 成功直接進 World 的原生封包與 Client 下一個狀態。
 - R-035 產品已決定**建立角色成功後，只將 E-MAIL 保存於 Account，沒有其他用途**；但 Server 必須等 REGION/profile/原生 label mapping 真正通過，才把 F4 解釋成 creation_email，不能把 F3 寫為 email。DB commit 和認證屬 DEV，不是 A30 客戶端實證；此輪沒有修改 Server/DB。
 - **缺少的確切原件**：`Locale.dat`（EXE 0x5F1F84 原字串，需 matching release，resolve localization keys 0x49/0x4B）；`Basic.dat`（EXE 0x5F1FC4 原字串，供必要時核對 UI layout/widget identifiers）。**可能還需對應 GUI 皮膚內的具名 layout 成員，名稱須等資源解析後再指認，不猜。**
 - **CT-104 P0 必要補證**：1) 未改 Client 原始 SHA、region/locale／UI 五個標籤→widgets；2) 不洩露明文的 F3/F4 長度比較：只改 NAME、只改 E-MAIL、E-MAIL 留空；3) 真正在已進 state1D 以正確加密/序號送 S02(nonzero,非空) 並截畫面、C15 帧/ordinal、Socket close origin，包含 Region3/state1E 例外；4) 第二次 C02 及重登入可否使用，分開記。

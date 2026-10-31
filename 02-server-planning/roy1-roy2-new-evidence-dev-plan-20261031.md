@@ -29,3 +29,7 @@ Observed original EXE static, static inference, Server policy, Server synthetic 
 ## 23:51 new main integration evidence: C02 received and explicitly closed (modified Client only)
 
 Another agent updated main after the start of this merge. The latest 2026-10-31 23:51 correlated local test found **modified main-menu-preview diagnostic Client** successfully sent C02, and the running private Server f2a4a38 logged C02(body length 15, ordinal5) then close reason `native-c02-fields-unknown-a030`, without S02. This is now runtime-confirmed for that test and is NOT a 60-second idle timeout; original unmodified Asgard.exe CT-103/104/105 remains not-run. Earlier stale-socket send=-1 is a separate event. The P0 task can shift from diagnosing that particular disconnect to NAME/EMAIL authoritative field map, C02 adapter and Client-supported error S02, without claiming full native acceptance.
+
+## 2026-11-01 ADR-008：成功建角直接進遊戲（覆蓋舊推定）
+
+**使用者明確確認：創角成功後不回登入畫面、不需要再手動 C03，而是由原版 Client 直接進入遊戲世界。** 本檔早期「創角後回登入」「從 LoginDialog 再認證」僅是過時假設，不再作為 Server 實作或 CT 驗收標準；後續由 A-028 的 C04 final S02 callback `0x4b206b` 與 A-031 的新角色原生 World 轉場封包研究確定安全的 post-create authorization、socket 與 Client 需要的 S2C。日後已存在角色的普通登入 C03/S03/C10 保留，與首次創角分開驗證。參閱 [ADR-008](post-create-direct-world-decision-20261101.md)。原版 GUI E2E 仍為 not-run。

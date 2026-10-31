@@ -90,3 +90,7 @@ Another agent updated main after the start of this merge. The latest 2026-10-31 
 ## 2026-11-01 最新 E-MAIL 決策取代舊候選
 
 前段「E-MAIL 是否需要保存尚待決」和「本次不變更 DB schema」僅是 10/31 當時的規劃範圍。**最新 R-035 要求保存 E-MAIL**：於既有 Account 新增 nullable `creation_email`（SQLite/Pg schema v5），成功 C04 與 Character 原子提交時才寫，沒有其他用途。A-030 對 E-MAIL 對應真實封包欄位仍未確認、不能憑 F4 猜測。另見 [2026-11-01 設計](newuser-email-persistence-20261101.md)。本輪 Spec 更新未修改 Server 或 DB。
+
+## 2026-11-01 ADR-008（覆蓋上文所有回登入假設）
+
+**原版 Client 成功 C04／第二段 S02(0) 後直接進遊戲、不返回 LoginDialog，玩家不需手動第二次 C03。** 上方舊有「成功後回登入」「手動重新登入」是過時 Server 規劃，不再做開發或 CT 出場條件；A-028 的 0x4b206b callback 無立即 S03 仍是有效靜態觀察，但後續背景授權/轉服/首 World opcode 必須由 A-028/A-031 補證，不能猜。已存在角色日後的一般 C03/S03/C10 登入不變。新正式需求見 [ADR-008](post-create-direct-world-decision-20261101.md)。原版 Client E2E 未執行。
