@@ -96,3 +96,11 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 5 種 S2C native opcode constructor + 5 reader sequence 以實際 PE 及 SHA 鎖定 probe 全部 PASS；9 個合成 CP950/欄位長度/選配 flags/epoch/重送測試 PASS，**不是** native 兩 Client E2E。已更新 [A-004 分析報告](../task_a/roy2/A-004-analysis.md)、[機讀 locator](../task_a/roy2/A-004-native-locators.json)、[CT-054/CT-055](../05-conformance/A-004-visibility-test-plan.md)、SCN-005 與 FLOW-VISIBILITY。
 
 目前未追通完整原生 MapPane/ObjectRegistry callback、跨包 u32 ID 的實際 key 查找和 Native UI 的離視野效果。Server 可按 map_instance/epoch/id 做權威可見集合和斷線 fencing（**designed**），但原服 AOI 範圍、重用規則不得聲稱已證。`A-004.status=integrated`, `handoff_status=partial`, `native_client_validation=not-run`。
+
+## A-005／roy2 角色移動、地圖旗標與校正研究（2026-10-31）
+
+原始 `Asgard.exe`：C33（0x573BF0）連續寫 3×u8、C11（0x571960）寫 1×u8、S0B（0x583150）讀 BE u16 x/y + u8。S0B 是**自己的位置／序號回覆**，沒有第三方 actor ID，其他玩家應使用 A-004 的 S06/S11。C33 不含絕對座標、地圖 ID 或 timestamp；原服速度 tick、拒絕失敗的 bit7/UI 重試規則並未全證。
+
+原始三份 Map DAT 494 張／**7,701,805** 個 tile 的 `LE u32 flags` 只出現 0、1、16、17、512。`0x4B3520` 以每格 10B 原始 tile 轉成 17B native tile，`+6` u32 flags 原樣複製；`0x4B4BB0` 使用 bit4(0x10) 做線段遮擋測試，`0x4B2CA0` 動態設/清 bit0，`0x4D1206` 另一處用 bit0。**這些位元 consumer 不足以證明玩家走路唯一碰撞位元。** 不得直接以 `flags & 0x10` 決定移動通行；Server 的行走碰撞、最大速度、重送/epoch 保護必須明標 **designed**。
+
+來源 [A-005 報告](../task_a/roy2/A-005-analysis.md)、[完整旗標統計](../task_a/roy2/A-005-corpus-flags.json)、[原始 PE 驗證](../task_a/roy2/a005_native_probe.py)、[10 項 synthetic test](../task_a/roy2/test_a005_move.py)、[CT-056/057](../05-conformance/A-005-movement-test-plan.md)。`A-005 integrated/partial; native Client not-run`；已知 Client I/O 子集可交 Server DEV，仍需進一步原生 MapPane 失敗校正／實際角色碰撞 handler 驗證。
