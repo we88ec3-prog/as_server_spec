@@ -1,15 +1,15 @@
-# A-004 → CT-054 / CT-055 多玩家視野與 ID 生命週期驗收
+# A-004 → CT-060 / CT-055 多玩家視野與 ID 生命週期驗收
 
 此計畫根據 `Asgard.exe` SHA256 `db3df616...` 的原生 constructor/reader static evidence；兩台原生 Client E2E 尚未執行。研究與 Server 設計清楚分離。相關 [`A-004` 報告](../task_a/roy2/A-004-analysis.md)、[`a004_native_probe.py`](../task_a/roy2/a004_native_probe.py)、[`a004_visibility.py`](../task_a/roy2/a004_visibility.py)。
 
-## CT-054 — metadata-only 原生 EXE 靜態核對及合成解碼
+## CT-060 — metadata-only 原生 EXE 靜態核對及合成解碼
 
 ```
 python task_a/roy2/a004_native_probe.py Asgard.exe
 python -m unittest discover -s task_a/roy2 -p 'test_a004_visibility.py' -v
 ```
 
-已在原件核對：5 native ctor + 5 native reader 序列 PASS。9 synthetic cases PASS，含 CP950 的 S33 flags0 變體、S06(u32/u16/u16)、S11(u32/u8)、S0E(u32)、S0B(u16/u16/u8) 完整長度，錯誤的 length/string8/flags、重送/ID 重用與舊 epoch 防護。這些數據不代表原生 Client GUI 或 Server 視野回覆真實成功；整體 CT-054 `planned`，offline subset 通過。
+已在原件核對：5 native ctor + 5 native reader 序列 PASS。9 synthetic cases PASS，含 CP950 的 S33 flags0 變體、S06(u32/u16/u16)、S11(u32/u8)、S0E(u32)、S0B(u16/u16/u8) 完整長度，錯誤的 length/string8/flags、重送/ID 重用與舊 epoch 防護。這些數據不代表原生 Client GUI 或 Server 視野回覆真實成功；整體 CT-060 `planned`，offline subset 通過。
 
 ## CT-055 — 兩台原生 Client，必須真實檢驗
 
