@@ -1712,7 +1712,10 @@
       ],
       "original_npc_binding_proven": false,
       "original_server_first_script_push_proven": false,
-      "native_script_gui_e2e_ready": false
+      "native_script_gui_e2e_ready": false,
+      "last_original_resource_result": "2026-11-01 original PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat exact SHA, Script XML/BE version+units/CP950 CRC, function/choice graph validated locally, plus Born.dat and Basic.dat verified earlier.",
+      "latest_synthetic_ci_result": "PASS GitHub Actions run 41231915314: A023 four-Script bundle 28/28 tests, A023 Born/Basic 21/21 tests, all other regression suites and phase gates PASS (113 CT vectors, 32 A tasks).",
+      "latest_synthetic_ci_run": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41231915314"
     },
     {
       "id": "A-024",
