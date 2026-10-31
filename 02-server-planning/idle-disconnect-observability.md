@@ -15,6 +15,29 @@
 
 本地原始資料留在 `workspace/anal-roy-temp/runtime-monitor/`；不發布含會話細節的 raw log。整合者已在本地保留 binary SHA／修改時間作後續比對，未修改或重新啟動 Server。
 
+## 第二輪：創角表單等待與送出後失敗必須拆分
+
+需求方澄清：真正要追查的是**送出創角後失敗**；先前尚未送出便斷線是另一個會阻擋測試的問題。需求方亦要求檢討創角等待輸入是否應排除一般60秒未收資料的關閉政策。
+
+2026-10-31 第二輪 Client PID 1992，Server PID 6400，仍為上述修改副本。23:30:45.682～23:30:49.6 左右取樣可見 TCP Established；23:30:50.919 的取樣已變成 Server FIN_WAIT_2／Client CLOSE_WAIT，且 Client Responding=true。這支持 **Server 先關閉該 socket**，不是 UI hang；實際轉換落在最後 Established 與首個關閉取樣之間，不能把首個取樣時間當 FIN 的精確發生時間。
+
+使用者隨後提供兩張畫面：創角表單先顯示「登錄連線中，請稍候」，接著「伺服器無回應」。截圖沒有可關聯的取樣時間，且缺 C02／最後收包時間，所以暫不能決定「該次送出導致 Server close」或「送出時既有連線已因閒置被關」。共享規格不收錄原圖或表單內容。
+
+兩條分開的交付：
+
+- **等待輸入（RI-005）**：合法創角等待不得只因沒有業務輸入滿60秒就被一般讀取期限關閉。採獨立、較長且有上限的表單等待／資源保護政策；保留握手、非法 frame、載入 ACK 的期限。Server 不一定知道 Client 正顯示哪個畫面：若 C02 前沒有已證 NewUser 標記，需在可辨認的 prelogin phase 提供兼容等待，或由 A-020/A-030 補出真實入口差異；不能虛構 Client 會送「我正在創角」或新 heartbeat。
+- **送出失敗（RI-001）**：`b8e212e` 的 C02 明確 Close 且不回 S02，是原生 wire 尚未接通的已確認實作限制；單純放寬 timeout 不會使 C02 成功。須記到 C02 收到時間、phase、close reason 與是否回 S02，再以 A-030 已證欄位／非零錯誤顯示接線，不能盲發成功。C02 尚未到達就先查本地表單 gate／前置連線，不能將「伺服器無回應」當成 C02 已到達的證據。
+
+回驗拆成：①不送出、在創角表單停留超過60秒，觀察連線與表單可用性；②新有效連線內立即送出合法創角，對照 C02→S02→C04→S02／失敗 UI。①通過不能關閉②，②失敗也不能抹除①的結果。**創角畫面有無週期互傳目前仍 unknown**；TCP Established 與畫面動畫均不能證明有 heartbeat。
+
+## 本輪重送的封包級結果
+
+使用者確認在同一程序重新送出。23:32:57（UTC+8）起以 REA／Frida 僅觀察該 Client 的 Winsock send／recv／closesocket，沒有修改 EXE 檔、封包資料、回傳值或 Server。23:34:07.456 觀察到 **send 嘗試 C02、frame length=17、requested=20、result=-1**。此時 TCP 觀測早已沒有該已建立連線。
+
+這證實**本次重送發生本地傳送錯誤，不能當成 Server 收到並拒絕 C02**。send 成功亦只代表本地 API 接受 bytes，仍不能單憑它宣稱 Server 已處理；須有接收端 trace／回包。尚未取得 Winsock error code，不能細分傳送錯誤類型。前一次 Server FIN 的原因仍未知。
+
+該觀測僅涵蓋 attach 後的同步 send／recv 與 closesocket，不涵蓋 attach 前流量、WSASend／WSARecv 非同步路徑、任意 TCP 分段的完整重組，opcode 只在可辨識 AA frame 開頭時記錄。沒有任何未覆蓋流量可據此宣稱「Client 從不保活」。原生 UI 畫面失敗、Client API 失敗與 Server C02 分支限制分開記錄；此次不是完整新連線創角回驗。
+
 ## 給 Server 開發者的增量合約（designed）
 
 這是對既有狀態／逾時規格的補充，不要求關閉全部 timeout，也不以延長60秒宣稱已修復本次問題。

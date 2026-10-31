@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "4fe7541b80c66b5ee922c4d981f4da9222b01bf2890264adbb98c783595e4f67"
+      "sha256": "5acc525bc00422ee1597e13eed59bf3d112550cf45452b1124f5d3db2d5e3c2d"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -965,11 +965,11 @@
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
-      "sha256": "2a06e903c727d2641aecb0905822b03044186ed74a1b31f664a5fbd8964b2484"
+      "sha256": "ac04487957c5e31614f794943e9a7125684c13d805fc5f4dba2a94e2b93cbc87"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "77766d8b7f1c7fc5f7adae6b250e8f60ba75497a9ac2a9a600ae34aa39d26b8a"
+      "sha256": "1860ae1aa47a069dc4af9d4b16f440afc6bd5c27c9d1d670984ed433e9d8cad8"
     },
     {
       "path": "04-analysis-integration/local-account-entry-observations-20261031.md",
@@ -977,7 +977,7 @@
     },
     {
       "path": "02-server-planning/idle-disconnect-observability.md",
-      "sha256": "2e40d4d8ad5623f9d97c8cd2b8083f3e9c128704686ba10feda7bbd0af72b6b3"
+      "sha256": "9cfed6f75a8d73f17ddc50f0311207fe41875f4cee4e46c376258d8561bf75bf"
     }
   ]
 }

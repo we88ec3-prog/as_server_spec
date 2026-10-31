@@ -4,6 +4,8 @@
 
 後續實測回報 **RI-005**：Client 視窗有回應但使用者看到斷線，之後手動關閉；事前 UI／根因未知。新增 [閒置斷線與監測合約](idle-disconnect-observability.md)，要求程序、TCP 與會話狀態分開，按階段診斷 timeout；不直接歸入 RI-001，也不把手動退出當 crash。
 
+第二輪已觀察 Server FIN_WAIT_2／Client CLOSE_WAIT，使用者畫面為創角「登錄連線中」後「伺服器無回應」。需求拆分為 **RI-005 表單等待排除一般60秒 read timeout** 與 **RI-001 送出後 wire 失敗**，兩者獨立回驗。不能只延長期限就宣稱創角修好；也不能因未記到 C02 就把本次根因定為 C02。詳見同頁第二輪補充。
+
 ## P0 / RI-001：原生創角斷線
 
 目前的 [斷線修正規劃](native-newuser-disconnect-remediation-20261031.md) 以 `ad84f9` 作歷史根因基線；不能把它的「尚未驗證憑證／沒有草稿處理」直接當成新版全部未實作。
