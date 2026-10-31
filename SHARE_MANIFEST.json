@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "c1d9bc979bd681edc6511bf18675276fa3d7e973b6812a045630349e19c8738a"
+      "sha256": "71f0a2ff1ea595fc74e0eb31d7329f1e6992a05c0a86455407d1169540288a24"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -157,7 +157,7 @@
     },
     {
       "path": "02-server-planning/newuser-email-persistence-20261101.md",
-      "sha256": "b3a90965da1f495771a6cd28b7930f56f55bd6a933adfbf394752255f6931b88"
+      "sha256": "7b395cabff190fb841a5de20db7d7fd09a3cd3376887ad8b2d93b6db4fa48522"
     },
     {
       "path": "02-server-planning/novice-school-admission-flow.md",
@@ -329,15 +329,19 @@
     },
     {
       "path": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
-      "sha256": "a28ce40e66cc38feb27fa13f667a5a0be34f7e2155cf1ab5f6c7329606db81ad"
+      "sha256": "bdcc1eeb465331da3a14bcc66095e68fb1a207a7fcea22c0fbbe8314eeb241eb"
     },
     {
       "path": "03-analysis-requests/A-030-roy1-email-c02-field.md",
-      "sha256": "b4283414dedceb1b160373178445a1df35347d570fcef9bb8840dc23c9013efc"
+      "sha256": "3feca685a98790248843dbcd27c7e82a7ec4bb710881a99f96248c7684633b7f"
     },
     {
       "path": "03-analysis-requests/A-030-roy1-native-fields-failure-c15-handoff.md",
-      "sha256": "0cf991e35a6cc2ac882b9f81625d522ed6624f9d0ecd6415f2ed6d6276406888"
+      "sha256": "e833237d06753146bc9717f26e82328a78747e1e6ce8d05a81947b014a01ea8f"
+    },
+    {
+      "path": "03-analysis-requests/A-030-roy1-original-resource-proof-20261101.md",
+      "sha256": "a451cb2d9f0bae72a7cfe3b42059080ccf93c96651dd4070ca9d7940af61e556"
     },
     {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
@@ -361,7 +365,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "d667b04b22b25d260e956d36d73179c8c188518535d7913d0bff2c9fa2d7bcb8"
+      "sha256": "fa06c24d8dba89783b4620ad90f304586bd4935c79a0573a1da2de63cdea1ba7"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -369,7 +373,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "e0c2e2a51988425057584d3a15b34fe5e44eeda9d8083941e40508789e0c9bfd"
+      "sha256": "525cc5cd904899e45e094231c1667946b6b87baaeed1931d9b59abbd487b50f3"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
@@ -465,7 +469,7 @@
     },
     {
       "path": "04-analysis-integration/A-030-newuser-s02-field-contract.md",
-      "sha256": "9b383e71a3e23d4af63b60c791f1cd1fa11eb296ee5a23bbefeb0b605e2aae8a"
+      "sha256": "ea81e9b8572165f5c8c806a9231e64228446bb34f46106e614167da005807ae3"
     },
     {
       "path": "04-analysis-integration/A015-A016-A027-A028-validation.md",
@@ -497,7 +501,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "bb5ed6f061d1b40b141dd9d1cec6aa1e00c39b283ba04c6c3508d85d032935c1"
+      "sha256": "56ea7bdd37b482de036bd7f10141453a8371b9e6f705c5fda435254e356c3f27"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -529,7 +533,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "f90853e8bdea0bc287fd3da4aa5a6e47e8a96887c057753debbc736925cca7c5"
+      "sha256": "b1e6eb8477a8d5e0f8f6a85d90103daeb79aac26594452df6401d3e4c4f35324"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -557,7 +561,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "bb7e51fd46cc2bf393059dc047ff1a97441a89ea3b8fd137c30c73b28e88d7d5"
+      "sha256": "83eebe52851bd5bcdefd0d7b014f1b29353a3635deeee198a9c693420c64808a"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -665,7 +669,7 @@
     },
     {
       "path": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
-      "sha256": "2a63492f28216358d2d5d33a7db54b9484dc5e33d04411d7849ae30c90ddc570"
+      "sha256": "a6e163c2b85c4080049df460a5cddfc57e29d098d19202e5e217f7613a0dc46a"
     },
     {
       "path": "05-conformance/native-playable-entry-acceptance-20261101.md",
@@ -701,7 +705,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "473d3ddd47b73969d14f523fc9a330ceb3b36e231b033117fd7521bbe010bb6d"
+      "sha256": "f26b4789b0005285ee49f113853b3644fcf7c63229894eb4d789cabfae4cf7f0"
     },
     {
       "path": "README.md",
@@ -1026,6 +1030,10 @@
     {
       "path": "tools/a030_native_newuser_contract.py",
       "sha256": "e9b8a33342c6ff6dc558e78d5077b8bce8e5ce7351139dcda8696d170e8be0f4"
+    },
+    {
+      "path": "tools/a030_resource_labels.py",
+      "sha256": "1060e677755b5e8e32f3e40836ba2862c4972bc51be2a167c07a8cd4d804e0a8"
     },
     {
       "path": "tools/test_a015_content_probe.py",
