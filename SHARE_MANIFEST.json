@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "18d1157e8305598fbf186e1c11b0fc28a72cae0421c6e709ca9be7f5564433eb"
+      "sha256": "54aecac4915b19beef7b217f13fdd465451b03d4bedeed7b41e9d0e4cf939b7b"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -93,7 +93,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "9d2f63aa6ead83b503b971ea1a14c7175954a53197c1f9e9196836ee4611a2f7"
+      "sha256": "3b1bde2270d27a63d3d8242b01d88f90a7fd96b491a7051606734e5ffaca9103"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -149,7 +149,7 @@
     },
     {
       "path": "02-server-planning/native-playable-entry-roadmap-20261101.md",
-      "sha256": "6927e3c87fa07950ccfc4710b2cbb25ccb791b51619399d53b768b78ffc86efd"
+      "sha256": "7a637ca10a585284bbd6a8fd6c437f6b93c72491b98691f04c00025eb80df81f"
     },
     {
       "path": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
@@ -169,11 +169,11 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "b77b7385b02c5768ebd67a2df048e8237e892680a417a91913e8a47b8c3d1870"
+      "sha256": "caa98ea1e35183ddc35973056ecd5d98273766b0cd9a444e8e4917159bca19b4"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
-      "sha256": "581241d2ad6355178abba64611cf0243476343811f89eec9065ff321a7f176b7"
+      "sha256": "54df4bb75f6254b56917fb013dc43174780ecba40e8ce8bd69a7e4b2d7205fbc"
     },
     {
       "path": "02-server-planning/post-create-direct-world-decision-20261101.md",
@@ -193,7 +193,7 @@
     },
     {
       "path": "02-server-planning/roy123-playable-world-implementation-20261101.md",
-      "sha256": "cddd9fa04cbe9081da3d2c9891001b7587e48b6e158ea466ed523eaabe78777e"
+      "sha256": "85a16a0079277c5df6eae6c9383ebdb63e39cc071e9f39c673e0cf4c98beab1d"
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
@@ -377,11 +377,11 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "e9c099fef4d0d04a237ac787e8be3488256e6843caaf600dae4b3d000bfa0262"
+      "sha256": "77d93c79856b739985c19a953db34906cb58c33b92e8f9e967b7f4b485707a91"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
-      "sha256": "087fac2fa35ab5012243614a6e5574bb11281fdd043f2e08106dd0942998ab28"
+      "sha256": "389aeb86c5bc74a94d4eb3cec417f1783c83b14b59141c5317160a1b077cd853"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
@@ -406,6 +406,10 @@
     {
       "path": "04-analysis-integration/A-005-move-ack-branch-contract.md",
       "sha256": "a56f6c9d14db068781a0e533a481fc6269a0600116a16e80d0e9fad39ca1ef75"
+    },
+    {
+      "path": "04-analysis-integration/A-005-native-path-collision-contract.md",
+      "sha256": "b73169db62b0c5a85a4151861312a8a4b43424e6ac22fc5c61cf0fe62cc27711"
     },
     {
       "path": "04-analysis-integration/A-007-inventory-domain-contract.md",
@@ -517,7 +521,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "c77e87b6f04b88b601beb599fe21eca887de80b774523b5e1684f64d982e38d0"
+      "sha256": "28f364dcdad43cb9d40e0c2c578fcadf71f799addf02ced77a52a9e0f51ed920"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -549,7 +553,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "7622ce74cd532a76dad0ac20d0b091beff8b4dec555435bf6ba1b084b90e9fa7"
+      "sha256": "166b5f794e1957b28cb10ed430fc01a209d3ebf8fc305911dc472ecbc5188893"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -577,7 +581,7 @@
     },
     {
       "path": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
-      "sha256": "c159ecdec858ee0da811435e7e30f1daae5ae7ce3a97cc94b2bebae86bf9329e"
+      "sha256": "cf0209ceee4dee5a39608a09f11b07e42c706abb10b98b61f121bba32f269469"
     },
     {
       "path": "04-analysis-integration/scenarios.json",
