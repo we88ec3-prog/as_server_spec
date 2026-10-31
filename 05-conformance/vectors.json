@@ -3107,7 +3107,10 @@
       "original_probe": "task_a/roy2/a028_native_postcreate_probe.py",
       "offline_test": "task_a/roy2/test_a028_postcreate.py",
       "native_client_validation": "not-run",
-      "scope_boundary": "Does not prove successful original GUI direct-world or background C03/S03/C10, CT-105/107/108 remain not-run"
+      "scope_boundary": "Does not prove successful original GUI direct-world or background C03/S03/C10, CT-105/107/108 remain not-run",
+      "offline_subset_result": "PASS: same SHA original Asgard.exe local 31 native VA instruction anchors + MSVC LoginDialogPane RTTI; GitHub Actions run 41226689277 includes 22/22 new A028 synthetic S02/C04/C15 UI-state tests, phase gates and other suites PASS. Native original GUI direct World CT-105/107/108 remain not-run.",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277",
+      "original_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
     }
   ]
 }
