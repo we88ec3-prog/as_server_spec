@@ -49,7 +49,21 @@
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
       "next_iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
       "native_creation_activation_gate": "Native C02/C04 remains fail-closed until A-027 proves C03 no-character to NewUser native route and C02 account field; Server SAFE-01..04 is design-ready.",
-      "latest_merged_analysis": "roy1 A-020/025/026 and roy2 A-004/005/006/008/009/024 static/partial; original Client E2E remains not-run"
+      "latest_merged_analysis": "roy1 A-020/025/026 and roy2 A-004/005/006/008/009/024 static/partial; original Client E2E remains not-run",
+      "native_game_password_p0_compatibility": {
+        "source": "02-server-planning/native-game-password-8char-policy.md",
+        "observed_client_ui_max": 8,
+        "observed_by": "user report; native xref verification pending A-020/A-002",
+        "verified_existing_dev030_minimum": 10,
+        "required_dev030_change": "game password new/reset exactly 8 ASCII alnum, case-sensitive, no truncation; independent admin key",
+        "implementation_status": "not-reported",
+        "native_client_validation": "not-run",
+        "conformance": [
+          "CT-019",
+          "CT-037",
+          "CT-050"
+        ]
+      }
     },
     {
       "id": "ONB-02",

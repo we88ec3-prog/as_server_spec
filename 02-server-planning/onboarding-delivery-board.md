@@ -67,3 +67,7 @@ A-002 新增 C03 登入欄位、S03 host/port/opaque token、C10 raw token，及
 ## Roy1/Roy2 分支正式合併後（2026-10-31）
 
 A-004/005/006/008/009/024（Roy2）與 A-007/019/020/025/026（Roy1）已回寫 main 的 `integrated` 靜態/合成有限成果。ONB-05 可由純內部 Scene 走向 **DEV-070-M 共享場景 + 可證 S07 非空 row 等 codec**，ONB-06 可建立 ScriptClose≠完成的 ledger。**原生 Client CT-055/070/080/081、R-031 真實教學出口都未通過**。看 [新開發計畫](post-roy-merge-implementation-plan.md) 與 [待分析工作](../03-analysis-requests/post-merge-analysis-queue.md)，不要要求分析者重做已證 opcode。
+
+## P0 密碼相容性阻塞（使用者觀察，2026-10-31）
+
+**目前原 Client 登入欄最多 8 字**，而 `as_server_roy/main` 的 `Pbkdf2PasswordHasher.ValidatePassword` 實際限制 **10～128 字**；ONB-01 即使帳號存在也可能登入失敗。**規格已更新但 DEV-030 程式尚未修正**：遊戲建帳/重設採恰好8 ASCII 英數、Admin 身份/密鑰不受影響；原長密碼需管理員重設，不截斷；C03 正常登入與原始 UI 需 CT-019/037/050 驗證。此為本期**先修再測**的 P0 工作，不依賴 A-027 創角 UI。詳見 [8 字相容政策](native-game-password-8char-policy.md)。

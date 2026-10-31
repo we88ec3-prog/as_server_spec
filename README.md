@@ -91,3 +91,7 @@
 已實際檢查本輪上傳的 `nNewJoin01.dat`、`PaperDialog.dat`、`PaperDialog02.dat`、`Monster00.dat`、`World00.dat`。初級學校三頁/接受拒絕、獨立 PaperDialog02 開始取消、Monster/World 各五個 YPF 成員的 SHA/索引已證；**尚不能宣稱原生 NPC 綁定、怪物畫面、官方目的地、教學畢業或 Client E2E 已通過**。
 
 [原件分析](04-analysis-integration/new-asset-samples-20261031.md) · [Server 就學流程規劃](02-server-planning/novice-school-admission-flow.md) · [驗收項目](05-conformance/new-asset-validation-plan.md)。
+
+## P0：原版 Client 遊戲密碼最多 8 字（2026-10-31）
+
+使用者發現遊戲登入框最多 8 字；實際私有 Server `as_server_roy/main` 的憑證驗證目前卻要求**至少10字**，因此不相容。已新增 [原生 8 字遊戲密碼相容政策／DEV-030 修正清單](02-server-planning/native-game-password-8char-policy.md)：新建／重設遊戲密碼採恰好8 ASCII 英數、**不截斷舊密碼**，管理 API key 不受此規則限制，加入線上登入限速等補償。A-020/A-002 仍需證實原 Client UI/送包；本次是規劃與交接，**Server 程式未在本 repo 修改，Client CT 未驗收**。

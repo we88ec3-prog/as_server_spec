@@ -55,3 +55,7 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-016 / roy1：R-017 回覆遺失、斷線與持久化（CT-045/044 planned）
 
 [A-016 原版可核對函式](../03-analysis-requests/A-016-roy1-replay-recovery.md) 和 [Domain/DB 恢復契約](../04-analysis-integration/A-016-idempotency-recovery.md)。執行 `python3 tools/a016_recovery_model.py` 做 SQLite synthetic crash/reopen：角色提交回包遺失仍唯一、token 原子一次性、C33 seq7 replay/127→0、C35 拒絕錯 epoch/同 pair ambiguity、交易雙邊入帳與領獎 unique ledger；**不代表原 Client 或原服驗收通過**。CT-045/044 是 designed/negative contract，原始 Client 世界載圖/重登入仍需後續 CT-016/017/018。
+
+## P0 / DEV-030 密碼長度相容性驗收（2026-10-31；未執行）
+
+原 Client 使用者回報登入密碼欄**最多 8 字元**，現私有 Server `Pbkdf2PasswordHasher.ValidatePassword` **10～128** 不相容。依 [原生 8 字遊戲密碼政策](../02-server-planning/native-game-password-8char-policy.md) 在既有 **CT-019/CT-037/CT-050** 增列測試，不新增測試編號：管理員建帳及重設有效的8字 ASCII 英數成功；7/9/10/12字、控制/空白/非 ASCII、非法字元拒絕；大小寫敏感；SQLite/PostgreSQL 一致；舊 10+ 字密碼不截斷、需重設；重設後舊 grants/token 失效但角色保留；Admin X-Admin-Key 不縮短。**真正原版 Client** 必須親自鍵入8字並證明 C03 不丟字，成功/錯密/停權與 transfer，否則 Client CT=not-run；合成 C03 fixture 成功只能算 unit/integration。

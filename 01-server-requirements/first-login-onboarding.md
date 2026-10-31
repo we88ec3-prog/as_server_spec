@@ -31,3 +31,9 @@ SCN-007 管理建帳與玩家首次登入；SCN-008 原 Client 創角；SCN-009 
 **無有效登入 AuthContext → 一律拒絕**，即使字串剛好相同；匹配成功只通過此檢查，另需帳號未停權、有效 session/generation、角色/外觀唯一性等規則。A-027 仍未確認 C03 無角色→NewUser 原生可達及 C02 第1欄確為既有登入帳號，因此正式 native C02/C04 仍必須 fail closed，直到證據足夠；不得把原服註冊 UI 直接當作新 Server 的角色創建授權。原生錯誤回覆 status 尚未知：拒絕時不得發 S02(status0) 或亂猜 status；目前安全實作可結束未授權連線。這是 **Server designed**，不宣稱原版原本有相同限制。
 
 [完整 Server 比對契約](../02-server-planning/character-account-match-policy.md)。
+
+## P0 原版登入密碼最多 8 字元（2026-10-31 使用者回報）
+
+原版 `Asgard.exe` 登入欄位依使用者實測最多 8 字元，與目前私有 DEV-030 `Pbkdf2PasswordHasher.ValidatePassword` 的 **10～128 字**政策衝突（使用者原先描述至少12字，已查目前 main 源碼實際是至少10字）。**R-025 新需求**：管理員建立及重設的**遊戲**帳號密碼採本 Server **恰好8個 ASCII 英數字元，大小寫敏感**，可用安全亂數產生；Admin 自身的 X-Admin-Key/強憑證保持獨立，絕不可因此降低；不要截斷任何舊密碼。DEV-030 要修改 SQLite/PostgreSQL 憑證入口及原生 Client 測試，原 Server 實作目前**尚未**由本規格 repo 修正。
+
+細節：[Native 8 字相容契約](../02-server-planning/native-game-password-8char-policy.md)。此為 `reported-client-UI` + `verified-server-source` + `designed-policy` 三種證據分開，原生 C03 GUI/送包 A-020/A-002 仍須實測，CT-019/037/050 仍待執行。

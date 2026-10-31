@@ -97,3 +97,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 — 整合 task_a/roy1 與 task_a/roy2 並依新證據更新 DEV
 
 以三父 merge commit `078b0d1d8aab9f443ba630f43b7e5c904dd5f3fb` 保留兩分支來源歷史與原始報告/測試；11 新 A 分析 static/partial 回寫、72 PKT、12 Client I/O flows。CT 原編號衝突避讓至 056～081；main CT-054/055 保留。標記 Roy1 S1E vs Roy2 S5F 死亡 parser 歸屬疑點，不猜 Native Death opcode。按共享地圖 ADR-007 重排 DEV-070-M actor wire/DEV-080/DEV-090，列出剩餘 A-027/024/004/022/005/009/025/026 及資源缺件。
+
+## 2026-10-31 P0：原版遊戲登入密碼八字限制與 DEV-030 修正規劃
+
+使用者觀察原版 Client 密碼框只輸入8字；核對 `as_server_roy/main` `Pbkdf2PasswordHasher.ValidatePassword` 實際最少 **10** 字（不是敘述的最少12字），造成管理員建帳與原版 Client 登入不相容。R-025/ONB-01 新增遊戲用恰好8 ASCII 英數的臨時安全相容 profile，與 Admin key 分離，並要求相應 DEV-030 SQLite/Postgres/重設/測試與8字短密碼防濫用補強；不截斷舊密碼、不更新原始 Client、不宣稱私有 Server 已修。詳 [政策](../02-server-planning/native-game-password-8char-policy.md)。

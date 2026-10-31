@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "fa3fe6590bb93b72f4864833138e4c4afe8e84a827ffd195cfd63c7e2a9fd0dc"
+      "sha256": "7e08337b2a5f93470f2c7dc50fabafd351aaf8f18f6acca12b8e5da76ed5be89"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -49,7 +49,7 @@
     },
     {
       "path": "01-server-requirements/first-login-onboarding.md",
-      "sha256": "02f3e8bcf9b9c016a90bc7af472b226804660b01c4d301f39801b09292a1628b"
+      "sha256": "a758c16b377642377d5a3c28c139e6d92f1c52c229dc145c833577604b0c98c4"
     },
     {
       "path": "01-server-requirements/README.md",
@@ -57,11 +57,11 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "2bf7dbb7b77f09dd5201c6522ddf1f6d960b8b1656ab3d3ecca18a4541ece780"
+      "sha256": "116d17eb637b2116ae34ed3e57a0dcbad0bf3f38634e75f45ccaf8abf316eeca"
     },
     {
       "path": "02-server-planning/admin-operations.json",
-      "sha256": "cd38b52249f5259558655e529e919fdd359de07055b51dc7f1ba1653f2a51cb5"
+      "sha256": "f871ff7758291aa828d5a9c66091cce1621977c1c1dc2a3c9af6f1bb7a4229e5"
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
@@ -112,12 +112,16 @@
       "sha256": "fad6dec8e96333e33d9cbac7c509b3ff60d7a6e9edd702b50ae27063af14033f"
     },
     {
+      "path": "02-server-planning/native-game-password-8char-policy.md",
+      "sha256": "82dddfa952fb5f79e5e11b09a78a81c584d770364f285f021e92b008048f9f8d"
+    },
+    {
       "path": "02-server-planning/novice-school-admission-flow.md",
       "sha256": "45bf409bd4efb19f3aa22bab51326d50dc0d00e0580c2f9347ce718eec1da4e0"
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "84e6093739ba61e9a30599f98814555b0411e3efa0d9f8f3a72f8f483ec5b5c2"
+      "sha256": "b9e9e87eefc96cd08ed9fbb8a5e23afcedd1067cce41925041da1dedd0e17f07"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
@@ -165,7 +169,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "79ff0acb40b52137077f1d71b26d041a31a80caadb8bcc04796fec66d890633e"
+      "sha256": "6a2fcee5b084307b5716d77083e478ee5def8b2c9d4896bbe6c999c53007db23"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -249,7 +253,7 @@
     },
     {
       "path": "03-analysis-requests/post-merge-analysis-queue.md",
-      "sha256": "c40e957f02f17e2e7e7b4b9c996c4f197ce67d8407995eb3fb4d8b648bea7b6d"
+      "sha256": "ad52b457847385fcb982d8a673325ca01957967df25751647d4f22b8eda150d7"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -493,7 +497,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "b7585be5effae66359d40e8b72ca60f10cda4046bdfada43ec77b9e5473833e0"
+      "sha256": "1d42b1fc06625cc87f0a736e982872b4398757f2aad72ea77994273abff92a66"
     },
     {
       "path": "05-conformance/shared-map-multiplayer-test-plan.md",
@@ -509,7 +513,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "d5d517826f527bb5102e44aae6262e53e0cdf8dc33182ce599afa05bb8353150"
+      "sha256": "a325cec673c7e5380dc9172bf46d61c0c3077480f6657d123692a16ddb2e1d34"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

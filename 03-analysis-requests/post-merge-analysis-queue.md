@@ -36,3 +36,7 @@
 **A-011 已 integrated/partial**，不再要求它從頭找出 NPC／怪物 resource library 或 C43 serializer：S07 kind1/2/4→MonsterObject、Monster 10 sprite slot/檔、C43 兩條 producer 已查。**剩餘的 P0 項目**：哪個實際 SpriteImage ID 對應教學招募員／首隻怪；S07 row+0x222 到最終圖像 ID 的完整 XREF；`C43→S34/S44→NPCChatDialog` native UI chain；Monster motion 六 selector 真實動作/動畫素材；A-004 已有 0x4EAC30 ObjectRegistry lookup，但 death/remove callback、雙原 Client AOI E2E 尚未證。
 
 **需要的具名原件**（若要確認圖像/動畫）：原版同版本、確實存在的 `Monster00.dat`（或任一 `MonsterNN.dat`）和 `World00.dat`（或任一 `WorldNN.dat`）各一份樣本即可。**不需要 `@Monster00.dat`，也不用重新提供 Asgard.exe／Map0～2.dat／Born.dat**。互動 PaperDialog 的 `PaperDialog.dat` 可另提供；`nNewJoin01.dat` 仍只是候選。最新 CT-082/083（Roy2）及 CT-084～086（Roy1）均 planned/not-run。
+
+## P0／A-020 + A-002：原版密碼欄 8 字限制定位（2026-10-31）
+
+使用者實際觀察遊戲登入密碼欄只容納 8 字元。請以相符原件 `Asgard.exe` 追**登入 C03** 的 password control（不是創角 C02 region1 >=12 gate），交付 max-length 初始化 VA、鍵入第 9 字/貼上/大小寫/CP950 轉碼之 UI 效果、C03 `string8` 長度及實際送入 bytes。原生 CT-037 用 8 ASCII 英數確認，這是 Client I/O 精準分析，不要求還原原服密碼政策。Server 先依 [TW-native-8](../02-server-planning/native-game-password-8char-policy.md) 自訂合法遊戲憑證並作 P0 DEV-030 修正；尚未獨立反組譯證實 8 字 UI，標 `reported-client-UI`。
