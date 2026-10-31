@@ -73,3 +73,7 @@ DEV-070-M 可以立即增加 `MonsterResourceCatalog` 及由原始 id→檔名/�
 ## 2026-10-31 新分支第二輪：DEV-060/070-M/090與Economy
 
 最新 Roy1/Roy2 的 MAP/交易分析驗證結果已合併，MAP 真正是494/494而非491，交易 A-013 Codec 原生指令有據、GUI語意未證。保留先前順序，加入 [DEV-060 安全地圖 → DEV-070-M 共享世界 → DEV-090 初級學校，經濟模組並行](map-resource-actor-plan-20261031.md)。主線 CT-087～089 交易、CT-090～091 MAP；原始 Client E2E 保持 not-run。
+
+## 2026-10-31 同步追補 ScriptReply 與技能狀態
+
+本次增量納入 Roy1 A-012（ScriptReply C6C1、close4/2 與 Server QuestIntent 安全 gate）和 Roy2 A-010（C4D/C56/S52/S48/S2C/S2D、Client BUFF/取消）的原始 codec 靜態子集。可同步規劃 DEV-080 和 DEV-090 已證部分；原始 Client 真實 spell-id、UI、MP、Quest 完成/獎勵與 NPC script binding 仍 unknown，所有新 CT-092..096 native not-run。詳 [續規劃](new-quest-skill-dev-iteration-20261031.md)。

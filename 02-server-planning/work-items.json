@@ -236,7 +236,8 @@
         "A-005",
         "A-006",
         "A-008",
-        "A-009"
+        "A-009",
+        "A-010"
       ],
       "scenarios": [
         "SCN-011",
@@ -271,7 +272,9 @@
         "CT-083",
         "CT-084",
         "CT-085",
-        "CT-086"
+        "CT-086",
+        "CT-095",
+        "CT-096"
       ],
       "depends_on": [
         "ONB-03"
@@ -288,7 +291,8 @@
       "script_contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
       "client_io_flows": [
         "FLOW-SCRIPT",
-        "FLOW-GAMEPLAY"
+        "FLOW-GAMEPLAY",
+        "FLOW-SKILL"
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
@@ -308,6 +312,12 @@
         "analysis_status": "offline-partial",
         "native_client_validation": "not-run",
         "notes": "Monster00 and World00 YPF samples supplied; Client sprite/motion/NPC click remains unknown; shared NPC/monster map decision unaffected"
+      },
+      "new_spell_contract": {
+        "source": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
+        "can_build": "C4D/C56/S52/S48/S2C/S2D decoded-body codecs and stateful Server policy",
+        "native_client_validation": "not-run",
+        "original_spell_cost_cooldown_and_ui": "unknown"
       }
     },
     {
@@ -331,7 +341,10 @@
         "CT-028",
         "CT-061",
         "CT-062",
-        "CT-063"
+        "CT-063",
+        "CT-092",
+        "CT-093",
+        "CT-094"
       ],
       "depends_on": [
         "ONB-04",
@@ -353,7 +366,13 @@
       "multiplayer_map_decision": "shared-public-map-by-world-and-map-ref",
       "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.json",
       "latest_merged_analysis": "roy1 A-020/025/026 and roy2 A-004/005/006/008/009/024 static/partial; original Client E2E remains not-run",
-      "tutorial_completion_gate": "A-026 confirms Born close not quest completion, generic transfer not official tutorial exit; unknown genuine completion/exit map and reward contract remain blocked"
+      "tutorial_completion_gate": "A-026 confirms Born close not quest completion, generic transfer not official tutorial exit; unknown genuine completion/exit map and reward contract remain blocked",
+      "new_quest_dialog_contract": {
+        "source": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
+        "can_build": "C6C(1) key/value reply context and safe replay fence, QuestIntent ledger",
+        "native_client_validation": "not-run",
+        "original_quest_completion": "unknown"
+      }
     }
   ]
 }

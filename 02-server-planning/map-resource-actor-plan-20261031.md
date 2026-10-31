@@ -33,3 +33,7 @@
 - MAP 原件能讀取 ≠ 可登入原版新手圖、可行走或同圖多人實機已通過。所有相關原版 Client CT 繼續 not-run。
 
 **下一輪分析重點**：A-022 C35 每張 MAP 第二個 checksum、A-005/A-015 Client C33→碰壁→S0B、A-011/A-024 實際 imageID→YPF/motion→NPC點擊、A-013 C17/S6E 交易 UI 動作，A-027 空角建立入口。現有原件已足供下游離線研究，新的資源檔應按確切引用再要。
+
+## 進一步補上 A-012 與 A-010 新手教學實作切片
+
+Roy1 A-012 已知 C6C(1) 的 key/value ScriptReply，與 C6C(4/2) close不同；Roy2 A-010 已知 C4D/C56/S52/S48/S2C/S2D 的有限技能和 BUFF 原生欄位。可先為每位玩家獨立建 ScriptRun/QuestIntent 和 SkillCast/LastingEffectLedger，與共享 MapActorRegistry 分開；原版任務完成、技能參數和 native GUI 未證，不能把選擇 ACCEPT 直接畢業，也不能把 S2C(0x2C) 認成物件死亡。詳 [A-012/A-010 續規劃](new-quest-skill-dev-iteration-20261031.md)。

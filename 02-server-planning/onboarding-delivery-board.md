@@ -75,3 +75,7 @@ A-004/005/006/008/009/024（Roy2）與 A-007/019/020/025/026（Roy1）已回寫 
 ## Roy1/Roy2 再同步後的進度（2026-10-31）
 
 ONB-03 MAP 494/494 可安全讀取，原版 Client 26/26 VA錨點核對，Roy1 的491是假陰性；可開始 DEV-060 MapResourceCatalog/TileQuery，但真正合法可走/出生/C35尚未證。ONB-05 多玩家共圖的 Monster00/World00各5個 YPF member已取得、Roy1 A-011資源庫與 S1A/C39可用；NPC imageID→YPF/motion及點擊畫面不明。R-014 商店/玩家交易 A-013已證部分 C4A/S42 C17/S6E C39/S2F，可先 Domain transaction，不能宣稱原 Client 可交易。詳 [新規劃](map-resource-actor-plan-20261031.md)。
+
+## 第二輪 A-012/A-010 技能與教學選項（2026-10-31）
+
+Roy1 A-012 補齊 C6C(1) 任務選項回覆的 ScriptRun context/key/value 與 C6C(4)/(2) 關閉/清理差異；Roy2 A-010 補齊技能開始/取消及 Add/Remove LastingSpell 六種 native packet 靜態子集。ONB-05/06 可先做 DEV-090 Script intent、DEV-080 cast/effect ledger；但 NPC→Script 綁定、官方冷卻/耗魔/施法動畫/狀態顯示/原始 Client E2E 尚未知。新的 CT-092～096 planned/not-run，詳 [下一階段規劃](new-quest-skill-dev-iteration-20261031.md)。

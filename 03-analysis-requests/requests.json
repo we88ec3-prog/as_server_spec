@@ -605,11 +605,22 @@
       "title": "技能施放與持續效果",
       "method": "逐類：單體、範圍、治療、BUFF、召喚；查範圍、消耗、冷卻、取消。",
       "deliverable": "技能型別表、效果更新及過期，原規則與設計補完分列。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A010-E01",
+        "A010-E02",
+        "A010-E03",
+        "A010-E04",
+        "A010-E05",
+        "A010-E06",
+        "A010-E07",
+        "A010-E08",
+        "A010-E09",
+        "A010-E10"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -621,7 +632,56 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Original Client packet formats and one real C4D producer observed; server skill authority, range, MP, cooldown, damage and duration designed separately and must not be inferred from names; native GUI E2E CT-096 separate.",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "observed-static-original-Asgard-PE + synthetic decoded-body tests",
+      "analysis_report": "task_a/roy2/A-010-analysis.md",
+      "offline_codec": "task_a/roy2/a010_skill_codec.py",
+      "native_probe": "task_a/roy2/a010_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a010_skill_codec.py",
+      "conformance": [
+        "CT-095",
+        "CT-096"
+      ],
+      "implementation_ready": true,
+      "implementation_ready_scope": "Six original native-static skill packet decoded bodies: C4D BEu16, C56 u8, S52 BEu32+u8, S48 BEu32, S2C BEu32+u8+BEu16+u8+string8+u8+BEu32+BEu32, S2D BEu32. Actual C4D producer [ebx+0x80E] identified. Does NOT include original skill types, MP costs, cooldowns, native spell UI, durations, AOE/heal/summon mapping.",
+      "native_spell_taxonomy_ready": false,
+      "native_lasting_spell_ui_ready": false,
+      "native_skill_duration_and_cooldown_ready": false,
+      "original_skill_definition_filename": "unknown: no verified Skill*.dat/Spell*.dat file selector; Basic.dat is only a candidate not mandatory",
+      "client_io_handoff": {
+        "trigger": "Original Client selected spell object, callsite 0x402034..0x402052 creates/sends C4D from selected word [ebx+0x80E]; C56 serializer exists but its complete UI producer is unproven.",
+        "client_sends": [
+          "PKT-C4D",
+          "PKT-C56"
+        ],
+        "client_receives": [
+          "PKT-S52",
+          "PKT-S48",
+          "PKT-S2C",
+          "PKT-S2D",
+          "PKT-S13",
+          "PKT-S08",
+          "PKT-S07"
+        ],
+        "client_reaction": "S52, S48, S2C, S2D have original native reader fields. SkillSpellDialog, LastingSpellDialog, LastingSpellInventory RTTI exist. Reader→UI callback, animation, expiration timer and spell-success status semantics not yet traced end-to-end.",
+        "evidence": "task_a/roy2/A-010-analysis.md",
+        "unknowns": [
+          "Original skill IDs and category mapping: single-target, AOE, healing, buff, summon, target selection and GUI state transition.",
+          "Actual C56 action producer and C4D/C56 sequencing; S52 state/status enum meanings and S48 cancellation trigger.",
+          "LastingSpell S2C field identity, duration/stack/expiration, S2D matching, render callback and original UI countdown.",
+          "Original Server cooldown, HP/MP consumption, damage/buff value, AOE radius and quest authority absent from static Client; native CT-096 not-run."
+        ]
+      },
+      "remaining_unknowns": [
+        "C56 real UI producer and exact C4D→C56→S52/S48 protocol ordering and response enum unknown",
+        "Native S2C/S2D lasting spell inventory UI add/update/expire callback and identity mapping unknown",
+        "No verified original official skills definition filename/skill IDs, individual spell categories, range, MP cost, cooldown, effect duration, stacking, summoned owner/AI",
+        "Native original Client GUI/world combat casts and effect expiry trace not-run; CT-096 planned"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md"
     },
     {
       "id": "A-011",
@@ -736,11 +796,13 @@
       "title": "任務腳本與對話協定",
       "method": "查Script資料、執行環境、對話選項、任務條件、獎勵發放。",
       "deliverable": "區分client呈現與server規則；不可把client腳本當全部Server邏輯。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a012_20261031_script_reply_choice_client_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "latest_merged_evidence_focus": "A-023 confirms S44(1,0) starts named Main with dependencies, C6C(0) requests missing script, C6C(4) close and C6C(2) no-reply cleanup. Focus on original-server first-login send condition, PaperDialog lifecycle, quest authoritative meaning and recruiter/NPC script binding. No unsupported quest completion inference.",
       "client_io_scope_correction": "Client 收 Script/NPC/quest 包後所呈現 UI 及其 C→S 回應；Server 首次派送條件、任務完成判定與獎勵策略獨立規劃。",
@@ -755,7 +817,49 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "evidence_kind": "observed-static-plus-observed-resource-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C6C(0/1/2/3/4) native Script reply/lifecycle wire, S44(1,0/1/1) resource/runtime bootstrap from A-023, Born PaperDialog text/CRC, safe designed session/context/replay gates only; not authoritative original quest or NPC mapping",
+      "native_quest_rule_ready": false,
+      "native_npc_script_binding_ready": false,
+      "analysis_report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+      "analysis_contract": "04-analysis-integration/A-012-quest-dialog-contract.md",
+      "analysis_test": "tools/a012_quest_dialog_contract.py",
+      "conformance": [
+        "CT-092",
+        "CT-093",
+        "CT-094"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "remaining_unknowns": [
+        "Native NPC click target->script binding and Dialog GUI option trigger for all scripts",
+        "Official quest step IDs, progress requirements, acceptance/denial outcome and quest UI updates",
+        "Original Server-only first login script send policy, reward presence/content and completion/exit",
+        "PaperDialog/nNewJoin01 assets not mounted in this turn; earlier A-023 reports resource hashes/branches; original Client GUI not run"
+      ],
+      "client_io_handoff": {
+        "trigger": "S44(1,0) named start -> dependency/CRC -> Main/dialog; script SendReply or Dispose/cleanup native dispatch",
+        "client_sends": [
+          "PKT-C6C",
+          "PKT-C43",
+          "PKT-C39"
+        ],
+        "client_receives": [
+          "PKT-S44",
+          "PKT-S34",
+          "PKT-S3C"
+        ],
+        "client_reaction": "S44(1,0) loads script/dep/parameters and executes Main; SendReply issues C6C(1) with name/context/pairs and replied flag; Dispose issues C6C(4), unreplied cleanup C6C(2); NPC-info S34/S3C and dialog binding not yet proven",
+        "evidence": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+        "unknowns": [
+          "Original game NPC entity->script and UI choice->network callback for all scripts",
+          "Server quest completion, reward, save/relogin semantics unknown",
+          "Original Client runtime E2E not-run"
+        ]
+      },
+      "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md"
     },
     {
       "id": "A-013",

@@ -99,3 +99,7 @@
 ## Roy1/Roy2 當前分支最新成果再整合（2026-10-31）
 
 Roy1 A-011/A-022/A-013 及 Roy2 A-015 已交叉核對；原件 MAP 494/494，Roy1 491/494 由索引+4B錯誤造成，已修正。新增商店/玩家交易部分 Client I/O (CT-087～089) 與地圖原件/實機驗收 (CT-090/091)。詳 [整合審查](04-analysis-integration/merge-review-roy1-roy2-20261031.md)、[Server 下一輪需求](02-server-planning/map-resource-actor-plan-20261031.md)。保留 Client 不改、4～8字遊戲密碼、多玩家共用地圖決策；原生 Client E2E 尚未完成。
+
+## 2026-10-31 第二輪增量：A-012 任務選項與 A-010 技能／BUFF
+
+Roy1 新增 C6C(1) name/context/key-value ScriptReply 與 C6C(4/2) close/cleanup 研究，Roy2 新增 C4D/C56/S52/S48/S2C/S2D 技能/持續效果協定。保留經濟 CT-087～089 與地圖 CT-090～091，新 quest CT-092～094、skill CT-095～096。對話選擇不是已完成 Quest，S2C 是 opcode0x2C（AddLastingSpell）；Server 新規劃見 [技能與任務](02-server-planning/new-quest-skill-dev-iteration-20261031.md)，[新增研究核驗](04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md)。原 Client 不修改、4～8字密碼、原生 E2E still not-run。

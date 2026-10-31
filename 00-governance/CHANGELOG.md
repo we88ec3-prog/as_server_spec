@@ -109,3 +109,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 Roy1/Roy2 最新分支整合與 A-022 勘誤
 
 將 task_a/roy1 新 A-011/A-022/A-013 與 task_a/roy2 A-015 的最新驗證成果以保留歷史方式整合到 main。原件 Asgard.exe 的 MAP 26/26 VA + 交易 18/18 VA/6 RTTI，地圖 Map0/1/2 共494/494/7,701,805 tile；更正 Roy1 把首 MAP 起點多4 bytes、誤判成491/494 的錯誤。CT碰撞分配 A-013交易087～089、A-015地圖090～091，原版 Client native not-run。建立 DEV-060/070-M/090 與經濟 Domain 下一階段 Server 需求；原Client不改、4～8字密碼、多玩家同地圖共用 NPC/怪物政策不變。
+
+## 2026-10-31 追補 Roy1 A-012 / Roy2 A-010（第二輪增量）
+
+在第一輪 Roy1/Roy2 MAP與經濟研究合併成功後，兩分支又提交 A-012 任務腳本 C6C 回覆/Dispose 與 A-010 技能施放/取消/持續效果。同步最新來源研究與測試、增加 Client packet S48/S2C/S2D，完成衝突 CT ID：A-012→CT-092～094、A-010→CT-095～096（此前經濟087～089及MAP090～091不變）。更新 Server DEV-090 Quest 和 DEV-080 Skill/BUFF Domain 的下輪交接；官方技能效果/原版 quest/Client GUI 尚未證。原始 Client 不改，遊戲密碼4～8字，Admin-only Account、多玩家共享 NPC/Monster 不變。

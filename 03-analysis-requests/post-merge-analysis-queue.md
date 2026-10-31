@@ -48,3 +48,9 @@
 - A-013：在真實 Exchange/Merchant/TradeDialog 中點擊確認/取消、玩家雙邊交易，補 C4A/S42、C17/S6E、C39/S2F UI producer/receiver 去敏 trace；價格/倉庫未證。
 - A-027/A-021：已登入零角色帳號原生創角入口；A-020/A-002：原版最多8字密碼框、Server採4～8字政策。
 - 編號 main CT-087～089(交易)、CT-090/091(MAP)，舊 CT-069 audio、CT-070多人不動。完整 [審核](../04-analysis-integration/merge-review-roy1-roy2-20261031.md)。
+
+## 2026-10-31 新增精準研究需求：A-012/A-010
+
+- **A-012**：S44 啟動 NPC script→真 GUI 點選→C6C(1) Context / key-value，再回 S44/任務畫面；關閉 C6C(4)/(2) 的原生差異。確認 NPC EntityId/Script 名稱綁定與官方任務條件，Client IO 與 Server policy 各自交付，CT-093/094 native not-run。
+- **A-010**：技能 UI 選取後 C4D 原生 producer已證，追 C56 真 producer、S52/S48 callback/UI 與 S2C(0x2C)／S2D(0x2D) BUFF 顯示、持續效果 ID/刷新/結束；官方 spell-id、CD/MP 的真正資料定義檔名**未知，不得用猜測的 Skill*.dat/Spell*.dat 作必備缺件**。CT-096 native not-run。
+- 新 CT-092～094=Quest，CT-095/096=Skill，保留經濟087～089與地圖090/091。詳 [整合審核](../04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md)。
