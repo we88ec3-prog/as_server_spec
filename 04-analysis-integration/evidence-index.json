@@ -4609,6 +4609,47 @@
         "Actual TALK then STATE pair accumulation, runner/context and original GUI/TCP unverified",
         "Original NPC bind, QuestRule/Reward unknown"
       ]
+    },
+    {
+      "evidence_id": "ev_a015_20261101_basic_portals_manifest_original",
+      "date": "2026-11-01",
+      "source_branch": "task_a/roy1",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-original-Basic-and-MAP-static-resource-plus-synthetic-negative-tests",
+      "locator": "Basic.dat/index/FileSizeInfo.txt and Portals.tbl; Map0/1/2.dat indexed 494 native MAP member grid lookup",
+      "report_path": "03-analysis-requests/A-015-roy1-basic-portal-manifest-20261101.md",
+      "offline_probe": "tools/a015_portal_manifest_probe.py",
+      "tests": "tools/test_a015_portal_manifest_probe.py",
+      "conformance": "05-conformance/A-015-basic-portal-manifest-test-plan.md",
+      "sha256": {
+        "Basic.dat": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+        "Map0.dat": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+        "Map1.dat": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b",
+        "Map2.dat": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb"
+      },
+      "portal_version": 1,
+      "portal_rows": 2840,
+      "portal_unique_map_refs": 312,
+      "portal_rows_in_bounds": 2840,
+      "portal_raw_tile_flag_counts": {
+        "0": 2837,
+        "1": 1,
+        "17": 2
+      },
+      "file_size_info_records": 416,
+      "map_archive_lengths_match_manifest": true,
+      "manifest_third_value_semantics": "unknown",
+      "offline_tests_passed": 13,
+      "native_client_validation": "not-run",
+      "client_teleport_behavior": "unverified",
+      "native_player_walkability": "unverified",
+      "raw_assets_shared": false,
+      "limits": [
+        "triple coordinates do not prove portals/spawn or player walkability",
+        "file-size match does not prove official release equivalence",
+        "original native client GUI/TCP remains not-run"
+      ]
     }
   ]
 }

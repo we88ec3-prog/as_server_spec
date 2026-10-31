@@ -35,3 +35,8 @@
 ## 研究交付與原生 CT 分離 — A-015 ready / CT still planned
 
 A-015 按明確的 metadata／格式／版權研究範圍交接就緒（[結案審查](../task_a/roy2/A-015-closure-review.md)）；本地原始檔驗證 494 MAP / Born 及合成 Script 長度 >65535 測試可重跑。不把此記為完整 CT-039：**CT-039 依然 planned**（缺其他原件／來源版配對），**CT-040 依然 planned、native_client_validation=not-run**。新 Script 長度 header = BE u16 version + BE u32 UTF-16LE code-unit count。任何 map ID、NPC、spawn、server-side skill/item 均留原專責 A / CT，不能因 A-015 ready 而宣告原生教學可玩。
+
+
+## 2026-11-01 A15 Basic 原件的 Portal／檔案尺寸交叉驗證
+
+新增 [A15 原始 Basic/Portals/FileSizeInfo 分析](../03-analysis-requests/A-015-roy1-basic-portal-manifest-20261101.md) 與 [補充 CT](A-015-basic-portal-manifest-test-plan.md)：Basic 內 Portals.tbl 解析為 2840 筆 map_ref/x/y 候選，指向 312 張存在的 MAP，均在 tile bounds；raw tile flags 0/1/17 = 2837/1/2。FileSizeInfo.txt 416 列，三份 MAP 的實際 size 全吻合。13 個新增離線測試 PASS。第三數字語意未證，Portal 實際觸發/目的地、出生、合法站立及原版 Client GUI/TCP 皆 unknown/not-run；不得把候選座標當 Server 權威傳送點或出身點。

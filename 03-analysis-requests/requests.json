@@ -1229,7 +1229,8 @@
         "A015-E25",
         "A015-E26",
         "A015-E27",
-        "A015-E28"
+        "A015-E28",
+        "ev_a015_20261101_basic_portals_manifest_original"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "ready",
@@ -1246,7 +1247,7 @@
       "original_tutorial_content_ready": false,
       "remaining_unknowns": [
         "原始技能／物品定義檔名和欄位尚未辨識：目前 EXE UTF-16LE 資源名稱沒有明示 Skill*.dat／Item*.dat；後續 A-007／A-010、或以 Basic.dat/Icon.dat/Locale.dat 原件排查，但不能假定它們含規則",
-        "原生 tutorial map_id、spawn(x/y/facing)、女性招募員 NPC/spawn、MAP collision 與 C35 structured checksum 尚未由本 A 證明：交 A-005/A-022/A-023/A-024/CT-040",
+        "原生 tutorial map_id、spawn(x/y/facing)、女性招募員 NPC/spawn、原生完整 MAP player collision 未證；C35 structured checksum 已由 A032 另案靜態重算、仍需原版 TCP 驗收：交 A-005/A-022/A-023/A-024/CT-040",
         "Client、Born.dat 與 Map0/1/2.dat 的 SHA 已保存，但沒有官方 release manifest 證實同一版；需要版本綁定時不得靜默接受錯版",
         "Human/YPF 完整動作與外觀 ID 範圍是 A-006/A-007 深入項；不要求提供整包美術資源",
         "遊戲素材散布／公開營運權利未獲證明；格式可讀不構成使用權",
@@ -1262,7 +1263,7 @@
       "map_field_audit_tool": "task_a/roy2/a015_field_audit.py",
       "map_field_audit_status": "native-static-extraction-and-original-494-corpus-verified",
       "map_field_coordinate_semantics": "inferred-only",
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-01",
       "next_task_gate": "A-015 bounded source-format-and-rights research completed; A-014 may proceed independently, but A-005/A-007/A-010/A-022/A-024/CT-040 unknowns remain separate blockers",
       "analysis_scope_ready": "resource source inventory / static format+identity/provenance + metadata-only parser and rights boundary ONLY",
       "analysis_completed_in_bounded_scope": true,
@@ -1290,7 +1291,7 @@
       "map_coordinate_offline_tests": "18 synthetic MAP geometry / archive corruption tests PASS via GitHub CI; native Client E2E not-run",
       "original_player_walkability_ready": false,
       "original_spawns_and_tutorial_map_ready": false,
-      "map_coordinate_handoff": "ready-for-raw-MAP-grid-and-in-bounds-only; NOT ready for native-passability/original-spawn-position",
+      "map_coordinate_handoff": "ready-for-raw-MAP-grid-and-in-bounds-only; NOT ready for native-passability/original-spawn-position; Basic Portals.tbl triple schema and FileSizeInfo original MAP size cross-check observed-static-resource. Not a native-verified teleport/spawn or player walking table.",
       "implementation_ready_scope": "Map parser/read-only tile/flag/bounds/viewport candidate available to DEV; player walkability/true native spawn not implementation ready",
       "conformance": [
         "CT-039",
@@ -1298,7 +1299,41 @@
         "CT-090",
         "CT-091"
       ],
-      "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md"
+      "latest_cross_branch_review": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
+      "basic_portals_report": "03-analysis-requests/A-015-roy1-basic-portal-manifest-20261101.md",
+      "basic_portals_probe": "tools/a015_portal_manifest_probe.py",
+      "basic_portals_test": "tools/test_a015_portal_manifest_probe.py",
+      "basic_portals_conformance": "05-conformance/A-015-basic-portal-manifest-test-plan.md",
+      "basic_portals_original_proof": {
+        "basic_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+        "basic_member_count": 38,
+        "portal_sha256": "b63c4f07765271baf83c9a5104fafe21070e2e3ca7926aec23c17eda84047d00",
+        "portal_size_bytes": 17046,
+        "portal_version": 1,
+        "portal_record_count": 2840,
+        "portal_distinct_map_refs": 312,
+        "portal_rows_by_archive": {
+          "Map0.dat": 1500,
+          "Map1.dat": 1170,
+          "Map2.dat": 170
+        },
+        "portal_all_map_refs_exist": true,
+        "portal_all_coordinates_in_bounds": true,
+        "portal_raw_tile_flags": {
+          "0": 2837,
+          "1": 1,
+          "17": 2
+        },
+        "file_size_info_sha256": "43a46e680e445dfb4fb4a63fcfefa3aadc763f01827a209cac8b3ba51ba06e0c",
+        "file_size_info_rows": 416,
+        "map_archive_size_matches_manifest": true,
+        "file_size_info_third_column": "unknown",
+        "original_native_gui_tcp": "not-run",
+        "original_player_walkability": "unverified",
+        "original_portal_teleport_behavior": "unverified",
+        "offline_test_results": "13/13 PASS on original-mounted local environment",
+        "raw_original_assets_committed": false
+      }
     },
     {
       "id": "A-016",
