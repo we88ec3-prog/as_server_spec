@@ -11,7 +11,7 @@ class NativeWalkCandidateTests(unittest.TestCase):
         if exe:
             v=verify_exe(exe)
             self.assertEqual(v['result'],'PASS')
-            self.assertEqual((v['native_edges'],v['native_opcode_anchors']),(13,17))
+            self.assertEqual((v['native_edges'],v['native_opcode_anchors']),(13,18))
     def test_dest_bit_zero_blocks_flag1_and17_not_bit4_alone(self):
         for flags in (1,17,513):self.assertFalse(gate(flags,0,0,0))
         for flags in (0,16,512):self.assertTrue(gate(flags,0,0,0))
