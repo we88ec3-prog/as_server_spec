@@ -122,3 +122,7 @@ A005-E15～E21 已確認原版 Client 局部 path candidate：目標 effective f
 ## 2026-11-01 ADR-009：預期內拒絕不可默認踢線／缺原因 Log（本次只改規劃）
 
 對照 Server main `71ebd259`：C02 credential fail、C04 `CharacterCreationDenied/Conflict`、C15 cancel 等仍會 Close；C03 invalid credential 已有 S02 且連線保持，但未打 `[VALIDATION_FAILED]` 精確 reason。規劃 DEV-REJECT-01～06 以 `BusinessRejected`／`ProtocolUnexpected`／`SecurityFatal`／`ClientCancelled` 分類；**普通驗證失敗走原版可理解的錯誤回覆、保留可重試連線**，外部錯誤文字不能洩露帳號是否存在，內部安全原因碼要可追查。原版 S02 非零 status/C15 socket-retry 由 A-030/A-028 補證，不猜 status。正式 CT-112/113 `planned/not-run`。詳 [ADR-009／R-036](expected-validation-failure-policy-20261101.md)。
+
+## 2026-11-01 R-037：逐包 TCP 可觀測性回補（獨立於驗證失敗規則）
+
+既有私有 Server 的 `[PACKET]`/`[UNEXPECTED_PACKET]`（`as_server_roy` 95977823）已存在但之前**沒有完整回補規格**，現在新增 [R-037 合約](game-packet-log-contract-and-backfill-20261101.md) 與 CT-114。read-only main@a86e28cf 顯示 PacketLog.Enabled、UTC JSONL、7日保留與一些後續驗證失敗事件；source-implemented 不等於原版 Client native passed。各 ONB 階段後續除錯與 DEV 都要對應同 TraceId；分析角色不可自行改 Server，改由開發者接手。缺口：正式驗證狀態/拒絕原因，封包 classifier 更新、內容隱私及壓力／輪轉測試。

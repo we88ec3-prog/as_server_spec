@@ -3333,6 +3333,38 @@
       },
       "expected": "Every expected business rejection produces one redacted reason-coded validation event and a verified native failure response with safe retry phase, never mislabeled as unexpected packet. Security/transport fatal cases can safely close and remain distinguishable. No unverified status is invented.",
       "policy_source": "02-server-planning/expected-validation-failure-policy-20261101.md"
+    },
+    {
+      "id": "CT-114",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "server-tcp-per-packet-observability-unexpected-packet-redaction",
+      "requirements": [
+        "R-037"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C03",
+        "PKT-C10",
+        "PKT-C25",
+        "PKT-C33"
+      ],
+      "evidence_kind": "server-source-implementation-plus-designed-native-and-synthetic-verification",
+      "implementation_status": "source-implemented-scope-partial-native-not-run",
+      "input": {
+        "kind": "server-local-tcp-negative-cases-and-original-client-redacted-observation",
+        "reference": "05-conformance/game-packet-observability-acceptance-20261101.md",
+        "cases": [
+          "each decoded C2S and written S2C shares per-socket TraceId with close summary",
+          "unknown opcode, out-of-phase, malformed AA, and unsupported-but-native opcode classified separately",
+          "normal expected validation failure has reason-coded VALIDATION_FAILED, not UNEXPECTED_PACKET",
+          "file retention UTC 7 days, PacketLog Enabled toggle, I/O failure tolerance, privacy of all output",
+          "distinguish successful Server write from Client GUI observed result"
+        ]
+      },
+      "expected": "Capture packet metadata without secrets and with correct reason-classification and correlation; separately require original Client UI validation rather than conflating Server packet log existence and native Client E2E.",
+      "policy_source": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
     }
   ]
 }

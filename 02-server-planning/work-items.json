@@ -8,7 +8,8 @@
       "title": "管理建帳／登入",
       "requirements": [
         "R-025",
-        "R-036"
+        "R-036",
+        "R-037"
       ],
       "analysis_requests": [
         "A-002",
@@ -88,7 +89,8 @@
         "native_client_validation": "not-run"
       },
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
-      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
     },
     {
       "id": "ONB-02",
@@ -96,7 +98,8 @@
       "requirements": [
         "R-026",
         "R-035",
-        "R-036"
+        "R-036",
+        "R-037"
       ],
       "analysis_requests": [
         "A-003",
@@ -211,14 +214,16 @@
       },
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
       "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
-      "native_failure_flow": "C02 expected bad credential/name -> verified S02(nonzero,string8) -> original Client UI and optional C15 -> safe retry; raw Close is temporary native-error-mapping-unverified, NOT completion"
+      "native_failure_flow": "C02 expected bad credential/name -> verified S02(nonzero,string8) -> original Client UI and optional C15 -> safe retry; raw Close is temporary native-error-mapping-unverified, NOT completion",
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
     },
     {
       "id": "ONB-03",
       "title": "教學入圖",
       "requirements": [
         "R-027",
-        "R-036"
+        "R-036",
+        "R-037"
       ],
       "analysis_requests": [
         "A-022",
@@ -307,14 +312,16 @@
       },
       "native_world_activation_gate": "Grant after authenticated owner C10 (or evidenced post-create equivalent), C25 Region3 optional metadata not auth; MAP from versioned true assets, exact C35 pair; map6 static interim candidate only; native Client C35/S04/S33/S14(2) not-run.",
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
-      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
     },
     {
       "id": "ONB-04",
       "title": "故障恢復",
       "requirements": [
         "R-028",
-        "R-036"
+        "R-036",
+        "R-037"
       ],
       "analysis_requests": [
         "A-016",
@@ -337,7 +344,8 @@
         "CT-046",
         "CT-107",
         "CT-108",
-        "CT-109"
+        "CT-109",
+        "CT-114"
       ],
       "depends_on": [
         "ONB-03"
@@ -385,7 +393,9 @@
       },
       "native_movement_activation_gate": "A-005 proves C33 current sequence S0B low7+bit7 native handling; no safe walkability/Client rollback yet. Do not update durable position on unverified tiles or stale epoch.",
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
-      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "packet_logging_source_status": "existing private Server metadata trace implemented at 95977823, CT-114 planned/not-run"
     },
     {
       "id": "ONB-05",
@@ -394,7 +404,8 @@
         "R-029",
         "R-030",
         "R-033",
-        "R-036"
+        "R-036",
+        "R-037"
       ],
       "analysis_requests": [
         "A-023",
@@ -496,7 +507,8 @@
       },
       "party_reward_policy": "User decided: highest aggregated valid damage party gets rewards; every member full base EXP and personal independent loot roll once. Monster death and reward ledgers idempotent; party ties and roster/remote eligibility not resolved.",
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
-      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
     },
     {
       "id": "ONB-06",
@@ -504,7 +516,8 @@
       "requirements": [
         "R-031",
         "R-034",
-        "R-036"
+        "R-036",
+        "R-037"
       ],
       "analysis_requests": [
         "A-026",
@@ -559,14 +572,16 @@
       },
       "admission_refusal": "STATE=REFUSE or confirmed native Not Enroll is no-op, no quest/admission/reward/transfer changes, NPC remains clickable and reasks indefinitely; every run has independent context, ACCEPT is only intent.",
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
-      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
     },
     {
       "id": "ONB-07",
       "title": "玩家透過原生遊戲 UI 修改既有帳號密碼",
       "requirements": [
         "R-032",
-        "R-036"
+        "R-036",
+        "R-037"
       ],
       "analysis_requests": [
         "A-029",
@@ -601,7 +616,8 @@
       "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
       "native_wire_contract": "04-analysis-integration/A-029-native-password-change-contract.md",
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
-      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
     }
   ]
 }
