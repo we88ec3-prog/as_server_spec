@@ -120,7 +120,7 @@
     {
       "id": "SAFE-05",
       "owner": "Server",
-      "mode": "design-only-await-A-029",
+      "mode": "needs-client-evidence",
       "analysis": [
         "A-029"
       ],

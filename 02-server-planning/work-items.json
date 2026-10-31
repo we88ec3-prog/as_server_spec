@@ -436,7 +436,8 @@
       "analysis_prerequisite": "A-029 must locate existing native password-change opcode/body and original Client error/success UI; no invented packet",
       "server_domain_scope": "old credential verification, new 4..8 password hash transaction and credential_version; revoke old sessions/grants, preserve characters, shared credential source for C03 and direct C02",
       "admin_web_policy": "normal player password change is native game UI; admin credential reset is recovery only",
-      "native_ct_gate": "CT-098/099 must be genuine original Client, not synthetic or Admin JSON API"
+      "native_ct_gate": "CT-098/099 must be genuine original Client, not synthetic or Admin JSON API",
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
     }
   ]
 }

@@ -2002,7 +2002,17 @@
         "CT-099"
       ],
       "source_policy": "02-server-planning/three-native-account-entry-policy.md",
-      "client_server_boundary": "A finds native Client observable wire/UI; Server credential verification, version/session revocation and audit are designed DEV responsibilities."
+      "client_server_boundary": "A finds native Client observable wire/UI; Server credential verification, version/session revocation and audit are designed DEV responsibilities.",
+      "handoff_track": "client-io",
+      "handoff_requirements": [
+        "trigger",
+        "client_sends",
+        "client_receives",
+        "client_reaction",
+        "evidence",
+        "unknowns"
+      ],
+      "handoff_document": "03-analysis-requests/client-io-handoff-standard.md"
     }
   ]
 }
