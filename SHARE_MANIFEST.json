@@ -996,6 +996,10 @@
       "sha256": "5bf358525b9471b777b93dfc7186ae74aa2119fbc62d73955f413bc00420abc7"
     },
     {
+      "path": "task_a/roy2/test_a031_world_entry.py",
+      "sha256": "81a67a20e119da73affc09bb5f8b7e876ae5df96ea2000f6f0f238acf1b1b5e6"
+    },
+    {
       "path": "task_a/roy2/verify_born.py",
       "sha256": "2b860e6461186e909cb24113ec24a5895272e4abf1c286bf4a0d7dff2272e873"
     },
@@ -1006,6 +1010,42 @@
     {
       "path": "task_a/roy2/verify_script_entry.py",
       "sha256": "2a1adf17dde6c651ef831bbaac3ac99bc367e0305c26a7c24c02173c1a46e974"
+    },
+    {
+      "path": "task_a/roy3/A-005-roy3-native-movement.md",
+      "sha256": "1868d60bb2a7a49dda5603e040e5359f437decb9a6e4fa656a13017bb8b9ad86"
+    },
+    {
+      "path": "task_a/roy3/A-032-roy3-native-map-c35.md",
+      "sha256": "6f8b098e31cc60890636be8f279b091b4c40624bf01a2c199ab1939b5cf355c8"
+    },
+    {
+      "path": "task_a/roy3/a005_native_move_chain.py",
+      "sha256": "9bad174e66079bd25a0c3cfca51def7a26fab04517a1a614643bdfe9bcac22bb"
+    },
+    {
+      "path": "task_a/roy3/a005_roy3_collision_recovery.py",
+      "sha256": "40b71e27e0f227a92b50d90babab8207a3b9a94ed9145016ff7b44d8eb4f3b9d"
+    },
+    {
+      "path": "task_a/roy3/a032_c35_fixture.json",
+      "sha256": "7ac53060ec0eac10966e2b56a1a555a0055419557496b707c89b867066eb0b24"
+    },
+    {
+      "path": "task_a/roy3/a032_c35_probe.py",
+      "sha256": "bed26b4f312ffc5179c1cc9acf6d26cdbea84b9be32fd07b171a949fc1d35dcd"
+    },
+    {
+      "path": "task_a/roy3/test_a005_native_move_chain.py",
+      "sha256": "858a108ed2fd3baf078324e986aa228beca455917f8655de66890c862d535141"
+    },
+    {
+      "path": "task_a/roy3/test_a005_roy3_collision_recovery.py",
+      "sha256": "a4be41412dcd7b8bed7d1fadf1eda387f9197f6e3ac56ef1fbaa714093f72dce"
+    },
+    {
+      "path": "task_a/roy3/test_a032_c35_probe.py",
+      "sha256": "f2db6c7a841689036b87065daa9adfc0f95c4482bfe080d732b75337351064b4"
     },
     {
       "path": "tools/a001_codec_vectors.py",
