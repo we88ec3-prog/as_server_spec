@@ -3901,6 +3901,81 @@
         "No status1 native GUI run or official Server error code semantics",
         "No decrypted actual account/password/email trace; no original Server or DB modification"
       ]
+    },
+    {
+      "evidence_id": "A032-E01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-11-01",
+      "evidence_kind": "observed-static-original-binary",
+      "source_branch": "task_a/roy3",
+      "locator": "Original Asgard.exe SHA, Map0/1/2 archive SHA and CRC lookup table PE offset 0x264720, 0x43E0A0 CRC step",
+      "report_path": "task_a/roy3/A-032-roy3-native-map-c35.md",
+      "analysis_contract": "04-analysis-integration/A-032-structured-c35-contract.md",
+      "offline_probe": "task_a/roy3/a032_c35_probe.py",
+      "offline_test": "task_a/roy3/test_a032_c35_probe.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A032-E02",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-11-01",
+      "evidence_kind": "observed-static-original-binary",
+      "source_branch": "task_a/roy3",
+      "locator": "Original 0x4B2EC0 block/tile/7/8/16B canonical feed; tail16 13 calls (bool u16, bool high byte, low byte of u32, skip 5..7)",
+      "report_path": "task_a/roy3/A-032-roy3-native-map-c35.md",
+      "analysis_contract": "04-analysis-integration/A-032-structured-c35-contract.md",
+      "offline_probe": "task_a/roy3/a032_c35_probe.py",
+      "offline_test": "task_a/roy3/test_a032_c35_probe.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A032-E03",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-11-01",
+      "evidence_kind": "observed-static-native-resource-offline-reconstruction",
+      "source_branch": "task_a/roy3",
+      "locator": "Original MAP metadata for ref 0/6/10000/18001/20001; expected C35 000063A9/00040F90/00040F90/0012F892/0016E9B9 (offline; not TCP captured)",
+      "report_path": "task_a/roy3/A-032-roy3-native-map-c35.md",
+      "analysis_contract": "04-analysis-integration/A-032-structured-c35-contract.md",
+      "offline_probe": "task_a/roy3/a032_c35_probe.py",
+      "offline_test": "task_a/roy3/test_a032_c35_probe.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A032-E04",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-11-01",
+      "evidence_kind": "observed-static-resource-plus-unknown-native-passability",
+      "source_branch": "task_a/roy3",
+      "locator": "Map0 00006 60x60; candidate 30,30→30,31→30,32→31,32→32,32 flags0 in-bounds; player walkability unknown",
+      "report_path": "task_a/roy3/A-032-roy3-native-map-c35.md",
+      "analysis_contract": "04-analysis-integration/A-032-structured-c35-contract.md",
+      "offline_probe": "task_a/roy3/a032_c35_probe.py",
+      "offline_test": "task_a/roy3/test_a032_c35_probe.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A032-E05",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-11-01",
+      "evidence_kind": "offline-static-reconstruction-and-synthetic-tests",
+      "source_branch": "task_a/roy3",
+      "locator": "Runnable hash-pinned offline native checksum probe and synthetic tests; no raw assets or original E2E",
+      "report_path": "task_a/roy3/A-032-roy3-native-map-c35.md",
+      "analysis_contract": "04-analysis-integration/A-032-structured-c35-contract.md",
+      "offline_probe": "task_a/roy3/a032_c35_probe.py",
+      "offline_test": "task_a/roy3/test_a032_c35_probe.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
     }
   ]
 }

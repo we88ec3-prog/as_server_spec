@@ -2235,19 +2235,25 @@
         "A-005"
       ],
       "remaining_unknowns": [
-        "Fully reconstructed native 0x4B2EC0 structured checksum on selected original MAP",
-        "Correct map_ref/revision/Client displayed layout and safe spawn",
-        "Native C33 movement rollback at wall/invalid tile, if any",
-        "Identifying tutorial map vs verified interim map"
+        "Actual original Client C35 packet capture to compare expected 00040F90 for 00006.map",
+        "Native GUI displayed map and safe spawn: x/y, S04 viewport pair, facing/S33, input units",
+        "Native C33/C11 walking and wall rollback/S0B; tile flags=0 only geometric path, not passability",
+        "Identifying native tutorial map; map_ref=6 is interim candidate only"
       ],
       "priority": "P0",
-      "status": "open",
-      "assignee": "unassigned",
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy3",
+      "evidence_ids": [
+        "A032-E01",
+        "A032-E02",
+        "A032-E03",
+        "A032-E04",
+        "A032-E05"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
-      "evidence_kind": "unknown-pending-original-client",
+      "evidence_kind": "observed-static-original-MAP-reconstructed-C35-not-native-GUI",
       "implementation_ready": false,
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
@@ -2262,7 +2268,33 @@
         "unknowns"
       ],
       "client_server_boundary": "Research native Client UI and C2S/S2C/layout only; Server decides authenticated Character, map selection/spawn, permissions and durable commit. No invented packets.",
-      "analysis_report": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md"
+      "analysis_report": "task_a/roy3/A-032-roy3-native-map-c35.md",
+      "analysis_contract": "04-analysis-integration/A-032-structured-c35-contract.md",
+      "analysis_test": "task_a/roy3/test_a032_c35_probe.py",
+      "analysis_probe": "task_a/roy3/a032_c35_probe.py",
+      "offline_validation": "Original EXE SHA and Map0/1/2 SHA matched; selected real MAP structured C35 computed, duplicate payload checksum agrees; synthetic CRC/norm/bounds cases replicated locally; native TCP not-run",
+      "client_io_handoff": {
+        "trigger": "Server sends S15(map_ref), S14(1) after World loading starts",
+        "client_sends": [
+          "PKT-C35 two BEu16 on S14(1); real native wire capture not-run",
+          "C33/C11 movement pending runtime"
+        ],
+        "client_receives": [
+          "PKT-S15",
+          "PKT-S14",
+          "PKT-S04",
+          "PKT-S33",
+          "PKT-S0B"
+        ],
+        "client_reaction": "Native MAP loader and CRC call flow static verified; chosen map spawn/facing/viewport and actual GUI movement not-run",
+        "evidence": "task_a/roy3/A-032-roy3-native-map-c35.md",
+        "unknowns": [
+          "Original Client C35 emission on map_ref=6 versus predicted 00040F90",
+          "Observed legal spawn S04 four u16/viewport/facing/S33 and displayed map",
+          "Native walkable tile/path/collision correction, including C33/C11/S0B",
+          "Is map_ref=6 tutorial? (No evidence; selected interim only)"
+        ]
+      }
     }
   ]
 }
