@@ -2891,7 +2891,8 @@
         "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
       ],
       "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
-      "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown"
+      "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown",
+      "a028_postcreate_static_refinement": "Final S02(0) callback0x4B206B clears 0B/0C/0D/07 UI entries; Region3 constructs native LoginDialogPane0x4A9380, but no direct C03/C10 in callback or pane constructor. User confirmed seamless no-manual-login behavior; actual background World opcode and GUI E2E not-run. Source task_a/roy2/A-028-postcreate-ui-native-followup.md"
     },
     {
       "id": "CT-106",
@@ -2967,7 +2968,8 @@
         "A-030",
         "A-028",
         "A-031"
-      ]
+      ],
+      "a028_postcreate_static_refinement": "Final S02(0) callback0x4B206B clears 0B/0C/0D/07 UI entries; Region3 constructs native LoginDialogPane0x4A9380, but no direct C03/C10 in callback or pane constructor. User confirmed seamless no-manual-login behavior; actual background World opcode and GUI E2E not-run. Source task_a/roy2/A-028-postcreate-ui-native-followup.md"
     },
     {
       "id": "CT-108",
@@ -3077,6 +3079,35 @@
       "native_client_validation": "not-run",
       "offline_subset_result": "PASS original local Asgard.exe SHA-locked 35 native instruction VA anchors plus CBillingInfoPacket RTTI; GitHub Actions run 41224805425 success, 20/20 A-031 synthetic C10/C25 tests plus project 32-A/7-DEV/110-CT phase gates and other suites passed. Actual native World TCP/GUI CT-108 not-run.",
       "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41224805425"
+    },
+    {
+      "id": "CT-111",
+      "status": "planned",
+      "level": "original-Asgard-C04-final-S02-UI-cleanup-Region3-LoginDialogPane-static-and-synthetic",
+      "requirements": [
+        "R-003",
+        "R-026",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-S03",
+        "PKT-C10"
+      ],
+      "analysis_request": "A-028",
+      "input": {
+        "kind": "SHA-locked original Asgard.exe native static plus synthetic NewUser S02 state tests",
+        "reference": "05-conformance/A-028-postcreate-native-callback-test-plan.md"
+      },
+      "expected": "Same-SHA original binary 31 VA anchors and RTTI LoginDialogPane(vtable0x609BBC/COL0x625970/TD0x6665D8), final S02 success state1e removes UI slots0B/0C/0D/07, Region3 constructs LoginDialogPane, no direct C03/C10 in this callback; independent LoginDialog callback may send C03 only on nonzero arg. Nonzero S02 sends C15(empty)/state1f. First-create seamless native World transition remains unproven.",
+      "evidence_kind": "observed-static-original-Client-and-synthetic-fixtures",
+      "original_probe": "task_a/roy2/a028_native_postcreate_probe.py",
+      "offline_test": "task_a/roy2/test_a028_postcreate.py",
+      "native_client_validation": "not-run",
+      "scope_boundary": "Does not prove successful original GUI direct-world or background C03/S03/C10, CT-105/107/108 remain not-run"
     }
   ]
 }
