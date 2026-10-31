@@ -2371,7 +2371,9 @@
       "original_probe": "task_a/roy2/a010_native_probe.py",
       "offline_test": "task_a/roy2/test_a010_skill_codec.py",
       "analysis_request": "A-010",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "offline_subset_result": "PASS: independently SHA-locked original Asgard.exe local 25 native instruction anchors and 6 packet RTTI; GitHub Actions run 41193941400 phase gates success and 19 A010 synthetic decoded-body/lasting-effect tests passed. Native original Client GUI E2E CT-090 not-run.",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41193941400"
     },
     {
       "id": "CT-090",
