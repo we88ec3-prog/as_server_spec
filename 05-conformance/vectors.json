@@ -1647,11 +1647,12 @@
       },
       "expected": "SHA-locked original PE 29 VA instruction patterns + 4 RTTI + 3 wide literal checks PASS; World7000..7023 Monster8000..8042 registrations; imageID0x4000+10*archive+slot conversion; S07 kinds1,2,4 create MonsterObject; C43 both producer type1/subtype4 with BE u32 target; local selector0..5 groups+0x20/+0x30/+0x40. Synthetic test result recorded after CI. Not runtime GUI proof.",
       "evidence_kind": "observed-static-client+synthetic-test",
-      "offline_subset_result": "Original Asgard.exe locally PASS 29 PE anchors, 4 RTTI and 3 wide filename literals; synthetic CI pending",
+      "offline_subset_result": "Original local Asgard.exe SHA-locked 29 instruction anchors, 4 RTTI, 3 UTF16 literals PASS; GitHub Actions run 41186221751: 16 A-011 synthetic + 19+7 A-024 regression tests and phase gates PASS",
       "original_probe": "task_a/roy2/a011_native_probe.py",
       "offline_test": "task_a/roy2/test_a011_resource.py",
       "analysis_request": "A-011",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751"
     },
     {
       "id": "CT-068",
