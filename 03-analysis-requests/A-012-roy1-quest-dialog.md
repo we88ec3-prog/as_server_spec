@@ -85,3 +85,7 @@ C6C subtype1 pair_count 原內部 local `[esi+0x220]` 16-bit，陣列首位址 `
 ## 2026-11-01 A-012 Merchant.dat 原件完成：共用 Script 執行環境補證
 
 已從現有原件 Merchant.dat + nNewJoin01.dat 查清 **Merchant.Main(args) 建立 ServerParam/ClientReply/MerchantTile/MerchantName globals，nNewJoin01 的 MerchantTalk 提供頁面/選項而非獨立 Main**。詳細原始程式與 SHA/CRC 見 [Merchant 原件 A12 增量](A-012-roy1-merchant-original-bridge-20261101.md)。STATE=ACCEPT/REFUSE 是 Client choice → C6C(1) 的 candidate，不是 QuestCompleted；未確認 QuestDialog_Create provider、NPC EntityId→Script、首次發 S44、真正 GUI/TCP、官方任務或獎勵。原件 25 tests PASS，A12 Client I/O 靜態 handoff ready。之前標 Merchant.dat 尚需提供的文字已由此更新。
+
+## 2026-11-01 A12 原件補證：MerchantDialog / QuestDialog / QuestDialog2
+
+已由三份真正原始 DAT 解壓、驗 SHA256/CP950 XML CRC、逐函式證實 MerchantDialog_Create 在 MerchantDialog.dat、QuestDialog_Create 在 QuestDialog.dat、QuestDialog2_Create 在 QuestDialog2.dat。此前將前兩個實作提供者標為「檔名未知」是過時的歷史限制。MerchantDialogProc 的 TYPE=BUY/SELL/REPAIR/IDENTIFY/TALK/ABORT 直接 SendReply；**TYPE=BANK 只有 Add 後進 MerchantBank，沒有在此 case 直接 SendReply**；TALK 則 SendReply 後本地呼叫 MerchantTalk。與 nNewJoin01 後續 STATE 回覆的同個 ClientReply 所含全部 pair 仍必須真正 GUI/TCP 驗；不能把 synthetic 單一 STATE 封包當作實測。QuestDialog/QuestDialog2 是外部 proc 驅動的 UI factory，自身不 SendReply；第二版以 SetPortrait(tile,color) 渲染。新 8/8 離線測試 PASS，原版 GUI/TCP not-run，Server QuestRule/Reward/NPC binding unknown。詳細見 [原件分析](A-012-roy1-new-dialog-resources-20261101.md)、[可重跑工具](../tools/a012_new_dialog_original_probe.py)、[CT-092～094 補充](../05-conformance/A-012-new-dialog-resource-fixtures-20261101.md)。

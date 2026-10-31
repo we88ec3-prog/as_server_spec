@@ -27,3 +27,7 @@ CT-092 原件新增 `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat` �
 ## 2026-11-01 A-012 Merchant.dat 原件完成：共用 Script 執行環境補證
 
 CT-092 已加核 original Merchant.dat SHA256/CRC (7856-byte UTF16LE XML, CRC950 E9B389CF)，與 nNewJoin01 的 `ClientReply`、`MerchantTile`、`MerchantName`、`DoesTalk`/MerchantTalk 原始引用：`tools/a012_merchant_bridge_probe.py` 的 **25/25 新本地離線測試 PASS**，7 個 C6C/S44 original EXE anchors PASS。CT-093 真 GUI 後續必補 Merchant.Main 的 S44 runner/context/ServerParam、`MerchantDialog_Create`/選 TALK 真 callback、`TYPE=DIRECT` 的 MerchantDirectTalk provider、`QuestDialog_Create` provider、nNewJoin01 三頁真正選項及 C6C opcode/封包時間序，不能用合成名當實測。CT-094 必須以同圖兩角色/錯 NPC/重送/接受或拒絕/斷線保護權威 quest/optional reward。Merchant.dat 已提供**不再列入缺檔**；其餘函式**尚無已證的資源檔名**。原版 Client GUI/原服 E2E 仍 planned/not-run。見 [研究](../03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md)。
+
+## 2026-11-01 新原件補充
+
+三檔 MerchantDialog / QuestDialog / QuestDialog2 原件 SHA/CRC/函式/回覆靜態測試 **8/8 PASS**；[CT 補充](A-012-new-dialog-resource-fixtures-20261101.md)。QuestDialog_Create、MerchantDialog_Create 的實作提供檔名已知。CT-093 需驗 TALK 先送 TYPE 再進 MerchantTalk、後續 STATE 的真正 pairs；BANK case 不直接 SendReply；QuestDialog2 SetPortrait 實際 GUI；CT-094 Quest/Shop 權威仍 not-run。

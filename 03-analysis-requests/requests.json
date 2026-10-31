@@ -869,7 +869,8 @@
         "ev_a012_20261031_script_reply_choice_client_static",
         "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
         "ev_a012_20261101_paper_dialog02_nnewjoin_original_resource",
-        "ev_a012_20261101_merchant_main_original_bridge"
+        "ev_a012_20261101_merchant_main_original_bridge",
+        "ev_a012_20261101_merchant_quest_dialog_providers_original"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "ready",
@@ -888,10 +889,10 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "evidence_kind": "observed-original-Merchant-and-4-Script-resources-plus-original-EXE-static; designed policy clearly separate",
+      "evidence_kind": "observed-original-Merchant/Paper/NewJoin+MerchantDialog+QuestDialog+QuestDialog2-resources-plus-original-EXE-static; designed policy separate",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "implementation_ready": true,
-      "implementation_ready_scope": "Client S44 script entry and C6C 0..4 native wire; resource-proven Merchant.Main creates ServerParam/ClientReply/MerchantTile/MerchantName and selects Talk capabilities, school nNewJoin01 MerchantTalk final STATE ACCEPT/REFUSE reply; designed secure ScriptRun context. Original NPC binding/QuestDialog implementation/quest reward and GUI not ready.",
+      "implementation_ready_scope": "Client S44 script entry and C6C 0..4 native wire; resource-proven Merchant.Main creates ServerParam/ClientReply/MerchantTile/MerchantName and selects Talk capabilities, school nNewJoin01 MerchantTalk final STATE ACCEPT/REFUSE reply; designed secure ScriptRun context. Original NPC binding/QuestDialog implementation/quest reward and GUI not ready. Original MerchantDialog_Create and QuestDialog_Create provider files proven, QuestDialog2 portrait API proven; BANK branch lacks direct SendReply, TALK reply precedes local MerchantTalk; runtime pair snapshots remain unverified.",
       "native_quest_rule_ready": false,
       "native_npc_script_binding_ready": false,
       "analysis_report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
@@ -905,7 +906,7 @@
       "last_analysis_date": "2026-11-01",
       "remaining_unknowns": [
         "nNewJoin01 has MerchantTalk but no Main; original Server S44 runner name/context/dependency list and exact NPC→Script/EntityId/map binding still unverified; Merchant.Main source is not an actual NPC click trace",
-        "QuestDialog_Create, MerchantDialog_Create and MerchantDirectTalk implementation provider files not located in mounted Script subset; original filenames unknown, do not invent QuestDialog.dat",
+        "MerchantDialog_Create and QuestDialog_Create now proven in named original DATs; MerchantBank and MerchantDirectTalk providers still unknown; actual runtime dependency loading still not verified",
         "Official quest progression, STATE=ACCEPT side effects, reward presence/content, original Server first-login script scheduling and subsequent World/quest response remain authority gaps A026/DEV",
         "Original Client Win32 GUI, C6C packet timing and correct Merchant-to-Join3 control callback, cancel/retry/Script namespace/dependency collision remain CT-093/CT-094 not-run",
         "S44 invalid CRC / cache scan path unsafe on original client; must test offline/sandbox only; Server cross-session/stale context validation designed, not original server evidence"
@@ -1031,6 +1032,40 @@
         "local_tests_passed": 25,
         "source": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
         "tool": "tools/a012_merchant_bridge_probe.py"
+      },
+      "new_dialog_original_report": "03-analysis-requests/A-012-roy1-new-dialog-resources-20261101.md",
+      "new_dialog_original_probe": "tools/a012_new_dialog_original_probe.py",
+      "new_dialog_original_acceptance": "05-conformance/A-012-new-dialog-resource-fixtures-20261101.md",
+      "new_dialog_original_proof": {
+        "original_sha256": {
+          "MerchantDialog.dat": "ed194a77a669cbd8f83fbbd01bb08ed0f800b122695cc204a3a12f002f945095",
+          "QuestDialog.dat": "13f068d8053ea7e7b0231357c318bc6effae867888b94305820fe483a17a02dc",
+          "QuestDialog2.dat": "acb097c05f440e560394199622bb2e971d2ef9d1a33fff1a1c150ba633e63195"
+        },
+        "xml_cp950_crc32": {
+          "MerchantDialog.dat": "9267D99D",
+          "QuestDialog.dat": "D4844B07",
+          "QuestDialog2.dat": "893C64EB"
+        },
+        "providers": {
+          "MerchantDialog_Create": "MerchantDialog.dat",
+          "QuestDialog_Create": "QuestDialog.dat",
+          "QuestDialog2_Create": "QuestDialog2.dat"
+        },
+        "merchant_reply_options": [
+          "TYPE=BUY",
+          "TYPE=SELL",
+          "TYPE=REPAIR",
+          "TYPE=IDENTIFY",
+          "TYPE=TALK",
+          "TYPE=ABORT"
+        ],
+        "bank_not_direct_send": true,
+        "quest_dialog_factory_no_direct_send": true,
+        "quest2_portrait": "SetPortrait(tile,color)",
+        "unit_tests": 8,
+        "native_client_validation": "not-run",
+        "original_assets_committed": false
       }
     },
     {

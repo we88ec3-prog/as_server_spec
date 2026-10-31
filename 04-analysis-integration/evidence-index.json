@@ -4573,6 +4573,42 @@
       "native_client_validation": "not-run",
       "raw_assets_shared": false,
       "evidence_limit": "Script resources prove common global definitions and valid hook names, not the actual binding/invocation order of a specific NPC, Original Server QuestRule/Reward nor actual Client runtime UI."
+    },
+    {
+      "evidence_id": "ev_a012_20261101_merchant_quest_dialog_providers_original",
+      "date": "2026-11-01",
+      "profile": "TW-seed0-local-v0.1",
+      "source_branch": "task_a/roy1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-original-MerchantDialog+QuestDialog+QuestDialog2-Script-XML-plus-existing-C6C-native-static",
+      "locator": "MerchantDialog_Create/MerchantDialogProc TYPE=BUY SELL REPAIR BANK IDENTIFY TALK ABORT; QuestDialog_Create/QuestDialogAdjust; QuestDialog2_Create/QuestDialogAdjust2 SetPortrait(tile,color)",
+      "report_path": "03-analysis-requests/A-012-roy1-new-dialog-resources-20261101.md",
+      "native_probe": "tools/a012_new_dialog_original_probe.py",
+      "conformance": "05-conformance/A-012-new-dialog-resource-fixtures-20261101.md",
+      "raw_sizes": {
+        "MerchantDialog.dat": 2455,
+        "QuestDialog.dat": 1938,
+        "QuestDialog2.dat": 1959
+      },
+      "original_sha256": {
+        "MerchantDialog.dat": "ed194a77a669cbd8f83fbbd01bb08ed0f800b122695cc204a3a12f002f945095",
+        "QuestDialog.dat": "13f068d8053ea7e7b0231357c318bc6effae867888b94305820fe483a17a02dc",
+        "QuestDialog2.dat": "acb097c05f440e560394199622bb2e971d2ef9d1a33fff1a1c150ba633e63195"
+      },
+      "xml_cp950_crc32": {
+        "MerchantDialog.dat": "9267D99D",
+        "QuestDialog.dat": "D4844B07",
+        "QuestDialog2.dat": "893C64EB"
+      },
+      "unit_tests_passed": 8,
+      "native_client_validation": "not-run",
+      "original_assets_committed": false,
+      "limits": [
+        "BANK branch no direct SendReply; subsequent MerchantBank unknown",
+        "QuestDialog factories do not directly SendReply",
+        "Actual TALK then STATE pair accumulation, runner/context and original GUI/TCP unverified",
+        "Original NPC bind, QuestRule/Reward unknown"
+      ]
     }
   ]
 }
