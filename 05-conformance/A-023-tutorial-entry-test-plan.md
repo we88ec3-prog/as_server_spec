@@ -44,7 +44,7 @@ CT-034：若 Main 由原服真正觸發，應顯示 PaperDialog 引導；觸發�
 
 離線結果見 `task_a/roy2/script-entry-verification.json`、語料檢查見 `corpus-entry-audit.json`；315 XML + NDW 一個非 XML，nNewJoin01 只列候選。所有 native CT 仍 not-run。
 
-## 2026-11-01 原件靜態補測 CT-114（原 CT-033～035 不升級 native PASS）
+## 2026-11-01 原件靜態補測 CT-117（原 CT-033～035 不升級 native PASS）
 
 本次已實際核對原版 Born.dat、Basic.dat 素材與 `AlertFrame.ypf` metadata：Basic 39 index slots 含 sentinel、Frame offset13196 size177648 SHA `b641441d...`、YPF17；Born XML CRC CP950 `1d87b0c0`。新 22 個 EXE 原生 VA anchor 證實 `S44(type2/subtype0)` 會觸碰 UI slot0x23/component3/4，`S44(type2/subtype2)` 會操作 slot0x24，**不是 Born 的 type1/subtype0 Script Main 啟動**。
 
@@ -54,7 +54,7 @@ python task_a/roy2/a023_born_basic_probe.py --born Born.dat --basic Basic.dat
 python -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
 ```
 
-GitHub CI 只執行 21 個合成資源格式邊界測試；原件 SHA/22 VA 為本地獨立驗證。完整請看 [CT-114 細則](A-023-original-born-basic-ui-test-plan.md)、[原始 Client 與資源證據](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)。**PaperDialog.dat 的原件此輪未在本地，依賴只能沿用歷史已登記報告，不冒稱重跑全 GUI**。首次原服 Born 下發條件／女招募員 EntityId／Script 綁定與真正 Native GUI 必須在 CT-034/035 找到原始記錄或動態 UI 證據，不能以 synthetic S44／fake NPC 完工。
+GitHub CI 只執行 21 個合成資源格式邊界測試；原件 SHA/22 VA 為本地獨立驗證。完整請看 [CT-117 細則](A-023-original-born-basic-ui-test-plan.md)、[原始 Client 與資源證據](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)。**PaperDialog.dat 的原件此輪未在本地，依賴只能沿用歷史已登記報告，不冒稱重跑全 GUI**。首次原服 Born 下發條件／女招募員 EntityId／Script 綁定與真正 Native GUI 必須在 CT-034/035 找到原始記錄或動態 UI 證據，不能以 synthetic S44／fake NPC 完工。
 
 ## 2026-11-01 已取得四份 Script 原件後新增 CT-115
 

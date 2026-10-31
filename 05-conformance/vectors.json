@@ -3339,7 +3339,7 @@
       "policy_source": "02-server-planning/expected-validation-failure-policy-20261101.md"
     },
     {
-      "id": "CT-114",
+      "id": "CT-117",
       "status": "planned",
       "level": "original-Asgard-S44-type2-Born-Basic-paper-frame-offline-static-and-synthetic",
       "requirements": [
@@ -3438,6 +3438,38 @@
       "offline_subset_result": "PASS: 43 original Asgard.exe SHA-locked native PE instruction VA anchors verified locally (S07 row field_c→MonsterObject descriptor→MonsterImageLib and C43 panel subtype04/10/40); GitHub Actions run 41233757360 completed success: 23/23 new A-011 S07/C43 synthetic tests and 16/16 previous A-011 synthetic tests, all other suites and phase gates passed (116 CT vectors). Original Monster/World DAT asset YPF/DOI and native Client GUI CT-083 NOT-RUN.",
       "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41233757360",
       "original_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+    },
+    {
+      "id": "CT-114",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "server-tcp-per-packet-observability-unexpected-packet-redaction",
+      "requirements": [
+        "R-037"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C03",
+        "PKT-C10",
+        "PKT-C25",
+        "PKT-C33"
+      ],
+      "evidence_kind": "server-source-implementation-plus-designed-native-and-synthetic-verification",
+      "implementation_status": "source-implemented-scope-partial-native-not-run",
+      "input": {
+        "kind": "server-local-tcp-negative-cases-and-original-client-redacted-observation",
+        "reference": "05-conformance/game-packet-observability-acceptance-20261101.md",
+        "cases": [
+          "each decoded C2S and written S2C shares per-socket TraceId with close summary",
+          "unknown opcode, out-of-phase, malformed AA, and unsupported-but-native opcode classified separately",
+          "normal expected validation failure has reason-coded VALIDATION_FAILED, not UNEXPECTED_PACKET",
+          "file retention UTC 7 days, PacketLog Enabled toggle, I/O failure tolerance, privacy of all output",
+          "distinguish successful Server write from Client GUI observed result"
+        ]
+      },
+      "expected": "Capture packet metadata without secrets and with correct reason-classification and correlation; separately require original Client UI validation rather than conflating Server packet log existence and native Client E2E.",
+      "policy_source": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
     }
   ]
 }

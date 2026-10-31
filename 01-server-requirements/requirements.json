@@ -421,6 +421,24 @@
         "CT-112",
         "CT-113"
       ]
+    },
+    {
+      "id": "R-037",
+      "system": "SYS-OPS",
+      "priority": "P0",
+      "title": "Game TCP 每筆 C2S/S2C 收發 Log、未預期封包獨立標記與安全留存",
+      "acceptance": "同一 TCP traceId 綁每筆完整解碼 C2S、已寫入 S2C、連線關閉摘要與安全的原因日誌；只記 metadata（時間/Build/方向/Opcode/長度/Ordinal/Phase/Disposition），未知 op/錯 phase/畸形 frame 明確標 UNEXPECTED_PACKET，業務驗證失敗用獨立 VALIDATION_FAILED 且不誤判為封包異常；UTC 逐日 JSONL、7日留存、設定可關逐包日誌、I/O failure 不影響 listener；不得記 ID/NAME/EMAIL/密碼/Token/原始 payload。只有 source-implemented 與 CT-114 synthetic/native 分級結果，不因此宣稱原版 Client 創角/入圖成功。",
+      "baseline": "2026-11-01 先前分析者未授權直接對 Server main commit 95977823/71ebd259，事後依使用者指示回補規劃；read-only as_server_roy/main@a86e28cf 的原始碼可見逐包 metadata event，原版 GUI E2E 未證",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "observed-server-source-plus-designed-acceptance",
+      "design_source": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "source_server_commit": "95977823e7fa9c177e3ae4314e835fda6c9d7a8e",
+      "implementation_status": "source-implemented-scope-partial-native-not-run",
+      "native_client_validation": "not-run",
+      "conformance": [
+        "CT-114"
+      ]
     }
   ]
 }

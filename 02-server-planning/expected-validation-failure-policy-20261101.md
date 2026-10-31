@@ -80,3 +80,7 @@ Native NewUser C02 (ID, PASSWORD, NAME, E-MAIL, region-tail)
 
 ## 7. 與現有決策一致
 ADR-008 創角成功直接進 World 維持不變。C02 失敗應停留／回到原版可重試的 NewUser 流程而非自動登入或直接給 World grant；錯誤後不能建立 character 或 Account。多人共圖、Server 權威、原版 Client 不修改、不另建 branch，保持不變。
+
+## 2026-11-01 逐包日誌實作回補與分工註記
+
+此前在 `as_server_roy/main` 先實作的 C2S/S2C metadata `[PACKET]`／`[UNEXPECTED_PACKET]` 已獨立登記成 [R-037](game-packet-log-contract-and-backfill-20261101.md) 與 CT-114。此文件 R-036 專門規範**正常驗證拒絕的內部原因**及可回復的原生失敗回覆；兩者不能互相取代。私有 Server 較新版本可能已有 `[VALIDATION_FAILED]` 來源碼，仍不可宣稱原版 UI/CT 已通過。本分析角色之後不可直接修改 Server 程式，僅研究與規劃。

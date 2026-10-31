@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 R-037：補登分析者越界寫入的 TCP 逐包日誌／預期外標記，明確禁止後續直改 Server
+
+使用者糾正本工作應是分析與 Server 規劃，並問先前直接實作是否回補規格。確認已發生的 `as_server_roy/main` commits `95977823`（收發 Log、UNEXPECTED marker）與 `71ebd259`（log 文件修正）；先前 ADR-009/R-036 僅涵蓋驗證失敗原因 Log，未補完整逐包 contract。新增 [R-037 詳細規格／事實回補](../02-server-planning/game-packet-log-contract-and-backfill-20261101.md)、[CT-114](../05-conformance/game-packet-observability-acceptance-20261101.md)，更新需求、工作板、追蹤與角色確認關卡。純規格修改、**本次未觸碰 Server／DB／EXE、未撤銷他人開發變更**。舊程式僅記 source-implemented，原 Client E2E 仍 not-run。
+
 ## 2026-11-01 ADR-009／R-036：預期內驗證失敗回覆、保留會話與原因 Log
 
 使用者要求 C02 正常錯密等不應直接踢線，而應按原版 S02(非零,錯誤文字)→Client 可見錯誤→C15/重試；以此延伸至其他正常功能驗證拒絕。獨立規劃 `EXPECTED_VALIDATION_FAILURE`／`PROTOCOL_UNEXPECTED`／`SECURITY_FATAL`，增 `[VALIDATION_FAILED]` 結構化去敏 reason_code/s2c_status/response_sent/connection_action，不能用既有 `[UNEXPECTED_PACKET]` 或 Close 摘要代替；尚未證原版 error status 與 C15 retry 故 A-030/A-028 增量及 CT-112/113 保留 not-run。新增 [ADR-009/DEV-REJECT-01..06](../02-server-planning/expected-validation-failure-policy-20261101.md)、[原版驗收](../05-conformance/expected-validation-failure-acceptance-20261101.md)，更新規格索引、ONB 工作、DEV-ENTRY 與分析缺口。**本次沒有更動 as_server_roy/DB/Asgard.exe，也沒有聲稱原版 Client 已顯示錯誤。**

@@ -118,7 +118,7 @@ C6C body: 02 04 426f726e 11223344
 
 ## A-023 2026-11-01：實際驗證 Basic frame 及 S44 type2 native UI 分派
 
-**本節只更新已取得的新原件證據 E19～E24，不改既有 S44 type1／C6C wire。** 見 [完整新報告](A-023-born-basic-native-dispatch-20261101.md) 和 [CT-114 gate](../../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
+**本節只更新已取得的新原件證據 E19～E24，不改既有 S44 type1／C6C wire。** 見 [完整新報告](A-023-born-basic-native-dispatch-20261101.md) 和 [CT-117 gate](../../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
 
 原本已知 Born.Main 需 PaperDialog_Create；新實際原件 `Basic.dat` 驗證為 **39 索引 slot／38 個成員**、完整 index/EOF、SHA `0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96`。其中 `AlertFrame.ypf` 原始 offset **13196**、長 **177648**、SHA `b641441d1f0378de04b6f7929c333d95e6ad7df451f3927432e5c4d0305602ce`、YPF v17 header 348×85。這確認圖像成員**存在**，不表示原 Client PaperDialog frame/button 在 GUI 成功繪製。
 

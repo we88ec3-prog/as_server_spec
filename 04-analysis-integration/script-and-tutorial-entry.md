@@ -34,7 +34,7 @@ PaperDialog 關閉時的 client.Dispose 會送 C6C(4,name,context)，並在尚�
 
 本回合原始 `Born.dat`、`Basic.dat` 皆在模型側實際解讀、比對 hash；Basic indexed DAT **39 slots/38 members**，`AlertFrame.ypf` 偏移13196、長177648、SHA `b641441d1f0378de04b6f7929c333d95e6ad7df451f3927432e5c4d0305602ce`，YPF **17**；搭配 Born.Main **CP950 text CRC `1d87b0c0`** 證明紙張依賴的原始 Frame 資料確實存在，**不是** GUI 已成功顯示。PaperDialog.dat 的 XML 是既有歷史報告的來源，該檔本輪未上傳，不能稱重跑原件全鏈。
 
-額外原件 22 VA native-static：`S44(2,0)` 外層 handler 對 **UI slot0x23**／components3/4；`S44(2,2)` 操作 **slot0x24**；兩者均需與 `S44(1,0)→ScriptRunner Main` 分開，不可用 type2 偽造 Born start 或 script ACK。既有 `C6C(4)`＋`C6C(2)` Born normal close **不表示** quest 完成。完整精確證據與 21 合成邊界測試：[A-023 補證](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)、[CT-114](../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
+額外原件 22 VA native-static：`S44(2,0)` 外層 handler 對 **UI slot0x23**／components3/4；`S44(2,2)` 操作 **slot0x24**；兩者均需與 `S44(1,0)→ScriptRunner Main` 分開，不可用 type2 偽造 Born start 或 script ACK。既有 `C6C(4)`＋`C6C(2)` Born normal close **不表示** quest 完成。完整精確證據與 21 合成邊界測試：[A-023 補證](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)、[CT-117](../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
 
 **Server gate**：P0 登入／地圖顯示／可移動不須等待原服未知的第一名招募員或 Born 自動發送政策。P1 本地 Script schema/資源/安全 runner 可開發；真正 first-login S44 push、NPC EntityId/map/spawn、NPC→nNewJoin01/Quest flags 仍 unknown，Native CT-034/035 `not-run`。不要延用上文將 `S03→C10→C25` 當所有 region/第一次創角必須路由的舊推定；A-028/A-031 已證明應分路。
 
