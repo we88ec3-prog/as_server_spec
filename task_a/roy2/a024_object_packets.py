@@ -86,7 +86,12 @@ def decode_s3c_show_object_info(body):
 
 
 def decode_s34_info_reply(body):
-    """S34 subtype 6 or native default; subtype 11 dynamic groups excluded."""
+    """S34 reader at 0x584540, subtype 6 and all subtype 11 flag groups.
+
+    Subtype11: native 0x58457D, 0x5845BA, 0x5845FE, 0x5846A9,
+    0x5847BE, 0x5848A5. Row structures are wire fields, not local
+    0x202/0x40E/0x602 memory allocation sizes. Labels remain opaque.
+    """
     r = Reader(body)
     kind = r.u8()
     result = dict(subtype=kind, object_key_candidate=r.u32(), flags=r.u8())
@@ -94,10 +99,40 @@ def decode_s34_info_reply(body):
         result["subtype6"] = dict(field_u16=r.u16(), first_u8=r.u8(),
                                   field_u32=r.u32(), tail_u8=list(r.take(3)))
     elif kind == 11:
-        raise PacketError("S34 subtype 11 dynamic payload not yet covered")
+        flags = result["flags"]
+        groups = {}
+        if flags & 0x01:
+            groups["bit0"] = dict(
+                name_raw_cp950=r.string8(),
+                pair_u8=list(r.take(2)), opaque_u32=r.u32())
+        if flags & 0x02:
+            count = r.u16()
+            groups["bit1"] = r.take(count)  # exact count raw bytes
+        if flags & 0x04:
+            count = r.u8()
+            groups["bit2"] = [
+                dict(a=r.u8(), b=r.u8(), name_raw_cp950=r.string8())
+                for _ in range(count)]
+        if flags & 0x08:
+            count = r.u8()
+            groups["bit3"] = [
+                dict(a=r.u8(), b_u16=r.u16(), quad_u8=list(r.take(4)),
+                     name_raw_cp950=r.string8())
+                for _ in range(count)]
+        if flags & 0x10:
+            count = r.u8()
+            groups["bit4"] = [
+                dict(first_raw_cp950=r.string8(),
+                     second_raw_cp950=r.string8(),
+                     pair_u8=list(r.take(2)),
+                     third_raw_cp950=r.string8())
+                for _ in range(count)]
+        if flags & 0x40:
+            count = r.u8()
+            groups["bit6"] = list(r.take(count))
+        result["subtype11_groups"] = groups
     r.finish()
     return result
-
 
 def decode_s62_add_action(body):
     r = Reader(body)
