@@ -62,7 +62,7 @@ MonsterObject ctor `0x4D70BC..0x4D70D4` 對相關 base motion u16 加 **8**，�
 |1 / 4|`0x4D6BE0`|+0x30|
 |2 / 5|`0x4D6BED`|+0x40|
 
-`0x4D6BFE..` 將計算出的 u16 傳入 `0x570490`，接著派送 local action `0x4F D1D0`。此處 **已證是本地動畫選擇器**，**未證**其六個值代表走路、待機、攻擊、死亡或方向數字。`MonsterImageLib` 會按 image ID 查到 DAT 檔與槽位，但 *槽位對應哪個 YPF frame/DOI direction、duration、pivot 和 event callback* 尚無實際 Monster 資料可核對；不要以魔數 0x20/0x30/0x40 當成 Server wire opcode。
+`0x4D6BFE..` 將計算出的 u16 傳入 `0x570490`，接著派送 local action `0x4FD1D0`。此處 **已證是本地動畫選擇器**，**未證**其六個值代表走路、待機、攻擊、死亡或方向數字。`MonsterImageLib` 會按 image ID 查到 DAT 檔與槽位，但 *槽位對應哪個 YPF frame/DOI direction、duration、pivot 和 event callback* 尚無實際 Monster 資料可核對；不要以魔數 0x20/0x30/0x40 當成 Server wire opcode。
 
 ## 4. 點擊 NPC／怪物：已證 C43 的兩條 producer 與待確認的 NPCChat 路徑
 
@@ -118,3 +118,10 @@ objdump -d -M intel --start-address=0x4a23ce --stop-address=0x4a2419 Asgard.exe
 **還缺的具名資源**（只在要確認真實 NPC 圖像及動畫時需要）：實際原版同版 `Monster00.dat`（或你擁有的任一 `MonsterNN.dat`）及 `World00.dat`（或任一 `WorldNN.dat`）樣本、可對應的 UI/動作 DOI/YPF 資料索引與版本來源；欲驗證招募員對話腳本實現還需要確切引用的 `PaperDialog.dat`（A-023 已點名，不能直接假設對應 C43）。**不要上傳整包圖像，也不用重傳已有 Asgard.exe、Born.dat、Map0..2.dat**。
 
 **完成/界線**：本輪取得可重現的「Client Resource ID→Monster archive/slot」、「S07 kind1/2/4→MonsterObject」、「C43 兩條 UI request path」及「Monster motion selector」靜態子集；因缺實際 Monster 資產、NPC 類型／SpriteID 最終欄位 XREF 與完整 click→chat callback，`A-011 status=integrated / handoff_status=partial`、`native_client_validation=not-run`；**不是宣稱 NPC/怪物全部外觀、方向動畫、掉落或實機對話已還原**。
+
+
+## 7. 正式 GitHub CI 校驗與交付結論
+
+GitHub Actions [run 41186221751](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751) 狀態 **success**：原專案 phase-gates 檢查通過，A-024 先前 19＋7 項 regression tests 通過，A-011 **16/16 synthetic unit tests PASS**。A-011 SHA-locked 原始 `Asgard.exe` 本地 native verification **29 VA anchors、4 RTTI、3 UTF-16 literal checks PASS**；這些是程式碼與 resource ID 結構驗證，不是 Monster 素材、Sprite 動畫或 Client GUI 的原生 E2E 驗收。CT-067 offline subset checked；CT-068 native validation **not-run**。
+
+**最終分工狀態：`integrated/partial`。** 已取得可交 DEV 的原生 ID 算法、S07→MonsterObject factory、C43 兩條 producer、Monster 本地 motion selector。要讓「某隻特定 NPC/怪物的外觀及每個動作如何播放」達到可執行的原作相容規格，仍需要實際持有的 **`Monster00.dat`**（或任一實際存在的 `MonsterNN.dat`）及可能的 **`World00.dat`**（或任一實際存在的 `WorldNN.dat`）對照 Client reader；NPCChatDialog 的必要腳本在引用已證前不能假定就是 **`PaperDialog.dat`**。已提供的 `Asgard.exe`、`Map0.dat`、`Map1.dat`、`Map2.dat`、`Born.dat` 不需要重傳。
