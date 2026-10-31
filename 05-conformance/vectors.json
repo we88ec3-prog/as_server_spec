@@ -1508,6 +1508,58 @@
       "evidence_kind": "designed-test",
       "analysis_request": "A-008",
       "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-063",
+      "status": "planned",
+      "level": "original-Asgard-PE-static-and-synthetic-combat-codec",
+      "requirements": [
+        "R-010"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C3D",
+        "PKT-S13",
+        "PKT-S3D",
+        "PKT-S5F",
+        "PKT-S08"
+      ],
+      "input": {
+        "kind": "original-client-static-plus-synthetic",
+        "reference": "05-conformance/A-009-combat-test-plan.md"
+      },
+      "expected": "16 original PE instruction patterns + five RTTI PASS; 15 decoded C13/S13/S5F/S3D simple subtype positive and negative synthetic tests PASS. Complex S3D variants, native UI and Server formulas not validated.",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "16 PE patterns + 5 RTTI PASS; 15 synthetic tests PASS",
+      "original_probe": "task_a/roy2/a009_native_probe.py",
+      "offline_test": "task_a/roy2/test_a009_combat.py",
+      "analysis_request": "A-009",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-064",
+      "status": "planned",
+      "level": "original-native-client-combat-hit-damage-death-revive",
+      "requirements": [
+        "R-010"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C3D",
+        "PKT-S13",
+        "PKT-S3D",
+        "PKT-S5F",
+        "PKT-S08",
+        "PKT-S0E"
+      ],
+      "input": {
+        "kind": "native-client-required",
+        "reference": "05-conformance/A-009-combat-test-plan.md"
+      },
+      "expected": "Trace native input→C13, decoded S13/S3D presentation and S08 resource updates, S5F vs S0E effects, hit/miss/death/revive and reject/replay/multi-target/simultaneous death, report original Server formulas as unknown unless independently observed.",
+      "evidence_kind": "designed-test",
+      "analysis_request": "A-009",
+      "native_client_validation": "not-run"
     }
   ]
 }
