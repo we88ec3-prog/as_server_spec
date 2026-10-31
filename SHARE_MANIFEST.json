@@ -353,7 +353,7 @@
     },
     {
       "path": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md",
-      "sha256": "83d8249afcd89aaab9e44eb895b9e8e79217dca918d38ad4b7fc5f286feea3e0"
+      "sha256": "5a365bb6931fcf37dc2d1e893021e6021d48328bcf1eaa2ca750f0561677e224"
     },
     {
       "path": "03-analysis-requests/next-client-io-evidence.md",
@@ -369,7 +369,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "fa06c24d8dba89783b4620ad90f304586bd4935c79a0573a1da2de63cdea1ba7"
+      "sha256": "db8e8a713630603ee4c6292afbd81c40b9d56af65abf78dd8fe5125802735ab8"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -377,7 +377,11 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "525cc5cd904899e45e094231c1667946b6b87baaeed1931d9b59abbd487b50f3"
+      "sha256": "e9c099fef4d0d04a237ac787e8be3488256e6843caaf600dae4b3d000bfa0262"
+    },
+    {
+      "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
+      "sha256": "087fac2fa35ab5012243614a6e5574bb11281fdd043f2e08106dd0942998ab28"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
@@ -398,6 +402,10 @@
     {
       "path": "04-analysis-integration/A-004-entity-visibility-contract.md",
       "sha256": "1aa855133507d290c5258d91f308be19b7f9f6ed824faac54d65dc91c415f6b3"
+    },
+    {
+      "path": "04-analysis-integration/A-005-move-ack-branch-contract.md",
+      "sha256": "a56f6c9d14db068781a0e533a481fc6269a0600116a16e80d0e9fad39ca1ef75"
     },
     {
       "path": "04-analysis-integration/A-007-inventory-domain-contract.md",
@@ -465,7 +473,7 @@
     },
     {
       "path": "04-analysis-integration/A-028-newuser-terminal-contract.md",
-      "sha256": "b899fa6968e1d6687b43a01f240485b60573556f13353d5365b4d63e0893721c"
+      "sha256": "0b085dc9a683cd56d957d1827c8d3c20d403895607cec441ce7b7d4426c0208b"
     },
     {
       "path": "04-analysis-integration/A-029-native-password-change-contract.md",
@@ -474,6 +482,10 @@
     {
       "path": "04-analysis-integration/A-030-newuser-s02-field-contract.md",
       "sha256": "ea81e9b8572165f5c8c806a9231e64228446bb34f46106e614167da005807ae3"
+    },
+    {
+      "path": "04-analysis-integration/A-032-structured-c35-contract.md",
+      "sha256": "7081a0db4376d5fffe32f39e34f727eafedd09b3efaba76cbea8db0843ab47af"
     },
     {
       "path": "04-analysis-integration/A015-A016-A027-A028-validation.md",
@@ -505,7 +517,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "56ea7bdd37b482de036bd7f10141453a8371b9e6f705c5fda435254e356c3f27"
+      "sha256": "c77e87b6f04b88b601beb599fe21eca887de80b774523b5e1684f64d982e38d0"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -533,11 +545,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "c5264e48150de01f42397f62818302c26c33672201fcc991777a2e67bba2278a"
+      "sha256": "c8a68273cd034803a0d792dd7e4735e95fcebc26ae344d6e8fc571ee49328220"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "b1e6eb8477a8d5e0f8f6a85d90103daeb79aac26594452df6401d3e4c4f35324"
+      "sha256": "7622ce74cd532a76dad0ac20d0b091beff8b4dec555435bf6ba1b084b90e9fa7"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -562,6 +574,10 @@
     {
       "path": "04-analysis-integration/roy1-roy2-password-newuser-sync-20261031.md",
       "sha256": "c12975bcf56c51a9c552407e0412025354ae3a8be9954daabef82c3ba1862a5c"
+    },
+    {
+      "path": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
+      "sha256": "c159ecdec858ee0da811435e7e30f1daae5ae7ce3a97cc94b2bebae86bf9329e"
     },
     {
       "path": "04-analysis-integration/scenarios.json",
