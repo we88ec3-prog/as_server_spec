@@ -334,13 +334,16 @@
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
         "ev_a016_20261031_asgard_replay_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a022_20261031_map_archive_collision_resource"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "a016_recovery_note": "C35 two BE u16 only; no map_id/map_epoch/request_id; same revision map checksum pair is wire-identical across loads, Server epoch cannot distinguish late identical C35.",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a022_resource_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "a022_geometry_scope": "Map0/1/2 archives contain 491 complete tile maps with 8B header (3 LE u16,2 u8 dimensions), packed block grid, 10B raw tile, 7/8/16B sections. Bounds are geometry not original Server walkability. C35 structured checksum not computed."
     },
     {
       "id": "PKT-C62",
@@ -501,11 +504,14 @@
       ],
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a022_20261031_map_archive_collision_resource"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a022_resource_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "a022_geometry_scope": "Map0/1/2 archives contain 491 complete tile maps with 8B header (3 LE u16,2 u8 dimensions), packed block grid, 10B raw tile, 7/8/16B sections. Bounds are geometry not original Server walkability. C35 structured checksum not computed."
     },
     {
       "id": "PKT-S05",
@@ -602,13 +608,16 @@
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
         "ev_a016_20261031_asgard_replay_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a022_20261031_map_archive_collision_resource"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "a016_recovery_note": "control1 Client emits C35; control2 UI callback; control3 Sleep(3000ms) special path. None is original Server durable commit ack.",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a022_resource_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "a022_geometry_scope": "Map0/1/2 archives contain 491 complete tile maps with 8B header (3 LE u16,2 u8 dimensions), packed block grid, 10B raw tile, 7/8/16B sections. Bounds are geometry not original Server walkability. C35 structured checksum not computed."
     },
     {
       "id": "PKT-S15",
@@ -632,11 +641,14 @@
       ],
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a022_20261031_map_archive_collision_resource"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a022_resource_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "a022_geometry_scope": "Map0/1/2 archives contain 491 complete tile maps with 8B header (3 LE u16,2 u8 dimensions), packed block grid, 10B raw tile, 7/8/16B sections. Bounds are geometry not original Server walkability. C35 structured checksum not computed."
     },
     {
       "id": "PKT-S19",
@@ -692,8 +704,11 @@
       "visibility_scope": "other human with 32-bit object_ref, native AOI/ID lifetime unknown",
       "native_client_validation": "not-run",
       "evidence_ids": [
-        "ev_a004_20261031_world_entity_visibility_bin_static"
-      ]
+        "ev_a004_20261031_world_entity_visibility_bin_static",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
+      ],
+      "a011_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "a011_resource_disambiguation": "Monster resource bank 0x1f40..0x1f6a registered to Monster00..42.dat is not proven S07 asset candidate nor 32-bit wire object_ref or permanent NPC template ID"
     },
     {
       "id": "PKT-S37",
@@ -1236,7 +1251,8 @@
       "evidence_ids": [
         "ev_a025_20261031_attack_skill_bin_static",
         "ev_a026_20261031_born_merchant_exit_bin_static",
-        "ev_a004_20261031_world_entity_visibility_bin_static"
+        "ev_a004_20261031_world_entity_visibility_bin_static",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
       "requirements": [
         "R-010",
@@ -1251,7 +1267,9 @@
       "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
       "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
       "native_client_validation": "not-run",
-      "opcode_correction": "S1E is INVALID; S5F native verified from 0x57e1c9 direct ctor→0x578730; 0x57e298 push0x1e is allocation/debug argument"
+      "opcode_correction": "S1E is INVALID; S5F native verified from 0x57e1c9 direct ctor→0x578730; 0x57e298 push0x1e is allocation/debug argument",
+      "a011_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "a011_resource_disambiguation": "Monster resource bank 0x1f40..0x1f6a registered to Monster00..42.dat is not proven S07 asset candidate nor 32-bit wire object_ref or permanent NPC template ID"
     },
     {
       "id": "PKT-C39",
@@ -1272,14 +1290,18 @@
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
       "requirements": [
         "R-013",
         "R-031"
       ],
       "manual_validation": "not-run",
-      "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a011_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "a011_resource_disambiguation": "Monster resource bank 0x1f40..0x1f6a registered to Monster00..42.dat is not proven S07 asset candidate nor 32-bit wire object_ref or permanent NPC template ID",
+      "a011_click": "C39 C2S subtype1..9 merchant intent common field+u32BE opaque object ref+u16; actual NPC click/Script action not proven"
     },
     {
       "id": "PKT-C0B",
@@ -1347,10 +1369,13 @@
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a007_20261031_inventory_lifecycle_static"
+        "ev_a007_20261031_inventory_lifecycle_static",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
       "native_client_validation": "not-run",
-      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "a011_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "a011_resource_disambiguation": "Monster resource bank 0x1f40..0x1f6a registered to Monster00..42.dat is not proven S07 asset candidate nor 32-bit wire object_ref or permanent NPC template ID"
     },
     {
       "id": "PKT-S10",
@@ -1419,14 +1444,18 @@
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a004_20261031_world_entity_visibility_bin_static"
+        "ev_a004_20261031_world_entity_visibility_bin_static",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
       "requirements": [
         "R-004",
         "R-007"
       ],
       "native_client_validation": "not-run",
-      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a011_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "a011_resource_disambiguation": "Monster resource bank 0x1f40..0x1f6a registered to Monster00..42.dat is not proven S07 asset candidate nor 32-bit wire object_ref or permanent NPC template ID",
+      "a011_client_visual_mapping": "S07 kind:u8, appearance/resource_candidate:u16BE and object_ref:u32BE; handler 0x4f17c0 branches kind1/2/4, candidate 0x8000..0xbfff branch; exact NPC/monster model mapping unknown"
     },
     {
       "id": "PKT-S0E",
@@ -1449,14 +1478,17 @@
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a004_20261031_world_entity_visibility_bin_static"
+        "ev_a004_20261031_world_entity_visibility_bin_static",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
       "requirements": [
         "R-004",
         "R-007"
       ],
       "native_client_validation": "not-run",
-      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a011_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "a011_resource_disambiguation": "Monster resource bank 0x1f40..0x1f6a registered to Monster00..42.dat is not proven S07 asset candidate nor 32-bit wire object_ref or permanent NPC template ID"
     },
     {
       "id": "PKT-S0C",
@@ -1569,14 +1601,18 @@
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a004_20261031_world_entity_visibility_bin_static"
+        "ev_a004_20261031_world_entity_visibility_bin_static",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
       "requirements": [
         "R-004",
         "R-007"
       ],
       "native_client_validation": "not-run",
-      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a011_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "a011_resource_disambiguation": "Monster resource bank 0x1f40..0x1f6a registered to Monster00..42.dat is not proven S07 asset candidate nor 32-bit wire object_ref or permanent NPC template ID",
+      "a011_motion": "u32BE ref, u8, u16BE, u8; animation asset frame/channel ID semantic unknown without MonsterXX.dat"
     }
   ]
 }

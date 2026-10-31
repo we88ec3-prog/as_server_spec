@@ -84,3 +84,10 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-004 / roy1：SCN-005/011 多人視野、其他物件消失
 
 [完整原件研究](../03-analysis-requests/A-004-roy1-world-visibility.md) / [Server Domain](A-004-entity-visibility-contract.md)。Client 對其他 human 使用 S33；generic object 使用 S07(count/type/u32 ref＋變長尾欄)；S0C/S64 同步他人位置/路徑，S11 同步方向，S1A 動作，S0E u32 ref 離開/移除，**S5F u32 ref 是獨立死亡相關事件**（勘誤舊 S1E opcode）。MapPane ref lookup 0x4eac30、S15 換圖清舊場景其他物件。新 Server 每個 observer/WorldGeneration/map_instance 維護 visible ref→stable entity 綁定，不允許跨地圖、跨 generation 刪除；同 TCP 原生 wire 無 epoch，重用 ref 前需排序/屏障。不把 S5F 視為 Server quest progress 或把 S0E 視為永久刪除。SCN-005/011 分析仍需原版雙 Client/runtime 與 A-024 NPC/Monster mapping；CT-063～065 planned。
+
+
+## A-011 / A-022：NPC／怪物與原版 MAP 資源對接
+
+[A-011](../03-analysis-requests/A-011-roy1-npc-monster-resources.md)：Monster bank 指標格式 `Monster%02d.dat`（`Monster00.dat`～`Monster42.dat`、resource index 0x1f40..0x1f6a），S07 kind + appearance_candidate:u16BE + object_ref:u32BE 另屬不同命名空間；S1A/ S11/S0C/S64 動作／方向／位置，C39 subtype 商人操作。沒有 Monster 檔及 NPC 原始 Script/Server trace 前，不能聲稱物件 ID→某個怪物模型/動畫/點擊/掉落成立。SCN-011、A-024 原生 NPC 教學仍待分析。
+
+[A-022](../03-analysis-requests/A-022-roy1-map-geometry-collision.md)：已核對 Map0/1/2 原件 491 個完整格子 MAP，寬高、10B raw tile、17B local tile 與 7/8/16B records；`00000.map,10000.map,20000.map` 是特殊零維。任意 map 的 `0<=x<w,0<=y<h` 只證可索引，不能當可走、合法 NPC spawn、官方 tutorial map 出生點。Client line-test bit0x10 不是原服移動真值；SCN-009 首生、SCN-011 NPC 仍 analysis-required，CT-066～071 planned。

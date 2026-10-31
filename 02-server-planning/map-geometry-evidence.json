@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "task": "A-022",
+  "source": "original supplied archives observed-resource + Asgard.exe BIN static",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "archives": [
+    {
+      "filename": "Map0.dat",
+      "sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "directory_count": 289,
+      "named_maps": 288,
+      "valid_tile_maps": 287,
+      "special": "00000.map"
+    },
+    {
+      "filename": "Map1.dat",
+      "sha256": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b",
+      "directory_count": 185,
+      "named_maps": 184,
+      "valid_tile_maps": 183,
+      "special": "10000.map"
+    },
+    {
+      "filename": "Map2.dat",
+      "sha256": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb",
+      "directory_count": 23,
+      "named_maps": 22,
+      "valid_tile_maps": 21,
+      "special": "20000.map"
+    }
+  ],
+  "total_named_maps": 494,
+  "total_valid_tile_maps": 491,
+  "archive_directory": {
+    "count": "u32LE at0",
+    "directory_size": "u32LE at4 equals 4+36*count",
+    "record_stride": 36,
+    "record_start": 8,
+    "end_offset": "last u32LE of each entry; first payload start=8+36*count; next payload start = previous end",
+    "exclude_last_sentinel": true
+  },
+  "map_payload": {
+    "header_fields": [
+      "u16LE value0",
+      "u16LE value1",
+      "u16LE header2 (C35 first field)",
+      "u8 width",
+      "u8 height"
+    ],
+    "block_grid_le_u16_count": "ceil(width/2)*ceil(height/4)",
+    "tile_count": "width*height",
+    "raw_tile_stride": 10,
+    "client_tile_stride": 17,
+    "sections": [
+      {
+        "count": "u32LE",
+        "stride": 7
+      },
+      {
+        "count": "u32LE",
+        "stride": 8
+      },
+      {
+        "count": "u32LE",
+        "stride": 16
+      }
+    ],
+    "geometry_only_valid_condition": "0<=x<width && 0<=y<height",
+    "tile_index": "y*width+x"
+  },
+  "verified_examples": [
+    {
+      "map": "00006.map",
+      "w": 60,
+      "h": 60,
+      "header2": 4,
+      "sections": [
+        7,
+        0,
+        0
+      ]
+    },
+    {
+      "map": "00007.map",
+      "w": 60,
+      "h": 70,
+      "header2": 0,
+      "sections": [
+        60,
+        0,
+        0
+      ]
+    },
+    {
+      "map": "10001.map",
+      "w": 200,
+      "h": 200,
+      "header2": 9,
+      "sections": [
+        678,
+        0,
+        0
+      ]
+    },
+    {
+      "map": "10055.map",
+      "w": 60,
+      "h": 60,
+      "header2": 4,
+      "sections": [
+        56,
+        0,
+        0
+      ]
+    },
+    {
+      "map": "20001.map",
+      "w": 60,
+      "h": 60,
+      "header2": 22,
+      "sections": [
+        4,
+        14,
+        0
+      ]
+    },
+    {
+      "map": "21001.map",
+      "w": 150,
+      "h": 150,
+      "header2": 22,
+      "sections": [
+        303,
+        3,
+        31
+      ]
+    }
+  ],
+  "client_flags": {
+    "tile_raw_byte6_mask_0x10": "seen in Client line-testing at 0x4b4bb0, NOT proven general walk-block",
+    "tile_raw_byte6_mask_0x01": "runtime-set/clear via local tile+6 at 0x4b2ca0, NOT authoritative static collision",
+    "runtime_occupancy_grid": "separate, client local memory MapData+0x258 with accessor 0x4b2d00; not a raw MAP byte flag"
+  },
+  "native_full_walkable_coordinates_ready": false,
+  "native_tutorial_map_and_spawn_ready": false,
+  "collision_server_policy": "unknown original; do not infer walkability from single bit",
+  "c35_first": "header2, not map ID",
+  "c35_second": "Client structured checksum, not raw CRC; per-map values not computed in this study",
+  "report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+  "test": "tools/a022_map_geometry_probe.py"
+}

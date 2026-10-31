@@ -77,3 +77,10 @@ A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/hando
 ## A-004 / roy1：其他物件生成、可見、移動與消失（2026-10-31）
 
 [原始 EXE 逆向](../03-analysis-requests/A-004-roy1-world-visibility.md)／[Server AOI/ref 安全契約](../04-analysis-integration/A-004-entity-visibility-contract.md)：S07 DrawObjects 含 count/variable typed records、S33 Human、S0E RemoveObjects(u32)、S5F DieObjects(u32)（A-025 先前 S1E opcode 誤判已更正）、S0C MoveObject、S64 MovePath、S11 ChangeDirection、S1A Motion；MapPane 0x4eac30 依 ref 查實體。Server 用 internal stable EntityId 和 per observer connection/world instance/epoch wire ref projection。未知原服 AOI 半徑、ID 復用與 2 原版 Client 動態驗收；SCN-005/011 analysis-required、A-024 未完成、CT-063～065 planned。
+
+
+## A-011／A-022 2026-10-31 研究補充
+
+[A-011](../03-analysis-requests/A-011-roy1-npc-monster-resources.md)：Client 依 `Monster%02d.dat` 註冊 0x1f40..0x1f6a 資源（43個 `Monster00.dat`～`Monster42.dat`），原檔未提供、尚無 NPC/monster 模板→sprite/animation/點擊/掉落可信配表。只可先建 asset-bank index、S07/S1A/C39 codec 和 domain 權限邊界；A-024 仍 open。
+
+[A-022](../03-analysis-requests/A-022-roy1-map-geometry-collision.md)：Map0/1/2 原件已提供，491 個 MAP tile payload 可完整解析，幾何座標可檢查，0x10 線段遮蔽 bit/0x01 mutable tile bit 已發現；**不代表**原服完整可走格、出生 map/x/y 或 C35 真 checksum 已知。A-005 原服碰撞仍 open。CT-066..071 planned。原 Client end-to-end not-run。

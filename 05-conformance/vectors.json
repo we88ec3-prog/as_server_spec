@@ -1739,6 +1739,159 @@
       },
       "expected": "No unauthorized cross-map observer visibility, ghost objects or ref aliasing; designed internal epoch does not change native wire layout",
       "evidence_kind": "designed"
+    },
+    {
+      "id": "CT-066",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "level": "npc-monster-asset-index",
+      "requirements": [
+        "R-012"
+      ],
+      "packet_ids": [
+        "PKT-S07"
+      ],
+      "input": {
+        "kind": "native-exe-plus-missing-asset/Client-plan",
+        "reference": "tools/a011_npc_asset_contract.py",
+        "cases": [
+          "Verify original EXE Monster%02d.dat pointer, 0x404371..0x4043b0 registry 0x1f40..0x1f6a (43 files); require actual Monster00..42.dat before sprite/frame content mapping"
+        ]
+      },
+      "expected": "Observed original resource filename/index, never infer monster template ID from bank index",
+      "evidence_kind": "observed-static-plus-designed"
+    },
+    {
+      "id": "CT-067",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "level": "npc-visible-appearance-animation",
+      "requirements": [
+        "R-012"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S33",
+        "PKT-S1A",
+        "PKT-S11",
+        "PKT-S64",
+        "PKT-S0E",
+        "PKT-S5F"
+      ],
+      "input": {
+        "kind": "native-exe-plus-missing-asset/Client-plan",
+        "reference": "tools/a011_npc_asset_contract.py",
+        "cases": [
+          "Differentiate S07 u32 wire ref vs 16-bit appearance candidate vs 43-bank asset index; verify S1A u32/u8/u16/u8, direction and motion with original MonsterXX assets and Client"
+        ]
+      },
+      "expected": "Codec bounded; animation ID→frame/cycles unknown without source assets; do not claim monster kind",
+      "evidence_kind": "observed-static-plus-designed"
+    },
+    {
+      "id": "CT-068",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "level": "npc-click-interact-authority",
+      "requirements": [
+        "R-012"
+      ],
+      "packet_ids": [
+        "PKT-C39",
+        "PKT-C0C",
+        "PKT-C13",
+        "PKT-C6C",
+        "PKT-S44"
+      ],
+      "input": {
+        "kind": "native-exe-plus-missing-asset/Client-plan",
+        "reference": "tools/a011_npc_asset_contract.py",
+        "cases": [
+          "Verify original Client clicked NPC target, observed C39/C0C/battle branch, same map+observer u32 ref, server NPC template and Script binding, replay, disconnect and non-authoritative intent"
+        ]
+      },
+      "expected": "C39 merchant fixed u8/u32BE/u16BE+subtype tail known; actual recruiter/NPC click→original Server policy still unknown",
+      "evidence_kind": "observed-static-plus-designed"
+    },
+    {
+      "id": "CT-069",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "level": "original-map-archive-geometry",
+      "requirements": [
+        "R-004",
+        "R-027",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-S15",
+        "PKT-C35"
+      ],
+      "input": {
+        "kind": "original-resource-plus-native-Client-manual-plan",
+        "reference": "tools/a022_map_geometry_probe.py",
+        "cases": [
+          "Three original SHA Map0/1/2; 36-byte archive record end offsets, 494 named, 491 normal maps, 3 special zero dimensions; all dimensions/block/tile/7/8/16 sections exact EOF; geometry bounds"
+        ]
+      },
+      "expected": "All 491 normal maps consumed exactly; no guesses for 3 special entries or tutorial map/spawn",
+      "evidence_kind": "observed-resource-plus-designed"
+    },
+    {
+      "id": "CT-070",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "level": "tile-line-test-versus-walkable",
+      "requirements": [
+        "R-004",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-C33",
+        "PKT-S0B",
+        "PKT-S15"
+      ],
+      "input": {
+        "kind": "original-resource-plus-native-Client-manual-plan",
+        "reference": "tools/a022_map_geometry_probe.py",
+        "cases": [
+          "Client tile+6 flag0x10 tested by 0x4b4bb0 segment path, bit0x01 toggled 0x4b2ca0, runtime occupancy grid +0x258; collect original blocked/walk traces before canWalk proof"
+        ]
+      },
+      "expected": "Geometry can index tile, cannot claim native movement passability; A-005 stays open",
+      "evidence_kind": "observed-resource-plus-designed"
+    },
+    {
+      "id": "CT-071",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "level": "map-load-collision-spawn-epoch",
+      "requirements": [
+        "R-004",
+        "R-027",
+        "R-028"
+      ],
+      "packet_ids": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "original-resource-plus-native-Client-manual-plan",
+        "reference": "tools/a022_map_geometry_probe.py",
+        "cases": [
+          "Match S15 map_ref and archive source, C35 header2+structured checksum+loading_epoch, valid tile geometry plus validated World placement, duplicate/ambiguous CRC and relog; original tutorial map/spawn unknown"
+        ]
+      },
+      "expected": "No raw CRC substitution; no fake official spawn or stale identical C35 accepted",
+      "evidence_kind": "observed-resource-plus-designed"
     }
   ]
 }

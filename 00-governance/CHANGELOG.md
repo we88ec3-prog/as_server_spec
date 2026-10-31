@@ -93,3 +93,8 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-004 其他物件 Visibility / EntityId / Remove
 
 使用原始 Asgard.exe SHA256 固定的 BIN-first 證據：S07 DrawObjects count/type/ref、S33 PutHuman、S0E RemoveObjects、**S5F DieObjects（修正 A-025 錯誤 S1E/0x1e）**、S0C MoveObject、S64 MovePath、S11 ChangeDirection、S1A Motion；0x4eac30 registry lookup/ref，0x4f17c0 DrawObjects 消費。提交 A-004 詳細報告、Server AOI/ID/epoch/ref fencing contract、20 原始 signature＋18 synthetic unittest、機讀 PKT/SCN/CT-063～065/Manifest。A-004 integrated/handoff partial，兩原版 Client native E2E、Server AOI 半徑、真正原服 EntityId 重用與 NPC/怪物 type 綁定仍 unknown。沿用 task_a/roy1，不新增 branch 或 merge main。
+
+
+## task_a/roy1 — 2026-10-31 A-011/A-022 NPC資源與MAP格子交接
+
+原始 Asgard.exe BIN-first：monster 資源格式 `Monster%02d.dat` 及註冊索引 0x1f40..0x1f6a（43 檔）、S07 kind/u16 appearance/u32 ref 與 0x4F17C0 handler、S1A motion、C39 Merchant interaction，均不等於永久 NPC template ID 或原服 click/dialogue。原版 Map0/Map1/Map2 共 494 命名 map、491 完整 tile resources，原檔 archive directory 尾 4 bytes 是每個 payload END；8-byte header（u16LE×3+u8w/h）、2×ceil(w/2)×ceil(h/4) block、10B raw tile→17B local、7/8/16B 附加紀錄。Client tile+6 bit0x10 線段遮擋測試、bit0x01 runtime 修改，不宣稱原版 Server 原地圖通行表；教學 map/spawn 仍未取得。A-011 integrated/partial；A-022 原 integrated/partial 加補 resource geometry，新增 CT-066～071、證據索引、MAP/NPC JSON、報告/契約/測試及 Manifest。原生 E2E not-run，未開新 branch/未合併 main。

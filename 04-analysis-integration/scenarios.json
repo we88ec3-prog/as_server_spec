@@ -75,10 +75,13 @@
       "status": "manual-pass-subset",
       "notes": "正常切圖已驗證；逾時與載入失敗回復待A-016。 A-016: C35 has no map epoch, so same map content revision across overlapping loads can yield indistinguishable late C35; reject ambiguous overlap/fail closed and restore last durable map/pos on reconnect.",
       "analysis_evidence_ids": [
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a022_20261031_map_archive_collision_resource"
       ],
       "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
-      "recovery_contract": "04-analysis-integration/A-016-idempotency-recovery.md"
+      "recovery_contract": "04-analysis-integration/A-016-idempotency-recovery.md",
+      "a022_map_geometry": "Map0/1/2: 494 named maps, 491 normal tile maps (dimensions u8/u8, tile10 source) and 3 zero-dim special; geometric valid 0<=x<w/0<=y<h NOT authoritative walkability, tile bit0x10 line-test and bit0x01 mutable not general movement rules. Tutorial map/spawn remains unknown.",
+      "a022_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md"
     },
     {
       "id": "SCN-004",
@@ -119,7 +122,8 @@
       "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。 A-004 native BIN: MapPane-like registry lookup at 0x4eac30 by u32 ref, S07 handler 0x4f17c0 has count/record stride0x228; S0E Remove vs S5F Die. Previous S1E DieObjects label was WRONG (factory push0x1e), now corrected to S5F ctor push0x5f. Full AOI radius/2Client native E2E unknown; plan one observer's visible set per map-instance/generation and stable Server entity IDs (designed).",
       "evidence_kind": "observed-static-plus-designed",
       "analysis_evidence_ids": [
-        "ev_a004_20261031_world_entity_visibility_bin_static"
+        "ev_a004_20261031_world_entity_visibility_bin_static",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
       "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
       "a004_contract": "04-analysis-integration/A-004-entity-visibility-contract.md",
@@ -135,7 +139,8 @@
         "duplicate spawn and missing remove",
         "two clients different instances or maps must not see each other",
         "map reset preserves self but clears other objects"
-      ]
+      ],
+      "a011_resource_boundary": "Generic visibility S07/S33 known but monster template↔asset, NPC model and animation selection not proven."
     },
     {
       "id": "SCN-006",
@@ -294,7 +299,8 @@
       "analysis_evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a022_20261031_map_archive_collision_resource"
       ],
       "a022_map_analysis_notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。 A-022 observed: S15 3*u16+2*u8+string8; S14(1) triggers C35(header file+4, structured checksum); S14(2) loading callback. Native tutorial map/spawn unknown pending A-015.",
       "script_entry": {
@@ -343,7 +349,9 @@
         "validation_note": "Born/PaperDialog and original EXE bytes verified offline; native Client not-run; original NPC binding and quest policy unresolved",
         "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
       },
-      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred."
+      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
+      "a022_map_geometry": "Map0/1/2: 494 named maps, 491 normal tile maps (dimensions u8/u8, tile10 source) and 3 zero-dim special; geometric valid 0<=x<w/0<=y<h NOT authoritative walkability, tile bit0x10 line-test and bit0x01 mutable not general movement rules. Tutorial map/spawn remains unknown.",
+      "a022_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md"
     },
     {
       "id": "SCN-010",
@@ -399,13 +407,15 @@
         "PKT-S0C",
         "PKT-S64",
         "PKT-S11",
-        "PKT-S1A"
+        "PKT-S1A",
+        "PKT-C39",
+        "PKT-C0C"
       ],
       "status": "analysis-required",
       "evidence_kind": "designed",
       "profile": "TW-seed0-local-v0.1",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "notes": "已進教學且地圖載入成功後，根據原生內容證據實體化 NPC/怪物，進行有權限的可見性廣播、狀態更新及回收。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+      "notes": "已進教學且地圖載入成功後，根據原生內容證據實體化 NPC/怪物，進行有權限的可見性廣播、狀態更新及回收。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-011: Actual MonsterXX.dat bytes absent, cannot claim NPC template→S07 appearance/motion or NPC click→C39/script verified. A-022: native geometry parse 491 maps, not tutorial spawn or authoritative walkability.",
       "failure_cases": [
         "重複 spawn",
         "越界位置",
@@ -417,9 +427,18 @@
       "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved",
       "analysis_evidence_ids": [
         "ev_a025_20261031_attack_skill_bin_static",
-        "ev_a004_20261031_world_entity_visibility_bin_static"
+        "ev_a004_20261031_world_entity_visibility_bin_static",
+        "ev_a022_20261031_map_archive_collision_resource",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
-      "a004_world_visibility": "A-004 original generic world object codecs now known; no original specific tutorial NPC/monster spawn type, entity-ref or script binding proven, A-024 remains open"
+      "a004_world_visibility": "A-004 original generic world object codecs now known; no original specific tutorial NPC/monster spawn type, entity-ref or script binding proven, A-024 remains open",
+      "a022_map_geometry": "Map0/1/2: 494 named maps, 491 normal tile maps (dimensions u8/u8, tile10 source) and 3 zero-dim special; geometric valid 0<=x<w/0<=y<h NOT authoritative walkability, tile bit0x10 line-test and bit0x01 mutable not general movement rules. Tutorial map/spawn remains unknown.",
+      "a022_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "a011_resource_bank": "Monster resource bank index0x1f40..0x1f6a maps to Monster00.dat..Monster42.dat by client registration. This is distinct from native S07 appearance candidate and u32 object_ref. No monster/NPC original template or animation table available.",
+      "a011_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "native_npc_animation_binding_ready": false,
+      "native_tutorial_npc_spawn_map_ready": false,
+      "native_client_validation": "not-run"
     },
     {
       "id": "SCN-012",

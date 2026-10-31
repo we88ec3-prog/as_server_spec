@@ -11,3 +11,8 @@
 ## A-016：載圖與恢復之身份/epoch 限制（2026-10-31）
 
 [A-016 BIN-first 報告](../03-analysis-requests/A-016-roy1-replay-recovery.md) / [安全恢復契約](A-016-idempotency-recovery.md)：C35 `0x573490` 只輸出 2×BE u16，**沒有 map_id/epoch/request ID**。Server 內部 loading_epoch 可隔離連線/重登狀態，但同 TCP 若舊 epoch C35 與新 epoch 期待相同 checksum pair，**單靠 C35 body 無法辨別**；須單一 pending loading、控制 in-flight/complete 邊界，無法安全判定時 fail closed 並重建連線。S14 control2 `0x4F23B5` 是 Client local loading callback，**不是**已持久化入圖/教程完成的 Server ACK。按最近 durable map/pos 恢復，CT-043/044 planned，Client E2E not-run。
+
+
+## A-022 追加：MAP 真實幾何、旗標及有效座標區間
+
+原版三份 `Map*.dat` 已收到，詳 [491 份完整 tile 研究](../03-analysis-requests/A-022-roy1-map-geometry-collision.md) / [safe coordinate 與碰撞契約](A-022-map-geometry-contract.md) / [機讀統計](../02-server-planning/map-geometry-evidence.json)。地圖 directory entry36 bytes 的 last4 LE 是 payload end，正常 MAP header 3×u16LE+width/height u8，block table `2*ceil(w/2)*ceil(h/4)` bytes、每 tile raw10B/local17B，尾 7/8/16-byte records；491/494 名稱 map 是完整正常格子資源，3 個 `00000/10000/20000` 不可當可走圖。`0<=x<w,0<=y<h` 僅幾何可索引，Client tile+6 bit0x10 參與線段遮蔽/阻隔，bit0x01 可動態變動，runtime 另有 occupancy grid。**非原 Server 移動/出生可行性證明**；C35 header2 可直接解，但真正 per-MAP structured checksum、tutorial map+spawn、Client blocked-step E2E 未證。CT-069～071 planned；A-005 碰撞 authority 仍 open。

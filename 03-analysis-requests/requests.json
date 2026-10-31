@@ -287,12 +287,36 @@
       "title": "怪物/NPC與掉落",
       "method": "由資源、可見物件及互動UI追物件類別、外觀、AI動作與掉落。",
       "deliverable": "生成／移動／消失／互動對話的最小可驗收鏈。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "evidence_kind": "observed-static-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "implementation_ready": true,
+      "implementation_ready_scope": "original 43 Monster asset-bank registration filenames/index, S07 kind/appearance/32bit ref, S1A motion and C39 merchant intent bounded protocol plus designed resource/instance/interaction contract only",
+      "native_npc_template_binding_ready": false,
+      "native_monster_appearance_animation_ready": false,
+      "native_click_action_mapping_ready": false,
+      "native_drop_table_ready": false,
+      "analysis_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "analysis_contract": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
+      "analysis_index": "02-server-planning/npc-monster-resource-index.json",
+      "analysis_test": "tools/a011_npc_asset_contract.py",
+      "remaining_unknowns": [
+        "Missing original Monster00.dat through Monster42.dat assets for sprite/motion/frame mapping and actual monster template data",
+        "Basic.dat absent; its NPC template or animated sprite relevance unknown",
+        "Original S07 appearance/resource candidate mapping to registered Monster asset index not proven",
+        "NPC click to actual C39/C0C/Script and NPC ID, dialogue, drop contract not proven",
+        "Original Server NPC/monster AI, spawn map, death/rebirth and loot behavior unknown",
+        "Original Client runtime packet/menu interaction and animation E2E not-run"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-012",
@@ -597,7 +621,8 @@
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a022_20261031_map_archive_collision_resource"
       ],
       "dependencies": [
         "A-015",
@@ -606,14 +631,14 @@
       ],
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
-      "evidence_kind": "observed-static",
+      "evidence_kind": "observed-static-plus-observed-resource-plus-designed",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-022-roy1-bin-analysis.md",
       "implementation_ready": true,
       "tutorial_content_ready": false,
-      "analysis_scope": "static S14/S15/C35/S04/C25 + MAP CRC and designed recovery; actual tutorial map resources not supplied",
+      "analysis_scope": "Original S14/S15/C35/S04 Client MAP loading and structured CRC + 3 original Map*.dat archive directory/end offsets and 491 fully valid map tile/sections; tile flag0x10 line obstruction and bit0x01 runtime flag; native full walking collision, initial tutorial map/spawn unknown",
       "static_scope_completed": [
         "S14 control1/2/3",
         "S15 3xu16+2xu8+string8",
@@ -624,12 +649,23 @@
         "epoch-specific loading/recovery"
       ],
       "remaining_unknowns": [
-        "native tutorial map ID and bytes require A-015",
-        "native first spawn x/y/heading and Born script",
-        "native onboarding flag and original failure policy",
-        "C25 all region branches"
+        "Original tutorial map ID and first spawn x/y/heading/first login map policy remain unknown despite 491 parseable map resources",
+        "C35 structured checksum actual expected values for each original map not yet calculated; original Server accepts per content version",
+        "Client tile bit0x10 is line-obstruction test and bit0x01 runtime mutated, no complete original walking/placement/AI/spawn collision truth table",
+        "Native Server collision/blocked-step/correction/velocity and C25 regional branch policy require A-005/Server traffic",
+        "Map0/1/2.dat release pairing to Asgard.exe not formally verified by original Server asset manifest",
+        "Original Client first-login and blocked-step E2E not-run"
       ],
-      "last_analysis_date": "2026-10-31"
+      "last_analysis_date": "2026-10-31",
+      "map_resource_geometry_ready": true,
+      "geometry_valid_tile_maps": 491,
+      "native_full_collision_ready": false,
+      "native_map_collision_full_ready": false,
+      "native_tutorial_map_and_spawn_ready": false,
+      "resource_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "resource_contract": "04-analysis-integration/A-022-map-geometry-contract.md",
+      "resource_index": "02-server-planning/map-geometry-evidence.json",
+      "resource_test": "tools/a022_map_geometry_probe.py"
     },
     {
       "id": "A-023",

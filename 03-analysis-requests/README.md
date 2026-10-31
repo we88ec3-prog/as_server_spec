@@ -116,3 +116,10 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-004 / roy1：多人及 NPC 物件可見性
 
 [原版 Client 封包／物件容器／消失深度研究](A-004-roy1-world-visibility.md)、[Server interest/EntityId 契約](../04-analysis-integration/A-004-entity-visibility-contract.md)、[20 BIN signatures 與 18 Python 單元測試](../tools/a004_visibility_model.py)。原生 S07/S33 生成／更新、S0C/S64 移動、S11 方向、S1A 動作、S0E RemoveObjects、**S5F DieObjects（更正舊 PKT-S1E）** 可交接；官方 AOI radius、原服 wire ref 重用及 NPC/Monster 內容綁定仍 unknown。A-004 integrated/handoff partial，原 Client 兩人 E2E 未執行、CT-063..065 planned。
+
+
+## A-011 與 A-022（roy1，2026-10-31）
+
+[A-011 NPC／怪物原生資源與外觀／動作](A-011-roy1-npc-monster-resources.md)／[交接](../04-analysis-integration/A-011-npc-monster-resource-contract.md)：Client 透過 `Monster%02d.dat` 註冊 43 個檔名 `Monster00.dat`～`Monster42.dat`（resource bank `0x1f40..0x1f6a`），S07 提供外觀候選與 u32 object_ref，S1A motion，C39 Merchant interaction；缺原生資源不能把 bank index 等同 monster template/animation/click。A-011 integrated/partial、CT-066～068 planned。
+
+[A-022 MAP 資源、碰撞-like 旗標、可索引座標](A-022-roy1-map-geometry-collision.md)／[交接](../04-analysis-integration/A-022-map-geometry-contract.md)：Map0/1/2 實際494個命名資源、491個按 header/grid/tile/附加紀錄完整解析；幾何 bounds 不等於真正可行走。Client tile+6 bit0x10 用於某條線段測試，bit0x01 可運行時改動，真原服碰撞／出生政策未知。A-022 原已有 loader/CRC integrated/partial，本次補實際資料；CT-069～071 planned。兩任務原 Client 實機 E2E 均 not-run。

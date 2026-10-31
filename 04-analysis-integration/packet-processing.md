@@ -95,3 +95,10 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## A-004 / roy1：原版其他物件生命週期、EntityId 與消失
 
 [A-004 BIN-first](../03-analysis-requests/A-004-roy1-world-visibility.md) / [Server projection](A-004-entity-visibility-contract.md)。S07 DrawObjects ctor0x57e329，parser0x57e3e0：u16BE count + 每筆 u16 x/y,u8 kind,u32BE object_ref,u16 attr，依 type1/2/4/3/13/14 變長，type5..12 無尾欄。S33 PutHuman (u32BE ref+human look/name)；S0E RemoveObjects ctor0x585e79,parser0x585f10 = u32BE ref；**S5F DieObjects** ctor0x57e1c9,parser0x57e260 = u32BE ref（舊 S1E 是把 factory 0x1e 誤當 opcode）；S0C MoveObject ref+2u16+2u8，S64 MovePath ref+2u16+u8+u8 count+count×u8+2u16+u8，S11 ChangeDirection ref+u8，S1A Motion ref+u8+u16+u8。0x4eac30 MapPane registry 根據 ref 查找；S15 換圖清除其他物件（自身另由 S05/S04 維護）。**wire ref 並非已證持久 EntityId**；Server 另以 per observer connection+world/map instance+generation+epoch 做投影，舊 S0E 與重用 ref 的新 S33 在原生 wire 無 epoch 時會產生歧義，必須 fence/reconnect。SCN-005/011 analysis-required、CT-063～065 planned；原生雙 Client AOI 半徑與 NPC 資源綁定尚未驗收。
+
+
+## A-011/A-022 roy1 追加：NPC 素材命名空間與真 MAP tile 對照
+
+[A-011](../03-analysis-requests/A-011-roy1-npc-monster-resources.md)：原版 Client `Monster00.dat..Monster42.dat` 對應 resource bank 0x1f40..0x1f6a，與 S07 appearance_candidate(u16)、object_ref(u32)、Server template_id 是不同概念；S1A u32BE ref+u8+u16BE+u8 可同步動作但原始動畫 frame table 需 Monster assets；C39 Merchant common u8+BEu32 ref+BEu16，再 subtype1..9 可變尾段，不足以宣稱所有 NPC click 均走 C39。S33 人形與 S07 generic、S0E 移除與 S5F 死亡各分開。
+
+[A-022](../03-analysis-requests/A-022-roy1-map-geometry-collision.md)：Map0/1/2.dat 索引共494個 map filename，491份 tile 資源 exact parse（3 special zero-dim 不可出生）；MAP 3×u16LE+u8 w+u8 h、2×ceil(w/2)×ceil(h/4) bytes block、width×height×10 raw tile、3×count+7/8/16-record；幾何 `y*w+x` 是可索引格不代表 walkable。Client tile flags+6 bit0x10 line-test、bit0x01 local mutable，Server 真碰撞需 A-005 原服移動證據；C35 仍 structured checksum 與 header2，非 map ID/整檔 raw CRC。CT-066～071 planned、native Client E2E 未跑。

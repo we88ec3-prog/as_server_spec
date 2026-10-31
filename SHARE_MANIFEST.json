@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "a62b25b27c0a09795f5d577373a06a0f1f7740a7a21d33f9bfaee78f51e53a08"
+      "sha256": "e4e672d3d2bb6911abc7fde479d9ae57ac8886f6c2f1cf9babc549ded2712268"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "c67211335a66f7fdd360789f4ae374295242734127903a0160a73f1b79731fe0"
+      "sha256": "73d39d9d6cbd8860a81a4e397f19fca61647508e758be24b55c6c8df044d8605"
     },
     {
       "path": "00-governance/workflow.md",
@@ -80,12 +80,20 @@
       "sha256": "6d3e575b386b6a4270b9dba549ca729107400b677a0308367ea914f2daa32626"
     },
     {
+      "path": "02-server-planning/map-geometry-evidence.json",
+      "sha256": "6f4a4d4221fc9b8e7a3e2fdd3420231caa76c84c5e869a74e073f0b7589e48d3"
+    },
+    {
       "path": "02-server-planning/map-music-evidence.json",
       "sha256": "ca4b2c7bc4fec203ad9afb2c9be2c11b4aead385a3c393c66a5ab557a82ce7e7"
     },
     {
+      "path": "02-server-planning/npc-monster-resource-index.json",
+      "sha256": "7d4fdcdb54ae7a6122c4f5e564a065081b2abde40ff37cebf6b432d227ed2fc8"
+    },
+    {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "86d8234dce43549567e30c2045f1ebc21e014a0d83658b8c03890b31b293982c"
+      "sha256": "c9d0ffb09bd3485627be4a59515f3688dddb2a5724bf2ce67c6bedaeeade48c8"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -132,6 +140,10 @@
       "sha256": "1d0b5e26b1bef6c967b529a2aa76e4c814abd309a1d27c86ea66b4c6eed18786"
     },
     {
+      "path": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "sha256": "6495299e8aceae05b0e09d121332fa5bc3c0a6fbef35db9d45ba48450abd4b4b"
+    },
+    {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "sha256": "2575fe5d824c42930ca917d2c4a771997a9f2ccdef4b5a8985b0a85fbbe872b3"
     },
@@ -161,7 +173,11 @@
     },
     {
       "path": "03-analysis-requests/A-022-roy1-bin-analysis.md",
-      "sha256": "1b54aa79d8ef5880741c550d7203ac65c75e0ae43387dcaabf06a6520190fe6c"
+      "sha256": "6dc512df68155a32932ebb9b3d7be086cc3f8fe2c12fd9d27c8c1a2d6a0d20b8"
+    },
+    {
+      "path": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "sha256": "142fecbf7b4e2a7bf1b546d8dd7444f9cdde81c7f635966de89e554afb7d52c7"
     },
     {
       "path": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
@@ -185,7 +201,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "35913549a3a85841e4491751bb9a2877a926ef2cd2f3f06ff3f982bc1ae74e72"
+      "sha256": "02767a5f76117f253164af1eaee0c5a02add9546fde82d43d7234edfa5f79cc3"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -193,7 +209,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "f1c48e380630c7a46bc65d0c76651dc1568585f2bb85bc35dc4c96c2126cc5a8"
+      "sha256": "64db7a2516d434161d636a7f8f932abe28cba22cce8d79bc38d20d999c941010"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -210,6 +226,10 @@
     {
       "path": "04-analysis-integration/A-007-inventory-domain-contract.md",
       "sha256": "a5f09ea59b9286509172ce6be2772461092aad0bb4043802e3e72d7c23fb012c"
+    },
+    {
+      "path": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
+      "sha256": "d6b368344eeb980349200f4a89ee95787927670d614a2e7d59a01487b1c1133b"
     },
     {
       "path": "04-analysis-integration/A-016-idempotency-recovery.md",
@@ -240,8 +260,12 @@
       "sha256": "e9d3f2882c5e80b8fcf51061aa6392ee53e22b92e7fe9670d904f9b979708be4"
     },
     {
+      "path": "04-analysis-integration/A-022-map-geometry-contract.md",
+      "sha256": "edc44c2942911e17ce27629faa188d4262dab0ef916854ee14bf1d5bcc819427"
+    },
+    {
       "path": "04-analysis-integration/A-022-map-loading-crc.md",
-      "sha256": "2fae4f8a2c84ebd7065b2308e2b4d502a6f02aba883098c204a80939163f2d2c"
+      "sha256": "9c71b823dd41f0422c943f9bce5fd7588636412b39dc63221f7e3ae3d4c6159e"
     },
     {
       "path": "04-analysis-integration/A-025-tutorial-combat-contract.md",
@@ -277,7 +301,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "3907d966f160f1ff0fa27ca1d4fa228c31a58f21b70531ac0fc0510024aefa5b"
+      "sha256": "9e4095f8ca6481518218dcfd6ca6bf364d636dc250034b2bbaf123934f0d69d9"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -289,11 +313,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "fac0cda3a4ad80b27c6e2bae45199d15d5d8e8b0e59fb784e284c7d38919b3c6"
+      "sha256": "7a0e476f76399ac97ef80cb6433e6c0e0e96a46b22369ffc210bf140586384ce"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "fbe4497115f6b03cf1bc75df13e7009416816638a9f5465618048f6b0a3d9f3d"
+      "sha256": "0a54c5aa2ebdd8af0abf87982377a5031a6896469f812b952c472b21430cd0fa"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -309,11 +333,11 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "d009cebe153a3af2f59930feab2ee9fdf6ad06ad7cf0ce360f2e763495e1c5eb"
+      "sha256": "4bbb3762a0046eb9fbaa5a296a39fcd23acd173910d6ffcf8088870da7b31faf"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "beadcaa45d558063a5f182e6415be4cca56a3e9e26cd2a87cc3b84b158f37575"
+      "sha256": "2febc92c0eb77bba09570ff6e64eeca9b98080cc643eabbfc1518919ae601d47"
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
@@ -341,7 +365,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "e2a68d2cfd43cc69245fb3a852415269ece0c4c9aacf5c8c20d3188373ee1821"
+      "sha256": "756433904d51d2ca04e7e355349b53dbdd04811efc2a43be9c06df1e4aa3151b"
     },
     {
       "path": "05-conformance/tutorial-test-plan.md",
@@ -349,7 +373,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "eecc75040cea5d9b2168a88486f567ee789bdd82855ad7c0e089dafffbc1fd60"
+      "sha256": "1cd80e547ce4e0437ddec451a8cbd9833fc2e320ce98a4a232ae9399c8e447d2"
     },
     {
       "path": "README.md",
@@ -408,6 +432,10 @@
       "sha256": "d96123b62bfc4725b38ded9b6b8f56285ab4af55286a955a6768108b4b00df86"
     },
     {
+      "path": "tools/a011_npc_asset_contract.py",
+      "sha256": "acf747f9dd97221d603564973465db4363d74cde5c6a54b5647bca59c024b4da"
+    },
+    {
       "path": "tools/a016_recovery_model.py",
       "sha256": "c7e31a3c3dbaed247327fc1c68d93ad5656d15a551760026368cd3d77d037b14"
     },
@@ -422,6 +450,10 @@
     {
       "path": "tools/a020_prelogin_contract.py",
       "sha256": "2036129e6abcd38ec557c9a7c6c44da5755b3c6efaee711d1006c2f1b54272f6"
+    },
+    {
+      "path": "tools/a022_map_geometry_probe.py",
+      "sha256": "843ae2739abc6ff7b5a2cdfe385159aa8c080d1f81be5dbb6a632abd857a92ae"
     },
     {
       "path": "tools/a025_tutorial_combat_model.py",

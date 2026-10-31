@@ -84,3 +84,8 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-004：CT-063～065 物件可見性/更新/消失驗收（planned）
 
 [原版 BIN-first 與 ID lookup](../03-analysis-requests/A-004-roy1-world-visibility.md)：CT-063 驗 S07 逐 kind 變長、S33 u32 ref、S0E/**S5F**（先前 S1E 勘誤）兩種事件、S0C/S64/S11/S1A 解析與長度拒絕。CT-064 以**兩個原版 Client** 同圖互見、連續移動、出視野、斷線、重登、切圖、死亡/復活，比對每個封包 ref/地圖實例及 UI 殘影；CT-065 Server-synthetic 測不同 observer/WorldGeneration/epoch 的 ID 回收、重複 spawn/leave、先死後消失、stale ref/reconnect。離線 20 signature +18 unittest pass 不是 native E2E；原服 AOI radius、NPC 資源與 wire ref scope unknown。
+
+
+## A-011/A-022：CT-066～071 NPC素材／碰撞／真實座標驗收（planned）
+
+CT-066 要求核 `Monster%02d.dat` 43-bank 原始 EXE index、資源 SHA/可載入與動畫配置；目前缺 `Monster00.dat`～`Monster42.dat` 與 `Basic.dat`。CT-067 校驗 S07 kind:u8、u32 wire ref、u16 asset candidate 與 S1A/u8+u16+u8 motion/實際 Monster frame 對應，不得將 bank id 當 template。CT-068 兩個真原版 Client 對 NPC 點擊後錄 C39/C0C/C13/S44 對應與原 Server 回覆，確認互動權限/斷線/重送。CT-069 用 Map0/1/2 原件核 36B directory/end offset/491 完整 MAP、特殊 00000/10000/20000；CT-070 結合 line-test tile+6 mask0x10、mutable mask0x01 與實際走路撞牆封包確認 walkable；CT-071 綁 map revision/C35 header2+Client structural checksum/geometry合法出生，舊 C35 相同 pair 時 fail closed。以上皆 planned，不能用靜態/合成 pass 宣稱原生 Client E2E 或原服出生通過。

@@ -126,3 +126,8 @@ objdump -D -M intel --start-address=0x589990 --stop-address=0x5899c0 Asgard.exe
 ## A-002 交叉驗證勘誤（2026-10-31）
 
 先前把 `0x4A8370` 的 S03 區域路由誤稱成 C25 metadata。已由 [A-002](A-002-roy1-login-transfer.md) 確認：S03 parser `0x5886C0` 讀 addr/port/token，`0x4A8370` 的 region3/4 分支把 token 傳給 C10 constructor `0x577330` 並送出；它不是 C25 codec。**此前對 C25 的此一行不能再作為 observed-static 證據**。其餘 A-022 的 S14/S15/C35/MAP 研究不因本次更正而更動。
+
+
+## A-022 後續原始 MAP 補充（2026-10-31，取代當時「僅有 EXE」資源缺口）
+
+此原研究進行時只見原 Client；**現在**已收到 `Map0.dat`、`Map1.dat`、`Map2.dat` 並核對 SHA/解析。追加 [A-022 MAP 幾何／碰撞資料報告](A-022-roy1-map-geometry-collision.md)、[Server 交接](../04-analysis-integration/A-022-map-geometry-contract.md)、[491 MAP 機讀清單](../02-server-planning/map-geometry-evidence.json)、[獨立探測工具](../tools/a022_map_geometry_probe.py)。原件 archive 36-byte record 結尾是 payload **end offset**，494 命名項目中 491 份完整 tile 資源，`00000.map`／`10000.map`／`20000.map` 為零維特殊資料；8-byte MAP header 有3 u16LE+w/h u8、2-byte block grid `ceil(w/2)*ceil(h/4)`、10-byte raw tiles→17-byte local、7/8/16-byte 尾段。原 Client `0x4B4BB0` 線段測試 tile+6 bit0x10，`0x4B2CA0` 可修改 tile flag bit0x01；**不能因此推論原 Server 可走格／原生新手出生點**。原 C35 第二字 structured CRC 尚未逐圖計算。A-022 integrated/handoff partial，map geometry 可用，native 全部 collision/原版 tutorial map/spawn 仍 unknown；CT-069～071 planned。

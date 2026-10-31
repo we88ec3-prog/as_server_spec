@@ -2187,6 +2187,95 @@
         "S07 native type->NPC/monster resource mapping/optional tails and S0E vs S5F visual side effects partial",
         "Original two-Client E2E, map reload/disconnect/drop/death test not run"
       ]
+    },
+    {
+      "evidence_id": "ev_a011_20261031_monster_bank_s07_c39_motion_static",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "method": "original x86 resource registration pointer to UTF16 Monster%02d.dat, indexed loop 0x1f40..0x1f6a, S07 appearance/kind/opaque object ref, S1A Motion reader, C39 merchant writer; 12 original byte signatures; synthetic codec test script",
+      "scope": "A-011 resource filename/index vs S07 appearance candidate/ref, C39 merchant vs actual click unknown; animation/loot mapping missing without Monster assets",
+      "functions": [
+        "0x5f1d3c",
+        "0x404371",
+        "0x40438b",
+        "0x4043a3",
+        "0x4043a9",
+        "0x440720",
+        "0x57e3e0",
+        "0x57e451",
+        "0x4f17c0",
+        "0x4f198d",
+        "0x582fd0",
+        "0x573860"
+      ],
+      "report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "contract": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
+      "index": "02-server-planning/npc-monster-resource-index.json",
+      "synthetic_test": "tools/a011_npc_asset_contract.py",
+      "limits": [
+        "Monster00.dat..Monster42.dat and Basic.dat missing; cannot map templates, sprites or animation frames",
+        "Native NPC click→interaction and dialogue/merchant mapping unknown",
+        "Do not use asset bank index as Server permanent EntityId or S07 opaque object ref",
+        "Native Client E2E not-run"
+      ]
+    },
+    {
+      "evidence_id": "ev_a022_20261031_map_archive_collision_resource",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-plus-observed-resource-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "resources": [
+        {
+          "filename": "Map0.dat",
+          "sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761"
+        },
+        {
+          "filename": "Map1.dat",
+          "sha256": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b"
+        },
+        {
+          "filename": "Map2.dat",
+          "sha256": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb"
+        }
+      ],
+      "method": "decoded original MAP archive 36B directory final4B payload END offsets and 491 tile payloads exact header+block grid+10B tiles+7/8/16B record sections, cross checked original Asgard.exe 0x4b33a0 and tile property/line-scan accessors",
+      "scope": "A-022 new physical geometry, tile flag0x10 Client line-obstruction and bit0x01 runtime toggle; not proven authoritative walkability or tutorial spawn",
+      "functions": [
+        "0x4b33a0",
+        "0x4b3466",
+        "0x4b3493",
+        "0x4b34a3",
+        "0x4b3520",
+        "0x4b3575",
+        "0x4b35e0",
+        "0x4b2c80",
+        "0x4b2ca0",
+        "0x4b2d00",
+        "0x4b4bb0",
+        "0x4b4bfe",
+        "0x4b4cb3",
+        "0x4d1189"
+      ],
+      "report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
+      "contract": "04-analysis-integration/A-022-map-geometry-contract.md",
+      "index": "02-server-planning/map-geometry-evidence.json",
+      "synthetic_test": "tools/a022_map_geometry_probe.py",
+      "observed_resource_counts": {
+        "named": 494,
+        "complete_tile_maps": 491,
+        "special_zero_dimensions": [
+          "00000.map",
+          "10000.map",
+          "20000.map"
+        ]
+      },
+      "limits": [
+        "no original Server collision/walkable/monster placement rules",
+        "Client line test bit0x10 is not authoritative all-purpose walkability",
+        "C35 structured per-map checksum not computed; release pairing not proven",
+        "tutorial first map/spawn unknown; native Client E2E not-run"
+      ]
     }
   ]
 }
