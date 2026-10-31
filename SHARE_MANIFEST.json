@@ -112,6 +112,10 @@
       "sha256": "fad6dec8e96333e33d9cbac7c509b3ff60d7a6e9edd702b50ae27063af14033f"
     },
     {
+      "path": "02-server-planning/novice-school-admission-flow.md",
+      "sha256": "45bf409bd4efb19f3aa22bab51326d50dc0d00e0580c2f9347ce718eec1da4e0"
+    },
+    {
       "path": "02-server-planning/onboarding-delivery-board.md",
       "sha256": "84e6093739ba61e9a30599f98814555b0411e3efa0d9f8f3a72f8f483ec5b5c2"
     },
@@ -121,7 +125,7 @@
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
-      "sha256": "1d055986f63fa14b0b1d9a67e165129404c0f5acfca7c18d2263396697f4771c"
+      "sha256": "dfb070b67abd9d55382715166d17c8ced8572a5e1b380a20c1f232cfe00af63b"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -153,7 +157,7 @@
     },
     {
       "path": "02-server-planning/tutorial-completion-conditions.json",
-      "sha256": "cdf28d18380dd53afcbd410f7cd20978c8c6c132042945ec639cea49a0ddaa00"
+      "sha256": "b7641343bb2643ae64fa36bb80e72a77c1a24a4d6d2cfcdeff8ec3e112b294db"
     },
     {
       "path": "02-server-planning/tutorial-runtime-plan.md",
@@ -245,7 +249,7 @@
     },
     {
       "path": "03-analysis-requests/post-merge-analysis-queue.md",
-      "sha256": "5fa8aea432f43171c54652e209969492748a7ccc83cd62610efb0c930b1e33f2"
+      "sha256": "c40e957f02f17e2e7e7b4b9c996c4f197ce67d8407995eb3fb4d8b648bea7b6d"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -368,6 +372,10 @@
       "sha256": "f7615f76468131a51bd1232df5359ba3125341a27fdb63acecc2c19cbaea4a9b"
     },
     {
+      "path": "04-analysis-integration/new-asset-samples-20261031.md",
+      "sha256": "0a50673de8989e3be1cdf348c41146b4958cb8ce13e0ec0bc85fe5949833047e"
+    },
+    {
       "path": "04-analysis-integration/packet-processing.md",
       "sha256": "04e1806fd69e34e479128cdbbdb16033298c7fcc02661a7f9b5304a9774fca83"
     },
@@ -385,7 +393,7 @@
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "68e84e1f629efc02b24d80f5a6c2c445cf66071b2fdb19213dde83456241e471"
+      "sha256": "dbba5007f1b97f0a7dd92111fe3a58d103a660b330f7b0d6f28be3eef9bb1ea9"
     },
     {
       "path": "04-analysis-integration/roy-merge-20261031-audit.md",
@@ -480,6 +488,10 @@
       "sha256": "0a3d9d15b81d2f061b9ff151968044eece35d71d177543d2c2d359e98fca9879"
     },
     {
+      "path": "05-conformance/new-asset-validation-plan.md",
+      "sha256": "3400a3d60aa3703c652a1e855e3b5658b2e62a7861f0425918e8b240820cf9a4"
+    },
+    {
       "path": "05-conformance/onboarding-test-plan.md",
       "sha256": "b7585be5effae66359d40e8b72ca60f10cda4046bdfada43ec77b9e5473833e0"
     },
@@ -497,7 +509,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "17d653892e4d5bfa812ca4baa3ad7a463ccd303cc6dc57e4751ea77d5199d3c6"
+      "sha256": "d5d517826f527bb5102e44aae6262e53e0cdf8dc33182ce599afa05bb8353150"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

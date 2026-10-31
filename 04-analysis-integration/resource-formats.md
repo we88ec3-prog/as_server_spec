@@ -79,3 +79,9 @@ Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9
 ## A-015 研究格式與來源交付結案（範圍限定，2026-10-31）
 
 Script 既有簡化 `BE u16 length` 的錯誤已更正為 **BE u16 version + BE u32 code units**；原 Born.dat 驗證通過，並加入大於 65535 code units 的合成回歸測試。原 EXE UTF-16LE 常值池的 resource selectors（Basic/Icon/Locale 等）可確認存在，但技能/物品定義的真正檔名 **unknown**，不能把候選檔案當成已解。完整資料盤點／來源／授權／下游邊界見 [A-015 結案審查](../task_a/roy2/A-015-closure-review.md)。
+
+## 2026-10-31 Monster00/World00 與三份新 Script 的實體補證
+
+已收到並離線解出 `Monster00.dat`、`World00.dat`：各自 `LE u32 slots=6`（含 sentinel），五筆 YPF payload，offset0=220、最後 offset=EOF。Monster 索引為五個 M_00_*（모스／모스워리어／나이트모스／드라스／모스캡틴）；World 索引為 TS_000_AnimStatic、AnimStaticShadows、Static、StaticShadows、Tile 的 .ypf。**這是索引存在與 member 名稱，不是 NPC spawn 種類、World 物件資料表或完整動畫解碼**；A-011 的「每 Monster archive 十個 client image slots」**不是**「十個 YPF member」。資產 SHA、長度詳 [實證](new-asset-samples-20261031.md)。
+
+`nNewJoin01.dat`、`PaperDialog.dat`、`PaperDialog02.dat` 以既有 Script `BE u16 version + BE u32 UTF16 units` 及 CP950 CRC 驗證：nNewJoin01 `d9390353`，PaperDialog `f870c574`，PaperDialog02 `42683546`。初級學校三頁選擇是 `STATE=ACCEPT/REFUSE`；PaperDialog02 另外產生 `PAPER02=START/NOT`，其同名 callback 不可與 PaperDialog 直接合併。資源行為不證明原服的學校 NPC 綁定／切圖政策。完整 Server 交接見 [入學規劃](../02-server-planning/novice-school-admission-flow.md)。

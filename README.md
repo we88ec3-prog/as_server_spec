@@ -85,3 +85,9 @@
 ## 2026-10-31 — Roy1/Roy2 最新成果合併
 
 已合併 `task_a/roy1`、`task_a/roy2` 的歷史與原始證據並統一 A／PKT／SCN／CT，保留 **CT-054 原生創角、CT-055 多人共圖**；分支重號測試重新編為 CT-056～081。新增 [Server 經分析更新的接續規劃](02-server-planning/post-roy-merge-implementation-plan.md)、[剩餘 Client A 工作](03-analysis-requests/post-merge-analysis-queue.md)、[CT 來源對照](05-conformance/ct-id-remap-roy1-roy2.md)，原 Client 不修改、無新 native E2E pass。
+
+## 2026-10-31 新手教學與素材五檔補證
+
+已實際檢查本輪上傳的 `nNewJoin01.dat`、`PaperDialog.dat`、`PaperDialog02.dat`、`Monster00.dat`、`World00.dat`。初級學校三頁/接受拒絕、獨立 PaperDialog02 開始取消、Monster/World 各五個 YPF 成員的 SHA/索引已證；**尚不能宣稱原生 NPC 綁定、怪物畫面、官方目的地、教學畢業或 Client E2E 已通過**。
+
+[原件分析](04-analysis-integration/new-asset-samples-20261031.md) · [Server 就學流程規劃](02-server-planning/novice-school-admission-flow.md) · [驗收項目](05-conformance/new-asset-validation-plan.md)。

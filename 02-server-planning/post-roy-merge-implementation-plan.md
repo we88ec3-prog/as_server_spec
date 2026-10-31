@@ -61,3 +61,11 @@ Script `Born` 顯示/關閉只更新 `ScriptRun`，不更新 `TutorialCompleted`
 - **C43** 兩條原生 producer `0x479DC7`、`0x4A23F8` 都可構造 `01 BE-u32 04`，仍未證明 NPC 點擊一定送 C43、也未連成 S34→NPCChatDialog 的完整路徑。
 
 DEV-070-M 可以立即增加 `MonsterResourceCatalog` 及由原始 id→檔名/槽的安全映射、原生 S07 kind1/2/4 to MonsterObject adapter 設計、共享地圖 AOI；**實際原版 Client Sprite、NPC 對話與原生 CT-082～086 仍 not-run**。
+
+## 2026-10-31 新五檔資源推進（保持原開發順序）
+
+新增直接可開發的 **DEV-090 AdmissionIntent**：依已驗證 `nNewJoin01.dat` 初級學校三頁與 `STATE=ACCEPT/REFUSE`、`PaperDialog02.dat` 獨立 `PAPER02=START/NOT` 建立兩個不同 ScriptReply handler，逐筆綁當次 ScriptRun、登入身份/場景/世代，冪等地記錄意圖；拒絕/重送不得完成教學、發獎或切圖。`PaperDialog.dat` 普通 OK 與上述有回覆的腳本區分。**不能因 ACCEPT 存在就宣稱必然轉往官方初級學校 map**。
+
+**DEV-070-M ContentRegistry** 可用 `Monster00.dat`（五個具名怪物 YPF）和 `World00.dat`（五個地景 YPF）做 archive SHA/index/payload 版本 pin；不能把五個封裝 member index 混同 A-011 原 EXE 的每 archive 十個 image slots。若要原版 NPC/怪物顯示仍待 imageID→YPF member、S07 type、ObjectRegistry 及 NPC 互動 UI 鏈。**使用者已提供五個原件，不再算原件缺失**。
+
+完整 [新手就學流程契約](novice-school-admission-flow.md)、[原件 SHA 與證據](../04-analysis-integration/new-asset-samples-20261031.md)、[新驗收用例](../05-conformance/new-asset-validation-plan.md)。原版 Client CT 全部維持 `not-run`；不改 Asgard.exe，不建新分支。

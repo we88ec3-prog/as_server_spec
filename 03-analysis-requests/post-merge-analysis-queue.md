@@ -1,5 +1,10 @@
 # Roy1/Roy2 合併後需再分析的工作（2026-10-31）
 
+## 2026-10-31 五件新資源已到位（不要再索取）
+
+`nNewJoin01.dat`、`PaperDialog.dat`、`PaperDialog02.dat`、`Monster00.dat`、`World00.dat` 已讀取與離線驗證，詳 [原件證據](../04-analysis-integration/new-asset-samples-20261031.md)。nNewJoin01 的初級學校三頁與 `STATE=ACCEPT/REFUSE` 是**資源靜態已證**，PaperDialog02 另有 `PAPER02=START/NOT`；兩包 5+5 個 YPF member 已建立檔名指紋。**取消舊表「本地缺這五件原件」的描述**；仍需 Client NPC→script、`QuestDialog_Create` 真依賴、imageID→YPF member/motion、學校入圖目的地與原生 E2E，不可把腳本對話當 NPC 綁定或任務完成。Script 缺件請先找原生 dependency 明確檔名，不能直接要求猜測的 `QuestDialog.dat`。
+
+
 **不修改原始 `Asgard.exe`，不需要還原原服 Server-only 的管理政策／固定 AI／發獎策略**。狀態：11 個 A 本次已回寫 integrated（9? Roy2 六項、Roy1 五項），但「已回寫靜態證據」不等於 Native Client E2E。不要重做已證已交付部分。
 
 |先後|A 任務|要追的剩餘 Client 行為與可交付憑據|影響開發|
