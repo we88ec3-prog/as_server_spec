@@ -4716,6 +4716,97 @@
       "synthetic_test": "task_a/roy2/test_a023_script_bundle.py",
       "native_client_validation": "not-run",
       "original_assets_committed": false
+    },
+    {
+      "evidence_id": "A011-E09",
+      "evidence_kind": "observed-original-client-static",
+      "locator": "S07 original parser 0x57E451→0x57E456 writes common fifth BEu16 appearance/resource into row+0x0C (after x/y u16,kind u8,object-ref u32); kind1/2/4 tail variant_u16 separately at row+0x222 from0x57E4B8.",
+      "date": "2026-11-01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "native_probe": "task_a/roy2/a011_s07_native_visual_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_s07_visual_chain.py",
+      "native_client_validation": "not-run",
+      "original_binary_committed": false
+    },
+    {
+      "evidence_id": "A011-E10",
+      "evidence_kind": "observed-original-client-static",
+      "locator": "S07 handler0x4F1A7F reads row+0x0C into 20B local descriptor first u16, passes its pointer to MonsterObject ctor0x4D6FA0 for kinds1/2/4 at0x4F1AEB/0x4F1BC7/0x4F1C31; links S07 exact field to Monster object visual descriptor.",
+      "date": "2026-11-01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "native_probe": "task_a/roy2/a011_s07_native_visual_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_s07_visual_chain.py",
+      "native_client_validation": "not-run",
+      "original_binary_committed": false
+    },
+    {
+      "evidence_id": "A011-E11",
+      "evidence_kind": "observed-original-client-static",
+      "locator": "MonsterObject ctor0x4D7020 copies 20B descriptor to+0x28C; 0x4D70A6→0x4D2340 factory reads descriptor first u16 at0x4D235C, calls0x4D7530/0x4D7560 MonsterImageLib bank8000+floor((imageID-0x4000)/10) and slot modulo10; safe registered imageID0x4000..0x41AD resolves Monster00..42.",
+      "date": "2026-11-01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "native_probe": "task_a/roy2/a011_s07_native_visual_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_s07_visual_chain.py",
+      "native_client_validation": "not-run",
+      "original_binary_committed": false
+    },
+    {
+      "evidence_id": "A011-E12",
+      "evidence_kind": "observed-original-client-static",
+      "locator": "S07 separate kind1/2/4 variant_u16 row+0x222 passed as 9th ctor argument at0x4F1AC3/0x4F1BA0/0x4F1C09; MonsterObject ctor0x4D703E/0x4D7056 x87 fild to float stored+0x27C at0x4D7061, NOT the descriptor first u16/image ID. Semantic label unknown.",
+      "date": "2026-11-01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "native_probe": "task_a/roy2/a011_s07_native_visual_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_s07_visual_chain.py",
+      "native_client_validation": "not-run",
+      "original_binary_committed": false
+    },
+    {
+      "evidence_id": "A011-E13",
+      "evidence_kind": "observed-original-client-static",
+      "locator": "C43 three native UI-panel producer paths 0x4A23F8/0x4A249B/0x4A2537, type1, mode0 subtype04 at0x4A2410, mode1 subtype10 at0x4A24B3, mode2 subtype40 at0x4A254F; share pane+0x4C object-ref write0x4A2553 and queue0x4A2558. Other UI producer0x479DEB subtype04. Not proven universal NPC click.",
+      "date": "2026-11-01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "native_probe": "task_a/roy2/a011_s07_native_visual_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_s07_visual_chain.py",
+      "native_client_validation": "not-run",
+      "original_binary_committed": false
+    },
+    {
+      "evidence_id": "A011-E14",
+      "evidence_kind": "original-PE-static-plus-synthetic",
+      "locator": "Original Asgard.exe SHA db3df... locally verified 43 VA instruction patterns for S07 visual source/MonsterImageLib/motion and C43 panel modes; GitHub CI 23 S07 projection/C43 synthetic tests; original Monster asset sample/UI Native CT083 not-run.",
+      "date": "2026-11-01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "native_probe": "task_a/roy2/a011_s07_native_visual_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_s07_visual_chain.py",
+      "native_client_validation": "not-run",
+      "original_binary_committed": false
+    },
+    {
+      "evidence_id": "A011-E15",
+      "evidence_kind": "explicit-evidence-boundary",
+      "locator": "No original Monster00.dat/World00.dat or other MonsterNN/WorldNN data in this workspace: cannot map archive slot to actual YPF/DOI group/direction/frame, NPC species, drop or AI; no original Server NPC EntityId→Script binding, or GUI click/dialog capture; Main's prior Monster00/World00 archive metadata is not the file payload.",
+      "date": "2026-11-01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "native_probe": "task_a/roy2/a011_s07_native_visual_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_s07_visual_chain.py",
+      "native_client_validation": "not-run",
+      "original_binary_committed": false
     }
   ]
 }
