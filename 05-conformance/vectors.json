@@ -1588,13 +1588,14 @@
         "kind": "original-client-static-plus-synthetic",
         "reference": "05-conformance/A-024-object-lifecycle-test-plan.md"
       },
-      "expected": "Original Asgard.exe SHA + 20 instruction patterns, 14 S07 type switch entries and six RTTI verified; synthetic decoded body tests for S07 nonempty all native kinds and S34 subtype6/S3C/S62/S63/S29 must pass independently. No native GUI or official monster type claims.",
+      "expected": "Original Asgard.exe SHA + 20 PE anchors, 14 S07 type switch and 6 RTTI PASS; S07 all 1..14 native row types, S34 subtype6/11 all flags, S3C/S62/S63/S29, plus previous S0C/S64/S5F/S0E: 19+7 synthetic tests PASS via CI. Native GUI/official NPC type mapping still not-run.",
       "evidence_kind": "observed-static-client+synthetic-test",
-      "offline_subset_result": "20 PE anchors + 14 S07 switch entries + six RTTI independently PASS; new synthetic suite added, execution result not yet recorded",
+      "offline_subset_result": "Verified GitHub Actions run 41185085803 SUCCESS: 19 new object packet synthetic tests + 7 NPC lifecycle tests PASS, phase-gate PASS; native PE 20 anchors/14 dispatch/6 RTTI independently PASS",
       "original_probe": "task_a/roy2/a024_object_native_probe.py",
       "offline_test": "task_a/roy2/test_a024_object_packets.py",
       "analysis_request": "A-024",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41185085803"
     },
     {
       "id": "CT-066",
