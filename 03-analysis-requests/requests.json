@@ -581,11 +581,20 @@
       "title": "怪物/NPC與掉落",
       "method": "由資源、可見物件及互動UI追物件類別、外觀、AI動作與掉落。",
       "deliverable": "生成／移動／消失／互動對話的最小可驗收鏈。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A011-E01",
+        "A011-E02",
+        "A011-E03",
+        "A011-E04",
+        "A011-E05",
+        "A011-E06",
+        "A011-E07",
+        "A011-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -597,7 +606,61 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Original client resource file templates/ID quotient and S07 kind/MonsterObject plus C43 producer are native observed; original Server NPC spawn/interact/loot/AI are DEV-designed and not Client facts. Native CT separate.",
+      "analysis_document": "task_a/roy2/A-011-analysis.md",
+      "evidence_kind": "observed-static-original-client+synthetic-test",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Monster imageId 0x4000-based → Monster Library ID8000..8042 and slot modulo10; S07 kind1/2/4 → MonsterObject; two C43 type1/subtype4 UI producers, local six-way motion selection; NOT proven sprite row-field final linkage, NPC click to chat, actual YPF/DOI animation or drop data",
+      "original_npc_visual_mapping_ready": false,
+      "original_npc_click_dialog_ready": false,
+      "original_npc_animation_ready": false,
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "native_probe_offline_result": "Original provided Asgard.exe SHA locked; 29 PE VA byte-pattern checks + 4 native RTTI names + 3 UTF16 file name literals PASS",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "conformance": [
+        "CT-067",
+        "CT-068"
+      ],
+      "resource_candidates": [
+        "Monster00.dat",
+        "Monster01.dat",
+        "Monster42.dat",
+        "World00.dat",
+        "World23.dat",
+        "PaperDialog.dat"
+      ],
+      "client_io_handoff": {
+        "trigger": "In World receipt of S07 nonempty kind1/2/4 creates MonsterObject; two local UI request producer paths 0x479DC7/0x4A23F8 generate C43 type1/subtype4; local MonsterObject animation selector 0..5",
+        "client_sends": [
+          "PKT-C43",
+          "PKT-C13"
+        ],
+        "client_receives": [
+          "PKT-S07",
+          "PKT-S0C",
+          "PKT-S64",
+          "PKT-S34",
+          "PKT-S3C",
+          "PKT-S44",
+          "PKT-S5F",
+          "PKT-S0E"
+        ],
+        "client_reaction": "S07 world handler 0x4F17C0..0x4F1C4A dispatches kind1/2/4 to MonsterObject ctor 0x4D6FA0; MonsterImageLib image ID quotient and remainder route to MonsterXX.dat. C43 known writer u8+BE u32+u8, but response→NPCChat callback and actual asset animations not fully connected.",
+        "evidence": "task_a/roy2/A-011-analysis.md",
+        "unknowns": [
+          "Missing original MonsterNN.dat and WorldNN.dat archive members; no confirmed NPC species/monster sprite visual ID table",
+          "Unresolved exact S07 source field→final Monster ImageId and resource row-to-YPF/DOI animation group/frame/direction mapping",
+          "Unverified mouse click→C43→S34/S3C/S44→NPCChatDialog native callback chain",
+          "Original Server drop, NPC AI and spawn semantics not Client-authoritative; native Client GUI E2E CT-068 not-run"
+        ]
+      },
+      "open_items": [
+        "Missing original MonsterNN.dat and WorldNN.dat archive members; no confirmed NPC species/monster sprite visual ID table",
+        "Unresolved exact S07 source field→final Monster ImageId and resource row-to-YPF/DOI animation group/frame/direction mapping",
+        "Unverified mouse click→C43→S34/S3C/S44→NPCChatDialog native callback chain",
+        "Original Server drop, NPC AI and spawn semantics not Client-authoritative; native Client GUI E2E CT-068 not-run"
+      ]
     },
     {
       "id": "A-012",
