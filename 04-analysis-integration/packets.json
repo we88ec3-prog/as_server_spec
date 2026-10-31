@@ -1343,7 +1343,10 @@
       "related_packets": [
         "PKT-S15",
         "PKT-S04",
-        "PKT-S44"
+        "PKT-S44",
+        "PKT-S13",
+        "PKT-S08",
+        "PKT-S0E"
       ],
       "layout_status": "partial",
       "evidence_kinds": [
@@ -1356,7 +1359,9 @@
         "A024-E04",
         "A024-E05",
         "A024-E06",
-        "A024-E07"
+        "A024-E07",
+        "A009-E06",
+        "A009-E08"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1372,7 +1377,9 @@
         "Born.dat (31,29) 僅為 UI 引導，不是玩家出生位置或已確認招募員 runtime entity id；A-023 nNewJoin01 只是候選",
         "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
-      ]
+      ],
+      "a009_contract": "task_a/roy2/A-009-analysis.md",
+      "a009_addendum": "Original S5F BE u32 object opaque; S5F DieObjects != S0E RemoveObjects; death decision/animation/revive unknown."
     },
     {
       "id": "PKT-S0C",
@@ -1532,7 +1539,10 @@
         "PKT-S07",
         "PKT-S5F",
         "PKT-S0E",
-        "PKT-S44"
+        "PKT-S44",
+        "PKT-S13",
+        "PKT-S3D",
+        "PKT-S08"
       ],
       "layout_status": "partial",
       "evidence_kinds": [
@@ -1540,7 +1550,10 @@
       ],
       "evidence_ids": [
         "A024-E08",
-        "A024-E09"
+        "A024-E09",
+        "A009-E01",
+        "A009-E02",
+        "A009-E08"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1549,7 +1562,9 @@
         "R-029"
       ],
       "analysis_request": "A-024",
-      "contract_reference": "task_a/roy2/A-024-analysis.md"
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "a009_contract": "task_a/roy2/A-009-analysis.md",
+      "a009_addendum": "Original C13 BE u32 one field; two native producers 0x55709E/0x557A5F. Target identity/attack UI input not fully proven"
     },
     {
       "id": "PKT-C43",
@@ -1749,6 +1764,116 @@
       "contract_reference": "task_a/roy2/A-008-analysis.md",
       "unknowns": [
         "Original failure response code and operation atomics unknown; distinct S08 ACK not guaranteed"
+      ]
+    },
+    {
+      "id": "PKT-C3D",
+      "direction": "C2S",
+      "opcode": "0x3d",
+      "name": "Battle",
+      "system": "SYS-COMBAT",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 subtype (0..15) then variant body; 0:+u8; 1:+2 string8,u8,BE u32; 2:+string8; 4/5/6/10:+u8; 7/9:+2u8; 15:+BE u32; other branches may contain only subtype, but do not infer Server acceptance or semantics.",
+      "client_entry": "CBattlePacket 0x5711C0 ctor/push0x3D, 0x570DE0 serializer, 0x570F2C subtype jump table",
+      "state_precondition": "Client battle interaction and valid World state; exact UI producer and semantics unknown",
+      "related_packets": [
+        "PKT-S3D",
+        "PKT-C13",
+        "PKT-S13",
+        "PKT-S08"
+      ],
+      "layout_status": "observed-static-subtype-writer; subtypes-semantics-unknown",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "A009-E03",
+        "A009-E08"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-010"
+      ],
+      "analysis_request": "A-009",
+      "contract_reference": "task_a/roy2/A-009-analysis.md",
+      "unknowns": [
+        "Individual battle command semantic labels and UI producer are unknown",
+        "Server authentication/range/cooldown handling is DEV designed",
+        "Some subtype branches have legacy string8 and value semantics not proven"
+      ]
+    },
+    {
+      "id": "PKT-S3D",
+      "direction": "S2C",
+      "opcode": "0x3d",
+      "name": "Battle",
+      "system": "SYS-COMBAT",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 subtype (0..15); 1/8/12:+none; 4/5/6/10:+u8; 7:+2u8; 15:+2 BE u32; 3:+string8,BE u32,u8,26xu8; subtype 0/2/9/11/13/14 have more complex dynamic count/string/vector variants not covered by safe codec. Never assume fixed body.",
+      "client_entry": "SBattlePacket 0x57C6E0 ctor/push0x3D; 0x57C890 reader; jump table 0x57CD98",
+      "state_precondition": "Battle packet dispatch in World; exact UI callback and per-subtype state not fully traced",
+      "related_packets": [
+        "PKT-C3D",
+        "PKT-C13",
+        "PKT-S13",
+        "PKT-S5F"
+      ],
+      "layout_status": "observed-static-partial-subtypes",
+      "evidence_kinds": [
+        "observed-static",
+        "synthetic-test"
+      ],
+      "evidence_ids": [
+        "A009-E04",
+        "A009-E08"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-010"
+      ],
+      "analysis_request": "A-009",
+      "contract_reference": "task_a/roy2/A-009-analysis.md",
+      "unknowns": [
+        "Complex S3D variants require deeper native reader/GUI tracing",
+        "No original Server hit/miss/death policy can be inferred from class name"
+      ]
+    },
+    {
+      "id": "PKT-S13",
+      "direction": "S2C",
+      "opcode": "0x13",
+      "name": "DamageEffect",
+      "system": "SYS-COMBAT",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BE u32 opaque1,BE u32 opaque2,u8 kind,BE u16 field34,BE u16 field30,u8 flags [14B]; flags&0x08 reinterprets first u32 high/low u16, flags&0x10 reinterprets second u32 high/low u16 (no extra wire); flags&0x01 adds u8,3xBE u16,u8,2xBE u32,u8 [17B], total 31B. Numeric effects not necessarily authoritative HP delta.",
+      "client_entry": "SDamageEffectPacket ctor 0x57DDE0/push0x13; parser 0x57DE90; bit flags at 0x57DECC,0x57DEF6,0x57DF1B",
+      "state_precondition": "Combat event projection, but original packet ordering/receiver UI not completely proven",
+      "related_packets": [
+        "PKT-C13",
+        "PKT-S08",
+        "PKT-S3D",
+        "PKT-S5F"
+      ],
+      "layout_status": "observed-static-native-conditional-fields",
+      "evidence_kinds": [
+        "observed-static",
+        "synthetic-test"
+      ],
+      "evidence_ids": [
+        "A009-E05",
+        "A009-E08"
+      ],
+      "manual_validation": "native-client-not-run",
+      "requirements": [
+        "R-010"
+      ],
+      "analysis_request": "A-009",
+      "contract_reference": "task_a/roy2/A-009-analysis.md",
+      "native_probe": "task_a/roy2/a009_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a009_combat.py",
+      "unknowns": [
+        "Exact attacker/target meaning of opaque fields needs handler XREF",
+        "Miss/crit, original damage formula and update ordering unknown"
       ]
     }
   ]
