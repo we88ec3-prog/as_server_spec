@@ -42,3 +42,8 @@ A-025 = `integrated/handoff partial`；已證 opcode codec / hostile input valid
 ## A-004 / roy1 更正（2026-10-31）
 
 原版 `SDieObjects` 真正 constructor 是 `0x57e1b0`，在 `0x57e1c9` 將 opcode **0x5F** 傳 `0x578730`；reader `0x57e260` 仍是 BE u32 object_ref。先前把 factory `push0x1e` 誤當 opcode，已更正成 **S5F**（另有 S0E RemoveObjects）。死亡通知本身仍非原服 quest completion 證據。參照 [A-004](../03-analysis-requests/A-004-roy1-world-visibility.md)。
+
+
+## 2026-11-01 A25 新原生 jump-table 靜態契約
+
+詳 [新增分析](../03-analysis-requests/A-025-roy1-battle-variant-closure-20261101.md)、[安全 codec](../tools/a025_battle_variant_probe.py) 與 [CT-058～060](../05-conformance/A-025-battle-variant-test-plan.md)：原版 C3D writer 0x570DE0 dispatch 0x570F2C 和 S3D reader 0x57C890 dispatch 0x57CD98，32 pointers+22 native windows 原件 PASS，14 新測試 PASS。C3D 所有 16 種 writer layout 現已列出；S3D 1/3/4/5/6/7/8/10/11/12/15 只可用明確型別解析，其餘 complex list/vector 0/2/9/13/14 未準備原生安全 emit，禁止猜測成傷害或 reward。C56 UI sender/完整 stage、原服 quest mapping 仍未知。S5F（非 S1E）死亡通知正確，不能當 Quest kill ACK。此為 bounded Client I/O ready，GUI/TCP/original Server E2E not-run。

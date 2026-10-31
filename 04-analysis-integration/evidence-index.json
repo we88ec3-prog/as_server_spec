@@ -4650,6 +4650,53 @@
         "file-size match does not prove official release equivalence",
         "original native client GUI/TCP remains not-run"
       ]
+    },
+    {
+      "evidence_id": "ev_a025_20261101_native_c3d_s3d_jump_tables",
+      "date": "2026-11-01",
+      "source_branch": "task_a/roy1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "observed-original-Asgard-PE-C3D-S3D-branch-tables-plus-synthetic-negative-codec",
+      "locator": "C3D writer 0x570DE0 switch 0x570DF8 table 0x570F2C; S3D reader 0x57C890 switch 0x57C8D1 table 0x57CD98; 0x570A29 C13,0x575529 C4D,0x571769 C56,0x57E1C9 S5F",
+      "report_path": "03-analysis-requests/A-025-roy1-battle-variant-closure-20261101.md",
+      "offline_probe": "tools/a025_battle_variant_probe.py",
+      "test_path": "tools/test_a025_battle_variant_probe.py",
+      "conformance": "05-conformance/A-025-battle-variant-test-plan.md",
+      "native_instruction_windows": 22,
+      "native_dispatch_entries": 32,
+      "c3d_writer_subtypes_verified": 16,
+      "s3d_safe_subtypes": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        12,
+        15
+      ],
+      "s3d_complex_unsupported": [
+        0,
+        2,
+        9,
+        13,
+        14
+      ],
+      "unit_tests_passed": 14,
+      "native_client_validation": "not-run",
+      "official_tutorial_combat_mandatory": "unknown",
+      "raw_assets_shared": false,
+      "limitations": [
+        "original C56 UI sender not linked to exact stage",
+        "Server success result enum and damage/cooldown formulas unknown",
+        "original tutorial quest/monster objective and rewards unknown",
+        "complex S3D vector types not safe to emit",
+        "all original GUI/TCP tests not-run"
+      ]
     }
   ]
 }

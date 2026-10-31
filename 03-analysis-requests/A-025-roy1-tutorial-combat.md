@@ -80,3 +80,8 @@ python3 tools/a025_tutorial_combat_model.py
 ## A-004 / roy1 更正（2026-10-31）
 
 原版 `SDieObjects` 真正 constructor 是 `0x57e1b0`，在 `0x57e1c9` 將 opcode **0x5F** 傳 `0x578730`；reader `0x57e260` 仍是 BE u32 object_ref。先前把 factory `push0x1e` 誤當 opcode，已更正成 **S5F**（另有 S0E RemoveObjects）。死亡通知本身仍非原服 quest completion 證據。參照 [A-004](../03-analysis-requests/A-004-roy1-world-visibility.md)。
+
+
+## 2026-11-01 A25 原始 C3D/S3D 32-way 靜態補證（主線正式 CT 編號更正）
+
+[新增原件分析](A-025-roy1-battle-variant-closure-20261101.md) 與 [重跑工具](../tools/a025_battle_variant_probe.py)：Asgard.exe SHA 相符，22 個 native VA instruction windows、C3D 16 + S3D 16 個 branch pointers 完整核對，14 個新測試 PASS。C3D 16 種 subtype 已列各自 writer 欄位；S3D 只安全支援 11 個已確認小型分支，vector-heavy 0/2/9/13/14 明確 fail closed。原生 GUI/TCP/原服任務未驗收，單一 Born 只能證該腳本無明示殺怪，不能宣稱官方教程戰鬥必需或不必需。先前 S1E 死亡歸屬已更正為 S5F。**主線正式 A25 測試編號是 CT-058/059/060，舊 CT-051/052/053 僅為來源歷史編號。** A25 handoff=ready 只限 Client static codec/安全交接，不包含真實 objective/全部 Server 效果或原生實機完成。

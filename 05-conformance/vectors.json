@@ -1419,7 +1419,7 @@
         "PKT-C4D",
         "PKT-C56",
         "PKT-S52",
-        "PKT-S1E"
+        "PKT-S5F"
       ],
       "input": {
         "kind": "bin-derived-synthetic",
@@ -1431,10 +1431,11 @@
           "C4D": "1234",
           "C56": "07",
           "S52": "1122334403",
-          "S1E": "12345678"
-        }
+          "S5F": "12345678"
+        },
+        "correction": "native DieObjects is S5F ctor 0x57E1C9, not S1E"
       },
-      "expected": "Client original opcode/codec signatures match C13 u32 BE,C4D u16 BE,C56 u8, S52 u32 BE+u8,S1E u32 BE. Not proof of original quest kill count or Server success result; native E2E not-run",
+      "expected": "Client original opcode/codec signatures match C13 u32 BE,C4D u16 BE,C56 u8, S52 u32 BE+u8,S5F u32 BE. Not proof of original quest kill count or Server success result; native E2E not-run",
       "evidence_kind": "observed-static-plus-synthetic",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
@@ -1458,9 +1459,35 @@
         "kind": "bin-derived-variant-boundary",
         "reference": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
         "subtype_range": "0..15",
-        "pending": "Full per-subtype wire schema and actual Client result UI mapping must be established before enabling those variants"
+        "pending": "Original GUI/TCP, Server business meaning and S3D complex 0/2/9/13/14 full vector schema remain unverified; all unknown branches fail closed",
+        "original_static_probe": "tools/a025_battle_variant_probe.py",
+        "synthetic_fixture_test": "tools/test_a025_battle_variant_probe.py",
+        "native_jump_entries_verified": 32,
+        "native_instruction_windows": 22,
+        "c3d_writer_subtypes_verified": 16,
+        "s3d_bounded_read_subtypes": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          11,
+          12,
+          15
+        ],
+        "s3d_complex_unsupported": [
+          0,
+          2,
+          9,
+          13,
+          14
+        ],
+        "offline_tests_passed": 14
       },
-      "expected": "Both native C3D writer and S3D parser branch on subtype u8 0..15; unsupported or unknown variants cannot produce damage/skill success/quest completion. Native full battle subtype E2E not-run",
+      "expected": "Both native C3D writer and S3D parser branch on subtype u8 0..15; unsupported or unknown variants cannot produce damage/skill success/quest completion. Native full battle subtype E2E not-run Native source table 32/32 and bounded safe parser offline PASS is not native gameplay PASS.",
       "evidence_kind": "observed-static-plus-designed",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
@@ -1482,7 +1509,7 @@
         "PKT-C4D",
         "PKT-C56",
         "PKT-S52",
-        "PKT-S1E"
+        "PKT-S5F"
       ],
       "input": {
         "kind": "designed-sqlite-synthetic",
@@ -1493,7 +1520,7 @@
           "out-of-range/dead/unlearned skill/insufficient resource/cooldown",
           "event replay before and after SQLite reopen",
           "no verified tutorial objective means no progress even after valid attack",
-          "S1E disappear does not itself count quest"
+          "S5F disappear does not itself count quest"
         ]
       },
       "expected": "Only server-authoritative verified combat result can produce an objective event; duplicate event once only with durable unique ledger; unverified Born tutorial requirement never invented",

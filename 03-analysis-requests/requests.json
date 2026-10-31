@@ -1976,7 +1976,8 @@
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a025_20261101_native_c3d_s3d_jump_tables"
       ],
       "dependencies": [
         "A-008",
@@ -1989,7 +1990,7 @@
       "profile": "TW-seed0-local-v0.1",
       "evidence_kind": "observed-static",
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "partial",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
       "client_io_scope_correction": "Client 使用技能/攻擊時的送包、收到效果/HP/狀態包後的 UI/動畫及取消重送；Server 計算傷害/冷卻和任務計數的策略獨立設計。",
       "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
@@ -2005,27 +2006,67 @@
       ],
       "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
       "implementation_ready": true,
-      "implementation_ready_scope": "C13 attack-u32, C4D start-spell-u16, C56 cast-u8, C3D/S3D Battle subtype0..15 discriminator, S52 u32+u8 and S1E u32 codec plus designed fail-closed combat authority/event ledger. NOT full battle variant/skill/quest implementation",
+      "implementation_ready_scope": "Client I/O C13 BEu32, C4D BEu16, C56 u8; C3D native 16 writer subtype shapes; S3D 11 bounded decoders (0/2/9/13/14 intentionally unsupported); S52 BEu32+u8, S5F BEu32 (NOT S1E) and A009 S13 14/31B. Designed server authority/event ledger only; not official combat/skill/quest policy.",
       "native_tutorial_combat_requirement_proven": false,
       "native_quest_progress_mapping_ready": false,
       "native_combat_e2e_ready": false,
       "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
       "analysis_contract": "04-analysis-integration/A-025-tutorial-combat-contract.md",
       "analysis_test": "tools/a025_tutorial_combat_model.py",
-      "analysis_scope": "Native Client attack/spell intent sender and packet type, selected server effect readers, combat variant discriminator, Born.dat limited no-combat-condition observation; designed objective event idempotency",
+      "analysis_scope": "Native Client attack/skill packet decoded body, original C3D full writer layouts and bounded S3D 11-type reader; Born-only tutorial negative observation; safe designed World authoritative ledger. Original Client E2E/official tutorial quest rules NOT proven.",
       "remaining_unknowns": [
         "A-024 actual tutorial NPC/monster entity IDs, spawn map, action and target bindings unknown",
-        "A-008/009/010 full skill catalog, damage and cooldown/resource formula, C56 stage, C3D/S3D subtype0..15 layouts and successful result enum not completed",
+        "A-008/009/010 full skill catalog, damage and cooldown/resource formula, C56 stage, C3D 16 native writer layouts and S3D 11 bounded layouts now mapped; S3D complex 0/2/9/13/14 and successful result enum remain unverified",
         "A-012/A-026 original tutorial quest prerequisite and whether combat mandatory unproven; Born script only gives recruiter paper guide",
         "Native original Server hit/kill authority and quest trigger/complete/award event unavailable from Client EXE",
         "Native Client interaction capture/World login to first fight and back, packet failure/retry cases not-run"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-01",
       "source_branch": "task_a/roy1",
       "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
       "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
       "s1e_correction": "Roy1 later A-004 confirmed previous S1E DieObjects attribution was mistaken; native DieObjects is S5F ctor 0x57E1B0 push 0x5F and reader 0x57E260. S1E source is quarantined; no original Client combat E2E.",
-      "reward_allocation_crossref": "R-033 user decided team aggregation/full party experience/one independent loot resolution per member; A only needs attack/death/exp/loot Client-visible evidence, not original Server reward formula."
+      "reward_allocation_crossref": "R-033 user decided team aggregation/full party experience/one independent loot resolution per member; A only needs attack/death/exp/loot Client-visible evidence, not original Server reward formula.",
+      "handoff_ready_scope": "Only native-static and original-EXE-verified C13/C4D/C56, C3D 16 writer, S3D 11 safe read, S13/S52/S5F status/effect interfaces, fail-closed unknown types; no original server policies or live gameplay",
+      "battle_variant_report": "03-analysis-requests/A-025-roy1-battle-variant-closure-20261101.md",
+      "battle_variant_probe": "tools/a025_battle_variant_probe.py",
+      "battle_variant_test": "tools/test_a025_battle_variant_probe.py",
+      "battle_variant_conformance": "05-conformance/A-025-battle-variant-test-plan.md",
+      "battle_variant_offline_proof": {
+        "original_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+        "byte_windows": 22,
+        "jump_pointers": 32,
+        "c3d_writer_subtypes": 16,
+        "s3d_safe_subtypes": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          11,
+          12,
+          15
+        ],
+        "s3d_rejected_complex": [
+          0,
+          2,
+          9,
+          13,
+          14
+        ],
+        "unit_tests_passed": 14,
+        "original_gui_tcp": "not-run",
+        "original_tutorial_objective": "unknown",
+        "original_client_assets_committed": false
+      },
+      "main_ct_ids": [
+        "CT-058",
+        "CT-059",
+        "CT-060"
+      ]
     },
     {
       "id": "A-026",
