@@ -430,7 +430,8 @@
       "analysis_evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
       ],
       "a022_map_analysis_notes": "以 SCN-001 已知世界初始化時序為基礎；教學 map ID/出生點/完整 CRC 語意待 A-022；進入教學不等於教學完成。 A-022 observed: S15 3*u16+2*u8+string8; S14(1) triggers C35(header file+4, structured checksum); S14(2) loading callback. Native tutorial map/spawn unknown pending A-015.",
       "script_entry": {
@@ -486,6 +487,14 @@
         "manual_second_c03_required": false,
         "wire_research": "A-028/A-031",
         "native_client_validation": "not-run"
+      },
+      "a012_script_client_handoff": {
+        "evidence_id": "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "report": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
+        "static_client_script_ready": true,
+        "original_quest_logic_ready": false,
+        "native_client_gui": "not-run",
+        "basic_ui_evidence": "BasicString dialogue help/NPC dialogue text, SkinString quest journal/bar, QuestImage sprite exists; no quest steps"
       }
     },
     {
@@ -573,7 +582,8 @@
       "shared_map_policy": "same world/map shares one instance; actor death/respawn and state visible to two players; character progression remains per-character; native packet mapping unknown",
       "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md",
       "analysis_evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
       ],
       "integration_sources": [
         {
@@ -596,7 +606,15 @@
         "A024-E05",
         "A024-E06",
         "A024-E07"
-      ]
+      ],
+      "a012_script_client_handoff": {
+        "evidence_id": "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "report": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
+        "static_client_script_ready": true,
+        "original_quest_logic_ready": false,
+        "native_client_gui": "not-run",
+        "basic_ui_evidence": "BasicString dialogue help/NPC dialogue text, SkinString quest journal/bar, QuestImage sprite exists; no quest steps"
+      }
     },
     {
       "id": "SCN-012",

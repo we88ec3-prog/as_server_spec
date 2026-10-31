@@ -2457,7 +2457,8 @@
         "PKT-C6C"
       ],
       "evidence_ids": [
-        "ev_a012_20261031_script_reply_choice_client_static"
+        "ev_a012_20261031_script_reply_choice_client_static",
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
       ],
       "input": {
         "kind": "native-SHA/static-resource-plus-synthetic",
@@ -2469,7 +2470,18 @@
         ]
       },
       "expected": "Offline evidence and synthetic tests PASS, never claim actual original Client UI, original quest reward/grant",
-      "source_branch_original_ct": "CT-090"
+      "source_branch_original_ct": "CT-090",
+      "a012_resource_bridge": {
+        "evidence_id": "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "report": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
+        "offline_test": "tools/a012_quest_resource_bridge.py",
+        "original_sha_and_15_anchors": "passed locally",
+        "original_resource_sha_and_4_asset_hashes": "passed locally",
+        "new_tests": "12/12 passed",
+        "native_client_validation": "not-run",
+        "quest_authoritative_rules": "unknown"
+      },
+      "offline_status": "passed-original-exe-born-basic-static-and-synthetic; full CT remains planned/native-GUI-not-run"
     },
     {
       "id": "CT-093",
@@ -2488,7 +2500,8 @@
         "PKT-S3C"
       ],
       "evidence_ids": [
-        "ev_a012_20261031_script_reply_choice_client_static"
+        "ev_a012_20261031_script_reply_choice_client_static",
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
       ],
       "input": {
         "kind": "native-client-e2e-plan",
@@ -2499,7 +2512,17 @@
         ]
       },
       "expected": "Exact UI-action->C6C payload, S44 startup, object ref, popup/close callbacks proven or documented unknown; all original Client tests currently not-run",
-      "source_branch_original_ct": "CT-091"
+      "source_branch_original_ct": "CT-091",
+      "a012_resource_bridge": {
+        "evidence_id": "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "report": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
+        "offline_test": "tools/a012_quest_resource_bridge.py",
+        "original_sha_and_15_anchors": "passed locally",
+        "original_resource_sha_and_4_asset_hashes": "passed locally",
+        "new_tests": "12/12 passed",
+        "native_client_validation": "not-run",
+        "quest_authoritative_rules": "unknown"
+      }
     },
     {
       "id": "CT-094",
@@ -2516,7 +2539,8 @@
         "PKT-C43"
       ],
       "evidence_ids": [
-        "ev_a012_20261031_script_reply_choice_client_static"
+        "ev_a012_20261031_script_reply_choice_client_static",
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
       ],
       "input": {
         "kind": "server-designed-and-native-client-followup",
@@ -2527,7 +2551,17 @@
         ]
       },
       "expected": "No unverified quest completion/reward on Close or untrusted Script string; native client E2E and official reward still unknown",
-      "source_branch_original_ct": "CT-092"
+      "source_branch_original_ct": "CT-092",
+      "a012_resource_bridge": {
+        "evidence_id": "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+        "report": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
+        "offline_test": "tools/a012_quest_resource_bridge.py",
+        "original_sha_and_15_anchors": "passed locally",
+        "original_resource_sha_and_4_asset_hashes": "passed locally",
+        "new_tests": "12/12 passed",
+        "native_client_validation": "not-run",
+        "quest_authoritative_rules": "unknown"
+      }
     },
     {
       "id": "CT-095",

@@ -69,3 +69,10 @@ C6C subtype1 pair_count 原內部 local `[esi+0x220]` 16-bit，陣列首位址 `
 **精確缺件（限本次未提供的原始資料）**：`PaperDialog.dat`、`nNewJoin01.dat`、它的共用入口 `Merchant.dat`（此名稱在舊分析中僅見 `Merchant.Main`，**此檔名未獨立核實，不能當已確認缺件**）；要把對話 UI 與任務條件再推進，應提供真正 `PaperDialog.dat`、`nNewJoin01.dat` 及其已確認的 Script 依賴，另提供匿名化「點 NPC→選項→成功/拒絕/重登」雙向封包 trace。要重現真實任務完成還需 NPC/entity→Script 綁定、原服 Quest 規則/獎勵證據；這些資料**目前確切檔名未知**。已提供 `Asgard.exe` 和 `Born.dat` 不需重傳。
 
 研究完成狀態 `integrated / partial`、`native_client_validation=not-run`。這不阻擋 DEV 使用已知協定實作安全 Script 運行狀態機，但也不代表原始任務/獎勵已還原。
+
+
+## 2026-11-01 A12 Client I/O 靜態研究結案（更新本報告早期 partial 原因）
+
+已以**原件** `Asgard.exe`、`Born.dat` 和新可用的 `Basic.dat` 完成增量核對：原版 EXE 15/15 指令、Born CRC/單頁 PaperDialog Create、Basic.dat 中 AlertFrame.ypf / BasicString.txt / QuestImage.ypf / SkinString.txt 的原件 SHA、12/12 離線合成/負面測試 PASS。BasicString[101] 是對話視窗提示，[198] 是 NPC 對話說明；SkinString[2263/2264] 是任務日誌/任務欄。這些資源不是 Server QuestRule/Reward。原生 C6C(4) 後的 unreplied C6C(2) gate 由原始 x86 再證，**不是兩次 quest 完成**。詳 [A-012 靜態 Client I/O 最終交接](A-012-roy1-quest-script-closure-20261101.md) 與 [新測試](../tools/a012_quest_resource_bridge.py)。
+
+**任務 status 保持 integrated、handoff 改為 ready（限定已證 Client I/O 靜態契約）**；原版 Client GUI、NPC/Quest 規則、原服首次派送條件和獎勵仍 unknown/not-run，不可標成完整原服還原。具名缺件 `PaperDialog.dat`、`nNewJoin01.dat` 仍未在本輪容器提供，先前 A-023 有資源 SHA/研究可參考而不假冒本輪重驗；Quest/NPC 原服配置的精確檔名尚未知。

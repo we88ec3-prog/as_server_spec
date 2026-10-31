@@ -185,3 +185,8 @@ Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研�
 ## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
 
 已核對使用者新提供 `Basic.dat`、`Locale.dat` 原件 SHA；Basic.dat 的 UTF-16LE archive resources BasicString[73]=NAME、[75]=E-MAIL，SkinString[2153]=名字、[2154]=E-Mail；原始 Asgard.exe confirmation lookup 0x49(F3)/0x4B(F4) 和 C02 UI+writer 相對偏移交叉證實 Region2..4 NAME 第三字串、E-MAIL 第四字串。更正舊 A30 只推論 label 或要求從 Locale.dat 找 label 的陳述。提交 Python 資源解析+三原件 SHA/26 x86 anchors 測試，本機 7 PASS；S02 非零原生對話／C15(empty) 靜態路徑已核對，原版 GUI/TCP native E2E not-run，A30 `integrated/partial`。不修改 Asgard.exe/Server/DB，沿用 `task_a/roy1`。
+
+
+## 2026-11-01 A-012 Script/Quest Dialogue Client I/O closure (roy1)
+
+同步最新 main 並追加 BIN-first A12：原版 `Asgard.exe` (15 instruction windows) + `Born.dat`（唯一 Main、PaperDialog 一頁、CP950 CRC）+ `Basic.dat`（AlertFrame/BasicString/QuestImage/SkinString 四個 resource SHA、對話及任務日誌原始文字）交叉驗證；Dispose→C6C4 和 unreplied C6C2、SendReply→C6C1 原生資料流重驗，本地 12/12 offline tests PASS。新報告 `03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md`、測試 `tools/a012_quest_resource_bridge.py`，更新 A-012、PKT-S44/C6C、SCN-009/011、CT-092/093/094 與 manifest。A12 `integrated/ready` 只代表 Client I/O 已證靜態子集可交 DEV；原生 GUI / 原服 NPC→Script / Quest completion/reward 邊界仍 not-run/unknown。不改 Client/Server/DB、不創 branch。

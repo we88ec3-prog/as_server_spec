@@ -133,3 +133,8 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 獨立的 LoginDialogPane `0x4A8890` callback 可在參數非零時呼叫 C03 sender `0x4A7D10`；**final S02 success 是否自動觸發尚無原生 call/packet 證據**。S02 非零仍回 `C15(empty)`／state0x1f；Region3 state0x1e 的一般文字提示有特殊略過分支。**ADR-008 的產品需求仍是成功創角直接進 World、不需手動重登**，實際自動 World TCP 與首個 C2S/S2C 留給 CT-105/107/108 原版擷包；不以舊版推測的「回 LoginDialog 手動 C03」取代需求。
 
 [A-028 新增完整原件證據](../task_a/roy2/A-028-postcreate-ui-native-followup.md) · [31 VA/RTTI 原生驗證工具](../task_a/roy2/a028_native_postcreate_probe.py) · [合成狀態機](../task_a/roy2/a028_postcreate_model.py) · [CT-111/原生 CT 計畫](../05-conformance/A-028-postcreate-native-callback-test-plan.md) · [22 項合成回歸 GitHub CI](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277)。任務為 **`integrated/partial`**：已完成可證的 UI 靜態交接，但首次創角成功後 World 連線因果未證，**`native_client_validation=not-run`**；沒有新缺的具名遊戲檔案，真正需要原版 Client 去敏的創角最後 S02→World 封包及 UI 時序。
+
+
+## A-012 (2026-11-01 roy1 Client I/O 靜態結案)
+
+[任務腳本與原始對話資源最終交接](A-012-roy1-quest-script-closure-20261101.md)：以 Asgard.exe/Born.dat/Basic.dat 鎖 SHA，15/15 native bytes、4 個 Basic.dat 內嵌資源原件 SHA、Born Main/CRC、12/12 自動測試 PASS；S44→Main 與 C6C(0..4) SendReply/Dispose/no-reply cleanup 原始路徑及 UI 資源已整合。A12 Client I/O 靜態交付 **ready**，但原版 Windows GUI/原服 Quest Rule/Reward/NPC Script 綁定仍未驗，CT-093/094 仍 planned；`PaperDialog.dat`、`nNewJoin01.dat` 未在本輪重驗。

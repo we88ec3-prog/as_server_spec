@@ -12,3 +12,8 @@
 5. `QuestDefinition`, `QuestProgress`, `RewardGrantLedger`, `ReplayFence` 是 **DESIGNED domain types**，不是原始 Client/Server DB schema。Server 真正開通任務結果須附 NPC→Script→UI event→權威條件→持久結果的來源和原 Client CT。
 
 **驗證**：`tools/a012_quest_dialog_contract.py` 20 個 Client x86 byte anchor、Born SHA+UTF16 wrapper/CRC、14 個 unittest PASS（synthetic codec/negative/reply replay/close/context）；CT-092 offline，CT-093 選項 GUI、CT-094 安全與雙連線均規劃並保持 native Client not-run。A12 `integrated / partial`，`native_quest_rule_ready=false`。PaperDialog.dat、nNewJoin01.dat 已提供並驗過內容，NPC/quest/reward/腳本引用來源的確切檔名仍未知；正式 NPC spawn/quest/reward 定義的確切檔名未知。
+
+
+## 2026-11-01 A-012 最終 Client I/O 交接更新
+
+[新增完整原件驗證](../03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md) 與 [離線探針](../tools/a012_quest_resource_bridge.py)：以 Asgard.exe/Born.dat/Basic.dat 固定 SHA，15 x86 C6C/S44/SendReply/Dispose/S44 script-cache 指令簽章、4 個 Basic 內嵌資源 hash、Born XML/CP950 CRC、12 個 unittest 本地 PASS。Basic.dat 的 Script/Quest UI **只有 UI 文字與圖像**：BasicString[101/198]、SkinString[2263/2264]、AlertFrame/QuestImage；沒有官方 quest ID/完成條件/獎勵。C6C4→未回覆 C6C2 的 native sender 順序再核對，C6C1 不可授權 reward。**Client I/O 靜態 handoff=ready，original Client GUI CT-093/094 not-run，official Server quest/reward/NPC script binding unknown**；DEV 只開有原生證據的 ScriptRun/lifecycle/context codec 和安全防重子集。

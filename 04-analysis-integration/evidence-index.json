@@ -4491,6 +4491,28 @@
       "synthetic_test": "task_a/roy3/test_a005_roy3_collision_recovery.py",
       "native_client_validation": "not-run",
       "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "ev_a012_20261101_original_basic_dialog_resource_lifecycle",
+      "date": "2026-11-01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "source_branch": "task_a/roy1",
+      "evidence_kind": "original-exe-observed-static+original-Born-and-Basic-resources",
+      "locator": "Asgard.exe 0x5862f9 S44,0x52c2ca dispatch,0x575159 C6C,0x51aa5c C6C1,0x51ab33 replied,0x5268c6 C6C4,0x5268f4 send,0x519479 unreplied flag,0x5194ce C6C2,0x5194f1 send,0x52951d S44 cache wildcard; Born.dat BE wrapper/UTF16LE XML Main PaperDialog_Create; Basic.dat AlertFrame.ypf/BasicString.txt/QuestImage.ypf/SkinString.txt by u32LE end-offset archive",
+      "original_assets_sha256": {
+        "exe": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+        "born": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+        "basic": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96"
+      },
+      "original_x86_signatures": 15,
+      "embedded_basic_asset_hashes": 4,
+      "unit_tests_passed": 12,
+      "report_path": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
+      "offline_test": "tools/a012_quest_resource_bridge.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false,
+      "provenance_limits": "Original PaperDialog.dat and nNewJoin01.dat not mounted for this rerun; prior A-023 only. GUI/Server quest step/reward unknown, not claimed original-client E2E."
     }
   ]
 }

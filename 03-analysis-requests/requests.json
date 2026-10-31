@@ -866,10 +866,11 @@
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
-        "ev_a012_20261031_script_reply_choice_client_static"
+        "ev_a012_20261031_script_reply_choice_client_static",
+        "ev_a012_20261101_original_basic_dialog_resource_lifecycle"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "partial",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
       "latest_merged_evidence_focus": "A-023 confirms S44(1,0) starts named Main with dependencies, C6C(0) requests missing script, C6C(4) close and C6C(2) no-reply cleanup. Focus on original-server first-login send condition, PaperDialog lifecycle, quest authoritative meaning and recruiter/NPC script binding. No unsupported quest completion inference.",
       "client_io_scope_correction": "Client 收 Script/NPC/quest 包後所呈現 UI 及其 C→S 回應；Server 首次派送條件、任務完成判定與獎勵策略獨立規劃。",
@@ -885,10 +886,10 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "evidence_kind": "observed-static-plus-observed-resource-plus-designed",
+      "evidence_kind": "observed-static-original-exe-plus-original-Born-and-Basic-resources+designed-policy",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "implementation_ready": true,
-      "implementation_ready_scope": "C6C(0/1/2/3/4) native Script reply/lifecycle wire, S44(1,0/1/1) resource/runtime bootstrap from A-023, Born PaperDialog text/CRC, safe designed session/context/replay gates only; not authoritative original quest or NPC mapping",
+      "implementation_ready_scope": "Client-native Script S44(1,0)/C6C(0..4) codec and sender/reader bounded subset, Born single-page PaperDialog and Basic.dat dialogue/quest-journal resource evidence; designed context/generation/replay fences. Not official NPC-script ownership, quest completion/reward policy or native GUI proof.",
       "native_quest_rule_ready": false,
       "native_npc_script_binding_ready": false,
       "analysis_report": "03-analysis-requests/A-012-roy1-quest-dialog.md",
@@ -899,15 +900,16 @@
         "CT-093",
         "CT-094"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-01",
       "remaining_unknowns": [
-        "Native NPC click target->script binding and Dialog GUI option trigger for all scripts",
-        "Official quest step IDs, progress requirements, acceptance/denial outcome and quest UI updates",
-        "Original Server-only first login script send policy, reward presence/content and completion/exit",
-        "PaperDialog/nNewJoin01 assets not mounted in this turn; earlier A-023 reports resource hashes/branches; original Client GUI not run"
+        "Original GUI PaperDialog close and nNewJoin01 real user-choice→C6C body must be validated on unmodified Client; CT-093 not-run",
+        "NPC entity/map/target to nNewJoin01 or any Script binding, native NPC Click→Dialog callback still unverified (A-024/A-011)",
+        "Original Server authoritative quest condition, progress step, quest ID, rewards (including whether any), first-login S44 emission decision unknown; separate DEV/A-026 evidence",
+        "PaperDialog.dat and nNewJoin01.dat unmounted this turn; earlier A023 original resource SHA/branch established, not independently rerun",
+        "Original S44 wrong CRC, cache deletion and C6C context/replay GUI behavior not tested on live Client; CT-094 pending"
       ],
       "client_io_handoff": {
-        "trigger": "S44(1,0) named start -> dependency/CRC -> Main/dialog; script SendReply or Dispose/cleanup native dispatch",
+        "trigger": "S44(1,0) named Script start with CRC/dependency; PaperDialog UI close or Script.SendReply; Script cache update/cleanup",
         "client_sends": [
           "PKT-C6C",
           "PKT-C43",
@@ -918,16 +920,28 @@
           "PKT-S34",
           "PKT-S3C"
         ],
-        "client_reaction": "S44(1,0) loads script/dep/parameters and executes Main; SendReply issues C6C(1) with name/context/pairs and replied flag; Dispose issues C6C(4), unreplied cleanup C6C(2); NPC-info S34/S3C and dialog binding not yet proven",
-        "evidence": "03-analysis-requests/A-012-roy1-quest-dialog.md",
+        "client_reaction": "S44 starts name/context Main after resources; Born.Main creates single-page PaperDialog; Script.SendReply produces C6C(1); client.Dispose produces C6C(4), unreplied cleanup produces C6C(2); Basic.dat contains dialogue/quest UI string assets but not quest rules",
+        "evidence": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
         "unknowns": [
-          "Original game NPC entity->script and UI choice->network callback for all scripts",
-          "Server quest completion, reward, save/relogin semantics unknown",
-          "Original Client runtime E2E not-run"
-        ]
+          "Native original client GUI actual popup and option→C6C bytes CT-093 not-run",
+          "NPC object ID→script binding A-024 not proven; PaperDialog.dat and nNewJoin01.dat not supplied this turn",
+          "Original Server first login Script scheduling, quest flag and reward presence/content are policy/content outside Client I/O and require authority evidence"
+        ],
+        "evidence_levels": {
+          "client_protocol": "observed-static-original-exe",
+          "born_ui": "observed-original-Born-resource+prior-A023-PaperDialog-resource",
+          "basic_dialogue_ui": "observed-original-Basic-resource",
+          "quest_completed_or_reward": "unknown",
+          "native_gui": "not-run"
+        }
       },
       "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
-      "admission_refuse_policy": "R-034 STATE=REFUSE means no Server domain mutation, repeat click dialog available; verify original ScriptReply client UI and candidate nNewJoin01 binding only."
+      "admission_refuse_policy": "R-034 STATE=REFUSE means no Server domain mutation, repeat click dialog available; verify original ScriptReply client UI and candidate nNewJoin01 binding only.",
+      "client_io_static_scope_completed": true,
+      "analysis_completion_scope": "A012 Client I/O static handoff ready: S44 script start/asset/CRC, C6C(0..4) reply/dispose/cleanup, Born PaperDialog one-page, Basic dialogue UI/quest journal resource; no original server quest/reward policy and no original-client GUI E2E",
+      "analysis_resource_bridge_report": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
+      "analysis_resource_bridge_test": "tools/a012_quest_resource_bridge.py",
+      "offline_validation_addendum": "Original Asgard.exe/Born.dat/Basic.dat SHA, 15/15 x86 anchors, 4 embedded Basic assets SHA, Born CP950 XML CRC, 12 Python unittest PASS; no native GUI or real Server"
     },
     {
       "id": "A-013",
