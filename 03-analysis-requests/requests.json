@@ -408,13 +408,20 @@
       "title": "數值／狀態面板",
       "method": "由狀態UI讀取、封包parser、裝備修正追所有顯示與單位。",
       "deliverable": "初始數值、更新、溢位與死亡邊界；未知公式獨立列出。",
-      "status": "open",
+      "status": "integrated",
       "assignee": "roy2",
       "evidence_ids": [
-        "ev_a008_20261031_exe_rtti_class_inventory"
+        "A008-E01",
+        "A008-E02",
+        "A008-E03",
+        "A008-E04",
+        "A008-E05",
+        "A008-E06",
+        "A008-E07",
+        "A008-E08"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "partial",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -429,13 +436,36 @@
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
       "analysis_document": "task_a/roy2/A-008-analysis.md",
       "evidence_kind": "observed-static",
-      "implementation_ready": false,
+      "implementation_ready": true,
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "open_items": [
-        "SStatusPacket ctor/opcode/reader and Status field offsets",
-        "CAddAbilityPacket opcode/serializer/UI trigger",
-        "StatusDialog and ExpBarDialog callbacks",
-        "HP/MP/EXP initial/update/overflow/death native boundary"
+        "Native GUI value labels and units including ExpBarDialog percentage",
+        "Original Server formula for equipment/modifiers and ability effects",
+        "Original Server HP=0 death/revive and error response policy",
+        "Native Client first S08 ordering and E2E post-C47 status UI acceptance"
+      ],
+      "implementation_ready_scope": "S08 flags-based body and C47 single-byte ability request only; no native GUI or original numeric algorithms claimed",
+      "client_io_handoff": {
+        "trigger": "StatusDialog event IDs 0x13..0x17; UI receives S08",
+        "client_sends": [
+          "PKT-C47"
+        ],
+        "client_receives": [
+          "PKT-S08"
+        ],
+        "client_reaction": "S08 decoded by native parser 0x586D40, Status update 0x53F8A0, StatusDialog callback 0x540660 and refresh 0x540050",
+        "evidence": "task_a/roy2/A-008-analysis.md",
+        "unknowns": [
+          "Native GUI value labels and units including ExpBarDialog percentage",
+          "Original Server formula for equipment/modifiers and ability effects",
+          "Original Server HP=0 death/revive and error response policy",
+          "Native Client first S08 ordering and E2E post-C47 status UI acceptance"
+        ]
+      },
+      "static_validation": "15 original EXE instruction patterns + four RTTI classes PASS, 10 decoded-body/C47 synthetic tests PASS",
+      "conformance": [
+        "CT-061",
+        "CT-062"
       ]
     },
     {
