@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """A-030 SHA-locked original Client static witness and synthetic codec; no GUI/server or secrets."""
 from pathlib import Path
-import hashlib, struct, unittest
+import hashlib, struct, unittest, os
 
 SHA="db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
 # Exact native Asgard.exe VA, x86 instruction bytes, not user data.
@@ -45,8 +45,10 @@ WIDGETS={
  3:(12,13,14,15,16),
  4:(20,21,22,23,24),
 }
-def verify_client(path="/mnt/data/Asgard.exe"):
- d=Path(path).read_bytes()
+def client_path():
+ return Path(os.environ.get("ASGARD_EXE") or ("Asgard.exe" if Path("Asgard.exe").is_file() else "/mnt/data/Asgard.exe"))
+def verify_client(path=None):
+ d=Path(path or client_path()).read_bytes()
  if hashlib.sha256(d).hexdigest()!=SHA:raise ValueError("SHA mismatch")
  for name,(va,h) in A.items():
   b=bytes.fromhex(h)
@@ -76,7 +78,9 @@ def focus_for(status):
  category=FOCUS_SELECTOR[status-3]
  return {0:"first",1:"first",2:"second",3:"first"}.get(category)
 class TestA030(unittest.TestCase):
- def test_01_orig_sha_and_30_anchors(self):self.assertEqual(verify_client(),30)
+ def test_01_orig_sha_and_30_anchors(self):
+  if not client_path().is_file():self.skipTest("Original Asgard.exe absent; set ASGARD_EXE for native signature validation")
+  self.assertEqual(verify_client(),30)
  def test_02_focus_selector(self):self.assertEqual(len(FOCUS_SELECTOR),29)
  def test_03_region0_widget(self):self.assertEqual(WIDGETS[0],(1,2,3,10,None))
  def test_04_region4_widget(self):self.assertEqual(WIDGETS[4],(20,21,22,23,24))
