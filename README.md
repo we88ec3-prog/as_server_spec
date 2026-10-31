@@ -81,3 +81,7 @@
 ## 2026-10-31 決策：多人同世界同地圖
 
 [ADR-007 多人共用場景](02-server-planning/shared-map-multiplayer-contract.md)：新手教學和一般公用地圖，所有進同一 world/map 的玩家共享同一份 NPC/怪物狀態；玩家各有角色 Session 與進度。DEV-070 現有每角色 synthetic Scene 須做 DEV-070-M 重構；原版 Client 互見/怪物同步待 A-004/011/024，新增 CT-055 planned/not-run。
+
+## 2026-10-31 — Roy1/Roy2 最新成果合併
+
+已合併 `task_a/roy1`、`task_a/roy2` 的歷史與原始證據並統一 A／PKT／SCN／CT，保留 **CT-054 原生創角、CT-055 多人共圖**；分支重號測試重新編為 CT-056～081。新增 [Server 經分析更新的接續規劃](02-server-planning/post-roy-merge-implementation-plan.md)、[剩餘 Client A 工作](03-analysis-requests/post-merge-analysis-queue.md)、[CT 來源對照](05-conformance/ct-id-remap-roy1-roy2.md)，原 Client 不修改、無新 native E2E pass。

@@ -88,3 +88,7 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 ## 2026-10-31 最新 Client 收發交接優先規則
 
 上面的歷史 A-XX 表格含有「原服怎麼決定帳號、出生、任務、AI」的舊問法；**以 [全員接案規範](../00-governance/task-ownership-and-client-io.md) 與 [最新 Client I/O 交付標準](client-io-handoff-standard.md) 為準**。每個 A 已有 `requests.json.handoff_track`，新接案必須用同一模板；Client 研究看 trigger→C→S→S→C→UI，Server 政策由 DEV。實際可開發分段見 [Server 縱切計畫](../02-server-planning/client-io-delivery-plan.md)。
+
+## 2026-10-31 Roy1/Roy2 最新分析交接
+
+11 項新 integrated/handoff 子集：Roy1 A-007/019/020/025/026，Roy2 A-004/005/006/008/009/024。**已證 S07 14 kind 解碼，不再回報「非空 S07 未解」**；真正需要補的是 kind→Client sprite/renderer/EntityId，以及 A-027 原生登入後創角、地圖真 C25/CRC、S1E/S5F 死亡類別爭議、教學 NPC/Quest UI。見 [新待分析列表](post-merge-analysis-queue.md)。Native E2E 是 CT 工作，不是 A 靜態 handoff 必要條件。

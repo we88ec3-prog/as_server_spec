@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-31",
+  "note": "Source report CT numbers are historical. Use main CT IDs in vectors.json, ONB, traceability and new Server plans. Main CT-054/055 preserved.",
+  "mapping": [
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-049",
+      "main": "CT-056"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-050",
+      "main": "CT-057"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-051",
+      "main": "CT-058"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-052",
+      "main": "CT-059"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-053",
+      "main": "CT-060"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-054",
+      "main": "CT-061"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-055",
+      "main": "CT-062"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-056",
+      "main": "CT-063"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-057",
+      "main": "CT-064"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-058",
+      "main": "CT-065"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-059",
+      "main": "CT-066"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-060",
+      "main": "CT-067"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-061",
+      "main": "CT-068"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-062",
+      "main": "CT-069"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-055",
+      "main": "CT-070"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-056",
+      "main": "CT-071"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-057",
+      "main": "CT-072"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-058",
+      "main": "CT-073"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-059",
+      "main": "CT-074"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-060",
+      "main": "CT-075"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-061",
+      "main": "CT-076"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-062",
+      "main": "CT-077"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-063",
+      "main": "CT-078"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-064",
+      "main": "CT-079"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-065",
+      "main": "CT-080"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-066",
+      "main": "CT-081"
+    }
+  ],
+  "preserved_main": [
+    "CT-054",
+    "CT-055"
+  ],
+  "native_client_validation": "not-run"
+}

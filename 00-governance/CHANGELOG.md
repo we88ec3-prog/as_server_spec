@@ -93,3 +93,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 — 使用者確認多人同圖（ADR-007）
 
 明確採用 Public Shared Map：同 world/map 的玩家互見並共用 NPC/怪物、死/生/移動、AI 與 Actor EntityId，玩家自身進度獨立。新增 DEV-070-M 重構計畫、機讀共享地圖契約與 CT-055 (planned)，更新 R-007/R-029、ONB-03/05/06、SCN-005/011/012、CT-021/022；原版 Client 相容仍待 A-004/011/024，不修改 Asgard.exe。
+
+## 2026-10-31 — 整合 task_a/roy1 與 task_a/roy2 並依新證據更新 DEV
+
+以三父 merge commit `078b0d1d8aab9f443ba630f43b7e5c904dd5f3fb` 保留兩分支來源歷史與原始報告/測試；11 新 A 分析 static/partial 回寫、72 PKT、12 Client I/O flows。CT 原編號衝突避讓至 056～081；main CT-054/055 保留。標記 Roy1 S1E vs Roy2 S5F 死亡 parser 歸屬疑點，不猜 Native Death opcode。按共享地圖 ADR-007 重排 DEV-070-M actor wire/DEV-080/DEV-090，列出剩餘 A-027/024/004/022/005/009/025/026 及資源缺件。

@@ -40,3 +40,7 @@
 - **原件現況**：已提供 `Asgard.exe`、`Map0.dat`、`Map1.dat`、`Map2.dat`、`Born.dat`；追 NPC 外觀缺檔時，先由 A-011/A-024 確認**精確資源檔名**，不猜檔名。Script UI 依賴已知 `PaperDialog.dat`。
 
 **狀態：design-approved / Server refactor planned / native-client-validation not-run。**
+
+## Roy2 A-004/A-024 已交 Client 封包證據（2026-10-31）
+
+ADR-007 的共享地圖/Actor authority 不變：**Human** S33/S06/S11，**非 Human Objects** S07 1..14 rows、S0C/S64 Move、S5F Death、S0E Remove。實際 Client ObjectRegistry、kind→NPC/Monster/sprite與真 UI callback 未驗，不能用確知 opcode 直接冒稱可投送正確原生 Actor。Adapter codec 可依 A-024 安全實作；原版雙 Client 可視測試 CT-055/070/080/081 待執行。詳見 [新開發序列](post-roy-merge-implementation-plan.md)。

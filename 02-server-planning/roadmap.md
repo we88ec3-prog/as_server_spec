@@ -26,3 +26,7 @@ M1/ONB-01～04 定義「管理員建帳→玩家登入→創角→進入原生�
 ## 下一階段：已知 Client 收發與 Server Authority 併行（2026-10-31）
 
 [Server SAFE/WIRE/WORLD/SCRIPT 分段規劃](native-creation-next-iteration.md) · [機讀就緒關卡](onboarding-readiness-gates.json)。**SAFE-01～04 的帳號身份、創角輸入與已登入帳號一致性、草稿與 C04/C15 原子/冪等設計可立即開工**；A-027 的原生 C03(no-character)→NewUser UI 與 C02 第1欄語意未證前，Host 仍不解鎖 native C02/C04。A-020 登入、A-022 MAP/C35、A-028 C04 後 UI 可同步深入；A-024～026 依 NPC/技能/任務 Client 封包證據擴張。新 CT-054 只作 Native UI 驗收計畫，目前 not-run。
+
+## 2026-10-31 Roy1/Roy2 合併後下一步
+
+[完整交付順序](post-roy-merge-implementation-plan.md)：DEV-070-M SharedMapKey/Participant/可信 Move/AOI → S07(kind1..14)/S0C/S64/S5F/S0E Native codec（先離線、待 Client kind/renderer 證據才送）→ DEV-080 C13/S13/S5F + S08 Domain/技能意圖 → DEV-090 Script/Quest/Exit ledger；A-027 創角 UI、A-022 正式 MAP/C25 仍是原生全流程上線前提。兩分支新增 26 項 CT 經避讓編為 CT-056～081，現只有規格及合成證據，不表示原版實測已通過。
