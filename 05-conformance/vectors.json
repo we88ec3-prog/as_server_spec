@@ -1627,6 +1627,58 @@
       "evidence_kind": "designed-test",
       "native_client_validation": "not-run",
       "analysis_request": "A-024"
+    },
+    {
+      "id": "CT-067",
+      "status": "planned",
+      "level": "original-PE-static-and-synthetic-NPC-resource-ID-click-motion",
+      "requirements": [
+        "R-012"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-C43",
+        "PKT-S34",
+        "PKT-S3C"
+      ],
+      "input": {
+        "kind": "original-client-executable-static-plus-synthetic",
+        "reference": "05-conformance/A-011-npc-resource-click-animation-test-plan.md"
+      },
+      "expected": "SHA-locked original PE 29 VA instruction patterns + 4 RTTI + 3 wide literal checks PASS; World7000..7023 Monster8000..8042 registrations; imageID0x4000+10*archive+slot conversion; S07 kinds1,2,4 create MonsterObject; C43 both producer type1/subtype4 with BE u32 target; local selector0..5 groups+0x20/+0x30/+0x40. Synthetic test result recorded after CI. Not runtime GUI proof.",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "Original Asgard.exe locally PASS 29 PE anchors, 4 RTTI and 3 wide filename literals; synthetic CI pending",
+      "original_probe": "task_a/roy2/a011_native_probe.py",
+      "offline_test": "task_a/roy2/test_a011_resource.py",
+      "analysis_request": "A-011",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-068",
+      "status": "planned",
+      "level": "native-original-client-NPC-monster-sprite-click-dialog-motion",
+      "requirements": [
+        "R-012"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-C43",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S44",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "input": {
+        "kind": "native-original-client-with-owned-Monster-World-DAT-resources",
+        "reference": "05-conformance/A-011-npc-resource-click-animation-test-plan.md"
+      },
+      "expected": "A real nonempty S07 entity→visible asset sprite ID→MonsterNN.dat member/YPF group and six local motion selector semantics must be demonstrated; click C43→S34/S3C/S44→NPCChatDialog with packet trace and original UI must be proven, including NPC/monster distinctions, dead/removed/relog boundaries. No actual game runtime proof yet.",
+      "evidence_kind": "designed-test",
+      "analysis_request": "A-011",
+      "native_client_validation": "not-run"
     }
   ]
 }
