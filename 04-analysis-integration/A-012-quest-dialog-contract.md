@@ -12,3 +12,11 @@
 5. `QuestDefinition`, `QuestProgress`, `RewardGrantLedger`, `ReplayFence` 是 **DESIGNED domain types**，不是原始 Client/Server DB schema。Server 真正開通任務結果須附 NPC→Script→UI event→權威條件→持久結果的來源和原 Client CT。
 
 **驗證**：`tools/a012_quest_dialog_contract.py` 20 個 Client x86 byte anchor、Born SHA+UTF16 wrapper/CRC、14 個 unittest PASS（synthetic codec/negative/reply replay/close/context）；CT-092 offline，CT-093 選項 GUI、CT-094 安全與雙連線均規劃並保持 native Client not-run。A12 `integrated / partial`，`native_quest_rule_ready=false`。PaperDialog.dat、nNewJoin01.dat 已提供並驗過內容，NPC/quest/reward/腳本引用來源的確切檔名仍未知；正式 NPC spawn/quest/reward 定義的確切檔名未知。
+
+## 2026-11-01 A-023 補證：原始 nNewJoin01／PaperDialog02 回覆與 C6C 根名稱
+
+目前 `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat`、`Merchant.dat` 已全部取得並由 A-023 **原始 SHA + Script XML + CP950 CRC** 重驗；前述「尚缺此四檔」歷史說法不再適用。[A-023 四檔原件完整契約](../task_a/roy2/A-023-four-script-native-dependencies-20261101.md)。
+
+`nNewJoin01` 23 函式/無 Main；最終加入頁面 OK `ClientReply.Add("STATE","ACCEPT")`／CANCEL `STATE=REFUSE`。 `Merchant.Main` 為主 Script 入口候選並初始化 `ClientReply`。**C6C(1) 的 script 名稱取當次 S44 ScriptRunner root，而非 nNewJoin01 依賴來源檔名**：報告中 `Merchant+STATE=ACCEPT` 向量是 conditional synthetic fixture，不宣稱原服真 root 已知。`PaperDialog02` 由 OK／CANCEL 送 `PAPER02=START/NOT`，兩者送 C6C1 後 Dispose→C6C4；原 `cancelControl=OK`，ESC 效果待 native GUI。 `PaperDialog` 是未回覆關閉，原生 C6C4→C6C2。不能將上述任一回覆當成 quest completion/reward。
+
+四檔 **沒有** `QuestDialog_Create`、`MerchantDialog_Create`、`MerchantDirectTalk` 函式定義，缺真正 helper 來源與招募員 NPC binding；原版 Client CT-093/094/CT-034/035 未通過。研究 Client I/O 子集可交 DEV，原服 quest authority、原始 NPC/World 綁定維持 unknown。
