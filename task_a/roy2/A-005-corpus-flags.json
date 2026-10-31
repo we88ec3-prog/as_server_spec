@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "analysis_id": "A-005",
+  "date": "2026-10-31",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "native_probe_passed": 7,
+  "original_map_files": [
+    {
+      "name": "Map0.dat",
+      "sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "maps": 288,
+      "tiles": 4347940,
+      "hist": {
+        "0": 1567556,
+        "1": 364583,
+        "16": 8,
+        "17": 2415331,
+        "512": 462
+      }
+    },
+    {
+      "name": "Map1.dat",
+      "sha256": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b",
+      "maps": 184,
+      "tiles": 2983365,
+      "hist": {
+        "0": 997116,
+        "1": 109919,
+        "16": 1,
+        "17": 1876319,
+        "512": 10
+      }
+    },
+    {
+      "name": "Map2.dat",
+      "sha256": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb",
+      "maps": 22,
+      "tiles": 370500,
+      "hist": {
+        "0": 136628,
+        "1": 22375,
+        "16": 3,
+        "17": 211494,
+        "512": 0
+      }
+    }
+  ],
+  "total_maps": 494,
+  "total_tiles": 7701805,
+  "combined_flags": {
+    "0": 2701300,
+    "1": 496877,
+    "16": 12,
+    "17": 4503144,
+    "512": 472
+  },
+  "native_va": {
+    "C33_writer": "0x573BF0",
+    "C11_writer": "0x571960",
+    "S0B_reader": "0x583150",
+    "tile_loader": "0x4B3520",
+    "tile_stride": "0x4B2C80",
+    "tile_flag_set_clear": "0x4B2CA0",
+    "bit4_line_check": "0x4B4BB0",
+    "bit0_other_check": "0x4D1206"
+  },
+  "native_3direction_packet_layout": {
+    "C33": "u8,u8,u8",
+    "C11": "u8",
+    "S0B": "BE u16,u16,u8"
+  },
+  "semantic_qualifier": "bit0/bit4/bit9 meanings partial; bit4 observed on line check, not proven as player walkability",
+  "native_client_e2e": "not-run",
+  "unshared_original_assets": true
+}
