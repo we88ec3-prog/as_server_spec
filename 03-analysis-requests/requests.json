@@ -1513,7 +1513,8 @@
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
         "ev_a022_20261031_map_archive_collision_resource",
-        "A022-MERGE-491-494-CORRECTION-20261031"
+        "A022-MERGE-491-494-CORRECTION-20261031",
+        "ev_a022_20261101_roy2_all_494_map_c35_census"
       ],
       "dependencies": [
         "A-015",
@@ -1529,7 +1530,7 @@
       "analysis_report": "03-analysis-requests/A-022-roy1-bin-analysis.md",
       "implementation_ready": true,
       "tutorial_content_ready": false,
-      "analysis_scope": "static S14/S15/C35/S04/C25 + MAP CRC and designed recovery; actual tutorial map resources not supplied",
+      "analysis_scope": "S14/S15/C35/S04 native static Client evidence; Map0/1/2 full 494 original archive C35 census; original Server tutorial map/spawn policy and native GUI are separate unknowns",
       "static_scope_completed": [
         "S14 control1/2/3",
         "S15 3xu16+2xu8+string8",
@@ -1537,15 +1538,16 @@
         "S04 4xu16",
         "MAP record 16-byte tail",
         "structured CRC inner primitive",
-        "epoch-specific loading/recovery"
+        "epoch-specific loading/recovery",
+        "Full original 494-MAP content-version-locked C35 offline census and repeated map_ref pair audit"
       ],
       "remaining_unknowns": [
-        "native tutorial map ID and bytes require A-015",
-        "native first spawn x/y/heading and Born script",
-        "native onboarding flag and original failure policy",
-        "C25 all region branches"
+        "original Client native World TCP S15/S14/C35/S04/S33 sequence and C35 after possible runtime mutations",
+        "actual tutorial map_ref chosen by original Server and valid player spawn x/y/facing (not derivable from corpus alone)",
+        "player feet/pixel coordinate transform and passable collision semantics under C33/S0B native gameplay",
+        "original Client failure UI/retry when missing MAP, CRC mismatch, timeout, and reconnect"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-01",
       "client_io_scope_correction": "追 Client 收 S15/S14/S04/S33 後的 parser、顯示/載圖順序、何時回 C35 的兩個校驗值及錯序/錯版行為。地圖 ID、spawn、朝向由 Server 選，分析只需確認合法資源格式與可呈現限制，無需還原原服的新手出生點。",
       "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
       "handoff_track": "client-io",
@@ -1563,7 +1565,20 @@
       "roy1_additional_analysis_report": "03-analysis-requests/A-022-roy1-bin-analysis.md",
       "resource_geometry_evidence": "02-server-planning/map-geometry-evidence.json",
       "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
-      "map_archive_corrected": "494/494; historical Roy1 491/494 is four-byte offset error"
+      "map_archive_corrected": "494/494; historical Roy1 491/494 is four-byte offset error",
+      "roy2_additional_analysis_report": "task_a/roy2/A-022-analysis.md",
+      "roy2_c35_catalog": "task_a/roy2/a022_map_c35_catalog.py",
+      "roy2_c35_tests": "task_a/roy2/test_a022_map_c35_catalog.py",
+      "roy2_native_resource_census": {
+        "map_count": 494,
+        "distinct_payload_sha256": 330,
+        "distinct_c35_pairs": 330,
+        "reused_c35_groups": 33,
+        "map_refs_in_reused_pairs": 197,
+        "distinct_payload_same_pair_groups": 0,
+        "source": "original static offline reconstruction",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "A-023",
