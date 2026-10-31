@@ -4,7 +4,7 @@
 
 ## Client 輸入與結果
 
-S44(1,0) 可啟動 Born.Main；PaperDialog OK 依 native Dispose 產生 C6C(4,Born,context)、再依 replied flag C6C(2,Born,context)。C39 Merchant 是另一個原生互動入口：u8,u32 BE,u16 BE，再依 type 選不同 payload，**尚無 NPC entity binding**。C6C1 的對話回答及候選 nNewJoin01 STATE=ACCEPT/REFUSE 沒有自動畢業權限。攻擊 C13、S1E 死亡顯示與 C0B Quit 也都不能作 completion proof。
+S44(1,0) 可啟動 Born.Main；PaperDialog OK 依 native Dispose 產生 C6C(4,Born,context)、再依 replied flag C6C(2,Born,context)。C39 Merchant 是另一個原生互動入口：u8,u32 BE,u16 BE，再依 type 選不同 payload，**尚無 NPC entity binding**。C6C1 的對話回答及候選 nNewJoin01 STATE=ACCEPT/REFUSE 沒有自動畢業權限。攻擊 C13、S5F 死亡顯示與 C0B Quit 也都不能作 completion proof。
 
 ## Domain 與持久化（designed）
 
@@ -22,3 +22,7 @@ CT-028：全程原生 Client 從首次登入到教學出圖，**仍 not-run**，
 CT-054～056：離線 Script close、optional reward once、crash/exit checkpoint 的設計測試。
 
 A-026 integrated/handoff partial；implementation_ready 限 codec/safe Domain skeleton；native_tutorial_complete_ready=false、native_reward_proven=false、native_exit_destination_proven=false。缺的具名資源 PaperDialog.dat、nNewJoin01.dat（只補 Script 候選驗證）；原服 NPC/Quest/Exit 綁定和事件 trace 仍必要。原始 EXE/DAT 不上傳共用 Git。
+
+## A-004 opcode 勘誤
+
+DieObjects 的正確 Client constructor opcode 是 **S5F (0x5F)**，ctor `0x57e1b0` 在 `0x57e1c9 push0x5f`，reader `0x57e260` u32BE ref 不變；不是舊版 S1E。S0E RemoveObjects 是獨立的物件移除封包。DieObjects 也不能視為 Quest 完成證明。詳 [A-004](../03-analysis-requests/A-004-roy1-world-visibility.md)。

@@ -30,7 +30,7 @@
 |`0x57A980..`|`SAddLastingSpell` 原生 parser 包含 u32、u8、u16、u8、string8 等欄位|有持續效果/狀態相關路徑；原服 buff 疊加/時間/消耗未由此證明|
 |A-023 的 `S44(1,0)` 與 `C6C(1/2/4)`|腳本啟動與回覆/關閉是獨立通道|**Script lifecycle 不是擊殺或任務進度 ACK**，不能把 C6C4/2 當 combat objective 完成|
 
-本輪明確只把 S52、S1E 做成有保證欄位的合成 fixture；**S3D** 剩餘 subtype 欄位尚無完整實例，保持 `layout_status=partial`，不能宣稱所有戰鬥結果可直接出成完整 packet。
+本輪明確只把 S52、S5F 做成有保證欄位的合成 fixture；**S3D** 剩餘 subtype 欄位尚無完整實例，保持 `layout_status=partial`，不能宣稱所有戰鬥結果可直接出成完整 packet。
 
 ## 3. 「新手教學一定需要攻擊嗎？」：沒有證據，不能硬填
 
@@ -43,15 +43,15 @@
 1. **C13 攻擊意圖**：必須有登入驗證與當前 World session/generation、有效的角色/目標 object ref、同 map/instance、角色/目標 alive、距離/LOS 權威、能攻擊、同時 AI tick 狀態；攻擊速率、時間門檻由 Server 自己的已明示設定驗證。Client 本地 timer gate 不能替代 Server 檢查。
 2. **C4D/C56 施法意圖與階段**：C4D 是 u16 spell value、C56 u8 parameter（原生目的未解）；只有對角色合法/解鎖的 spell catalog、MP/資源、冷卻、目標與相關 phase 明確驗證後才可建立 spell instance。**在原版 C56 對應行為不明時，不開放其未知語義直接產生傷害或領獎**。
 3. **C3D/S3D 多型**：根據已完成具體 subtype schema 各自分派，未知或不支援 type fail closed；不可把 raw u8 低位當傷害/任務進度。避免任意 variant 造成長度溢位、資產增加或重放漏洞。
-4. **提交順序**：Client C13/C4D/C56 是「意圖」；只有 Server World 經過權威判定並**提交**一筆可追溯 `CombatResolved`（成功命中/治療/效果/擊殺中具原服證據的那類）事件，才允許產生回覆 S3D/S52/S1E 及必要的角色/目標狀態投影；S1E 的到來本身不是 Client→Server 任務請領。
+4. **提交順序**：Client C13/C4D/C56 是「意圖」；只有 Server World 經過權威判定並**提交**一筆可追溯 `CombatResolved`（成功命中/治療/效果/擊殺中具原服證據的那類）事件，才允許產生回覆 S3D/S52/S5F 及必要的角色/目標狀態投影；S5F 的到來本身不是 Client→Server 任務請領。
 5. **QuestObjective 只能在有** `verified_objective_mapping` **時更新**：`character_id,quest_id,objective_id,monster_instance,server_event_id,world_generation` 必須由 Server 內部一對一驗證；建立 unique `(objective_id,server_event_id)` ledger，任務/獎勵/outbox 原子提交，同一 event 重送/Client 回覆遺失/跨重登入不得再加。**這是 designed policy，不是原服欄位**。
 6. **不能把 local tutorial 直接綁到擊殺**：A-024 確認首怪 entity/map/spawn、A-009/010 確認對應戰鬥/技能 event、A-012/026 確認原始任務條件之前，`verified_objective_mapping=false`；合法攻擊也不增加教學目標。
 7. 狀態中止：角色死亡、跨 map、loading epoch 變動、目標被其他人移除、取消施法、資源不足、距離/冷卻不足、不同 session generation 均不得錯誤產生 HP/MP 副作用與 quest progress；實際原生 error/result code 待後續取證，不能用自訂數值偽稱遊戲原服。
 
 ## 5. CT 與 A-025 的完成邊界
 
-- `tools/a025_tutorial_combat_model.py`：對原始 EXE 的 **14 組 byte signatures** 核對 opcode、writer/reader、Battle selector；7 項 unittest 覆蓋 C13/C4D/C56 bytes、S52/S1E reader、bad target/cooldown/resources/replay、相同 event 只加一次、SQLite reopen 與**未經證明的教程目標永遠不加**。
-- `CT-051`：C13/C4D/C56 與 S52/S1E 逐欄 synthetic/原版 signature。
+- `tools/a025_tutorial_combat_model.py`：對原始 EXE 的 **14 組 byte signatures** 核對 opcode、writer/reader、Battle selector；7 項 unittest 覆蓋 C13/C4D/C56 bytes、S52/S5F reader、bad target/cooldown/resources/replay、相同 event 只加一次、SQLite reopen 與**未經證明的教程目標永遠不加**。
+- `CT-051`：C13/C4D/C56 與 S52/S5F 逐欄 synthetic/原版 signature。
 - `CT-052`：C3D/S3D 多態 branch0..15 严格分流 + unknown subtypes 拒絕、保持 partial 不生成假成功；後續按原 Client capture 追加每類 fixture。
 - `CT-053`：攻擊/技能合法性、非法目標/距離/冷卻/資源及 duplicate event/跨 generation/SQLite crash replay，未有 objective 證據不可加 tutorial progress。
 - 既有 `CT-023/024/025` 維持 `planned/native_client_validation=not-run`；新增 static refs 與安全測試條件，不能把**合成** Domain 測試當 native Client 戰鬥畫面已通過。
@@ -70,8 +70,13 @@ objdump -D -M intel --start-address=0x571750 --stop-address=0x571810 Asgard.exe
 objdump -D -M intel --start-address=0x570de0 --stop-address=0x570f3c Asgard.exe
 objdump -D -M intel --start-address=0x57c6d0 --stop-address=0x57cdda Asgard.exe
 objdump -D -M intel --start-address=0x57d550 --stop-address=0x57d620 Asgard.exe
-objdump -D -M intel --start-address=0x57e030 --stop-address=0x57e270 Asgard.exe
+objdump -D -M intel --start-address=0x57e1b0 --stop-address=0x57e270 Asgard.exe
 python3 tools/a025_tutorial_combat_model.py
 ```
 
 **仍欠的具名材料**：`PaperDialog.dat`（此執行環境未掛載，但 A-023 roy2 已在 Git 有 hash/Script 依賴解析；不重做其已驗的內容）、原版教學 NPC/怪物/任務定義的**實際檔名尚未從現有 EXE/Born 確認**，及原服登入→任務目標達成前後的 C/S 封包/事件 trace 或 Server handler/config。不可憑猜測給出不存在的 NPC/Quest `*.dat` 檔名；原版 Asgard.exe/Born.dat/Map0～2 已具備，不重新索取。
+
+
+## A-004 / roy1 更正（2026-10-31）
+
+原版 `SDieObjects` 真正 constructor 是 `0x57e1b0`，在 `0x57e1c9` 將 opcode **0x5F** 傳 `0x578730`；reader `0x57e260` 仍是 BE u32 object_ref。先前把 factory `push0x1e` 誤當 opcode，已更正成 **S5F**（另有 S0E RemoveObjects）。死亡通知本身仍非原服 quest completion 證據。參照 [A-004](../03-analysis-requests/A-004-roy1-world-visibility.md)。
