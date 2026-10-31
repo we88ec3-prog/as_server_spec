@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "a838d174f2ad7e1b729d90c5e72a255a14e2b1fbce12fb28dda88c21fe87e3b4"
+      "sha256": "b0e5d6ea7c1ac5ff1076d2f5afc0c7088bcd9c6414b97150369f715ef9fb9014"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -389,7 +389,7 @@
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
-      "sha256": "d29d5692d180fd13b504c42291628bd5561fa711f78ddcd25f9b807cae9b66c5"
+      "sha256": "cd77b12f4b55170e9bdbac9b5f5f7ce48fa795ad0f6249db4f726dc1f21bfb03"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
@@ -397,11 +397,11 @@
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
-      "sha256": "fdafbaea4d12f0ba41821e177778fecb4f66ddf75a5880563cf9b5cfea431abf"
+      "sha256": "38c02ffcab8d4c307895fb27431280a6b9d30ee028ff5d4dc84ce01f0dd4632f"
     },
     {
       "path": "04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md",
-      "sha256": "fe4d91718fcac2183566a9915cf74700bce2fd6ccd63d812e86f932d4f43ecaa"
+      "sha256": "f17d182c55e61616ed19a92c336d5765f8f6ec33c42d68a1b8c6703c3f18f960"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",

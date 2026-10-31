@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 修改版 Preview 僅供排錯，不得冒認原版遊戲分析
+
+使用者明確更正 `Asgard-main-menu-preview.exe` 經調整僅供排除錯誤；WER APPCRASH `0xC0000005` / RVA `0x00141264` 僅是修改版 debug evidence，不可直接套到原版 `Asgard.exe` 的 VA `0x00541264` 當成已證原版 faulting instruction。更新 RI-006/007 與 P0 分析隔離標記。Server C25 後 `Continue()` 零 S2C 屬程式碼事實，但原版 Native Client E2E 仍 not-run。只修改 `as_server_spec`；沒有修改 Server/遊戲 EXE。
+
 ## 2026-11-01 RI-007：登入成功但 Native World C25 後沒有回覆；Windows preview.exe 當掉證據
 
 新上傳 84 packet／17 close／4 validation 累積 Log，確認一般 C03→S03(轉服)→新 TCP C10/C25 成功，卻停 WorldGranted 零 S2C。唯讀核對 Server `LoginWireSession.case 0x25` 的 `_worldFixture=null` → `return Continue()`，定位 DEV-ENTRY 原生地圖載入未接通；不是密碼、C25 或 C35 錯。Windows Application Error 1000 指向 `Asgard-main-menu-preview.exe`，校正先前 RI-006 原版 runtime 標示；例外模組/碼未提供。詳 [RI-007](../04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md)。只改 as_server_spec，沒有修改 Server/Client。

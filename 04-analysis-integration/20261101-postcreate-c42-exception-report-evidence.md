@@ -1,5 +1,8 @@
 # RI-006 / A-028/A-031 增量：創角兩階段 S02 成功後 Client 異常與 C42 例外回報
 
+> **重要測試邊界（2026-11-01 使用者明確更正）：`Asgard-main-menu-preview.exe` 是經過調整的「僅供排錯」副本，並非原始程式。它的 Windows WER、TCP trace、位址與行為一律標示 `modified-preview-debug-only`；不得作為原版 `Asgard.exe` 之反組譯原件、動態行為證據或 Native CT PASS。只有經原始 SHA 驗證之 `Asgard.exe` 能作為原始 Client 靜態分析基準。預覽版 RVA `0x00141264` 不可逕行映射成原始 EXE 相同指令或函式故障。**
+
+
 2026-11-01｜**原始使用者提供 Server JSONL + SHA 鎖定 Asgard.exe 靜態證據。** 此為分析/交接，不修改 Server/Client；原版 GUI / World CT-107/108 仍 `not-run`，不能推論這次是 World 畫面已載入。
 
 ## 來源、邊界
@@ -54,3 +57,14 @@
 使用者補充 Windows Application Error ID 1000 訊息：**失敗的應用程式名稱為 `Asgard-main-menu-preview.exe`**，不是 `Asgard.exe` 原始檔名。先前依原始 `Asgard.exe` 靜態查證 C42=`CExceptionPacket` 仍有效，但**該次 Runtime 記錄不能再被描述為「已在未修改原版 Asgard.exe GUI 上重現」**；預覽副本版本 2.1.2...，實際 SHA 與 native UI 反應仍待記錄。03:38:13 Application Error 與 03:38:17 WER 1001 支援預覽程式發生應用錯誤，仍缺 faulting module/exception code/offset；附近的 .NET Runtime 1000 `GameTcpDiagnosticJournal` 可能是 Server EventLog 日誌，不能直接當 Server .NET 崩潰。
 
 另 03:47:31～33 新的 C03/S03→C10→C25 登入測試，停在 WorldGranted 且無 S05/S15/S14；原因見 [RI-007](20261101-native-c25-wait-and-preview-app-error.md)。本次兩個事件不得混為同一會話、或把 C42 當 World 入口。
+## 2026-11-01 完整 WER 事件與測試程式版本邊界（debug-only）
+
+使用者提供完整 Windows `Application Error` 1000 和 `Windows Error Reporting` 1001，**僅供排除錯誤**：
+
+- 2026-11-01 03:38:13（台灣時間）Windows Application Error：`Asgard-main-menu-preview.exe` version `2.1.2.0`；faulting module 同為 `Asgard-main-menu-preview.exe`；`ExceptionCode=0xC0000005`（access violation）；`FaultOffset=0x00141264`（該修改版的 RVA）。
+- 03:38:17 WER：`APPCRASH`、P7=`c0000005`、P8=`00141264`，Report ID=`8410ed03-4f93-4691-9b86-0d5ed08b48cb`；WER 曾列可能的暫存 dump 檔 `WER.bc18ed12-1c61-42c9-87f0-db3f3b273470.tmp.dmp`，檔案是否尚存未核實。
+- 同時段 Server 的 C02→S02(0)→C04→S02(0) 和 `io-error` 仍是**Server 端操作／輸出事實**，但因本次測試用修改版，**不能當作原版 `Asgard.exe` 在相同後創角 UI 路徑會 crash／不 crash 的證據**，也不能宣告 original Client E2E 成功或失敗。
+- **位址推論降級：** `0x00400000 + 0x00141264 = 0x00541264` 僅是映像基址的算術換算；即使原件 `0x00541264` 恰有某指令、且原件 A-028 的 UI callback 曾呼叫附近函式，仍**不證明修改版該 RVA 的 bytes／堆疊相同**。不可把它寫成「原版 Client 的崩潰指令」。除非提供預覽版 hash／RVA bytes／dump 比對，否則這只是修改版的排錯候選，不列入原版分析成果。
+- 若需要**排錯**，可唯讀檢查 WER dump 之 exception context、暫存 fault address、call stack、修改版檔案 hash 和預覽版 RVA；此流程不得覆蓋原件 SHA 或污染原版 A-028/A-031 結論。
+- **另一路問題保持有效但狀態須精準：** 03:47 的 C03→S03→C10→C25 已在 Server JSONL 觀察到；Server `_worldFixture==null` 於 C25 後 `Continue()` 零回覆是 Server 程式既有設計。這可用於定位**Server 目前沒有啟動原生 World 載入回應**，但若送包者是修改版，並不等於未修改原件的 GUI/World E2E 已實測。
+
