@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "f3c3d28a05e923e95897c63052e3cea13c416b82edb68d59b9c0d91b32e15828"
+      "sha256": "bc252aca80bad76ecbd3c6f727395eae82c12b89e7ad6b0e41986436ddfcba2c"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -97,7 +97,7 @@
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
-      "sha256": "3f40e3ddb73105409a2df75424a7b0261a85e1a02efc73025b5863751ca60653"
+      "sha256": "14c641e7a27951c5812f60dd7e05f8a0d53531414ec772ec7887d8d9d65948de"
     },
     {
       "path": "02-server-planning/decisions.md",
@@ -321,7 +321,7 @@
     },
     {
       "path": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
-      "sha256": "cff4b24d2c3517c36814e7d7f24986595e0f8dcf5f4bd7d02ecebe03897faaf4"
+      "sha256": "c6178682106f7b46fae519fdcb84abd6117a5301eb513f055181348a6024f59c"
     },
     {
       "path": "03-analysis-requests/A-029-roy1-native-password-change.md",
@@ -329,7 +329,7 @@
     },
     {
       "path": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
-      "sha256": "f6369460b5d7221f158f991a4e0cd3c16a1a6f1a39122fe48ddd2c43d55e96a8"
+      "sha256": "007f60b624a5e3e5c3d58332f5bf6a992dec14525ce89f6ab8dc9adf38823a2e"
     },
     {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
@@ -653,7 +653,7 @@
     },
     {
       "path": "05-conformance/native-creation-gate-test-plan.md",
-      "sha256": "833e6ab2792fb21d49d04bfaf39626adbfb93e484ba94ff0e4bf39d7556d03e2"
+      "sha256": "fcec9a178e8097bbffa509f5a18a232dd080fab67cbd32a6c1b085e519b3da96"
     },
     {
       "path": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
@@ -673,7 +673,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "f8ff54f07d80d4f2c5b51b269abc627fa56888a3230a2612db7e22f7c1f36a23"
+      "sha256": "6063e274f0554e732bc63cd0abd077c182aa59d94f8abfec093969aed36867fd"
     },
     {
       "path": "05-conformance/party-monster-reward-test-plan.md",
