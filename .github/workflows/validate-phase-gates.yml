@@ -19,3 +19,6 @@ jobs:
         run: |
           python3 -m unittest discover -s task_a/roy2 -p 'test_a024_object_packets.py' -v
           python3 -m unittest discover -s task_a/roy2 -p 'test_a024_npc_codec.py' -v
+      - name: Validate A-011 monster resource, click and motion mappings
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a011_resource.py' -v
