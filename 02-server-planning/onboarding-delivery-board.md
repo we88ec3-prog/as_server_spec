@@ -110,3 +110,7 @@ ONB-01 C03 登入原有 Account 及 ONB-02 C02 直接創角為**互不要求事�
 ## 2026-11-01 ADR-008：成功建角直接進遊戲（覆蓋舊推定）
 
 **使用者明確確認：創角成功後不回登入畫面、不需要再手動 C03，而是由原版 Client 直接進入遊戲世界。** 本檔早期「創角後回登入」「從 LoginDialog 再認證」僅是過時假設，不再作為 Server 實作或 CT 驗收標準；後續由 A-028 的 C04 final S02 callback `0x4b206b` 與 A-031 的新角色原生 World 轉場封包研究確定安全的 post-create authorization、socket 與 Client 需要的 S2C。日後已存在角色的普通登入 C03/S03/C10 保留，與首次創角分開驗證。參閱 [ADR-008](post-create-direct-world-decision-20261101.md)。原版 GUI E2E 仍為 not-run。
+
+## 2026-11-01 Roy1/2/3 成果正式整合
+
+現行優先 P0 不是重新分析 C02 的 NAME/EMAIL 或整個 C25/MAP checksum：Region2～4 `C02.F3=NAME/F4=E-MAIL` 原件已證，Region3 `C25=CBillingInfoPacket/3×string8` 與一般 C10 後排隊順序已證，map6 初始 C35 `00040F90` 已由原件重算，S0B 低七位 seq/bit7 分支已證。**Server a9326985 仍 live C02/C04/C15 Close、C25=01 synthetic 且 C11/C33 無 Host route**；最大阻塞轉成原版成功創角後的自動 World 轉場、S02/C15 可見失敗、原版真 C35/合法 spawn／行走碰撞。詳細 [新版 DEV 分期](roy123-playable-world-implementation-20261101.md)／[A 剩餘](../03-analysis-requests/roy123-remaining-playable-blockers-20261101.md)；原版 CT=not-run。

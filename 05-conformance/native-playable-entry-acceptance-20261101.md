@@ -17,3 +17,11 @@
 ## ADR-008 最終驗收更正
 
 創角成功後**直接進世界**，不能把「回 LoginDialog → 玩家手動 C03 → World」當作 CT-105/107 通過；正常已存角色日後登入則獨立以 C03/S03/C10 驗證。原 Client 後續封包尚未知，實測前保持 `planned/not-run`。詳 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。
+
+## 2026-11-01 靜態證據新增與原版 UI 出場限制
+
+- Region2～4 C02 F3=NAME、F4=E-MAIL 已原件驗證；CT-105/107 的選定 region、原生表單及失敗 S02/C15、成功直入 World 尚 not-run。
+- CT-110（Region3 C10 後 C25 `CBillingInfoPacket` 三 string8）與 CT-111（Region3 最終創角回呼建構 LoginDialogPane）是離線／合成測試，不可取代原版 CT-108。Region!=3 不可強制存在 C25。
+- A-032 MAP 靜態重算確認 map_ref=6 C35=`00040F90`，map_ref=0/10000/18001/20001 請見 [整合報告](../04-analysis-integration/roy123-verified-evidence-review-20261101.md)；**未抓到原版 Client 真 C35**、spawn/view/facing、教學圖 id 仍 unknown，CT-108 不可提早通過。
+- A-005 native S0B bit7/low7 分支已證，**回當次 C33 sequence**；合法移動/阻擋 rollback GUI 未執行，CT-109 不可提早通過。
+- [完整新驗收操作/次序](../02-server-planning/roy123-playable-world-implementation-20261101.md)，錯誤／待取證由 [A 精準清單](../03-analysis-requests/roy123-remaining-playable-blockers-20261101.md) 跟蹤。

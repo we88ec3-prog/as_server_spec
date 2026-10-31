@@ -64,3 +64,12 @@
 ## 2026-11-01 ADR-008 覆蓋前述舊規劃
 
 **首次創角成功後直接進世界，不返回登入畫面，不得要求人工第二次 C03。** A-028 目前只靜態證實 state0x1e S02(0)→0x4b206b，沒有立即 S03 不代表一定回登入或絕無背景轉服。A-031 必須追自動入 World 的第一個真封包，日後已存角色一般 C03/S03/C10 路由獨立保留。DEV-ENTRY-02/03 與 CT-105/107/108 以 [ADR-008](post-create-direct-world-decision-20261101.md) 為新完成定義，原版 Client E2E 仍 not-run。
+
+## 2026-11-01 Roy1/Roy2/Roy3 分析合併後最新覆蓋（本節優先於前述舊 unknown）
+
+- Region2..4 的 NAME/F3、E-MAIL/F4 **已由 Basic.dat label + 原 EXE 證明**；原生 UI E-MAIL 是否必填、S02 失敗可見、實際 Region 仍未測。
+- **C25 已解，不能再稱 WorldEntryMetadata 或完全未知**：原生類別 `CBillingInfoPacket`，Region3 的已證 C10→C25 用 3×string8，non3 Client 不應強制 C25；C10 token 是 owner/grant，C25 不是身份或地圖。Server 現行 `C25=01` 只 synthetic。
+- **Map C35 初始靜態值已重算**：Map0/00006.map map_ref6 的 C35 `00040F90` 可供 versioned MapCatalog fixture，但還沒有 native Client C35 抓包、合法出生／可走路徑／教程地圖身分。
+- **C33/S0B 的原生 ACK 序號已進一步證實**：S0B low7 回本次 C33.seq、bit7=0 校正/停止、bit7=1 預測位置檢查（不符仍校正）；Client 送 C33 後本地 seq 先 +1 mod128。碰撞、速度及原版移動仍需 CT。
+- **創角直入世界是 ADR-008 使用者需求**。A-028 靜態確認 Region3 final success 建 `LoginDialogPane` 物件（不代表手動登入畫面），但背景是否發 C03/S03/C10、下一個 World packet 尚未證；Server 不得強迫 LoginDialog。
+- 詳細 [已驗證證據整合](../04-analysis-integration/roy123-verified-evidence-review-20261101.md)、[直接派給 Server 的 DEV-ENTRY-01～06 規劃](roy123-playable-world-implementation-20261101.md)、[剩餘 P0 分析](../03-analysis-requests/roy123-remaining-playable-blockers-20261101.md)。前文「A030 labels missing、C25 body unknown、沒有任何真 MAP checksum」為歷史快照，不再當新阻塞；`native_client_validation=not-run` 不變。

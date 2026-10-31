@@ -39,3 +39,7 @@ A-032：至少一張選定地圖的正確 C35 pair、合法 spawn、可操作路
 ## 2026-11-01 新決策：A-028／A-031 直接 World 轉場優先
 
 正式操作是 **NewUser 成功後直接遊戲，不回 LoginDialog**。A-028 需追 0x4b206b 後續 UI/連線與封包；A-031 應分別交付「C04 final S02→自動 World」和「日後 C03/S03/C10→World」，不可把一般登入路由假定為創角下游。實際背景 C03/S03/C10 是否發生須由證據確認。參考 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。
+
+## 2026-11-01 Roy123 最新完成狀態（覆蓋舊段落）
+
+A-030：Region2～4 **NAME F3/E-MAIL F4 已證**（Basic.dat / original EXE），僅需要真正 GUI/必填/S02 錯誤與 C15 retry；A-028：Region3 final S02 成功建立 LoginDialogPane 的靜態 UI 路徑已證，但**直入 World** 後續尚未證；A-031：**Region3 一般 S03/C10→C25（CBillingInfoPacket 三個 string8）已證**，non3 未證必送 C25；A-032：5 張真 MAP 靜態 C35 已算，map_ref6=00040F90，但 spawn/walkability/UI 未實測；A-005：Client S0B seq/bit7 分支已證，實際 C33 行走／碰撞待 CT。詳細 [精準剩餘分析派工](roy123-remaining-playable-blockers-20261101.md)，請勿重啟已完成的靜態子項。
