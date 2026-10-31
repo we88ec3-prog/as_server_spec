@@ -79,3 +79,17 @@ Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9
 ## A-015 研究格式與來源交付結案（範圍限定，2026-10-31）
 
 Script 既有簡化 `BE u16 length` 的錯誤已更正為 **BE u16 version + BE u32 code units**；原 Born.dat 驗證通過，並加入大於 65535 code units 的合成回歸測試。原 EXE UTF-16LE 常值池的 resource selectors（Basic/Icon/Locale 等）可確認存在，但技能/物品定義的真正檔名 **unknown**，不能把候選檔案當成已解。完整資料盤點／來源／授權／下游邊界見 [A-015 結案審查](../task_a/roy2/A-015-closure-review.md)。
+
+
+## A-011 原件增補：Monster / World 圖庫 ID 與動畫選擇器（2026-10-31）
+
+原始 `Asgard.exe` SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 的 `0x404331..0x4043AF` 以 0x440720 登錄兩組 library：
+
+- `World%02d.dat`，library ID **7000..7023（24個）**、檔名 `World00.dat`～`World23.dat`；
+- `Monster%02d.dat`，library ID **8000..8042（43個）**、檔名 `Monster00.dat`～`Monster42.dat`。**重要勘誤**：EXE 的寬字常值從 0x5F1D3A 開頭是 `@Monster%02d.dat`，但原生註冊器 `0x40438B` 使用 `0x5F1D3C`，跳過字面 @，實際檔名應無 @；先前 A-024 報告中的 `@Monster%02d.dat` 是字串搜索結果，並非註冊器實際輸入。
+
+`MonsterImageLib` native `0x4D7530/0x4D7560` 進一步將 image ID（`0x4000` 起）分為 `library=8000+floor((id-0x4000)/10)`、`slot=(id-0x4000)%10`。40xx/41xx image ID、800x library ID 與 Server object key 是不同命名空間，不能混用。只在已登錄 43 個 Monster 庫內，安全候選 image ID 範圍為 `0x4000..0x41AD`（**designed bound**）；實際每一個檔內 slot 是否存在仍需檔案原件確認。
+
+另有 S07 receive handler native `0x4F1A8B/0x4F1B68/0x4F1BD1` 在 kind 1/2/4 時呼叫 `MonsterObject ctor 0x4D6FA0`；local motion selector `0x4D6BC0` 選出 `+0x20/+0x30/+0x40` 三組偏移（重複兩遍）。這些是**已證的程式碼映射**，不是已證的某種怪物／NPC species、動作名字或 YPF／DOI 方向圖群。
+
+具體資料、C43 兩條原生 UI request 路徑、缺件及驗證見 [A-011 報告](../task_a/roy2/A-011-analysis.md)、[CT-067/068](../05-conformance/A-011-npc-resource-click-animation-test-plan.md)。目前尚無同版 `MonsterNN.dat`/`WorldNN.dat` 實體檔，不應假設原服掉落/AI/動畫組已還原。
