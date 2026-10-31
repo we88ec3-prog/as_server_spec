@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-10-31",
-  "note": "Source report CT numbers are historical. Use main CT IDs in vectors.json, ONB, traceability and new Server plans. Main CT-054/055 preserved.",
+  "note": "Source report CT numbers are historical. Use main CT IDs in vectors.json, ONB, traceability and new Server plans. Main CT-054/055 preserved.; incremental merge: roy2 CT67/68 -> main CT82/83 and roy1 CT63..65 -> main CT84..86.",
   "mapping": [
     {
       "branch": "task_a/roy1",
@@ -132,11 +132,40 @@
       "branch": "task_a/roy2",
       "source": "CT-066",
       "main": "CT-081"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-063",
+      "main": "CT-084"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-064",
+      "main": "CT-085"
+    },
+    {
+      "branch": "task_a/roy1",
+      "source": "CT-065",
+      "main": "CT-086"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-067",
+      "main": "CT-082"
+    },
+    {
+      "branch": "task_a/roy2",
+      "source": "CT-068",
+      "main": "CT-083"
     }
   ],
   "preserved_main": [
     "CT-054",
     "CT-055"
   ],
-  "native_client_validation": "not-run"
+  "native_client_validation": "not-run",
+  "new_incremental_source_shas": {
+    "task_a/roy1": "c4d42ac0d45339b5abe93633864a56db6fc3ddfa",
+    "task_a/roy2": "5c99fd334451624cb4d08d4a065e6f7cd838ab18"
+  }
 }

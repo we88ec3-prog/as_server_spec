@@ -2123,6 +2123,178 @@
       "analysis_request": "A-024",
       "legacy_source_ct_id": "CT-066",
       "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-084",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "level": "native-object-visibility-codec",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S33",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S11",
+        "PKT-S1A"
+      ],
+      "input": {
+        "kind": "original-exe-plus-bounded-fixtures",
+        "reference": "tools/a004_visibility_model.py",
+        "cases": [
+          "Native constructor opcode decode 0x07/0x0e/0x5f/0x33/0x0c/0x64/0x11/0x1a",
+          "S07 u16 count and 11 byte common record (type5..12 only); type1/2/4 flags, type3/type13 string8, type14 u8,u8,u16 typed parser pending",
+          "S0E and S5F distinct u32BE ref and distinct handler",
+          "S0C BE u32/u16/u16/u8/u8; S64 count/length bounded; S11 ref+direction and S1A ref+u8+u16+u8",
+          "S33 other human ref and attributes; S05 own ref not other-player add"
+        ]
+      },
+      "expected": "Original 20 instruction signatures match; strict direction-specific typed codec; no S1E DieObjects opcode; native Client E2E not-run",
+      "evidence_kind": "observed-static-plus-synthetic",
+      "legacy_source_ct_id": "CT-063",
+      "merge_source_branch": "task_a/roy1",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+    },
+    {
+      "id": "CT-085",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "level": "two-native-client-aoi-lifecycle",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S33",
+        "PKT-S07",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S11",
+        "PKT-S15"
+      ],
+      "input": {
+        "kind": "native-client-manual-plan",
+        "cases": [
+          "Two original Clients same map mutual spawn and object ID equality of updates",
+          "Both directions move/change dir and walk out of AOI",
+          "Logout/abrupt socket close removes visible counterpart but not database Character",
+          "Map transition clears old other objects, preserves self/reloads new visible population",
+          "Death and revive separately from AOI exit; ID reuse collision and sequence"
+        ],
+        "missing": [
+          "Original Server two-client captures with verified map_instance and S07/S33/S0E/S5F sequence",
+          "Known release NPC/monster scene type mapping and model resources"
+        ]
+      },
+      "expected": "Each viewer sees only scoped entity, one binding per ref, no ghost; original AOI radius and notification timing UNKNOWN until runtime evidence",
+      "evidence_kind": "planned-native",
+      "legacy_source_ct_id": "CT-064",
+      "merge_source_branch": "task_a/roy1",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+    },
+    {
+      "id": "CT-086",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "level": "designed-server-interest-identity-fencing",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S33",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S0C",
+        "PKT-S64"
+      ],
+      "input": {
+        "kind": "designed-synthetic",
+        "reference": "tools/a004_visibility_model.py",
+        "cases": [
+          "same wire-ref duplicate same entity refresh vs different entity collision",
+          "wrong World map/map_instance or stale session generation rejected",
+          "death does not automatically delete visible object or grant quest kill",
+          "move without prior spawn rejected",
+          "old map S0E cannot remove new epoch binding in Domain",
+          "wire cannot distinguish old/new events within same TCP when ref reused: fence/reconnect"
+        ]
+      },
+      "expected": "No unauthorized cross-map observer visibility, ghost objects or ref aliasing; designed internal epoch does not change native wire layout",
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-065",
+      "merge_source_branch": "task_a/roy1",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+    },
+    {
+      "id": "CT-082",
+      "status": "planned",
+      "level": "original-PE-static-and-synthetic-NPC-resource-ID-click-motion",
+      "requirements": [
+        "R-012"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-C43",
+        "PKT-S34",
+        "PKT-S3C"
+      ],
+      "input": {
+        "kind": "original-client-executable-static-plus-synthetic",
+        "reference": "05-conformance/A-011-npc-resource-click-animation-test-plan.md"
+      },
+      "expected": "SHA-locked original PE 29 VA instruction patterns + 4 RTTI + 3 wide literal checks PASS; World7000..7023 Monster8000..8042 registrations; imageID0x4000+10*archive+slot conversion; S07 kinds1,2,4 create MonsterObject; C43 both producer type1/subtype4 with BE u32 target; local selector0..5 groups+0x20/+0x30/+0x40. Synthetic test result recorded after CI. Not runtime GUI proof.",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "Original local Asgard.exe SHA-locked 29 instruction anchors, 4 RTTI, 3 UTF16 literals PASS; GitHub Actions run 41186221751: 16 A-011 synthetic + 19+7 A-024 regression tests and phase gates PASS",
+      "original_probe": "task_a/roy2/a011_native_probe.py",
+      "offline_test": "task_a/roy2/test_a011_resource.py",
+      "analysis_request": "A-011",
+      "native_client_validation": "not-run",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751",
+      "legacy_source_ct_id": "CT-067",
+      "merge_source_branch": "task_a/roy2",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+    },
+    {
+      "id": "CT-083",
+      "status": "planned",
+      "level": "native-original-client-NPC-monster-sprite-click-dialog-motion",
+      "requirements": [
+        "R-012"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-C43",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S44",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "input": {
+        "kind": "native-original-client-with-owned-Monster-World-DAT-resources",
+        "reference": "05-conformance/A-011-npc-resource-click-animation-test-plan.md"
+      },
+      "expected": "A real nonempty S07 entity→visible asset sprite ID→MonsterNN.dat member/YPF group and six local motion selector semantics must be demonstrated; click C43→S34/S3C/S44→NPCChatDialog with packet trace and original UI must be proven, including NPC/monster distinctions, dead/removed/relog boundaries. No actual game runtime proof yet.",
+      "evidence_kind": "designed-test",
+      "analysis_request": "A-011",
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-068",
+      "merge_source_branch": "task_a/roy2",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
     }
   ]
 }
