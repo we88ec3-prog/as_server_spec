@@ -432,6 +432,45 @@
       "work_items": [
         "ONB-04"
       ]
+    },
+    {
+      "id": "FLOW-STATS",
+      "label": "原生角色數值面板／能力點 Client I/O",
+      "client_trigger": "已進 World 的 StatusDialog 中 UI event ids 0x13..0x17 進行能力點選擇；或 Client 收到 native SStatusPacket opcode 0x08",
+      "client_send": [
+        "PKT-C47"
+      ],
+      "server_to_client": [
+        "PKT-S08"
+      ],
+      "client_reaction": "0x53FD60 事件 ID 0x13..0x17 產生 C47 一個 u8 1/2/4/8/16；S08 0x586D40 依旗標解析，0x53F8A0 更新 Status 與四組 bounded resource，0x540660 接收 opcode8 令 StatusDialog 刷新；S08 非固定長度、原版公式與 resource 顯示標籤仍未知",
+      "evidence": [
+        "A-008",
+        "A-007",
+        "A-009"
+      ],
+      "scenarios": [
+        "SCN-012"
+      ],
+      "tests": [
+        "CT-061",
+        "CT-062"
+      ],
+      "server_decisions": [
+        "Server 只對已驗證 session/角色處理 C47；未登入、無點數、非法 one-hot、重送不得產生持久修改（designed）",
+        "投影 S08 旗標與各條件群組的原生 wire 型別，按合法上下限處理數值；不得把 S05 外觀或 S5F 死亡視為 S08 ACK",
+        "伺服器自行擬定能力值、經驗、裝備加成、死亡與復活公式並標記 designed；原版政策 unknown"
+      ],
+      "readiness": "S08/C47 native-static-client-io-ready; original server formulas and native GUI acceptance pending",
+      "unknowns": [
+        "HP/MP 及其餘四組 resource 的 GUI 標籤、ExpBarDialog 經驗值分母及顯示單位未證",
+        "原版 Server 能力點公式、裝備加成、超界及死亡/復活規則未證",
+        "C47 是否每次返回 S08、合法失敗時 UI 錯誤包/訊息未證",
+        "Native Client E2E CT-062 not-run"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-008-analysis.md",
+      "work_items": []
     }
   ]
 }
