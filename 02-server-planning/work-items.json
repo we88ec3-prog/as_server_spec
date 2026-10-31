@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-31",
-  "note": "共用規格尚未取得私有 Server 最新實作/測試；not-reported != not-implemented",
+  "as_of": "2026-11-01",
+  "note": "Read-only component snapshot e93c9a17 is available; source-implemented is not original Client acceptance; historical fields retain their own dates.",
   "work_items": [
     {
       "id": "ONB-01",
@@ -36,7 +36,7 @@
       ],
       "depends_on": [],
       "readiness": "design-ready-minimal-profile",
-      "implementation_status": "not-reported",
+      "implementation_status": "partial-source-reviewed",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
@@ -90,7 +90,18 @@
       },
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
       "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
-      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "implementation_snapshot": {
+        "as_of": "2026-11-01",
+        "server_commit": "e93c9a1748fbca539106cba5e75458757c8e490d",
+        "scope": "Admin/account/auth and WEB-P0 source-implemented; native independent account-entry E2E not-run",
+        "parity_items": [
+          "PAR-001",
+          "PAR-009"
+        ],
+        "source": "02-server-planning/prototype-parity-backlog.json",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "ONB-02",
@@ -135,8 +146,8 @@
         "CT-113"
       ],
       "depends_on": [],
-      "readiness": "A-030 Region2..4 NAME=F3, E-MAIL=F4 original Basic.dat+EXE confirmed; C02/S02/C04/C15 Host remains Close and S02 failure native UI/runtime region and direct post-C04 World unverified",
-      "implementation_status": "not-reported",
+      "readiness": "Region2..4 NAME/F3 and EMAIL/F4 static confirmed and opt-in success adapter source-implemented; native negative UI, actual profile and direct post-C04 World acceptance pending",
+      "implementation_status": "partial-source-reviewed",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
@@ -215,7 +226,18 @@
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
       "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
       "native_failure_flow": "C02 expected bad credential/name -> verified S02(nonzero,string8) -> original Client UI and optional C15 -> safe retry; raw Close is temporary native-error-mapping-unverified, NOT completion",
-      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "implementation_snapshot": {
+        "as_of": "2026-11-01",
+        "server_commit": "e93c9a1748fbca539106cba5e75458757c8e490d",
+        "scope": "Region2..4 opt-in native success adapter and email atomic commit source-implemented; verified failure UI and post-create automatic World still pending",
+        "parity_items": [
+          "PAR-001",
+          "PAR-002"
+        ],
+        "source": "02-server-planning/prototype-parity-backlog.json",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "ONB-03",
@@ -257,7 +279,7 @@
         "ONB-02"
       ],
       "readiness": "A-031 Region3 C10→C25(3string8 CBillingInfoPacket) static ready, non3 C25 not required; A-032 full MAP C35 offline values static ready; actual native direct post-C04 world transfer, selected map spawn/viewport and original C35/GUI still blocked",
-      "implementation_status": "not-reported",
+      "implementation_status": "partial-source-reviewed",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
@@ -313,7 +335,20 @@
       "native_world_activation_gate": "Grant after authenticated owner C10 (or evidenced post-create equivalent), C25 Region3 optional metadata not auth; MAP from versioned true assets, exact C35 pair; map6 static interim candidate only; native Client C35/S04/S33/S14(2) not-run.",
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
       "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
-      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "implementation_snapshot": {
+        "as_of": "2026-11-01",
+        "server_commit": "e93c9a1748fbca539106cba5e75458757c8e490d",
+        "scope": "Native billing codec available; real World output/map/spawn/CRC path and gameplay not connected, RI-007; synthetic loading core exists",
+        "parity_items": [
+          "PAR-002",
+          "PAR-003",
+          "PAR-007",
+          "PAR-008"
+        ],
+        "source": "02-server-planning/prototype-parity-backlog.json",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "ONB-04",
@@ -351,7 +386,7 @@
         "ONB-03"
       ],
       "readiness": "Core database recovery and synthetic session gating exists; native original Client C02/C04/C25/C35/C33 end-to-end failure/replay/restart not-run",
-      "implementation_status": "not-reported",
+      "implementation_status": "partial-source-reviewed",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
@@ -395,7 +430,20 @@
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
       "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
       "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
-      "packet_logging_source_status": "existing private Server metadata trace implemented at 95977823, CT-114 planned/not-run"
+      "packet_logging_source_status": "existing private Server metadata trace implemented at 95977823, CT-114 planned/not-run",
+      "implementation_snapshot": {
+        "as_of": "2026-11-01",
+        "server_commit": "e93c9a1748fbca539106cba5e75458757c8e490d",
+        "scope": "Recovery/epoch core, phase deadlines and journals source-implemented; current live position/equipment/teleport and original-client failure recovery incomplete",
+        "parity_items": [
+          "PAR-003",
+          "PAR-004",
+          "PAR-007",
+          "PAR-010"
+        ],
+        "source": "02-server-planning/prototype-parity-backlog.json",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "ONB-05",
@@ -465,7 +513,7 @@
         "ONB-03"
       ],
       "readiness": "framework-ready-native-blocked",
-      "implementation_status": "not-reported",
+      "implementation_status": "partial-source-reviewed",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
@@ -508,7 +556,19 @@
       "party_reward_policy": "User decided: highest aggregated valid damage party gets rewards; every member full base EXP and personal independent loot roll once. Monster death and reward ledgers idempotent; party ties and roster/remote eligibility not resolved.",
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
       "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
-      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "implementation_snapshot": {
+        "as_of": "2026-11-01",
+        "server_commit": "e93c9a1748fbca539106cba5e75458757c8e490d",
+        "scope": "Shared scene/AI/AOI and packet codec subset source-implemented; native NPC/monster/player appearance and gameplay lifecycle pending",
+        "parity_items": [
+          "PAR-005",
+          "PAR-006",
+          "PAR-012"
+        ],
+        "source": "02-server-planning/prototype-parity-backlog.json",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "ONB-06",
@@ -547,7 +607,7 @@
         "ONB-05"
       ],
       "readiness": "progress-domain-ready-native-blocked",
-      "implementation_status": "not-reported",
+      "implementation_status": "partial-source-reviewed",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
@@ -573,7 +633,17 @@
       "admission_refusal": "STATE=REFUSE or confirmed native Not Enroll is no-op, no quest/admission/reward/transfer changes, NPC remains clickable and reasks indefinitely; every run has independent context, ACCEPT is only intent.",
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
       "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
-      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "implementation_snapshot": {
+        "as_of": "2026-11-01",
+        "server_commit": "e93c9a1748fbca539106cba5e75458757c8e490d",
+        "scope": "Reward planning and refusal/reask model subset reported implemented; native quest/reward/exit full loop pending",
+        "parity_items": [
+          "PAR-012"
+        ],
+        "source": "02-server-planning/prototype-parity-backlog.json",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "ONB-07",
@@ -598,8 +668,8 @@
         "ONB-01"
       ],
       "dependency_boundary": "requires existing managed Account and CredentialVerifier, not requiring C03/login GUI before UI action unless native Client proves it",
-      "readiness": "native C26 wire static-ready; result S02 status and GUI E2E blocked",
-      "implementation_status": "not-reported",
+      "readiness": "C26 codec and known-native-unimplemented classification source-implemented; live credential mutation and native result UI pending",
+      "implementation_status": "partial-source-reviewed",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
       "client_acceptance_owner": "DEV/CT",
@@ -617,7 +687,17 @@
       "native_wire_contract": "04-analysis-integration/A-029-native-password-change-contract.md",
       "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
       "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
-      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
+      "packet_observability_spec": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
+      "implementation_snapshot": {
+        "as_of": "2026-11-01",
+        "server_commit": "e93c9a1748fbca539106cba5e75458757c8e490d",
+        "scope": "Native C26 codec recognized but live password handler not implemented; UI response native evidence pending",
+        "parity_items": [
+          "PAR-011"
+        ],
+        "source": "02-server-planning/prototype-parity-backlog.json",
+        "native_client_validation": "not-run"
+      }
     }
   ]
 }

@@ -1,0 +1,515 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-01",
+  "spec_baseline": "c77e908",
+  "server_commit": "e93c9a1748fbca539106cba5e75458757c8e490d",
+  "notice": "Read-only audit. No server tests/run/DB writes. Historical prototype GUI success does not validate current server or unmodified Client. Component and native states remain separate.",
+  "audit_document": "04-analysis-integration/prototype-parity-audit-20261101.md",
+  "delivery_contract": "02-server-planning/prototype-parity-delivery-plan-20261101.md",
+  "regression_plan": "05-conformance/prototype-parity-regression-20261101.md",
+  "source_inventory": [
+    {
+      "scope": "historical-prototype",
+      "path": "server/local_server.py",
+      "sha256": "3394b288efcb8ef8145cc930a19ce58edbb243ccac99a1062d6cfd9cf7412e22",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "server/admin_server.py",
+      "sha256": "005747182da21d971d3d364c1dcc8bd31925d52ae51a543bce42b448066b0512",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "server/world_packets.py",
+      "sha256": "76a808c4f941cbdeab483f3e9d1f9b645d60b8c7be98e730f82e2cfea800413a",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "server/equipment_packets.py",
+      "sha256": "76c532c4293be8e1ee13852437ccb46bc2b9c115812003c29d8298fe4b40ee78",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "server/world_settings.py",
+      "sha256": "c83cf1a676abb7750414323b907eae060325879bf785c6f262eb2f2aec9173bc",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "server/README.md",
+      "sha256": "151555676d115e3253a7520beccd8cc33ea8bc07ed32dbc028ee8d0e25a1bb3f",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "validation.md",
+      "sha256": "646a9a12a2e21ae42c263cb72fba1d67eecb026eb68782153d4bfa942a0dce80",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "user-testing.md",
+      "sha256": "6915f458eecdf6e3ae75fae4c601688abfacc5ce3763d587170e50c2fbcc0064",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "stability-investigation.md",
+      "sha256": "be9de38159ee49ac0d48be80e4709356f319c70b327fd7aa2fd560dd62f251e1",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "world-flow.md",
+      "sha256": "61d043c1674a6f91930c0849d46fb1282756ef2d18225e748f48612e8dd25982",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "screen-centering.md",
+      "sha256": "9f9fbdb04252f7974aa1de44817a64d6ebc91e0f9e0aaf007eb99222636e42c1",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "clothing-colors.md",
+      "sha256": "dfa425f46110eb03774f9e78a5987f0fd14e77403b63cb83d105914f0bcba794",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "background-music.md",
+      "sha256": "2e1009e52f16fb1da308d6e99fd13eb0c1e55959262ddb5015cb6b62476ecd6c",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "historical-prototype",
+      "path": "intro-switch.md",
+      "sha256": "1213a52a47ab1859c7a8fa5301cb64e5e72f909801284cf0e5b64c5b25915431",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "current-server-snapshot",
+      "path": "src/Asgard.Server.Host/LoginWireSession.cs",
+      "sha256": "2db941d2281e40b47ba6da78366a67b49b839d099cfd642a0cadb7b7257f0fa8",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "current-server-snapshot",
+      "path": "src/Asgard.Server.Host/GamePacketExpectation.cs",
+      "sha256": "ea3294088be9d53bfa944d0af78850e7ccc4d62a547008d25f4a59a92d54b3f4",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "current-server-snapshot",
+      "path": "src/Asgard.Server.Protocol/TwWorldPackets.cs",
+      "sha256": "e8b98b46ac60c75b09a3ecbb064e7ba40265395e746b0566b0c10ca884a2dff1",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "current-server-snapshot",
+      "path": "src/Asgard.Server.Application/WorldMovementWindow.cs",
+      "sha256": "2aace9020f5b3bce56aab681c280e8e09f13c7c596a8d1badfc2d97613de1266",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "current-server-snapshot",
+      "path": "src/Asgard.Server.Infrastructure/WorldRecoveryStore.cs",
+      "sha256": "eb39629fa85785bc7b0e97da2d543d7413f9671c453b2909b41434abf4929584",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "current-server-snapshot",
+      "path": "src/Asgard.Server.Admin/AdminAccountEndpoints.cs",
+      "sha256": "c28ad3e68e99c78c56a3439a0656beec072b74c688f68c17ba78d5d887c92c0c",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "current-server-snapshot",
+      "path": "src/Asgard.Server.Admin/WebAdminUiEndpoints.cs",
+      "sha256": "7cb3c10520e1f74513fd37758a553a2bd2f771913558bce7352f2ef0c369650b",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "current-server-snapshot",
+      "path": "docs/planning/DEV-ENTRY-roy123-20261101.md",
+      "sha256": "6848075cd706283fe5e66b08c606fc64a37699bcb092e695c5a51a4bcb452e50",
+      "publication": "identity only; source not copied"
+    },
+    {
+      "scope": "current-server-snapshot",
+      "path": "docs/planning/DEV-LOG-R037-20261101.md",
+      "sha256": "35fd8252dd4a2e9bb3a0e78a78fea2276b696f5f36ad381da790628893d1961e",
+      "publication": "identity only; source not copied"
+    }
+  ],
+  "items": [
+    {
+      "id": "PAR-001",
+      "title": "獨立創角與原生失敗回覆",
+      "priority": "P0",
+      "requirements": [
+        "R-003",
+        "R-025",
+        "R-026",
+        "R-035",
+        "R-036"
+      ],
+      "analysis_requests": [
+        "A-021",
+        "A-028",
+        "A-030"
+      ],
+      "conformance": [
+        "CT-097",
+        "CT-103",
+        "CT-104",
+        "CT-105",
+        "CT-111",
+        "CT-112"
+      ],
+      "depends_on": [],
+      "prototype_scope": "歷史兩段成功與重登；同名稱帳號模型不沿用",
+      "current_server_scope": "Region2..4 opt-in success adapter／E-MAIL transaction／C15 cancel已有，非零UI未驗",
+      "remaining_analysis": "補實際region、非零S02可見與C15 retry；F3/F4靜態已證不重做",
+      "server_delivery": "沿用verifier/pending，接原生可理解負向回覆，分類與reason log，無未授權建角",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-002",
+      "title": "首次自動入World與一般登入真圖",
+      "priority": "P0",
+      "requirements": [
+        "R-004",
+        "R-027",
+        "R-028"
+      ],
+      "analysis_requests": [
+        "A-020",
+        "A-028",
+        "A-031",
+        "A-032"
+      ],
+      "conformance": [
+        "CT-107",
+        "CT-108",
+        "CT-110"
+      ],
+      "depends_on": [],
+      "prototype_scope": "一般登入後map0曾顯示；C35只有長度驗證",
+      "current_server_scope": "RI-007可停WorldGranted；native C25 parser已有，正式World初始化未接",
+      "remaining_analysis": "補postcreate callback與首個S2C、真C35/spawn；重用已有MAP靜態值",
+      "server_delivery": "C10 owner、同版MapCatalog、正確UI初始化和C35 epoch；新角不靠人工再次C03",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-003",
+      "title": "權威移動、轉向與最新位置持久化",
+      "priority": "P0",
+      "requirements": [
+        "R-005",
+        "R-017",
+        "R-028"
+      ],
+      "analysis_requests": [
+        "A-005",
+        "A-016",
+        "A-032"
+      ],
+      "conformance": [
+        "CT-004",
+        "CT-071",
+        "CT-072",
+        "CT-109"
+      ],
+      "depends_on": [
+        "PAR-002"
+      ],
+      "prototype_scope": "C33/S0B和C11，持久位置／面向；碰撞與速度簡化",
+      "current_server_scope": "codec、seq7 window、首次checkpoint已有，Host gameplay路由尚未接",
+      "remaining_analysis": "補動態overlay/spawn與原版合法路徑、負向校正",
+      "server_delivery": "權威接受序列、最新map/x/y/facing與恢復水位；重播不多走",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-004",
+      "title": "InWorld時間同步與穩定性",
+      "priority": "P1",
+      "requirements": [
+        "R-001",
+        "R-019",
+        "R-021"
+      ],
+      "analysis_requests": [
+        "A-001",
+        "A-020",
+        "A-016"
+      ],
+      "conformance": [
+        "CT-115",
+        "CT-114"
+      ],
+      "depends_on": [
+        "PAR-002"
+      ],
+      "prototype_scope": "S66 u32／C75兩u32曾實測，5秒為本機政策",
+      "current_server_scope": "分階段deadline已有；未找到S66/C75 live接線",
+      "remaining_analysis": "補各phase與重送／失配行為；不可推論創角會定期保活",
+      "server_delivery": "有界challenge、TTL及metadata，與表單期限及Client responsiveness分開",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-005",
+      "title": "背包／衣櫃與實際穿戴",
+      "priority": "P1",
+      "requirements": [
+        "R-006",
+        "R-008",
+        "R-017"
+      ],
+      "analysis_requests": [
+        "A-006",
+        "A-007"
+      ],
+      "conformance": [
+        "CT-064",
+        "CT-065",
+        "CT-066",
+        "CT-074"
+      ],
+      "depends_on": [
+        "PAR-002",
+        "PAR-003"
+      ],
+      "prototype_scope": "兩衣S0F/C1C/S37/S33，重啟保存；可重用fixture",
+      "current_server_scope": "只有ClothingId投影欄位，Host自身傳0，沒有已接穿戴路由",
+      "remaining_analysis": "重用已證衣服use-kind5／變長S0F/S37，補其他物品分支不猜",
+      "server_delivery": "區分instance/slot/appearance，owner交易、數量守恆、自他投影與重登",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-006",
+      "title": "獨立衣色、髮色與人物錨點",
+      "priority": "P1",
+      "requirements": [
+        "R-006"
+      ],
+      "analysis_requests": [
+        "A-006"
+      ],
+      "conformance": [
+        "CT-007",
+        "CT-008",
+        "CT-073",
+        "CT-074"
+      ],
+      "depends_on": [
+        "PAR-003",
+        "PAR-005"
+      ],
+      "prototype_scope": "獨立色和8/9錨點已改，最後GUI仍待驗收",
+      "current_server_scope": "writer染色固定ff00ff，無獨立衣色狀態，viewport在fixture",
+      "remaining_analysis": "八向與各viewport GUI對照、素材染色層",
+      "server_delivery": "hair/tint分離保存，S05/S33一致，更新不重設位置或面向",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-007",
+      "title": "在線立即切圖",
+      "priority": "P1",
+      "requirements": [
+        "R-004",
+        "R-017",
+        "R-018",
+        "R-028"
+      ],
+      "analysis_requests": [
+        "A-016",
+        "A-017",
+        "A-022",
+        "A-032"
+      ],
+      "conformance": [
+        "CT-108",
+        "CT-109",
+        "CT-113"
+      ],
+      "depends_on": [
+        "PAR-002",
+        "PAR-003"
+      ],
+      "prototype_scope": "使用者回報在線選圖／座標無需重登已通過",
+      "current_server_scope": "loading/recovery核心存在；無正式傳送入口",
+      "remaining_analysis": "補已驗兩圖、合法目的地與失敗回復；非494圖全可用",
+      "server_delivery": "TeleportIntent、owner/epoch、C35提交、AOI遷移與冪等管理請求",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-008",
+      "title": "地圖BGM／播放停止與保存",
+      "priority": "P1",
+      "requirements": [
+        "R-022"
+      ],
+      "analysis_requests": [
+        "A-019"
+      ],
+      "conformance": [
+        "CT-067",
+        "CT-068",
+        "CT-069"
+      ],
+      "depends_on": [
+        "PAR-002"
+      ],
+      "prototype_scope": "使用者確認可聽音樂，map曲目／停止保存",
+      "current_server_scope": "未找到S19 writer／Host cue／曲目操作",
+      "remaining_analysis": "原服map→track unknown，明示designed mapping可先開發",
+      "server_delivery": "S19 kind1/repeat0/track，0停止、版本／epoch、在線變更和重登；不改Client音量",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-009",
+      "title": "角色／資源管理工作台",
+      "priority": "P1",
+      "requirements": [
+        "R-018",
+        "R-019",
+        "R-021"
+      ],
+      "analysis_requests": [
+        "A-017",
+        "A-015"
+      ],
+      "conformance": [
+        "CT-050",
+        "CT-051"
+      ],
+      "depends_on": [
+        "PAR-005",
+        "PAR-006",
+        "PAR-007",
+        "PAR-008"
+      ],
+      "prototype_scope": "角色／衣櫃／圖座標／曲目管理已有",
+      "current_server_scope": "WEB-P0帳號操作已實作，角色操作缺domain/API/UI",
+      "remaining_analysis": "查清資源profile與每項權限，非重新做P0",
+      "server_delivery": "先邏輯API與版本／audit再頁面，沿用localhost Admin Key；不開啟遠端",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-010",
+      "title": "測試回報、更正與狀態關聯",
+      "priority": "P1",
+      "requirements": [
+        "R-019",
+        "R-023",
+        "R-037"
+      ],
+      "analysis_requests": [
+        "A-017",
+        "A-020"
+      ],
+      "conformance": [
+        "CT-114"
+      ],
+      "depends_on": [],
+      "prototype_scope": "Web追加回報／更正、程序退出記錄",
+      "current_server_scope": "逐包/close/validation/cancel journal較完整，無同等回報工作台",
+      "remaining_analysis": "Client原版/preview crash分軌，RI-006既有派工不重複",
+      "server_delivery": "report revision保留原件，case結果/Client hash/Server build/匿名trace關聯，Git只存摘要",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-011",
+      "title": "玩家原生改密碼",
+      "priority": "P1",
+      "requirements": [
+        "R-025",
+        "R-032",
+        "R-036"
+      ],
+      "analysis_requests": [
+        "A-029"
+      ],
+      "conformance": [
+        "CT-098",
+        "CT-099",
+        "CT-112"
+      ],
+      "depends_on": [],
+      "prototype_scope": "僅管理救援重設，無完整原生流程",
+      "current_server_scope": "C26 codec及known-unimplemented分類已有，live handler未接",
+      "remaining_analysis": "補C26專用S02狀態／GUI，不套C03",
+      "server_delivery": "驗舊密碼、輪替憑證版本並撤銷授權；保留角色，不用Web代替玩家UI",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "PAR-012",
+      "title": "多人／完整教學與營運差距",
+      "priority": "follow-existing-roadmap",
+      "requirements": [
+        "R-007",
+        "R-009",
+        "R-010",
+        "R-011",
+        "R-012",
+        "R-013",
+        "R-014",
+        "R-015",
+        "R-020",
+        "R-029",
+        "R-030",
+        "R-031",
+        "R-033",
+        "R-034"
+      ],
+      "analysis_requests": [
+        "A-004",
+        "A-008",
+        "A-009",
+        "A-010",
+        "A-011",
+        "A-012",
+        "A-013",
+        "A-014",
+        "A-018",
+        "A-023",
+        "A-024",
+        "A-025",
+        "A-026"
+      ],
+      "conformance": [
+        "CT-055",
+        "CT-101",
+        "CT-102"
+      ],
+      "depends_on": [
+        "PAR-002",
+        "PAR-003"
+      ],
+      "prototype_scope": "原型沒有這些完整系統",
+      "current_server_scope": "共享場景／AI／AOI／部分獎勵與對話domain及codec已有，native閉環未驗",
+      "remaining_analysis": "沿用各A的unknown，不把未知原服政策當所有Server開發前提",
+      "server_delivery": "ONB05/06與M2..M5逐段接native；雙人及故障／恢復，非原型倒退項",
+      "status": "planned-handoff",
+      "native_client_validation": "not-run"
+    }
+  ],
+  "dependency_policy": "Dependencies gate the corresponding mutation/acceptance; read-only queries or independently ready components may be delivered first."
+}

@@ -14,6 +14,8 @@
 
 ## 從這裡開始
 
+2026-11-01 新增：[Python原型／新版Server能力差距](04-analysis-integration/prototype-parity-audit-20261101.md) → [補齊批次與Server合約](02-server-planning/prototype-parity-delivery-plan-20261101.md) → [機讀待辦](02-server-planning/prototype-parity-backlog.json) → [批次驗收](05-conformance/prototype-parity-regression-20261101.md)。按 `as_server_roy@e93c9a17` 區分已實作後端、未接通原生操作與未驗收；不將原型捷徑或EXE patch列為正式Server要求。
+
 1. [共同開發流程](00-governance/workflow.md)：需求到驗收的固定編號與交付規則。
 2. [Server需求](01-server-requirements/README.md)：完整系統範圍、優先序、驗收及非功能需求。
 3. [Server規劃](02-server-planning/architecture.md)：系統邊界、資料責任、狀態機與階段路線；另見[邏輯介面與資料](02-server-planning/interfaces-and-data.md)。

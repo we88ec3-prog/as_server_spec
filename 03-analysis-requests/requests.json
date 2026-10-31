@@ -50,7 +50,14 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "prototype_parity_increment": {
+        "source": "02-server-planning/prototype-parity-backlog.json",
+        "item": "PAR-004",
+        "validation_plan": "05-conformance/time-check-parity-test-plan.md",
+        "conformance": "CT-115",
+        "remaining": "Reuse S66/C75 historical native anchors; confirm second C75 field, native phase boundaries and current original Client runtime. No global redo or Server code change."
+      }
     },
     {
       "id": "A-002",
@@ -1412,6 +1419,13 @@
         "native_client_validation": "not-run",
         "no_new_branch": true,
         "analyze_only_no_server_implementation": true
+      },
+      "prototype_parity_increment": {
+        "source": "02-server-planning/prototype-parity-backlog.json",
+        "item": "PAR-004",
+        "validation_plan": "05-conformance/time-check-parity-test-plan.md",
+        "conformance": "CT-115",
+        "remaining": "Reuse S66/C75 historical native anchors; confirm second C75 field, native phase boundaries and current original Client runtime. No global redo or Server code change."
       }
     },
     {

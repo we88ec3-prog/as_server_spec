@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "95821889fe6c6c571b719e91b0c75a7f8bddabc747499e000c384ccf2a52bd5c"
+      "sha256": "876e57977557b87e15132d1b01dfe6a33e73bac97d70e28a24a7f4ae11b541bd"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -49,7 +49,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "4e840af78780001c4d4dcab67b0b6b8f0dd9a48931cba9d7c940579eee30e99c"
+      "sha256": "d12f305be52eff6b6c82a3e3a3b7cf7b5bc8ceab6947c15f1fc5e3b8ea898fed"
     },
     {
       "path": "00-governance/workflow.md",
@@ -73,7 +73,7 @@
     },
     {
       "path": "02-server-planning/admin-web-management-interface-plan.md",
-      "sha256": "cf4080d41cc7a177488448ab2e40fa7c0b755d454bb2533a0514e5fdf615f359"
+      "sha256": "be23a68acbc325a3581b470fbefd8aed1c46f18b61bb11cba3cb9dcb1f3b7829"
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
@@ -177,7 +177,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "a12d5a51251f41c10c1ed908307d2ebf08fc229c934c10e7da364d8326b9fcc8"
+      "sha256": "5a91697fee3985cdd534e80ee8865f203832246762450b6bd198760f3052ef99"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
@@ -193,7 +193,7 @@
     },
     {
       "path": "02-server-planning/roadmap.md",
-      "sha256": "fd02f6410458c809301771104d81a0c8e281853d3d0a31eef9852e6c3f2e4e14"
+      "sha256": "0404d3b1c690758d6e3a7abbc2fb16f671783b139b387047f2ddd576dd18e77e"
     },
     {
       "path": "02-server-planning/roy1-roy2-new-evidence-dev-plan-20261031.md",
@@ -249,7 +249,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "cb4a7684d7fe48ead48b8498115e574a16da48e10de237a8136cf31c1a033beb"
+      "sha256": "ba1f3d52eb362e68f2b94663494aca251a524ca45fd82e22630daeb5e72fa0f0"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -389,7 +389,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "4e6d871441e2127b65c1f2b4d8f3ac4e3399974fff7d17da97bc012e96816671"
+      "sha256": "474e3eae0dd19bb78e3980f982d44540978c31d40c9223fed1cc43e8576c379f"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -585,7 +585,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "c48a35e5d52a5bbbc1fb577070adb370556a5730c778253e7fd2fdb2868f31b3"
+      "sha256": "a420f7f52189a335ff2457442a0f1b8066ba6c799efe9862258c7ca9f7dcdc0d"
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
@@ -777,11 +777,11 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "513bd962dbfec3168aafe1634d10640b8c3b6c9806fbb2107467c15621319600"
+      "sha256": "a87e03b9d929a14d7989f39b731a96e3560c2ec4d5b26830f054b42955658bdb"
     },
     {
       "path": "README.md",
-      "sha256": "c5497db34b9f27f88c17ccc2d0690326554b7ece59f49d7e7e5fc6eea1bf1cec"
+      "sha256": "633f3af5ec0ddfc009823f4191e99c897e691c0fc036054e0c28eb6206c467d6"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -1194,6 +1194,26 @@
     {
       "path": "tools/validate-phase-gates.py",
       "sha256": "74be584ced556a544b84a50da19496686bb8b43f326cb01c5ec17201b7f46ff5"
+    },
+    {
+      "path": "04-analysis-integration/prototype-parity-audit-20261101.md",
+      "sha256": "23bba77a0f8afa1306d63b8e90261ba2143fbd7b1a03842a0aefdbd4655ac7c7"
+    },
+    {
+      "path": "02-server-planning/prototype-parity-delivery-plan-20261101.md",
+      "sha256": "aa46372037751b5126f4d21fd4a122a84006229f74b6ebed7cd989f26d5c31fc"
+    },
+    {
+      "path": "02-server-planning/prototype-parity-backlog.json",
+      "sha256": "11e682c2f3c48f94694a8e2d415f4eb25f27b86c1a1bd695ae075fa22f0c1bf4"
+    },
+    {
+      "path": "05-conformance/prototype-parity-regression-20261101.md",
+      "sha256": "c815ba67d41b0106212a6f81c49b849d02e0b332d1784893eadad4fbf4d87463"
+    },
+    {
+      "path": "05-conformance/time-check-parity-test-plan.md",
+      "sha256": "d0c2c1d8c9890f1be65f4a6c73333d66604a0285a9fc0d3860d2f70a789fe5df"
     }
   ]
 }

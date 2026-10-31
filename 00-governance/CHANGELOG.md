@@ -1,4 +1,10 @@
 # 變更紀錄
+
+## 2026-11-01 Python原型與新版Server差距整合
+
+唯讀稽核 as_server_roy e93c9a17 與本地Python原型，新增逐項能力對照、可機讀缺口／source hash索引、P0/P1交付合約與連續批次回歸。補在線切圖、權威移動／最新位置、更衣／衣色、S66/C75、S19 BGM、角色管理與回報更正；原型C35寬鬆、夾邊界、無限衣櫃及Client patch不帶入正式Server。修正P0 Web「尚不存在」與C02「一律Close」的過期進度，ONB保留原版CT not-run並附分組實作快照。Server／DB／Client均未修改或執行測試。
+
+新增CT-115時間同步／階段邊界驗收與R-001/019/021追蹤；A-001/A-020只補S66/C75第二欄／phase／重送的增量問題，不重開同義分析或拿prelogin測試冒充時間同步通過。
 ## 2026-11-01 不裝 WinDbg 先派 Client 分析任務：A-028/A-031/A-020
 
 使用者要求以既有 WER、修改版 EXE 的差異、Server JSONL 和原件分析派工。已建立 GitHub Issues [#7 A-028/Roy2](https://github.com/we88ec3-prog/as_server_spec/issues/7)、[#8 A-031/Roy2](https://github.com/we88ec3-prog/as_server_spec/issues/8)、[#9 A-020/Roy1](https://github.com/we88ec3-prog/as_server_spec/issues/9)；更新 `requests.json` queued follow-ups、`runtime-issues.json` 新 RI-006/007、[統一派工文件](../03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md) 與 Runtime feedback handoff。保留既有 A 的 integrated 靜態成果，修改版僅排錯，不需要 WinDbg 作靜態分析前提；GitHub 人員尚未認領。**僅變更 as_server_spec/main，不更改 Server/EXE/DB，也未建立分支**。

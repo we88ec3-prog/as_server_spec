@@ -1,5 +1,7 @@
 # 分析結果整合
 
+[2026-11-01 原型／新版Server差距稽核](prototype-parity-audit-20261101.md)：逐項整理既有實機範圍、新版接線狀態、不能沿用的簡化，並連到Server補齊與批次回歸。
+
 本區是各Server實作的共同輸入，不是原始證據堆放處。分三層整理：
 
 1. **封包契約**：Client送出／Server收到後的驗證與狀態變更；Server發出／Client收到後的parser、handler及可見效果。

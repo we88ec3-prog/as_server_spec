@@ -3365,6 +3365,39 @@
       },
       "expected": "Capture packet metadata without secrets and with correct reason-classification and correlation; separately require original Client UI validation rather than conflating Server packet log existence and native Client E2E.",
       "policy_source": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md"
+    },
+    {
+      "id": "CT-115",
+      "status": "planned",
+      "level": "native-time-check-and-phase-boundary",
+      "requirements": [
+        "R-001",
+        "R-019",
+        "R-021"
+      ],
+      "packet_ids": [
+        "PKT-S66",
+        "PKT-C75"
+      ],
+      "input": {
+        "kind": "historical-static-evidence-and-designed-regression",
+        "reference": "05-conformance/time-check-parity-test-plan.md",
+        "cases": [
+          "S66 one u32 and C75 two u32 strict codec",
+          "second C75 field and native phase evidence",
+          "bounded challenge/TTL/replay/old-generation handling",
+          "original Client InWorld idle/move/map-switch capture",
+          "FormInput wait independent of unproven heartbeat"
+        ]
+      },
+      "expected": "Native profile wire/phase verified before activation; challenge reply never grants gameplay authority. Synthetic and original Client results separate. No global5s official cadence or FormInput heartbeat assumed.",
+      "evidence_kind": "historical-reference-plus-designed",
+      "native_client_validation": "not-run",
+      "analysis_requests": [
+        "A-001",
+        "A-020"
+      ],
+      "analysis_report": "04-analysis-integration/prototype-parity-audit-20261101.md"
     }
   ]
 }

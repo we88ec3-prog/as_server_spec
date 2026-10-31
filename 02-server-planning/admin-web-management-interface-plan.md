@@ -1,10 +1,10 @@
-# Asgard Web 管理介面：規劃交接（尚未實作）
+# Asgard Web 管理介面：分階段規劃與實作快照
 
-2026-10-31，狀態：**SPECIFIED / IMPLEMENTATION NOT AUTHORIZED**。依 [使用者實作前確認規則](../00-governance/explicit-implementation-confirmation.md)，本任務不變更私有 Server、HTML/JS、HTTP API 或 DB，也不改原始 Client。
+2026-11-01 更新：唯讀查核 `as_server_roy@e93c9a17`，**WEB-P0 已實作／人工E2E獨立**；P1/P2角色／地圖／衣色／音樂／測試工作台仍待後端能力與頁面交付。本次只更新規格，不變更Server、HTML/JS、API、DB或Client。依 [使用者實作前確認規則](../00-governance/explicit-implementation-confirmation.md) 由DEV負責實作，分析者不得代改。
 
-## 現況（已核對 `as_server_roy/main@be3d2444f39029b86930cc82a0ce9292928a9185`）
+## 管理API與P0範圍（原始查核 be3d2444；最新補充 e93c9a17）
 
-目前 **有受保護 HTTP JSON 管理 API，沒有可用的瀏覽器管理頁面**。ASP.NET Core Host 預設 `http://127.0.0.1:18080`，拒絕非 loopback；管理路由使用 `X-Admin-Key`（獨立密鑰長度至少32字，無密鑰則503），遊戲帳號密碼 **4～8 ASCII 英數、大小寫敏感**。
+目前有受保護 HTTP JSON 管理 API，**`/admin-ui/` P0瀏覽器頁面亦已存在**，具建帳、查ID、停權／解封／救援重設與audit，不能再派工重建P0。ASP.NET Core Host 預設 `http://127.0.0.1:18080`，拒絕非 loopback；管理路由使用 `X-Admin-Key`（獨立密鑰長度至少32字，無密鑰則503），遊戲帳號密碼 **4～8 ASCII 英數、大小寫敏感**。
 
 |實際已存在 API|P0 Web 介面用途|
 |---|---|
@@ -30,7 +30,7 @@
 
 ## 技術提案（僅規劃）
 
-**優先方案**：同一 ASP.NET Core Host 在 loopback 新增 `/admin-ui/` 靜態頁面；前端以 same-origin `fetch('/admin/...')` 加 `X-Admin-Key` 呼叫現有 API。可用無框架 HTML/CSS/JS，避免額外 npm、外部 CDN 或第二個 Server Port。**這是候選路徑，目前不存在。**
+**P0現已採用的方案**：同一 ASP.NET Core Host 在 loopback 提供 `/admin-ui/` 靜態頁面；前端以 same-origin `fetch('/admin/...')` 加 `X-Admin-Key` 呼叫現有 API。後續沿用此入口，先接真Server domain／API，不新增只會顯示成功的假按鈕。
 
 - Key 僅儲存在頁面記憶體，刷新／關頁即清除；不得放 `localStorage`、`sessionStorage`、cookie、網址、console 或 log。建議 CSP、`Cache-Control:no-store`、nosniff、禁止第三方腳本，資料僅以安全純文字渲染；不啟用跨來源 CORS。
 - 金鑰驗證/操作授權永遠由 Server 決定；現有單把共享 Key 的 API 沒有每人角色區分，不能用前端選單偽裝 RBAC。高風險動作二次確認、Server 稽核/冪等、限速與錯誤可讀性要明確。
@@ -41,11 +41,15 @@
 
 |階段|設計範圍|阻塞|本次狀態|
 |---|---|---|---|
-|WEB-P0|首頁＋金鑰欄＋建帳/查ID/停權/解封/重設/稽核|**使用者尚未確認任何實作**；現存 API 足以供後續接線|規劃完成|
+|WEB-P0|首頁＋金鑰欄＋建帳/查ID/停權/解封/重設/稽核|新版source已有頁面／API，人工E2E另記|source-implemented；不重做|
 |WEB-P1|帳號清單/搜尋、角色與 Session 列表、稽核分頁|缺 Server list/search/role API、授權確認|規劃完成、不得實作|
 |WEB-P2|正式 GM 操作、多使用者 RBAC/MFA、遠端管理|安全／權限／正式 Client 行為與業務決策|僅方向規劃|
 
 驗收規劃 [WEBUI-P01..P10](../05-conformance/admin-web-management-acceptance-plan.md) 全是 `planned/not-run`。**下一次即使收到「實作」指示，先請使用者確認範圍，不得直接開始寫碼**。
+
+## 原型能力恢復的本機角色工作台
+
+[增量合約](prototype-parity-delivery-plan-20261101.md) 規劃角色查詢、衣櫃／獨立衣色、在線切圖、曲目與回報更正；這些尚無對應正式API，不是P0頁面已完成的功能。以現有localhost Admin Key安全邊界先規劃可用增量，不把外網RBAC/MFA當本機功能的必須前置；外網與多人管理仍另案。原型的Client啟動／EXE變體不併入遊戲Server domain。
 
 ## 最新決策：正常玩家不得靠 Admin Web 修改密碼（2026-10-31）
 

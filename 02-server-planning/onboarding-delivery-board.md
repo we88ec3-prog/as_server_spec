@@ -1,5 +1,9 @@
 # Server 進度板：規劃／分析／實作／驗收分開
 
+## 2026-11-01 最新原型差距查核（Server e93c9a17）
+
+[能力對照](../04-analysis-integration/prototype-parity-audit-20261101.md)／[補齊批次](prototype-parity-delivery-plan-20261101.md)／[機讀待辦](prototype-parity-backlog.json)。以下舊狀態按所載commit閱讀：新版已有WEB-P0、Region2～4 opt-in C02/C04成功接線、C15合法取消保持連線與R-036/037診斷；不能再以舊「全部未實作／一律Close」派工。最大未通路徑仍是原生自動進World、真載圖及InWorld移動／外觀操作。線上切圖、衣色、BGM與測試工作台列入原型能力恢復，Client修改副本功能獨立。`work-items.json` 追加分組實作快照，不把原版CT升為passed。
+
 截至 2026-10-31，僅以 `as_server_spec` 這份共用規格判斷；私有 Server 原始碼、最新編譯與測試不在本 repo，**不可推定它們已完成或未完成**。
 
 |工作|規格|分析|可先做的 Server 工作|原生 Client 出場門檻|
