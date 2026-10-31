@@ -115,3 +115,20 @@ C6C body: 02 04 426f726e 11223344
 - **A023-E16**：Dispose／SendReply 0x526873、0x5278b2、0x519450、0x51a9f0；REA `ev_4b996827af5f1223e5fcc48e0cad8fb5bad26232f0aaa2409431b088c6524eef`、`ev_9a787ea4c7979a2613ada40688897136c0294d3db4d3d6374ae72102ecec93be`、`ev_bc494ea10ecb485e3416ec5f631b1993f2c3612fc93da08f1c61da0ae2a0e676`。
 - **A023-E17**：0x529060→0x550910→0x58a210 的資源校驗；REA `ev_b3e310605487e1abb7bdadcbde96afbddc5a8399e25f6ca124362e719459caf5`、`ev_61ca2a6dbd6fe098c0f4cb74d0b4f5600eb0e8e3cadf4a917eb4dd6ae0e27584`、`ev_4e1d766e643b16a39a29603019445c83787fe8e4783889ee65d8432daae27ba5`。
 - **A023-E18**：全部 Script 資源檢查、nNewJoin01.dat 的函式／回覆分支及 Basic.dat 索引；各原件身份及限制見本頁第 3、5 節。原件不提交。
+
+## A-023 2026-11-01：實際驗證 Basic frame 及 S44 type2 native UI 分派
+
+**本節只更新已取得的新原件證據 E19～E24，不改既有 S44 type1／C6C wire。** 見 [完整新報告](A-023-born-basic-native-dispatch-20261101.md) 和 [CT-112 gate](../../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
+
+原本已知 Born.Main 需 PaperDialog_Create；新實際原件 `Basic.dat` 驗證為 **39 索引 slot／38 個成員**、完整 index/EOF、SHA `0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96`。其中 `AlertFrame.ypf` 原始 offset **13196**、長 **177648**、SHA `b641441d1f0378de04b6f7929c333d95e6ad7df451f3927432e5c4d0305602ce`、YPF v17 header 348×85。這確認圖像成員**存在**，不表示原 Client PaperDialog frame/button 在 GUI 成功繪製。
+
+新反組譯 `0x4E0B70` 明確指出 S44 outer handler 先呼叫 `0x52C2A0` Script manager。type2、成功返回時，**subtype0** 對 UI slot `0x23` 及 pane components3/4 操作，**subtype2** 對 UI slot `0x24` 呼叫 `0x535590→0x4E3880`；type1/subtype0 的 Born.Main 腳本路徑是別條分派。**不可以任意 S44(type2) 當 type1 Born 啟動、NPC 身份或 quest flag**。同 SHA 原始 `Asgard.exe` 新增 22 VA SHA-locked instruction patterns 全部 PASS，另 21 個合成 DAT+Script 邊界測試通過。
+
+`PaperDialog.dat` 的函式／SHA 為既有 E12/E18（曾取得該原件），**本次上傳素材中沒有 PaperDialog.dat**；新工具 `--paper` 可取得後重跑，因此不虛稱本輪重新驗證那個 XML。原服首次 Born 推送時機、招募員 NPC id→script、原服 quest flags 仍需其他原服資料／Native CT-034/035，任務 `integrated/partial` 不變，`native_client_validation=not-run`。
+
+重現：
+```bash
+python task_a/roy2/a023_born_basic_probe.py --born Born.dat --basic Basic.dat
+python task_a/roy2/a023_native_script_dispatch_probe.py Asgard.exe
+python -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
+```
