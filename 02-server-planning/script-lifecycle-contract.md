@@ -45,3 +45,16 @@ AuthorizedCharacter + WorldReady
 ### 例示合成 start（不是原服封包）
 
 `010004426f726e112233441d87b0c0010b50617065724469616c6f67f870c5740000`：Born + PaperDialog、context `0x11223344`（designed），CP950 text CRC 為 roy2 資源報告推得；**不包括** opcode、ordinal、加密與 frame。後續是否能於真 Client 顯示需 CT 隔離實測。
+
+## A-023 四份真實 Script 上傳後的 DEV-090 安全修正（2026-11-01）
+
+[完整原件證據與 C6C 示範](../task_a/roy2/A-023-four-script-native-dependencies-20261101.md)：`PaperDialog.dat`／`PaperDialog02.dat`／`nNewJoin01.dat`／`Merchant.dat` 本次均已在原件 SHA/CRC/函式上核對，並新增 CT-113 28 synthetic test；不再稱缺這四份資源。
+
+1. `ScriptCatalog` 明確分辨 `root ScriptRunner` 與已合併的 **dependency**；`C6C(1)` wire 名稱對應本次 S44 開的 root，**不能永遠用 `nNewJoin01` 當封包名稱**。如果本 Server 配置 root Merchant 與 dependency nNewJoin01，才可以在 synthetic fixture 用 `Merchant` 做 C6C1 的 name；原服真正 Script 名稱仍 unknown。
+2. `Born` 是無 SendReply 紙張：`PaperDialog` OK → C6C4→在 unreplied 條件下 C6C2；`PaperDialog02` OK/CANCEL 分別送 `PAPER02=START/NOT`，`nNewJoin01` OK/CANCEL 分別 `STATE=ACCEPT/REFUSE`，二者先 SendReply C6C1 再 Dispose C6C4、**不再送 C6C2**。不得因 C6C4、C6C2、`STATE=ACCEPT`、`PAPER02=START` 自動發獎或畢業。
+3. `PaperDialog02` 原始 `dialog.cancelControl="OK"`，鍵盤取消可能執行 START；即使有 CANCEL 按鈕，**只以已授權 C6C1 key/value 決定選擇**。ESC 的真正 GUI 結果待 CT-035。未有 root/Session/Context 的 C6C1 仍 fail-closed。
+4. `PaperDialog` 與 `PaperDialog02` 同名定義 `ShowIndexedHelp` 和 `PaperDialogProc`，預設**不可在同一 runner 無條件合併**（native 同名匯入處理尚未運行驗證）。
+5. `Merchant.Main` 為 root候選，初始化 ClientReply 和 ServerParam 並讀 TILE/MNAME/UGOLD/UBAL/UAGOLD/UABAL/UCOLOR；`nNewJoin01` 只是對話/布林能力函式來源。這四檔**還缺 `QuestDialog_Create`、`MerchantDialog_Create`、`MerchantDirectTalk` 的真正定義**；`QuestDialog.dat`／`MerchantDialog.dat` 僅為待驗候選名稱。NPC ID/map/script binding 仍需原服資料。
+6. 基本 World 進圖及玩家可移動的 P0，不依賴這些 P1 教學 NPC/Script 完工。若發原版 S44 Script start，需確保真正相符依賴、CP950 profile 的各 XML text CRC、唯一 active ScriptRun；不以錯 CRC 去測真 Client 的潛在記憶體危險路徑。
+
+**區分結果**：四檔的 Client XML／C6C 安全輸入可開始開發；原版 Native NPC/UI、原服首次 Born 發送與任務完成 CT-034/035 仍 `not-run`。
