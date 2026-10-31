@@ -75,3 +75,21 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## A-002 更正 C25 誤標與登入轉服 wire
 
 原版 C03：`string8 account,string8 password,u8 flag`；S02：`u8 status,string8 message`；S03：`u32_be addr,u16_be port,u8 token_len,raw bytes`；C10：**raw token body**、無第二個 u8 length。位址 `0x4A8370` 是 S03 的 transfer handler，不可當 C25 的 region parser。真實 Server 的 duplicate-login status/policy 未知。見 [A-002 靜態核對](A-002-merge-verification.md)。
+
+
+## A-010／roy2：技能、施法取消、持續效果的原生 Client 收發（2026-10-31）
+
+新版 BIN-first 交付（[來源與狀態](../task_a/roy2/A-010-analysis.md)；Client `Asgard.exe` SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`）：
+
+|方向|opcode|class|native codec body|
+|---|---|---|---|
+|C→S|0x4D|CStartCastSpellPacket|BE u16；Client producer `0x402034..0x402052` 自 `[ebx+0x80E]` 取值；ctor `0x575510` writer `0x5755C0`|
+|C→S|0x56|CCastSpellPacket|u8；ctor `0x571750` writer `0x571800`，真正 UI sender unknown|
+|S→C|0x52|SCastSpellPacket|BE u32,u8；`0x57D600` reader，結果 u8 enum unknown|
+|S→C|0x48|SCancelCastSpellPacket|BE u32；`0x57D4A0` reader，原版取消來源／UI unknown|
+|S→C|0x2C|SAddLastingSpellPacket|BE u32,u8,BE u16,u8,string8,u8,BE u32,BE u32（18+N bytes）；`0x57A980` reader，string8 用 `0x45B7A0` 讀 encoded byte length 本地轉 UTF16，**不可把 local 字串 buffer 當 wire 長度**|
+|S→C|0x2D|SRemoveLastingSpellPacket|BE u32；`0x585DB0` reader，**不等同 S0E RemoveObjects**|
+
+**Server 分工**：C4D/C56 為 Client intent，不能視為宣稱權威傷害/消耗/冷卻/成功；S52、S48、S2C、S2D 分屬施法回饋、取消、持續效果增加與移除，不能代替 S13 damage、S08 status、S07 world object 或 S5F death。原生靜態條件只交付 wire 型別；正式 skill ID、單體/AOE/治療/BUFF/召喚對應、原服 duration/stack/cooldown/MP/range、GUI response branch 均 unknown，Native Client `CT-090` planned/not-run。
+
+**驗證**：同 SHA 原件 25 個 VA instruction anchors + 6 RTTI PASS；[19 項合成封包測試與 GitHub CI](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41193941400) PASS。交付 `FLOW-SKILL`、`CT-089` offline 與 `CT-090` native 驗收計畫，不推原始資產。
