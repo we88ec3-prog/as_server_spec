@@ -608,6 +608,10 @@
       "sha256": "b8381f844cb9fb8003a07200cec8edb76d558cc8cc1ecd33dc3dcd3db4e3ed6b"
     },
     {
+      "path": "05-conformance/A-005-native-movement-ack-test-plan.md",
+      "sha256": "411206e24110e5a21fd740dea008cf606bd6e91d216ea32d43e2cf821938d122"
+    },
+    {
       "path": "05-conformance/A-006-appearance-test-plan.md",
       "sha256": "739fc3eafbabb33a5fa9f9687ea7452098f31e378ee7d5473719f42d9547fafd"
     },
@@ -652,6 +656,14 @@
       "sha256": "57e7068b4173f5d61635c1ee276d87abf455c70ed902d331bf324878a7019901"
     },
     {
+      "path": "05-conformance/A-028-postcreate-native-callback-test-plan.md",
+      "sha256": "5d7306cc91ac4b45abffe2d5c979067befc601c8bbeae963712b20244c067ed1"
+    },
+    {
+      "path": "05-conformance/A-031-native-world-entry-test-plan.md",
+      "sha256": "f89161781bd3df7990d36107b26ed2c6a41b1569c679dc34e0ae0b1383e88095"
+    },
+    {
       "path": "05-conformance/account-password-native-change-test-plan.md",
       "sha256": "7ad99e79533078904701d85aae4d0aa34298c221ebecdf2f7fd5586ad8c743b6"
     },
@@ -693,7 +705,7 @@
     },
     {
       "path": "05-conformance/native-playable-entry-acceptance-20261101.md",
-      "sha256": "5d01767908881f5577223b01c378347c9581007139789d10525d73f4d9b3044b"
+      "sha256": "4c58b6b23bf051812f33290d27d34b7b693b3478f7a8ca6240c9d6a044ee36ba"
     },
     {
       "path": "05-conformance/new-asset-validation-plan.md",
@@ -725,7 +737,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "f26b4789b0005285ee49f113853b3644fcf7c63229894eb4d789cabfae4cf7f0"
+      "sha256": "4247ca019dfa2e748fe2aeda511a065d45baa2cf58c00e30ae51dd063a97abc1"
     },
     {
       "path": "README.md",
@@ -806,6 +818,14 @@
     {
       "path": "task_a/roy2/A-024-analysis.md",
       "sha256": "b130499a0e00554f031e8d2e68085b87aad9cfa9826c561994f90c60feb39652"
+    },
+    {
+      "path": "task_a/roy2/A-028-postcreate-ui-native-followup.md",
+      "sha256": "d425264a49034c074d11ecb45b2789153b4f12e01d300184ab0c954f5b43f296"
+    },
+    {
+      "path": "task_a/roy2/A-031-analysis.md",
+      "sha256": "3b214428a1206a0a8bb8ada9ee5cd38153c0fc822a08c87c2af2bde19384614e"
     },
     {
       "path": "task_a/roy2/a004_native_probe.py",
@@ -896,6 +916,22 @@
       "sha256": "d92d0d71f03ed033415b2bbd5e459131a3ac7fd33b652159dd6efa8b157ce17a"
     },
     {
+      "path": "task_a/roy2/a028_native_postcreate_probe.py",
+      "sha256": "6984cf91956d8917939b1cf842baad8cd6d144bf60bf6f1fcce4664daacb1f26"
+    },
+    {
+      "path": "task_a/roy2/a028_postcreate_model.py",
+      "sha256": "994ad4f0b4708346b976085fd975bf11b0d3ead752986e6ce73111893d7b2fc6"
+    },
+    {
+      "path": "task_a/roy2/a031_native_probe.py",
+      "sha256": "e6791027e7813b5f9a2a23a89fad3116f4f40b34e2eb4d173bb20713ccc6a4a5"
+    },
+    {
+      "path": "task_a/roy2/a031_world_entry_codec.py",
+      "sha256": "d3aa324a2c23d3d3d735f30889f7966c245800e8882a0a7cda0160f785ca7674"
+    },
+    {
       "path": "task_a/roy2/corpus-entry-audit.json",
       "sha256": "f1ac49cd2fff97cb41773f04338307c76f0bde7a62782831669f59a788ad1ccf"
     },
@@ -954,6 +990,10 @@
     {
       "path": "task_a/roy2/test_a024_object_packets.py",
       "sha256": "2e19255069abae9960a2432b673efa9b369c48b21a3e90b58590a225d47ff729"
+    },
+    {
+      "path": "task_a/roy2/test_a028_postcreate.py",
+      "sha256": "5bf358525b9471b777b93dfc7186ae74aa2119fbc62d73955f413bc00420abc7"
     },
     {
       "path": "task_a/roy2/verify_born.py",
