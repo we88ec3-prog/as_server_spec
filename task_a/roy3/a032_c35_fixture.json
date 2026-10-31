@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "evidence_profile": "A032-EXE-SHA-db3df616-original-static",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "archive_hashes": {
+    "Map0.dat": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+    "Map1.dat": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b",
+    "Map2.dat": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb"
+  },
+  "c35_source": "unmodified Asgard.exe VA 0x4B2EC0 offline static reconstruction, not packet capture",
+  "native_client_validation": "not-run",
+  "safe_spawn_verified": false,
+  "walkable_path_verified": false,
+  "fixtures": [
+    {
+      "map_ref": 0,
+      "archive": "Map0.dat",
+      "map_name": "00000.map",
+      "width": 20,
+      "height": 20,
+      "header_word": 0,
+      "checksum": 25513,
+      "c35_be_hex": "000063A9",
+      "tail16": 4,
+      "payload_sha256": "c922fe4dd88e1849f23a29675a703db21ec0ade5a5d9b119735ac063251b5c64"
+    },
+    {
+      "map_ref": 6,
+      "archive": "Map0.dat",
+      "map_name": "00006.map",
+      "width": 60,
+      "height": 60,
+      "header_word": 4,
+      "checksum": 3984,
+      "c35_be_hex": "00040F90",
+      "payload_sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760"
+    },
+    {
+      "map_ref": 10000,
+      "archive": "Map1.dat",
+      "map_name": "10000.map",
+      "width": 60,
+      "height": 60,
+      "header_word": 4,
+      "checksum": 3984,
+      "c35_be_hex": "00040F90",
+      "payload_sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760"
+    },
+    {
+      "map_ref": 18001,
+      "archive": "Map1.dat",
+      "map_name": "18001.map",
+      "width": 150,
+      "height": 150,
+      "header_word": 18,
+      "checksum": 63634,
+      "c35_be_hex": "0012F892",
+      "tail7": 555,
+      "tail8": 5,
+      "tail16": 41,
+      "payload_sha256": "faaa79663eff4479071c61850643b9d4baf428bbc43af682f82b8758b9d461d6"
+    },
+    {
+      "map_ref": 20001,
+      "archive": "Map2.dat",
+      "map_name": "20001.map",
+      "width": 60,
+      "height": 60,
+      "header_word": 22,
+      "checksum": 59833,
+      "c35_be_hex": "0016E9B9",
+      "tail8": 14,
+      "payload_sha256": "e48303c5662d960fdc6f47e2412200522773cd5c4272c09bc06e32ed3184bf51"
+    }
+  ],
+  "interim_map_ref": 6,
+  "interim_candidate_tile_path": [
+    [
+      30,
+      30
+    ],
+    [
+      30,
+      31
+    ],
+    [
+      30,
+      32
+    ],
+    [
+      31,
+      32
+    ],
+    [
+      32,
+      32
+    ]
+  ],
+  "each_candidate_tile_flags_u32": 0,
+  "player_walkability": "unknown",
+  "position_units": "unverified",
+  "facing": "unverified",
+  "viewport": "unverified",
+  "tutorial_map_identification": "unknown"
+}
