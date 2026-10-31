@@ -114,3 +114,12 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 已定位兩條原始 callback **C10 raw token enqueue → C25 enqueue**（`0x4A8446→0x4A84F3`、`0x52FB8C→0x52FC4B`），兩次送包之間沒有等待額外 S02。不能拿 Client class `CBillingInfoPacket` 的字串當角色/登入憑證，也不能以合成 `C25 body=01` 當真正 World 握手。實際 first S2C、map/S14/C35/GUI 與各非3 Region 完整動態時序仍在 **CT-108 native not-run**。
 
 [A-031 完整報告](../task_a/roy2/A-031-analysis.md) · [native 35 VA + RTTI probe](../task_a/roy2/a031_native_probe.py) · [decoded-body codec](../task_a/roy2/a031_world_entry_codec.py) · [CT-110 / CT-108](../05-conformance/A-031-native-world-entry-test-plan.md)。研究 `integrated/ready` 限於上述原生靜態 Client I/O；**不代表成功進 World**。無新增必需原版檔案；若要 runtime 驗收，需要同 SHA 原始 Client 去敏 S03→C10→C25/first World S2C 封包 trace。
+
+
+## A-028／roy2 完成後補證：C04 第二段 S02 成功的 UI／World 交接（2026-11-01）
+
+已從原始 `Asgard.exe` SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 追查 `state0x1e+S02(0)→0x4B206B`：確認此成功 callback 會**清理 0x0B/0x0C/0x0D/0x07 UI 槽位**，並且只有 **Region3** 在 `0x4B2109` 建立 `0x4A9380` 的 native class。透過 vtable `0x609BBC`→COL `0x625970`→TypeDescriptor `0x6665D8` 明確辨識為 **`LoginDialogPane`**。這是 Client 記憶體內的 UI 物件，**不代表玩家需要手動再次登入**，也不證明 Client 自動送 C03。
+
+獨立的 LoginDialogPane `0x4A8890` callback 可在參數非零時呼叫 C03 sender `0x4A7D10`；**final S02 success 是否自動觸發尚無原生 call/packet 證據**。S02 非零仍回 `C15(empty)`／state0x1f；Region3 state0x1e 的一般文字提示有特殊略過分支。**ADR-008 的產品需求仍是成功創角直接進 World、不需手動重登**，實際自動 World TCP 與首個 C2S/S2C 留給 CT-105/107/108 原版擷包；不以舊版推測的「回 LoginDialog 手動 C03」取代需求。
+
+[A-028 新增完整原件證據](../task_a/roy2/A-028-postcreate-ui-native-followup.md) · [31 VA/RTTI 原生驗證工具](../task_a/roy2/a028_native_postcreate_probe.py) · [合成狀態機](../task_a/roy2/a028_postcreate_model.py) · [CT-111/原生 CT 計畫](../05-conformance/A-028-postcreate-native-callback-test-plan.md) · [22 項合成回歸 GitHub CI](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277)。任務為 **`integrated/partial`**：已完成可證的 UI 靜態交接，但首次創角成功後 World 連線因果未證，**`native_client_validation=not-run`**；沒有新缺的具名遊戲檔案，真正需要原版 Client 去敏的創角最後 S02→World 封包及 UI 時序。
