@@ -50,51 +50,58 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 
 主線由 2517e60 fast-forward 至 roy1 0facfc2（A-001 seed0..9 binary codec）；另以兩 parent commit c544af3 將最新 roy2 ae95270 合併（A-023 S44 named start、PaperDialog 依賴/CRC、C6C4/2 Dispose、候選 NPC Script），後續整合原 JSON/CT 而不覆蓋 A-001；留存 CT-029～032、CT-033～035 和 CT-036。原本 A-023 之「Script 如何啟動未知」修正為「Client 端啟動機制已有靜態契約、原服首次發送政策未知」。新增 ScriptRun 安全狀態機、檔案版本/語系/CRC 前提及分派更新。EXE SHA 和 18 個 roy2 byte signatures 複核通過，roy2 Born/PaperDialog 完整資源離線 PASS 非本次獨立 replay。
 
-## task_a/roy1 — 2026-10-31 A-027 BIN-first C02 身份/控制與安全修訂
+## 2026-10-31：最新 roy1 A-002／main 安全交接規劃
 
-從指定 SHA Asgard.exe 的 0x4B2700 UI→0x5742B0 C02 writer 追出 field1 UI+0x26C 受 0x4B1A30 長度 gate、field2 UI+0x270 與確認 UI+0x274 經 0x5B4A62 UTF-16 相等檢查、region 0/2..4 額外字段，並核對 0x4B2360/0x4B21E0/S02 觸發 C04。預建帳號的 native owner 身份/credential 仍無 Server 或 Client 可信關聯證據、C03 零角色自動進 MakeInfoDialog 亦未證，故 A-027 研究 integrated/handoff partial，但 native account-claim **implementation_ready=false**、must fail closed；修正先前 A-021 建議裡「直接 claim 預建 Account」的危險解讀。新增 CT-039/040 合成契約，Client CT not-run。
+A-002 C03/S03/C10 static Client contract 及 roy1 更正的 A-022 C25 handler 誤標已 merge；增加 CT-037/038 與 TransferGrant/WorldBinding/generation、錯密／重複登入／跨 TCP 正常關閉的 designed policy。原服 duplicate 行為及 Client E2E 仍 unknown/not-run。已保留 A-001、A-023 與 CT-033～036。
 
-## task_a/roy1 — 2026-10-31 A-028：C04 終局/取消 C15 的 BIN-first 分析
+## A-015／roy2 — 2026-10-31：內容來源、格式、權利範圍的 BIN-first 研究
 
-指定 SHA Asgard.exe 追 `0x4b1d60` 的 S02 callback、`0x4b205f` local0x1e、`0x4b206b` 第二次 S02(success) UI、`0x4b1f1b..0x4b1f34` 失敗 C15 CancelNewUser（constructor 0x5715f0，empty serializer 0x5716a0，debug CPP 0x6136a4），並還原 error code UI focus 3/4/17/18/26/31。A-028 標 integrated/handoff partial，原 Client E2E not-run；原 Server DB commit/owner/relogin/World 仍不可宣稱全解，新增 PKT-C15、CT-041/042 與可執行 synthetic Python fixture，更新 A-021/027 安全規格與首次創角場景。
+由 `c544af35ceb7` latest main 起建立 `analysis/A-015-roy2`；用原始 EXE 逐指令確認 Basic/Map0..2/Human 資源庫映射、MAP 10B tiles/7/8/16B 尾段、YPF flags bit0 optional 512B palette，並實測 Born.dat zlib/UTF-16LE 文件。新增 metadata-only 探針、A-015 報告、欄位目錄與 CT-039/038；不推送原作素材。原版完整 Map/Human/skill/item 載荷未提供，故限定格式子集 integrated / handoff partial / native E2E not-run。權利可處置性不因解析成功而自動成立。
 
-## task_a/roy1 — 2026-10-31 A-016 重送與崩潰恢復
+## A-015 roy2 Map0/Map1/Map2 原始庫補驗 — 2026-10-31
 
-原始 Asgard.exe SHA256 重驗，`0x53C130` TCP split/merge frame、C33 `0x573BF0`/S0B `0x583150`、S14 `0x4F2300`、C35 `0x573490`、C10 `0x5773E0`、C04/C15 的無業務 request ID 線索核對。識別 C35 同 map checksum 跨 epoch 不可從 wire 區分的限制，交付獨立的 Auth/Character/World/Movement/Economy/Reward 回覆與 durable commit 防重合約；新增 SQLite synthetic crash/reopen/ledger 工具與 CT-043/044，A-016 integrated/handoff partial、Client CT not-run；不杜撰原服經濟/CRC/DB 政策。
+使用者補上三份原生 MAP archive，SHA256 `dcaf8ab5...`／`8681dc75...`／`5320a095...`；以相同格式全量解析 **288+184+22=494/494** 份 .map，嚴格索引/區段/EOF 均 PASS。494 名稱對應 330 份 unique payload（33 組完全重複，164 個 alias）；(31,29) 在 477 張圖尺寸內，不能當教學圖 ID 或出生點證據。新增機讀摘要和私有檔 metadata-only 掃描器，未上傳任何原素材。A-015 仍 partial，CT-039 離線 MAP 範圍 PASS、CT-040 原生教學 E2E not-run。
 
-## task_a/roy1 — 2026-10-31 A-017 管理操作與可觀測性
+## task_a/roy2／A-015 native MAP record field audit — 2026-10-31
 
-依 R-018/R-019/R-021/R-025 定義原生遊戲 socket 外的 Admin API、actor/permission/target/version/理由/idempotency、安全停權/解封/角色調整/傳送/發物品、deny/replay 也留無敏感審計、trace/metrics 安全白名單；原版 Asgard.exe 的 `sblockclient.cpp` debug 字串**不能**證明原服存在特定停權/GM 管理 API。新增 A-017 report、admin-operations.json、A-017 Admin/Observability contract、Python SQLite synthetic RBAC/audit tests、SCN-014、CT-045/046，更新 traceability 與共享校驗。A-017 `integrated/handoff ready/implementation_ready=true` 僅指設計與合成測試交付，實際 Server/Client CT 尚未驗收。
+遵守原指定 `task_a/roy2` 既有分支／目錄，未開新分支。由原版 EXE accessor 直接確認 MAP tail 7B=u8/u16/i16/i16、8B=4×u16、16B=2×u16+2×u32+2×u16，對 Map0/1/2 原件 494 MAP 重新驗證：32 張 header 第三值獨立；7/8/16 totals 74032/396/2269；8B/16B 疑似座標 100% 符合 48×32 pixels 的尺寸界線，但僅 inferred，不是 NPC/出生點。附 4 項合成回歸測試。A-015 保留 integrated/partial、CT-040 not-run、A-016 open；未上傳遊戲素材。
 
-## task_a/roy1 — 2026-10-31 A-003 創角合法值與帳號角色模型
+## 2026-10-31 最新 roy2 A-014／A-015 增量整合與版本核對
 
-從指定 SHA Asgard.exe `0x498420/0x4985dc/0x4985e8` 查 region0=6、region1..4=12 字符限制的初始化，`0x4b1a30` 證明 region0 不執行本地最小長度 gate、其餘要求 narrow-byte >=12；`0x4b2031/0x574420` 追 C04 五 u8、`0x66422c` 原始十色表（index0..9, low-three bytes RGB）、`0x56084b/0x560b9f` 預覽交叉引用。C04 不含 character name；one-account-many-characters/重名/sex hair enum/status code 仍 unknown，不把一帳一角設計冒充 native。新增 A-003 報告、Client/Server 安全契約、五項合成測試、CT-047/048，整合 C02/C04/S02/SCN-008，狀態 integrated/handoff partial、native creation ready=false、Client not-run。
+延續 roy1 A-016/027/028 與 roy2 A-015 格式研究，以雙 parent commit `f73da39cf3121d19bf0d9ddf5a4ab021d8be222b` 合併新增的 roy2 `c97bf22c040b6ae1676b772f8b351284d9ee38a4`：A-014 社交 Chat/Whisper/Group/Guild BIN 子集、A-015 有界範圍格式研究結案。A-014 報告原 S0D text string16 誤標，已由 Asgard.exe `0x5861F2/0x58620D` 的 `0x45B7A0` 確認為 **string8**；S0A 才使用 `0x45B890` string16。社交測試原歷史 CT-041/042/043 與主線創角撞號，重編 CT-047/048/049，主線共 49 CT 且原生 Client not-run。A-015 `handoff_status=ready` 只代表格式／來源／檔案身份範圍可結案，教程 map/spawn/NPC/技能仍未解。最新 manifest 校對及社交規劃已記錄。
 
-## task_a/roy1 — 2026-10-31 A-020 完整登入前 Metadata／Script／選服
+## 2026-10-31 A-017 admin ops traceability conclusion
 
-原版 Asgard.exe SHA256 核對，原生 CMetaData/C0F 0x573a70、SMetaData/S18 0x582dc0、CMultiServer/C57 0x573f40、SMultiServer/S56 0x584190、CStipulation/C4B 0x575720、SStipulation/S60 0x587190 的分支及 RTTI/vtable 正確對照，保留已實測 local profile；S18(0,3,count0) 為原生空 metadata list，S60 type0/1 不同形態，Script 清快取依 A-023。新 A-020 BIN-first 報告、安全交接、Python synthetic negative/codec fixture、CT-049/050，更新封包、SCN-001、profile 和版本治理。A-020 integrated/handoff partial，原服時序/地區 key/unverified Script policy 仍 unknown，Client not-run。
+A-017 administrative account provisioning, ban/unban and sanitized audit integrated as designed Server API (not native GM wire), native Client not-run. CT-050/051 are management security/audit (old roy1 names CT-045/046 conflict with A-016); linked R-018/R-019/R-021/R-025 and SQLite synthetic tool `tools/a017_ops_contract.py`.
 
-## task_a/roy1 — 2026-10-31 A-025 新手教學攻擊／施法與目標事件
+## 2026-10-31 — A-XX 統一改以 Client 收發分析
 
-用原版 Asgard.exe BIN-first 核對 CAttack 0x13/u32 BE (0x570a10/0x570ac0; sender 0x55709c/0x557a5d)、CStartCastSpell 0x4d/u16 BE (0x575510/0x5755c0; sender 0x402034)、CCastSpell 0x56/u8 (0x571750/0x571800)、CBattle/SBattle 0x3d subtype0..15 (0x570de0/0x57c890)、SCastSpell 0x52/u32+u8、SDieObjects 0x1e/u32。用同版 Born.dat 驗證只含導引紙張，不能推論全教程是否需戰鬥。新增 A-025 完整靜態/未知分級、Server designed 權威/quest event ledger、安全合成測試（14 原件 signature、7 unittest）、七個原生 PKT、CT-051～053、SCN-012 對應、共用 Manifest。A-025 integrated/partial，Client native not-run；不推測原版 damage/cooldown/kill quest。
+依需求方指正，修正此前 A-027/022/023 混入 Server 內部政策的錯誤：Client 分析只交操作/畫面觸發、C→S、必要 S→C、Client 狀態/自動回覆及失敗路徑。Account 驗證、角色 durable commit、出生 map/spawn、首次 Script 派送、NPC/AI/任務權威交 DEV/Server 設計；原始 Client 可用 opcode/field/state 仍須遵守。未改既有 A integrated/partial 或 CT not-run；增加兩份規範並更新 A 交接。Born.dat 原件已在本次環境驗 SHA/zlib，Map0/1/2.dat 也已提供。
 
-## task_a/roy1 — 2026-10-31 A-026 教學完成、獎勵、出圖與恢復
+## 2026-10-31 — Client I/O Server 實作路線與驗收矩陣
 
-從原件 Asgard.exe（SHA256 固定）驗 C39 Merchant constructor 0x5737c9 / writer 0x573860 的 u8,u32BE,u16BE + subtype1..9 多態、C0B Quit constructor 0x574bb9 / empty writer 0x574c50、S15/S14/C35/S04 通用 Map/Loading/Position；直接解壓 Born.dat 的 BE wrapper+UTF-16LE Main，只有 PaperDialog 導引 (31,29)，並沿 A-023 補證 C6C4→C6C2 ScriptClose。沒有原服任務完成 rule、獎勵存在與內容、NPC entity/script 綁定、官方出口 map/xy。新增 A-026 BIN-first、Domain 交接、機讀 unknowns、Python 11 signature/10 unittest 合成測試、PKT-C39/PKT-C0B、CT-054/055/056，更新 SCN-013、CT-026/027/028、packet/evidence/Manifest。A-026 integrated/handoff partial，native tutorial complete/reward/exit 不可實作啟用。
+規劃 DEV-IO-01～06，建立 6 條 Client 事件→C2S→S2C→Client 效果與 Server Authority 兩層機讀矩陣，連結 ONB-01～06、PKT/SCN/CT；新增分段驗收表並更新 README/roadmap/進度板。CI 對 Matrix 做 PKT/SCN/CT/A/ONB 參照完整性和原生 CT 不可假通過的欄位檢查。本次不修改任何 CT 的執行狀態，也不宣稱私有 Server 已實作。
 
-## task_a/roy1 — 2026-10-31 A-007 背包、裝備生命週期的原生封包矩陣
+## 2026-10-31 — 使用者新增暫行創角帳號比對限制
 
-原版 Asgard.exe SHA256 固定，追 C1C 0x577800/0x577920 use_kind1..9、C1E 0x578010、C08 Drop 0x571ff0、C0C PutRequest 0x574af0；S0F AddInventory 0x57a3f0 分支 mode0/1/2、S37 AddEquipment 0x579830、S10 RemoveInventory 0x585c30 3u8、S38 RemoveEquipment 0x585ac0 u8+u8 raw flag。對地圖/背包/物品圖示/原服實例 id 禁止無證推論。新增 A-007 BIN-first/Domain 契約/Python 15 signature +12 unittest、4 個 PKT、SCN-015、CT-057/058/059，修改 Manifest/治理及 packet traces；A-007 integrated/handoff partial，native Client E2E not-run、物品正式模板與業務規則 still unknown。
+不修改 Asgard.exe。已驗證登入帳號與原生創角輸入帳號不匹配 → Server 直接拒絕，不建立 Character/草稿或 grant；無登入亦拒絕。ASCII 帳號大小寫不敏感、不 trim。更新 R-026/SCN-007/008/ONB-01/02、FLOW-NEWUSER 與 CT-041/044/053；Client 原生 C02 名稱欄與 UI 入口仍 unknown，不能因新限制假稱 native creation ready。
 
-## task_a/roy1 — 2026-10-31 A-019 原生地圖音樂對應與 S19 解析
+## 2026-10-31 — 下一輪 SAFE/WIRE/WORLD/SCRIPT 可開工規劃
 
-以原始 Asgard.exe SHA256 固定追 SPlaySound 0x584A49/0x584AE0、S19 handler 0x4F25D0（kind1 音樂 → 0x53CDC0，非1 音效 → 0x53D250）、曲目 `%05d.mp3`，重查已提供的 Map0/1/2.dat 原件 SHA與36-byte entry directory，索引分別有288/184/22 可辨識 `*.map`，沒有 MP3/music filename 和已證實官方 map→track mapping。明示 unknown（不把本機 track1 當官方）。新增 BIN-first 報告、Domain 契約、map-music-evidence.json（verified rows0）、offline 11 signature/10 unittest，以及 CT-060/061/062；更新 A-019/PKT-S19/SCN-006/CT-005/006/Manifest。A-019 integrated/partial，native Client E2E not-run，原服 map→track 尚未還原。
+新增 `02-server-planning/native-creation-next-iteration.md`、`onboarding-readiness-gates.json`、`03-analysis-requests/next-client-io-evidence.md`、`05-conformance/native-creation-gate-test-plan.md`。收斂 A-027/028/022 method/deliverable 為 Client UI/封包行為，保留 A integrated/partial 的實證與 unknown。新增 CT-054 planned/not-run 追原生已驗登入空角→NewUser UI/帳號欄；ONB、SCN、FLOW、traceability/manifest 更新。SAFE-01～04 不需等待原服 Server 資料庫/出生點/派任務，Native C02/C04 仍 fail-closed；沒有執行原 Client E2E。
 
-## task_a/roy1 — 2026-10-31 A-004 其他物件 Visibility / EntityId / Remove
+## 2026-10-31 — 使用者確認多人同圖（ADR-007）
 
-使用原始 Asgard.exe SHA256 固定的 BIN-first 證據：S07 DrawObjects count/type/ref、S33 PutHuman、S0E RemoveObjects、**S5F DieObjects（修正 A-025 錯誤 S1E/0x1e）**、S0C MoveObject、S64 MovePath、S11 ChangeDirection、S1A Motion；0x4eac30 registry lookup/ref，0x4f17c0 DrawObjects 消費。提交 A-004 詳細報告、Server AOI/ID/epoch/ref fencing contract、20 原始 signature＋18 synthetic unittest、機讀 PKT/SCN/CT-063～065/Manifest。A-004 integrated/handoff partial，兩原版 Client native E2E、Server AOI 半徑、真正原服 EntityId 重用與 NPC/怪物 type 綁定仍 unknown。沿用 task_a/roy1，不新增 branch 或 merge main。
+明確採用 Public Shared Map：同 world/map 的玩家互見並共用 NPC/怪物、死/生/移動、AI 與 Actor EntityId，玩家自身進度獨立。新增 DEV-070-M 重構計畫、機讀共享地圖契約與 CT-055 (planned)，更新 R-007/R-029、ONB-03/05/06、SCN-005/011/012、CT-021/022；原版 Client 相容仍待 A-004/011/024，不修改 Asgard.exe。
 
+## 2026-10-31 — 整合 task_a/roy1 與 task_a/roy2 並依新證據更新 DEV
 
-## task_a/roy1 — 2026-10-31 A-011/A-022 NPC資源與MAP格子交接
+以三父 merge commit `078b0d1d8aab9f443ba630f43b7e5c904dd5f3fb` 保留兩分支來源歷史與原始報告/測試；11 新 A 分析 static/partial 回寫、72 PKT、12 Client I/O flows。CT 原編號衝突避讓至 056～081；main CT-054/055 保留。標記 Roy1 S1E vs Roy2 S5F 死亡 parser 歸屬疑點，不猜 Native Death opcode。按共享地圖 ADR-007 重排 DEV-070-M actor wire/DEV-080/DEV-090，列出剩餘 A-027/024/004/022/005/009/025/026 及資源缺件。
 
-原始 Asgard.exe BIN-first：monster 資源格式 `Monster%02d.dat` 及註冊索引 0x1f40..0x1f6a（43 檔）、S07 kind/u16 appearance/u32 ref 與 0x4F17C0 handler、S1A motion、C39 Merchant interaction，均不等於永久 NPC template ID 或原服 click/dialogue。原版 Map0/Map1/Map2 共 494 命名 map、491 完整 tile resources，原檔 archive directory 尾 4 bytes 是每個 payload END；8-byte header（u16LE×3+u8w/h）、2×ceil(w/2)×ceil(h/4) block、10B raw tile→17B local、7/8/16B 附加紀錄。Client tile+6 bit0x10 線段遮擋測試、bit0x01 runtime 修改，不宣稱原版 Server 原地圖通行表；教學 map/spawn 仍未取得。A-011 integrated/partial；A-022 原 integrated/partial 加補 resource geometry，新增 CT-066～071、證據索引、MAP/NPC JSON、報告/契約/測試及 Manifest。原生 E2E not-run，未開新 branch/未合併 main。
+## 2026-10-31 P0：原版遊戲登入密碼八字限制與 DEV-030 修正規劃
+
+使用者觀察原版 Client 密碼框只輸入8字；核對 `as_server_roy/main` `Pbkdf2PasswordHasher.ValidatePassword` 實際最少 **10** 字（不是敘述的最少12字），造成管理員建帳與原版 Client 登入不相容。R-025/ONB-01 新增遊戲用恰好8 ASCII 英數的臨時安全相容 profile，與 Admin key 分離，並要求相應 DEV-030 SQLite/Postgres/重設/測試與8字短密碼防濫用補強；不截斷舊密碼、不更新原始 Client、不宣稱私有 Server 已修。詳 [政策](../02-server-planning/native-game-password-8char-policy.md)。
+
+## 2026-10-31 P0 密碼需求改版：4～8 字（取代固定 8 字）
+
+依使用者最新決策，R-025/ONB-01 遊戲帳號密碼由上一版「**恰好 8 位 ASCII 英數**」調整為**4～8 位 ASCII 英數**、大小寫敏感；自動產生仍推薦最長8位安全亂數。管理後台 key 規則與玩家帳號分開，短密碼加強限速、防暴力登入，原長密碼不可截斷。未來**可能**調整 `Asgard.exe`，但本次未授權/未修改；須獨立驗證修改版 Client build/profile 再提高上限。舊文件保留導向 [最新版](../02-server-planning/native-game-password-4to8-policy.md)，驗收測點更新至4、8及上下界；私有 DEV-030 尚未依此修正。

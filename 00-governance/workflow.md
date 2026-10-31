@@ -38,3 +38,7 @@
 **工作閉環分成 R/SYS 規格 → A 證據交接 → DEV 實作 → CT 原生 Client 驗收，不要求 A 等 DEV／CT 才能結案。** A 可整合且 handoff ready/partial，CT 仍是 not-run；但要有實際證據、明確交付範圍與未知清單，不可把推測當已還原。Server 尚未建置不是 A 的 blocked 理由；只有本身必備研究證據不可取得時才能 blocked。CT 實測若暴露偏差，再回開 A/DEV，不反向取消有效的研究證據。
 
 本規則對**所有新舊接案者**生效；詳細角色、完成/部分交付/blocked、回報與 A-021 案例見 [phase-gates.md](phase-gates.md)。新派工必須套用 [request-template](../03-analysis-requests/request-template.md) 並接受跨階段驗證腳本檢查。
+
+## Client I/O 導向工作規範（v2，2026-10-31）
+
+新舊 A 必讀 [全員接案規範](task-ownership-and-client-io.md)，工作前先依 `requests.json.handoff_track` 判斷是 Client I/O、資源研究或 Server 設計。Client 研究僅負責玩家操作/收包事件、送包、必要回包、畫面及下一個封包；Server 決定帳號授權、地圖/出生點、教學首次派送、NPC/AI、DB/冪等。即使原服政策無法由 Client 推論，已證的 Client 封包子集仍交 DEV。**禁止未經明確要求新建 branch**；缺檔回報準確檔名。所有新派工使用 [v2 模板](../03-analysis-requests/request-template.md) 並通過 CI 機讀契約。

@@ -42,50 +42,20 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 
 [A-002 靜態分析](../03-analysis-requests/A-002-roy1-login-transfer.md) 已追 S03 addr/port/u8 token_len/raw token 與 C10 raw token；[合成 Domain fixture](../tools/a002_session_model.py) 實際測錯密不踢人、同帳號世代替換、一次性 token、跨角色拒絕、過期、login socket 在 transfer 中先斷、舊 World 清理不影響新 World，以及 crash fail closed。**這是 designed 測試，不是雙原版 Client 實機 passed**。CT-037/038 用以提醒 DEV 依真實 DB、mock wire 與 Client 再驗；S02 的原服重複登入錯誤碼未知，禁止拿錯密 status3 直接代用。
 
-## A-027 身份與 C02 前認證安全（CT-039/040，planned）
+## A-027 身份與 C02 前認證安全（CT-041/040，planned）
 
-[完整 A-027](../03-analysis-requests/A-027-roy1-identity-ui-security.md)：CT-039 對任意 pre-auth C02（包含正確已存在帳號名、非法/停權/跨 session）驗證 Server 不建立 Account、不認領 owner、不建立 pending C04 草稿、**不回 S02 status0**、不改 Character；只有真實已認證 owner 的獨立路徑可開放。CT-040 驗證各 region writer body 3 vs 4 string8+u8、UI +0x270 與 +0x274 的本地字串相等、UI 欄位來源；region1 UI/serializer discrepancy、原版 C03 空角色→UI 仍 unknown。
+[完整 A-027](../03-analysis-requests/A-027-roy1-identity-ui-security.md)：CT-041 對任意 pre-auth C02（包含正確已存在帳號名、非法/停權/跨 session）驗證 Server 不建立 Account、不認領 owner、不建立 pending C04 草稿、**不回 S02 status0**、不改 Character；只有真實已認證 owner 的獨立路徑可開放。CT-042 驗證各 region writer body 3 vs 4 string8+u8、UI +0x270 與 +0x274 的本地字串相等、UI 欄位來源；region1 UI/serializer discrepancy、原版 C03 空角色→UI 仍 unknown。
 
 [安全與合成 codec 工具](../tools/a027_pre_auth_contract.py) 只驗合成 body/拒絕策略，**不是 Client 真實互動成功**。A-027 integrated/partial 與 native claim route blocked 同時成立；後續 A-028 才確認 C04 終局/提交回覆。
 
 ## A-028 針對 C04 終局分支的測試設計（2026-10-31）
 
-[原版 BIN-first 證據](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)／[不越權的 Server 設計](../04-analysis-integration/A-028-newuser-terminal-contract.md)：CT-031 驗 state0x1d + S02(status0) 才發 C04/state0x1e；CT-032 驗 **state0x1e + S02(status0)** 只觸發 local `0x4b206b` UI 分支，不直接建立 S03/C10；CT-041 驗 S02(nonzero) C15 CancelNewUser（opcode0x15、空 body、normal binary C2S frame）及 state0x1f/focus status；CT-042 驗有經過 Server owner credential 的角色 transaction、重送/重複名稱/晚到 C15 不破壞已提交角色。Python `tools/a028_newuser_response.py` 為合成模型測試，**非真實原 Client 通過**。仍需 A-027 原生 owner proof、A-003 合法欄位與原生登入/World UI 出場證據。
+[原版 BIN-first 證據](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)／[不越權的 Server 設計](../04-analysis-integration/A-028-newuser-terminal-contract.md)：CT-031 驗 state0x1d + S02(status0) 才發 C04/state0x1e；CT-032 驗 **state0x1e + S02(status0)** 只觸發 local `0x4b206b` UI 分支，不直接建立 S03/C10；CT-043 驗 S02(nonzero) C15 CancelNewUser（opcode0x15、空 body、normal binary C2S frame）及 state0x1f/focus status；CT-044 驗有經過 Server owner credential 的角色 transaction、重送/重複名稱/晚到 C15 不破壞已提交角色。Python `tools/a028_newuser_response.py` 為合成模型測試，**非真實原 Client 通過**。仍需 A-027 原生 owner proof、A-003 合法欄位與原生登入/World UI 出場證據。
 
-## A-016 / roy1：R-017 回覆遺失、斷線與持久化（CT-043/044 planned）
+## A-016 / roy1：R-017 回覆遺失、斷線與持久化（CT-045/044 planned）
 
-[A-016 原版可核對函式](../03-analysis-requests/A-016-roy1-replay-recovery.md) 和 [Domain/DB 恢復契約](../04-analysis-integration/A-016-idempotency-recovery.md)。執行 `python3 tools/a016_recovery_model.py` 做 SQLite synthetic crash/reopen：角色提交回包遺失仍唯一、token 原子一次性、C33 seq7 replay/127→0、C35 拒絕錯 epoch/同 pair ambiguity、交易雙邊入帳與領獎 unique ledger；**不代表原 Client 或原服驗收通過**。CT-043/044 是 designed/negative contract，原始 Client 世界載圖/重登入仍需後續 CT-016/017/018。
+[A-016 原版可核對函式](../03-analysis-requests/A-016-roy1-replay-recovery.md) 和 [Domain/DB 恢復契約](../04-analysis-integration/A-016-idempotency-recovery.md)。執行 `python3 tools/a016_recovery_model.py` 做 SQLite synthetic crash/reopen：角色提交回包遺失仍唯一、token 原子一次性、C33 seq7 replay/127→0、C35 拒絕錯 epoch/同 pair ambiguity、交易雙邊入帳與領獎 unique ledger；**不代表原 Client 或原服驗收通過**。CT-045/044 是 designed/negative contract，原始 Client 世界載圖/重登入仍需後續 CT-016/017/018。
 
-## A-017 管理 API／稽核測試（CT-045/046）
+## P0 / DEV-030 密碼長度相容性驗收（2026-10-31；未執行）
 
-[詳細分析](../03-analysis-requests/A-017-roy1-admin-audit.md) 與 [契約](../04-analysis-integration/A-017-admin-observability-contract.md)。
-
-- CT-045（planned）：只允許具有獨立 operator identity 與 permission 的 Admin 命令；未登入/越權/相同 key 不同 body 皆拒絕，副作用不可發生；同 key 同 body 的 item grant 只存一次；停權 N 天/永久/解封、角色調整與傳送須由 Domain 驗證與唯一 ledger 保護。
-- CT-046（planned）：允許與拒絕、重播、錯誤均寫入 sanitized audit/trace；不得洩漏 password、S03/C10 token、原始 packet body、Cookie 或 Authorization。管理 metrics/health 不向公開 Game Client 露出敏感維度。
-
-合成 Python `tools/a017_ops_contract.py`（五個 unittest 通過）是 designed 參考，不是原版 Admin UI/新 Server 上線驗收，也不是原服擁有同樣的權限政策。
-
-## A-003 合法欄位與重名／角色模型（CT-047/048 planned）
-
-[BIN-first 原版研究](../03-analysis-requests/A-003-roy1-create-legal-values.md) / [合成 Python 工具](../tools/a003_create_contract.py)。CT-047 依 region 測 C02 string8、TW CP950 encoded byte length；region0 UI 第一欄 length gate skip，region1..4>=12；C04 5×u8，色彩查原版十筆色表 index0..9，確切 RGB 與報告一致。CT-048 在 **designed Domain** 以驗證 owner/pending intent/unique name/one-character-per-account 保護無權、雙線同名、同 intent 重送、C15 晚到不刪角；此一帳一角策略不是原服已證。原版重名 S02 status/真實角色選角與 sex/hair 列表仍 unknown，所有 CT 的 `native_client_validation=not-run`，不可假裝實機成功。
-
-## A-020 / roy1：登入前封包型別、解析安全與狀態（CT-049/050 planned）
-
-[原件 BIN-first](../03-analysis-requests/A-020-roy1-prelogin-branches.md) 與 [合成測試](../tools/a020_prelogin_contract.py)：CT-049 分別驗 C0F(3)、C0F(other)、S18(0,3,empty)／kind0 一筆 name+u32、C57(1)/C57(0,id)、S56 multi entry(zlib)、C4B empty、S60(type0 u32/type1 compressed text)，另需拒絕過長/截斷/尾隨／壓縮異常。CT-050 驗原生 C6C3 不會建立帳號所有權、Script cache destructive S44(1,3) 不得作 ACK、C57 不可錯序選服、未驗證 C03 不可 World。此測試是 designed local Server state + BIN-derived codec，不是完整原服 policy 或 Client E2E。
-
-## A-026 原生教程完成/可選獎勵/出口（2026-10-31）
-
-[原件分析](../03-analysis-requests/A-026-roy1-tutorial-completion.md)、[完成與退出安全契約](../04-analysis-integration/A-026-tutorial-completion-contract.md)、[測試工具](../tools/a026_tutorial_completion_model.py)。CT-026/027/028 仍 planned、native E2E not-run；CT-054/055/056 是 synthetic/designed。先用受控 sandbox/合法身份和同版資源確認 Born.Main→PaperDialog→C6C4→C6C2 **只做 ScriptClose**；再真正進行招募員 NPC C39 互動與完整 Script/Quest reply capture，不可把 STATE=ACCEPT 候選當官方完成。沒有 original verified quest rule 時拒絕 completed；沒有 verified reward 時 reward=NULL；有驗證後以唯一交易 + outbox 保證回覆丟失/重登不重發。只有原服確定的 exit map/ref/coord/revision 才可 S15/S14/C35/S04，C35 不含 epoch，負面測同 pair overlap、錯 CRC、crash/reopen 位置/狀態恢復。完整 Client「登入→教學互動→完成→正常出圖→重登」仍需 CT-028；原始 Server 資料未提供，不可把離線測試標成 Client 已通關。
-
-## A-007 物品與裝備的原生 Client 驗收補強（CT-057～059 planned）
-
-[A-007](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) 列出已證 opcode：C1C type1..9 變長，C1E，C08 Drop，C0C PutRequest，S0F/S37 變長，S10/S38 removal。CT-057 核所有 branch 的 body length/字段與截斷拒絕；CT-058 在原 Client 具真實 resource/catalog 的環境確認 S0F mode0/1/2、S37 descriptors 並測 bag sync/remove。CT-059 在獨立 Server DB 測 item owner、slot+instance unique、split/consume、滿背包卸裝、不同 owner/replay/斷線/重啟及 outbox；再以原 Client GUI 確認物品顯示與裝備外觀。離線 Python 12 unittest 通過只證設計模型，**未執行原版 Client 真實物品生命週期**；不能把衣櫃的 01 slot 00 05 當全部物品 use packet。
-
-## A-004：CT-063～065 物件可見性/更新/消失驗收（planned）
-
-[原版 BIN-first 與 ID lookup](../03-analysis-requests/A-004-roy1-world-visibility.md)：CT-063 驗 S07 逐 kind 變長、S33 u32 ref、S0E/**S5F**（先前 S1E 勘誤）兩種事件、S0C/S64/S11/S1A 解析與長度拒絕。CT-064 以**兩個原版 Client** 同圖互見、連續移動、出視野、斷線、重登、切圖、死亡/復活，比對每個封包 ref/地圖實例及 UI 殘影；CT-065 Server-synthetic 測不同 observer/WorldGeneration/epoch 的 ID 回收、重複 spawn/leave、先死後消失、stale ref/reconnect。離線 20 signature +18 unittest pass 不是 native E2E；原服 AOI radius、NPC 資源與 wire ref scope unknown。
-
-
-## A-011/A-022：CT-066～071 NPC素材／碰撞／真實座標驗收（planned）
-
-CT-066 要求核 `Monster%02d.dat` 43-bank 原始 EXE index、資源 SHA/可載入與動畫配置；目前缺 `Monster00.dat`～`Monster42.dat` 與 `Basic.dat`。CT-067 校驗 S07 kind:u8、u32 wire ref、u16 asset candidate 與 S1A/u8+u16+u8 motion/實際 Monster frame 對應，不得將 bank id 當 template。CT-068 兩個真原版 Client 對 NPC 點擊後錄 C39/C0C/C13/S44 對應與原 Server 回覆，確認互動權限/斷線/重送。CT-069 用 Map0/1/2 原件核 36B directory/end offset/491 完整 MAP、特殊 00000/10000/20000；CT-070 結合 line-test tile+6 mask0x10、mutable mask0x01 與實際走路撞牆封包確認 walkable；CT-071 綁 map revision/C35 header2+Client structural checksum/geometry合法出生，舊 C35 相同 pair 時 fail closed。以上皆 planned，不能用靜態/合成 pass 宣稱原生 Client E2E 或原服出生通過。
+原 Client 使用者回報登入密碼欄**最多 8 字元**，現私有 Server `Pbkdf2PasswordHasher.ValidatePassword` **10～128** 不相容。依 [原生 4～8 字遊戲密碼政策](../02-server-planning/native-game-password-4to8-policy.md) 在既有 **CT-019/CT-037/CT-050** 增列測試，不新增測試編號：管理員建帳及重設 4/5/6/7/8 字 ASCII 英數成功；3/9/10/12 字、控制/空白/非 ASCII、非法字元拒絕；大小寫敏感；SQLite/PostgreSQL 一致；舊 10+ 字密碼不截斷、需重設；重設後舊 grants/token 失效但角色保留；Admin X-Admin-Key 不縮短。**真正原版 Client** 必須親自鍵入4字及8字並證明 C03 不丟字，成功/錯密/停權與 transfer，否則 Client CT=not-run；合成 C03 fixture 成功只能算 unit/integration。

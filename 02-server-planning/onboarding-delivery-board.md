@@ -4,8 +4,8 @@
 
 |工作|規格|分析|可先做的 Server 工作|原生 Client 出場門檻|
 |---|---|---|---|---|
-|ONB-01 管理建帳＋登入|已規劃 R-025|A-021/A-027 靜態子集已整合；A-027 原生認領驗證仍 blocked|管理 API、權限、稽核、憑證/停權、最小 C03 profile|預建帳號合法登入；Client 不可建 Account|
-|ONB-02 創角與保存|已規劃 R-026|A-021/A-027/A-028 靜態研究已部分整合；A-003 待補，native owner/commit 路由仍 blocked|原子建角、名稱/外觀驗證、草稿/重送|原 Client 正確創角/重登|
+|ONB-01 管理建帳＋登入|已規劃 R-025|A-021 子集已整合；A-027 未完成|管理 API、權限、稽核、憑證/停權、最小 C03 profile|預建帳號合法登入；Client 不可建 Account|
+|ONB-02 創角與保存|已規劃 R-026|A-021 子集已整合；A-003/A-027/A-028 待補|原子建角、名稱/外觀驗證、草稿/重送|原 Client 正確創角/重登|
 |ONB-03 首次入教學|已規劃 R-027|A-022 通用 Map/CRC 已整合；原生 MAP/出生待 A-015|grant、Loading/CRC 狀態機、內容版本|原版教學地圖出生且可操作|
 |ONB-04 中斷恢復|已規劃 R-028|A-016/A-021/A-022 缺失分支|故障注入、幂等、重登入恢復|Client 中斷後無重複角色/錯誤進度|
 |ONB-05 教學 NPC/怪物/技能/目標|規劃 R-029/030|A-023 Script/Born 部分整合；A-024/025 未完成|場景生成、AI/戰鬥架構與目標 ledger|教學真實互動流程跑通|
@@ -38,49 +38,36 @@ A-022 通用 Map/CRC 的部分可直接支援 DEV，但真正新手 map/spawn/C3
 
 **A-001 integrated/partial**：seed0..9 binary codec 可先做 unit fixtures；實際 region/版本選 seed/key、S00 錯誤狀態仍交 A-020，不能宣布十種模式都真 Client 登入成功。**A-023 integrated/partial**：S44(1,0) named start、缺檔 C6C0/S44(1,1) 更新、Main 及 C6C4→C6C2 Dispose 已有靜態契約；原服首次發送時機、NPC 位置與 quest flag 仍 unknown。ONB-05 的 Script transport/run registry 可先 DEV；ONB-03/05 的原生教程全程仍 blocked。詳見 [Script Lifecycle](script-lifecycle-contract.md) 與 [本輪證據核對](../04-analysis-integration/A-001-A-023-merge-verification.md)。
 
-## A-027 / roy1 狀態（2026-10-31）
+## 本輪 A-002 Client 轉服解析更新
 
-**研究 done within static scope**：C02 UI 字串來源、field1 本地長度檢查、field2/確認文字的 UTF-16 比較、region 尾欄及確認視窗已完成可稽核逆向，狀態 `integrated/handoff partial`。**並非 native account ownership 完成**：沒有原生 C02 身份綁定或 C03 無角帳號自動進 MakeInfoDialog 的證據，因此 `native_account_claim_ready=false`、首次建角授權入口仍 blocked；通用 codec / fail-closed guard 可先 DEV。CT-039/040 planned，原 Client CT not-run。[交接與證據](../04-analysis-integration/A-027-preauth-safety-contract.md)。
+A-002 新增 C03 登入欄位、S03 host/port/opaque token、C10 raw token，及新 TCP 轉服的 Client 資料流。ONB-01/03 可先做實作與 synthetic CT-037；ONB-04 可依 generation/舊 socket 安全政策先開發 synthetic CT-038。**原服採踢舊還是拒絕新登入尚未知**，本 Server latest-auth-wins 為 designed，不宣稱原版已驗收。A-027 的 pre-C03 C02 Account owner proof 仍是最重要的首登阻塞。
 
-## A-028 roy1 C04 終局回覆分析（2026-10-31）
+## roy1/roy2 最新合併後 Gate（2026-10-31）
 
-新增 [A-028](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)：原 Client 在 C04 後 state0x1e，收到 S02(status0) 進 local UI `0x4b206b`，**此 callback 不直接 S03/C10**；S02(nonzero) 則自動發 C15 CancelNewUser（opcode0x15, body0 bytes），state0x1f，焦點依 error status 分支。分析 `integrated/partial`，但 `implementation_ready=false/native_creation_commit_ready=false`（原生 C02 owner/Server DB commit 仍未知）。安全 Domain/Protocol 的 encoder、no-auth guard、transaction/undo/Idempotency 可先開發；CT-031/032/041/042 planned。
+- **ONB-01**：Admin 建帳政策 R-025 保留；C03 正常帳密可解析，但匿名 C02 不能作 pre-provisioned owner claim。A-027 integrated/partial，**原生建角身份路由 blocked**。
+- **ONB-02**：C02→S02(status0)→C04(5u8)→S02(status0)→本地 UI（非 S03）；失敗會 C15(0 body)/state0x1f。DB commit/角色唯一性與 pending C15 僅能 designed，待原版帳號綁定。CT-041～044 planned。
+- **ONB-03**：Map0/1/2 嚴格離線 494/494 PASS、但實際教學 Map ID/Spawn/C35 第二欄及資源發行版配對未證。CT-039 是離線子集、CT-040 原生教學 still not-run。
+- **ONB-04**：C35 無 epoch，跨兩次同 pair 的延遲包原始 wire 不可辨。單 TCP 單 pending load；無法安全隔離時斷線/重新授權。SQLite/outbox/C33 seq7 皆為 Server designed。CT-045/046 planned。
+- **ONB-05/06**：Born S44 start、PaperDialog C6C4/2 可依靜態契約開發；不代表任務已完成。原服發送時機、招募員 entity ID、教程怪物/技能/獎勵待 A-012/024～026。
 
-## A-016 恢復與防重交接（2026-10-31）
+詳見 [本輪整合規劃](merge-20261031-roy1-roy2.md) 與 [證據覆核](../04-analysis-integration/A015-A016-A027-A028-validation.md)。
 
-[A-016 研究](../03-analysis-requests/A-016-roy1-replay-recovery.md) `integrated/handoff partial`，通用 Session/World/Movement/Character 的 Server 防重骨架可實作（`implementation_ready=true`）；原始原服 commit/transaction 故障政策仍 unknown。新增 CT-043/044：SQLite crash/reopen、成功回覆遺失、C10 one-use、C33 seq7 replay/127→0、C35 同 pair 不可辨識 epoch；交易領獎僅 designed Domain/ledger，不代表原生 opcode 已分析。A-015 真教程內容、A-027 帳號認領安全、A-028 角色最終原生 UI 等路徑不能因 A-016 狀態而解除限制。[詳細](../04-analysis-integration/A-016-idempotency-recovery.md)。
+## 最新 Client I/O 型開發切片（2026-10-31）
 
-## A-017 管理與觀測工作交接（2026-10-31）
+[可並行 DEV-IO-01～06](client-io-delivery-plan.md)／[6 條 Client 收發流程](client-io-flow-matrix.json)。正式 ONB 每項新增 `client_io_flows` 連結，明確分成 Client 可證事件、Server 自主決策與原生 CT。**不再把原服原始出生座標、首次 Born 派送時刻、原服驗證方式當 A/DEV 全部開工必要條件**；仍不得在沒有 C03 無角→NewUser UI 證據時宣稱原生完整創角成功，亦不可用未授權 C02 認領管理員帳號。
 
-A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/handoff ready/implementation_ready=true` **只表示可以供 Server 開發**。Admin.ProvisionAccount/Suspend/Unsuspend 應以獨立管理身份進入 Auth Domain；角色傳送/屬性調整/補發物品遵守 World/Inventory 狀態、可驗證唯一性與 audit。管理員的 HTTP API 必須與原 Client wire 隔離且 log 不含密碼/token/完整封包。SCN-014、CT-045/046 目前仍需 DEV/CT；原服 GM opcode/ban UI 不宣稱已證。[詳細管理契約](../04-analysis-integration/A-017-admin-observability-contract.md)。
+## 下一輪安全創角與 Native Client 的兩層出場門檻（2026-10-31）
 
-## A-003 靜態子集交接（2026-10-31）
+[可繼續開發 SAFE-01～04 / 後續 WIRE-01～02](native-creation-next-iteration.md) 與 [機讀就緒關卡](onboarding-readiness-gates.json) 已建立。**Server AuthContext、登入帳號比對、PendingIntent/C04 原子性、C15/重送可立即繼續設計或合成測試**。但不能因帳號字串相同就開放 native C02：A-027 仍未證實 C03(no-character)→NewUser UI 或 C02 field1 真實帳號語意。新 CT-054 為 planned/not-run，不修改 Client，不猜非零 S02 錯誤碼。ONB-03/04 Map/CRC/Transfer、ONB-05 Script Domain 與此並行，不須推論原服出生/首次派任務政策。
 
-[原生證據](../03-analysis-requests/A-003-roy1-create-legal-values.md)：C02 region UI length gate 與 C04 五字節、十色表已證；**一帳號多角、角色名稱/帳號名的真正關係、sex/hair 完整原生允許集合、重名回覆**仍未證。可先 DEV 的只有 encoder/decoder、TW CP950、原版十色 Client 選項與 Domain unique/idempotency 的 designed 方案。A-027 原生 owner、安全合法創角入口依舊阻塞，不得因 A-003 integrated/partial 解除限制。新增 CT-047/048（未原生 Client E2E）。[安全交接](../04-analysis-integration/A-003-character-create-contract.md)。
+## DEV-070-M 使用者最新決策（2026-10-31）
 
-## A-020 登入前最小 Profile 分支交接（2026-10-31）
+已確認「**多人進同一地圖**」；原本按 Character 建立的 DEV-070 synthetic scene 不能作為正式完成狀態。現在將 ONB-05 的 Server 場景調整為同 world/map 共用一份 NPC/怪物、每玩家獨立 Session 與教學進度。DEV-070-M 重構可立即開發，不需等原生封包；**A-004/A-011/A-024** 必須證明 Client 互見與實體封包後才加入原版 Client 傳輸，CT-055 planned/not-run。詳見 [共享地圖 ADR](shared-map-multiplayer-contract.md)。
 
-[A-020 報告](../03-analysis-requests/A-020-roy1-prelogin-branches.md)、[Contract](../04-analysis-integration/A-020-prelogin-contract.md)。原生 C0F/S18、C57/S56、C4B/S60 各 selector/reader 已交付；原本本機 local profile C0F3/S18 kind0(count0)/C57 1+0/S56/S60 可維持，但新揭露的 kind1 及其他 type 僅能先做 codec 和負面測試，不能直接宣稱原服 timing/credential。S44(1,3) 清理 Script cache 風險沿用 A-023。A-020 `integrated/handoff partial`，最小 Server 子集 implementable，region seed/key 和官方清單/Script 首次啟動仍 unknown；CT-049/050 not-run。
+## Roy1/Roy2 分支正式合併後（2026-10-31）
 
-## A-025 / roy1：ONB-05 可實作的技能/攻擊子集（2026-10-31）
+A-004/005/006/008/009/024（Roy2）與 A-007/019/020/025/026（Roy1）已回寫 main 的 `integrated` 靜態/合成有限成果。ONB-05 可由純內部 Scene 走向 **DEV-070-M 共享場景 + 可證 S07 非空 row 等 codec**，ONB-06 可建立 ScriptClose≠完成的 ledger。**原生 Client CT-055/070/080/081、R-031 真實教學出口都未通過**。看 [新開發計畫](post-roy-merge-implementation-plan.md) 與 [待分析工作](../03-analysis-requests/post-merge-analysis-queue.md)，不要要求分析者重做已證 opcode。
 
-[A-025 BIN-first](../03-analysis-requests/A-025-roy1-tutorial-combat.md) / [安全交接](../04-analysis-integration/A-025-tutorial-combat-contract.md)：已追 C13 Attack u32、C4D StartCastSpell u16、C56 CastSpell u8、C3D/S3D 0..15 多態、S52 CastSpell u32+u8 與 S5F DieObjects u32；Client C13 實際輸入觸發/本地 timer gate 具地址。可 DEV：typed codec、未授權/非法對象的 fail-closed、Server authoritative combat resolution / unique event ledger。**但原服傷害公式、技能 catalog/魔力/冷卻參數、NPC/怪物 entity、教學是否需要攻擊、任務目標映射都還未知**，不能直接標 ONB-05 native-ready。Born.dat 僅有 PaperDialog 導引，不能因 script 沒戰鬥指令就斷言全部教程無戰鬥。A-025 integrated/handoff partial；CT-051..053 planned、Client native not-run。
+## P0 密碼相容性阻塞（使用者觀察，2026-10-31）
 
-## A-026 / roy1：ONB-06 教學完成與出口的限制（2026-10-31）
-
-[A-026 BIN-first](../03-analysis-requests/A-026-roy1-tutorial-completion.md) / [安全完成契約](../04-analysis-integration/A-026-tutorial-completion-contract.md) / [機讀未知規則](tutorial-completion-conditions.json)。原版 Born Script 只建引導紙張，C6C4/2 關閉**不構成畢業**；C39 Merchant 為 Client 互動子集、NPC/Script/完成 rule 未綁；C0B Quit 非教程出圖；原版 S15/S14/C35/S04 支援一般換圖，出口 map/xy/獎勵仍 unknown。ONB-06 可以 DEV 實作 verified-rule gating、unique Completion/optional Reward ledger/outbox 與 fenced ExitIntent/crash recovery；**不可打開原生教學畢業/發獎/轉圖**，直到 A-012/015/024 的原服規則及目的地核實。A-026 integrated/handoff partial; CT-026～028/054～056 planned/native not-run。
-
-## A-007 / roy1 物品/裝備交付邊界（2026-10-31）
-
-[A-007 原版協定分支](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) / [可開發的資產安全骨架](../04-analysis-integration/A-007-inventory-domain-contract.md)。Server 可先實作 C1C use_kind1..9、C1E、C08、C0C 的有界 decoder、S10/S38 的 reader schema、S0F/S37 合成分支與 item instance/slot/owner/revision unique transaction/outbox。**不代表完整官方背包、卸裝、交易已經 Client 驗收或原服策略已知**。既有衣櫃 C1C(type5) 是本機用例，不能替代真正 item 掉落/使用/背包滿；A-013 交易/A-015 模板/原服 trace 是下游阻塞。CT-057/058/059 planned，native validation not-run。
-
-## A-004 / roy1：其他物件生成、可見、移動與消失（2026-10-31）
-
-[原始 EXE 逆向](../03-analysis-requests/A-004-roy1-world-visibility.md)／[Server AOI/ref 安全契約](../04-analysis-integration/A-004-entity-visibility-contract.md)：S07 DrawObjects 含 count/variable typed records、S33 Human、S0E RemoveObjects(u32)、S5F DieObjects(u32)（A-025 先前 S1E opcode 誤判已更正）、S0C MoveObject、S64 MovePath、S11 ChangeDirection、S1A Motion；MapPane 0x4eac30 依 ref 查實體。Server 用 internal stable EntityId 和 per observer connection/world instance/epoch wire ref projection。未知原服 AOI 半徑、ID 復用與 2 原版 Client 動態驗收；SCN-005/011 analysis-required、A-024 未完成、CT-063～065 planned。
-
-
-## A-011／A-022 2026-10-31 研究補充
-
-[A-011](../03-analysis-requests/A-011-roy1-npc-monster-resources.md)：Client 依 `Monster%02d.dat` 註冊 0x1f40..0x1f6a 資源（43個 `Monster00.dat`～`Monster42.dat`），原檔未提供、尚無 NPC/monster 模板→sprite/animation/點擊/掉落可信配表。只可先建 asset-bank index、S07/S1A/C39 codec 和 domain 權限邊界；A-024 仍 open。
-
-[A-022](../03-analysis-requests/A-022-roy1-map-geometry-collision.md)：Map0/1/2 原件已提供，491 個 MAP tile payload 可完整解析，幾何座標可檢查，0x10 線段遮蔽 bit/0x01 mutable tile bit 已發現；**不代表**原服完整可走格、出生 map/x/y 或 C35 真 checksum 已知。A-005 原服碰撞仍 open。CT-066..071 planned。原 Client end-to-end not-run。
+**目前原 Client 登入欄最多 8 字**，而 `as_server_roy/main` 的 `Pbkdf2PasswordHasher.ValidatePassword` 實際限制 **10～128 字**；ONB-01 即使帳號存在也可能登入失敗。**規格已更新但 DEV-030 程式尚未修正**：遊戲建帳/重設採4～8 ASCII 英數（自動產生仍建議8字）、Admin 身份/密鑰不受影響；原長密碼需管理員重設，不截斷；C03 正常登入與原始 UI 需 CT-019/037/050 驗證。此為本期**先修再測**的 P0 工作，不依賴 A-027 創角 UI。詳見 [4～8 字相容政策](native-game-password-4to8-policy.md)。

@@ -41,11 +41,3 @@ SScript為S44（constructor 0x5862e0，handler 0x52c2a0），**不可當成通�
 ## A-002：S03/C10 的原生資料流與 Token 使用邊界
 
 S03 parser `0x5886C0` 依序讀 BE u32 address、BE u16 port、u8 token_len、**raw token bytes**；在 region3/4，`0x4A8370` 以 address/port 建立後續連線，再透過 `0x577330/0x5773E0` 將 token 原文放入 C10（body raw bytes，無 string8 前綴）。S03 和 C03 的 opcode 同為 0x03，但方向及解碼不同；C10 為既有 binary profile 的 C2S plain opcode0x10 + token，無 ordinal。登入 TCP 關閉與 World C10 交接期間的 token 有效性由 Server grant lease 控制。原版 duplicate-login error 未確認，**不推測 S02 status 值**。見 [A-002](../03-analysis-requests/A-002-roy1-login-transfer.md)。
-
-## A-020 / roy1：登入前原生封包各分支與 local fixture 分界（2026-10-31）
-
-[完整 BIN-first](../03-analysis-requests/A-020-roy1-prelogin-branches.md)／[Server 安全交接](A-020-prelogin-contract.md)：
-`C0F` 原生 CMetaData `0x573a70`，type3 僅 byte03，其他 type 多 u8 option+string8；`S18` 原生 SMetaData `0x582dc0` 先 u8 kind/u8 subtype，kind0 再 u16 BE count+（string8,u32BE）清單，所以本機 `00030000` 是 **kind0,subtype3,count0**；kind1 是不同的 name/u32+compressed helper，非同種 list。
-`C57` 原生 CMultiServer `0x573f40`，type1 僅 01 要求清單，type0 為 00+selected_id；`S56` 原生 SMultiServer `0x584190` zlib 後先 u8 count、每筆 id/address/port/flag/3×string8。
-`C4B` 原生 CStipulation `0x575720: ret` **空 body**；`S60` 原生 SStipulation `0x587190` type0 BE u32、type1 壓縮 CP950 文字。local C57(0)/C4B→S60 是**本機 Server 的 designed mapping**，非原服固定時序；region key、失敗 UI、S18 kind1 真內容、其他官方清單均 unknown。
-`C6C(3)` 在現有 local profile 不回覆，不能假稱 Script start；S44 type1/subtype3 會清理本機 Script 快取，正式不得當安全 ACK。此研究 `integrated/handoff partial`，native E2E not-run；CT-049/050 planned。

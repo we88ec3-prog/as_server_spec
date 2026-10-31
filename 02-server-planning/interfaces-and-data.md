@@ -59,10 +59,6 @@ Game Client C02 可能在 C03 之前送出；C02 region 封包布局已由 BIN �
 
 為 S44(1,0)/(1,1) 與 C6C(0/1/2/4) 建立 `ScriptCatalog(client_profile, codepage, resource_revision, script_name, sha256, decoded_text_crc32, dependencies)`、`ScriptRun(run_id, account_id, character_id, session_generation, map_epoch, context, resource_revision, lifecycle_state)`。所有 C6C 由 Server 確認 run/context 有效，Dispose/清理不觸發 quest 完成；重複／舊 session 不可重發獎勵。僅 S44 named start 及原 Client 已知子類可做原生 codec；資源錯 CRC 或 S44(1,3) 危險快取操作 fail closed。首次何時送 Born、首 NPC/entity/quest 綁定仍 A-012/015/024。詳見 [Script 生命週期](script-lifecycle-contract.md)。
 
-## A-016：持久化與事件重送的一致性邊界（designed）
+## A-002 S03/C10 AuthSession / TransferGrant
 
-[A-016 靜態資料流](../03-analysis-requests/A-016-roy1-replay-recovery.md) / [完整恢復契約](../04-analysis-integration/A-016-idempotency-recovery.md)。Gateway 給 authenticated socket 唯一 connection_id/session_generation；Domain intents 用內部 idempotency key、payload hash、owner 與 expected version；DB commit 用 unique constraints、原子 ledger/outbox，使「已完成副作用」與「僅發了 S02/S0B/S14」分開。C33 seq7 不可跨連線/回捲用作交易唯一性；**C35 沒有 epoch，舊/新載入同 checksum pair 的回覆無法由 Client 原生 bytes 區分**，要禁止重疊、必要時斷連並重建。交易/獎勵成功回包遺失不得二次扣款/加錢/發獎，Script Dispose 不等於 quest completed。這些是 Server 正確性策略，非原伺服器原本採用的 DB 實作。
-
-## A-017 獨立管理 API / Audit / Telemetry（designed）
-
-[完整管理契約](../04-analysis-integration/A-017-admin-observability-contract.md)；[可機讀操作](admin-operations.json)。所有 Admin.ProvisionAccount/Suspend/Unsuspend/CharacterAdjust/Teleport/ItemGrant 必須經 **獨立已認證操作者 + 權限 + 對象版本/狀態 + 理由 + 冪等鍵**；遊戲 Client 的 C02/C03、Game wire、HTTP URL/IP 均不等於管理權限。Domain 用唯一 ledger + DB transaction/outbox，拒絕與重送同樣留下 sanitized audit；log/trace 只能寫 actor/operation/request/correlation/session-generation/opcode/result/必要 map_id，不得存密碼、transfer token、Authorization 或完整封包。A-017 `integrated/handoff ready` 為設計，不代表原服 GM opcode 或新 Server 已實裝。參見 CT-045/046、SCN-014。
+`AuthSession(account_id, character_id, generation, status)`、`TransferGrant(token_hash, account_id, character_id, generation, destination, expires_at, consumed)`、`WorldBinding(account_id, generation, connection_id)`；S03 對 Client 含 addr/port/u8 token length+raw token，新 TCP C10 **僅 raw token**。old login socket close 不能清除合法尚未兌換 grant，stale generation disconnect 不能刪新 World。以 CAS 消費 grant/推進 generation。原服 duplicate 政策 unknown，latest-auth-wins 只作 Server designed。參見 [交接契約](session-transfer-contract.md)。

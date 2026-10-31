@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-31",
+  "decision": "user-approved-multiplayer-shared-map",
+  "scope": "all public world maps including tutorial; no per-character map instances",
+  "native_client_modified": false,
+  "development_status": "design-approved-refactor-required",
+  "native_client_validation": "not-run",
+  "source_server_baseline": "as_server_roy@3a9d5b7935f8dc844c002719f64bc2ca20e51d9a",
+  "map_instance_key": [
+    "world_id",
+    "map_ref"
+  ],
+  "same_map_content_revision_must_match": true,
+  "authoritative_shared_fields": [
+    "actor_registry",
+    "npc_and_monster_spawn",
+    "entity_id_and_life_generation",
+    "ai_state",
+    "monster_death",
+    "monster_respawn",
+    "ordered_world_events"
+  ],
+  "per_character_fields": [
+    "account_identity",
+    "session_generation",
+    "connection_id",
+    "player_location",
+    "visible_entity_versions",
+    "tutorial_progress",
+    "reward_ledger"
+  ],
+  "do_not_decide_yet": [
+    "shared_kill_credit",
+    "party_experience_distribution",
+    "loot_ownership",
+    "npc_exact_ids",
+    "native_client_actor_packet_opcodes",
+    "native_aoi_radius"
+  ],
+  "failure_policy": [
+    "stale logout cannot retire another participant or shared scene",
+    "no map reset when one of multiple players leaves",
+    "different map content revision must not silently create per-character scene",
+    "native packet schema unknown => no fabricated packet to unmodified Client",
+    "new join receives current state and never resurrects already dead actor via stale events"
+  ],
+  "work_items": [
+    "ONB-03",
+    "ONB-05",
+    "ONB-06"
+  ],
+  "analysis_requests": [
+    "A-004",
+    "A-005",
+    "A-011",
+    "A-015",
+    "A-022",
+    "A-024",
+    "A-025",
+    "A-026"
+  ],
+  "scenarios": [
+    "SCN-005",
+    "SCN-011",
+    "SCN-012"
+  ],
+  "conformance": [
+    "CT-021",
+    "CT-022",
+    "CT-055"
+  ]
+}

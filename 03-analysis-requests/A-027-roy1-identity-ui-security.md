@@ -79,7 +79,7 @@ Server 提供的**設計級 fail-closed policy**：
 
 ## 六、下游 CT 與後續精準工作
 
-- **可立即交付**：region-aware C02 codec；欄位->UI offset 映射；第一欄長度和第二欄確認比較的 Client 靜態觀察；pre-auth 絕不寫 Account/Character，未有 credential verifier 絕不 issue S02(success)/C04/World。對照既有 CT-029..032，新增 CT-039 專門測 pre-auth ownership/fail-closed，CT-040 測 UI 控制與 serializer 對照（都是 planned）。
+- **可立即交付**：region-aware C02 codec；欄位->UI offset 映射；第一欄長度和第二欄確認比較的 Client 靜態觀察；pre-auth 絕不寫 Account/Character，未有 credential verifier 絕不 issue S02(success)/C04/World。對照既有 CT-029..032，新增 CT-041 專門測 pre-auth ownership/fail-closed，CT-042 測 UI 控制與 serializer 對照（都是 planned）。
 - **目前仍需原始材料/跟進逆向**：原生控件實際標籤/字串資源、region1/0 欄位完整作用；原服如何驗證 pre-provisioned account/password（若原流程並不存在，需轉為符合 R-025 的安全替代流程）、C03(no character) 可達 UI 的控制路徑。A-028 後續負責 C04 最終回覆、資料庫提交與登入/轉場。
 - **真正的阻塞定義**：A-027 對已限定的 BIN 研究成果 status=integrated、handoff=partial，但預建帳號原生認領**實作路由仍 blocked**，不代表要等新 Server 實機才做研究；凡目前無法由 Client/BIN 證明的原服決策不可填猜測值。
 

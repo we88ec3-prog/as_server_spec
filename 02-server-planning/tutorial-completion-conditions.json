@@ -29,7 +29,7 @@
     "map_ref": null,
     "verified_script_binding": false,
     "candidate_script_filename": "nNewJoin01.dat",
-    "confidence": "inferred-only"
+    "confidence": "script-content-observed; original-npc-binding-inferred-only"
   },
   "born": {
     "guide_waypoint": [
@@ -115,13 +115,52 @@
   "native_tutorial_complete_ready": false,
   "native_reward_proven": false,
   "native_exit_destination_proven": false,
-  "missing_locally_named_files": [
-    "PaperDialog.dat",
-    "nNewJoin01.dat"
-  ],
+  "missing_locally_named_files": [],
   "other_required_evidence": [
     "Original Server tutorial/quest/NPC/exit handler or configuration",
     "First/returning login through recruit→completion→exit→relogin Server trace"
   ],
-  "notes": "NULL means unknown, not zero/empty/default. Do not hardcode Born (31,29) as spawn or tutorial exit. State and transaction design is not a recovered native Server policy."
+  "notes": "NULL means unknown, not zero/empty/default. Do not hardcode Born (31,29) as spawn or tutorial exit. State and transaction design is not a recovered native Server policy. Five newly supplied resource files verified locally, including admission/script reply values. This does NOT prove NPC binding, native school transfer, reward or tutorial completion; Client E2E not-run.",
+  "new_script_resource_validation": {
+    "date": "2026-10-31",
+    "evidence": "04-analysis-integration/new-asset-samples-20261031.md",
+    "observed_static_resource": true,
+    "nNewJoin01": {
+      "raw_sha256": "8410064a564e381bfe941c71af3fc70598ea2325df69c3d216d7fbba1c7f79ae",
+      "main_entry": "MerchantTalk (via shared Merchant runtime; no Main in this file)",
+      "page_names": [
+        "JoinMessage01",
+        "JoinMessage02",
+        "JoinMessage03"
+      ],
+      "reply_key": "STATE",
+      "reply_values": [
+        "ACCEPT",
+        "REFUSE"
+      ],
+      "npc_entity_binding_verified": false,
+      "accept_means_completed": false,
+      "accept_means_auto_transfer": false
+    },
+    "PaperDialog02": {
+      "raw_sha256": "49a618b9a59bda1294df6cbd8fa57e07c6e42c7647602dd988decf4a147bf22a",
+      "reply_key": "PAPER02",
+      "reply_values": [
+        "START",
+        "NOT"
+      ],
+      "follow_on_trigger_verified": false,
+      "separate_from_PaperDialog": true
+    },
+    "monster00": {
+      "raw_sha256": "ef45faefd96572695e0086753b2c881a218df2730d1cd5a0c40bf5d26c3ba505",
+      "archive_member_count": 5,
+      "monster_image_slot_to_ypf_member_verified": false
+    },
+    "world00": {
+      "raw_sha256": "01b1afc14daf4ca030004f825d8af39ff6667d184431a5aa9aa9b67a81160ef3",
+      "archive_member_count": 5,
+      "native_scene_id_mapping_verified": false
+    }
+  }
 }

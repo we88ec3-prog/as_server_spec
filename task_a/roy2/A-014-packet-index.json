@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "analysis_id": "A-014",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "profile": "TW-seed0-local-v0.1",
+  "evidence_level": "observed-static + designed tests, not native E2E",
+  "packet_classes": [
+    {
+      "id": "PKT-C0E",
+      "dir": "C2S",
+      "op": "0x0e",
+      "ctor": "0x574fc0",
+      "method": "0x575070",
+      "layout": "u8 type + string8 text",
+      "ui_channel_mapping": "unknown"
+    },
+    {
+      "id": "PKT-C19",
+      "dir": "C2S",
+      "op": "0x19",
+      "ctor": "0x578220",
+      "method": "0x5782d0",
+      "layout": "u8 type + string8 target + string8 text",
+      "ui_channel_mapping": "whisper UI exists, exact subtype unknown"
+    },
+    {
+      "id": "PKT-C2E",
+      "dir": "C2S",
+      "op": "0x2e",
+      "ctor": "0x572d30",
+      "method": "0x572de0",
+      "layout": "u8 op, op0 string8 name, op1 string8 name + 2 u8 bool",
+      "op_meanings": "unknown"
+    },
+    {
+      "id": "PKT-C12",
+      "dir": "C2S",
+      "op": "0x12",
+      "ctor": "0x573550",
+      "method": "0x573600",
+      "layout": "u8 op + op/subtype discriminated branches (see report)",
+      "op_meanings": "unknown"
+    },
+    {
+      "id": "PKT-S0A",
+      "dir": "S2C",
+      "op": "0x0a",
+      "ctor": "0x582150",
+      "method": "0x582200",
+      "layout": "u8 type + string16 (0x45B890)",
+      "notes": "already exists AUTH/SYS; do not reclassify all as chat"
+    },
+    {
+      "id": "PKT-S0D",
+      "dir": "S2C",
+      "op": "0x0d",
+      "ctor": "0x586120",
+      "method": "0x5861d0",
+      "layout": "u8 type, BE u32 source_id, string8 text (0x45B7A0); type4 additional string8 text2, BE u32 extra"
+    },
+    {
+      "id": "PKT-S58",
+      "dir": "S2C",
+      "op": "0x58",
+      "ctor": "0x580040",
+      "method": "0x5800f0",
+      "layout": "u8 type + u8 subtype + conditional extra fields"
+    },
+    {
+      "id": "PKT-S3A",
+      "dir": "S2C",
+      "op": "0x3a",
+      "ctor": "0x5887a0",
+      "method": "0x5887ca",
+      "layout": "subtype==5 branch, dynamic group member vector local 0x208-byte stride (NOT wire)"
+    }
+  ],
+  "risk_note": "exact native guild permissions/invite semantics not proven; ignore any unverified subtype",
+  "fields_validated_by": "objdump -d -M intel, RTTI descriptor → COL → vtable → ctor",
+  "synthetic_test_file": "task_a/roy2/test_a014_social.py",
+  "native_client_validation": "not-run",
+  "unknowns": [
+    "C0E type→group/guild mapping",
+    "C12/C2E op meanings",
+    "S58/S3A full group list row",
+    "native guild wire class/semantics",
+    "native S0A/S0D error subtype"
+  ],
+  "native_reader_correction": {
+    "status": "verified-from-EXE",
+    "S0D": "0x5861F2/0x58620D -> 0x45B7A0 (string8)",
+    "S0A": "0x582218 -> 0x45B890 (string16)"
+  },
+  "official_conformance_ids": [
+    "CT-047",
+    "CT-048"
+  ],
+  "obsolete_branch_CT_ids": [
+    "CT-041",
+    "CT-042",
+    "CT-043"
+  ]
+}

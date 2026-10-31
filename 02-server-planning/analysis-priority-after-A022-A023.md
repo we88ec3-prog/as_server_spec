@@ -42,18 +42,29 @@
 - **最高優先仍是 A-027 + A-015 並行，接 A-028**。同時可以開發 transport 通用 codec + S44/C6C Script 生命週期（受控 mock／安全測試）；不得把 Born 的文字座標 (31,29) 當出生點，也不得把 C6C2/4 當完成任務。
 - 說「沒有 Script／MAP 資源」不精確：roy2 的本地研究已核對 Born/PaperDialog 以及 Script corpus，並報告存在 Map0/1/2 與 Basic；**目前欠缺的是版本配對和原服 NPC/任務綁定**。本次合併檢查環境沒有完整原始資源可供獨立再跑。
 
-## A-027 交接後精準剩餘工作（2026-10-31）
+## 最新 A-002 合併後優先調整（2026-10-31）
 
-A-027 已追完可核對的 C02 UI 欄位來源（field1 名稱候選；field2 密碼候選+確認控制）、本地長度/相等/region 檢查，但未能證明 pre-C03 Account owner 如何經原生 Server 認證，亦無 C03 無角色→MakeInfoDialog 的原生跳轉。**研究 A-027 integrated/handoff partial，但預建帳號認領路由禁止開發啟用**；後續拿 UI 真標籤／原服認證/失敗 evidence，或規劃別的原 Client 可達且具獨立身份驗證的安全入場方式。A-028 追 C04 後結果/commit，A-003 追合法角色；A-015 仍補原教程 map/spawn。詳見 [A-027](../03-analysis-requests/A-027-roy1-identity-ui-security.md)。
+A-002 已 `integrated/partial`，C03/S02/S03/C10 與原版 Client 跨 TCP 轉服邏輯的靜態證據可供 DEV；**A-022 先前把 0x4A8370 當 C25 的解讀已撤銷，它是 S03 transfer handler**。A-020/A-016 後續聚焦原服 duplicate-login policy、S02 非零結果、regional/失敗交接與 recovery，別重做已知 bytes。最高 P0 仍 **A-027 + A-015 平行，隨後 A-028**；C03/S03/C10 codec、一次性 Grant、generation 安全可與研究並行，CT-037/038 後續由 DEV/CT 原 Client 驗收。見 [SessionTransfer](session-transfer-contract.md)。
 
-## A-016 交付進度（2026-10-31）
+## 2026-10-31 合併 A-015/A-016/A-027/A-028 最新派工（以本節為準）
 
-重送/崩潰恢復的 BIN-first 子集已整理成 [A-016](../03-analysis-requests/A-016-roy1-replay-recovery.md)；既有 C33/S0B/C35/S14/C10/C04/C15 的回覆邊界、同版 C35 無 epoch 的不可辨識性與 designed 的 durable commit/unique ledger/outbox 皆可交 DEV。研究 `integrated/handoff partial` 不等於原版 Server 的交易/Quest/登入恢復 policy 已證明，亦不解除 A-015 教程 map/spawn、A-027 帳號 owner 的必要資料條件。CT-043/044 planned，原版 Client not-run。
+|優先|分析研究|目前結論與精確剩餘問題|下游工作|
+|---|---|---|---|
+|P0 同步|**A-027 follow-up + A-003/A-020**|A-027 靜態已 integrated/partial：C02 來自 NewUser UI 的前兩欄及密碼確認相等檢查；**並未證明預建帳號的身分授權，也未證 C03 登入無角色必能到 MakeInfoDialog**。查真正 native credential/登入→UI 路由、各 region 原表單；不可用帳號名稱認領。|ONB-01/02、CT-030/041/042|
+|P0 同步|**A-015 follow-up + A-022**|A-015 integrated/partial：原始 Map0/1/2 已驗 494/494，尾段 7/8/16 bytes 型別已知；**地圖 ID→教程、出生點、實際 checksum 第二欄、collision/NPC 語意仍未證**。用已取得 MAP、EXE 的引擎交叉引用繼續，而非聲稱缺 MAP。|ONB-03、CT-039/040/046|
+|P0 平行|**A-028 follow-up + A-003**|A-028 integrated/partial：C04 後 S02(status0) 只進 UI，非自動 S03；S02(nonzero) 會送零 body C15，state0x1f。補實際建角成功後如何導回 Login、合法外觀／名字以及原服 owner/DB commit 證據。|ONB-02、CT-031/032/043/044|
+|P0 DEV/CT 並行|**A-016 已分析子集交付**|A-016 integrated/partial：C33 seq7 循環、C35 無 map/epoch/request ID；DB/World 的 generation、outbox、重試防重是 Server designed。不能把合成 crash/reopen 測試當原 Client 通過。|ONB-04、CT-015～017/045/046|
+|P1 並行|**A-012/A-024 + A-011**|原版 Born 以 S44(1,0) 可啟 Main，C6C4/2 是腳本生命週期；**原服首次下發的時機、女招募員 entity/script 綁定仍未知**，(31,29) 是文字導引不是出生。|ONB-05、CT-033～035|
+|P1 後續|**A-025 → A-026**|先取得教學戰鬥/技能目標、再取任務完成／獎勵／出口；完成條件與傳輸回覆不可自行杜撰。|ONB-05/06、CT-021～028|
 
-## A-025 / roy1 後續研究依賴更新（2026-10-31）
+**分析與實機 CT 分離**：上述 A-015/016/027/028 都已提交可再現的部分研究，不再標 not-started，也不要求先有 Server 實機才能交付；`native_client_validation` 仍是 `not-run`。最高優先可分兩人同步追 A-027 的「身份證明／無角 UI 可達性」和 A-015 的「教學地圖／實際 checksum」。缺原始 Human/Script 依賴資料時請明列檔名，不從地圖名猜 NPC 或角色外觀。
 
-原版 C13/C4D/C56/C3D 與 S52/S1E/S3D 的 Client 最小互動與 packet schema 已由 [A-025](../03-analysis-requests/A-025-roy1-tutorial-combat.md) 查通受限子集，新增 CT-051/052/053。**第一個導引 Born.dat 不含殺怪條件 ≠ 全部原服教程不要求戰鬥**。接下來 A-024 要找到實際 NPC/怪物 map/entity/spawn/interaction，A-008/009/010 要完成所有原版技能合法值、Battle subtype0..15 與狀態變化；A-012/026 必須從原服事件或資源確認是否有戰鬥任務目標、何時完成/發獎，否則只可擴充通用 Domain，不可強制新帳號先擊殺指定怪物。A-025 integrated/handoff partial，原生教學 requirement 和 quest mapping 未 ready。
+## A-014 最新社交協定子集（2026-10-31）
 
-## A-026 / roy1 新增交接後剩餘關鍵來源（2026-10-31）
+**A-014 integrated/partial（P2）**：C0E 聊天、C19 密語、C2E 群組、C12 成員、S0D 訊息、S58/S3A 成員回覆的 Client 靜態結構已定位；**S0D text 是 string8、S0A text 才是 string16**，此誤標已修正。原生聊天 type→頻道、組隊/公會 op/sub 對照、離線及權限回覆仍 unknown。Server 可先做 codec、來源身份以 Auth/World session 為權威、頻道範圍與群組成員 CAS、反重送與限速；但不能宣稱原版組隊/公會操作已完全實機互通。CT-047/048 planned、native not-run。社交工作應排在首登／教學 P0 關鍵路徑之後，或由另一位人員平行處理，不阻擋 ONB-01～03。詳見 [社交開發邊界](social-contract.md)。
 
-A-026 已逆向確認 Born 引導關閉 C6C4→C6C2、C39 Merchant 多態命令、C0B Quit 空封包、S15/S14/C35/S04 通用切圖並建立安全 completion/可選 reward/exit 恢復模型；**原版教學是否存在獎勵、何時畢業、何處退出仍未知**。下一步 A-024 對原版 map/NPC 做 entity→Script 綁定、A-012 對原服 quest rule/回覆、A-015 對出口 map/版本/位置、必要時 A-009/010 對原服戰鬥事件；原服成功/失敗/重登封包 trace 可替代部分猜測。A-026 integrated/handoff partial，native_tutorial_complete_ready=false，不能把 A-025 或 C6C2/4 誤當 quest complete；CT-026～028/054～056 planned。
+**A-015 最新交接**：`handoff_status=ready` 只限可驗證的 DAT/MAP/Script 格式、檔案庫盤點、hash/provenance 工具；原版新手 map/spawn/NPC/碰撞依舊 unknown，`implementation_ready=false`，不可將這個窄範圍 ready 誤當教程內容已完成。
+
+## Client I/O 分析優先順序（2026-10-31，覆蓋過往對原服政策的錯誤要求）
+
+同時執行 **C03/S03/C10 登入收發**、**NewUser C02/S02/C04/C15 UI 狀態**、**S15/S14/C35/S04/S33 進圖反應**；接續 S44/C6C Script、NPC 點擊與怪物顯示、技能操作與回包、任務 UI。每個 A 先交可證的操作→送包→收包→Client 反應，不須解出原版 Server 為何設定出生點、首次發任務或如何存帳號。責任分界與已確認 Client 序列見 [Client I/O 標準](../03-analysis-requests/client-io-handoff-standard.md)。

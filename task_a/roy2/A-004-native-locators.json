@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "task": "A-004",
+  "profile": "TW-seed0-local-v0.1",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "image_base": "0x400000",
+  "source": "original PE32, RTTI TypeDescriptor/COL/vtable, native constructor/reader",
+  "tested_on_original": true,
+  "constructors": {
+    "S33": {
+      "va": "0x5854D0",
+      "opcode": "0x33",
+      "reader": "0x585570",
+      "type_descriptor": "0x669F78",
+      "layout_prefix": "BE u16,BE u16,u8,BE u32"
+    },
+    "S06": {
+      "va": "0x583220",
+      "opcode": "0x06",
+      "reader": "0x5832D0",
+      "type_descriptor": "0x669E68",
+      "layout": "BE u32,u16,u16"
+    },
+    "S11": {
+      "va": "0x57D6C0",
+      "opcode": "0x11",
+      "reader": "0x57D770",
+      "type_descriptor": "0x669BA8",
+      "layout": "BE u32,u8"
+    },
+    "S0B": {
+      "va": "0x5830A0",
+      "opcode": "0x0b",
+      "reader": "0x583150",
+      "type_descriptor": "0x669E4C",
+      "layout": "BE u16,u16,u8"
+    },
+    "S0E": {
+      "va": "0x585E60",
+      "opcode": "0x0e",
+      "reader": "0x585F10",
+      "type_descriptor": "0x66A038",
+      "layout": "BE u32"
+    }
+  },
+  "known_c2s": [
+    "PKT-C33",
+    "PKT-C11"
+  ],
+  "evidence_kinds": [
+    "observed-static",
+    "synthetic-test",
+    "designed",
+    "unknown"
+  ],
+  "synthetic_tests": 9,
+  "native_client_validation": "not-run",
+  "exact_native_registry_cross_packet_mapping": "not-proven",
+  "original_AOI_policy": "unknown",
+  "assets_embedded": false
+}

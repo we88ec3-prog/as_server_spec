@@ -20,7 +20,7 @@
 
 **A023-E17 原生 reader 補正**：`00010000` + BE u16 n 是本批小檔案的外觀拆法；0x529060 實際依次讀 **BE u16 version=1、BE u32 UTF-16LE code-unit count**。校驗文字時將完整 UTF-16LE XML 依 LanguageMan codepage 轉 bytes，再做標準 CRC32，並非 raw DAT 的 CRC。Born/PaperDialog 在 CP950 的文字 CRC 分別為 `1d87b0c0`／`f870c574`。詳見 [A-023 完整契約](../task_a/roy2/A-023-script-entry-contract.md)。
 
-316個Script/*.dat均可zlib解壓：bytes0..3=00010000（語意未知），bytes4..5為BE u16 UTF-16 code-unit數n，offset6後為UTF-16LE，總長必須6+2*n。315個為可解析XML，NDW為純文字。CDATA含Client腳本與介面API，不能視為完整Server任務／獎勵／AI邏輯。
+316個Script/*.dat均可zlib解壓：解包 offset0..1 為 BE u16 version、offset2..5 為 BE u32 UTF-16 code-unit數 n，offset6 後為 UTF-16LE，總長必須 6+2*n；以先前的 BE u16 解讀僅偶然適用於長度小於 65536 的 Script。315個為可解析XML，NDW為純文字。CDATA含Client腳本與介面API，不能視為完整Server任務／獎勵／AI邏輯。
 
 BarberShopDialog的Gender、HairShape、HairColor與CreateHairShape/SetHairObject提供外觀預覽入口；Born為新手對話／座標導引，不能當登入或創角處理器。
 
@@ -58,4 +58,30 @@ Evidence：MAP ev_e166a44f01c9de3b7eff7457a30e6279b8571b5a76afc7354812c14bf1331e
 
 **2026-10-31 續查已在本地原件獨立重跑**：Born 與 PaperDialog hash／解析通過，並追通 S44(1,0)→Main 與關閉 C6C4/2 原生副作用。下段「本地只有 EXE」是早期 review 狀態，不再適用；目前缺的是原服 first-login 政策與 NPC/quest 綁定證據，非缺 Born 原件。重現工具及目前限制見上引完整契約。
 
-Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`；zlib 解包 1154 bytes、prefix `00010000` + BE u16 574 UTF-16LE units；唯一 `Main` 建立 PaperDialog，文字引導 (31,29) 女性招募員。未觀察到顯式 quest/SpawnNpc/SendReply；不能推論引擎沒有其他副作用，更不能把 (31,29) 當成出生點。此回合本地只有 Asgard.exe，原 Born.dat 尚不可獨立重跑；報告與 validator 已入版，日後以原件 SHA 重現，版本對應仍未驗證。
+Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`；zlib 解包 1154 bytes、header `BE u16 version=1` + `BE u32 units=574` UTF-16LE units；唯一 `Main` 建立 PaperDialog，文字引導 (31,29) 女性招募員。未觀察到顯式 quest/SpawnNpc/SendReply；不能推論引擎沒有其他副作用，更不能把 (31,29) 當成出生點。此回合本地只有 Asgard.exe，原 Born.dat 尚不可獨立重跑；報告與 validator 已入版，日後以原件 SHA 重現，版本對應仍未驗證。
+
+## A-015 本輪 BIN-first 更新（2026-10-31，roy2）
+
+與已記錄的舊 corpus 相比，本輪直接以原始 EXE SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 重查：`0x403FA4..0x40401D` 為 Basic/Font/Icon/Locale/Video/Portrait/MSO/Script 註冊，`0x404022..0x404050` 為 Map0/1/2 → library9/10/11；`0x4040B2..0x404340` 為 Human 各系列；Map loader `0x4B33A0` 與 `0x4B35BC` 讀 10B tiles /7/8/16B 尾段；YPF `0x56EAFF` flags bit0 條件 512B palette。這些是讀檔格式和資源池，不代表遊戲功能/素材授權。
+
+本輪有 Born.dat 原始 589B（SHA `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`）可實際重跑 Script 格式；未取得 Map0/1/2、Human/YPF、技能/物品定義全量資產，因此原新手 map_id、spawn、NPC、collision 與 item/skill schema **仍為 unknown**。新增 [A-015 來源分析](../task_a/roy2/A-015-analysis.md)、[結構化欄位目錄](content-resource-catalog.json)、[本機 metadata 探針](../tools/a015_content_probe.py) 與 [CT-039/040](../05-conformance/A-015-content-test-plan.md)。
+
+## A-015 原始三庫 MAP 實證補充（2026-10-31）
+
+這次獨立收到 Map0.dat（44,863,691 B；SHA256 dcaf8ab5...）、Map1.dat（30,817,997 B；SHA256 8681dc75...）、Map2.dat（3,856,650 B；SHA256 5320a095...）。直接解析 288／184／22=**494** 個 MAP，完整索引、block/tiles/7/8/16 尾段與 EOF 皆通過。**494 個檔名只對應 330 個不同的 SHA256 地圖實體內容**（33 個重複群、164 個別名）；00006.map 與 10000.map 是跨庫同內容案例。**477 張地圖**尺寸涵蓋 Born 的 (31,29) 引導點，因此無法單靠該文字決定教學地圖或出生位置。原版版號配對、C35 第二欄 structured checksum 和 NPC/碰撞/遊戲語意依然 unknown；[機讀結果](a015-map-corpus.json)。
+
+## A-015／roy2：MAP 三種尾部 record 的欄位級 accessor 確證
+
+原版 `Asgard.exe` `0x4B2D70` 逐欄讀取 **7-byte** `u8(bool), LE u16, LE i16, LE i16`；`0x4B2DE0` 讀取 **8-byte** 四個 LE u16；`0x4B2E40` 讀取 **16-byte** `LE u16,u16,u32,u32,u16,u16`。這是 BIN 直接確認的 layout，而非以史料推測。
+
+494 張 MAP 實測：header 第一/第二 u16 皆相等，但第三 u16 在 **32 張**為例外 `(1,1,4)`；7B／8B／16B 尾段筆數為 **74,032／396／2,269**。後兩種 record 裡疑似 (x,y) 的 `(+2,+4)` 與 `(+12,+14)` **396/396、2269/2269** 全符合 `x < width*48, y < height*32`，僅能推斷為與圖形座標有關，**不能視為已確認原版 NPC 出生點、地圖阻擋、傳送或任務位置**。7B 首旗標的原始取值為 `0=72,577`／`1=1,455`。詳見 [A-015 欄位級報告](../task_a/roy2/A-015-field-audit.md)。
+
+## A-015 研究格式與來源交付結案（範圍限定，2026-10-31）
+
+Script 既有簡化 `BE u16 length` 的錯誤已更正為 **BE u16 version + BE u32 code units**；原 Born.dat 驗證通過，並加入大於 65535 code units 的合成回歸測試。原 EXE UTF-16LE 常值池的 resource selectors（Basic/Icon/Locale 等）可確認存在，但技能/物品定義的真正檔名 **unknown**，不能把候選檔案當成已解。完整資料盤點／來源／授權／下游邊界見 [A-015 結案審查](../task_a/roy2/A-015-closure-review.md)。
+
+## 2026-10-31 Monster00/World00 與三份新 Script 的實體補證
+
+已收到並離線解出 `Monster00.dat`、`World00.dat`：各自 `LE u32 slots=6`（含 sentinel），五筆 YPF payload，offset0=220、最後 offset=EOF。Monster 索引為五個 M_00_*（모스／모스워리어／나이트모스／드라스／모스캡틴）；World 索引為 TS_000_AnimStatic、AnimStaticShadows、Static、StaticShadows、Tile 的 .ypf。**這是索引存在與 member 名稱，不是 NPC spawn 種類、World 物件資料表或完整動畫解碼**；A-011 的「每 Monster archive 十個 client image slots」**不是**「十個 YPF member」。資產 SHA、長度詳 [實證](new-asset-samples-20261031.md)。
+
+`nNewJoin01.dat`、`PaperDialog.dat`、`PaperDialog02.dat` 以既有 Script `BE u16 version + BE u32 UTF16 units` 及 CP950 CRC 驗證：nNewJoin01 `d9390353`，PaperDialog `f870c574`，PaperDialog02 `42683546`。初級學校三頁選擇是 `STATE=ACCEPT/REFUSE`；PaperDialog02 另外產生 `PAPER02=START/NOT`，其同名 callback 不可與 PaperDialog 直接合併。資源行為不證明原服的學校 NPC 綁定／切圖政策。完整 Server 交接見 [入學規劃](../02-server-planning/novice-school-admission-flow.md)。

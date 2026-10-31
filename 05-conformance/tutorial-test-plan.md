@@ -15,23 +15,10 @@
 
 若 A-025 證實教程不要求技能/戰鬥，應修正本 profile 的實際目標與 CT，不得硬造原生玩法。Server unit/integration 和原 Client 人工實測分開保留證據，不因 CT 規劃存在宣稱通過。
 
-## A-025 靜態已證的戰鬥/技能接口與仍未證的教學必需性
+## CT-055 新增：多人進同一張地圖（planned/not-run）
 
-來源 [原生函式核查](../03-analysis-requests/A-025-roy1-tutorial-combat.md)，已用 14 組 EXE byte signatures / 7 項 Python unittest 做 **離線** 確認：
-- CT-051 planned：C13 `u32BE`、C4D `u16BE`、C56 `u8`、S52 `u32BE+u8`、S1E `u32BE`；驗截斷、拒絕非法欄位，原 Client 仍 not-run。
-- CT-052 planned：C3D/S3D 的第一個 `u8 subtype0..15` 和 variant-dependent wire；完整 subtype schema 未證，不得先假造 battle success。
-- CT-053 planned：Server 不信任 Client 傷害/kill；任何非法目標、跨世代、距離/資源/冷卻失敗不計進度。已驗證 objective 的同一 server_event_id 無論重送/SQLite 重啟只計一次；**未驗證原服需求時即使合法攻擊也不計 tutorial progress**。
-既有 CT-023/024/025 仍 planned、native Client E2E not-run。Born.dat 是招募員 PaperDialog，不包含已證戰鬥必須條件，但不排除未知後續 Script。教學是不是必須打怪必須由 A-024、A-012/026 或 original-server capture 決定。
+使用兩名**不同登入帳號/角色** A/B 進同 world/map：期望同一 instance/EntityId 的 NPC/Monster、A 與 B 在 AOI 內互見；死亡和重生只發生一次並由兩人看見；A 斷線不消除 B 的怪物；新玩家 C 加入取得最新 Snapshot、不回放舊 Spawn；不同地圖不共享。同一角色舊 Session 的離開事件不影響新 Generation。先做 Domain synthetic tests，原 Client 互見待 A-004/011/024 提供 wire；**本輪沒有完成原生 CT-021/022/055**。詳見 [完整驗收表](shared-map-multiplayer-test-plan.md)。
 
-## A-026 有來源的全教學驗收腳本與限制（2026-10-31）
+## 合併後 CT-056～081 來源註記
 
-[分析](../03-analysis-requests/A-026-roy1-tutorial-completion.md)、[Script/Completion 設計](../04-analysis-integration/A-026-tutorial-completion-contract.md)。CT-026/027/028 皆 planned，原 Client native not-run。
-1. 管理員預建 Account；原版 Client 以授權身份登入、創角，紀錄 Client SHA、profile、角色及 session generation。A-027 pre-C03 owner gate 未證，測試必先取得合法身份，不可開放任意 C02 認領。
-2. 進入原生有證新手 map（A-015）並完成 S15/S14(1)/C35/S04；保留 resource revision、map header+4、structured CRC、viewport/位置；Born (31,29) 不當出生。
-3. 由有證原服事件觸發 S44(1,0) Born.Main + PaperDialog 依賴；選紙張 OK，記 C6C4/C6C2；核對這只是 ScriptClose，**不得完成/領獎**。
-4. 實際點 female recruiter，記 C39 C2S、Server S2C、Npc entity/map、Script 名/ctx、選 ACCEPT/REFUSE 的差異；只有 entity→nNewJoin01 候選/其他 Script 的**原服綁定證實**才把對話納入目標。
-5. 記全程 quests、如確有則戰鬥目標、success/reject reply 與 server durable event，確認原版是否發任何 item/XP/gold；未知獎勵不得用假的 ID 占位。
-6. 真原服條件通過→完成權威事件只發生一次；測重複 click/reply/reconnect/crash/grant exactly once。未完成提前出口必拒絕。
-7. 真原服合法 map/ref/xy/revision 確認後才測出圖、S15/S14/C35/S04 及重登；C35 過期、重疊同 pair、CRC mismatch、斷線前後保持 durable map/pos 一致，已提交完成/獎勵不得重複。
-
-CT-054 ScriptClose-not-completion、CT-055 optional reward once / crash、CT-056 safe exit checkpoint/epoch 是離線/Server designed 測試。**缺**原服首/返登入→NPC→任務成功/失敗→正常出圖 trace 或原始 Server NPC/quest/exit 配置；具名資源 PaperDialog.dat、nNewJoin01.dat 在本次本機尚未提供，但並不足以替代原服政策。沒有足夠證據時不可宣稱 CT-028 通過。
+Roy1 新 CT-056～069（登入分支/戰鬥/教學完成/物品/音樂）及 Roy2 新 CT-070～081（雙玩家 AOI/移動/外觀/狀態/戰鬥/NPC）已納入 `vectors.json`，原來源編號見 [映射](ct-id-remap-roy1-roy2.md)。S07(kind1..14) 已有 Native BIN-first decoded-body schema，**不能因此標實機 CT-081 passed**。另外 Roy1 曾把 DieObjects 當 S1E，需先釐清與 S5F 的反組譯歸屬，不能在 Native 場景發兩種猜測的死亡包。

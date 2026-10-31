@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "client_profile": "TW-seed0-local-v0.1",
+  "target_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "as_of": "2026-10-31",
+  "semantics": "Client I/O evidence and Server authority policies are independent; these are not observed-original-server traces",
+  "flows": [
+    {
+      "id": "FLOW-LOGIN",
+      "label": "玩家登入",
+      "client_trigger": "玩家在既有登入 UI 輸入帳密並提交",
+      "client_send": [
+        "PKT-C03"
+      ],
+      "server_to_client": [
+        "PKT-S02",
+        "PKT-S03"
+      ],
+      "client_reaction": "S02 路徑顯示錯誤；S03 令 Client 重建 TCP，後續 C10 raw token",
+      "evidence": [
+        "A-001",
+        "A-002",
+        "A-020"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-007"
+      ],
+      "tests": [
+        "CT-019",
+        "CT-037",
+        "CT-038"
+      ],
+      "server_decisions": [
+        "只驗證管理員預建 Account 的合法憑證與停權",
+        "選擇登入拒絕/成功以及一次性 TransferGrant；不以未知原服碼推測新錯誤 status"
+      ],
+      "readiness": "wire-subset-ready",
+      "unknowns": [
+        "非 seed0 region/版本對應",
+        "全部 S02 status 語意"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-01"
+      ]
+    },
+    {
+      "id": "FLOW-NEWUSER",
+      "label": "原生 NewUser 兩階段表單",
+      "client_trigger": "玩家開啟 NewUser UI，提交本地檢查過的輸入欄位；不是已證 C03 無角色後自動切入",
+      "client_send": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C15"
+      ],
+      "server_to_client": [
+        "PKT-S02"
+      ],
+      "client_reaction": "state 0x1d 收 S02(0) 發 C04/進0x1e；0x1e 成功走 UI；非零錯誤可觸發 C15 空 body/0x1f",
+      "evidence": [
+        "A-003",
+        "A-021",
+        "A-027",
+        "A-028"
+      ],
+      "scenarios": [
+        "SCN-007",
+        "SCN-008"
+      ],
+      "tests": [
+        "CT-011",
+        "CT-029",
+        "CT-030",
+        "CT-031",
+        "CT-032",
+        "CT-041",
+        "CT-042",
+        "CT-043",
+        "CT-044",
+        "CT-052",
+        "CT-053",
+        "CT-054"
+      ],
+      "server_decisions": [
+        "R-025: Client 不建立 Account，C02 不可無認證認領其他預建帳號",
+        "合法 owner + PendingCharacterIntent 才能回引發 C04 的 S02(0)；C04 原子保存後再依合法 UI 回覆",
+        "暫行 R-026：只有已登入 AccountIdentity，且創角輸入帳號依現有 ASCII 不分大小寫規則等於已驗證登入帳號時，才可進入建角其他檢查；不相同/無登入拒絕且不可發 S02(0)。C02 第一欄帳號語意仍需 A-027 核對"
+      ],
+      "readiness": "wire-and-ui-partial-auth-route-unproven",
+      "unknowns": [
+        "C03 無角是否可到 NewUser UI",
+        "C02 各 region 真正欄位語意與安全認證條件",
+        "錯誤碼的原服文字含義",
+        "尚未證明 C02 field1 是已登入 Account 名稱；這項設計守衛不能使原生建角路徑自動 ready",
+        "A-027 C03(no-character)->NewUser UI and C02 first account field not native-proven; CT-054 remains not-run"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-01",
+        "ONB-02"
+      ],
+      "next_iteration": "02-server-planning/native-creation-next-iteration.md"
+    },
+    {
+      "id": "FLOW-TRANSFER",
+      "label": "Login TCP 轉 World TCP",
+      "client_trigger": "Client 收到 S03，依地址/port 建立新連線",
+      "client_send": [
+        "PKT-C10",
+        "PKT-C25"
+      ],
+      "server_to_client": [
+        "PKT-S03"
+      ],
+      "client_reaction": "向 World TCP 發 C10 body raw token（不含 string8 長度），再進入 C25 等 World 流程",
+      "evidence": [
+        "A-002",
+        "A-016"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-010"
+      ],
+      "tests": [
+        "CT-037",
+        "CT-038",
+        "CT-045",
+        "CT-046"
+      ],
+      "server_decisions": [
+        "只允許一次消費且有期限的 token；登入 TCP 關閉不應直接撤銷合法轉服",
+        "generation/owner/destination 由 Server 校驗；重複登入採明示設計策略"
+      ],
+      "readiness": "wire-subset-ready",
+      "unknowns": [
+        "原服重複登入策略與 S02 拒絕碼",
+        "C25 全區域分支"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-01",
+        "ONB-03",
+        "ONB-04"
+      ]
+    },
+    {
+      "id": "FLOW-MAP",
+      "label": "世界地圖載入與座標呈現",
+      "client_trigger": "Client 收到 S15/S14 地圖載入/控制回覆",
+      "client_send": [
+        "PKT-C35"
+      ],
+      "server_to_client": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-S04",
+        "PKT-S33"
+      ],
+      "client_reaction": "讀取本地對應 MAP，回 C35 的 2 個 BE u16；在恰當的 S04/S33/S14 狀態更新角色和地圖",
+      "evidence": [
+        "A-015",
+        "A-022"
+      ],
+      "scenarios": [
+        "SCN-009",
+        "SCN-010"
+      ],
+      "tests": [
+        "CT-016",
+        "CT-017",
+        "CT-018",
+        "CT-039",
+        "CT-040"
+      ],
+      "server_decisions": [
+        "自行選合法 map_id、可呈現 spawn/朝向、版本和校驗配對",
+        "載入單一 pending epoch；重連/錯版/重送 fail closed；入圖不等於教學完成"
+      ],
+      "readiness": "loading-codec-ready-content-mapping-partial",
+      "unknowns": [
+        "目前驗證過的 494 MAP 之 map_id/相容版本與原生顯示完整映射",
+        "合法出生點、碰撞與 C35 配對需要對具體選定地圖完成測試"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-03",
+        "ONB-04"
+      ]
+    },
+    {
+      "id": "FLOW-SCRIPT",
+      "label": "Client Script 執行與關閉",
+      "client_trigger": "Client 收到合法 S44(1,0) 指定 script/context 及依賴",
+      "client_send": [
+        "PKT-C6C"
+      ],
+      "server_to_client": [
+        "PKT-S44"
+      ],
+      "client_reaction": "資源足夠執行 Main／PaperDialog；缺資源 C6C(0) 請求補檔；關閉 C6C(4)／條件下 C6C(2)",
+      "evidence": [
+        "A-012",
+        "A-023"
+      ],
+      "scenarios": [
+        "SCN-011"
+      ],
+      "tests": [
+        "CT-033",
+        "CT-034",
+        "CT-035"
+      ],
+      "server_decisions": [
+        "WorldReady 或指定受控事件觸發一次合法 ScriptRun（Server 自訂教學政策）",
+        "資源 revision/CRC/依賴相符才送 S44；C6C close 只表示生命周期，不等於任務完成"
+      ],
+      "readiness": "script-client-lifecycle-ready-dispatch-policy-designed",
+      "unknowns": [
+        "原服首次派發 Born 的時刻不是 Client 研究必答",
+        "當前缺完整 PaperDialog.dat 原件可作獨立依賴驗證"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-05"
+      ]
+    },
+    {
+      "id": "FLOW-GAMEPLAY",
+      "label": "NPC／怪物／技能／任務操作",
+      "client_trigger": "玩家在世界中點擊 NPC、攻擊或施放技能、完成任務操作",
+      "client_send": [
+        "PKT-C13",
+        "PKT-C43"
+      ],
+      "server_to_client": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "client_reaction": "尚缺具體事件與 opcode 的逐項 Client writer/parser/動畫/任務 UI 證據；禁止以設計任務數值代替原生 wire",
+      "evidence": [
+        "A-004",
+        "A-005",
+        "A-009",
+        "A-010",
+        "A-011",
+        "A-012",
+        "A-024",
+        "A-025",
+        "A-026"
+      ],
+      "scenarios": [
+        "SCN-011",
+        "SCN-012",
+        "SCN-013"
+      ],
+      "tests": [
+        "CT-021",
+        "CT-022",
+        "CT-023",
+        "CT-024",
+        "CT-025",
+        "CT-026",
+        "CT-027",
+        "CT-028",
+        "CT-034"
+      ],
+      "server_decisions": [
+        "Server 自訂 NPC/怪物 spawn、AI、技能判定與 QuestGoal/RewardLedger；以已證 wire adapter 映射到 Client",
+        "無已證 NPC/技能/任務 opcode 時保留 mock-only 子域測試，不向原 Client 送猜測回包"
+      ],
+      "readiness": "requires-client-io-evidence",
+      "unknowns": [
+        "實際 NPC 點擊 C→S、物件生成 S→C、技能 C→S/效果 S→C、任務完成/獎勵 UI 封包待分析",
+        "C13 攻擊 UI/目標選擇條件及 Server 命中/拒絕政策",
+        "C43 物件資訊請求確切 NPC 招募員點擊路徑",
+        "S07 非空 row type1..14 完整 wire-to-entity 渲染和各類 UI 回應",
+        "NPC/怪物初始 spawn/移動/AI/重生屬 Server 權威，原服策略未知；技能/任務另 A-025/026"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-05",
+        "ONB-06"
+      ],
+      "a024_report": "task_a/roy2/A-024-analysis.md"
+    },
+    {
+      "id": "FLOW-VISIBILITY",
+      "label": "兩名玩家互見、移動、轉向與離視野",
+      "client_trigger": "已在 World 並進入同一可見場景；玩家操作方向/移動會送 C11/C33（已知）；Server 按自身選擇的 AOI 送遠端 S33/S06/S11/S0E",
+      "client_send": [
+        "PKT-C33",
+        "PKT-C11"
+      ],
+      "server_to_client": [
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0E",
+        "PKT-S0B"
+      ],
+      "client_reaction": "S33 PutHuman 讀玩家座標/外觀/名稱；S06 讀 u32/u16/u16；S11 讀 u32/u8；S0E 讀 u32。原生 MapPane registry、實際視野/影像效果未用兩 Client 證明",
+      "evidence": [
+        "A-004",
+        "A-005",
+        "A-006",
+        "A-024"
+      ],
+      "scenarios": [
+        "SCN-005"
+      ],
+      "tests": [
+        "CT-075",
+        "CT-070"
+      ],
+      "server_decisions": [
+        "Server 認證與 world/map instance/epoch 確立 sender / fanout；視野半徑、廣播範圍自訂，不冒充原服",
+        "個別觀察者集合去重，已離視野物件 tombstone 防舊回包，退出/切圖先 fence 舊 epoch（designed）",
+        "S0B 自身 Ack 沒有 object ID，不向其他玩家廣播；遠端用 S33/S06/S11 子集（原生 handler ID 關聯待 CT）"
+      ],
+      "readiness": "native-constructors-and-decoded-body-ready; native-MapPane-registry-and-two-client-E2E-pending",
+      "unknowns": [
+        "S06/S11/S0E 首 u32 是否 native ObjectRegistry same-key 查找",
+        "S33 可選 flags 變體、原生本地 UI/MapPane add/remove 成功效果",
+        "原服 AOI/死亡/斷線/epoch 和 ID recycle policy"
+      ],
+      "native_client_validation": "not-run",
+      "work_items": [
+        "ONB-04"
+      ],
+      "analysis_report": "task_a/roy2/A-004-analysis.md"
+    },
+    {
+      "id": "FLOW-MOVE",
+      "label": "角色移動／轉向與 S0B 校正",
+      "client_trigger": "玩家於已載入合法 MAP 的 World 畫面進行移動或轉向（C33/C11 native writer fields 已證，真正鍵盤 UI 事件/handler 對應未全追）",
+      "client_send": [
+        "PKT-C33",
+        "PKT-C11"
+      ],
+      "server_to_client": [
+        "PKT-S0B",
+        "PKT-S06",
+        "PKT-S11"
+      ],
+      "client_reaction": "自身 S0B 讀 BE16 x/y + status-seq u8；他人 S06/S11 需帶 u32 ID；正常/拒絕/重定位 GUI 的精確 handler 尚未測；S0B 不包含第三方 ID",
+      "evidence": [
+        "A-005",
+        "A-004",
+        "A-015",
+        "A-022"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-005"
+      ],
+      "tests": [
+        "CT-004",
+        "CT-071",
+        "CT-072"
+      ],
+      "server_decisions": [
+        "Server authoritative coordinate, instance, world generation, monotone sequence modulo128; duplicate/old epoch reject（designed）",
+        "Server picks measured collision policy and speed/step threshold, not necessarily original; MAP bit4 native line test is NOT proven walking collision",
+        "S0B with authoritative coordinate for candidate reject/correction; exact original failure status/GUI unknown; other observers use S06/S11"
+      ],
+      "readiness": "C33/C11/S0B codec and original-map-bit-consumer static-ready; true native walking collision, fail status and UI E2E pending",
+      "unknowns": [
+        "Which raw MAP flags decide player walking vs LOS/static blockers",
+        "C33 direction/gait vs legal step/diagonal and tick (original Server policy)",
+        "S0B bit7 failure handling and native rollback / resend state",
+        "Original map content version-binding and selected world map"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-005-analysis.md",
+      "work_items": [
+        "ONB-04"
+      ]
+    },
+    {
+      "id": "FLOW-LOOK",
+      "label": "自他角色外觀、髮色衣色及鏡頭置中",
+      "client_trigger": "NewUser UI 外觀提交 C04（已有 A-003）；裝備事件 C1C 候選（A-008）；入 World/轉圖/重登 Client 接 S04/S05/S33。完全原版點擊與全部動畫未證",
+      "client_send": [
+        "PKT-C04",
+        "PKT-C1C",
+        "PKT-C33"
+      ],
+      "server_to_client": [
+        "PKT-S04",
+        "PKT-S05",
+        "PKT-S33",
+        "PKT-S37",
+        "PKT-S0B"
+      ],
+      "client_reaction": "S05 self hair RGB10..12 and cloth RGB25..27; S33 others hair RGB15..17 and cloth RGB30..32 CP950 name. S04 viewport8,9 projected (400,300). flags optional variants and final native GUI unverified",
+      "evidence": [
+        "A-006",
+        "A-003",
+        "A-004",
+        "A-005",
+        "A-015"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-005"
+      ],
+      "tests": [
+        "CT-003",
+        "CT-007",
+        "CT-008",
+        "CT-073",
+        "CT-074"
+      ],
+      "server_decisions": [
+        "Server picks authoritative appearance state, event/version ordering, and safe supported flags/profile. C1C equip-to-S05/S33 routing is Server policy, not inferred from original-client parser",
+        "Only emit validated S05 flags 0/0x1000 29B and S33 flags0 42+CP950 bytes for this profile until other flags decoded; hair and cloth colors must be separate fields",
+        "Choose viewport8/9 in 912×672/pane(-56,-36) if targeting centered profile; do not modify world x/y; native CT verifies"
+      ],
+      "readiness": "scoped-wire-appearance-and-viewport-projection-ready; native-yPf-DOI-and-GUI-pending",
+      "unknowns": [
+        "Native YPF/DOI animation eight direction/frame and true skin/hair clothing dye layer reproduction requires real resource+GUI validation",
+        "Native S05/S33 all optional flags and secondary string8 variants not fully parsed; 29B/42+n only supported fixed profiles",
+        "Native self/other renderer matching colors, re-login, equipment C1C→S37/S05/S33 handoff not runtime verified",
+        "Viewport8/9 center (400,300) is formula/profile projection; original native GUI screenshot CT-074 not-run",
+        "Original Server persistence and sending times for new clothing/hair/realm are DEV policy"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-006-analysis.md",
+      "work_items": [
+        "ONB-04"
+      ]
+    },
+    {
+      "id": "FLOW-STATS",
+      "label": "原生角色數值面板／能力點 Client I/O",
+      "client_trigger": "已進 World 的 StatusDialog 中 UI event ids 0x13..0x17 進行能力點選擇；或 Client 收到 native SStatusPacket opcode 0x08",
+      "client_send": [
+        "PKT-C47"
+      ],
+      "server_to_client": [
+        "PKT-S08"
+      ],
+      "client_reaction": "0x53FD60 事件 ID 0x13..0x17 產生 C47 一個 u8 1/2/4/8/16；S08 0x586D40 依旗標解析，0x53F8A0 更新 Status 與四組 bounded resource，0x540660 接收 opcode8 令 StatusDialog 刷新；S08 非固定長度、原版公式與 resource 顯示標籤仍未知",
+      "evidence": [
+        "A-008",
+        "A-007",
+        "A-009"
+      ],
+      "scenarios": [
+        "SCN-012"
+      ],
+      "tests": [
+        "CT-076",
+        "CT-077"
+      ],
+      "server_decisions": [
+        "Server 只對已驗證 session/角色處理 C47；未登入、無點數、非法 one-hot、重送不得產生持久修改（designed）",
+        "投影 S08 旗標與各條件群組的原生 wire 型別，按合法上下限處理數值；不得把 S05 外觀或 S5F 死亡視為 S08 ACK",
+        "伺服器自行擬定能力值、經驗、裝備加成、死亡與復活公式並標記 designed；原版政策 unknown"
+      ],
+      "readiness": "S08/C47 native-static-client-io-ready; original server formulas and native GUI acceptance pending",
+      "unknowns": [
+        "HP/MP 及其餘四組 resource 的 GUI 標籤、ExpBarDialog 經驗值分母及顯示單位未證",
+        "原版 Server 能力點公式、裝備加成、超界及死亡/復活規則未證",
+        "C47 是否每次返回 S08、合法失敗時 UI 錯誤包/訊息未證",
+        "Native Client E2E CT-077 not-run"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-008-analysis.md",
+      "work_items": []
+    },
+    {
+      "id": "FLOW-COMBAT",
+      "label": "原生攻擊／戰鬥效果／死亡 Client I/O",
+      "client_trigger": "已入 World，至少兩條 native attack producer 0x55709E/0x557A5F 產 C13；C3D 是額外 subtype 分支，不得等同基本攻擊或已證教學需求",
+      "client_send": [
+        "PKT-C13",
+        "PKT-C3D"
+      ],
+      "server_to_client": [
+        "PKT-S13",
+        "PKT-S3D",
+        "PKT-S08",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "client_reaction": "C13 BE u32 一欄；S13 14B base + flags0x01 17B optional（0x08/0x10 僅重解既有 u32）；S3D subtype0..15 多態，簡單分支已證，其餘動態；S08 由 A-008 刷新 Status；S5F 死亡 packet != S0E 移除 packet；完整 GUI damage/death handler、復活與原包順序仍 unknown",
+      "evidence": [
+        "A-009",
+        "A-008",
+        "A-024"
+      ],
+      "scenarios": [],
+      "tests": [
+        "CT-078",
+        "CT-079"
+      ],
+      "server_decisions": [
+        "World session、map epoch、object generation、合法目標/距離/冷卻及生命狀態由 Server 審核；C13 不可指定傷害值（designed）",
+        "命中、傷害、減免、HP、同 tick 雙方死亡和事件排序由 DEV 自訂權威運算；原服公式未知，不可冒充 observed",
+        "S13 效果／S08 數值／S5F 死亡／S0E 移除為不同 Client packet，Server 設計一致的投影排序及重送去重（designed）"
+      ],
+      "readiness": "C13/S13/S5F core native static wire ready; C3D/S3D partial polymorphic variants; native GUI and original math unknown",
+      "unknowns": [
+        "C13 target u32 由何 UI control/object registry 產生、原生拒絕時的 UI 與特殊 S2C",
+        "S3D/C3D 複雜 subtype 完整 payload、真實顯示/動作用途",
+        "S13 效果/命中受擊者、S5F 死亡與 S08/復活的真實 UI 事件排序",
+        "原服命中/傷害/死亡策略、Server 客製同時死亡判定與重送策略屬 DEV，不是 Client static truth"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-009-analysis.md",
+      "work_items": []
+    },
+    {
+      "id": "FLOW-NPC-OBJECTS",
+      "label": "NPC／怪物生成、移動、資訊、動作、死亡與移除",
+      "client_trigger": "進入 World/map、AOI 內有非 Human 物件；Client 收 S07/S0C/S64/S34/S3C/S62/S63/S29/S5F/S0E；玩家攻擊或物件資訊請求另可送 C13/C43，但 NPC 對應 UI 未完全證",
+      "client_send": [
+        "PKT-C13",
+        "PKT-C43"
+      ],
+      "server_to_client": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S62",
+        "PKT-S63",
+        "PKT-S29",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "client_reaction": "S07 0x57E3E0 full type1..14 native row parse, nonempty variants 1/2/4,3,5..12,13,14; S0C fixed10B; S64 path15+N (cap11 designed); S34 object-info subtype6 plus subtype11 full native six flag-based groups; S3C display info7B; S62 add action variable strings; S63 remove action2B; S29 effect13B; S5F death4B != S0E removal4B. Exact kind-to-NPC/monster map and GUI/object registry handlers still need CT.",
+      "evidence": [
+        "A-024",
+        "A-004",
+        "A-009",
+        "A-015",
+        "A-023",
+        "A-011"
+      ],
+      "scenarios": [
+        "SCN-011"
+      ],
+      "tests": [
+        "CT-021",
+        "CT-022",
+        "CT-034",
+        "CT-080",
+        "CT-081"
+      ],
+      "server_decisions": [
+        "Choose type and content map only from verified resource/version + designed data, do not assume kind1 is monster or Born(31,29) is NPC spawn.",
+        "Server defines authoritative NPC AI/respawn/visibility, map epoch, object generation and event ordering, with no claim of original Server timing.",
+        "Do not conflate S63 action removal, S5F death and S0E object removal; ensure invalid map, stale epoch, duplicate ID and excessive path counts fail closed."
+      ],
+      "readiness": "S07 kind1..14 complete static row schema, S34 subtype6/11 full conditional decoded-body and other object S2C packet inventory ready; renderer/monster-kind mapping/native GUI still separate",
+      "unknowns": [
+        "Kind1..14->NPC/monster/static sprite and object key registry mapping unknown",
+        "S34 subtype11 display mapping to actual UI and S62/63 Action UI context unknown",
+        "Original tutorial spawn map/NPC IDs and Server AI policies unknown",
+        "Native world object rendering/interaction E2E not run",
+        "Native S07 1/2/4 -> MonsterObject and MonsterNN.dat archive/slot known via A-011; exact NPC class/name/sprite field, GUI chat binding and real native Client E2E still unknown"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-024-analysis.md",
+      "work_items": [],
+      "offline_validation": "GitHub Actions run 41185085803 passed phase gates, 19 new synthetic object packet tests, seven existing NPC tests",
+      "a011_original_client_id_mapping": "World resource libraries 7000..7023 -> World00..23.dat; Monster resource libraries 8000..8042 -> Monster00..42.dat. MonsterImageLib ID 0x4000+N maps library 8000+floor(N/10) and slot N%10 via VA 0x4D7530/0x4D7560. Registry pointer 0x5F1D3C skips literal @.",
+      "a011_native_object_and_interaction": "S07 World handler kind1/2/4 -> MonsterObject ctor VA 0x4D6FA0; native two C43 producers type1/subtype4 + BE u32, with UI exact NPC chat not yet proven; local motion selector 0..5 -> offsets 0x20/0x30/0x40 repeated.",
+      "a011_implementation_boundary": "Client library ID/asset image ID/Server actor EntityId different namespaces; no proof which official NPC species or S07 row maps to which MonsterNN.dat member; original Monster/World assets missing. Do not invent NPC chat or animation semantic names.",
+      "analysis_reports": [
+        "task_a/roy2/A-024-analysis.md",
+        "task_a/roy2/A-011-analysis.md"
+      ]
+    }
+  ]
+}

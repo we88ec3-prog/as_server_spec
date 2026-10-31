@@ -20,4 +20,4 @@ Metrics：Admin allow/deny/replay、auth accepted/rejected、token rejected、Wo
 
 ## CT 與未知
 
-[SQLite 合成測試](../tools/a017_ops_contract.py) 覆蓋 permission/identity deny、停解權、道具冪等、角色修改、紅字串剔除。CT-045（Auth/RBAC/atomic/idempotency）與 CT-046（sanitized audit/trace/metrics）為 planned；原生 Client E2E `not-run`，不推定 Server 已開發。原版 GM opcode、原服管理 UI、真正 ban/kick status、交易物品合法值仍 unknown；需 A-007/013/018 及後續 DEV/CT 或原服證據。
+[SQLite 合成測試](../tools/a017_ops_contract.py) 覆蓋 permission/identity deny、停解權、道具冪等、角色修改、紅字串剔除。CT-050（Auth/RBAC/atomic/idempotency）與 CT-051（sanitized audit/trace/metrics）為 planned；原生 Client E2E `not-run`，不推定 Server 已開發。原版 GM opcode、原服管理 UI、真正 ban/kick status、交易物品合法值仍 unknown；需 A-007/013/018 及後續 DEV/CT 或原服證據。

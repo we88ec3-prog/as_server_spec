@@ -23,4 +23,4 @@ S02 parser `0x57dbc0` 是 `u8 status,string8 message`；C15 constructor `0x5715f
 4. C15 只能取消同 owner/session/generation **尚未提交的 pending create**。已提交資料、已消耗的 reward ledger、另一世代的角色都不能因舊 C15 刪除。
 5. C04 後 success 的 UI 已被證明不是立即 S03；只有走合法 C03、S03 World grant、C10 的已證登入路徑才可以進入 World。**原版 UI 後續回登入入口的操作仍 unknown，不得假裝由 S02 success 自動完成**。
 
-測試：既有 CT-031/032 + 新 CT-041/042。合成 Python fixture `tools/a028_newuser_response.py` 可單獨跑（S02 parse、C04 五 u8、C15/error state、角色單次提交），但不代表實機 CT 過關。A-028 `integrated/handoff_status=partial/native_creation_commit_ready=false`；原生完整建角仍受 A-027、A-003 與實際 Server/Client 回覆證據限制。
+測試：既有 CT-031/032 + 新 CT-043/044。合成 Python fixture `tools/a028_newuser_response.py` 可單獨跑（S02 parse、C04 五 u8、C15/error state、角色單次提交），但不代表實機 CT 過關。A-028 `integrated/handoff_status=partial/native_creation_commit_ready=false`；原生完整建角仍受 A-027、A-003 與實際 Server/Client 回覆證據限制。

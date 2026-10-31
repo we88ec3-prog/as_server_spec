@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "record_id": "A015-MAP-CORPUS-20261031",
+  "client_profile": "TW-seed0-local-v0.1",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "source": "3 user-uploaded DAT files; local offline binary inspection",
+  "client_archive_same_release": "unverified; no release manifest",
+  "raw_game_assets_committed": false,
+  "parser_format": "LE u32 slot count with EOF sentinel; 36-byte slots, raw 32-byte names; MAP header 3*u16 LE + width/height u8; ceil(w/2)*ceil(h/4)*2 block; w*h * 10-byte tile records; three count+7/8/16-byte record blocks; strict EOF",
+  "archives": [
+    {
+      "file": "Map0.dat",
+      "size": 44863691,
+      "sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "slots": 289,
+      "members": 288,
+      "tail7": 39481,
+      "tail8": 0,
+      "tail16": 4,
+      "contains_coordinate_bounds": 284
+    },
+    {
+      "file": "Map1.dat",
+      "size": 30817997,
+      "sha256": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b",
+      "slots": 185,
+      "members": 184,
+      "tail7": 30523,
+      "tail8": 306,
+      "tail16": 523,
+      "contains_coordinate_bounds": 171
+    },
+    {
+      "file": "Map2.dat",
+      "size": 3856650,
+      "sha256": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb",
+      "slots": 23,
+      "members": 22,
+      "tail7": 4028,
+      "tail8": 90,
+      "tail16": 1742,
+      "contains_coordinate_bounds": 22
+    }
+  ],
+  "validation": {
+    "member_count": 494,
+    "valid_members": 494,
+    "invalid_members": 0,
+    "duplicate_filenames_within_archive": 0,
+    "index_offset_failures": 0,
+    "exact_eof_pass": 494,
+    "unique_payload_sha256": 330,
+    "aliases_same_bytes": 164,
+    "duplicate_payload_groups": 33,
+    "cross_archive_duplicate_groups": 1,
+    "example_cross_archive_equal_bytes": [
+      "Map0.dat:00006.map",
+      "Map1.dat:10000.map"
+    ],
+    "coordinate_31_29_in_bounds_count": 477,
+    "coordinate_31_29_out_of_bounds_count": 17
+  },
+  "not_proven": [
+    "Native first tutorial map ID",
+    "Player spawn x/y/facing and whether (31,29) is an NPC location",
+    "NPC IDs and placement",
+    "Meaning of 7-/8-/16-byte records",
+    "Collision and walkability",
+    "Full structured C35 checksum; raw hash is not C35",
+    "Game content licensing and release equivalence"
+  ],
+  "evidence_ids": [
+    "A015-E09",
+    "A015-E10",
+    "A015-E11",
+    "A015-E12",
+    "A015-E13"
+  ],
+  "offline_command": "python tools/a015_map_corpus_verify.py Map0.dat Map1.dat Map2.dat",
+  "note": "Only metadata; same SHA of two MAP members shows same bytes, not same in-game map identity; metadata validation cannot prove gameplay semantics."
+}

@@ -89,11 +89,7 @@
         "track": 18,
         "repeat": 0
       },
-      "expected_body_hex": "01000012",
-      "a019_report": "03-analysis-requests/A-019-roy1-map-music.md",
-      "evidence_kind": "native-derived-synthetic",
-      "a019_provenance": "synthetic track18/track0 only, not official map→track",
-      "native_client_validation": "not-run"
+      "expected_body_hex": "01000012"
     },
     {
       "id": "CT-006",
@@ -108,11 +104,7 @@
         "track": 0,
         "repeat": 0
       },
-      "expected_body_hex": "01000000",
-      "a019_report": "03-analysis-requests/A-019-roy1-map-music.md",
-      "evidence_kind": "native-derived-synthetic",
-      "a019_provenance": "synthetic track18/track0 only, not official map→track",
-      "native_client_validation": "not-run"
+      "expected_body_hex": "01000000"
     },
     {
       "id": "CT-007",
@@ -201,11 +193,7 @@
       },
       "expected": "非法狀態不改變 Account、Character 或 World",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run",
-      "analysis_evidence_ids": [
-        "ev_a003_20261031_asgard_create_palette_ui_static"
-      ],
-      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
+      "native_client_validation": "not-run"
     },
     {
       "id": "CT-012",
@@ -225,11 +213,7 @@
       },
       "expected": "同名／同帳號競爭只提交一角色",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run",
-      "analysis_evidence_ids": [
-        "ev_a003_20261031_asgard_create_palette_ui_static"
-      ],
-      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
+      "native_client_validation": "not-run"
     },
     {
       "id": "CT-013",
@@ -249,11 +233,7 @@
       },
       "expected": "C02 與 C04 之間斷線不留半角色",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run",
-      "analysis_evidence_ids": [
-        "ev_a003_20261031_asgard_create_palette_ui_static"
-      ],
-      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
+      "native_client_validation": "not-run"
     },
     {
       "id": "CT-014",
@@ -273,11 +253,7 @@
       },
       "expected": "C04 成功回包遺失重送不生成第二角色",
       "evidence_kind": "designed",
-      "native_client_validation": "not-run",
-      "analysis_evidence_ids": [
-        "ev_a003_20261031_asgard_create_palette_ui_static"
-      ],
-      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
+      "native_client_validation": "not-run"
     },
     {
       "id": "CT-015",
@@ -438,7 +414,9 @@
       "expected": "教學 NPC/怪物按原生內容合法生成、重連/重載不重複",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "unknown",
+      "shared_map_expected": "Players A/B in same world/map observe same NPC and Monster instances; one actor's death, despawn and respawn is shared. Stale A logout never deletes B scene; no native Client CT pass claim.",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md"
     },
     {
       "id": "CT-022",
@@ -455,7 +433,9 @@
       "expected": "AI 更新、死亡、移除有序，無幽靈物件",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "unknown",
+      "shared_map_expected": "Players A/B in same world/map observe same NPC and Monster instances; one actor's death, despawn and respawn is shared. Stale A logout never deletes B scene; no native Client CT pass claim.",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md"
     },
     {
       "id": "CT-023",
@@ -465,15 +445,7 @@
         "R-011",
         "R-030"
       ],
-      "packet_ids": [
-        "PKT-C13",
-        "PKT-C4D",
-        "PKT-C56",
-        "PKT-C3D",
-        "PKT-S3D",
-        "PKT-S52",
-        "PKT-S5F"
-      ],
+      "packet_ids": [],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -481,11 +453,7 @@
       "expected": "非法目標、超距離、資源不足或冷卻不能成功且不增加任務進度",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "Native attack/spell/battle format partial, original tutorial combat objective not established. Keep native_client_validation=not-run and status=planned",
-      "analysis_evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
-      ],
-      "a025_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
+      "packet_mapping": "unknown"
     },
     {
       "id": "CT-024",
@@ -495,15 +463,7 @@
         "R-010",
         "R-030"
       ],
-      "packet_ids": [
-        "PKT-C13",
-        "PKT-C4D",
-        "PKT-C56",
-        "PKT-C3D",
-        "PKT-S3D",
-        "PKT-S52",
-        "PKT-S5F"
-      ],
+      "packet_ids": [],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -511,11 +471,7 @@
       "expected": "合法技能或攻擊結果、傷害、死亡與 Client 畫面一致",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "Native attack/spell/battle format partial, original tutorial combat objective not established. Keep native_client_validation=not-run and status=planned",
-      "analysis_evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
-      ],
-      "a025_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
+      "packet_mapping": "unknown"
     },
     {
       "id": "CT-025",
@@ -525,15 +481,7 @@
         "R-013",
         "R-030"
       ],
-      "packet_ids": [
-        "PKT-C13",
-        "PKT-C4D",
-        "PKT-C56",
-        "PKT-C3D",
-        "PKT-S3D",
-        "PKT-S52",
-        "PKT-S5F"
-      ],
+      "packet_ids": [],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -541,11 +489,7 @@
       "expected": "同一已提交有效事件僅計一次，重送/舊 generation 不重複",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "Native attack/spell/battle format partial, original tutorial combat objective not established. Keep native_client_validation=not-run and status=planned",
-      "analysis_evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
-      ],
-      "a025_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
+      "packet_mapping": "unknown"
     },
     {
       "id": "CT-026",
@@ -555,11 +499,7 @@
         "R-017",
         "R-031"
       ],
-      "packet_ids": [
-        "PKT-S44",
-        "PKT-C6C",
-        "PKT-C39"
-      ],
+      "packet_ids": [],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -567,11 +507,7 @@
       "expected": "未達成條件不能完成，成功與可能的獎勵只發一次",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "Client generic Script/Merchant/Map fields known; no original Server completion, optional reward or tutorial exit destination confirmed",
-      "analysis_evidence_ids": [
-        "ev_a026_20261031_born_merchant_exit_bin_static"
-      ],
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "packet_mapping": "unknown"
     },
     {
       "id": "CT-027",
@@ -581,12 +517,7 @@
         "R-004",
         "R-031"
       ],
-      "packet_ids": [
-        "PKT-S15",
-        "PKT-S14",
-        "PKT-C35",
-        "PKT-S04"
-      ],
+      "packet_ids": [],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -594,11 +525,7 @@
       "expected": "合法原生出口地圖與座標，切圖中斷/重登一致",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "Client generic Script/Merchant/Map fields known; no original Server completion, optional reward or tutorial exit destination confirmed",
-      "analysis_evidence_ids": [
-        "ev_a026_20261031_born_merchant_exit_bin_static"
-      ],
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "packet_mapping": "unknown"
     },
     {
       "id": "CT-028",
@@ -609,15 +536,7 @@
         "R-030",
         "R-031"
       ],
-      "packet_ids": [
-        "PKT-S44",
-        "PKT-C6C",
-        "PKT-C39",
-        "PKT-S15",
-        "PKT-S14",
-        "PKT-C35",
-        "PKT-S04"
-      ],
+      "packet_ids": [],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -625,11 +544,7 @@
       "expected": "原生 Client 從首次入教學到完成並離開成功",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "Client generic Script/Merchant/Map fields known; no original Server completion, optional reward or tutorial exit destination confirmed",
-      "analysis_evidence_ids": [
-        "ev_a026_20261031_born_merchant_exit_bin_static"
-      ],
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "packet_mapping": "unknown"
     },
     {
       "id": "CT-029",
@@ -652,11 +567,7 @@
       "native_client_validation": "not-run",
       "analysis_dependency": [
         "A-021"
-      ],
-      "analysis_evidence_ids": [
-        "ev_a003_20261031_asgard_create_palette_ui_static"
-      ],
-      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
+      ]
     },
     {
       "id": "CT-030",
@@ -680,11 +591,7 @@
       "native_client_validation": "not-run",
       "analysis_dependency": [
         "A-027"
-      ],
-      "analysis_evidence_ids": [
-        "ev_a003_20261031_asgard_create_palette_ui_static"
-      ],
-      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
+      ]
     },
     {
       "id": "CT-031",
@@ -711,10 +618,8 @@
         "A-028"
       ],
       "analysis_evidence_ids": [
-        "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a003_20261031_asgard_create_palette_ui_static"
-      ],
-      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
+        "ev_a028_20261031_asgard_c04_response_static"
+      ]
     },
     {
       "id": "CT-032",
@@ -744,10 +649,8 @@
         "A-027"
       ],
       "analysis_evidence_ids": [
-        "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a003_20261031_asgard_create_palette_ui_static"
-      ],
-      "a003_notes": "C02 region/first-field UI gate and C04 palette confirmed; original Server sex/hair enum/name ownership and multi-character semantics unknown, native E2E not-run"
+        "ev_a028_20261031_asgard_c04_response_static"
+      ]
     },
     {
       "id": "CT-033",
@@ -918,6 +821,59 @@
     {
       "id": "CT-039",
       "status": "planned",
+      "level": "offline-content-schema-and-provenance",
+      "requirements": [
+        "R-016"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "synthetic-and-locally-owned-assets",
+        "reference": "05-conformance/A-015-content-test-plan.md",
+        "validator": "tools/a015_content_probe.py"
+      },
+      "expected": "DAT member sentinel, MAP 7/8/16 tail bounds, Script zlib UTF-16 verified; hash/version/provenance recorded without publishing raw assets; synthetic subset tested only",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-015",
+      "offline_actual_archive_validation": {
+        "status": "pass-494-of-494",
+        "files": [
+          "Map0.dat",
+          "Map1.dat",
+          "Map2.dat"
+        ],
+        "report": "04-analysis-integration/a015-map-corpus.json",
+        "native_client_validation": "not-run",
+        "caveat": "Scope is structural map parser only, other CT-039 categories still untested"
+      }
+    },
+    {
+      "id": "CT-040",
+      "status": "planned",
+      "level": "native-tutorial-map-and-content-version",
+      "requirements": [
+        "R-016",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04",
+        "PKT-S33"
+      ],
+      "input": {
+        "kind": "native-client-data-required",
+        "reference": "05-conformance/A-015-content-test-plan.md"
+      },
+      "expected": "Map hash/real map_id/spawn, header(+4) and structured C35, actual Born trigger and recruiter verified; reject missing/mismatched source; no guesswork for (31,29)",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-015"
+    },
+    {
+      "id": "CT-041",
+      "status": "planned",
       "level": "preauth-account-owner-safety",
       "requirements": [
         "R-002",
@@ -943,10 +899,13 @@
       "expected": "Decode permitted, but no Account claim/Create, no Character lease or S02 success until owner proven by independently authenticated native path; no Client account creation ever",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md"
+      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
+      "merge_source_id": "CT-039",
+      "merge_note": "roy1 CT CT-039 renumbered to CT-041 because roy2 A-015 retains CT-039/040; native Client not-run",
+      "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
     },
     {
-      "id": "CT-040",
+      "id": "CT-042",
       "status": "planned",
       "level": "native-ui-c02-source-regions",
       "requirements": [
@@ -971,10 +930,12 @@
       "expected": "C02 correct 3/4 string8 shape, second wire field matches confirmation-only UI check; region1 discrepancy and original no-character UI switch remain not-run/unknown",
       "evidence_kind": "observed-static",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md"
+      "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
+      "merge_source_id": "CT-040",
+      "merge_note": "roy1 CT CT-040 renumbered to CT-042 because roy2 A-015 retains CT-039/040; native Client not-run"
     },
     {
-      "id": "CT-041",
+      "id": "CT-043",
       "status": "planned",
       "level": "native-bin-derived-newuser-error-cancel",
       "requirements": [
@@ -1006,10 +967,12 @@
       "expected": "S02(nonzero) in MakeInfoDialog causes C15 opcode0x15 with zero-byte body and local state0x1f; S02(status0) state0x1d causes C04, state0x1e causes local UI 0x4b206b, without direct S03",
       "evidence_kind": "observed-static",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md"
+      "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "merge_source_id": "CT-041",
+      "merge_note": "roy1 CT CT-041 renumbered to CT-043 because roy2 A-015 retains CT-039/040; native Client not-run"
     },
     {
-      "id": "CT-042",
+      "id": "CT-044",
       "status": "planned",
       "level": "character-create-safe-commit-idempotency",
       "requirements": [
@@ -1030,10 +993,13 @@
       "expected": "No account/character creation without verified owner; C04 only with active owner+pending generation; once-only transaction commit; duplicate C04 no second character, late C15 never deletes durable record; no S03 automatic after UI success",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md"
+      "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "merge_source_id": "CT-042",
+      "merge_note": "roy1 CT CT-042 renumbered to CT-044 because roy2 A-015 retains CT-039/040; native Client not-run",
+      "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
     },
     {
-      "id": "CT-043",
+      "id": "CT-045",
       "status": "planned",
       "level": "sqlite-synthetic-crash-reopen-idempotency",
       "requirements": [
@@ -1061,10 +1027,12 @@
       "expected": "SQLite reopen preserves unique character, outbox, wallet transfer and reward dedup; used token cannot replay; move duplicate only cached ACK; Client native E2E not-run",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md"
+      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "merge_source_id": "CT-043",
+      "merge_note": "roy1 CT CT-043 renumbered to CT-045 because roy2 A-015 retains CT-039/040; native Client not-run"
     },
     {
-      "id": "CT-044",
+      "id": "CT-046",
       "status": "planned",
       "level": "map-crc-ambiguous-epoch-negative-contract",
       "requirements": [
@@ -1087,10 +1055,81 @@
       "expected": "C35 two-u16 only, cannot distinguish same-map/same-pair late response across epochs; single active pending load/connection and fail-closed ambiguous overlap. Reject mismatched/old/absent epoch, after crash no stale C35 can complete load; original Client E2E not-run",
       "evidence_kind": "observed-static+designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md"
+      "analysis_report": "03-analysis-requests/A-016-roy1-replay-recovery.md",
+      "merge_source_id": "CT-044",
+      "merge_note": "roy1 CT CT-044 renumbered to CT-046 because roy2 A-015 retains CT-039/040; native Client not-run"
     },
     {
-      "id": "CT-045",
+      "status": "planned",
+      "requirements": [
+        "R-015"
+      ],
+      "evidence_kind": "static-client-plus-designed-security",
+      "native_client_validation": "not-run",
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "id": "CT-047",
+      "level": "social-chat-whisper-codec-and-origin-safety",
+      "packet_ids": [
+        "PKT-C0E",
+        "PKT-C19",
+        "PKT-S0A",
+        "PKT-S0D"
+      ],
+      "expected": "C0E type/string8, C19 type/target/text string8 and S0D source_id+string8 native subset; Server binds origin to authenticated World, rejects illegal type/encoding and stale generation; S0A remains context-dependent; native channel type and error statuses unknown."
+    },
+    {
+      "status": "planned",
+      "requirements": [
+        "R-015"
+      ],
+      "evidence_kind": "static-client-plus-designed-security",
+      "native_client_validation": "not-run",
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "id": "CT-048",
+      "level": "social-group-guild-branch-and-membership-security",
+      "packet_ids": [
+        "PKT-C2E",
+        "PKT-C12",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "expected": "Decode only evidence-backed op/subtype forms, reject unsupported values without changing membership; Server authoritative group/guild generation/CAS for invitations; native guild policy and member row format still unknown."
+    },
+    {
+      "id": "CT-049",
+      "status": "planned",
+      "level": "social-group-guild-native-e2e",
+      "requirements": [
+        "R-015"
+      ],
+      "packet_ids": [
+        "PKT-C0E",
+        "PKT-S0D",
+        "PKT-S0A",
+        "PKT-C12",
+        "PKT-C2E",
+        "PKT-S58",
+        "PKT-S3A"
+      ],
+      "input": {
+        "kind": "test-design",
+        "reference": "05-conformance/A-014-social-test-plan.md"
+      },
+      "expected": "Using original Client and authorized test Server, determine group/guild C0E type and S0D subtype/recipient set, S58/S3A member rows and native error codes; no assertion of original guild compatibility without captured evidence",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-014"
+      ]
+    },
+    {
+      "id": "CT-050",
       "status": "planned",
       "level": "management-rbac-and-atomic-replay",
       "requirements": [
@@ -1113,10 +1152,12 @@
       "expected": "Independent management authentication + RBAC + reason, target validation; denied actions no domain side effect; same key same body no duplicate item; changed body conflict; append-only sanitized audit for allow/deny/replay",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md"
+      "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md",
+      "merge_source_id": "CT-045",
+      "merge_note": "A-017 branch CT-045 renumbered to CT-050 because CT-045/046 belong to A-016 in main"
     },
     {
-      "id": "CT-046",
+      "id": "CT-051",
       "status": "planned",
       "level": "admin-audit-redaction-observability",
       "requirements": [
@@ -1149,10 +1190,12 @@
       "expected": "Only safe allowlisted audit/diagnostic fields stored; no passwords, token, auth headers, cookies, complete game packet body or private chat even on denial/error; received/committed/notified distinguished",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md"
+      "analysis_report": "03-analysis-requests/A-017-roy1-admin-audit.md",
+      "merge_source_id": "CT-046",
+      "merge_note": "A-017 branch CT-046 renumbered to CT-051 because CT-045/046 belong to A-016 in main"
     },
     {
-      "id": "CT-047",
+      "id": "CT-052",
       "status": "planned",
       "level": "bin-derived-character-color-and-region-fixtures",
       "requirements": [
@@ -1175,10 +1218,12 @@
       "expected": "C02 region2..4 4×string8+u8 and other region 3×string8; TW CP950 uses encoded byte length; original UI palette indices0..9 convert ten exact RGB triples to five-byte C04; C04 has no name slot and wire only bounds sex/hair as u8; native allowed enumerations unknown",
       "evidence_kind": "observed-static",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md"
+      "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "source_ct_renumbered_from": "CT-047",
+      "merge_note": "CT CT-047 in source roy1 A-003 was renamed to CT-052; main CT-047/048 are A-014 social"
     },
     {
-      "id": "CT-048",
+      "id": "CT-053",
       "status": "planned",
       "level": "character-authorized-uniqueness-and-two-stage-recovery",
       "requirements": [
@@ -1202,16 +1247,90 @@
           "same account duplicate intent idempotent",
           "same character display-name two owners unique",
           "C15 empty after committed does not delete character",
-          "S02 errors do not have native text mapping yet"
+          "S02 errors do not have native text mapping yet",
+          "authenticated account A, submitted different account B denied without draft/character",
+          "authenticated A, submitted same account with different ASCII letter case passes name gate only"
         ]
       },
       "expected": "No Account INSERT via Client, no Character without verified owner and pending intent; same pending/body succeeds once; duplicate name/account conflict and delayed C15 have zero unintended effects; full native new-user UI/Server error status not-run",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md"
+      "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "source_ct_renumbered_from": "CT-048",
+      "merge_note": "CT CT-048 in source roy1 A-003 was renamed to CT-053; main CT-047/048 are A-014 social",
+      "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
     },
     {
-      "id": "CT-049",
+      "id": "CT-054",
+      "status": "planned",
+      "level": "native-client-authenticated-no-character-to-newuser-ui",
+      "title": "原 Client 已登入空角帳號可否進入 NewUser 與 C02 帳號欄",
+      "requirements": [
+        "R-025",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C03",
+        "PKT-S02",
+        "PKT-C02",
+        "PKT-C04"
+      ],
+      "input": {
+        "kind": "native-client-test-design",
+        "reference": "05-conformance/native-creation-gate-test-plan.md",
+        "cases": [
+          "C03 authenticates pre-provisioned account A with no Character",
+          "record original Client UI event/callback leading to NewUser, or report route not present",
+          "verify whether C02 first field is the logged-in account name",
+          "if native authenticated route exists, try A vs B submitted name and observe response"
+        ]
+      },
+      "expected": "No invented C03(no-character) -> NewUser path: prove UI callback and C02 account name mapping or record absent Client route. If authenticated creation is possible, mismatch B must be rejected without draft/Character/Grant and matched A still needs all other permissions. Anonymous C02 is never proof of owner.",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-027",
+        "A-021",
+        "A-028"
+      ],
+      "note": "Test design only; original client E2E not executed; no modified client."
+    },
+    {
+      "id": "CT-055",
+      "title": "雙玩家共用同圖場景、NPC/怪物及重連不重置",
+      "status": "planned",
+      "level": "shared-map-server-domain-and-native-client-e2e",
+      "requirements": [
+        "R-007",
+        "R-029"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "synthetic-first-native-client-later",
+        "reference": "05-conformance/shared-map-multiplayer-test-plan.md",
+        "cases": [
+          "A+B same world/map -> one SharedMap instance and one actor set",
+          "spawn/monster death/respawn observed identically by A/B",
+          "A leave/logout -> B scene and AI remain",
+          "stale A socket cleanup -> cannot evict B or new A generation",
+          "C joins after death -> current snapshot excludes removed monster",
+          "revision mismatch denied without shadow instance",
+          "different map -> isolated actor population",
+          "native two-client player/NPC visibility after A-004/A-011/A-024 wire evidence"
+        ]
+      },
+      "expected": "Shared map is keyed by world_id/map_ref, actors and lifecycle globally consistent; users observe one another and common monsters while individual progress remains isolated, no per-character instances. Original Client cannot be marked passed before verified packet mappings and two actual Clients.",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-004",
+        "A-005",
+        "A-011",
+        "A-024"
+      ]
+    },
+    {
+      "id": "CT-056",
       "status": "planned",
       "level": "prelogin-native-codec-fixtures",
       "requirements": [
@@ -1241,10 +1360,12 @@
       "expected": "Fields and selectors match original constructor/readers; safe local profile supports only tested subset. Non3 C0F, S18 kind1 official text semantics, S60 type0 policy remain not native E2E verified.",
       "evidence_kind": "observed-static-plus-designed-fixture",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
+      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "legacy_source_ct_id": "CT-049",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-050",
+      "id": "CT-057",
       "status": "planned",
       "level": "prelogin-order-and-script-safety",
       "requirements": [
@@ -1278,10 +1399,12 @@
       "expected": "Local profile enforces state guards and length/ratio bounds without inventing native errors or account claim. Original Server rejection timing, full regional versions and Script start remain unknown.",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
+      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "legacy_source_ct_id": "CT-050",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-051",
+      "id": "CT-058",
       "status": "planned",
       "level": "bin-derived-attack-skill-codec",
       "requirements": [
@@ -1294,7 +1417,7 @@
         "PKT-C4D",
         "PKT-C56",
         "PKT-S52",
-        "PKT-S5F"
+        "PKT-S1E"
       ],
       "input": {
         "kind": "bin-derived-synthetic",
@@ -1309,13 +1432,15 @@
           "S1E": "12345678"
         }
       },
-      "expected": "Client original opcode/codec signatures match C13 u32 BE,C4D u16 BE,C56 u8, S52 u32 BE+u8,S5F (corrected opcode) u32 BE. Not proof of original quest kill count or Server success result; native E2E not-run",
+      "expected": "Client original opcode/codec signatures match C13 u32 BE,C4D u16 BE,C56 u8, S52 u32 BE+u8,S1E u32 BE. Not proof of original quest kill count or Server success result; native E2E not-run",
       "evidence_kind": "observed-static-plus-synthetic",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "legacy_source_ct_id": "CT-051",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-052",
+      "id": "CT-059",
       "status": "planned",
       "level": "battle-variant-dispatch-and-failclosed",
       "requirements": [
@@ -1336,10 +1461,12 @@
       "expected": "Both native C3D writer and S3D parser branch on subtype u8 0..15; unsupported or unknown variants cannot produce damage/skill success/quest completion. Native full battle subtype E2E not-run",
       "evidence_kind": "observed-static-plus-designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "legacy_source_ct_id": "CT-052",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-053",
+      "id": "CT-060",
       "status": "planned",
       "level": "tutorial-combat-quest-idempotency-negative",
       "requirements": [
@@ -1353,7 +1480,7 @@
         "PKT-C4D",
         "PKT-C56",
         "PKT-S52",
-        "PKT-S5F"
+        "PKT-S1E"
       ],
       "input": {
         "kind": "designed-sqlite-synthetic",
@@ -1370,10 +1497,12 @@
       "expected": "Only server-authoritative verified combat result can produce an objective event; duplicate event once only with durable unique ledger; unverified Born tutorial requirement never invented",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "legacy_source_ct_id": "CT-053",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-054",
+      "id": "CT-061",
       "status": "planned",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
@@ -1398,10 +1527,12 @@
         ]
       },
       "expected": "Script close/merchant interaction alone never means original tutorial completion or optional reward; native Client E2E not-run",
-      "evidence_kind": "observed-static-plus-designed"
+      "evidence_kind": "observed-static-plus-designed",
+      "legacy_source_ct_id": "CT-054",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-055",
+      "id": "CT-062",
       "status": "planned",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
@@ -1427,10 +1558,12 @@
         ]
       },
       "expected": "Completion/Reward/Outbox atomically committed once only after original-rule and authoritative-event proof; no invented native reward",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-055",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-056",
+      "id": "CT-063",
       "status": "planned",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
@@ -1458,10 +1591,12 @@
         ]
       },
       "expected": "Exit map checkpoint only after verified original exit route and safe C35 barrier; Client C35 has no epoch; no duplicate reward or position drift on crash",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-056",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-057",
+      "id": "CT-064",
       "status": "planned",
       "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
       "native_client_validation": "not-run",
@@ -1489,10 +1624,12 @@
         ]
       },
       "expected": "Original byte signatures pass, type codec/strict parsing; no claim native item effects/unknown use_kind enum meanings",
-      "evidence_kind": "observed-static-plus-synthetic"
+      "evidence_kind": "observed-static-plus-synthetic",
+      "legacy_source_ct_id": "CT-057",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-058",
+      "id": "CT-065",
       "status": "planned",
       "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
       "native_client_validation": "not-run",
@@ -1517,10 +1654,12 @@
         ]
       },
       "expected": "No fixed length invented for variable S0F/S37; native body variants decoded and Client UI actual stock/revision validation required",
-      "evidence_kind": "observed-static-plus-designed"
+      "evidence_kind": "observed-static-plus-designed",
+      "legacy_source_ct_id": "CT-058",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-059",
+      "id": "CT-066",
       "status": "planned",
       "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
       "native_client_validation": "not-run",
@@ -1550,10 +1689,12 @@
         ]
       },
       "expected": "Server creates unique internal item_instance_id and operations committed once without dupes. No original Server policy inferred.",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-059",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-060",
+      "id": "CT-067",
       "status": "planned",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
@@ -1577,10 +1718,12 @@
         ]
       },
       "expected": "Original S19 music/sound wire branches and music filename scheme validated offline; native Client sound/track success pending; no claim map→track provenance",
-      "evidence_kind": "observed-static-plus-synthetic"
+      "evidence_kind": "observed-static-plus-synthetic",
+      "legacy_source_ct_id": "CT-060",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-061",
+      "id": "CT-068",
       "status": "planned",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
@@ -1604,10 +1747,12 @@
         ]
       },
       "expected": "Only indexed MAP names are evidenced; native map music rows remain empty/UNKNOWN until original Server trace or content mapping proves each row",
-      "evidence_kind": "observed-static-resource"
+      "evidence_kind": "observed-static-resource",
+      "legacy_source_ct_id": "CT-061",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-062",
+      "id": "CT-069",
       "status": "planned",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
@@ -1634,10 +1779,353 @@
         ]
       },
       "expected": "Fail-closed provenance-gated music cue, epoch fenced/duplicate suppressed; synthetic fixtures not official mapping, original Client multi-map E2E pending",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-062",
+      "merge_source_branch": "task_a/roy1"
     },
     {
-      "id": "CT-063",
+      "id": "CT-070",
+      "status": "planned",
+      "level": "native-two-client-AOI-and-ID-lifecycle",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0E",
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "two-native-clients-required",
+        "reference": "05-conformance/A-004-visibility-test-plan.md"
+      },
+      "expected": "Two clients join same validated world map, receive third-party S33 and S06/S11 on movement/turn, S0E on leave/disconnect, observe no ghost actor after reconnect or late packet; record packet/body and GUI evidence before claiming passed",
+      "evidence_kind": "designed-test",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-004",
+      "legacy_source_ct_id": "CT-055",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-071",
+      "status": "planned",
+      "level": "original-MAP-and-synthetic-movement-body",
+      "requirements": [
+        "R-005"
+      ],
+      "packet_ids": [
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "original-client-static-plus-synthetic",
+        "reference": "05-conformance/A-005-movement-test-plan.md"
+      },
+      "expected": "Original PE 7 native patterns and original 494 MAP 7701805 tile flag metadata PASS; decoded C33/C11/S0B strict + negative movement gate synthetic 10 cases PASS. Native Client GUI not-run.",
+      "evidence_kind": "observed-static-client+observed-original-resource+synthetic-test",
+      "offline_subset_result": "7 PE static checks; 494 MAP/7,701,805 tiles; 10 synthetic tests PASS",
+      "original_probe": "task_a/roy2/a005_native_probe.py",
+      "map_probe": "task_a/roy2/a005_collision_probe.py",
+      "offline_test": "task_a/roy2/test_a005_move.py",
+      "analysis_request": "A-005",
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-056",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-072",
+      "status": "planned",
+      "level": "native-client-blocked-move-and-correction",
+      "requirements": [
+        "R-005"
+      ],
+      "packet_ids": [
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B",
+        "PKT-S06",
+        "PKT-S11"
+      ],
+      "input": {
+        "kind": "native-client-required",
+        "reference": "05-conformance/A-005-movement-test-plan.md"
+      },
+      "expected": "Actual native World move/turn, blocked tile, edge/corner, failed correction S0B, 0x7f→0x00 wrap, replay, speed and map-epoch reset must be observed before claiming compatible; bit4 line check cannot stand in for walking collision",
+      "evidence_kind": "designed-test",
+      "analysis_request": "A-005",
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-057",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-073",
+      "status": "planned",
+      "level": "original-PE-static-and-synthetic-appearance-projection",
+      "requirements": [
+        "R-006"
+      ],
+      "packet_ids": [
+        "PKT-S04",
+        "PKT-S05",
+        "PKT-S33"
+      ],
+      "input": {
+        "kind": "original-client-static-plus-synthetic",
+        "reference": "05-conformance/A-006-appearance-test-plan.md"
+      },
+      "expected": "13 original PE instructions plus 10 S05/S33 color/name/flags S04 anchor synthetic tests PASS; not native GUI",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "13 PE native static pattern checks PASS, 10 synthetic tests PASS",
+      "original_probe": "task_a/roy2/a006_look_probe.py",
+      "offline_test": "task_a/roy2/test_a006_look.py",
+      "analysis_request": "A-006",
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-058",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-074",
+      "status": "planned",
+      "level": "native-original-client-eight-direction-color-equip-map-relogin",
+      "requirements": [
+        "R-006"
+      ],
+      "packet_ids": [
+        "PKT-C04",
+        "PKT-C1C",
+        "PKT-S37",
+        "PKT-S04",
+        "PKT-S05",
+        "PKT-S33",
+        "PKT-C33",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "native-original-two-client-gui-required",
+        "reference": "05-conformance/A-006-appearance-test-plan.md"
+      },
+      "expected": "Native screenshots and redacted traces of standing and 8 directional movements, hair/clothes independent RGB, equip and default reset, map transition, relog, self and other view; compare viewport8/9 center and 9/9 off-center",
+      "evidence_kind": "designed-test",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-006",
+      "legacy_source_ct_id": "CT-059",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-075",
+      "status": "planned",
+      "level": "world-visibility-decoded-body-and-synthetic-lifecycle",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S33",
+        "PKT-S06",
+        "PKT-S11",
+        "PKT-S0E",
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "synthetic",
+        "reference": "05-conformance/A-004-visibility-test-plan.md"
+      },
+      "expected": "S33 profile flags0 CP950, S06/S11/S0E/S0B strict BE body lengths; duplicate, removal, stale map epoch and invalid options fail closed",
+      "evidence_kind": "observed-static-plus-designed-synthetic",
+      "offline_subset_result": "9 synthetic tests PASS and 5 original constructors + 5 reader sequences static probe PASS; native Client NOT RUN",
+      "offline_test": "task_a/roy2/test_a004_visibility.py",
+      "original_probe": "task_a/roy2/a004_native_probe.py",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-004",
+      "legacy_source_ct_id": "CT-060",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-076",
+      "status": "planned",
+      "level": "original-PE-static-and-synthetic-status-client-io",
+      "requirements": [
+        "R-009"
+      ],
+      "packet_ids": [
+        "PKT-S08",
+        "PKT-C47"
+      ],
+      "input": {
+        "kind": "original-client-PE-static-plus-synthetic",
+        "reference": "05-conformance/A-008-stats-test-plan.md"
+      },
+      "expected": "15 native PE instruction patterns + 4 RTTI checks PASS; S08 conditional groups 0x40/0x20/0x10/0x08/0x200, C47 five one-hot choices, truncation/extra/255 length tested by 10 synthetic unit tests PASS. Original GUI still not-run.",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "15 PE checks+4 RTTI PASS; 10 synthetic tests PASS",
+      "original_probe": "task_a/roy2/a008_native_probe.py",
+      "offline_test": "task_a/roy2/test_a008_status.py",
+      "analysis_request": "A-008",
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-061",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-077",
+      "status": "planned",
+      "level": "native-original-client-stats-panel-ability-and-HP-death-boundaries",
+      "requirements": [
+        "R-009"
+      ],
+      "packet_ids": [
+        "PKT-S08",
+        "PKT-C47",
+        "PKT-S37",
+        "PKT-C1C",
+        "PKT-S5F"
+      ],
+      "input": {
+        "kind": "native-client-required",
+        "reference": "05-conformance/A-008-stats-test-plan.md"
+      },
+      "expected": "Native StatusDialog ability IDs 0x13..0x17 produce C47 body 01,02,04,08,10; S08 conditional full/current/relogin/update and GUI field labels/units verified; illegitimate/replay rejected; HP zero, death and revive transitions checked separately, without inventing original Server math",
+      "evidence_kind": "designed-test",
+      "analysis_request": "A-008",
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-062",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-078",
+      "status": "planned",
+      "level": "original-Asgard-PE-static-and-synthetic-combat-codec",
+      "requirements": [
+        "R-010"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C3D",
+        "PKT-S13",
+        "PKT-S3D",
+        "PKT-S5F",
+        "PKT-S08"
+      ],
+      "input": {
+        "kind": "original-client-static-plus-synthetic",
+        "reference": "05-conformance/A-009-combat-test-plan.md"
+      },
+      "expected": "16 original PE instruction patterns + five RTTI PASS; 15 decoded C13/S13/S5F/S3D simple subtype positive and negative synthetic tests PASS. Complex S3D variants, native UI and Server formulas not validated.",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "16 PE patterns + 5 RTTI PASS; 15 synthetic tests PASS",
+      "original_probe": "task_a/roy2/a009_native_probe.py",
+      "offline_test": "task_a/roy2/test_a009_combat.py",
+      "analysis_request": "A-009",
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-063",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-079",
+      "status": "planned",
+      "level": "original-native-client-combat-hit-damage-death-revive",
+      "requirements": [
+        "R-010"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C3D",
+        "PKT-S13",
+        "PKT-S3D",
+        "PKT-S5F",
+        "PKT-S08",
+        "PKT-S0E"
+      ],
+      "input": {
+        "kind": "native-client-required",
+        "reference": "05-conformance/A-009-combat-test-plan.md"
+      },
+      "expected": "Trace native input→C13, decoded S13/S3D presentation and S08 resource updates, S5F vs S0E effects, hit/miss/death/revive and reject/replay/multi-target/simultaneous death, report original Server formulas as unknown unless independently observed.",
+      "evidence_kind": "designed-test",
+      "analysis_request": "A-009",
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-064",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-080",
+      "status": "planned",
+      "level": "original-PE-npc-object-packets-static-and-synthetic",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S62",
+        "PKT-S63",
+        "PKT-S29",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "input": {
+        "kind": "original-client-static-plus-synthetic",
+        "reference": "05-conformance/A-024-object-lifecycle-test-plan.md"
+      },
+      "expected": "Original Asgard.exe SHA + 20 PE anchors, 14 S07 type switch and 6 RTTI PASS; S07 all 1..14 native row types, S34 subtype6/11 all flags, S3C/S62/S63/S29, plus previous S0C/S64/S5F/S0E: 19+7 synthetic tests PASS via CI. Native GUI/official NPC type mapping still not-run.",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "Verified GitHub Actions run 41185085803 SUCCESS: 19 new object packet synthetic tests + 7 NPC lifecycle tests PASS, phase-gate PASS; native PE 20 anchors/14 dispatch/6 RTTI independently PASS",
+      "original_probe": "task_a/roy2/a024_object_native_probe.py",
+      "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "analysis_request": "A-024",
+      "native_client_validation": "not-run",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41185085803",
+      "legacy_source_ct_id": "CT-065",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-081",
+      "status": "planned",
+      "level": "native-original-client-object-spawn-move-update-die-remove",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S62",
+        "PKT-S63",
+        "PKT-S29",
+        "PKT-S5F",
+        "PKT-S0E",
+        "PKT-C43"
+      ],
+      "input": {
+        "kind": "native-original-client-required",
+        "reference": "05-conformance/A-024-object-lifecycle-test-plan.md"
+      },
+      "expected": "Native display of S07 nonempty rows and correct kind/resource mapping, S0C/S64 movement, S34/S3C/S62/S63/S29 contextual effects, S5F vs S0E removal, NPC interaction C43, relog/map stale events and safe object ID lifecycle; no original Server AI policy inferred.",
+      "evidence_kind": "designed-test",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-024",
+      "legacy_source_ct_id": "CT-066",
+      "merge_source_branch": "task_a/roy2"
+    },
+    {
+      "id": "CT-084",
       "status": "planned",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
@@ -1668,10 +2156,13 @@
         ]
       },
       "expected": "Original 20 instruction signatures match; strict direction-specific typed codec; no S1E DieObjects opcode; native Client E2E not-run",
-      "evidence_kind": "observed-static-plus-synthetic"
+      "evidence_kind": "observed-static-plus-synthetic",
+      "legacy_source_ct_id": "CT-063",
+      "merge_source_branch": "task_a/roy1",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
     },
     {
-      "id": "CT-064",
+      "id": "CT-085",
       "status": "planned",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
@@ -1705,10 +2196,13 @@
         ]
       },
       "expected": "Each viewer sees only scoped entity, one binding per ref, no ghost; original AOI radius and notification timing UNKNOWN until runtime evidence",
-      "evidence_kind": "planned-native"
+      "evidence_kind": "planned-native",
+      "legacy_source_ct_id": "CT-064",
+      "merge_source_branch": "task_a/roy1",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
     },
     {
-      "id": "CT-065",
+      "id": "CT-086",
       "status": "planned",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
@@ -1738,160 +2232,69 @@
         ]
       },
       "expected": "No unauthorized cross-map observer visibility, ghost objects or ref aliasing; designed internal epoch does not change native wire layout",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-065",
+      "merge_source_branch": "task_a/roy1",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
     },
     {
-      "id": "CT-066",
+      "id": "CT-082",
       "status": "planned",
-      "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
-      "level": "npc-monster-asset-index",
-      "requirements": [
-        "R-012"
-      ],
-      "packet_ids": [
-        "PKT-S07"
-      ],
-      "input": {
-        "kind": "native-exe-plus-missing-asset/Client-plan",
-        "reference": "tools/a011_npc_asset_contract.py",
-        "cases": [
-          "Verify original EXE Monster%02d.dat pointer, 0x404371..0x4043b0 registry 0x1f40..0x1f6a (43 files); require actual Monster00..42.dat before sprite/frame content mapping"
-        ]
-      },
-      "expected": "Observed original resource filename/index, never infer monster template ID from bank index",
-      "evidence_kind": "observed-static-plus-designed"
-    },
-    {
-      "id": "CT-067",
-      "status": "planned",
-      "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
-      "level": "npc-visible-appearance-animation",
+      "level": "original-PE-static-and-synthetic-NPC-resource-ID-click-motion",
       "requirements": [
         "R-012"
       ],
       "packet_ids": [
         "PKT-S07",
-        "PKT-S33",
-        "PKT-S1A",
-        "PKT-S11",
-        "PKT-S64",
-        "PKT-S0E",
-        "PKT-S5F"
+        "PKT-C43",
+        "PKT-S34",
+        "PKT-S3C"
       ],
       "input": {
-        "kind": "native-exe-plus-missing-asset/Client-plan",
-        "reference": "tools/a011_npc_asset_contract.py",
-        "cases": [
-          "Differentiate S07 u32 wire ref vs 16-bit appearance candidate vs 43-bank asset index; verify S1A u32/u8/u16/u8, direction and motion with original MonsterXX assets and Client"
-        ]
+        "kind": "original-client-executable-static-plus-synthetic",
+        "reference": "05-conformance/A-011-npc-resource-click-animation-test-plan.md"
       },
-      "expected": "Codec bounded; animation ID→frame/cycles unknown without source assets; do not claim monster kind",
-      "evidence_kind": "observed-static-plus-designed"
+      "expected": "SHA-locked original PE 29 VA instruction patterns + 4 RTTI + 3 wide literal checks PASS; World7000..7023 Monster8000..8042 registrations; imageID0x4000+10*archive+slot conversion; S07 kinds1,2,4 create MonsterObject; C43 both producer type1/subtype4 with BE u32 target; local selector0..5 groups+0x20/+0x30/+0x40. Synthetic test result recorded after CI. Not runtime GUI proof.",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "Original local Asgard.exe SHA-locked 29 instruction anchors, 4 RTTI, 3 UTF16 literals PASS; GitHub Actions run 41186221751: 16 A-011 synthetic + 19+7 A-024 regression tests and phase gates PASS",
+      "original_probe": "task_a/roy2/a011_native_probe.py",
+      "offline_test": "task_a/roy2/test_a011_resource.py",
+      "analysis_request": "A-011",
+      "native_client_validation": "not-run",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751",
+      "legacy_source_ct_id": "CT-067",
+      "merge_source_branch": "task_a/roy2",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
     },
     {
-      "id": "CT-068",
+      "id": "CT-083",
       "status": "planned",
-      "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
-      "level": "npc-click-interact-authority",
+      "level": "native-original-client-NPC-monster-sprite-click-dialog-motion",
       "requirements": [
         "R-012"
       ],
       "packet_ids": [
-        "PKT-C39",
-        "PKT-C0C",
-        "PKT-C13",
-        "PKT-C6C",
-        "PKT-S44"
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-C43",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S44",
+        "PKT-S5F",
+        "PKT-S0E"
       ],
       "input": {
-        "kind": "native-exe-plus-missing-asset/Client-plan",
-        "reference": "tools/a011_npc_asset_contract.py",
-        "cases": [
-          "Verify original Client clicked NPC target, observed C39/C0C/battle branch, same map+observer u32 ref, server NPC template and Script binding, replay, disconnect and non-authoritative intent"
-        ]
+        "kind": "native-original-client-with-owned-Monster-World-DAT-resources",
+        "reference": "05-conformance/A-011-npc-resource-click-animation-test-plan.md"
       },
-      "expected": "C39 merchant fixed u8/u32BE/u16BE+subtype tail known; actual recruiter/NPC click→original Server policy still unknown",
-      "evidence_kind": "observed-static-plus-designed"
-    },
-    {
-      "id": "CT-069",
-      "status": "planned",
+      "expected": "A real nonempty S07 entity→visible asset sprite ID→MonsterNN.dat member/YPF group and six local motion selector semantics must be demonstrated; click C43→S34/S3C/S44→NPCChatDialog with packet trace and original UI must be proven, including NPC/monster distinctions, dead/removed/relog boundaries. No actual game runtime proof yet.",
+      "evidence_kind": "designed-test",
+      "analysis_request": "A-011",
       "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
-      "level": "original-map-archive-geometry",
-      "requirements": [
-        "R-004",
-        "R-027",
-        "R-028"
-      ],
-      "packet_ids": [
-        "PKT-S15",
-        "PKT-C35"
-      ],
-      "input": {
-        "kind": "original-resource-plus-native-Client-manual-plan",
-        "reference": "tools/a022_map_geometry_probe.py",
-        "cases": [
-          "Three original SHA Map0/1/2; 36-byte archive record end offsets, 494 named, 491 normal maps, 3 special zero dimensions; all dimensions/block/tile/7/8/16 sections exact EOF; geometry bounds"
-        ]
-      },
-      "expected": "All 491 normal maps consumed exactly; no guesses for 3 special entries or tutorial map/spawn",
-      "evidence_kind": "observed-resource-plus-designed"
-    },
-    {
-      "id": "CT-070",
-      "status": "planned",
-      "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
-      "level": "tile-line-test-versus-walkable",
-      "requirements": [
-        "R-004",
-        "R-028"
-      ],
-      "packet_ids": [
-        "PKT-C33",
-        "PKT-S0B",
-        "PKT-S15"
-      ],
-      "input": {
-        "kind": "original-resource-plus-native-Client-manual-plan",
-        "reference": "tools/a022_map_geometry_probe.py",
-        "cases": [
-          "Client tile+6 flag0x10 tested by 0x4b4bb0 segment path, bit0x01 toggled 0x4b2ca0, runtime occupancy grid +0x258; collect original blocked/walk traces before canWalk proof"
-        ]
-      },
-      "expected": "Geometry can index tile, cannot claim native movement passability; A-005 stays open",
-      "evidence_kind": "observed-resource-plus-designed"
-    },
-    {
-      "id": "CT-071",
-      "status": "planned",
-      "native_client_validation": "not-run",
-      "analysis_report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
-      "level": "map-load-collision-spawn-epoch",
-      "requirements": [
-        "R-004",
-        "R-027",
-        "R-028"
-      ],
-      "packet_ids": [
-        "PKT-S15",
-        "PKT-S14",
-        "PKT-C35",
-        "PKT-S04"
-      ],
-      "input": {
-        "kind": "original-resource-plus-native-Client-manual-plan",
-        "reference": "tools/a022_map_geometry_probe.py",
-        "cases": [
-          "Match S15 map_ref and archive source, C35 header2+structured checksum+loading_epoch, valid tile geometry plus validated World placement, duplicate/ambiguous CRC and relog; original tutorial map/spawn unknown"
-        ]
-      },
-      "expected": "No raw CRC substitution; no fake official spawn or stale identical C35 accepted",
-      "evidence_kind": "observed-resource-plus-designed"
+      "legacy_source_ct_id": "CT-068",
+      "merge_source_branch": "task_a/roy2",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
     }
   ]
 }

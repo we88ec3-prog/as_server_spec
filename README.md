@@ -55,3 +55,43 @@
 ## A-001/A-023 最新可實作交接
 
 [2026-10-31 roy1/roy2 新成果驗證](04-analysis-integration/A-001-A-023-merge-verification.md) · [Script 啟動/關閉 Server 規劃](02-server-planning/script-lifecycle-contract.md)。A-001 seed0..9 binary codec、A-023 S44(1,0) named start／C6C2/4 close 子集可先開發；原服 first-login policy／NPC mapping 未確認，原生 Client CT 均 not-run。
+
+## A-002 登入／轉服規劃
+
+[SessionTransfer 契約](02-server-planning/session-transfer-contract.md)／[A-002 新證據驗證](04-analysis-integration/A-002-merge-verification.md)：S03 addr/port/token 引導新 TCP，C10 只寫 raw token。已勘誤 0x4A8370 真正是 S03 handler 而非 C25。CT-037/038 native not-run。
+
+## task_a roy1/roy2 最新分析合併（2026-10-31）
+
+[A-015/A-016/A-027/A-028 首次登入、創角、恢復、地圖的 Server 整合規格](02-server-planning/merge-20261031-roy1-roy2.md) · [原始二進位與 MAP/Born 覆核報告](04-analysis-integration/A015-A016-A027-A028-validation.md) · [A-014 聊天／密語／組隊／公會安全開發契約](02-server-planning/social-contract.md) · [A-015 格式與盤點研究結案界線](task_a/roy2/A-015-closure-review.md)。保留原 client/S02/C15/Script 與 494 MAP 的部分已證成果，沒有將建角原生 owner proof、首次出生、群組 type/op 或 Client E2E 宣稱通過。CT-039～040 為地圖內容、041～046 為創角／恢復、047～049 為社交。
+
+[A-017 管理端 API／停權解封／去敏稽核](02-server-planning/admin-operations.json) · [A-017 原始報告](03-analysis-requests/A-017-roy1-admin-audit.md)。主線測試 CT-050/051 planned，不冒認實機通過。
+
+## 新版工作規範與 Client 收發導向 Server 路線（2026-10-31）
+
+**所有接案者先讀**：[工作軌／責任／禁止自行建分支](00-governance/task-ownership-and-client-io.md) → [Client I/O 交付規範](03-analysis-requests/client-io-handoff-standard.md) → [新版任務模板](03-analysis-requests/request-template.md)。新增 [Server 可開發的 DEV-IO-01～06 縱切規劃](02-server-planning/client-io-delivery-plan.md)、[6 條機讀 Client I/O／Server decision 矩陣](02-server-planning/client-io-flow-matrix.json) 與 [分段驗收計畫](05-conformance/client-io-verification-plan.md)。CI 將強制 A 任務分類與交付要求；實機 CT 全部仍須獨立執行。
+
+## 暫行創角帳號一致性政策
+
+玩家在原 Client 創角輸入的帳號與已驗證登入帳號不同時，Server **拒絕創角**；無登入也拒絕。Client 不修改、輸入框不鎖定。詳見 [創角帳號比對規劃](02-server-planning/character-account-match-policy.md)；A-027 的原生 UI 入口仍 partial。
+
+## 下一階段安全創角規劃與 A-027 精準證據
+
+已新增 [Server SAFE-01～04 / WIRE-01～02 / WORLD / SCRIPT 的可開發切片](02-server-planning/native-creation-next-iteration.md)、[機讀就緒關卡](02-server-planning/onboarding-readiness-gates.json)、[A-027/020/022/028 必答的 Client 收發/畫面問題](03-analysis-requests/next-client-io-evidence.md)、[CT-054 原版 Client UI 路徑驗收](05-conformance/native-creation-gate-test-plan.md)。登入帳號與創角輸入帳號不同必須拒絕；原 Client 不修改；即使 Server SAFE 工作可做，Native NewUser route 未證時仍 fail closed，CT-054 目前 not-run。
+
+## 2026-10-31 決策：多人同世界同地圖
+
+[ADR-007 多人共用場景](02-server-planning/shared-map-multiplayer-contract.md)：新手教學和一般公用地圖，所有進同一 world/map 的玩家共享同一份 NPC/怪物狀態；玩家各有角色 Session 與進度。DEV-070 現有每角色 synthetic Scene 須做 DEV-070-M 重構；原版 Client 互見/怪物同步待 A-004/011/024，新增 CT-055 planned/not-run。
+
+## 2026-10-31 — Roy1/Roy2 最新成果合併
+
+已合併 `task_a/roy1`、`task_a/roy2` 的歷史與原始證據並統一 A／PKT／SCN／CT，保留 **CT-054 原生創角、CT-055 多人共圖**；分支重號測試重新編為 CT-056～081。新增 [Server 經分析更新的接續規劃](02-server-planning/post-roy-merge-implementation-plan.md)、[剩餘 Client A 工作](03-analysis-requests/post-merge-analysis-queue.md)、[CT 來源對照](05-conformance/ct-id-remap-roy1-roy2.md)，原 Client 不修改、無新 native E2E pass。
+
+## 2026-10-31 新手教學與素材五檔補證
+
+已實際檢查本輪上傳的 `nNewJoin01.dat`、`PaperDialog.dat`、`PaperDialog02.dat`、`Monster00.dat`、`World00.dat`。初級學校三頁/接受拒絕、獨立 PaperDialog02 開始取消、Monster/World 各五個 YPF 成員的 SHA/索引已證；**尚不能宣稱原生 NPC 綁定、怪物畫面、官方目的地、教學畢業或 Client E2E 已通過**。
+
+[原件分析](04-analysis-integration/new-asset-samples-20261031.md) · [Server 就學流程規劃](02-server-planning/novice-school-admission-flow.md) · [驗收項目](05-conformance/new-asset-validation-plan.md)。
+
+## P0：原版 Client 遊戲密碼允許 4～8 字（2026-10-31 最新決策）
+
+使用者發現遊戲登入框最多 8 字；實際私有 Server `as_server_roy/main` 的憑證驗證目前卻要求**至少10字**，因此不相容。已新增 [原生 4～8 字遊戲密碼相容政策／DEV-030 修正清單](02-server-planning/native-game-password-4to8-policy.md)：新建／重設遊戲密碼採4～8 ASCII 英數（自動產生建議8字）、**不截斷舊密碼**，管理 API key 不受此規則限制，加入線上登入限速等補償；未來可能修改主程式延長長度，必須另立已驗證 Client profile，現在不修改。A-020/A-002 仍需證實原 Client UI/送包；本次是規劃與交接，**Server 程式未在本 repo 修改，Client CT 未驗收**。

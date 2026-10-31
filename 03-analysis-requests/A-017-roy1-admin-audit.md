@@ -75,7 +75,7 @@ Admin 身份已授權亦不代表可直接修改線上角色的 map/position：W
 - `04-analysis-integration/A-017-admin-observability-contract.md`：API、RBAC、稽核 Schema、信任/傳輸與狀態機 contract。
 - `02-server-planning/admin-operations.json`：機讀行政操作 + 權限 + 驗收依賴；**不是新 game opcode**。
 - `tools/a017_ops_contract.py`：SQLite 合成 tests（permission denied、未認證、suspend/unsuspend、teleport+adjust、item.grant idempotency/conflict、敏感字串剔除），單次執行五測 passed；**不代表 GitHub Server 的真實測試或原生 Client 互動**。
-- `CT-045`：Admin 副作用的身份/權限/ledger/重送；`CT-046`：trace/audit redaction & correlation。預設 status planned，native_client_validation=not-run。建議創建 `SCN-014` 獨立管理 API 情境，與 Game Client SCN-007 分離。
+- `CT-050`：Admin 副作用的身份/權限/ledger/重送；`CT-051`：trace/audit redaction & correlation。預設 status planned，native_client_validation=not-run。建議創建 `SCN-014` 獨立管理 API 情境，與 Game Client SCN-007 分離。
 - **未知**：原版遊戲服務端管理者身分模型/GM 專用封包、帳號停權/踢人原服 status、在線世界傳送完整原生動態回覆、各職能細粒度資料合法集合、正式 admin service 部署與權限實測。此 A 不該擅自新增猜測的 PKT opcode；後續 A-003/005/007/013/018 和 DEV/CT 會補實際行為。
 
 重現：`sha256sum Asgard.exe`、`strings -a -el Asgard.exe | grep -i 'sblockclient.cpp'`、`python3 tools/a017_ops_contract.py`。原件遊戲檔、任何玩家憑證/封包不可提交至共用 Git。

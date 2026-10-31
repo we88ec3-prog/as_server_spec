@@ -15,3 +15,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate analysis / development / client verification stages
         run: python3 tools/validate-phase-gates.py
+      - name: Verify A-011 and A-024 offline Client decoded-body codecs
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a011_resource.py' -v
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a024_object_packets.py' -v
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a024_npc_codec.py' -v

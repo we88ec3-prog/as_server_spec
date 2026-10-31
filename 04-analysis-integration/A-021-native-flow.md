@@ -23,7 +23,3 @@
 ## A-028 / roy1：C04 後 S02 與 CancelNewUser 終局（2026-10-31）
 
 [A-028 原生證據](../03-analysis-requests/A-028-roy1-c04-terminal-analysis.md)／[可用 Server 安全交接](A-028-newuser-terminal-contract.md)：MakeInfoDialog 在 0x1d 收 S02(status0) 傳 C04 並進 0x1e；**在 0x1e 再收 S02(status0) 時走 0x4b206b 的 local UI 成功路徑，不會在這個 callback 立即發 C03/S03**。收到 S02(nonzero) 會呼叫 C15 CancelNewUser constructor 0x5715f0、發 opcode0x15 **空 body**（serializer 0x5716a0），state 改成 0x1f；code3/4/18/26/31 讓 first edit focus，code17 second edit focus，具體原服錯誤名稱仍 unknown。A-027 原生 owner route / 原服 DB durable commit / 之後重登轉服仍未證實，**不能因 A-028 integrated/partial 就授權 C02 或盲送 S03**。CT-031/032/041/042 planned。
-
-## A-003：十色盤與原生字串長度補證（2026-10-31）
-
-[A-003 完整報告](../03-analysis-requests/A-003-roy1-create-legal-values.md) 和 [契約](A-003-character-create-contract.md) 補證 `0x4985dc/0x4985e8` 初始化 `0x91fed0` 為 region0=6、region1..4=12，但 `0x4b1a30` region0 跳過 narrow byte 長度 gate、其他 region 要長度>=12。C04 `0x4b2031` 前兩字節來自預覽選擇值，色彩 `0x66422c` 原始十筆 DWORD index0..9 查出 RGB 三字節；C04 **沒有單獨角色名稱**。Client 色盤可用不是原服拒絕其他 RGB 的證據；原服 sex/hair enum、重名 status、一帳多角仍 unknown。安全 owner 仍由 A-027 限制，不得把 A-003 已整合誤用作未驗證 C02 認領。CT-047/048 planned。

@@ -1792,6 +1792,281 @@
       ]
     },
     {
+      "evidence_id": "A015-E01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "sha256sum/file/objdump -p Asgard.exe: PE32 i386 ImageBase 0x400000 size 3235840 SHA256 db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "source_kind": "local-file-or-synthetic",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "limitations": [
+        "No Map/Human/skill/item original archive files available for this run",
+        "No native Client E2E"
+      ]
+    },
+    {
+      "evidence_id": "A015-E02",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x403FA4..0x40401D registers Basic.dat/Font.dat/Icon.dat/Locale.dat/Video.dat/Portrait.dat/MSO.dat/Script.dat; 0x404022..0x404050 Map%01d.dat for libraries 9..11",
+      "source_kind": "local-file-or-synthetic",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "limitations": [
+        "No Map/Human/skill/item original archive files available for this run",
+        "No native Client E2E"
+      ]
+    },
+    {
+      "evidence_id": "A015-E03",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x4040B2..0x404340 repeated 0x440720 registrations for Human\\mb0, mb, wb0, wb, mh0/mh1, wh0/wh1, s, w; raw path strings at PE VA 0x5F1D78..0x5F1EB4",
+      "source_kind": "local-file-or-synthetic",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "limitations": [
+        "No Map/Human/skill/item original archive files available for this run",
+        "No native Client E2E"
+      ]
+    },
+    {
+      "evidence_id": "A015-E04",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "MapData 0x4B33A0; 0x4B3466/0x4B3479 reads three LE u16; 0x4B3483/0x4B3493 reads width/height; 0x4B3520..0x4B355C writes each 3 u16 + 1 u32 = 10B; 0x4B3575 count*7, 0x4B35AD count*8; 0x4B35BC start tail record count*16",
+      "source_kind": "local-file-or-synthetic",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "limitations": [
+        "No Map/Human/skill/item original archive files available for this run",
+        "No native Client E2E"
+      ]
+    },
+    {
+      "evidence_id": "A015-E05",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "YPF 0x56EA20: 0x56EACD..0x56EAEF 2x u16 +2x u32 header; 0x56EAFF checks flags bit0 and 0x56EB07 reads 0x200=512 palette bytes; 0x56EB15 reads 4-byte offset; other frame payload still partial",
+      "source_kind": "local-file-or-synthetic",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "limitations": [
+        "No Map/Human/skill/item original archive files available for this run",
+        "No native Client E2E"
+      ]
+    },
+    {
+      "evidence_id": "A015-E06",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "Born.dat SHA256 992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98, 589B raw, zlib 1154B, prefix 00010000, BE length 574 units UTF-16LE XML Main; compared locally with resource documentation",
+      "source_kind": "local-user-asset",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "limitations": [
+        "No Map/Human/skill/item original archive files available for this run",
+        "No native Client E2E"
+      ]
+    },
+    {
+      "evidence_id": "A015-E07",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "prior-research",
+      "locator": "Existing resource-formats.md historical corpus counts: 945 .dat, 628 indexed archive / 3407 members, 316 script zlib + separate Server.dat; Map0/1/2 288/184/22=494, Human male/female garment and hair samples; not independently retested without raw corpus",
+      "source_kind": "existing-review",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "limitations": [
+        "No Map/Human/skill/item original archive files available for this run",
+        "No native Client E2E"
+      ]
+    },
+    {
+      "evidence_id": "A015-E08",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test",
+      "locator": "Local Python stdlib offline probe tested synthetic 4x4 MAP, one-member indexed DAT archive, valid synthetic Script and real Born.dat; truncated MAP/archive and invalid zlib rejected; this tests structural validator only, not map semantics or native E2E",
+      "source_kind": "local-file-or-synthetic",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "limitations": [
+        "No Map/Human/skill/item original archive files available for this run",
+        "No native Client E2E"
+      ]
+    },
+    {
+      "evidence_id": "A015-E09",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "Map0/1/2.dat raw SHA-256 and byte sizes directly verified: Map0=dcaf8ab5.../44863691 B; Map1=8681dc75.../30817997 B; Map2=5320a095.../3856650 B",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
+    },
+    {
+      "evidence_id": "A015-E10",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "Index 289/185/23 slots including EOF sentinel; map members 288/184/22 all 494 match 3 LE u16+u8 width/height+block+10B tiles+tail count/strides 7/8/16, exact EOF, zero structural rejects",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
+    },
+    {
+      "evidence_id": "A015-E11",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "SHA256 each MAP payload: 494 named entries, 330 unique payload hashes, 164 aliases in 33 same-byte duplicate groups; 00006.map=10000.map across Map0/1",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
+    },
+    {
+      "evidence_id": "A015-E12",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "Map bounds width>31,height>29: Map0 284/288, Map1 171/184, Map2 22/22, total 477/494; (31,29) text clue cannot identify tutorial map or spawn",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
+    },
+    {
+      "evidence_id": "A015-E13",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "Actual tail 7/8/16 record totals: Map0 39481/0/4, Map1 30523/306/523, Map2 4028/90/1742; counts are binary records not established NPC definitions",
+      "source_kind": "user-provided-original-Map0-Map1-Map2-local-offline",
+      "report_path": "task_a/roy2/A-015-analysis.md",
+      "raw_content_shared": false,
+      "release_match_to_client": "unverified",
+      "limitations": [
+        "MAP metadata and layout verified, contents not disclosed",
+        "Native tutorial map/coordinates/NPC identity remain unknown",
+        "Native Client E2E not run"
+      ]
+    },
+    {
+      "evidence_id": "A015-E14",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "MapData native accessor 0x4B2D70 reads 7-byte tail: +0 u8 normalized to boolean, +1 LE u16, +3 LE signed i16, +5 LE signed i16; 0x4B2FDC..0x4B3083 checksum processes fields",
+      "source_kind": "Asgard.exe-static-disassembly",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E15",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x4B2DE0 reads 8-byte record four LE u16 at offsets 0,2,4,6; 0x4B2E40 reads 16-byte record LE u16,u16,u32,u32,u16,u16 at offsets 0,2,4,8,12,14",
+      "source_kind": "Asgard.exe-static-disassembly",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E16",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource",
+      "locator": "All 494 original MAPs: header u16[0]==u16[1]; 32 MAPs have u16[2]!=u16[1], all tuple (1,1,4). Map0=30, Map1=2, Map2=0",
+      "source_kind": "user-provided-local-map-corpus",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E17",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource + inferred",
+      "locator": "494-map corpus: tail7=74032 (flag0=72577 flag1=1455), tail8=396, tail16=2269. Every tail8 field(+2,+4) and tail16(+12,+14) fits width*48,height*32; candidate pixel-coordinate semantics inferred, not native proof of spawn",
+      "source_kind": "user-provided-local-map-corpus",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E18",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test",
+      "locator": "4 synthetic field audit regression tests passed; valid records, out-of-bounds coordinate candidates, malformed MAP, malformed archive; original Map0/1/2 494/494 aggregate metadata audit passed, no original binaries shared",
+      "source_kind": "synthetic-and-user-provided-local-MAP",
+      "report_path": "task_a/roy2/A-015-field-audit.md",
+      "test_path": "task_a/roy2/test_a015_field_audit.py",
+      "raw_content_shared": false,
+      "release_binding": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
       "evidence_id": "ev_a027_20261031_asgard_identity_static",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "date": "2026-10-31",
@@ -1894,6 +2169,66 @@
         "S0B acknowledges movement, not DB fsync",
         "original trading/reward opcode/Server commit policies are not claimed"
       ]
+    },
+    {
+      "evidence_id": "A015-E19",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource + synthetic-test",
+      "locator": "Native 0x529060 Script reader uses BE u16 version then BE u32 UTF16LE code-unit count; original Born.dat version1 units574 decompresses to 1154 bytes, 70017 units synthetic script passes; earlier BE16 length model corrected.",
+      "report_path": "task_a/roy2/A-015-closure-review.md",
+      "tool_path": "tools/a015_content_probe.py",
+      "asset_bytes_in_shared_repo": false,
+      "release_match": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E20",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "Asgard.exe original SHA UTF-16LE literal pool confirms 26 resource path selectors including Basic/Icon/Locale/Script/Map/World/Monster/Human; no explicit Skill*.dat/Item*.dat in these printable literals (negative scope only), original server/embedded definitions remain possible.",
+      "report_path": "task_a/roy2/A-015-closure-review.md",
+      "tool_path": "tools/a015_content_probe.py",
+      "asset_bytes_in_shared_repo": false,
+      "release_match": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A015-E21",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource + synthetic-test + reviewed-scope",
+      "locator": "Locally obtained original Asgard.exe/Born.dat/Map0-2 hashes matched recorded SHA; 494/494 MAP member lengths/headers/tails validated, version provenance remains unverified; rights/metadata-only handoff finalized without raw assets or native E2E.",
+      "report_path": "task_a/roy2/A-015-closure-review.md",
+      "tool_path": "tools/a015_content_probe.py",
+      "asset_bytes_in_shared_repo": false,
+      "release_match": "unverified",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "ev_a014_20261031_asgard_social_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "method": "PE32 objdump BIN-first; constructor opcode, writer and reader callsites plus partial RTTI tracing",
+      "scope": "C0E say/C19 whisper/C2E group/C12 member, S0A message/S0D say/S58/S3A; S0D first text read via 0x45B7A0 string8, contrary to source report string16 label",
+      "functions": [
+        "0x575070",
+        "0x5782D0",
+        "0x572DE0",
+        "0x573600",
+        "0x582200",
+        "0x5861D0",
+        "0x5800F0",
+        "0x5887CA"
+      ],
+      "report": "task_a/roy2/A-014-analysis.md",
+      "index": "task_a/roy2/A-014-packet-index.json",
+      "limits": "original server routing/op meaning unknown, native Client CT not-run"
     },
     {
       "evidence_id": "ev_a017_20261031_management_contract",
@@ -2144,6 +2479,838 @@
       ]
     },
     {
+      "evidence_id": "A014-E01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "RTTI descriptors 0x6694C4,0x669558,0x669760,0x669994 → CGroup/CMemberList/CSay/CWhisper vtable; constructors 0x572D30 op2E,0x573550 op12,0x574FC0 op0E,0x578220 op19",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E02",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "C0E 0x575070 writer type:u8+string8; C19 0x5782D0 writer type:u8+target:string8+text:string8; C2E 0x572DE0 op0/1; C12 0x573600 op/sub discriminant",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E03",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "SMessage 0x582150/op0A parser0x582200, SSay 0x586120/op0D parser0x5861D0, SMemberList 0x580040/op58 parser0x5800F0, SUpdateGroupMembers 0x5887A0/op3A subtype5",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E04",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "SSay type4 additional string16 and BE u32; SUpdate group local member struct uses 0x208B stride around 0x588820..0x588f20, not wire stride",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E05",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "UTF16 UI action strings ChatInputDialog/FriendListDialog/GroupMemberDialog/GuildListDialog/WhisperTargetDialog/InputChat/InputWhisper/InputShoutToGroup/InputShoutToGuild; Chat UI 0x42E03C creates CSay, 0x42E0A0/0x42E140 creates CWhisper",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E06",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test",
+      "locator": "test_a014_social.py synthetic CP950 decoded C0E/C19/C2E fixtures and malformed/overlong codepoint string tests; no real native Client E2E",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E07",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "designed",
+      "locator": "Fail-closed auth world generation, group/guild member revision, permissions, offline, replay and concurrency routing state model; not original Server policy",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A014-E08",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static+unknown",
+      "locator": "No separate CGuild/SGuild RTTI class identified; group/guild chat mapping, C2E/C12 subtypes and S58/S3A rows/native rejection meanings remain unknown",
+      "report_path": "task_a/roy2/A-014-analysis.md",
+      "raw_content_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "RTTI TypeDescriptors SDrawObjectsPacket 0x669CB0, SDieObjectsPacket 0x669C90, SMoveObjectPacket 0x669E8C, SMovePathPacket 0x669EAC, SRemoveObjectsPacket 0x66A038 via COL->vtable; native constructors 0x57E310(S07),0x57E1B0(S5F),0x5833A0(S0C),0x583530(S64),0x585E60(S0E) call base 0x578730",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E02",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "S07 0x57E3E0 reads BE u16 count and each first row BE u16,u16,u8,u32,u16, discriminator branches type1..14, local allocation 0x228 per row; full on-wire row is NOT fixed 0x228",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E03",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "S5F 0x57E260 BE u32 single value; S0E 0x585F10 BE u32 single value; opcode labels confirmed against ctor class, not merely file names",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E04",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "S0C 0x583450 BE u32,u16,u16,u8,u8; S64 0x5835E0 BE u32,u16,u16,u8,u8 count, count*u8, BE u16,u16,u8; S64 path local buffer +0x23..+0x2d precedes destination field +0x2e (11 slots), native counter loop cap unverified",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E05",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "CObjectInfoRequestPacket native ctor 0x574500 pushes 0x43; cannot link this alone to NPC click/interaction because UI producer and native response sequence not proven",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E06",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-resource + unknown",
+      "locator": "Provided MAP0/1/2 494 member structures and Born.dat observed; Born (31,29) is guide UI text, no proven NPC spawn/entity/map binding. EXE printable selectors World%02d.dat and @Monster%02d.dat are candidate resources, not proof of NPC spawn table",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E07",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test + designed",
+      "locator": "6 local unittest synthetic cases cover S5F/S0E/S0C/S64/S07-empty strict parsers, truncation/overflow/unknown forms, duplicate spawn, stale map epoch and lifecycle; neither native Client E2E nor original AI policy.",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/a024_npc_codec.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E08",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "CAttackPacket RTTI vtable 0x613530/0x61353C, ctor 0x570A10 pushes C2S opcode 0x13, writer 0x570AC0 reads local+0x18 and calls BE u32 writer 0x45AC40; external ctor callers 0x55709E and 0x557A5F; original UI target selection condition not fully proved",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/test_a024_npc_codec.py",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A024-E09",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static + synthetic-test",
+      "locator": "CObjectInfoRequestPacket ctor 0x574500 sends opcode 0x43; serializer 0x5745B0 uses u8 writer 0x45AB00, BE u32 writer 0x45AC40, u8 writer 0x45AB00; multiple producers incl. 0x479DC7, 0x4A23F8. Native NPC recruiter click mapping unknown; offline C13/C43 synthetic vectors added, 7 tests total PASS",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "test_path": "task_a/roy2/test_a024_npc_codec.py",
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A004-E01",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "SPutHumanObjectPacket RTTI 0x669F78 -> vtable 0x615310 -> ctor 0x5854D0 pushes S33; parser 0x585570 starts BE u16 x,BE u16 y,u8 facing,BE u32 actor field. S33 flags=0 profile name offset 34 string8 (source appearance.md).",
+      "report_path": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "unit_test": "task_a/roy2/test_a004_visibility.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A004-E02",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "SMoveHumanAckPacket RTTI 0x669E68 -> vtable 0x6150B4 -> ctor 0x583220 pushes S06; parser 0x5832D0 calls BE u32 0x45AEB0 then BE u16 0x45ADE0 twice; candidate remote actor identity, native registry hookup unproven.",
+      "report_path": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "unit_test": "task_a/roy2/test_a004_visibility.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A004-E03",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "SChangeDirectionPacket RTTI 0x669BA8 -> vtable 0x614A80 -> ctor 0x57D6C0 pushes S11; parser 0x57D770 calls BE u32 0x45AEB0 and u8 0x45ADB0.",
+      "report_path": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "unit_test": "task_a/roy2/test_a004_visibility.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A004-E04",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "SRemoveObjectsPacket RTTI 0x66A038 -> vtable 0x6154B8 -> ctor 0x585E60 pushes S0E; parser 0x585F10 calls BE u32 0x45AEB0. Entity deletion and scope are class-name inference until MapPane handler verified; shared with A-024.",
+      "report_path": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "unit_test": "task_a/roy2/test_a004_visibility.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A004-E05",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static + prior-profile",
+      "locator": "SMovePacket RTTI 0x669E4C -> vtable 0x615074 -> ctor 0x5830A0 pushes S0B; reader 0x583150 reads BE u16,u16,u8, NO u32 id. C33/C11 prior-profile user movement/turn distinct; S0B cannot address a distinct remote human by ID.",
+      "report_path": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "unit_test": "task_a/roy2/test_a004_visibility.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A004-E06",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static + inferred",
+      "locator": "SPutHuman S33 parser 0x585570 conditional flags at body offset26 and calls string8 reader 0x45B7A0; full optional flags branches not decoded by synthetic profile. S33 body is 42+CP950 byte length only under documented flags=0 profile (appearance.md).",
+      "report_path": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "unit_test": "task_a/roy2/test_a004_visibility.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A004-E07",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test",
+      "locator": "9 synthetic unit tests PASS for S33 profile CP950 length/flags/failure, S06/S11/S0E/S0B exact decoded sizes, duplicate join, movement, direction, leave, epoch rotation, stale move and ID tombstoning; designed model is not native ObjectRegistry.",
+      "report_path": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "unit_test": "task_a/roy2/test_a004_visibility.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A004-E08",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static + probe + designed-boundary",
+      "locator": "Original Asgard.exe SHA db3df616... verified locally; a004_native_probe.py confirms 5 S2C constructors and 5 BE reader call sequences on original PE32. Original AOI radius, recipient selection, disconnect death/cleanup, native Client 2-user E2E and u32 object registry key lifecycle remain unknown.",
+      "report_path": "task_a/roy2/A-004-analysis.md",
+      "native_probe": "task_a/roy2/a004_native_probe.py",
+      "unit_test": "task_a/roy2/test_a004_visibility.py",
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E01",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x573BF0 native CMovePacket serializer reads object bytes +0x18,+0x19,+0x1A and calls u8 writer 0x45AB00 3 times; layout C33 u8 direction/u8 seq/u8 gait (names from prior profile).",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E02",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x571960 native CChangeDir serializer reads +0x18 and calls u8 writer 0x45AB00 once; C11 one byte.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E03",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x583150 native SMovePacket reader calls 0x45ADE0 twice and 0x45ADB0 once; S0B BE u16 x,y and u8 status/sequence. Existing CT-004 profile example C33 017f01 -> S0B 000b000aff; native reject UI not-run.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E04",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x4B3520..0x4B355C MAP loader reads original 10B tile 3*LE u16 + LE u32 offset+6 into native tile stride 17B; 0x4B2C80 indexes 17*(x+y*width) + base.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E05",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x4B4BB0 line/segment traversal checks native +6 flags bit4 0x10 three times, returning a branch on obstacle; this proves bit4 LINE test, NOT player step movement passability.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E06",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static",
+      "locator": "0x4B2CA0 toggles tile +6 bit0 via OR 1/AND 0xfffffffe; 0x4D1206 tests bit0 in a separate grid/path algorithm; do not equate bit0 to bit4.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E07",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-original-resource",
+      "locator": "Map0.dat/Map1.dat/Map2.dat original SHA match, 288+184+22 maps and 7701805 tile full u32 flags distribution {0:2701300,1:496877,16:12,17:4503144,512:472}; all index/tile/tail/EOF validated. Flag512 would be miscounted using low byte only.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A005-E08",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "evidence_kind": "synthetic-test + designed",
+      "locator": "7 actual original PE pattern checks PASS, 10 synthetic unittest codec/flags/epoch/sequence-wrap/duplicate/speed/collision/reject/map tail PASS; Server speed/flag collision logic are designed NOT native E2E. Scripts a005_native_probe.py,a005_collision_probe.py,a005_move_codec.py,test_a005_move.py.",
+      "report_path": "task_a/roy2/A-005-analysis.md",
+      "script": "task_a/roy2/a005_native_probe.py",
+      "source_files": [
+        "Asgard.exe",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "raw_assets_shared": false,
+      "native_client_validation": "not-run"
+    },
+    {
+      "evidence_id": "A006-E01",
+      "evidence_kind": "observed-static",
+      "locator": "Original Asgard.exe SHA db3df...; S05 reader 0x5895A0 calls 0x45AEB0 BE u32, then BE u16 and u8 readers for base, distinct RGB bytes at documented body offsets 10..12 and 25..27; flags packet-local +0x2c",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "report_path": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "synthetic_test": "task_a/roy2/test_a006_look.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A006-E02",
+      "evidence_kind": "observed-static",
+      "locator": "S05 0x589674 test flags low-byte bit0 reads 3 extra u8; 0x589698 bit4 extra BE u16; 0x5896A9 bit1 extra u8; 0x5896B9 sign bit extra u8. Static original PE pattern probe PASS; fixed 29B schema NOT all variants",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "report_path": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "synthetic_test": "task_a/roy2/test_a006_look.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A006-E03",
+      "evidence_kind": "observed-static",
+      "locator": "S33 0x585573/0x58557E BE u16 x/y, 0x585589 u8 facing, 0x585593 BE u32 identity; hair RGB +15..17 and clothing RGB +30..32 (flags0 profile). Parser name via 0x5856DC→0x45B7A0 string8",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "report_path": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "synthetic_test": "task_a/roy2/test_a006_look.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A006-E04",
+      "evidence_kind": "observed-static",
+      "locator": "S33 reader 0x585667 flags bit0 RGB; 0x58568B bit4 BE16; 0x5856A4 bit1 u8; 0x5856B4 sign bit u8; 0x585719 flags bit13 extra tagged string8 branch. Nonzero flags require subtype-aware decoder",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "report_path": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "synthetic_test": "task_a/roy2/test_a006_look.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A006-E05",
+      "evidence_kind": "observed-static",
+      "locator": "S33 reader 0x585780..0x5857F4 normalizes zero-RGB color groups to FF00FF sentinel (writes first and third bytes ff), NOT a general no-black rendering theorem. Synthetic default sentinel tests PASS",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "report_path": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "synthetic_test": "task_a/roy2/test_a006_look.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A006-E06",
+      "evidence_kind": "profile-projection+observed-static",
+      "locator": "S04 reader 0x589990 starts BE u16; existing R006 appearance.md viewport 912×672, pane (-56,-36), tile48×32, (vx,vy)=(8,9) yields (400,300), (9,9) yields (448,300). Original GUI not-run",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "report_path": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "synthetic_test": "task_a/roy2/test_a006_look.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A006-E07",
+      "evidence_kind": "synthetic-test",
+      "locator": "10 unit tests PASS for S05 RGB independence/29B/flags, S33 CP950/name/flags/length, S04 x/y and 8/9 vs9/9 anchor; 13 original static PE instruction checks PASS. No native two-client GUI",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "report_path": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "synthetic_test": "task_a/roy2/test_a006_look.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A006-E08",
+      "evidence_kind": "observed-static+unknown",
+      "locator": "Native Human/YPF selectors in EXE include Human\\mb0%02d.dat, Human\\wb0%02d.dat, Human\\mh0%02d.dat, Human\\wh0%02d.dat; no original YPF/DOI full animation or GUI frames in this task, eight direction rendering/layer semantics not proven",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "date": "2026-10-31",
+      "report_path": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "synthetic_test": "task_a/roy2/test_a006_look.py",
+      "native_client_validation": "not-run",
+      "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "A008-E01",
+      "evidence_kind": "observed-static",
+      "locator": "S08 class constructor 0x586CD0",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-008-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A008-E02",
+      "evidence_kind": "observed-static",
+      "locator": "S08 flags/groups reader 0x586D40",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-008-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A008-E03",
+      "evidence_kind": "observed-static",
+      "locator": "Status projection receiver 0x53F8A0",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-008-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A008-E04",
+      "evidence_kind": "observed-static",
+      "locator": "Status UI callback 0x540660",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-008-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A008-E05",
+      "evidence_kind": "observed-static",
+      "locator": "C47 ctor 0x5708B0/writer 0x570960",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-008-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A008-E06",
+      "evidence_kind": "observed-static",
+      "locator": "StatusDialog choices 0x53FD60",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-008-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A008-E07",
+      "evidence_kind": "source-report-static-or-synthetic-test",
+      "locator": "15 PE anchors + four RTTI checks; original EXE report",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-008-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A008-E08",
+      "evidence_kind": "source-report-static-or-synthetic-test",
+      "locator": "10 decoded-body synthetic tests; not native E2E",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-008-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A009-E01",
+      "evidence_kind": "observed-static",
+      "locator": "C13 ctor 0x570A10 writer 0x570AC0",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-009-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A009-E02",
+      "evidence_kind": "observed-static",
+      "locator": "C13 producers 0x55709E 0x557A5F",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-009-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A009-E03",
+      "evidence_kind": "observed-static",
+      "locator": "C3D writer 0x570DE0 and jump table 0x570F2C",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-009-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A009-E04",
+      "evidence_kind": "observed-static",
+      "locator": "S3D parser 0x57C890 jump 0x57CD98",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-009-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A009-E05",
+      "evidence_kind": "observed-static",
+      "locator": "S13 effect parser 0x57DE90",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-009-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A009-E06",
+      "evidence_kind": "observed-static",
+      "locator": "S5F death reader 0x57E260",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-009-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A009-E07",
+      "evidence_kind": "source-report-static-or-synthetic-test",
+      "locator": "Status S08 receiver 0x53F8A0",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-009-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A009-E08",
+      "evidence_kind": "source-report-static-or-synthetic-test",
+      "locator": "16 PE byte signatures, 5 RTTI, 15 synthetic tests",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-009-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Indexed original analyst report; native Client online test not run. Specific byte/VA and evidence classification follow linked report."
+    },
+    {
+      "evidence_id": "A024-E10",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
+      "evidence_id": "A024-E11",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
+      "evidence_id": "A024-E12",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
+      "evidence_id": "A024-E13",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
+      "evidence_id": "A024-E14",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
+      "evidence_id": "A024-E15",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
+      "evidence_id": "A024-E16",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
+      "evidence_id": "A024-E17",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
+      "evidence_id": "A024-E18",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
+      "evidence_id": "A024-E19",
+      "evidence_kind": "source-report-static-or-synthetic-evidence-index",
+      "locator": "task_a/roy2/A-024-analysis.md §6.1–6.6; S07 kind1..14, S34 subtype11 and S2C reader cross-references (exact E-ID-to-VA crosswalk must be confirmed in source analyst notes)",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "report_path": "task_a/roy2/A-024-analysis.md",
+      "source_branch": "task_a/roy2",
+      "date": "2026-10-31",
+      "native_client_validation": "not-run",
+      "note": "Provisional index pointer preserving upstream Evidence ID. Not an independently verified E-ID-to-VA mapping; do not represent this pointer as additional original Client proof."
+    },
+    {
       "evidence_id": "ev_a004_20261031_world_entity_visibility_bin_static",
       "date": "2026-10-31",
       "evidence_kind": "observed-static-plus-designed",
@@ -2189,93 +3356,100 @@
       ]
     },
     {
-      "evidence_id": "ev_a011_20261031_monster_bank_s07_c39_motion_static",
-      "date": "2026-10-31",
-      "evidence_kind": "observed-static-plus-designed",
+      "evidence_id": "A011-E01",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-analysis.md",
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "evidence_kind": "observed-static-client-per-source-report",
+      "locator": "World/Monster library registrations 0x404331..0x4043AF",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "method": "original x86 resource registration pointer to UTF16 Monster%02d.dat, indexed loop 0x1f40..0x1f6a, S07 appearance/kind/opaque object ref, S1A Motion reader, C39 merchant writer; 12 original byte signatures; synthetic codec test script",
-      "scope": "A-011 resource filename/index vs S07 appearance candidate/ref, C39 merchant vs actual click unknown; animation/loot mapping missing without Monster assets",
-      "functions": [
-        "0x5f1d3c",
-        "0x404371",
-        "0x40438b",
-        "0x4043a3",
-        "0x4043a9",
-        "0x440720",
-        "0x57e3e0",
-        "0x57e451",
-        "0x4f17c0",
-        "0x4f198d",
-        "0x582fd0",
-        "0x573860"
-      ],
-      "report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
-      "contract": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
-      "index": "02-server-planning/npc-monster-resource-index.json",
-      "synthetic_test": "tools/a011_npc_asset_contract.py",
-      "limits": [
-        "Monster00.dat..Monster42.dat and Basic.dat missing; cannot map templates, sprites or animation frames",
-        "Native NPC click→interaction and dialogue/merchant mapping unknown",
-        "Do not use asset bank index as Server permanent EntityId or S07 opaque object ref",
-        "Native Client E2E not-run"
-      ]
+      "native_client_validation": "not-run",
+      "date": "2026-10-31"
     },
     {
-      "evidence_id": "ev_a022_20261031_map_archive_collision_resource",
-      "date": "2026-10-31",
-      "evidence_kind": "observed-static-plus-observed-resource-plus-designed",
+      "evidence_id": "A011-E02",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-analysis.md",
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "evidence_kind": "observed-static-client-per-source-report",
+      "locator": "UTF-16 name @Monster%02d.dat constant at0x5F1D3A but actual pointer0x5F1D3C skips @",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "resources": [
-        {
-          "filename": "Map0.dat",
-          "sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761"
-        },
-        {
-          "filename": "Map1.dat",
-          "sha256": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b"
-        },
-        {
-          "filename": "Map2.dat",
-          "sha256": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb"
-        }
-      ],
-      "method": "decoded original MAP archive 36B directory final4B payload END offsets and 491 tile payloads exact header+block grid+10B tiles+7/8/16B record sections, cross checked original Asgard.exe 0x4b33a0 and tile property/line-scan accessors",
-      "scope": "A-022 new physical geometry, tile flag0x10 Client line-obstruction and bit0x01 runtime toggle; not proven authoritative walkability or tutorial spawn",
-      "functions": [
-        "0x4b33a0",
-        "0x4b3466",
-        "0x4b3493",
-        "0x4b34a3",
-        "0x4b3520",
-        "0x4b3575",
-        "0x4b35e0",
-        "0x4b2c80",
-        "0x4b2ca0",
-        "0x4b2d00",
-        "0x4b4bb0",
-        "0x4b4bfe",
-        "0x4b4cb3",
-        "0x4d1189"
-      ],
-      "report": "03-analysis-requests/A-022-roy1-map-geometry-collision.md",
-      "contract": "04-analysis-integration/A-022-map-geometry-contract.md",
-      "index": "02-server-planning/map-geometry-evidence.json",
-      "synthetic_test": "tools/a022_map_geometry_probe.py",
-      "observed_resource_counts": {
-        "named": 494,
-        "complete_tile_maps": 491,
-        "special_zero_dimensions": [
-          "00000.map",
-          "10000.map",
-          "20000.map"
-        ]
-      },
-      "limits": [
-        "no original Server collision/walkable/monster placement rules",
-        "Client line test bit0x10 is not authoritative all-purpose walkability",
-        "C35 structured per-map checksum not computed; release pairing not proven",
-        "tutorial first map/spawn unknown; native Client E2E not-run"
-      ]
+      "native_client_validation": "not-run",
+      "date": "2026-10-31"
+    },
+    {
+      "evidence_id": "A011-E03",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-analysis.md",
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "evidence_kind": "observed-static-client-per-source-report",
+      "locator": "MonsterImageLib image id quotient/remainder 0x4D7530/0x4D7560",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "native_client_validation": "not-run",
+      "date": "2026-10-31"
+    },
+    {
+      "evidence_id": "A011-E04",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-analysis.md",
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "evidence_kind": "observed-static-client-per-source-report",
+      "locator": "S07 kinds1/2/4 -> MonsterObject 0x4D6FA0 via 0x4F1A8B/0x4F1B68/0x4F1BD1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "native_client_validation": "not-run",
+      "date": "2026-10-31"
+    },
+    {
+      "evidence_id": "A011-E05",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-analysis.md",
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "evidence_kind": "observed-static-client-per-source-report",
+      "locator": "MonsterObject motion selector 0x4D6BC0..0x4D6C28",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "native_client_validation": "not-run",
+      "date": "2026-10-31"
+    },
+    {
+      "evidence_id": "A011-E06",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-analysis.md",
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "evidence_kind": "observed-static-client-per-source-report",
+      "locator": "C43 ctor0x574500 writer0x5745B0 and UI producers0x479DC7/0x4A23F8",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "native_client_validation": "not-run",
+      "date": "2026-10-31"
+    },
+    {
+      "evidence_id": "A011-E07",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-analysis.md",
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "evidence_kind": "observed-static-client-per-source-report",
+      "locator": "NPCChatDialog RTTI and UI method0x4E0B70; reply/onclick full chain still unproven",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "native_client_validation": "not-run",
+      "date": "2026-10-31"
+    },
+    {
+      "evidence_id": "A011-E08",
+      "source_branch": "task_a/roy2",
+      "report_path": "task_a/roy2/A-011-analysis.md",
+      "native_probe": "task_a/roy2/a011_native_probe.py",
+      "synthetic_test": "task_a/roy2/test_a011_resource.py",
+      "evidence_kind": "original-exe-static-validation-and-synthetic-tests",
+      "locator": "PE32 SHA locked 29 instruction anchors, 4 RTTI,3 UTF-16 literals and synthetic fixtures per original analyst report",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "native_client_validation": "not-run",
+      "date": "2026-10-31"
     }
   ]
 }
