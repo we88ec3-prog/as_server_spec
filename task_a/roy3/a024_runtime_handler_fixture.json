@@ -1,0 +1,35 @@
+{
+  "analysis": "A-024",
+  "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "scope": "original-client-static-phase-dispatch-only",
+  "dispatch_va": "0x4F48A0",
+  "handlers": {
+    "S07": "0x4F17C0",
+    "S0C": "0x4F1610",
+    "S64": "0x4F1750",
+    "S0E": "0x4F1DA0",
+    "S5F": "0x4F2BB0",
+    "S29": "0x4F1DC0",
+    "S62": "0x4F2CD0",
+    "S63": "0x4F2F10"
+  },
+  "calls_verified": 21,
+  "anchors_verified": 39,
+  "handler_entries": 8,
+  "offline_tests": 10,
+  "c43_two_producers": {
+    "first": "0x479DC7",
+    "second": "0x4A23F8",
+    "synthetic_decoded_body_hex": "011122334404"
+  },
+  "s07_kind_branches": {
+    "13": "0x4C0640",
+    "14": "existing update or scene construct",
+    "1/2/4": "0x4D6FA0",
+    "other": "conditional local u16 0x8000..0xBFFF"
+  },
+  "original_ai": "unknown",
+  "tutorial_spawn": "unknown",
+  "recruiter_entity": "unknown",
+  "native_client_gui": "not-run"
+}
