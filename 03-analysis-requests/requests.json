@@ -876,7 +876,10 @@
       "legacy_conformance_ids": [
         "CT-067",
         "CT-068"
-      ]
+      ],
+      "latest_native_original_result": "PASS 43 native VA instructions on matching original Asgard.exe SHA: S07 common BEu16 field+0x0C -> MonsterObject image descriptor -> MonsterImageLib bank/slot; C43 UI panel 3 modes 04/10/40. Native GUI never executed.",
+      "latest_synthetic_ci_result": "PASS GitHub Actions 41233757360: 23/23 new S07 visual-source/C43 mode synthetic tests, prior 16/16 A-011 synthetic tests, other regression suites and phase gates (116 CT vectors).",
+      "latest_synthetic_ci_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41233757360"
     },
     {
       "id": "A-012",
