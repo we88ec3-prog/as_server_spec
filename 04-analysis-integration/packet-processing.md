@@ -127,3 +127,19 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 Client S08 由 Status::update 0x53F8A0 將數值寫至 Status 物件，再經 StatusDialog 0x540660（opcode8 比對）/0x540050 觸發刷新。四組目前值依 unsigned 比較對應最大值並做 Client-side clamp，**不是原服 HP/MP、數值或死亡公式**。C47 是否每次同步回 S08、四組數值精確 UI 標籤及 ExpBarDialog 比例 unknown。
 
 詳見 [A-008 原生分析](../task_a/roy2/A-008-analysis.md)、[A-008 合約驗收計畫](../05-conformance/A-008-stats-test-plan.md)。15 VA 指令 + 4 RTTI PASS；10 synthetic tests PASS。CT-061 離線子集通過，CT-062 原生 Client GUI not-run。A-008 integrated/ready **僅限已證 C47/S08 static Client I/O**，Server 數值公式獨立設計。
+
+
+## A-009／roy2：攻擊、傷害效果與死亡原生 Client I/O（2026-10-31）
+
+原始 `Asgard.exe` SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 由 RTTI/vtable、原生 ctor/writer/reader 與兩條 send producer 核對：
+
+|PKT|Native locus|已證 decoded body / 界限|
+|---|---|---|
+|C13 Attack|ctor `0x570A10`（push 0x13），writer `0x570AC0`，兩 producer `0x55709E/0x557A5F`|BE u32 一欄；Client 不是傷害權威|
+|S13 DamageEffect|ctor `0x57DDE0`（push 0x13）、reader `0x57DE90`|2 BE u32 + u8 + 2 BE u16 + flags u8＝14B；flags 0x08/0x10 只拆已有 u32；flags 0x01 多 17B，總 31B。原生 UI/傷害公式未證。|
+|C3D Battle|ctor `0x5711C0`（push 0x3D）、writer `0x570DE0`|u8 subtype 0..15 + variant writer。不可將其當作 C13 別名。|
+|S3D Battle|ctor `0x57C6E0`（push 0x3D）、reader `0x57C890`、jump `0x57CD98`|u8 subtype 0..15；已證短格式與部分多欄 variant；完整動態 subtype 必須另行按 reader 解析。|
+|S5F DieObjects|ctor `0x57E1B0`（push 0x5F）、reader `0x57E260`|BE u32 單欄；死亡事件非 S0E RemoveObjects。|
+|S08 Status|A-008 `0x586D40/0x53F8A0/0x540660`|獨立四組 resource current 通知；不由此證明 S13 一擊必對應 S08。|
+
+16 個原始 PE VA pattern + 5 RTTI **PASS**、15 組 synthetic 編解碼/截斷/負向測試 **PASS**；CT-063 offline static subset 有證，CT-064 原生 GUI **not-run**。**不得用 Native 只有 serializer/parser 的證據宣稱 hit/miss/crit 計算、原版死亡/復活時序或 Server 兩人同時死亡規則已還原。** Server 需自訂 session/epoch、range、cooldown、權威傷害、HP、死亡事件順序與去重（designed）。研究：[A-009](../task_a/roy2/A-009-analysis.md)；驗收：[CT-063/064](../05-conformance/A-009-combat-test-plan.md)。A-009 `integrated/partial`（核心 I/O 子集可交，複雜 subtype/GUI 仍未完整追通）。
