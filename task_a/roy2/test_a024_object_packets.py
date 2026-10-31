@@ -29,7 +29,7 @@ class NativeObjectPackets(unittest.TestCase):
     def test_s07_type124_optional_flags_in_native_order(self):
         extra=b"\x11\x22\x33\x44"+be16(0x5566)
         obj=draw_objects_s07(be16(1)+row(4,type124_tail(0x13,b"X",extra)))["rows"][0]
-        self.assertEqual(obj["optional_rgb3"],[0x11,0x22,0x33])
+        self.assertEqual(obj["optional_u8x3"],[0x11,0x22,0x33])
         self.assertEqual(obj["optional_u8"],0x44)
         self.assertEqual(obj["optional_u16"],0x5566)
 
