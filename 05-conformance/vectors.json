@@ -3322,7 +3322,15 @@
       "native_original_merchant_gui_complete": false,
       "original_server_npc_bind": "unknown",
       "original_first_Born_trigger": "unknown",
-      "scope_note": "28 synthetic tests and original source hash/XML/function audit. Native GUI, source of QuestDialog_Create and MerchantDialog_Create, original Server NPC→script association remain unverified; CT-034/035 not-run."
+      "scope_note": "28 synthetic tests and original source hash/XML/function audit. Native GUI, source of QuestDialog_Create and MerchantDialog_Create, original Server NPC→script association remain unverified; CT-034/035 not-run.",
+      "offline_subset_result": "PASS: four user-provided original Script files SHA256, native BEu16+BEu32 UTF16LE XML, CP950 text CRC, original callback/function DAG verified locally; GitHub Actions run 41231915314 28/28 new synthetic A023 Script-bundle tests PASS; 21/21 previous A023 DAT/Script tests and all other suites/phase gates PASS. No actual native Client Script GUI/first NPC E2E (CT034/035 not-run).",
+      "original_resources_validated": [
+        "PaperDialog.dat",
+        "PaperDialog02.dat",
+        "nNewJoin01.dat",
+        "Merchant.dat"
+      ],
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41231915314"
     }
   ]
 }
