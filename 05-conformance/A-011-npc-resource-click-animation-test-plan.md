@@ -29,3 +29,16 @@ python -m unittest discover -s task_a/roy2 -p 'test_a011_resource.py' -v
 7. 交付遮蔽敏感資訊的 decoded packet trace + 原生畫面 + objectkey/assetID/row kind/VA 完整對照；無法建立映射即保持 unknown。
 
 **狀態**：A-011 原生 Client I/O 靜態子集可交；真實 NPC 素材、UI 點擊與動畫 runtime **not-run**，不得聲稱原版掉落／怪物 AI 已被驗收。
+
+## 2026-11-01 A-011 新增原生靜態 CT-116 與更新真正 Native CT-083
+
+**編號更正**：本頁既有 Roy2 局部 CT-067/068 是歷史來源 ID；main 統一映射為 **CT-082（離線）/CT-083（原版 Client Native）**，本輪新增 **CT-116（原始 S07 image source + C43 3 mode 離線）**。以 [CT-116 最新細則](A-011-s07-visual-source-c43-test-plan.md) 和 [完整證據](../task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md) 為準。
+
+**新的原生 static 結果**：S07 每筆固定共通欄 x/y、kind、object ref 之後的 **第五欄 BEu16**，native `0x57E456 [row+0x0C]`，被 `0x4F1A7F` 放在 MonsterObject descriptor 第一個 u16，經 `0x4D6FA0→0x4D2340→0x4D7530/0x4D7560` 完整接上 Monster library `8000..8042`、slot 0..9（safe imageID `0x4000..0x41AD`）；`row+0x222` variant_u16 存成另一個 float 欄，不是 image ID。C43 的 pane mode0/1/2 完整送 `type1/subtype0x04,0x10,0x40`，共用 pane+0x4C 的 BEu32 object ref。
+
+```bash
+python task_a/roy2/a011_s07_native_visual_probe.py Asgard.exe
+python -m unittest discover -s task_a/roy2 -p 'test_a011_s07_visual_chain.py' -v
+```
+
+已從同 SHA 原始 EXE 驗證 43 個 native VA 靜態錨點及 23 synthetic unit tests。**CT-083 不因 CT-116 通過就變成 Native Client GUI pass**：還缺同版 MonsterNN / WorldNN 原始檔 payload→YPF/DOI image/frame/group/direction 實際對照、NPC/怪物模板與地圖綁定、真正 mouse click→C43/C39→S34/S3C/S44/NPCChatDialog、原服 AI/drop/生成規則及 GUI 擷包。即使先前專案已記錄 Monster00/World00 五個 YPF member 索引，本輪並未收到該兩個 binary，不能直接從 10 image slots/庫對照 5 個 YPF member。
