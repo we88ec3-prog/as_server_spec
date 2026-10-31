@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "0fa53013269c110a401ebe23d5655eea1025ffb0d00c165fba6b850bf4f88605"
+      "sha256": "f5abcb843f51d44e7d3a242ba21e0acd80ae5e59d117e4116cd49785f17c6029"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -49,7 +49,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "fe578ec3510343dcb4c944eb8162cf36ae90217888e1d26580e14208343482cf"
+      "sha256": "0888e0d8bd2b6e80c61bf78469e71e70ed278844b39a515600355e9307d00975"
     },
     {
       "path": "00-governance/workflow.md",
@@ -57,7 +57,7 @@
     },
     {
       "path": "01-server-requirements/first-login-onboarding.md",
-      "sha256": "3b30db8fc9e69a607f63fd20af257f220b61bf3fe237ebf1dd5f2eba9889297b"
+      "sha256": "7149550deb2cf398bde0b083709e50fe9df20d8e35c647beb7976d0041e3679c"
     },
     {
       "path": "01-server-requirements/README.md",
@@ -65,7 +65,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "9e122cc77c4a618fd3b0b8b51526af49850a83a84f0a2ca50d577e9c29524f85"
+      "sha256": "12d3432cfd58dd06adf4a39e7d1f85488df49570fe1e0d46f7fabfe7e6374502"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -113,7 +113,7 @@
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
-      "sha256": "80f4aa9f39e65e84c763d750290326643dcf9fac91c01157ad2b19700b546251"
+      "sha256": "6c1167e6d9f1bc4d3b532c2d3c9a4c6df6432d96cba3531c83355e2d5b76453d"
     },
     {
       "path": "02-server-planning/map-geometry-evidence.json",
@@ -145,11 +145,15 @@
     },
     {
       "path": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
-      "sha256": "77884bf4080deeebdfd37cd15f9c46d67f8555eeda7e1df202f4663b25e75824"
+      "sha256": "8731f02a37141da693dc2422c306679be1409ee65c4f9781c2dc5f32db813256"
     },
     {
       "path": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
       "sha256": "3c671cc624b07951807faea6106cc1453f97e194f42856782ccef58ba9922370"
+    },
+    {
+      "path": "02-server-planning/newuser-email-persistence-20261101.md",
+      "sha256": "b3a90965da1f495771a6cd28b7930f56f55bd6a933adfbf394752255f6931b88"
     },
     {
       "path": "02-server-planning/novice-school-admission-flow.md",
@@ -225,7 +229,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "302699eeda519a6f67d9c804b514a2b5af249fc1c190dd70cb51c6a46c84ceca"
+      "sha256": "37f75f12347a8ddc30e43c1010b58d9b74673f0fa0e11442cf882a549750f50f"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -648,6 +652,10 @@
       "sha256": "3400a3d60aa3703c652a1e855e3b5658b2e62a7861f0425918e8b240820cf9a4"
     },
     {
+      "path": "05-conformance/newuser-email-persistence-test-plan.md",
+      "sha256": "40171c68bea6683d22f5750eb092d210f9b1f3b543e93d3eb1a72962a934c0c9"
+    },
+    {
       "path": "05-conformance/onboarding-test-plan.md",
       "sha256": "f8ff54f07d80d4f2c5b51b269abc627fa56888a3230a2612db7e22f7c1f36a23"
     },
@@ -669,7 +677,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "0aeec625801508ea370ca05f620e4dade8af462f968748c35b6d7fea0ee65401"
+      "sha256": "73f314175183371ef3cbce73f6f7236768231cc18d6aeaa5b87c943f216110e9"
     },
     {
       "path": "README.md",

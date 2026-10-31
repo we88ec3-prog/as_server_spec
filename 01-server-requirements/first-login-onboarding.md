@@ -37,3 +37,7 @@ SCN-007 管理建帳與玩家首次登入；SCN-008 原 Client 創角；SCN-009 
 ## 更正後 DEV-030 實況及獨立改密碼 UI
 
 私有 `as_server_roy` 程式目前已將遊戲密碼驗證改為 **4～8 ASCII 英數**；上文舊「10～128 尚未修」為早期程式版本狀態，已不適用。玩家改密碼仍缺原版 native UI opcode/Server handler，**不得**把管理員 `credential-reset` 當作一般玩家的改密碼流程，亦不因此新增 Web 表單。新增 R-032、A-029、CT-097..099（planned/not-run）。
+
+## 2026-11-01 新決策 R-035：創角 E-MAIL 只保存
+
+原生 NewUser 的 E-MAIL 應保存為既有 Account 的 nullable `creation_email`；C04 角色原子提交時才一起寫入，未提交/失敗不可寫，既有未填資料為 NULL，成功重送不覆寫。**目前沒有其他用途**（不能當登入憑證、寄信、驗證、密碼找回或管理端新功能）。此產品決策取代舊文候選「E-MAIL 可選擇不存」，但 A-030 仍未證真實 NAME/E-MAIL wire 映射，原版 adapter 必須先查證。詳 [保存規劃](../02-server-planning/newuser-email-persistence-20261101.md)／CT-106；本次只更新 Spec。

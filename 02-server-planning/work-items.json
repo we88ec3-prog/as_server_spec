@@ -90,7 +90,8 @@
       "id": "ONB-02",
       "title": "創角／保存",
       "requirements": [
-        "R-026"
+        "R-026",
+        "R-035"
       ],
       "analysis_requests": [
         "A-003",
@@ -118,7 +119,8 @@
         "CT-100",
         "CT-103",
         "CT-104",
-        "CT-105"
+        "CT-105",
+        "CT-106"
       ],
       "depends_on": [],
       "readiness": "A-030 native field ordinal and S02 nonzero static integrated; NAME/EMAIL semantics and live C02 adapter still blocked",
@@ -160,7 +162,18 @@
         "latest_private_main": "f2a4a388013b11b5472c3b1022dea5c8176e503b",
         "revision": "IndependentCharacterCreation, ICreationCredentialVerifier, credential version fencing, phase-based form idle timeout, redacted diagnostic journal exist; LoginWireSession native C02/C04/C15 still fail-closed. No original Client E2E."
       },
-      "latest_a030_client_evidence": "region0 widget 1/2/3/F3=10; region2/3 widgets12/13/14/F3=15/F4=16; region4 widgets20/21/22/F3=23/F4=24; region1 mismatch; NAME/EMAIL labels and native S02 status still unproven"
+      "latest_a030_client_evidence": "region0 widget 1/2/3/F3=10; region2/3 widgets12/13/14/F3=15/F4=16; region4 widgets20/21/22/F3=23/F4=24; region1 mismatch; NAME/EMAIL labels and native S02 status still unproven",
+      "creation_email_storage": {
+        "decision": "approved-2026-11-01",
+        "db_column": "existing Account.creation_email nullable",
+        "write_stage": "C04 successful Character transaction only",
+        "scope": "storage-only; no other functions",
+        "status": "planned-not-implemented",
+        "native_field_gate": "A-030 authentic E-MAIL field map before native use",
+        "design_source": "02-server-planning/newuser-email-persistence-20261101.md",
+        "conformance": "CT-106",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "ONB-03",

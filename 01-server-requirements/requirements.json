@@ -366,6 +366,20 @@
       "evidence_kind": "designed",
       "design_source": "02-server-planning/three-policy-adjustments-20261031.md",
       "native_client_validation": "not-run"
+    },
+    {
+      "id": "R-035",
+      "system": "SYS-CHAR",
+      "priority": "P0",
+      "title": "創角 E-MAIL 僅保存於既有 Account",
+      "acceptance": "經 A-030 驗證的原生創角 E-MAIL 欄位，在 C02 驗證帳號密碼且 C04 建角成功的同一交易內持久寫入該已預建 Account 的 nullable creation_email；新/舊 SQLite、PostgreSQL 可正常升級與重啟。失敗/取消/中斷無部分寫入，成功重送不覆寫、不把 NAME 猜成 E-MAIL。暫不作認證、寄信、驗證、格式/唯一性檢查、密碼重設、後台顯示或其他用途。",
+      "baseline": "使用者 2026-11-01 明確決定；A-030 F4=EMAIL 仍待 native UI/wire 對應；DB/Server 未修改",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed",
+      "design_source": "02-server-planning/newuser-email-persistence-20261101.md",
+      "implementation_status": "not-reported",
+      "native_client_validation": "not-run"
     }
   ]
 }

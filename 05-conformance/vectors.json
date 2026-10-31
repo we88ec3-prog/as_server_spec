@@ -2891,6 +2891,39 @@
       ],
       "a030_analysis_report": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
       "a030_validation_detail": "Offline SHA/30 signature/29 selector/15 synthetic tests PASS; real original-client UI/capture not-run; NAME/EMAIL label semantic and status-code original Server mapping unknown"
+    },
+    {
+      "id": "CT-106",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "db-migration-and-native-creation-email-persistence",
+      "requirements": [
+        "R-035"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-S02",
+        "PKT-C15"
+      ],
+      "input": {
+        "kind": "sqlite-postgres-synthetic-plus-separate-original-client-validation",
+        "reference": "05-conformance/newuser-email-persistence-test-plan.md",
+        "cases": [
+          "SQLite/Postgres fresh/v4->v5 preserve existing Account/Character/credential_version/ban",
+          "verified creation email saved only to correct owner account with C04 atomic commit and re-read after restart",
+          "wrong-password/ban/C15/stale-session/invalid-C04/rollback never write email",
+          "committed C04 replay does not overwrite creation_email",
+          "unknown F3/F4 or region1 wire mapping never assumed; empty string vs NULL distinguished",
+          "no Admin UI/API, auth, password-reset, notification, uniqueness or audit/trace use"
+        ]
+      },
+      "expected": "Proven native E-MAIL value is durable as Account.creation_email exactly once and only atomically with successful Character creation; migration non-destructive; all failures leave no update. Native Client verification separate and remains not-run.",
+      "evidence_kind": "user-decided-designed-not-implemented",
+      "analysis_dependency": [
+        "A-030"
+      ],
+      "design_source": "02-server-planning/newuser-email-persistence-20261101.md"
     }
   ]
 }
