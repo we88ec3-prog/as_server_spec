@@ -17,7 +17,11 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "5fbd56fc1e2f6e4ced04bb49234f67d18dcd3c6fc532c02d9ed2f4e0ad839bc6"
+      "sha256": "33116592ed8288f8ac147c9e2559d04e2af234597b5abb205bc958b8abf764b4"
+    },
+    {
+      "path": "00-governance/explicit-implementation-confirmation.md",
+      "sha256": "454eb25ae2e2263bc9753b6c859c93a5e54e87d10f1525207a200106368c8819"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -61,7 +65,11 @@
     },
     {
       "path": "02-server-planning/admin-operations.json",
-      "sha256": "5e9c72d54108d7f0266bafe17b5376ab41816592afaf57822ad7cc7ceb3df82d"
+      "sha256": "58799a5458cc5a251a96c92c30e6e0b7ad90eea1e5d2cdec8ade5a4fd7286f1b"
+    },
+    {
+      "path": "02-server-planning/admin-web-management-interface-plan.md",
+      "sha256": "4c77ee811617930ccf3c18272a1efe8834d93c104a6829939e9ca56a133e7e26"
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
@@ -141,7 +149,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "f6bc3fa5629b57a4f705a29f2c1634159d2084f613001e03b60b196d4570c023"
+      "sha256": "cfb44799d14b6de5c571773762d722ad54ce30eb4c3d19a52ab66c7c76039a8c"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
@@ -189,7 +197,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "d587aba039b718eff66918fbca67e7815ae8b6e20815a19218b7e8bdf290a5bd"
+      "sha256": "94270871eabf13a4af4b4e4faad48caf5161eb562393c85756da085dd15a76ba"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -293,7 +301,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "fe92597a7a8aff460a97cd15e38eb21702627d75dc0b576e2d3bc347102be6bb"
+      "sha256": "82173b9fd8352bd97c0dacaa6444b8839cfeace0fb677290a77e79fcfcd8c80d"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -301,7 +309,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "1e0b4659ddb03cbbf73db886401a3307c19af35292502306b5b88e31acb1f41f"
+      "sha256": "1ceda569adbe2f59f4a02feb5a91d15678e5ca50daf60ad30e4d636f8958ec85"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -441,7 +449,7 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "04e1806fd69e34e479128cdbbdb16033298c7fcc02661a7f9b5304a9774fca83"
+      "sha256": "c5264e48150de01f42397f62818302c26c33672201fcc991777a2e67bba2278a"
     },
     {
       "path": "04-analysis-integration/packets.json",
@@ -458,6 +466,10 @@
     {
       "path": "04-analysis-integration/resource-formats.md",
       "sha256": "5e0afd7c2d5a64d2fd25871d755e713182b4338b425843d61ff9597c3539ed2d"
+    },
+    {
+      "path": "04-analysis-integration/roy-branch-web-admin-sync-20261031.md",
+      "sha256": "b68055e7f9cb4832c4aac9be7cc3f3a1bfa133988fa0f61d8d4a99e94f1e6f32"
     },
     {
       "path": "04-analysis-integration/roy-merge-20261031-audit.md",
@@ -536,6 +548,10 @@
       "sha256": "57e7068b4173f5d61635c1ee276d87abf455c70ed902d331bf324878a7019901"
     },
     {
+      "path": "05-conformance/admin-web-management-acceptance-plan.md",
+      "sha256": "bbed3f039a29b8dcf87da062fe816b953f8928e7ded6f2dfe3f88459f1eb47c8"
+    },
+    {
       "path": "05-conformance/audio-music-test-plan.md",
       "sha256": "260e70011aeada0ff4d57b7ece798087c57c7be79a2f1cf68a54a9721bcf84b6"
     },
@@ -581,11 +597,11 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "a668e811fb69fe5b84a058ee5c86a4ff2edb867c997f0921ab6dbfb7f4a575e5"
+      "sha256": "4170b95e0d6fc191f7b572ab0b2b00dd480af75de563c8f42dd8fae56ec2cc75"
     },
     {
       "path": "README.md",
-      "sha256": "0613be31574560ff327891fae4bb6a94236277dbc11106b052aa90d1a86e4a61"
+      "sha256": "9fbf6fe0bf936e9f21a6949a777bab476b730938e71dcf987bb866f387b11c59"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
