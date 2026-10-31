@@ -125,3 +125,13 @@ objdump -d -M intel --start-address=0x4a23ce --stop-address=0x4a2419 Asgard.exe
 GitHub Actions [run 41186221751](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751) 狀態 **success**：原專案 phase-gates 檢查通過，A-024 先前 19＋7 項 regression tests 通過，A-011 **16/16 synthetic unit tests PASS**。A-011 SHA-locked 原始 `Asgard.exe` 本地 native verification **29 VA anchors、4 RTTI、3 UTF-16 literal checks PASS**；這些是程式碼與 resource ID 結構驗證，不是 Monster 素材、Sprite 動畫或 Client GUI 的原生 E2E 驗收。CT-067 offline subset checked；CT-068 native validation **not-run**。
 
 **最終分工狀態：`integrated/partial`。** 已取得可交 DEV 的原生 ID 算法、S07→MonsterObject factory、C43 兩條 producer、Monster 本地 motion selector。要讓「某隻特定 NPC/怪物的外觀及每個動作如何播放」達到可執行的原作相容規格，仍需要實際持有的 **`Monster00.dat`**（或任一實際存在的 `MonsterNN.dat`）及可能的 **`World00.dat`**（或任一實際存在的 `WorldNN.dat`）對照 Client reader；NPCChatDialog 的必要腳本在引用已證前不能假定就是 **`PaperDialog.dat`**。已提供的 `Asgard.exe`、`Map0.dat`、`Map1.dat`、`Map2.dat`、`Born.dat` 不需要重傳。
+
+## 2026-11-01：A-011 新增 BIN-first 已解決原始 S07 圖像欄位及 C43 三模式
+
+**本節更新先前「S07 row 欄位到 MonsterImageLib 尚未串通」的歷史 unknown**。已從同 SHA 的原版 `Asgard.exe` 追通 `S07 reader 0x57E456 [row+0x0C]`（共通第五欄 BEu16）→ `0x4F1A7F` 20B visual descriptor 第一個 u16 → 三個 kind1/2/4 `MonsterObject ctor0x4D6FA0` → ctor 複製 descriptor `0x4D7020` 並 call `0x4D2340` → `0x4D235C` 讀 descriptor 第一個 u16 → `0x4D7530/0x4D7560` 解 Monster Resource Bank `8000+floor((id-0x4000)/10)` 與 slot `(id-0x4000)%10`。對已註冊安全 image range `0x4000..0x41AD` 可直接投影 `Monster00..42.dat`（43庫、10 image slots/庫）。尾段 `row+0x222` 的 `variant_u16` 另作 ctor 參數轉浮點存 object+0x27C，**不是 image ID**；BEu32 object ref 更不是 image ID。
+
+C43 新增原生 `0x4A2376..0x4A2558` **同一個 UI pane 的 mode0/1/2**，全部 type1，subtype 分別 **0x04、0x10、0x40**，object ref 均取 pane+0x4C；另 0x479DEB type1/04 舊路徑仍有效。不能以這三個資訊 subtype 證明 NPC 點擊／交談使用它，更不能直接授權 Server 商店／任務。
+
+[完整 A-011 增量研究](A-011-native-s07-visual-id-c43-20261101.md) · [43 VA 原件驗證](a011_s07_native_visual_probe.py) · [23 項 decoded-body synthetic](test_a011_s07_visual_chain.py) · [CT-116 offline gate](../../05-conformance/A-011-s07-visual-source-c43-test-plan.md)。
+
+**結果界線**：舊 A-011 第一版缺 image source XREF 已補完；但目前本輪容器 **沒有** `Monster00.dat`／`World00.dat` raw payload，雖原 repo 有歷史索引/5個YPF member metadata，仍無法獨立映射實際 Monster sprite、方向、動畫群組、NPC spawn/AI/drop；原版 Client GUI CT-083 仍 `not-run`。A-011 為 `integrated/handoff_status=partial`，已證 static Client I/O 可交 Server，不意味所有 NPC/怪物動畫與原服規則已復刻。
