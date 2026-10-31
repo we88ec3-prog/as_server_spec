@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 ADR-008：使用者確認創角成功直接進遊戲、不返回登入畫面
+
+以本輪使用者明確要求覆蓋先前規劃錯誤：新角色 C02→S02(0)→C04→S02(0) 後直接由原版 Client 自動入 World，**不得要求回 LoginDialog 人工再次 C03**；日後有角色的一般 LoginDialog C03/S03/C10 仍保留。新增 ADR-008，調整 R-026/027、ONB-02/03/04、A-028/030/031、SCN-008/009/010、DEV-ENTRY-02/03、readiness/Client I/O matrix、CT-105/107/108 與相關文件。已知 C04 callback 0x4b206b 不立即 S03，但其後原版自動入世界 packet 仍需取證；不因此標記原生 Client E2E 成功。只修規格、不改 Server/DB/EXE。
+
 ## 2026-11-01 原版 Client 完整創角至可操作入圖 P0 實作規劃
 
 對照 `as_server_spec/main@3cb220a2` 及私有 `as_server_roy/main@a9326985`，區分已有 Account/E-MAIL v5、Character/proof、C03/S03/C10、World DB/scene 合成後端，與未完成的 live C02/C04/C15、真 World C25、真 MAP C35、InWorld C11/C33。新增 DEV-ENTRY-00..06、P0 A-030 現有任務續查與新 A-031/032、CT-107..109、ONB/ready gates/traceability。原版 Asgard.exe 不修改；Server 原始碼/DB 未由本次 Spec 工作改動；原版 Client E2E 仍 not-run；NPC/怪物/任務不設為首次可操作入圖的先行阻塞。

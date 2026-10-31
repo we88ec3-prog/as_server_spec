@@ -71,3 +71,7 @@
 這只補 A30-1 的診斷切片；欄位／地區、錯誤 UI、取消與成功路徑仍待分析，不重做已證 serializer，也不把修改副本當原版 Client passed。新版 Server 已有 FormInput 600/1800秒政策；後續優先補可接通 C02 的合約，而非繼續調整同一個 timeout。原版 Client SHA 與原版 CT 的要求維持不變。
 
 This confirms A30-1 packet/close reason only for the **modified diagnostic Client**. Original Asgard.exe unmodified CT-103/104/105 remains not-run. Static Client NAME/EMAIL semantic and safe S02 failure mapping remain blocked.
+
+## 2026-11-01 ADR-008：成功建角直接進遊戲（覆蓋舊推定）
+
+**使用者明確確認：創角成功後不回登入畫面、不需要再手動 C03，而是由原版 Client 直接進入遊戲世界。** 本檔早期「創角後回登入」「從 LoginDialog 再認證」僅是過時假設，不再作為 Server 實作或 CT 驗收標準；後續由 A-028 的 C04 final S02 callback `0x4b206b` 與 A-031 的新角色原生 World 轉場封包研究確定安全的 post-create authorization、socket 與 Client 需要的 S2C。日後已存在角色的普通登入 C03/S03/C10 保留，與首次創角分開驗證。參閱 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 GUI E2E 仍為 not-run。
