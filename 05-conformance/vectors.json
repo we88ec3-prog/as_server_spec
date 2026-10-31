@@ -419,9 +419,11 @@
       "expected": "教學 NPC/怪物按原生內容合法生成、重連/重載不重複",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "A024 static Client body subset; S07 row variant/spawn map still unknown",
+      "packet_mapping": "S07 native 1..14 nonempty rows/conditional fields now documented; S0C/S64/S5F/S0E fixed bodies. Official tutorial NPC map/type/skin still unknown.",
       "analysis_request": "A-024",
-      "offline_test": "task_a/roy2/test_a024_npc_codec.py"
+      "offline_test": "task_a/roy2/test_a024_npc_codec.py",
+      "a024_native_report": "task_a/roy2/A-024-analysis.md",
+      "a024_nonempty_test": "task_a/roy2/test_a024_object_packets.py"
     },
     {
       "id": "CT-022",
@@ -1560,6 +1562,70 @@
       "evidence_kind": "designed-test",
       "analysis_request": "A-009",
       "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-065",
+      "status": "planned",
+      "level": "original-PE-npc-object-packets-static-and-synthetic",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S62",
+        "PKT-S63",
+        "PKT-S29",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "input": {
+        "kind": "original-client-static-plus-synthetic",
+        "reference": "05-conformance/A-024-object-lifecycle-test-plan.md"
+      },
+      "expected": "Original Asgard.exe SHA + 20 instruction patterns, 14 S07 type switch entries and six RTTI verified; synthetic decoded body tests for S07 nonempty all native kinds and S34 subtype6/S3C/S62/S63/S29 must pass independently. No native GUI or official monster type claims.",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "20 PE anchors + 14 S07 switch entries + six RTTI independently PASS; new synthetic suite added, execution result not yet recorded",
+      "original_probe": "task_a/roy2/a024_object_native_probe.py",
+      "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "analysis_request": "A-024",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-066",
+      "status": "planned",
+      "level": "native-original-client-object-spawn-move-update-die-remove",
+      "requirements": [
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S34",
+        "PKT-S3C",
+        "PKT-S62",
+        "PKT-S63",
+        "PKT-S29",
+        "PKT-S5F",
+        "PKT-S0E",
+        "PKT-C43"
+      ],
+      "input": {
+        "kind": "native-original-client-required",
+        "reference": "05-conformance/A-024-object-lifecycle-test-plan.md"
+      },
+      "expected": "Native display of S07 nonempty rows and correct kind/resource mapping, S0C/S64 movement, S34/S3C/S62/S63/S29 contextual effects, S5F vs S0E removal, NPC interaction C43, relog/map stale events and safe object ID lifecycle; no original Server AI policy inferred.",
+      "evidence_kind": "designed-test",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-024"
     }
   ]
 }
