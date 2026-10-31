@@ -32,3 +32,6 @@ jobs:
       - name: Validate A-028 original C04 final-S02 native UI callback and synthetic state
         run: |
           python3 -m unittest discover -s task_a/roy2 -p 'test_a028_postcreate.py' -v
+      - name: Validate A-023 Born/Basic indexed DAT and native Script resource boundaries
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
