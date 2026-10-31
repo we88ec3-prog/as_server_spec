@@ -93,3 +93,17 @@ Script 既有簡化 `BE u16 length` 的錯誤已更正為 **BE u16 version + BE 
 另有 S07 receive handler native `0x4F1A8B/0x4F1B68/0x4F1BD1` 在 kind 1/2/4 時呼叫 `MonsterObject ctor 0x4D6FA0`；local motion selector `0x4D6BC0` 選出 `+0x20/+0x30/+0x40` 三組偏移（重複兩遍）。這些是**已證的程式碼映射**，不是已證的某種怪物／NPC species、動作名字或 YPF／DOI 方向圖群。
 
 具體資料、C43 兩條原生 UI request 路徑、缺件及驗證見 [A-011 報告](../task_a/roy2/A-011-analysis.md)、[CT-067/068](../05-conformance/A-011-npc-resource-click-animation-test-plan.md)。目前尚無同版 `MonsterNN.dat`/`WorldNN.dat` 實體檔，不應假設原服掉落/AI/動畫組已還原。
+
+
+## A-015／roy2 MAP 座標、碰撞來源與真正可用座標（2026-10-31）
+
+以原始 `Asgard.exe` 與原件 `Map0.dat`～`Map2.dat` 獨立復核，**494 MAP、7,701,805 tiles**，詳見 [A-015 MAP／碰撞詳細分析](../task_a/roy2/A-015-map-coordinate-collision.md) 及 [CT-069／070](../05-conformance/A-015-map-coordinate-test-plan.md)。
+
+- **raw tile**：MAP header 3×LE u16、width/height u8、block `ceil(w/2)*ceil(h/4)*2` bytes；每 tile `LE u16,u16,u16,u32` 佔 **10 bytes**。原生 loader `0x4B33A0` 轉成 Client 每格 **17 bytes**，`0x4B2C80` 依 `x+y*width` 尋址；超出範圍無效，`0x4B4920` 有 bounds guard。
+- **畫面像素 extent**：Native `0x4B4A3B` `height*32`、`0x4B4A73` `width*48`；`pixel//(48,32)` 可作 candidate tile 對應，不等於已證玩家腳底/pivot/可行走 grid。
+- **collision 分流**：tile `flags_u32` 的 **bit0** 在 `0x4B2CA0` 可被本地 set/clear、`0x4D120B` 另一 consumer 測試；**bit4** 在 `0x4B4BB0` 的線段/格列測試；`0x4B3250/0x4B2D00` 又有獨立 4 bytes/cell 網格與鄰格判斷。**沒有原生證據表明 bit0 或 bit4 是玩家唯一 walkability mask**。
+- **原件 flags**：全庫只有 `0=2,701,300`、`1=496,877`、`16=12`、`17=4,503,144`、`512=472`。注意 0x200 不是 0。Born(31,29) 對應 477 張 MAP 的 in-bounds tile，分別 flags 0(242)、1(109)、17(126)，**不是原版 spawn/可用位置驗證**。
+- **pixel candidate tails**：8B 尾段 `(+2,+4)` 是候選像素座標（396/396 在 bounds），16B 尾段 `(+12,+14)`（2269/2269 在 bounds）。尚未證明它們是 NPC、出生、傳送或碰撞資料。
+- **驗證**：原件 EXE SHA 鎖定 26 條 VA 指令位置、三庫 494 原始 MAP 結構、合成 MAP 座標/截斷/越界測試；Native Client 撞牆與回滾 `CT-070` **not-run**。Server 只可依此讀 raw grid、檢查 bounds，不能自動從 raw flags 產出官方全地圖 passable whitelist。
+
+**缺少新資源檔：無**。Client EXE、MAP 三庫及 Born 都已提供；要真正判定可站立與角色碰撞，缺的是指定地圖、原生 Client 行走/撞牆的去識別 packet/UI trace 或更深的 movement candidate→collision handler XREF，而非更多美術圖。
