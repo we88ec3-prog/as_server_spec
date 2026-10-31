@@ -1465,10 +1465,12 @@
       "name": "StartCastSpell",
       "system": "SYS-SKILL",
       "layout": "BE u16 spell_value from Client selected object word [ebx+0x80e]; native 0x5755c0",
-      "client_entry": "0x575510 ctor; 0x5755c0 writer; sender 0x402034..0x402052",
+      "client_entry": "0x575510 ctor opcode0x4D; 0x5755C0 BEu16 writer; original producer 0x402034..0x402052 from [ebx+0x80E] and send 0x5788A0",
       "state_precondition": "Client has selected nonzero spell value; Server validates learned/allowed spell and current World generation independently",
       "related_packets": [
-        "PKT-S52"
+        "PKT-C56",
+        "PKT-S52",
+        "PKT-S48"
       ],
       "layout_status": "observed-static",
       "profile": "TW-seed0-local-v0.1",
@@ -1476,7 +1478,8 @@
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
+        "A010-E01",
+        "A010-E02"
       ],
       "requirements": [
         "R-011",
@@ -1484,7 +1487,9 @@
       ],
       "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
       "manual_validation": "not-run; BIN/codec signatures only",
-      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "a010_report": "task_a/roy2/A-010-analysis.md",
+      "a010_boundary": "C4D has no native codec resource cost/cooldown/target; does not prove original Server spell acceptance"
     },
     {
       "id": "PKT-C56",
@@ -1493,10 +1498,12 @@
       "name": "CastSpell",
       "system": "SYS-SKILL",
       "layout": "u8 opaque_cast_parameter; native writer 0x571800; full UI sender/semantic sequencing not established",
-      "client_entry": "0x571750 ctor; 0x571800 writer; UI sender pending further trace",
+      "client_entry": "0x571750 ctor opcode0x56; 0x571800 writer; complete UI producer not proven",
       "state_precondition": "Original phase and value meaning UNKNOWN; do not accept as standalone damage/quest completion",
       "related_packets": [
-        "PKT-S52"
+        "PKT-C4D",
+        "PKT-S52",
+        "PKT-S48"
       ],
       "layout_status": "observed-static",
       "profile": "TW-seed0-local-v0.1",
@@ -1504,7 +1511,7 @@
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
+        "A010-E03"
       ],
       "requirements": [
         "R-011",
@@ -1512,7 +1519,9 @@
       ],
       "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
       "manual_validation": "not-run; BIN/codec signatures only",
-      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "a010_report": "task_a/roy2/A-010-analysis.md",
+      "a010_boundary": "Only u8 cast parameter; do not infer C4D->C56 must occur or target value"
     },
     {
       "id": "PKT-C3D",
@@ -1612,11 +1621,12 @@
       "name": "CastSpell",
       "system": "SYS-SKILL",
       "layout": "BE u32 opaque_object_ref, u8 opaque_state_or_result; reader 0x57d600 calls 0x45aeb0 then 0x45adb0; enum meanings UNKNOWN",
-      "client_entry": "0x57d550 ctor (0x57d569 opcode 0x52); 0x57d600 parser",
+      "client_entry": "0x57D550 ctor opcode0x52; 0x57D600 reader BEu32 +u8",
       "state_precondition": "Client spell UI/world state; do not interpret u8 as confirmed quest success",
       "related_packets": [
         "PKT-C4D",
-        "PKT-C56"
+        "PKT-C56",
+        "PKT-S48"
       ],
       "layout_status": "observed-static",
       "profile": "TW-seed0-local-v0.1",
@@ -1624,7 +1634,7 @@
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
+        "A010-E04"
       ],
       "requirements": [
         "R-011",
@@ -1632,7 +1642,9 @@
       ],
       "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
       "manual_validation": "not-run; BIN/codec signatures only",
-      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "a010_report": "task_a/roy2/A-010-analysis.md",
+      "a010_boundary": "opaque reference and enum; success/failure and effect animation not proven"
     },
     {
       "id": "PKT-S1E",
@@ -2606,6 +2618,80 @@
       ],
       "native_client_validation": "not-run",
       "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+    },
+    {
+      "system": "SYS-SKILL",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-011"
+      ],
+      "layout_status": "observed-static-original-client-non-GUI",
+      "native_client_validation": "not-run",
+      "a010_report": "task_a/roy2/A-010-analysis.md",
+      "id": "PKT-S48",
+      "direction": "S2C",
+      "opcode": "0x48",
+      "name": "CancelCastSpell",
+      "layout": "BE u32 opaque_reference (4-byte decoded body) at packet local +0x18",
+      "client_entry": "0x57D3F0 constructor push0x48; 0x57D4A0 reader calls BE u32 0x45AEB0",
+      "evidence_ids": [
+        "A010-E05"
+      ],
+      "related_packets": [
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-S52"
+      ],
+      "a010_boundary": "Not proven if user cancel/server failure; no native GUI/MP refund inference"
+    },
+    {
+      "system": "SYS-SKILL",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-011"
+      ],
+      "layout_status": "observed-static-original-client-non-GUI",
+      "native_client_validation": "not-run",
+      "a010_report": "task_a/roy2/A-010-analysis.md",
+      "id": "PKT-S2C",
+      "direction": "S2C",
+      "opcode": "0x2c",
+      "name": "AddLastingSpell",
+      "layout": "BE u32, u8, BE u16, u8, string8 encoded-byte length N plus N raw CP950 bytes, u8, BE u32, BE u32 (18+N bytes). Local UTF16 buffer 0x200 size is NOT wire. Opaque field meanings.",
+      "client_entry": "0x57A8D0 constructor push0x2C; 0x57A980 native reader and 0x45B7A0 string8 local wide conversion",
+      "evidence_ids": [
+        "A010-E06",
+        "A010-E07"
+      ],
+      "related_packets": [
+        "PKT-S2D",
+        "PKT-S48",
+        "PKT-S52"
+      ],
+      "a010_boundary": "No confirmed original duration/stack/refresh, u32 values opaque and removal cross-ID unproven"
+    },
+    {
+      "system": "SYS-SKILL",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-011"
+      ],
+      "layout_status": "observed-static-original-client-non-GUI",
+      "native_client_validation": "not-run",
+      "a010_report": "task_a/roy2/A-010-analysis.md",
+      "id": "PKT-S2D",
+      "direction": "S2C",
+      "opcode": "0x2d",
+      "name": "RemoveLastingSpell",
+      "layout": "BE u32 opaque_reference (4-byte decoded body), not object remove/death",
+      "client_entry": "0x585D00 constructor push0x2D; 0x585DB0 BEu32 reader",
+      "evidence_ids": [
+        "A010-E08"
+      ],
+      "related_packets": [
+        "PKT-S2C"
+      ],
+      "a010_boundary": "UI callback and correspondence to S2C ID not completely proven"
     }
   ]
 }
