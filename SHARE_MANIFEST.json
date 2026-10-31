@@ -616,6 +616,10 @@
       "sha256": "411206e24110e5a21fd740dea008cf606bd6e91d216ea32d43e2cf821938d122"
     },
     {
+      "path": "05-conformance/A-005-native-path-collision-test-plan.md",
+      "sha256": "dc0e8bf6916ba7c8c2c3dc8078ce6eea4fc1d24b704083dcb71d160d29721d35"
+    },
+    {
       "path": "05-conformance/A-006-appearance-test-plan.md",
       "sha256": "739fc3eafbabb33a5fa9f9687ea7452098f31e378ee7d5473719f42d9547fafd"
     },
@@ -741,7 +745,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "4247ca019dfa2e748fe2aeda511a065d45baa2cf58c00e30ae51dd063a97abc1"
+      "sha256": "4b888c4b40608103da447fa294301bcc1a5a5c64421c85b55864f6bc5e7c3383"
     },
     {
       "path": "README.md",
@@ -1016,6 +1020,10 @@
       "sha256": "2a1adf17dde6c651ef831bbaac3ac99bc367e0305c26a7c24c02173c1a46e974"
     },
     {
+      "path": "task_a/roy3/A-005-native-path-collision-closure.md",
+      "sha256": "65e7f5f700b25f7b528b48ead73b94d2489295c4a25169d5dc7f3038e207f674"
+    },
+    {
       "path": "task_a/roy3/A-005-roy3-native-movement.md",
       "sha256": "1868d60bb2a7a49dda5603e040e5359f437decb9a6e4fa656a13017bb8b9ad86"
     },
@@ -1026,6 +1034,10 @@
     {
       "path": "task_a/roy3/a005_native_move_chain.py",
       "sha256": "9bad174e66079bd25a0c3cfca51def7a26fab04517a1a614643bdfe9bcac22bb"
+    },
+    {
+      "path": "task_a/roy3/a005_native_path_fixture.json",
+      "sha256": "91fe2e7b6bc05a25f604b130bd2af1a4e6bd377a72a562a73b64d7103e7d841f"
     },
     {
       "path": "task_a/roy3/a005_roy3_collision_recovery.py",
