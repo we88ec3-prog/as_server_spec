@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-10-31 RI-005：視窗回應正常但遊戲已斷線
+
+收錄使用者實測、11筆程序取樣與事後 listener／連線觀測；使用者確認手動關閉，故排除將 PID 消失直接標為 crash 的誤讀。新增程序／TCP／會話分離、分階段 idle/load timeout 與去敏 close 摘要合約。現行60秒 read timeout 只列靜態候選，不宣稱已確認根因；Server 未修改、未重啟，原版及功能驗收未通過。
+
 ## 2026-10-31 本地問題收集與規格整合角色
 
 依需求方指定，本工作只維護 as_server_spec、對 as_server_roy 唯讀核對；新增本地問題到 A／DEV／CT 的交接流程、RI-001～004 去敏登錄、Server 修正交接與本地主選單／創角入口的既有證據整理。按 as_server_roy b8e212e 區分已實作後端／診斷與未完成原生 wire，釐清 ad84f9 的歷史根因範圍。置中／染色屬舊原型、tooltip 屬修改副本，不冒認新版 Server 或原版 Client 驗收。未變更 Server 實作、資料庫或 Client，CT-103～105 維持 not-run。

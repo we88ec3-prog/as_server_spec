@@ -2,6 +2,8 @@
 
 更新：2026-10-31。規格起點 `6b93590`；唯讀核對 `as_server_roy@b8e212e`。本次沒有執行該 Server、變更其檔案或驗收遊戲。問題機讀入口：[runtime-issues.json](../03-analysis-requests/runtime-issues.json)；工作邊界：[問題收集流程](../00-governance/runtime-feedback-workflow.md)。
 
+後續實測回報 **RI-005**：Client 視窗有回應但使用者看到斷線，之後手動關閉；事前 UI／根因未知。新增 [閒置斷線與監測合約](idle-disconnect-observability.md)，要求程序、TCP 與會話狀態分開，按階段診斷 timeout；不直接歸入 RI-001，也不把手動退出當 crash。
+
 ## P0 / RI-001：原生創角斷線
 
 目前的 [斷線修正規劃](native-newuser-disconnect-remediation-20261031.md) 以 `ad84f9` 作歷史根因基線；不能把它的「尚未驗證憑證／沒有草稿處理」直接當成新版全部未實作。
