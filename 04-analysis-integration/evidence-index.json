@@ -2096,6 +2096,52 @@
         "Local prototype wardrobe is not original item economy",
         "Designed SQLite transaction/ledger is not original Server behavior"
       ]
+    },
+    {
+      "evidence_id": "ev_a019_20261031_music_s19_map_index_bin_static",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-client-and-Map-archive-index",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "resources": [
+        {
+          "filename": "Map0.dat",
+          "sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761"
+        },
+        {
+          "filename": "Map1.dat",
+          "sha256": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b"
+        },
+        {
+          "filename": "Map2.dat",
+          "sha256": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb"
+        }
+      ],
+      "method": "original Asgard.exe x86 objdump SPlaySound opcode/parser/handler and Music/%05d.mp3 path, native byte signatures; Map0/1/2 packed 36-byte directory index + SHA comparison, 494 map names; 10 offline unittest with S19 codec & designed source-gated cue model",
+      "scope": "A-019 original Client S19 protocol and audio file name scheme, Map archive index ONLY, no original-server map→track assignment; synthetic CT-005/006 not native song provenance",
+      "functions": [
+        "0x584A49",
+        "0x584AE3",
+        "0x584AE8",
+        "0x584AF6",
+        "0x584B00",
+        "0x4F25D0",
+        "0x4F25EB",
+        "0x4F260B",
+        "0x53CDC0",
+        "0x53CE4D",
+        "0x60EE20",
+        "0x4B3424"
+      ],
+      "report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "contract": "04-analysis-integration/A-019-map-music-contract.md",
+      "catalog": "02-server-planning/map-music-evidence.json",
+      "synthetic_test": "tools/a019_music_map_probe.py",
+      "limits": [
+        "original Server music policy/official map→track rows unknown",
+        "archive index contains only MAP names, not negative proof all MAP payloads lack track metadata",
+        "resource/client release pairing unverified",
+        "real original Client audio across different maps not tested"
+      ]
     }
   ]
 }

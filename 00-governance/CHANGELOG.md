@@ -85,3 +85,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-007 背包、裝備生命週期的原生封包矩陣
 
 原版 Asgard.exe SHA256 固定，追 C1C 0x577800/0x577920 use_kind1..9、C1E 0x578010、C08 Drop 0x571ff0、C0C PutRequest 0x574af0；S0F AddInventory 0x57a3f0 分支 mode0/1/2、S37 AddEquipment 0x579830、S10 RemoveInventory 0x585c30 3u8、S38 RemoveEquipment 0x585ac0 u8+u8 raw flag。對地圖/背包/物品圖示/原服實例 id 禁止無證推論。新增 A-007 BIN-first/Domain 契約/Python 15 signature +12 unittest、4 個 PKT、SCN-015、CT-057/058/059，修改 Manifest/治理及 packet traces；A-007 integrated/handoff partial，native Client E2E not-run、物品正式模板與業務規則 still unknown。
+
+## task_a/roy1 — 2026-10-31 A-019 原生地圖音樂對應與 S19 解析
+
+以原始 Asgard.exe SHA256 固定追 SPlaySound 0x584A49/0x584AE0、S19 handler 0x4F25D0（kind1 音樂 → 0x53CDC0，非1 音效 → 0x53D250）、曲目 `%05d.mp3`，重查已提供的 Map0/1/2.dat 原件 SHA與36-byte entry directory，索引分別有288/184/22 可辨識 `*.map`，沒有 MP3/music filename 和已證實官方 map→track mapping。明示 unknown（不把本機 track1 當官方）。新增 BIN-first 報告、Domain 契約、map-music-evidence.json（verified rows0）、offline 11 signature/10 unittest，以及 CT-060/061/062；更新 A-019/PKT-S19/SCN-006/CT-005/006/Manifest。A-019 integrated/partial，native Client E2E not-run，原服 map→track 尚未還原。

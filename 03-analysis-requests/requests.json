@@ -442,12 +442,36 @@
       "title": "原地圖音樂配置",
       "method": "追原資料是否含map→track對應；找不到時保持明示自訂配置。",
       "deliverable": "原曲目對應有證據，或明確宣告未知；不可把測試曲1當官方配置。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a019_20261031_music_s19_map_index_bin_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "observed-static-client-and-Map-archive-index",
+      "implementation_ready": true,
+      "implementation_ready_scope": "Native S19 kind1 music and kind!=1 sound discriminator with conditional repeat/u16 track codec; 3 Map*.dat directory and SHA audit, designed provenance-gated cue catalog and epoch fence. NOT native map-to-track mapping",
+      "native_map_track_mapping_ready": false,
+      "native_original_music_catalog_ready": false,
+      "original_server_music_policy_proven": false,
+      "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "analysis_contract": "04-analysis-integration/A-019-map-music-contract.md",
+      "analysis_catalog": "02-server-planning/map-music-evidence.json",
+      "analysis_test": "tools/a019_music_map_probe.py",
+      "analysis_scope": "Client S19 ctor/parser/handler→Music filename and Map archive directory/index only, map-ref to original song ID not found; explicit designed local vs native provenance",
+      "remaining_unknowns": [
+        "Original Server map_ref→track_id/repeat configuration and when it emits S19 across maps/reconnect",
+        "Any track mapping hidden inside encrypted/unparsed MAP payload or additional Script/other content, versus original Server-only logic",
+        "Audio asset files Music/*.mp3 missing locally (Music/00018.mp3 is track18 fixture target, not proof of native map mapping)",
+        "Original Server correlated map transition and S19 packet captures not provided",
+        "Original Asgard.exe and Map*.dat publication/release pairing unverified despite fixed individual hashes",
+        "Original Client music playback on real map and all S19 kind branches native E2E not run"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-020",

@@ -89,7 +89,11 @@
         "track": 18,
         "repeat": 0
       },
-      "expected_body_hex": "01000012"
+      "expected_body_hex": "01000012",
+      "a019_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "evidence_kind": "native-derived-synthetic",
+      "a019_provenance": "synthetic track18/track0 only, not official map→track",
+      "native_client_validation": "not-run"
     },
     {
       "id": "CT-006",
@@ -104,7 +108,11 @@
         "track": 0,
         "repeat": 0
       },
-      "expected_body_hex": "01000000"
+      "expected_body_hex": "01000000",
+      "a019_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "evidence_kind": "native-derived-synthetic",
+      "a019_provenance": "synthetic track18/track0 only, not official map→track",
+      "native_client_validation": "not-run"
     },
     {
       "id": "CT-007",
@@ -1542,6 +1550,90 @@
         ]
       },
       "expected": "Server creates unique internal item_instance_id and operations committed once without dupes. No original Server policy inferred.",
+      "evidence_kind": "designed"
+    },
+    {
+      "id": "CT-060",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "level": "audio-native-s19-codec",
+      "requirements": [
+        "R-022"
+      ],
+      "packet_ids": [
+        "PKT-S19"
+      ],
+      "input": {
+        "kind": "original-exe-static-and-synthetic",
+        "reference": "tools/a019_music_map_probe.py",
+        "cases": [
+          "S19 ctor opcode 0x19 and exact u8 selection",
+          "kind1 includes repeat u8 and BE u16 track",
+          "kind!=1 omits repeat and BE u16 sound id",
+          "01000012 synthetic music track18",
+          "01000000 music stop 0",
+          "truncated/extra bytes and other unknown selectors fail closed"
+        ]
+      },
+      "expected": "Original S19 music/sound wire branches and music filename scheme validated offline; native Client sound/track success pending; no claim map→track provenance",
+      "evidence_kind": "observed-static-plus-synthetic"
+    },
+    {
+      "id": "CT-061",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "level": "map-audio-resource-provenance",
+      "requirements": [
+        "R-022"
+      ],
+      "packet_ids": [
+        "PKT-S19",
+        "PKT-S15"
+      ],
+      "input": {
+        "kind": "original-resource-index-static",
+        "reference": "tools/a019_music_map_probe.py",
+        "cases": [
+          "Exact Map0/1/2 original SHA pinned",
+          "289/185/23 index entries each size36",
+          "288/184/22 recognizable *.map names",
+          "index has no Music/*.mp3 entry",
+          "official map→track rows require source evidence"
+        ]
+      },
+      "expected": "Only indexed MAP names are evidenced; native map music rows remain empty/UNKNOWN until original Server trace or content mapping proves each row",
+      "evidence_kind": "observed-static-resource"
+    },
+    {
+      "id": "CT-062",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "level": "map-audio-epoch-and-fallback",
+      "requirements": [
+        "R-022"
+      ],
+      "packet_ids": [
+        "PKT-S19",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35"
+      ],
+      "input": {
+        "kind": "designed-synthetic",
+        "reference": "tools/a019_music_map_probe.py",
+        "cases": [
+          "No native verified mapping: no automatic track1",
+          "Unverified catalog row is rejected",
+          "Verified synthetic map row leads one S19 per loading_epoch",
+          "Stale session/epoch invalid",
+          "local-fixture vs original provenance distinct",
+          "missing MP3/volume off does not fail World transition"
+        ]
+      },
+      "expected": "Fail-closed provenance-gated music cue, epoch fenced/duplicate suppressed; synthetic fixtures not official mapping, original Client multi-map E2E pending",
       "evidence_kind": "designed"
     }
   ]

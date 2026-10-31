@@ -119,7 +119,24 @@
         "PKT-S19"
       ],
       "status": "manual-pass-subset",
-      "notes": "可聽見聲音已確認；原map→track對應未確認。"
+      "notes": "可聽見聲音已確認；原map→track對應未確認。 A-019: BIN-first confirms S19 music vs sound branch and %05d.mp3 filename. Source Map0/1/2 index 494 recognized *.map names and no .mp3/music index entries; NOT proof all binary payload or Server configs lack songs. Native official map→track mapping UNKNOWN; no map1→track1 or mapid→track default. Local audio manual-pass-subset retained; official multi-map audio and original Client E2E not-run.",
+      "analysis_evidence_ids": [
+        "ev_a019_20261031_music_s19_map_index_bin_static"
+      ],
+      "a019_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "a019_contract": "04-analysis-integration/A-019-map-music-contract.md",
+      "native_map_track_mapping_ready": false,
+      "native_client_validation": "not-run",
+      "original_server_map_track_configuration_proven": false,
+      "packet_mapping": "S19 kind1=01 repeat u16BE track; other kind=u8 kind/u16BE id separate sound handler. Map archive index *.map names only; NO verified map→track rows. S15/S14/C35 map loading provides no proven track mapping.",
+      "failure_cases": [
+        "Unknown map track must not be filled with local test track1",
+        "Music cue old map_epoch/session generation cannot override newer scene",
+        "map/resource release mismatch rejects song mapping",
+        "missing MP3 or disabled volume does not fail map loading",
+        "S19 kind!=1 has 3-byte body and no repeat",
+        "Do not treat 494 MAP filenames as music filename mapping"
+      ]
     },
     {
       "id": "SCN-007",

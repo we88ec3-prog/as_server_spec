@@ -87,3 +87,7 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## A-007 / roy1：完整背包/裝備指令與同步有界規格（2026-10-31）
 
 [A-007 詳盡分支](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) / [Safe Domain](A-007-inventory-domain-contract.md)：C1C `0x1c` **四個 u8 + use_kind1..9 變長尾部**，並非先前本機服裝使用的固定 `01 slot 00 05`。另外 C1E `0x1e` u8、C08 Drop `0x08` 3×u8、C0C PutRequest `0x0c` u32BE；Drop/Put 真正效果未證，不可將數值直接當持久 item ID。新增 S10 RemoveInventory `0x10` 3×u8、S38 RemoveEquipment `0x38` u8+u8（第二欄 bool transform `raw==1`）；S0F 的 0/1/2 數量模式與 S37 變長描述不能編成固定封包。C1E(C2S) 與 S1E(S2C DieObjects) opcode 相同但方向/類別不同。新 Server 應用內部 item instance/owner/stack/slot/revision、transaction+unique ledger+outbox，失敗不先改 S33 appearance；任何未證 use_kind 業務拒絕，SCN-015/CT-057～059 planned。
+
+## A-019：S19 的 music / other-sound 原版分流與曲目來源
+
+[原件](../03-analysis-requests/A-019-roy1-map-music.md)：SPlaySound ctor 0x584A49 opcode0x19；parser 0x584AE0 `kind=u8`，`kind==1` 才讀 `repeat=u8`，最後都讀 `track_or_sound_id=u16BE`。handler 0x4F25D0 `kind==1` → 0x53CDC0 音樂、其他 → 0x53D250 音效；音樂檔名 UTF-16LE `%05d.mp3`，Music 目錄資源。既有 CT-005 `01 00 00 12` 及 CT-006 `01 00 00 00` 是合成測試，**不是官方 map→track**。三份 Map archive 原件索引 494 個 *.map，未列 Music/mp3；正式 Server catalog 需 `origin_verified` 才可 map→track，不得猜 `map_ref==track_id`。SCN-006 manual-pass-subset 維持，CT-060～062 planned；Client multi-map E2E not-run。

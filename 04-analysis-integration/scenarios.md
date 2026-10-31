@@ -76,3 +76,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-007：SCN-015 物品實例、裝備、背包數量/移除及重登
 
 [原版 Client packet 分流](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) / [安全開發接口](A-007-inventory-domain-contract.md)。C1C use_kind1..9 變長、C1E slot、C08 Drop 3u8、C0C PutRequest u32BE、S0F/S37 變長加物品與裝備、S10 3u8 和 S38 2u8 移除／更新。這些都是 Client 協定能力，不代表原服堆疊上限、拾取地面物件 id 或卸裝 UI 已知。Server-only ItemInstance/owner+revision+unique op ledger 用來保障物品不可複製/重領/跨帳移動；滿背包卸裝需原子拒絕且原裝備保持，Client C1C 無原生 globally unique transaction ID，無法只靠重送 raw bytes 永遠識別重複指令。SCN-015 `analysis-required`、CT-057/058/059 planned，原版 Client 全程/物品 economy 仍未實機驗收。
+
+## A-019 / roy1：SCN-006 地圖背景音樂配置仍只有通用原版播放能力
+
+[A-019 native S19/Map 索引報告](../03-analysis-requests/A-019-roy1-map-music.md) / [音樂來源安全契約](A-019-map-music-contract.md)。原 Client 會依 S19 kind1+repeat+u16BE track 決定播放編號並組 `%05d.mp3`；kind!=1 是另一個音效處理分支，不含 repeat。Map0/1/2.dat 確認有 494 個索引 *.map 名稱、無 MP3 filename 或官方 map→track table，因此**任何地圖的 track 設定均未經原始 Server/資源證實**；未知時不要自動播放 track1，若選擇換圖 stop，須標示為 designed fallback。已通過的本地「聽見音樂」只限 manual-pass-subset，不能說原服背景音樂對應完成；正式驗收應取同版本多張地圖的 Server→Client S19 與 map_id 對照 trace。CT-060～062 planned，原版 Client E2E not-run。

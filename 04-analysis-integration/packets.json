@@ -645,18 +645,29 @@
       "name": "PlaySound",
       "system": "SYS-AUDIO",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "kind1:u8 kind=1,u8 repeat,BE u16 track；repeat0循環、track0停止",
-      "client_entry": "0x584ae0",
+      "layout": "kind==1: u8 0x01,u8 repeat,u16 BE track (4-byte body), track0 stop; kind!=1: u8 kind,u16 BE sound ID (3-byte body), no repeat; additional kind enum semantics UNKNOWN. Original parser 0x584AE0 and handler 0x4F25D0. Synthetic music track18=01000012 is NOT official map track.",
+      "client_entry": "0x584A30 SPlaySound ctor opcode at 0x584A49; reader 0x584AE0; handler 0x4F25D0 music→0x53CDC0, nonmusic→0x53D250; format %05d.mp3 VA0x60EE20",
       "state_precondition": "可播放音訊時",
-      "related_packets": [],
-      "layout_status": "profile-documented",
+      "related_packets": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35"
+      ],
+      "layout_status": "observed-static-partial-business",
       "evidence_kinds": [
-        "prior-static-analysis"
+        "prior-static-analysis",
+        "observed-static"
       ],
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-022"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a019_20261031_music_s19_map_index_bin_static"
+      ],
+      "a019_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "native_map_track_mapping_ready": false,
+      "native_client_validation": "not-run"
     },
     {
       "id": "PKT-S33",
