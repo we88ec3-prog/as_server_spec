@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "33116592ed8288f8ac147c9e2559d04e2af234597b5abb205bc958b8abf764b4"
+      "sha256": "558209584715f24e511b7f05c433e29ffe8939e7731f87c12c56505324281052"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -45,7 +45,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "62593aa8e6a46df8a7025462f69ca39ad18080cbd7f70501f1be60e95ccbd94c"
+      "sha256": "43f9cd27b437557a98cadc2cd9cebdb2fadbae66ccaed6acaac05d20dc075e41"
     },
     {
       "path": "00-governance/workflow.md",
@@ -53,7 +53,7 @@
     },
     {
       "path": "01-server-requirements/first-login-onboarding.md",
-      "sha256": "3aed62c6c66333ecb142c913d525ac8b05073d1da6cba2a92e1125746fb45c39"
+      "sha256": "3b30db8fc9e69a607f63fd20af257f220b61bf3fe237ebf1dd5f2eba9889297b"
     },
     {
       "path": "01-server-requirements/README.md",
@@ -61,15 +61,15 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "067c98ddd3f0f1891138c7a5574c776674355872e629a56416da118849a7defa"
+      "sha256": "d552f0101ae53a7115c4811efea84984f0a24dca6f0051efa9be86ac28eb33f3"
     },
     {
       "path": "02-server-planning/admin-operations.json",
-      "sha256": "58799a5458cc5a251a96c92c30e6e0b7ad90eea1e5d2cdec8ade5a4fd7286f1b"
+      "sha256": "df881e9d386cb2ad03f7b17f20738fa6d4b00c71c247b13ab55c6a5964fd82e5"
     },
     {
       "path": "02-server-planning/admin-web-management-interface-plan.md",
-      "sha256": "4c77ee811617930ccf3c18272a1efe8834d93c104a6829939e9ca56a133e7e26"
+      "sha256": "cf4080d41cc7a177488448ab2e40fa7c0b755d454bb2533a0514e5fdf615f359"
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/character-account-match-policy.md",
-      "sha256": "37723dc0e41fa69a6dd55c734390d8fcad3a57b9d53fd789495a383bb6c1c97b"
+      "sha256": "e20752538cdfb6ec3e0a7488e315bf0920ba97f6c54bf1216c2a86b39faf62de"
     },
     {
       "path": "02-server-planning/client-io-delivery-plan.md",
@@ -89,7 +89,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "1ed75fc128a5a819d1db01675ee5cfe2973f87383e6a6d6e28e6bb508190e832"
+      "sha256": "781f366e944588cf2852414a1eea822e7186927d083fc2946b938f544e816f45"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -101,7 +101,7 @@
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
-      "sha256": "fd23d2656f69724d3fa221293d144f545b0ecf3e17f7e162a9802abac317a62d"
+      "sha256": "4e041cfecf89d27ae6ad465b13bffbfa5960dd80d8eca7aa038203b608f519ec"
     },
     {
       "path": "02-server-planning/interfaces-and-data.md",
@@ -125,11 +125,11 @@
     },
     {
       "path": "02-server-planning/native-creation-next-iteration.md",
-      "sha256": "fad6dec8e96333e33d9cbac7c509b3ff60d7a6e9edd702b50ae27063af14033f"
+      "sha256": "2e2fc7781c370d72880e839b452692d1ee184c67e1ee92b1e09f542bb33b87ec"
     },
     {
       "path": "02-server-planning/native-game-password-4to8-policy.md",
-      "sha256": "3a8bb32de890e19f7a25009ccc7d1ff52b026a5cb984ae9a37c525560916e297"
+      "sha256": "3828e7ac0fdf63b08ab9010474b9e621abe5e51461e04ece81721566eadc15c3"
     },
     {
       "path": "02-server-planning/native-game-password-8char-policy.md",
@@ -149,11 +149,11 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "cfb44799d14b6de5c571773762d722ad54ce30eb4c3d19a52ab66c7c76039a8c"
+      "sha256": "bee9c07a6267bfd81c47d57720954472a604e52378bbd4f87ad2c32d748a0601"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
-      "sha256": "cc88481500667f3e431a1c78b031581d730feb39159c944526c31cf17c952c40"
+      "sha256": "5f7f4badc844b85ad1a345483ded1506472b344767e413d58cd79532ed15928a"
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
@@ -188,6 +188,10 @@
       "sha256": "83415792e197b1f508054df26eabd2c6de4e3cc9e90144a2d936b7d96bcc8009"
     },
     {
+      "path": "02-server-planning/three-native-account-entry-policy.md",
+      "sha256": "0f9fcf0fc75161538f421c176bc83be48c4d29863d5ff3e9c05f864cfd987050"
+    },
+    {
       "path": "02-server-planning/tutorial-completion-conditions.json",
       "sha256": "b7641343bb2643ae64fa36bb80e72a77c1a24a4d6d2cfcdeff8ec3e112b294db"
     },
@@ -197,7 +201,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "94270871eabf13a4af4b4e4faad48caf5161eb562393c85756da085dd15a76ba"
+      "sha256": "1145c28e2cf48fd7a1a6c208afe49f141b1a0f5b24c10c12328c16e658c8fb66"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -289,7 +293,7 @@
     },
     {
       "path": "03-analysis-requests/next-client-io-evidence.md",
-      "sha256": "9ece101b63d3521ff52a26258588cf3c9154e83d597203367db34bd745740a77"
+      "sha256": "c6c30d7333391e8ee828c24ceffa4830294a8ca2ecfdf5e1f37d9261e027f158"
     },
     {
       "path": "03-analysis-requests/onboarding-assignment-pack.md",
@@ -297,7 +301,7 @@
     },
     {
       "path": "03-analysis-requests/post-merge-analysis-queue.md",
-      "sha256": "4884484a60e25988024f4e4cfc60bd8e0e7ffdd3ce1c6cb244ba701baacf11f7"
+      "sha256": "2d355d07661b9ca36f2aa162a9452dd810f5e6b1e9805730db812d8531e2a63f"
     },
     {
       "path": "03-analysis-requests/README.md",
@@ -309,7 +313,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "1ceda569adbe2f59f4a02feb5a91d15678e5ca50daf60ad30e4d636f8958ec85"
+      "sha256": "f2e259476c2ad620948300f46a0584acdc95dea7cd0775507db35efeeedf5f30"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -477,7 +481,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "f8e7fb800ba5cadab93f0b87f9c604ca024cdd4212c72aef855367bd10aea281"
+      "sha256": "84e719043c8b478ec2ab493c3eac03506b26ab484f4a3dcc99466829a8eac69a"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -548,6 +552,10 @@
       "sha256": "57e7068b4173f5d61635c1ee276d87abf455c70ed902d331bf324878a7019901"
     },
     {
+      "path": "05-conformance/account-password-native-change-test-plan.md",
+      "sha256": "6b3bfd5053835648d7a3f71e5f1d58622430c987a92ee0a341b0320b457c194a"
+    },
+    {
       "path": "05-conformance/admin-web-management-acceptance-plan.md",
       "sha256": "bbed3f039a29b8dcf87da062fe816b953f8928e7ded6f2dfe3f88459f1eb47c8"
     },
@@ -577,7 +585,7 @@
     },
     {
       "path": "05-conformance/native-creation-gate-test-plan.md",
-      "sha256": "0a3d9d15b81d2f061b9ff151968044eece35d71d177543d2c2d359e98fca9879"
+      "sha256": "339cba58b70e248cba70977d0847859ff814e99263362ab307350898722fa71e"
     },
     {
       "path": "05-conformance/new-asset-validation-plan.md",
@@ -585,7 +593,7 @@
     },
     {
       "path": "05-conformance/onboarding-test-plan.md",
-      "sha256": "117a263cbe4a8966b73246a6ecf7eb17b121c7d1334724e493fa947626228428"
+      "sha256": "f8ff54f07d80d4f2c5b51b269abc627fa56888a3230a2612db7e22f7c1f36a23"
     },
     {
       "path": "05-conformance/shared-map-multiplayer-test-plan.md",
@@ -597,11 +605,11 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "4170b95e0d6fc191f7b572ab0b2b00dd480af75de563c8f42dd8fae56ec2cc75"
+      "sha256": "6d7d32da82ce9be1c2f219ae65dbc5a3a1ee9abc81c0cf404b58911d3118e261"
     },
     {
       "path": "README.md",
-      "sha256": "9fbf6fe0bf936e9f21a6949a777bab476b730938e71dcf987bb866f387b11c59"
+      "sha256": "a7e43e69d974d397435f77d12cc53fa9f58a3c1488de582e52c053072a0c04c3"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
