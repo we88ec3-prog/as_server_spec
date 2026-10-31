@@ -238,7 +238,7 @@
       "server_to_client": [
         "PKT-S44"
       ],
-      "client_reaction": "S44(1,0) Native ScriptManager checks main/dependency CP950 text CRC, executes Born.Main with PaperDialog_Create, referencing Basic.dat/AlertFrame.ypf original member verified (39-slot indexed DAT, YPF17). Born OK's client.Dispose invokes C6C(4), unreplied runner cleanup C6C(2); neither means quest completion. S44(2,0) outer Client handler uses UI slot0x23/component3/4 and S44(2,2) uses UI slot0x24, separate from Born type1 start; native first NPC/GUI not-run.",
+      "client_reaction": "Original S44 type1/subtype0 starts named root ScriptRunner after correct CRC/dependency. Born.Main uses exact PaperDialog.dat and Basic.dat/AlertFrame.ypf (all original sources SHA verified); PaperDialog OK has no SendReply -> C6C4 and unreplied C6C2. Separately PaperDialog02 helper OK→PAPER02 START/CANCEL→PAPER02 NOT via SendReply, then C6C4; cancelControl=OK even with separate CANCEL button (ESC GUI untested). Merchant.Main initializes ClientReply and ServerParam; optional nNewJoin01 helper MerchantTalk→3 QuestDialog pages, final OK STATE ACCEPT/CANCEL REFUSE then C6C1+C6C4. C6C1 script field = S44 ScriptRunner ROOT, not imported dependency filename. PaperDialog/02 share callbacks ShowIndexedHelp and PaperDialogProc. Actual first recruit NPC and original ScriptRun dependency set remain unknown.",
       "evidence": [
         "A-012",
         "A-023"
@@ -255,27 +255,33 @@
         "CT-093",
         "CT-094",
         "CT-102",
-        "CT-112"
+        "CT-112",
+        "CT-113"
       ],
       "server_decisions": [
         "WorldReady 或指定受控事件觸發一次合法 ScriptRun（Server 自訂教學政策）",
         "資源 revision/CRC/依賴相符才送 S44；C6C close 只表示生命周期，不等於任務完成",
         "STATE=REFUSE on recruiter admission is no-op; closing dialog may be UI-only and NPC may be clicked again to obtain fresh run/context, repeated refusals never block future acceptance."
       ],
-      "readiness": "S44 type1 start/dependency/CRC + C6C lifecycle static-ready; new S44 type2 UI slots and Born/Basic exact resource SHA verified. First original Server Born push/NPC binding and native GUI CT-034/035 not-run; PaperDialog.dat not supplied for independent recheck this turn.",
+      "readiness": "Four user-uploaded original Script SHA/UTF16/CP950 CRC and Born/Basic verified; Client Script and C6C schema ready. Some Merchant UI helper functions QuestDialog_Create, MerchantDialog_Create, MerchantDirectTalk absent in four files; first recruiter entity→S44 root/quest policy unknown; Native CT-034/035 not-run.",
       "unknowns": [
         "原服首次派發 Born 的時刻不是 Client 研究必答",
         "Recruiter NPC real script binding and native STATE=REFUSE UI callback unverified.",
         "Exact PaperDialog.dat original currently not supplied in this local session (historical SHA/decoded source are indexed); optional to recheck full XML dependency.",
         "Original Server first push of Born, first recruiter NPC EntityId/map/spawn/script mapping, quest flags and native UI/packet trace not proven; C6C(4)/(2) means runner disposal not tutorial completion.",
-        "S44 type2 UI slot0x23/0x24 exact visible dialog/label and type2 sender state native GUI unverified."
+        "S44 type2 UI slot0x23/0x24 exact visible dialog/label and type2 sender state native GUI unverified.",
+        "Original missing source function definitions for QuestDialog_Create, MerchantDialog_Create, MerchantDirectTalk; specific filenames unverified (QuestDialog.dat/MerchantDialog.dat candidates).",
+        "Original first NPC EntityId/map/spawn/visibility and interaction→S44 root+dependency mapping and first-send policy not present in four resources.",
+        "PaperDialog02 original cancelControl=OK may make ESC follow START; original GUI/C6C packet capture CT-034/035 not-run.",
+        "C6C1 root field must match actual S44 main ScriptRunner, not callback-defining nNewJoin01 resource name; exact original root/context needs S44 capture."
       ],
       "native_client_validation": "not-run",
       "work_items": [
         "ONB-05",
         "ONB-06"
       ],
-      "a023_latest_analysis": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md"
+      "a023_latest_analysis": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md",
+      "a023_four_bundle_report": "task_a/roy2/A-023-four-script-native-dependencies-20261101.md"
     },
     {
       "id": "FLOW-GAMEPLAY",
@@ -659,7 +665,8 @@
         "S34 subtype11 display mapping to actual UI and S62/63 Action UI context unknown",
         "Original tutorial spawn map/NPC IDs and Server AI policies unknown",
         "Native world object rendering/interaction E2E not run",
-        "Native S07 1/2/4 -> MonsterObject and MonsterNN.dat archive/slot known via A-011; exact NPC class/name/sprite field, GUI chat binding and real native Client E2E still unknown"
+        "Native S07 1/2/4 -> MonsterObject and MonsterNN.dat archive/slot known via A-011; exact NPC class/name/sprite field, GUI chat binding and real native Client E2E still unknown",
+        "nNewJoin01 MerchantTalk school dialogue (3 pages) source now confirmed by original file, but original NPC EntityId/Map/ScriptRunner root/dependency mapping is not in Script XML. QuestDialog_Create/MerchantDialog_Create definitions not in four supplied resources; native NPC GUI E2E not-run."
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-024-analysis.md",
