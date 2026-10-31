@@ -1,0 +1,41 @@
+{
+  "id": "A-032",
+  "date": "2026-11-01",
+  "original_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "map_counts": {
+    "Map0.dat": 288,
+    "Map1.dat": 184,
+    "Map2.dat": 22
+  },
+  "map_total": 494,
+  "unique_payloads": 330,
+  "unique_c35_pairs": 330,
+  "duplicate_pair_groups": 33,
+  "reused_pair_additional_map_refs": 164,
+  "max_duplicate_group": 23,
+  "distinct_payload_sharing_same_pair_count": 0,
+  "canonical_sorted_ref_to_pair_text_length": 7410,
+  "canonical_sha256": "8a0ba7ebe767385db7296de1ca0c3b999aa620e05e6ab1793db0e640f30c375a",
+  "c35_samples": {
+    "0": "000063A9",
+    "6": "00040F90",
+    "10000": "00040F90",
+    "18001": "0012F892",
+    "20001": "0016E9B9"
+  },
+  "native_emitter": {
+    "from": "S14(1)",
+    "handler": "0x4F23CB",
+    "ctor": "0x5733E0",
+    "header_getter": "0x4B4850",
+    "crc_getter": "0x4B4890",
+    "writer": "0x573490",
+    "send": "0x5788A0",
+    "call_edges": 7,
+    "anchors": 15
+  },
+  "native_client_capture": "not-run",
+  "native_spawn_walk": "not-run",
+  "generator": "task_a/roy3/a032_roy3_full_c35_atlas.py",
+  "warning": "map_ref and session generation are Server pending context; they are NOT encoded in C35 body."
+}
