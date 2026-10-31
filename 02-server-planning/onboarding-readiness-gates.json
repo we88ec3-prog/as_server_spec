@@ -262,7 +262,7 @@
     {
       "id": "ENTRY-05",
       "owner": "DEV/CT",
-      "mode": "planned-native-e2e",
+      "mode": "needs-client-evidence",
       "analysis": [
         "A-030",
         "A-031",

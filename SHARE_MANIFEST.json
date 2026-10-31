@@ -173,7 +173,7 @@
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
-      "sha256": "b1f90752dc94bafb9e9279a823249a7feae53c13b4dcb91ec1a15c3117300f93"
+      "sha256": "5cfe73b32fd88d5bb4aad33a176b30bef2863e294828d4e31e94f2a6b9b48928"
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
