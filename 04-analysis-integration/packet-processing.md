@@ -113,3 +113,17 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 `S33` 原生 parser `0x585570` 已確認前段 BE u16 x/y、u8 facing、BE u32 object；flags=0 的 CP950 string8 名稱與髮色 +15..17、衣色 +30..32；`0x585667` bit0 額外 RGB、`0x58568B` bit4 額外 u16、`0x5856A4` bit1 額外 byte、`0x5856B4` bit7 額外 byte、`0x585719` bit13 額外 string8。**`42+CP950-name-bytes` 僅 flags=0 profile**。另在 `0x585780..0x5857F4` 有三色全零→FF00FF 的原生 sentinel 正規化分支，但不能據此推論所有黑色顏色禁用或 YPF 完整染色層行為。
 
 已知 profile viewport `(8,9)` 在 48×32、pane(-56,-36) 計算錨點 `(400,300)`，`(9,9)` 則 `(448,300)`；**此為畫面座標投影/既有公式，非原生截圖完成證據**。13 組原件 PE checks 與 10 項合成測試 PASS；CT-058 offline subset 已驗，CT-059 原生 8 向動作／髮衣獨立染色／換裝／切圖／重登**未執行**。參見 [A-006 原生 Client 報告](../task_a/roy2/A-006-analysis.md) 與 [驗收腳本](../05-conformance/A-006-appearance-test-plan.md)。A-006 `integrated / ready` 是 Client I/O **靜態交付完成**，不代表 renderer/YPF/DOI/native GUI fully validated。
+
+
+## A-008／roy2：原版狀態面板、能力點 Client I/O（2026-10-31）
+
+原版 Asgard.exe SHA256 db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145，RTTI/vtable → native constructors/readers → GUI callback 定位（非 Server 推測）：
+
+|PKT|原生入口|本版 decoded body|交付界線|
+|---|---|---|---|
+|PKT-C47|CAddAbility 0x5708B0 ctor push 0x47；0x570960 writer|u8 one-hot，值 01/02/04/08/10；StatusDialog UI ids 0x13..0x17（0x53FD60）|不帶身份、數值、數量、nonce。Server 做權限/餘額/防重是 designed。|
+|PKT-S08|SStatus 0x586CD0 ctor push 0x08；0x586D40 reader|BE u16 flags；0x40→61B full、0x20→16B four current u32、0x10→16B secondary、0x08→5 u8+string8、0x200→u8 count+count bytes；flags 0/1/7/8 為本地布林無新增 payload|非固定長度，必須依 0x40/0x20/0x10/0x08/0x200 順序組包。|
+
+Client S08 由 Status::update 0x53F8A0 將數值寫至 Status 物件，再經 StatusDialog 0x540660（opcode8 比對）/0x540050 觸發刷新。四組目前值依 unsigned 比較對應最大值並做 Client-side clamp，**不是原服 HP/MP、數值或死亡公式**。C47 是否每次同步回 S08、四組數值精確 UI 標籤及 ExpBarDialog 比例 unknown。
+
+詳見 [A-008 原生分析](../task_a/roy2/A-008-analysis.md)、[A-008 合約驗收計畫](../05-conformance/A-008-stats-test-plan.md)。15 VA 指令 + 4 RTTI PASS；10 synthetic tests PASS。CT-061 離線子集通過，CT-062 原生 Client GUI not-run。A-008 integrated/ready **僅限已證 C47/S08 static Client I/O**，Server 數值公式獨立設計。
