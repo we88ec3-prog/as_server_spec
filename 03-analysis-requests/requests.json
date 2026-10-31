@@ -1567,7 +1567,13 @@
         "A023-E15",
         "A023-E16",
         "A023-E17",
-        "A023-E18"
+        "A023-E18",
+        "A023-E19",
+        "A023-E20",
+        "A023-E21",
+        "A023-E22",
+        "A023-E23",
+        "A023-E24"
       ],
       "dependencies": [
         "A-011",
@@ -1582,21 +1588,23 @@
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-023-script-entry-contract.md",
       "remaining_unknowns": [
-        "原服首次登入時送出 Born start 的角色/帳號旗標與相對入圖時序（Client 收包執行機制已解）",
-        "女性招募員 entity/map/spawn 與 nNewJoin01 等候選腳本的原服綁定",
-        "Server quest 初始化/完成權威旗標與重登政策",
-        "資源與 EXE 發行版配對身份（個別 hash 已確認）"
+        "Original Server first/returning-login S44(1,0) Born push policy and exact first UI timing not in Client source, requires original Server traffic/config.",
+        "Actual female recruiter EntityId/map/spawn, NPC click→script name nNewJoin01 / Merchant binding not in provided original content.",
+        "Original quest initialization/completion/exit durable flags and Server rewards must be separately proven; C6C(4)/(2) just runner close.",
+        "Release identity pairing of Asgard.exe, Born.dat, Basic.dat and historically verified PaperDialog.dat unproven beyond independent SHA.",
+        "PaperDialog.dat original bytes missing from this run, cannot re-verify PaperDialog XML or native UI; original Client CT-034/035 not-run."
       ],
       "resource_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
       "resource_client_version_binding": "unverified",
       "implementation_ready": false,
-      "implementation_ready_scope": "S44(1,0) start / cache dependency request-update / Main entry / C6C Dispose and SendReply lifecycle specified; original first-login policy and NPC mapping unresolved",
+      "implementation_ready_scope": "Known Client Script start/cache/Main/dispose+S44 type2 GUI slots and local Born/Basic frame metadata can be implemented as limited verified subset; full native first tutorial NPC/quest binding and Server original first-push policy NOT implementation-ready.",
       "conformance": [
         "CT-033",
         "CT-034",
-        "CT-035"
+        "CT-035",
+        "CT-112"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-01",
       "dependency_report": "task_a/roy2/entry-dependency-verification.json",
       "client_script_entry_contract_ready": true,
       "evidence_boundary": {
@@ -1626,8 +1634,47 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "admission_refuse_policy": "R-034 selected NOT ENROLL should be no-op and NPC repeatable; native NPC->Script association not proven."
+      "client_server_boundary": "Original Client Script S44/C6C wire, native handlers and Born/Basic on-disk content observed; Server chooses first-push conditions, ScriptRun/context and NPC mapping. No fake auto-first-Born, NPC identity, quest completion or reward claim.",
+      "admission_refuse_policy": "R-034 selected NOT ENROLL should be no-op and NPC repeatable; native NPC->Script association not proven.",
+      "latest_analysis_addendum": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md",
+      "original_resource_probe": "task_a/roy2/a023_born_basic_probe.py",
+      "original_native_ui_probe": "task_a/roy2/a023_native_script_dispatch_probe.py",
+      "synthetic_resource_test": "task_a/roy2/test_a023_born_basic.py",
+      "original_file_check_result": "PASS local original Asgard.exe 22 native VA instruction anchors; Born.dat 589B SHA+CP950 CRC1D87B0C0; Basic.dat 39 indexed slots+38 members, AlertFrame.ypf offset13196 size177648 SHA+YPF17; 21 synthetic tests PASS locally.",
+      "available_this_run": [
+        "Asgard.exe",
+        "Born.dat",
+        "Basic.dat",
+        "Locale.dat",
+        "Map0.dat",
+        "Map1.dat",
+        "Map2.dat"
+      ],
+      "known_not_available_this_run": [
+        "PaperDialog.dat",
+        "nNewJoin01.dat",
+        "Merchant.dat"
+      ],
+      "known_required_script_dependency": "PaperDialog.dat is required for Born.Main PaperDialog_Create; historical original version SHA5b86a4..., not reverified this turn.",
+      "native_s44_type2_ui_scope": "Outer packet handler0x4E0B70 invokes0x52C2A0 Script handler; type2/0 with successful handler selects GUI slot0x23 and components3/4, type2/2 GUI slot0x24; type1/0 invokes Script runner Main. Not an NPC identifier or Born first-login proof.",
+      "client_io_handoff": {
+        "trigger": "Server S44(1,0) script start with original matching text CRC and explicit dependency; not proven automatically initiated by original Server on first login. S44 type2 GUI is separate.",
+        "client_sends": [
+          "PKT-C6C"
+        ],
+        "client_receives": [
+          "PKT-S44"
+        ],
+        "client_reaction": "S44(1,0) Script manager checks Born XML+PaperDialog dependency then executes Main; UI frame Basic.dat/AlertFrame.ypf original resource verified. Normal OK leads C6C(4) then, without SendReply, C6C(2). S44(type2/0) additionally accesses UI slot0x23/components3/4; type2/2 slot0x24. GUI rendering and actual first NPC unverified.",
+        "evidence": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md",
+        "unknowns": [
+          "Original Server first/returning-login S44(1,0) Born push policy and exact first UI timing not in Client source, requires original Server traffic/config.",
+          "Actual female recruiter EntityId/map/spawn, NPC click→script name nNewJoin01 / Merchant binding not in provided original content.",
+          "Original quest initialization/completion/exit durable flags and Server rewards must be separately proven; C6C(4)/(2) just runner close.",
+          "Release identity pairing of Asgard.exe, Born.dat, Basic.dat and historically verified PaperDialog.dat unproven beyond independent SHA.",
+          "PaperDialog.dat original bytes missing from this run, cannot re-verify PaperDialog XML or native UI; original Client CT-034/035 not-run."
+        ]
+      }
     },
     {
       "id": "A-024",
