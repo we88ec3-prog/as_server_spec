@@ -143,7 +143,9 @@
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
-      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
+      "multiplayer_map_decision": "shared-public-map-by-world-and-map-ref",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.json"
     },
     {
       "id": "ONB-04",
@@ -199,7 +201,9 @@
         "A-024",
         "A-025",
         "A-011",
-        "A-012"
+        "A-012",
+        "A-004",
+        "A-005"
       ],
       "scenarios": [
         "SCN-011",
@@ -213,7 +217,8 @@
         "CT-025",
         "CT-033",
         "CT-034",
-        "CT-035"
+        "CT-035",
+        "CT-055"
       ],
       "depends_on": [
         "ONB-03"
@@ -235,7 +240,11 @@
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
-      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
+      "multiplayer_map_decision": "shared-public-map-by-world-and-map-ref",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.json",
+      "shared_map_server_refactor": "DEV-070-M required: replace per-character scene with common world/map registry, participant leases, shared actors and server-validated movement/observer separation",
+      "native_multiplayer_acceptance": "not-run"
     },
     {
       "id": "ONB-06",
@@ -272,7 +281,9 @@
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
-      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
+      "multiplayer_map_decision": "shared-public-map-by-world-and-map-ref",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.json"
     }
   ]
 }

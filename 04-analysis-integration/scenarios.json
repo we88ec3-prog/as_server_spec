@@ -104,7 +104,15 @@
         "PKT-S33"
       ],
       "status": "analysis-required",
-      "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。"
+      "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。",
+      "shared_map_policy": "same world/map shares one instance; actor death/respawn and state visible to two players; character progression remains per-character; native packet mapping unknown",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md",
+      "failure_cases": [
+        "甲玩家斷線導致乙玩家 NPC/怪物被清除",
+        "同圖兩玩家生成兩組怪物",
+        "舊連線離開覆寫新世代或另一玩家",
+        "加入玩家看見已死亡怪物的過時 Spawn"
+      ]
     },
     {
       "id": "SCN-006",
@@ -356,11 +364,17 @@
         "重複 spawn",
         "越界位置",
         "舊 instance AI",
-        "資源缺失"
+        "資源缺失",
+        "甲玩家斷線導致乙玩家 NPC/怪物被清除",
+        "同圖兩玩家生成兩組怪物",
+        "舊連線離開覆寫新世代或另一玩家",
+        "加入玩家看見已死亡怪物的過時 Spawn"
       ],
       "packet_mapping": "unknown",
       "a023_script_notes": "Born UI start and C6C close lifecycle now specified; no NPC entity/map/spawn mapping in Born. nNewJoin01 STATE ACCEPT/REFUSE is a school-join candidate, not a verified recruiter binding. See A023-E14..E18.",
-      "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved"
+      "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved",
+      "shared_map_policy": "same world/map shares one instance; actor death/respawn and state visible to two players; character progression remains per-character; native packet mapping unknown",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md"
     },
     {
       "id": "SCN-012",
@@ -382,9 +396,15 @@
         "cooldown",
         "重送",
         "亂序",
-        "死亡中斷"
+        "死亡中斷",
+        "甲玩家斷線導致乙玩家 NPC/怪物被清除",
+        "同圖兩玩家生成兩組怪物",
+        "舊連線離開覆寫新世代或另一玩家",
+        "加入玩家看見已死亡怪物的過時 Spawn"
       ],
-      "packet_mapping": "unknown"
+      "packet_mapping": "unknown",
+      "shared_map_policy": "same world/map shares one instance; actor death/respawn and state visible to two players; character progression remains per-character; native packet mapping unknown",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md"
     },
     {
       "id": "SCN-013",

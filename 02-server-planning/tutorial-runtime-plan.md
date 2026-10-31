@@ -40,3 +40,7 @@ ONB-06：達成真正教學完成條件、一次性狀態/獎勵（若存在）�
 ## 出場標準
 
 先完成 A-021/A-022 保證能建立角色並進入原版教學，再由 A-023/A-024/A-025/A-026 建立各功能的 PKT/SCN/CT。SCN-011～013 與 CT-021～028 只是在此版本規劃；全部新情境尚未原生 Client 驗收。
+
+## 2026-10-31 — 使用者確定多人共享同圖（優先於上方未定場景假設）
+
+**新手教學也採共享地圖**：同一 world_id + map_ref 的 A/B 同在一份 Actor Registry，NPC/怪物狀態與死亡/重生對兩人一致。個人角色與教學進度仍獨立。DEV-070 目前按 Character 建 Scene 的舊實作須做 DEV-070-M 重構：共享 Map Key、玩家 Participant 連線世代、權威移動、Observer 唯讀、Tick 全地圖一次；舊 Socket logout 只清自己的參與者。既有單玩家 synthetic 測試可作回歸基線，但**不等於多人相容**。正式原 Client Player/NPC/Monster Spawn/Move/Despawn 仍須 A-004/011/024，未知 opcode 不能猜。見 [多人同圖契約](shared-map-multiplayer-contract.md)、[CT-055](../05-conformance/shared-map-multiplayer-test-plan.md)。

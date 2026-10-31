@@ -414,7 +414,9 @@
       "expected": "教學 NPC/怪物按原生內容合法生成、重連/重載不重複",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "unknown",
+      "shared_map_expected": "Players A/B in same world/map observe same NPC and Monster instances; one actor's death, despawn and respawn is shared. Stale A logout never deletes B scene; no native Client CT pass claim.",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md"
     },
     {
       "id": "CT-022",
@@ -431,7 +433,9 @@
       "expected": "AI 更新、死亡、移除有序，無幽靈物件",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "unknown"
+      "packet_mapping": "unknown",
+      "shared_map_expected": "Players A/B in same world/map observe same NPC and Monster instances; one actor's death, despawn and respawn is shared. Stale A logout never deletes B scene; no native Client CT pass claim.",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md"
     },
     {
       "id": "CT-023",
@@ -1290,6 +1294,40 @@
         "A-028"
       ],
       "note": "Test design only; original client E2E not executed; no modified client."
+    },
+    {
+      "id": "CT-055",
+      "title": "雙玩家共用同圖場景、NPC/怪物及重連不重置",
+      "status": "planned",
+      "level": "shared-map-server-domain-and-native-client-e2e",
+      "requirements": [
+        "R-007",
+        "R-029"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "synthetic-first-native-client-later",
+        "reference": "05-conformance/shared-map-multiplayer-test-plan.md",
+        "cases": [
+          "A+B same world/map -> one SharedMap instance and one actor set",
+          "spawn/monster death/respawn observed identically by A/B",
+          "A leave/logout -> B scene and AI remain",
+          "stale A socket cleanup -> cannot evict B or new A generation",
+          "C joins after death -> current snapshot excludes removed monster",
+          "revision mismatch denied without shadow instance",
+          "different map -> isolated actor population",
+          "native two-client player/NPC visibility after A-004/A-011/A-024 wire evidence"
+        ]
+      },
+      "expected": "Shared map is keyed by world_id/map_ref, actors and lifecycle globally consistent; users observe one another and common monsters while individual progress remains isolated, no per-character instances. Original Client cannot be marked passed before verified packet mappings and two actual Clients.",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-004",
+        "A-005",
+        "A-011",
+        "A-024"
+      ]
     }
   ]
 }

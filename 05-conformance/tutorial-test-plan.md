@@ -14,3 +14,7 @@
 |CT-028|原版 Client 完整「首次登入→教學互動→完成→離開」實測|A-021～026|
 
 若 A-025 證實教程不要求技能/戰鬥，應修正本 profile 的實際目標與 CT，不得硬造原生玩法。Server unit/integration 和原 Client 人工實測分開保留證據，不因 CT 規劃存在宣稱通過。
+
+## CT-055 新增：多人進同一張地圖（planned/not-run）
+
+使用兩名**不同登入帳號/角色** A/B 進同 world/map：期望同一 instance/EntityId 的 NPC/Monster、A 與 B 在 AOI 內互見；死亡和重生只發生一次並由兩人看見；A 斷線不消除 B 的怪物；新玩家 C 加入取得最新 Snapshot、不回放舊 Spawn；不同地圖不共享。同一角色舊 Session 的離開事件不影響新 Generation。先做 Domain synthetic tests，原 Client 互見待 A-004/011/024 提供 wire；**本輪沒有完成原生 CT-021/022/055**。詳見 [完整驗收表](shared-map-multiplayer-test-plan.md)。
