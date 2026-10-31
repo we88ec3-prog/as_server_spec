@@ -23,7 +23,9 @@
         "CT-037",
         "CT-038",
         "CT-041",
-        "CT-054"
+        "CT-054",
+        "CT-056",
+        "CT-057"
       ],
       "depends_on": [],
       "readiness": "design-ready-minimal-profile",
@@ -46,7 +48,8 @@
       "creation_account_policy_source": "02-server-planning/character-account-match-policy.md",
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
       "next_iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
-      "native_creation_activation_gate": "Native C02/C04 remains fail-closed until A-027 proves C03 no-character to NewUser native route and C02 account field; Server SAFE-01..04 is design-ready."
+      "native_creation_activation_gate": "Native C02/C04 remains fail-closed until A-027 proves C03 no-character to NewUser native route and C02 account field; Server SAFE-01..04 is design-ready.",
+      "latest_merged_analysis": "roy1 A-020/025/026 and roy2 A-004/005/006/008/009/024 static/partial; original Client E2E remains not-run"
     },
     {
       "id": "ONB-02",
@@ -110,7 +113,8 @@
         "A-015",
         "A-023",
         "A-027",
-        "A-016"
+        "A-016",
+        "A-019"
       ],
       "scenarios": [
         "SCN-009"
@@ -121,7 +125,10 @@
         "CT-034",
         "CT-039",
         "CT-040",
-        "CT-046"
+        "CT-046",
+        "CT-067",
+        "CT-068",
+        "CT-069"
       ],
       "depends_on": [
         "ONB-02"
@@ -145,7 +152,8 @@
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
       "multiplayer_map_decision": "shared-public-map-by-world-and-map-ref",
-      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.json"
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.json",
+      "latest_merged_analysis": "roy1 A-020/025/026 and roy2 A-004/005/006/008/009/024 static/partial; original Client E2E remains not-run"
     },
     {
       "id": "ONB-04",
@@ -203,7 +211,10 @@
         "A-011",
         "A-012",
         "A-004",
-        "A-005"
+        "A-005",
+        "A-006",
+        "A-008",
+        "A-009"
       ],
       "scenarios": [
         "SCN-011",
@@ -218,7 +229,22 @@
         "CT-033",
         "CT-034",
         "CT-035",
-        "CT-055"
+        "CT-055",
+        "CT-058",
+        "CT-059",
+        "CT-060",
+        "CT-070",
+        "CT-071",
+        "CT-072",
+        "CT-073",
+        "CT-074",
+        "CT-075",
+        "CT-076",
+        "CT-077",
+        "CT-078",
+        "CT-079",
+        "CT-080",
+        "CT-081"
       ],
       "depends_on": [
         "ONB-03"
@@ -244,7 +270,10 @@
       "multiplayer_map_decision": "shared-public-map-by-world-and-map-ref",
       "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.json",
       "shared_map_server_refactor": "DEV-070-M required: replace per-character scene with common world/map registry, participant leases, shared actors and server-validated movement/observer separation",
-      "native_multiplayer_acceptance": "not-run"
+      "native_multiplayer_acceptance": "not-run",
+      "latest_merged_analysis": "roy1 A-020/025/026 and roy2 A-004/005/006/008/009/024 static/partial; original Client E2E remains not-run",
+      "server_native_wire_readiness": "S07 kind1..14, S0C/S64, S5F, S0E and S34/S3C/S62/S63/S29 decoded-body subsets can support adapter design; object kind-to-visual/resource mapping and actor registry callback remain unproven. Shared map authority per ADR-007.",
+      "multiplayer_refactor_priority": "DEV-070-M (shared world/map authoritative actors and independent per-player AOI) before original Client entity packet egress"
     },
     {
       "id": "ONB-06",
@@ -255,7 +284,8 @@
       "analysis_requests": [
         "A-026",
         "A-012",
-        "A-016"
+        "A-016",
+        "A-025"
       ],
       "scenarios": [
         "SCN-013"
@@ -263,7 +293,10 @@
       "conformance": [
         "CT-026",
         "CT-027",
-        "CT-028"
+        "CT-028",
+        "CT-061",
+        "CT-062",
+        "CT-063"
       ],
       "depends_on": [
         "ONB-04",
@@ -283,7 +316,9 @@
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
       "multiplayer_map_decision": "shared-public-map-by-world-and-map-ref",
-      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.json"
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.json",
+      "latest_merged_analysis": "roy1 A-020/025/026 and roy2 A-004/005/006/008/009/024 static/partial; original Client E2E remains not-run",
+      "tutorial_completion_gate": "A-026 confirms Born close not quest completion, generic transfer not official tutorial exit; unknown genuine completion/exit map and reward contract remain blocked"
     }
   ]
 }
