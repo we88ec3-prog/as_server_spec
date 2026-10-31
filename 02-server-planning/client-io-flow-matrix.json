@@ -375,6 +375,60 @@
       "work_items": [
         "ONB-04"
       ]
+    },
+    {
+      "id": "FLOW-LOOK",
+      "label": "自他角色外觀、髮色衣色及鏡頭置中",
+      "client_trigger": "NewUser UI 外觀提交 C04（已有 A-003）；裝備事件 C1C 候選（A-008）；入 World/轉圖/重登 Client 接 S04/S05/S33。完全原版點擊與全部動畫未證",
+      "client_send": [
+        "PKT-C04",
+        "PKT-C1C",
+        "PKT-C33"
+      ],
+      "server_to_client": [
+        "PKT-S04",
+        "PKT-S05",
+        "PKT-S33",
+        "PKT-S37",
+        "PKT-S0B"
+      ],
+      "client_reaction": "S05 self hair RGB10..12 and cloth RGB25..27; S33 others hair RGB15..17 and cloth RGB30..32 CP950 name. S04 viewport8,9 projected (400,300). flags optional variants and final native GUI unverified",
+      "evidence": [
+        "A-006",
+        "A-003",
+        "A-004",
+        "A-005",
+        "A-015"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-005"
+      ],
+      "tests": [
+        "CT-003",
+        "CT-007",
+        "CT-008",
+        "CT-058",
+        "CT-059"
+      ],
+      "server_decisions": [
+        "Server picks authoritative appearance state, event/version ordering, and safe supported flags/profile. C1C equip-to-S05/S33 routing is Server policy, not inferred from original-client parser",
+        "Only emit validated S05 flags 0/0x1000 29B and S33 flags0 42+CP950 bytes for this profile until other flags decoded; hair and cloth colors must be separate fields",
+        "Choose viewport8/9 in 912×672/pane(-56,-36) if targeting centered profile; do not modify world x/y; native CT verifies"
+      ],
+      "readiness": "scoped-wire-appearance-and-viewport-projection-ready; native-yPf-DOI-and-GUI-pending",
+      "unknowns": [
+        "Native YPF/DOI animation eight direction/frame and true skin/hair clothing dye layer reproduction requires real resource+GUI validation",
+        "Native S05/S33 all optional flags and secondary string8 variants not fully parsed; 29B/42+n only supported fixed profiles",
+        "Native self/other renderer matching colors, re-login, equipment C1C→S37/S05/S33 handoff not runtime verified",
+        "Viewport8/9 center (400,300) is formula/profile projection; original native GUI screenshot CT-059 not-run",
+        "Original Server persistence and sending times for new clothing/hair/realm are DEV policy"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "task_a/roy2/A-006-analysis.md",
+      "work_items": [
+        "ONB-04"
+      ]
     }
   ]
 }

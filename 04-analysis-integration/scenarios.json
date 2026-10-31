@@ -115,7 +115,27 @@
         "PKT-S05"
       ],
       "status": "server-tested-client-pending",
-      "notes": "既有衣服切換實機通過；最後一輪染色與置中修正尚未回報原客戶端通過。"
+      "notes": "既有衣服切換實機通過；最後一輪染色與置中修正尚未回報原客戶端通過。",
+      "a006_analysis": "task_a/roy2/A-006-analysis.md",
+      "a006_evidence_ids": [
+        "A006-E01",
+        "A006-E02",
+        "A006-E03",
+        "A006-E04",
+        "A006-E05",
+        "A006-E06",
+        "A006-E07",
+        "A006-E08"
+      ],
+      "static_s05_s33_ready": true,
+      "native_client_validation": "not-run",
+      "appearance_notes": "29B S05 flags0/0x1000 and 42+CP950 name S33 flags0 are proven subsets, other flags variable. GUI hair/clothes independent recolor and eight-direction frames not tested.",
+      "tests": [
+        "CT-007",
+        "CT-008",
+        "CT-058",
+        "CT-059"
+      ]
     },
     {
       "id": "SCN-005",
@@ -158,7 +178,8 @@
         "conditional S33 flags and truncated name",
         "disconnect and reenter"
       ],
-      "note_addendum": "Static client parser verified, native MapPane registry/visual result and original AOI radius unknown; Server cohort/epoch/tombstone are designed, not native observed."
+      "note_addendum": "Static client parser verified, native MapPane registry/visual result and original AOI radius unknown; Server cohort/epoch/tombstone are designed, not native observed.",
+      "a006_visual_note": "External S33 actor appearance/color parser fields known; two-client native GUI and ID registry still not run."
     },
     {
       "id": "SCN-006",

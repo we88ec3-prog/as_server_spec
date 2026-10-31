@@ -1377,6 +1377,56 @@
       "evidence_kind": "designed-test",
       "analysis_request": "A-005",
       "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-058",
+      "status": "planned",
+      "level": "original-PE-static-and-synthetic-appearance-projection",
+      "requirements": [
+        "R-006"
+      ],
+      "packet_ids": [
+        "PKT-S04",
+        "PKT-S05",
+        "PKT-S33"
+      ],
+      "input": {
+        "kind": "original-client-static-plus-synthetic",
+        "reference": "05-conformance/A-006-appearance-test-plan.md"
+      },
+      "expected": "13 original PE instructions plus 10 S05/S33 color/name/flags S04 anchor synthetic tests PASS; not native GUI",
+      "evidence_kind": "observed-static-client+synthetic-test",
+      "offline_subset_result": "13 PE native static pattern checks PASS, 10 synthetic tests PASS",
+      "original_probe": "task_a/roy2/a006_look_probe.py",
+      "offline_test": "task_a/roy2/test_a006_look.py",
+      "analysis_request": "A-006",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-059",
+      "status": "planned",
+      "level": "native-original-client-eight-direction-color-equip-map-relogin",
+      "requirements": [
+        "R-006"
+      ],
+      "packet_ids": [
+        "PKT-C04",
+        "PKT-C1C",
+        "PKT-S37",
+        "PKT-S04",
+        "PKT-S05",
+        "PKT-S33",
+        "PKT-C33",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "native-original-two-client-gui-required",
+        "reference": "05-conformance/A-006-appearance-test-plan.md"
+      },
+      "expected": "Native screenshots and redacted traces of standing and 8 directional movements, hair/clothes independent RGB, equip and default reset, map transition, relog, self and other view; compare viewport8/9 center and 9/9 off-center",
+      "evidence_kind": "designed-test",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-006"
     }
   ]
 }

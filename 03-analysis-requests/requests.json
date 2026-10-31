@@ -308,11 +308,20 @@
       "title": "螢幕置中及獨立染色驗收",
       "method": "依8/9鏡頭及S05/S33已知RGB，批次站立、八向移動、更衣、切圖、重登。",
       "deliverable": "先交付 S05/S33/RGB 等靜態證據、Client UI 預期和八向移動/更衣/切圖/重登的人工驗收腳本；已有可用的環境時可增加 observed-runtime，尚未開發新 Server 的最終 Client 人工驗收屬 CT，不應成為逆向研究失敗的理由。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A006-E01",
+        "A006-E02",
+        "A006-E03",
+        "A006-E04",
+        "A006-E05",
+        "A006-E06",
+        "A006-E07",
+        "A006-E08"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -324,7 +333,41 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-static-client+synthetic-test+profile-projection+designed-CT",
+      "analysis_report": "task_a/roy2/A-006-analysis.md",
+      "native_probe": "task_a/roy2/a006_look_probe.py",
+      "offline_tests": "task_a/roy2/test_a006_look.py",
+      "conformance": [
+        "CT-003",
+        "CT-007",
+        "CT-008",
+        "CT-058",
+        "CT-059"
+      ],
+      "implementation_ready": true,
+      "implementation_ready_scope": "S05 flags0/0x1000 29B, S33 flags0 42+CP950-name, independent RGB, S04 8/9 viewport anchored projection; optional flags/renderer must not use fixed schema",
+      "client_io_completed": [
+        "S05 0x5895A0 BE u32 plus cloth/hair RGB & flag-dependent reader; 29B flags0/0x1000 profile",
+        "S33 0x585570 BE u16 x/y/u8 facing/BE u32 actor; CP950 string8; flag0 fixed-profile body",
+        "S33 bit0 RGB, bit4 BE u16, bit1 u8, bit7 u8, bit13 string8 optional native branches",
+        "S33 0x585780..0x5857F4 zero-RGB sentinel ff00ff normalization for specified color groups",
+        "S04 0x589990 BE u16×4 + profile viewport8,9 center (400,300) derivation vs9,9 (448,300)",
+        "13 native PE pattern probes PASS, 10 synthetic decoded-body/viewport tests PASS"
+      ],
+      "remaining_unknowns": [
+        "Native YPF/DOI animation eight direction/frame and true skin/hair clothing dye layer reproduction requires real resource+GUI validation",
+        "Native S05/S33 all optional flags and secondary string8 variants not fully parsed; 29B/42+n only supported fixed profiles",
+        "Native self/other renderer matching colors, re-login, equipment C1C→S37/S05/S33 handoff not runtime verified",
+        "Viewport8/9 center (400,300) is formula/profile projection; original native GUI screenshot CT-059 not-run",
+        "Original Server persistence and sending times for new clothing/hair/realm are DEV policy"
+      ],
+      "last_analysis_date": "2026-10-31",
+      "scoped_research_complete": true,
+      "full_native_display_pass": false,
+      "assets_needed_for_research": "none; source Asgard.exe provided; full sprite/animation validation would need selected Human YPF/DOI and native screenshots"
     },
     {
       "id": "A-007",

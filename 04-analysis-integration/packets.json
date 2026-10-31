@@ -109,19 +109,29 @@
       ],
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
-        "R-003"
+        "R-003",
+        "R-006"
       ],
       "evidence_ids": [
         "ev_a021_20261031_asgard_static",
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "A006-E01",
+        "A006-E02",
+        "A006-E03",
+        "A006-E04",
+        "A006-E05",
+        "A006-E06",
+        "A006-E07",
+        "A006-E08"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "response_flow": "After C04 Client local state0x1e; S02(status0) enters 0x4b206b UI branch, not immediate S03/World; S02(nonzero) emits empty C15 and state0x1f",
       "native_character_commit_proven": false,
       "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "Five u8, no request id; Server must bind verified owner/session/pending intent and commit once before reporting success (designed)."
+      "a016_recovery_note": "Five u8, no request id; Server must bind verified owner/session/pending intent and commit once before reporting success (designed).",
+      "a006_analysis": "task_a/roy2/A-006-analysis.md"
     },
     {
       "id": "PKT-C10",
@@ -215,8 +225,20 @@
       ],
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
-        "R-008"
-      ]
+        "R-008",
+        "R-006"
+      ],
+      "evidence_ids": [
+        "A006-E01",
+        "A006-E02",
+        "A006-E03",
+        "A006-E04",
+        "A006-E05",
+        "A006-E06",
+        "A006-E07",
+        "A006-E08"
+      ],
+      "a006_analysis": "task_a/roy2/A-006-analysis.md"
     },
     {
       "id": "PKT-C1E",
@@ -506,12 +528,23 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-004",
-        "R-007"
+        "R-007",
+        "R-006"
       ],
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "A006-E01",
+        "A006-E02",
+        "A006-E03",
+        "A006-E04",
+        "A006-E05",
+        "A006-E06",
+        "A006-E07",
+        "A006-E08"
       ],
-      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
+      "a006_analysis": "task_a/roy2/A-006-analysis.md",
+      "a006_note": "4×BE u16 x,y,vx,vy; (8,9) maps to (400,300) in 912×672 48×32 pane(-56,-36) projected profile; native GUI not-run"
     },
     {
       "id": "PKT-S05",
@@ -520,18 +553,29 @@
       "name": "SelfAppearance",
       "system": "SYS-LOOK",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "外觀與flags；詳細欄位見appearance.md",
-      "client_entry": "0x5895a0",
+      "layout": "29B flags0/0x1000 subset: BE u32 object, sex u8, clothing BE u16 at7, hair id u8 at9, hair RGB10..12, flags BE u32 at21, cloth RGB25..27; low flag bit0/bit4/bit1/bit7 add native fields",
+      "client_entry": "0x5895A0 native parser",
       "state_precondition": "登入成功建立世界UI後",
       "related_packets": [],
-      "layout_status": "profile-documented",
+      "layout_status": "static-profile-ready-optional-variants-unknown",
       "evidence_kinds": [
         "prior-static-analysis"
       ],
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-006"
-      ]
+      ],
+      "evidence_ids": [
+        "A006-E01",
+        "A006-E02",
+        "A006-E03",
+        "A006-E04",
+        "A006-E05",
+        "A006-E06",
+        "A006-E07",
+        "A006-E08"
+      ],
+      "a006_analysis": "task_a/roy2/A-006-analysis.md"
     },
     {
       "id": "PKT-S0B",
@@ -683,11 +727,11 @@
       "name": "PutHuman",
       "system": "SYS-LOOK",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "玩家座標、面向、外觀及名稱；見appearance.md",
+      "layout": "flags0: BE u16 x,y,u8 facing, BE u32 actor; hair RGB15..17, cloth RGB30..32, flags BE u32 offset26, CP950 string8 name offset34; total 42+name-byte count. Flags bit0/bit4/bit1/bit7/bit13 add variable fields",
       "client_entry": "0x585570",
       "state_precondition": "玩家與地圖已建立",
       "related_packets": [],
-      "layout_status": "profile-documented",
+      "layout_status": "static-profile-ready-optional-variants-unknown",
       "evidence_kinds": [
         "prior-static-analysis"
       ],
@@ -705,10 +749,19 @@
         "A004-E05",
         "A004-E06",
         "A004-E07",
-        "A004-E08"
+        "A004-E08",
+        "A006-E01",
+        "A006-E02",
+        "A006-E03",
+        "A006-E04",
+        "A006-E05",
+        "A006-E06",
+        "A006-E07",
+        "A006-E08"
       ],
       "a004_ref": "task_a/roy2/A-004-analysis.md",
-      "a004_note": "S33 first fields BE u16 x,y; u8 facing; BE u32 object; flags=0 profile S33 length 42+CP950-name-byte count; variable flags not covered."
+      "a004_note": "S33 first fields BE u16 x,y; u8 facing; BE u32 object; flags=0 profile S33 length 42+CP950-name-byte count; variable flags not covered.",
+      "a006_analysis": "task_a/roy2/A-006-analysis.md"
     },
     {
       "id": "PKT-S37",
@@ -727,8 +780,20 @@
       ],
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
-        "R-008"
-      ]
+        "R-008",
+        "R-006"
+      ],
+      "evidence_ids": [
+        "A006-E01",
+        "A006-E02",
+        "A006-E03",
+        "A006-E04",
+        "A006-E05",
+        "A006-E06",
+        "A006-E07",
+        "A006-E08"
+      ],
+      "a006_analysis": "task_a/roy2/A-006-analysis.md"
     },
     {
       "id": "PKT-S60",
