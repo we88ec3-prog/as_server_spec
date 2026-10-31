@@ -95,3 +95,9 @@ Roy1 曾以 `8+36*n` 起始解出首 MAP，實際 indexed DAT 是 `LEu32 n` + `n
 本輪 **直接讀取使用者提供的原件**：`Born.dat`（zlib native Script、Main、CP950 XML CRC `1d87b0c0`）、`Basic.dat`（39 slots/38 members，完整 indexed DAT）與 `Basic.dat/AlertFrame.ypf`（offset13196、size177648、SHA `b641441d1f0378de04b6f7929c333d95e6ad7df451f3927432e5c4d0305602ce`、YPF v17）。同 SHA `Asgard.exe` 再驗 **22 個原生 S44 dispatch 指令**：`S44(type2/subtype0)` 使用 UI slot0x23＋components3/4，`S44(type2/subtype2)` 使用 slot0x24；**與已證 Born `S44(1,0)→Main` 不同**。新增 21 個 synthetic DAT/index/UTF16/zlib 正負向測試及 `CT-112`。完整 [原件報告](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)／[驗收](../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
 
 本次未收到 `PaperDialog.dat` 原始檔，只能引用先前已驗證的相符 hash 與函式；**如要重新獨立比對完整紙張依賴，確切需 `PaperDialog.dat`**。首發 Born 的原服規則、女招募員 EntityId/map/spawn 與 NPC→`nNewJoin01.dat` 綁定依然無原服／Native GUI 證據，A-023 保持 `integrated/partial`、`native_client_validation=not-run`，不是漏做 Client S44 啟動機制。Server 最小入圖/行走 P0 不依賴這個 P1 教學 NPC 與 Script 自動派送。
+
+## 2026-11-01 A-023 四原件 Script 發行樣本追加
+
+原件 `PaperDialog.dat`／`PaperDialog02.dat`／`nNewJoin01.dat`／`Merchant.dat` **已在新一輪上傳並實際核對**，原始 SHA256 依次為 `5b86a4b1…`／`49a618b9…`／`8410064a…`／`6888021c…`；完整 hash、原檔大小、BEu16+BEu32 UTF16 units、unpacked SHA256、CP950 text CRC32 `f870c574`／`42683546`／`d9390353`／`e9b389cf`、完整函式數請參照 [機讀驗證](../task_a/roy2/a023-four-script-verification.json) 與 [研究全文](../task_a/roy2/A-023-four-script-native-dependencies-20261101.md)。**這四個檔案目前並未缺少**。
+
+PaperDialog／PaperDialog02 在相同 runner 容易碰到 `ShowIndexedHelp/PaperDialogProc` 重名；PaperDialog02 的 cancelControl 設為 OK，雖另有 CANCEL 按鈕及 `PAPER02=NOT` 的取消回覆；需要原 Client GUI 對 ESC 做獨立驗證。`nNewJoin01` 是 Merchant 常見框架的對話函式、沒有 Main；它的 `STATE=ACCEPT/REFUSE` 是 ScriptReply，而非原服授權入學或任務畢業證據。`Merchant.Main` 初始化 ClientReply／ServerParam，真正 NPC 綁定與 `QuestDialog_Create`、`MerchantDialog_Create`、`MerchantDirectTalk` 其他來源未知。此研究結果不會把 `Born` 的 (31,29) 當 Spawn 或從檔名推斷 NPC ID。
