@@ -127,6 +127,13 @@ def audit_map6(path):
             'candidate_path':path,'native_walkability':'unverified',
             'native_client_gui':'not-run'}
 
+def eight_neighbor_direction(dx,dy):
+    """Eight adjacent grid steps' result from native 0x4431E0 (NOT all slopes)."""
+    mapping={(0,-1):0,(1,0):1,(0,1):2,(-1,0):3,
+             (1,-1):4,(1,1):5,(-1,1):6,(-1,-1):7}
+    try:return mapping[(dx,dy)]
+    except KeyError as e:raise ValueError('not an adjacent step') from e
+
 if __name__=='__main__':
     a=argparse.ArgumentParser()
     a.add_argument('--exe',type=Path,required=True)

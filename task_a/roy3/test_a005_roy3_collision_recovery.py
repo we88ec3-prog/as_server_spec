@@ -3,7 +3,7 @@ import os
 import unittest
 from a005_roy3_collision_recovery import (
     local_candidate_gate as gate,compose_tile_flags as overlay,
-    audit_map6,verify_exe)
+    audit_map6,verify_exe,eight_neighbor_direction)
 
 class NativeWalkCandidateTests(unittest.TestCase):
     def test_native_exe(self):
@@ -33,6 +33,12 @@ class NativeWalkCandidateTests(unittest.TestCase):
         for inp in [(0,0,0,8),(0,0,256,0),(-1,0,0,0)]:
             with self.assertRaises(ValueError):gate(*inp)
         with self.assertRaises(ValueError):overlay(0,-1,0)
+    def test_direction_index_from_native_eight_neighbors(self):
+        expected=[((0,-1),0),((1,0),1),((0,1),2),((-1,0),3),
+                  ((1,-1),4),((1,1),5),((-1,1),6),((-1,-1),7)]
+        for (dx,dy),value in expected:
+            self.assertEqual(eight_neighbor_direction(dx,dy),value)
+        with self.assertRaises(ValueError):eight_neighbor_direction(0,0)
     def test_original_map0(self):
         map0=os.environ.get('ASGARD_MAP0')
         if not map0:return
