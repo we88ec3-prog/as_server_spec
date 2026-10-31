@@ -206,7 +206,7 @@
     {
       "id": "ENTRY-01",
       "owner": "Server + A-030",
-      "mode": "needs-client-evidence",
+      "mode": "partial-client-evidence",
       "analysis": [
         "A-030"
       ],
@@ -215,12 +215,12 @@
         "CT-106",
         "CT-107"
       ],
-      "rule": "Native original Client NewUser region/account/password/NAME/EMAIL mapping and nonzero S02/C15 GUI before C02-C04 wire activation. Backend email v5 implemented synthetically only; no bypass by a guessed F3/F4."
+      "rule": "A-030 Region2..4 C02 field3=NAME, field4=E-MAIL proven with original Basic.dat label keys 73/75 and Asgard.exe xrefs; protocol/owner verification can now be implemented for the matching profile, but runtime region, blank EMAIL submission, S02 failure GUI/C15 keep native activation gated. Never apply to Region0/1."
     },
     {
       "id": "ENTRY-02",
       "owner": "Server + A-031",
-      "mode": "needs-client-evidence",
+      "mode": "partial-client-evidence",
       "analysis": [
         "A-002",
         "A-022",
@@ -231,12 +231,12 @@
         "CT-107",
         "CT-108"
       ],
-      "rule": "Two independent routes: creation final S02(0) → native seamless World transfer (no manual second C03/LoginDialog), and later regular LoginDialog C03/S03/new TCP C10. Post-create World handoff requires committed owner proof and A-028/A-031 native evidence, never invented S03 or synthetic C25=01."
+      "rule": "A-031 original Region3 S03 transfer callback queues C10 raw token then C25 CBillingInfoPacket 3 strict codepage string8 with no S02 wait; non3 native C25 is not proven and must not be mandatory. Separate ADR-008 post-C04 seamless entry is STILL unknown A-028/A-031; do not force manual login or fabricate a S03."
     },
     {
       "id": "ENTRY-03",
       "owner": "Server + A-032",
-      "mode": "needs-client-evidence",
+      "mode": "partial-client-evidence",
       "analysis": [
         "A-015",
         "A-022",
@@ -245,12 +245,12 @@
       "tests": [
         "CT-108"
       ],
-      "rule": "Use versioned real MAP selected by Server with exact header word plus computed native structured C35 checksum, valid spawn. S14(2) means loading UI not tutorial completion."
+      "rule": "A-032 original MAP0/00006.map map_ref=6 full offline structured C35 body 00040F90 (also 0=000063A9,10000=00040F90,18001=0012F892,20001=0016E9B9) now static-proven with archive SHA; native Client C35, valid spawn/viewport/facing and tutorial map identity remain not-run. Check both u16 and map content revision, no raw CRC/guess."
     },
     {
       "id": "ENTRY-04",
       "owner": "Server + A-005/A-032",
-      "mode": "needs-client-evidence",
+      "mode": "partial-client-evidence",
       "analysis": [
         "A-005",
         "A-032"
@@ -258,7 +258,7 @@
       "tests": [
         "CT-109"
       ],
-      "rule": "Native world C11/C33 handled in InWorld, S0B authoritative movement and verified walkable path. Never infer can-walk from isolated bit0/bit4 or accept movement without authenticated lease."
+      "rule": "A-005 Client C33 producer and native S0B consumer: reply low7 of status byte must be the current C33.seq, local Client next seq=(seq+1)&127; bit7 clear=authoritative correction/stop, set=predicted position compare+possible correction. Server C11/C33 InWorld route still absent; movement mask, speed, origin/path and native GUI/rollback remain unknown, raw tile flags0 does not prove passable."
     },
     {
       "id": "ENTRY-05",
@@ -295,5 +295,20 @@
   ],
   "native_playable_entry_plan": "02-server-planning/native-playable-entry-roadmap-20261101.md",
   "native_playable_entry_acceptance": "05-conformance/native-playable-entry-acceptance-20261101.md",
-  "post_create_direct_world_decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md"
+  "post_create_direct_world_decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md",
+  "roy123_integrated_playable": {
+    "evidence": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
+    "plan": "02-server-planning/roy123-playable-world-implementation-20261101.md",
+    "remaining_analysis": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
+    "static_subsets": {
+      "A030_region2_4_name_email": "proven-resource+original-EXE",
+      "A028_region3_postcreate_success_ui": "proven-static-LoginDialogPane-constructor-not-auto-login",
+      "A031_region3_c10_c25": "proven-static-CBillingInfoPacket-3string8-no-interposed-S02",
+      "A032_map6_structured_c35": "offline-original-asset-00040F90-not-network",
+      "A005_s0b_seq7_bit7": "proven-static-current-sequence-ack-correction"
+    },
+    "native_e2e": "not-run",
+    "normal_login_separate_from_postcreate": true,
+    "private_server_baseline": "a9326985b1d2899677d95bdb5a8496502b7e4bb1"
+  }
 }

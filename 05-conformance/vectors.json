@@ -2968,7 +2968,8 @@
         "S02_failure_dialog_C15": "original EXE static path, native GUI not-run",
         "native_client_validation": "not-run"
       },
-      "a028_postcreate_static_refinement": "Final S02(0) callback0x4B206B clears 0B/0C/0D/07 UI entries; Region3 constructs native LoginDialogPane0x4A9380, but no direct C03/C10 in callback or pane constructor. User confirmed seamless no-manual-login behavior; actual background World opcode and GUI E2E not-run. Source task_a/roy2/A-028-postcreate-ui-native-followup.md"
+      "a028_postcreate_static_refinement": "Final S02(0) callback0x4B206B clears 0B/0C/0D/07 UI entries; Region3 constructs native LoginDialogPane0x4A9380, but no direct C03/C10 in callback or pane constructor. User confirmed seamless no-manual-login behavior; actual background World opcode and GUI E2E not-run. Source task_a/roy2/A-028-postcreate-ui-native-followup.md",
+      "roy123_source_grade": "native-resource/static-verified Region2..4 C02 F3 NAME F4 E-MAIL, but S02 error UI and success seamless World GUI not-run"
     },
     {
       "id": "CT-106",
@@ -3070,7 +3071,13 @@
         "A-028",
         "A-031"
       ],
-      "a028_postcreate_static_refinement": "Final S02(0) callback0x4B206B clears 0B/0C/0D/07 UI entries; Region3 constructs native LoginDialogPane0x4A9380, but no direct C03/C10 in callback or pane constructor. User confirmed seamless no-manual-login behavior; actual background World opcode and GUI E2E not-run. Source task_a/roy2/A-028-postcreate-ui-native-followup.md"
+      "a028_postcreate_static_refinement": "Final S02(0) callback0x4B206B clears 0B/0C/0D/07 UI entries; Region3 constructs native LoginDialogPane0x4A9380, but no direct C03/C10 in callback or pane constructor. User confirmed seamless no-manual-login behavior; actual background World opcode and GUI E2E not-run. Source task_a/roy2/A-028-postcreate-ui-native-followup.md",
+      "roy123_required_native_assertions": [
+        "Region2..4 verified C02 NAME/EMAIL, correct identity and C04 one atomic commit",
+        "Final S02 success cannot force manual LoginDialog; observe real post-C04 background transport",
+        "S02 nonzero error displays without generic disconnect; C15 cancels only pending",
+        "Account.creation_email only stored on successful C04"
+      ]
     },
     {
       "id": "CT-108",
@@ -3115,7 +3122,19 @@
         "A-032",
         "A-028"
       ],
-      "a031_original_c25_refinement": "C25 (opcode0x25) is native CBillingInfoPacket, not map/WorldEntryMetadata. Region3 native C10→C25 has three string8 fields, other region's C25 send not established. Original C25 body01 developer fixture invalid for real Client. Source task_a/roy2/A-031-analysis.md; native CT-108 not-run."
+      "a031_original_c25_refinement": "C25 (opcode0x25) is native CBillingInfoPacket, not map/WorldEntryMetadata. Region3 native C10→C25 has three string8 fields, other region's C25 send not established. Original C25 body01 developer fixture invalid for real Client. Source task_a/roy2/A-031-analysis.md; native CT-108 not-run.",
+      "roy123_reference_fixture": {
+        "source": "task_a/roy3/a032_c35_fixture.json",
+        "map_ref": 6,
+        "static_c35_be_hex": "00040F90",
+        "verified_offline_original_assets": true,
+        "original_client_c35_capture": "not-run",
+        "safe_spawn": "unknown",
+        "walkable_path": "unknown",
+        "tutorial_map": "unknown",
+        "region3_c25": "3 string8 CBillingInfoPacket only after C10 native transfer, never body 01",
+        "non3_c25": "not mandatory"
+      }
     },
     {
       "id": "CT-109",
@@ -3152,7 +3171,17 @@
       "analysis_dependency": [
         "A-005",
         "A-032"
-      ]
+      ],
+      "roy123_native_ack": {
+        "source": "task_a/roy3/A-005-roy3-native-movement.md",
+        "c33": "direction u8,seq7 u8,movement_mode u8",
+        "s0b": "BEu16 x/y, status_seq u8; low7 = current C33.seq",
+        "client_next_seq": "(sent+1)&127",
+        "bit7_clear": "correction/stop",
+        "bit7_set": "predicted-move check then correction on mismatch",
+        "native_collision_and_gui": "not-run",
+        "candidate_walk_path": "map6 (30,30)->(30,31)->(30,32)->(31,32)->(32,32) is unverified"
+      }
     },
     {
       "id": "CT-110",
@@ -3179,7 +3208,8 @@
       "offline_test": "task_a/roy2/test_a031_world_entry.py",
       "native_client_validation": "not-run",
       "offline_subset_result": "PASS original local Asgard.exe SHA-locked 35 native instruction VA anchors plus CBillingInfoPacket RTTI; GitHub Actions run 41224805425 success, 20/20 A-031 synthetic C10/C25 tests plus project 32-A/7-DEV/110-CT phase gates and other suites passed. Actual native World TCP/GUI CT-108 not-run.",
-      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41224805425"
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41224805425",
+      "roy123_merge_scope": "Region3 original Client static/synthetic C10 then CBillingInfo C25 3string8; no native World readiness PASS"
     },
     {
       "id": "CT-111",
@@ -3211,7 +3241,8 @@
       "scope_boundary": "Does not prove successful original GUI direct-world or background C03/S03/C10, CT-105/107/108 remain not-run",
       "offline_subset_result": "PASS: same SHA original Asgard.exe local 31 native VA instruction anchors + MSVC LoginDialogPane RTTI; GitHub Actions run 41226689277 includes 22/22 new A028 synthetic S02/C04/C15 UI-state tests, phase gates and other suites PASS. Native original GUI direct World CT-105/107/108 remain not-run.",
       "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277",
-      "original_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+      "original_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "roy123_merge_scope": "final C04 success Region3 original static creates LoginDialogPane object only, no proven automatic C03 or visible LoginDialog; native automatic World unknown"
     }
   ]
 }

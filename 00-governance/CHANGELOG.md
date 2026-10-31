@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 Roy1/Roy2/Roy3 合併驗證與創角直入遊戲／可移動下一階段規劃
+
+三條 task_a 分支 merge commits 保留原歷史，按 A/PKT/CT/evidence ID 整合交集，不以全檔覆寫其他研究；更新 [整合原件稽核](../04-analysis-integration/roy123-verified-evidence-review-20261101.md) 與 [完整 Server DEV-ENTRY-01～06](../02-server-planning/roy123-playable-world-implementation-20261101.md)、[剩餘 Client 分析](../03-analysis-requests/roy123-remaining-playable-blockers-20261101.md)。原件校核新事實：A-030 Region2..4 C02 NAME F3/E-MAIL F4 已由 Basic.dat + EXE 確證；A-028 Region3 final S02 callback 建 LoginDialogPane，但**非**已證可見回登入；A-031 Region3 C10 後 CBillingInfo C25(3×string8) 且 non3 不強制；A-032 原始 MAP 理論 C35 map6=00040F90 等五張重算已核；A-005 S0B bit7/seq7 Client 行為補證。私有 Server a9326985 仍 live native C02/C04/C15 Close、C25=01 synthetic、沒有 C11/C33 Host 路由；CT-105/107/108/109 original Client 均 not-run。只改 spec/main；沒有修改 Server、DB 或 Client。
+
 ## 2026-11-01 ADR-008：使用者確認創角成功直接進遊戲、不返回登入畫面
 
 以本輪使用者明確要求覆蓋先前規劃錯誤：新角色 C02→S02(0)→C04→S02(0) 後直接由原版 Client 自動入 World，**不得要求回 LoginDialog 人工再次 C03**；日後有角色的一般 LoginDialog C03/S03/C10 仍保留。新增 ADR-008，調整 R-026/027、ONB-02/03/04、A-028/030/031、SCN-008/009/010、DEV-ENTRY-02/03、readiness/Client I/O matrix、CT-105/107/108 與相關文件。已知 C04 callback 0x4b206b 不立即 S03，但其後原版自動入世界 packet 仍需取證；不因此標記原生 Client E2E 成功。只修規格、不改 Server/DB/EXE。

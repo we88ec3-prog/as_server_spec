@@ -125,7 +125,7 @@
         "CT-107"
       ],
       "depends_on": [],
-      "readiness": "A-030 native field ordinal and S02 nonzero static integrated; NAME/EMAIL semantics and live C02 adapter still blocked",
+      "readiness": "A-030 Region2..4 NAME=F3, E-MAIL=F4 original Basic.dat+EXE confirmed; C02/S02/C04/C15 Host remains Close and S02 failure native UI/runtime region and direct post-C04 World unverified",
       "implementation_status": "not-reported",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
@@ -143,7 +143,7 @@
       "creation_account_policy_source": "02-server-planning/three-native-account-entry-policy.md",
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
       "next_iteration_handoff": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
-      "native_creation_activation_gate": "Original native C02/C04 unconditional Close confirmed in private Server main ad84f9; A-030 requires direct native NewUser region/field ID/PASSWORD/NAME/E-MAIL and usable S02(nonzero) evidence first. Only after C02 credential proof and name check may issue stage1 S02(0), then C04 atomic commit and stage2 S02(0). Without evidence remain fail-closed.",
+      "native_creation_activation_gate": "Use region2..4 strict 4 string8+u8 with genuine F3(NAME),F4(E-MAIL), common existing Account/password proof, transaction + Account.creation_email; C04 success→PostCreateEntryContext→original automatic World. Fail closed for unverified region0/1 or GUI S02 nonzero and no user-visible manual second login.",
       "provisioning_dependency": "ONB-01 authorized admin-provisioned Account record required, but ONB-01 C03 login action is NOT required before C02",
       "latest_three_entry_decision": {
         "source": "02-server-planning/three-native-account-entry-policy.md",
@@ -192,6 +192,15 @@
         "requires_manual_second_login": false,
         "client_packet_path": "A-028/A-031 not proven",
         "native_client_validation": "not-run"
+      },
+      "roy123_integrated": {
+        "review": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
+        "plan": "02-server-planning/roy123-playable-world-implementation-20261101.md",
+        "queue": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
+        "native_client_validation": "not-run",
+        "as_server_roy_sha": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
+        "decision": "post-C04 seamless World/no manual C03",
+        "analysis_status": "static resources/codec partial-ready, no native GUI end-to-end"
       }
     },
     {
@@ -231,7 +240,7 @@
       "depends_on": [
         "ONB-02"
       ],
-      "readiness": "generic-world-loading-analysis-ready; native-tutorial-content-unresolved",
+      "readiness": "A-031 Region3 C10→C25(3string8 CBillingInfoPacket) static ready, non3 C25 not required; A-032 full MAP C35 offline values static ready; actual native direct post-C04 world transfer, selected map spawn/viewport and original C35/GUI still blocked",
       "implementation_status": "not-reported",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
@@ -275,7 +284,17 @@
         "requires_manual_second_login": false,
         "client_packet_path": "A-028/A-031 not proven",
         "native_client_validation": "not-run"
-      }
+      },
+      "roy123_integrated": {
+        "review": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
+        "plan": "02-server-planning/roy123-playable-world-implementation-20261101.md",
+        "queue": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
+        "native_client_validation": "not-run",
+        "as_server_roy_sha": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
+        "decision": "post-C04 seamless World/no manual C03",
+        "analysis_status": "static resources/codec partial-ready, no native GUI end-to-end"
+      },
+      "native_world_activation_gate": "Grant after authenticated owner C10 (or evidenced post-create equivalent), C25 Region3 optional metadata not auth; MAP from versioned true assets, exact C35 pair; map6 static interim candidate only; native Client C35/S04/S33/S14(2) not-run."
     },
     {
       "id": "ONB-04",
@@ -309,7 +328,7 @@
       "depends_on": [
         "ONB-03"
       ],
-      "readiness": "core-ready-client-blocked",
+      "readiness": "Core database recovery and synthetic session gating exists; native original Client C02/C04/C25/C35/C33 end-to-end failure/replay/restart not-run",
       "implementation_status": "not-reported",
       "client_acceptance": "not-run",
       "completion_policy": "DEV-CT-SPLIT-v1",
@@ -340,7 +359,17 @@
         "requires_manual_second_login": false,
         "client_packet_path": "A-028/A-031 not proven",
         "native_client_validation": "not-run"
-      }
+      },
+      "roy123_integrated": {
+        "review": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
+        "plan": "02-server-planning/roy123-playable-world-implementation-20261101.md",
+        "queue": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
+        "native_client_validation": "not-run",
+        "as_server_roy_sha": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
+        "decision": "post-C04 seamless World/no manual C03",
+        "analysis_status": "static resources/codec partial-ready, no native GUI end-to-end"
+      },
+      "native_movement_activation_gate": "A-005 proves C33 current sequence S0B low7+bit7 native handling; no safe walkability/Client rollback yet. Do not update durable position on unverified tiles or stale epoch."
     },
     {
       "id": "ONB-05",

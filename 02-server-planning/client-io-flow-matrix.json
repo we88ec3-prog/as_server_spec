@@ -98,19 +98,20 @@
         "Live private CharacterCreationAccountGuard loggedIn requirement is obsolete; direct C02 valid account+password must produce creation-only proof regardless of prior C03; Host wire still not native-tested.",
         "Private Server main ad84f9 LoginWireSession.HandleAsync case C02/C04 currently returns Close() and never invokes Auth/DecodeC02/DB/S02; future DEV-040 native routing required, no Client changes.",
         "C02 identity+password auth in the Admin-created Account store without C03, generation-scoped creation-only proof, S02(0) first reply→C04 once-only commit→S02(0) final; ordinary failures require A-028/A-030 native-compatible nonzero replies, never guess status.",
-        "ADR-008: committed C04 then final S02 must seamlessly continue to native World without visible login/manual C03; grant only after proof+commit and confirmed A-028/A-031 wire."
+        "ADR-008: committed C04 then final S02 must seamlessly continue to native World without visible login/manual C03; grant only after proof+commit and confirmed A-028/A-031 wire.",
+        "Roy123 integration: use proven Region2..4 NAME/E-MAIL mapping for strict decoder; successful C04 persists EMAIL on Account and continues automatic World, but not before authorized owner/response state."
       ],
-      "readiness": "confirmed current server unconditional C02/C04 Close, original native failure/NAME/EMAIL/region pending A-030; planning only",
+      "readiness": "Region2..4 A-030 original Basic.dat+EXE confirms NAME F3/EMAIL F4; E-MAIL blank gate/native S02 nonzero GUI/C15 and original post-C04 auto World remain unverified; live Host C02/C04/C15 fail-closed.",
       "unknowns": [
         "C02 第1/2欄 Account/Password 的各 region 精確 native UI/serializer 角色與本機限制",
         "S02(status!=0) 對錯帳號/錯密/停權/已有角色的 native UI/error code",
         "C04 final success 直接進 World 的 callback/背景連線/首 World C2S、region差異",
         "原版 Client 的 C03(no character) auto-route 只作補充觀察，不是使用者要求的 create 前置",
-        "NAME and E-MAIL original form->C02 field mapping and E-MAIL required gate, region1 writer discrepancy",
         "Which native S02 nonzero status+message renders credential/duplicate errors, C15 retry/socket semantics",
         "Observed popup first actual TCP breakpoint: C02 before or after, C04 after, C15 after; original Client native trace not-run",
         "Roy1 A-030 verified C02 regional widget ordinals; NAME/EMAIL exact label, E-MAIL mandatory and native error S02 remain unproven",
-        "A-028: final S02(0) success -> background World socket/first packet or separate LoginDialogPane conditional C03 callback causal chain unknown. Region3 LoginDialogPane ctor is static-proof object construction, not manual-login requirement or automatic C03 proof."
+        "A-028: final S02(0) success -> background World socket/first packet or separate LoginDialogPane conditional C03 callback causal chain unknown. Region3 LoginDialogPane ctor is static-proof object construction, not manual-login requirement or automatic C03 proof.",
+        "Native selected region/account input ID gate, E-MAIL blank submission and nonzero S02 error GUI/retry not-run; Region0/1 C02 writer differs and must not be assumed Region2..4."
       ],
       "native_client_validation": "not-run",
       "work_items": [
@@ -157,13 +158,14 @@
         "C25 opcode0x25 on this original client is CBillingInfoPacket, NOT World map entry metadata. Only native region3 three string8 can be recognized; never require development fake C25 body01 from real Client, nor use C25 strings as authentication.",
         "No S02 ack is expected between the two enqueues in region3 original callback; Server authority begins with validated once-only C10 grant. For other regions, nonarrival of C25 must not automatically reject World entry (designed)."
       ],
-      "readiness": "C10 native raw token and region3 C25 3×encoded string8 static-ready (A-031/CT-110); original World first S2C, non3 subsequent flow, native Client successful map display CT-108 not-run.",
+      "readiness": "A-031 original Region3 S03→new C10 raw token→C25 CBillingInfoPacket (3string8) proven static; non3 C25 not mandatory; first World S2C & post-C04 direct World wire unknown/native not-run.",
       "unknowns": [
         "原服重複登入策略與 S02 拒絕碼",
         "Native packet capture seed/ordinal/billing string values and other region 0/1/2/4 World follow-up beyond C10",
         "Actual World first S2C or S02 error branch and native GUI first map display after transfer CT-108 not-run",
         "First creation post-C04 seamless World transition differs from returning-character C03/S03/C10; A-028 still needs native call chain.",
-        "ADR-008 first-create World seamless callback 0x4B206B does not directly send C03/C10; Region3 constructs LoginDialogPane but it is not proven to be automatic transfer. Cannot require returning-character C03/S03/C10 sequence."
+        "ADR-008 first-create World seamless callback 0x4B206B does not directly send C03/C10; Region3 constructs LoginDialogPane but it is not proven to be automatic transfer. Cannot require returning-character C03/S03/C10 sequence.",
+        "Region3 C25 opaque billing strings must not be interpreted as MapID/Account/Password, and existing synthetic body=01 is incompatible with original Region3."
       ],
       "native_client_validation": "not-run",
       "work_items": [
@@ -210,12 +212,13 @@
         "自行選合法 map_id、可呈現 spawn/朝向、版本和校驗配對",
         "載入單一 pending epoch；重連/錯版/重送 fail closed；入圖不等於教學完成"
       ],
-      "readiness": "original-MAP-parser/raw-tile-coordinate/in-bounds-ready; native walkability/spawn CT-070 pending",
+      "readiness": "A-032 original MAP SHA + structured C35 pair computed for map_ref0/6/10000/18001/20001; selected map spawn, original Client C35, viewport/facing and tutorial map identity not-run.",
       "unknowns": [
         "目前驗證過的 494 MAP 之 map_id/相容版本與原生顯示完整映射",
         "合法出生點、碰撞與 C35 配對需要對具體選定地圖完成測試",
         "Map tile in-bounds != actual player-passable/spawn-safe; selected original map and native pixel-foot mapping unknown",
-        "A-031 proves C10 then region3 BillingInfo C25 queue; does not prove first S2C, map loading packet order, or native successful World GUI. CT-108 still not-run"
+        "A-031 proves C10 then region3 BillingInfo C25 queue; does not prove first S2C, map loading packet order, or native successful World GUI. CT-108 still not-run",
+        "Offline map6 C35 00040F90 not yet captured from unmodified Client, runtime map state/spawn and native loader timing pending CT-108."
       ],
       "native_client_validation": "not-run",
       "work_items": [
@@ -423,13 +426,14 @@
         "Server picks measured collision policy and speed/step threshold, not necessarily original; MAP bit4 native line test is NOT proven walking collision",
         "S0B with authoritative coordinate for candidate reject/correction; exact original failure status/GUI unknown; other observers use S06/S11"
       ],
-      "readiness": "C33/C11/S0B codec and original-map-bit-consumer static-ready; true native walking collision, fail status and UI E2E pending",
+      "readiness": "A-005 Native C33 producer and S0B seq7/bit7 correction handler source-backed; C11 one byte, movement mode byte native OR0x80; actual player walkability, step/speed, GUI S0B and InWorld Host router pending.",
       "unknowns": [
         "Which raw MAP flags decide player walking vs LOS/static blockers",
         "C33 direction/gait vs legal step/diagonal and tick (original Server policy)",
         "S0B bit7 failure handling and native rollback / resend state",
         "Original map content version-binding and selected world map",
-        "Actual standing tile/collision requires native path trace; in-bounds or flags=0/1/17 are not enough; CT-091 not-run"
+        "Actual standing tile/collision requires native path trace; in-bounds or flags=0/1/17 are not enough; CT-091 not-run",
+        "S0B must carry triggering C33 seq7; bit7=0 corrective stop, bit7=1 compares predicted coordinates; Client current seq increments before S0B, first actual sequence must be captured."
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-005-analysis.md",

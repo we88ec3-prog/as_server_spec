@@ -278,6 +278,12 @@
         "manual_second_c03_required": false,
         "native_packet_path": "unknown-A-028-A-031",
         "original_client_validation": "not-run"
+      },
+      "roy123_implementation_evidence": {
+        "source": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
+        "field_map": "C02 Region2..4 NAME F3, EMAIL F4 original-resource-verified; C02 first/second credential still must verify existing Account",
+        "native_error_status": "not-run",
+        "native_postcreate_world": "ADR-008 no manual login, callback first World pending"
       }
     },
     {
@@ -290,7 +296,15 @@
       "status": "specified",
       "stage": "requirement",
       "evidence_kind": "designed",
-      "post_create_world_decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md"
+      "post_create_world_decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md",
+      "roy123_implementation_evidence": {
+        "source": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
+        "map6_static_c35": "00040F90",
+        "native_c35": "not-run",
+        "safe_spawn": "unknown",
+        "walkability": "unknown",
+        "tutorial_map_id": "unknown"
+      }
     },
     {
       "id": "R-028",

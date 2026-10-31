@@ -153,6 +153,19 @@
         "native_gui_runtime": "not-run",
         "region0_1": "Different 3-string8 writer; do not claim email fourth field",
         "status": "observed-resource-plus-observed-static original Client, region2..4 field mapping confirmed"
+      },
+      "a030_original_resource_verified": {
+        "source": "03-analysis-requests/A-030-roy1-original-resource-proof-20261101.md",
+        "regions": [
+          2,
+          3,
+          4
+        ],
+        "field3": "NAME",
+        "field4": "E-MAIL",
+        "authority": "BasicString.txt keys73/75 + native confirmation xref 0x49/0x4B + C02 writer",
+        "region0_1": "different shape, not generalized",
+        "ui_runtime": "not-run"
       }
     },
     {
@@ -336,7 +349,13 @@
       "a004_ref": "task_a/roy2/A-004-analysis.md",
       "a005_report": "task_a/roy2/A-005-analysis.md",
       "a005_native_result": "0x571960 one byte writer",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "a005_roy3_native_turn": {
+        "evidence": "task_a/roy3/A-005-roy3-native-movement.md",
+        "writer": "0x571960",
+        "body": "1 u8 direction",
+        "native_gui": "not-run"
+      }
     },
     {
       "id": "PKT-C1C",
@@ -449,7 +468,8 @@
       "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
       "a031_report": "task_a/roy2/A-031-analysis.md",
       "a031_sender_fields": "global [0x66D100]+0x0C,+0x20C,+0x40E -> local packet +0x18,+0x218,+0x418; original semantics remain opaque",
-      "a031_server_warning": "Existing Development-only synthetic C25 body=01 is NOT original region3 C25; don't gate all World entries on C25; C10 token is authority."
+      "a031_server_warning": "Existing Development-only synthetic C25 body=01 is NOT original region3 C25; don't gate all World entries on C25; C10 token is authority.",
+      "postcreate_direct_world_warning": "A-031 Region3 S03 callback C10->C25 is normal transfer evidence; it does not prove post-C04 automatic World route. C25 is billing info only, not owner/map ID. Native Client E2E not-run."
     },
     {
       "id": "PKT-C33",
@@ -498,7 +518,14 @@
       "a004_ref": "task_a/roy2/A-004-analysis.md",
       "a005_report": "task_a/roy2/A-005-analysis.md",
       "a005_native_result": "0x573BF0 three byte writer",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "a005_roy3_native_movement": {
+        "evidence": "task_a/roy3/A-005-roy3-native-movement.md",
+        "producer": "0x557AC0->0x573B40/0x573BF0, 3 u8 direction/seq/movement_mode",
+        "local_next_seq": "(sent_seq+1)&0x7f, immediately after enqueue",
+        "mode": "third field can OR0x80; no unproven speed multiplier",
+        "native_gui": "not-run"
+      }
     },
     {
       "id": "PKT-C35",
@@ -533,7 +560,37 @@
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "a016_recovery_note": "C35 two BE u16 only; no map_id/map_epoch/request_id; same revision map checksum pair is wire-identical across loads, Server epoch cannot distinguish late identical C35.",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a032_static_original_map_fixtures": {
+        "evidence": "task_a/roy3/a032_c35_fixture.json",
+        "algorithm": "native 0x4B2EC0 structured checksum, not raw CRC",
+        "records": [
+          {
+            "map_ref": 0,
+            "c35_be_hex": "000063A9"
+          },
+          {
+            "map_ref": 6,
+            "c35_be_hex": "00040F90"
+          },
+          {
+            "map_ref": 10000,
+            "c35_be_hex": "00040F90"
+          },
+          {
+            "map_ref": 18001,
+            "c35_be_hex": "0012F892"
+          },
+          {
+            "map_ref": 20001,
+            "c35_be_hex": "0016E9B9"
+          }
+        ],
+        "grade": "original-asset-offline-recomputed",
+        "native_client_validation": "not-run",
+        "spawn_verified": false,
+        "walkability_verified": false
+      }
     },
     {
       "id": "PKT-C62",
@@ -859,7 +916,15 @@
       "a004_note": "S0B native reader has no u32 actor ID; do not fan out self MoveAck as remote movement.",
       "a005_report": "task_a/roy2/A-005-analysis.md",
       "a005_native_result": "0x583150 u16 BE,u16 BE,u8 read",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "a005_roy3_native_seq_and_correction": {
+        "evidence": "task_a/roy3/A-005-roy3-native-movement.md",
+        "handler": "0x558670",
+        "lower7": "C33 current sequence, compared (received+1)&127 to Client local next sequence",
+        "bit7_0": "authoritative coordinate correction and stop/reset",
+        "bit7_1": "compare predicted position, correct if mismatch",
+        "native_gui": "not-run"
+      }
     },
     {
       "id": "PKT-S0F",
