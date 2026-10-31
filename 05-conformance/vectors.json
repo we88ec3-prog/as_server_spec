@@ -1680,6 +1680,56 @@
       "evidence_kind": "designed-test",
       "analysis_request": "A-011",
       "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-069",
+      "status": "planned",
+      "level": "original-Asgard-MAP-raw-to-client-tile-coordinate-offline",
+      "requirements": [
+        "R-016"
+      ],
+      "packet_ids": [
+        "PKT-C35",
+        "PKT-S15",
+        "PKT-S14"
+      ],
+      "input": {
+        "kind": "original-client-and-original-MAP-plus-synthetic",
+        "reference": "05-conformance/A-015-map-coordinate-test-plan.md"
+      },
+      "expected": "SHA-locked PE 26 native VA patterns; original Map0/1/2 494 MAP and 7,701,805 tiles; raw 10B tile→Client memory17B row-major accessor; x/y bounds; bit0/bit4 distinct, auxiliary u32 grid, 48x32 candidate viewport; 18 synthetic negative/positive parser tests; keep walkability unverified.",
+      "evidence_kind": "observed-static-PE+original-MAP-corpus+synthetic-test",
+      "offline_subset_result": "26 native SHA-locked PE anchors PASS, original Map0/1/2 494/494 and 7,701,805 tiles PASS; 18 unit tests PASS with CI (native client E2E not-run)",
+      "original_probe": "task_a/roy2/a015_map_native_probe.py",
+      "offline_probe": "task_a/roy2/a015_map_coordinate.py",
+      "offline_test": "task_a/roy2/test_a015_map_coordinate.py",
+      "analysis_request": "A-015",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-070",
+      "status": "planned",
+      "level": "original-native-client-player-walkability-and-spawn-coordinate",
+      "requirements": [
+        "R-016",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-C33",
+        "PKT-S0B",
+        "PKT-C35",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "native-original-client-map-and-move-packet-trace-required",
+        "reference": "05-conformance/A-015-map-coordinate-test-plan.md"
+      },
+      "expected": "On one version-verified original MAP, link actual move/collision/rollback to raw flags 0/1/16/17/512, auxiliary grid, pixel 48x32 candidate, true character feet coordinates, S0B correction and legal spawn. Do not infer original Server policy or exact passability from bounds.",
+      "evidence_kind": "designed-future-test",
+      "analysis_request": "A-015",
+      "native_client_validation": "not-run"
     }
   ]
 }
