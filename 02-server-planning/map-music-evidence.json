@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "A019-MAP-MUSIC-20261031",
+  "client_filename": "Asgard.exe",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "profile": "TW-seed0-local-v0.1",
+  "evidence_id": "ev_a019_20261031_music_s19_map_index_bin_static",
+  "source_kind": "observed-static-client-and-Map-archive-index",
+  "resource_client_version_binding": "unverified",
+  "map_archive_index_format": {
+    "header": "u32LE directory_count, u32LE value (4+36*directory_count); 36-byte records beginning at file offset8",
+    "music_filename_entries_found": 0,
+    "warning": "Indexed filename search only; not complete Map payload/Server quest/config analysis"
+  },
+  "archives": [
+    {
+      "filename": "Map0.dat",
+      "sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "file_size": 44863691,
+      "directory_count": 289,
+      "recognized_map_names": 288,
+      "nonmatching_entry_count": 1,
+      "first_map": "00000.map",
+      "last_map": "08016.map"
+    },
+    {
+      "filename": "Map1.dat",
+      "sha256": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b",
+      "file_size": 30817997,
+      "directory_count": 185,
+      "recognized_map_names": 184,
+      "nonmatching_entry_count": 1,
+      "first_map": "10000.map",
+      "last_map": "19801.map"
+    },
+    {
+      "filename": "Map2.dat",
+      "sha256": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb",
+      "file_size": 3856650,
+      "directory_count": 23,
+      "recognized_map_names": 22,
+      "nonmatching_entry_count": 1,
+      "first_map": "20000.map",
+      "last_map": "21503.map"
+    }
+  ],
+  "recognized_map_filename_count_total": 494,
+  "native_client_audio": {
+    "packet_id": "PKT-S19",
+    "opcode": "0x19",
+    "music_body": "u8 kind=1,u8 repeat,u16 BE track",
+    "other_sound_body": "u8 kind!=1,u16 BE sound_id; original enum semantics unknown",
+    "music_track_18_synthetic": "01000012",
+    "music_stop_synthetic": "01000000",
+    "music_name_format": "%05d.mp3",
+    "resource_relative_path_format": "Music/%s",
+    "parser_va": "0x584AE0",
+    "handler_va": "0x4F25D0",
+    "play_music_va": "0x53CDC0",
+    "play_other_sound_va": "0x53D250"
+  },
+  "native_map_track_mapping_ready": false,
+  "native_map_track_mapping_source": null,
+  "map_track_bindings": [],
+  "local_test_fixture_not_native": {
+    "example_track": 18,
+    "native_source_verified": false,
+    "no_assumed_map_ref": true
+  },
+  "server_designed_policy": {
+    "require_original_evidence_for_native_track": true,
+    "do_not_guess_by_map_id": true,
+    "unknown_map_cue": "unspecified; no auto track; explicit optional stop policy must be labeled designed",
+    "world_loading_epoch_fence": true,
+    "native_playback_ct": "not-run"
+  },
+  "missing_assets_for_sample_playback": [
+    "Music/00018.mp3"
+  ],
+  "missing_authoritative_data": [
+    "original Server map->track configuration (exact filename unknown)",
+    "original Server map transition and S19 correlated packet/event trace",
+    "verified source mapping Music track IDs to map refs and content revision"
+  ],
+  "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
+  "analysis_contract": "04-analysis-integration/A-019-map-music-contract.md",
+  "test": "tools/a019_music_map_probe.py",
+  "test_summary": "11 original EXE signature checks, 3 archive directory/hash checks and 10 offline unittest passed; native Client E2E not run"
+}
