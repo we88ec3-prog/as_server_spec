@@ -1,4 +1,4 @@
-# CT-113／A-023：四份原版 Script 依賴、選項、C6C 名稱與安全性（2026-11-01）
+# CT-115／A-023：四份原版 Script 依賴、選項、C6C 名稱與安全性（2026-11-01）
 
 對應 [四份真實 Script 的完整原件分析](../task_a/roy2/A-023-four-script-native-dependencies-20261101.md)／[版本與函式機讀報告](../task_a/roy2/a023-four-script-verification.json)。**原始資源可直接離線驗證**；Client GUI、TCP runtime、原服 NPC 綁定、原服 quest 政策仍 `not-run / unknown`。
 
@@ -37,4 +37,4 @@ python3 -m unittest discover -s task_a/roy2 -p 'test_a023_script_bundle.py' -v
 
 **真正缺少的原始 Script 函式**：`QuestDialog_Create`、`MerchantDialog_Create`、`MerchantDirectTalk`，**確切來源檔名未知**（`QuestDialog.dat`/`MerchantDialog.dat` 只能列待驗候選，非已證必要檔名）。與原服 NPC 綁定／quest flag 是獨立外部證據缺口。完整 A-023 舊報告不再說這四份已提供的檔案「缺少」。
 
-驗收範圍：**CT-113 原始四 Script 靜態資源＋28 合成回歸：offline pass；原生 GUI/World／原服政策仍 CT-034/035 `not-run`。**
+驗收範圍：**CT-115 原始四 Script 靜態資源＋28 合成回歸：offline pass；原生 GUI/World／原服政策仍 CT-034/035 `not-run`。**

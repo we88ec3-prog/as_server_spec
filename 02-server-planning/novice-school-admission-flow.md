@@ -53,7 +53,7 @@ Authenticated + WorldReady + SharedMapParticipant
 
 原始 Client `S44(type2,subtype0)`、`S44(type2,subtype2)` 在外層 handler 各操作 GUI slot0x23/slot0x24；**不能拿兩者當作 Born 的 type1 Script 啟動、回覆 ACK 或原服初始任務已建立**。Client 的 Script wire/快取/關閉是可交付子集，但原服「第一個 NPC 是誰、是否第一次進圖自動下發 Born」依然沒有 Server 事件/NPC binding，因此仍按 **ONB-05/06 P1** 待查，不影響 P0 入圖和基本可移動。
 
-已驗證原生靜態補證為 CT-112；CT-033～035 原版 Script GUI／NPC 仍 not-run。需要具名 Script 原件做獨立重跑可請提供 `PaperDialog.dat`，對照學校入學候選另可用 `nNewJoin01.dat`、`Merchant.dat`；本專案已留原始 SHA 及歷史解析，**不能用資源名字推論 NPC ID/Spawn**。
+已驗證原生靜態補證為 CT-114；CT-033～035 原版 Script GUI／NPC 仍 not-run。需要具名 Script 原件做獨立重跑可請提供 `PaperDialog.dat`，對照學校入學候選另可用 `nNewJoin01.dat`、`Merchant.dat`；本專案已留原始 SHA 及歷史解析，**不能用資源名字推論 NPC ID/Spawn**。
 
 ## A-023 2026-11-01 原始四 Script 對話連接與選校風險
 

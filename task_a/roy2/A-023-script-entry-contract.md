@@ -118,7 +118,7 @@ C6C body: 02 04 426f726e 11223344
 
 ## A-023 2026-11-01：實際驗證 Basic frame 及 S44 type2 native UI 分派
 
-**本節只更新已取得的新原件證據 E19～E24，不改既有 S44 type1／C6C wire。** 見 [完整新報告](A-023-born-basic-native-dispatch-20261101.md) 和 [CT-112 gate](../../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
+**本節只更新已取得的新原件證據 E19～E24，不改既有 S44 type1／C6C wire。** 見 [完整新報告](A-023-born-basic-native-dispatch-20261101.md) 和 [CT-114 gate](../../05-conformance/A-023-original-born-basic-ui-test-plan.md)。
 
 原本已知 Born.Main 需 PaperDialog_Create；新實際原件 `Basic.dat` 驗證為 **39 索引 slot／38 個成員**、完整 index/EOF、SHA `0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96`。其中 `AlertFrame.ypf` 原始 offset **13196**、長 **177648**、SHA `b641441d1f0378de04b6f7929c333d95e6ad7df451f3927432e5c4d0305602ce`、YPF v17 header 348×85。這確認圖像成員**存在**，不表示原 Client PaperDialog frame/button 在 GUI 成功繪製。
 
@@ -135,7 +135,7 @@ python -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
 
 ## A-023／2026-11-01 四份新上傳 Script 原件全數核對（E25～E33）
 
-此次已**實際讀取並核對** `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat`、`Merchant.dat` 四份原始 zlib/UTF16LE XML（SHAs、BEu16+BEu32 units、CP950 CRC 和所有函式與分支皆與前次證據一致）；`PaperDialog.dat` **不再是缺檔**。參照 [最新完整對應](A-023-four-script-native-dependencies-20261101.md)、[機讀檔案身份與函式](a023-four-script-verification.json)、[CT-113](../../05-conformance/A-023-four-script-verify-test-plan.md)。
+此次已**實際讀取並核對** `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat`、`Merchant.dat` 四份原始 zlib/UTF16LE XML（SHAs、BEu16+BEu32 units、CP950 CRC 和所有函式與分支皆與前次證據一致）；`PaperDialog.dat` **不再是缺檔**。參照 [最新完整對應](A-023-four-script-native-dependencies-20261101.md)、[機讀檔案身份與函式](a023-four-script-verification.json)、[CT-115](../../05-conformance/A-023-four-script-verify-test-plan.md)。
 
 - **Born/普通 PaperDialog**：`Born.Main` 呼叫 `PaperDialog_Create`，該函式在本輪 `PaperDialog.dat` 原件找到，引用 `Basic.dat/AlertFrame.ypf`（先前已驗原件）。PaperDialog OK 不送選擇，native `client.Dispose` C6C(4)＋unreplied cleanup C6C(2)；這不是 quest completion。
 - **PaperDialog02**：自身只有 `PaperDialog02_Create` 與 `ShowIndexedHelp`／`PaperDialogProc`（沒有 Main）。OK → `PAPER02=START`，按 CANCEL → `PAPER02=NOT`，兩者用外部 `ClientReply` 先 `SendReply` 再 Dispose，對應 native **C6C(1)→C6C(4)**，replied 不會再送 C6C2。**原版 `cancelControl="OK"`**，雖有 CANCEL object14，按 ESC/鍵盤取消可能走 OK/START，原版 GUI 未實測，不可當官方行為 PASS。

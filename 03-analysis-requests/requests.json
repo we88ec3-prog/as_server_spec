@@ -1612,8 +1612,8 @@
         "CT-033",
         "CT-034",
         "CT-035",
-        "CT-112",
-        "CT-113"
+        "CT-114",
+        "CT-115"
       ],
       "last_analysis_date": "2026-11-01",
       "dependency_report": "task_a/roy2/entry-dependency-verification.json",

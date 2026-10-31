@@ -48,7 +48,7 @@ AuthorizedCharacter + WorldReady
 
 ## A-023 四份真實 Script 上傳後的 DEV-090 安全修正（2026-11-01）
 
-[完整原件證據與 C6C 示範](../task_a/roy2/A-023-four-script-native-dependencies-20261101.md)：`PaperDialog.dat`／`PaperDialog02.dat`／`nNewJoin01.dat`／`Merchant.dat` 本次均已在原件 SHA/CRC/函式上核對，並新增 CT-113 28 synthetic test；不再稱缺這四份資源。
+[完整原件證據與 C6C 示範](../task_a/roy2/A-023-four-script-native-dependencies-20261101.md)：`PaperDialog.dat`／`PaperDialog02.dat`／`nNewJoin01.dat`／`Merchant.dat` 本次均已在原件 SHA/CRC/函式上核對，並新增 CT-115 28 synthetic test；不再稱缺這四份資源。
 
 1. `ScriptCatalog` 明確分辨 `root ScriptRunner` 與已合併的 **dependency**；`C6C(1)` wire 名稱對應本次 S44 開的 root，**不能永遠用 `nNewJoin01` 當封包名稱**。如果本 Server 配置 root Merchant 與 dependency nNewJoin01，才可以在 synthetic fixture 用 `Merchant` 做 C6C1 的 name；原服真正 Script 名稱仍 unknown。
 2. `Born` 是無 SendReply 紙張：`PaperDialog` OK → C6C4→在 unreplied 條件下 C6C2；`PaperDialog02` OK/CANCEL 分別送 `PAPER02=START/NOT`，`nNewJoin01` OK/CANCEL 分別 `STATE=ACCEPT/REFUSE`，二者先 SendReply C6C1 再 Dispose C6C4、**不再送 C6C2**。不得因 C6C4、C6C2、`STATE=ACCEPT`、`PAPER02=START` 自動發獎或畢業。

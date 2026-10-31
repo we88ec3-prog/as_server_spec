@@ -80,4 +80,4 @@ python -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
 
 ## 2026-11-01 同日後續收到四份 Script（舊缺檔說法已解）
 
-上述「`PaperDialog.dat` 在本輪缺少」指**先前該次上傳的時間點**，目前使用者已另外上傳 `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat`、`Merchant.dat`。四份現已由真正原件 SHA+XML/CRC/函式驗證，詳 [A-023 四 Script 原件新報告](A-023-four-script-native-dependencies-20261101.md) 及 [CT-113](../../05-conformance/A-023-four-script-verify-test-plan.md)。之前的「PaperDialog 缺檔」不再是最新未解事項。**剩餘的不是這四份**，而是 Merchant/Quest 共用函式 `QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk` 所在的其他 Script 原件（檔名尚未確認），以及原服招募員 NPC binding、首次 Born 政策與原版 GUI 動態證據。
+上述「`PaperDialog.dat` 在本輪缺少」指**先前該次上傳的時間點**，目前使用者已另外上傳 `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat`、`Merchant.dat`。四份現已由真正原件 SHA+XML/CRC/函式驗證，詳 [A-023 四 Script 原件新報告](A-023-four-script-native-dependencies-20261101.md) 及 [CT-115](../../05-conformance/A-023-four-script-verify-test-plan.md)。之前的「PaperDialog 缺檔」不再是最新未解事項。**剩餘的不是這四份**，而是 Merchant/Quest 共用函式 `QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk` 所在的其他 Script 原件（檔名尚未確認），以及原服招募員 NPC binding、首次 Born 政策與原版 GUI 動態證據。

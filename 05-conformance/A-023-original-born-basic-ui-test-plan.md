@@ -1,4 +1,4 @@
-# CT-112／A-023：原始 Born／Basic 素材與 S44 Type2 UI 分派（靜態）驗收
+# CT-114／A-023：原始 Born／Basic 素材與 S44 Type2 UI 分派（靜態）驗收
 
 **不含原版 Client GUI/Server runtime**；原始 `Asgard.exe` SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`。對應證據 [A023-E19～E24](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)。
 
@@ -32,4 +32,4 @@ python3 -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
 - **CT-035**：正常關閉 Born 的 Client C6C(4)→C6C(2)，重播/斷線/重入時不會被 Server 當任務完成。對於獨立 C6C(1) 的 `STATE=ACCEPT/REFUSE` 候選入學 Script，要先核對 entity→script binding；拒絕零副作用且可再次點擊屬設計要求，不是原服已證行為。
 - **Source boundary**：`PaperDialog.dat`（正確 SHA 版）是 Born.Main 必需的 Script 依賴；若需進一步比對 nNewJoin01/Merchant，具體檔名為 `nNewJoin01.dat`、`Merchant.dat`。本輪未取得這幾份原件，已有既有報告但未重測。P0「角色進 World 可行走」不因這些 P1 教學素材而卡住。
 
-**驗收標記**：CT-112 `original-native-static subset passed locally + CI synthetic passed`；**full native Script GUI / original Server auto trigger CT-033/034/035 not-run**。
+**驗收標記**：CT-114 `original-native-static subset passed locally + CI synthetic passed`；**full native Script GUI / original Server auto trigger CT-033/034/035 not-run**。

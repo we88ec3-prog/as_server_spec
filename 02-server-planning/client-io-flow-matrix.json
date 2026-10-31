@@ -255,8 +255,8 @@
         "CT-093",
         "CT-094",
         "CT-102",
-        "CT-112",
-        "CT-113"
+        "CT-114",
+        "CT-115"
       ],
       "server_decisions": [
         "WorldReady 或指定受控事件觸發一次合法 ScriptRun（Server 自訂教學政策）",

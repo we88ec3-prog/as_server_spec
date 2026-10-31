@@ -403,6 +403,24 @@
       "design_source": "02-server-planning/newuser-email-persistence-20261101.md",
       "implementation_status": "not-reported",
       "native_client_validation": "not-run"
+    },
+    {
+      "id": "R-036",
+      "system": "SYS-AUTH",
+      "priority": "P0",
+      "title": "預期內的驗證失敗要回原版 Client 可理解的錯誤，保留重試路徑並記錄失敗原因",
+      "acceptance": "C02/C04/C03 和後續技能、戰鬥、任務、物品、交易等功能的正常驗證失敗，不得僅因失敗無回覆主動關閉 TCP；依各自已證原生 S2C 送安全失敗/校正，依原版 UI C15/cancel/retry 維持合法會話，失敗不提交副作用。每次拒絕寫 [VALIDATION_FAILED] stable reason_code/trace_id/opcode/phase/response_sent/connection_action，與 [UNEXPECTED_PACKET] 區別，不記任何明文帳密、Token、Email。未知 native status 不得亂猜，標 blocked；協定畸形/竄改/持續濫用可分類安全斷線。CT-112/113 分別測原生 Client GUI、重試及日志/安全。",
+      "baseline": "2026-11-01 使用者決策；Server main 71ebd259 C02 拒絕與 C15 仍 Close、只有 packet-metadata 日誌；S02 非零 UI/C15 靜態部分已證但狀態碼與 native retry 動態未證",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed",
+      "design_source": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "implementation_status": "not-implemented",
+      "native_client_validation": "not-run",
+      "conformance": [
+        "CT-112",
+        "CT-113"
+      ]
     }
   ]
 }

@@ -697,7 +697,6 @@
         "context_origin": "designed 0x11223344",
         "native_client_validation": "not-run"
       },
-      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run.",
       "a023_four_script_original_update": "2026-11-01 user provided PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat, all matching earlier SHA and original XML/CRC. PaperDialog02 cancelControl=OK despite CANCEL button; choice replies vs born close; Merchant root vs nNewJoin dependency. Missing QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk. CT-113 offline; native GUI/NPC/quest status still not-run."
     },
     {
@@ -721,7 +720,6 @@
       "native_client_validation": "not-run",
       "packet_mapping": "script start/close specified; NPC click and original first-login policy unknown",
       "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge.",
-      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run.",
       "a023_four_script_original_update": "2026-11-01 user provided PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat, all matching earlier SHA and original XML/CRC. PaperDialog02 cancelControl=OK despite CANCEL button; choice replies vs born close; Merchant root vs nNewJoin dependency. Missing QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk. CT-113 offline; native GUI/NPC/quest status still not-run."
     },
     {
@@ -744,7 +742,6 @@
       "native_client_validation": "not-run",
       "packet_mapping": "script lifecycle C6C subtype1/2/4; NPC/quest state meaning unknown",
       "review_merge_note": "Renamed from roy2 CT-031 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge.",
-      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run.",
       "a023_four_script_original_update": "2026-11-01 user provided PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat, all matching earlier SHA and original XML/CRC. PaperDialog02 cancelControl=OK despite CANCEL button; choice replies vs born close; Merchant root vs nNewJoin dependency. Missing QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk. CT-113 offline; native GUI/NPC/quest status still not-run."
     },
     {
@@ -3269,6 +3266,80 @@
     {
       "id": "CT-112",
       "status": "planned",
+      "native_client_validation": "not-run",
+      "evidence_kind": "Server-designed-policy-verified-original-native-failure-response-required",
+      "implementation_status": "not-implemented",
+      "level": "original-native-newuser-validation-failure-error-ui-c15-retry",
+      "requirements": [
+        "R-026",
+        "R-036"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C04",
+        "PKT-C15"
+      ],
+      "analysis_request": "A-030",
+      "input": {
+        "kind": "original-unmodified-Asgard.exe-native-negative-ui-and-redacted-tcp-trace",
+        "reference": "05-conformance/expected-validation-failure-acceptance-20261101.md",
+        "cases": [
+          "C02 invalid password/account inactive/unknown name; no Account/Character/Email/proof mutation",
+          "S02 verified nonzero status+string8 visible in native Client, not generic TCP disconnect",
+          "observe native C15 empty and genuine subsequent socket or retry phase; do not assume C15 always sent",
+          "C04 name conflict/invalid appearance errors preserve atomicity",
+          "subsequent valid C02/C04 can succeed under documented native retry path without second manual login"
+        ]
+      },
+      "expected": "A normal native creation validation failure sends only verified Client-displayable S02 failure, is logged as EXPECTED_VALIDATION_FAILURE with reason_code, preserves the legitimate client retry/cancel route, and never sends S02(0) or persists a draft/Character/EMAIL. Native error status/C15/TCP flow remains unknown until A-030/A-028 and actual original Client CT.",
+      "analysis_dependency": [
+        "A-030",
+        "A-028",
+        "A-003"
+      ],
+      "policy_source": "02-server-planning/expected-validation-failure-policy-20261101.md"
+    },
+    {
+      "id": "CT-113",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "evidence_kind": "Server-designed-policy-and-local-diagnostic-regression",
+      "implementation_status": "not-implemented",
+      "level": "structured-validation-rejection-reason-and-safe-disconnect-policy",
+      "requirements": [
+        "R-002",
+        "R-003",
+        "R-005",
+        "R-036"
+      ],
+      "packet_ids": [
+        "PKT-C03",
+        "PKT-S02",
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-C33",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "server-domain-and-redacted-logger-regression-plus-original-client-ui-where-required",
+        "reference": "05-conformance/expected-validation-failure-acceptance-20261101.md",
+        "cases": [
+          "C03 bad password returns S02 and keeps socket, emits VALIDATION_FAILED reason_code and response_sent",
+          "C02/C04 normal negative domain outcomes do not fall through to generic Close",
+          "future movement/skill/quest/item/trade normal validation failures map to their own verified native responses",
+          "unknown opcode/malformed frame/cross-account forgery/replay separate UNEXPECTED_PACKET or SECURITY_REJECTED with close reason",
+          "logged TraceId/Opcode/phase/status/disposition; no password/ID/email/token/raw body leakage",
+          "native response_sent and original-client GUI observed separately classified"
+        ]
+      },
+      "expected": "Every expected business rejection produces one redacted reason-coded validation event and a verified native failure response with safe retry phase, never mislabeled as unexpected packet. Security/transport fatal cases can safely close and remain distinguishable. No unverified status is invented.",
+      "policy_source": "02-server-planning/expected-validation-failure-policy-20261101.md"
+    },
+    {
+      "id": "CT-114",
+      "status": "planned",
       "level": "original-Asgard-S44-type2-Born-Basic-paper-frame-offline-static-and-synthetic",
       "requirements": [
         "R-013",
@@ -3294,10 +3365,10 @@
       "scope_note": "Local original resource and EXE static checks pass, but original Client/World Script GUI CT-034 remains not-run. Do not mark A-023 original Server NPC/quest complete.",
       "offline_subset_result": "PASS user-provided original Asgard.exe 22 native S44 type1/type2 VA instruction spans, original Born.dat+Basic.dat member sha/offset+YPF17 and Born CP950 CRC verified locally. GitHub Actions run 41230455292: new 21/21 synthetic DAT/archive/zlib/UTF16 tests PASS; phase gates and other offline suites PASS. No original Client native script GUI/Server first Born/NPC CT-034/035 has been run.",
       "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41230455292",
-      "a023_four_script_original_update": "2026-11-01 user provided PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat, all matching earlier SHA and original XML/CRC. PaperDialog02 cancelControl=OK despite CANCEL button; choice replies vs born close; Merchant root vs nNewJoin dependency. Missing QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk. CT-113 offline; native GUI/NPC/quest status still not-run."
+      "a023_four_script_original_update": "2026-11-01 user provided PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat, all matching earlier SHA and original XML/CRC. PaperDialog02 cancelControl=OK despite CANCEL button; choice replies vs born close; Merchant root vs nNewJoin dependency. Missing QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk. CT-115 offline; native GUI/NPC/quest status still not-run."
     },
     {
-      "id": "CT-113",
+      "id": "CT-115",
       "status": "planned",
       "level": "original-four-Script-Born-PaperDialog02-nNewJoin01-Merchant-resource-static-and-synthetic",
       "requirements": [
