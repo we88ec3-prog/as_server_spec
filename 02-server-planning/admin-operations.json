@@ -34,7 +34,8 @@
       "account.unsuspend",
       "character.teleport",
       "character.adjust",
-      "item.grant"
+      "item.grant",
+      "account.credential-reset"
     ]
   },
   "operation_requirements": {
@@ -59,7 +60,8 @@
       "permission": "account.provision",
       "constraints": [
         "account cannot be inserted from game C02",
-        "hash credential; never audit plaintext"
+        "hash credential; never audit plaintext",
+        "game login password TW-native-8 4..8 ASCII alphanumeric; recommend 8 secure random when auto-generating; never truncate; admin secret exempt"
       ]
     },
     {
@@ -123,6 +125,18 @@
         "page/filter",
         "pseudonymized fields only"
       ]
+    },
+    {
+      "operation": "account.credential-reset",
+      "method": "POST",
+      "path": "/accounts/{id}/credential-reset",
+      "permission": "account.credential-reset",
+      "constraints": [
+        "same TW-native-4to8 game password rules as provisioning",
+        "invalidate credential_version and active grants/sessions",
+        "never log or echo plaintext",
+        "preserve account ID and characters"
+      ]
     }
   ],
   "audit_fields": [
@@ -172,5 +186,20 @@
     "CT-050",
     "CT-051"
   ],
-  "analysis_handoff": "A-017 integrated/ready for designed management API and observability only; no original Client GM opcode nor deployed server verification"
+  "analysis_handoff": "A-017 integrated/ready for designed management API and observability only; no original Client GM opcode nor deployed server verification",
+  "credential_compatibility_policy": {
+    "profile": "TW-native-4to8",
+    "source": "02-server-planning/native-game-password-4to8-policy.md",
+    "game_password_min_chars": 4,
+    "game_password_max_chars": 8,
+    "game_password_format": "^[A-Za-z0-9]{4,8}$",
+    "game_password_case_sensitive": true,
+    "admin_credential_policy_is_separate": true,
+    "existing_long_passwords": "admin reset required; never truncate or prefix-compare",
+    "evidence": "user-reported original-client UI max8; DEV-030 source validates10..128; native UI C03 not independently proven",
+    "implementation_status": "not-reported",
+    "native_client_validation": "not-run",
+    "automatic_generation_length": 8,
+    "future_client_extension": "only after explicitly approved patched Client build SHA/profile; original Client policy stays 4..8"
+  }
 }

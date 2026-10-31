@@ -1,8 +1,8 @@
-# A-015 MAP 座標／碰撞驗收：CT-069／CT-070
+# A-015 MAP 座標／碰撞驗收：CT-087／CT-088
 
 Client `Asgard.exe` SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`。只接受指定版本 Map0/1/2；全部原件僅在本機驗證，不進共用 Git。說明 [A-015 詳細報告](../task_a/roy2/A-015-map-coordinate-collision.md)。
 
-## CT-069：MAP 解析、欄位級映射及離線驗證
+## CT-087：MAP 解析、欄位級映射及離線驗證
 
 ```sh
 python task_a/roy2/a015_map_native_probe.py Asgard.exe
@@ -18,7 +18,7 @@ python -m unittest discover -s task_a/roy2 -p 'test_a015_map_coordinate.py' -v
 - (31,29) 的 477 個 in-bounds MAP 分別出現 flags 0:242、1:109、17:126；禁止把 in-bounds 等同通行或出生。
 - test report 應記為 `observed-static-PE-and-resource + synthetic`，不標 Native Client GUI PASS。
 
-## CT-070：原版 Client 撞牆、合法站立／可用座標實機驗收（planned/not-run）
+## CT-088：原版 Client 撞牆、合法站立／可用座標實機驗收（planned/not-run）
 
 1. 選擇具體原版 map_id 與版本綁定，錄得 Client 讀取該 `%05d.map` 的資源庫、C35 header/checksum。Map0..2 有 494 entry，不代表任意 map ID 都在原版 Server 可進。
 2. 記錄原生地圖可視範圍與 pixel(48×32)對應角色 tile 的實際腳底座標、碰撞尺寸及 tile 點擊位置，辨認 GUI 與 wire 座標的單位。
@@ -26,6 +26,6 @@ python -m unittest discover -s task_a/roy2 -p 'test_a015_map_coordinate.py' -v
 4. 對角移動、地圖邊界、地圖轉場、物件動態阻擋、死亡/重登、重複/亂序封包，同時追 MAP 4B secondary grid 及 bit0 本地 set/clear 的 input 時機。
 5. 需要拿到真正的原生 Client move candidate→碰撞函式→是否發 C33／如何處理 S0B 的函式 call chain。重現到單格級 sample，若不同類角色受不同阻擋，需顯示 role/occupancy 分層。
 6. Server authority **designed**：未驗出 passability 的 map/spawn 不允許自動轉成全部可站立；先採人工明確驗收點、對非法座標拒絕，不猜原版碰撞策略。
-7. 最後把觀察得到的碰撞定義、Client 座標單位與 replay trace 放入增量證據，更新 `CT-070` 狀態；沒有原生資料前保持 not-run。
+7. 最後把觀察得到的碰撞定義、Client 座標單位與 replay trace 放入增量證據，更新 `CT-088` 狀態；沒有原生資料前保持 not-run。
 
-**狀態**：CT-069 的離線原件/合成階段可驗證；CT-070 原生玩家走路/撞牆 **not-run**。這不阻礙已證 MAP 解析研究交付，但不允許宣稱原版全部可用座標已解出。
+**狀態**：CT-087 的離線原件/合成階段可驗證；CT-088 原生玩家走路/撞牆 **not-run**。這不阻礙已證 MAP 解析研究交付，但不允許宣稱原版全部可用座標已解出。

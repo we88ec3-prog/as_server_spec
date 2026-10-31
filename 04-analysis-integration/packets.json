@@ -54,12 +54,16 @@
       "evidence_ids": [
         "ev_a021_20261031_asgard_static",
         "ev_a027_20261031_asgard_identity_static",
-        "ev_a028_20261031_asgard_c04_response_static"
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
       "ownership_authorization": "unverified; MUST deny pre-auth claim and S02(success) until independent Server credential verification and native route known",
-      "native_account_claim_ready": false
+      "native_account_claim_ready": false,
+      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "a003_ui_first_field": "region0 skips local length gate; region1..4 0x91fed0 initializes 12 and 0x4b1a30 accepts narrow byte length>=12; this does NOT establish native Server name length or owner proof",
+      "a003_name_semantics": "No reliable native CharacterName mapping/unique policy yet; field1 from NewUser UI and may be account identity; region1 UI/writer discrepancy remains"
     },
     {
       "id": "PKT-C03",
@@ -116,6 +120,7 @@
         "ev_a021_20261031_asgard_static",
         "ev_a028_20261031_asgard_c04_response_static",
         "ev_a016_20261031_asgard_replay_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static",
         "A006-E01",
         "A006-E02",
         "A006-E03",
@@ -131,6 +136,22 @@
       "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
       "a016_recovery_note": "Five u8, no request id; Server must bind verified owner/session/pending intent and commit once before reporting success (designed).",
+      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "a003_native_palette_10_hex": [
+        "915a28",
+        "ff6464",
+        "82b4fa",
+        "b9ffff",
+        "fab4e6",
+        "ff9600",
+        "82be64",
+        "d5ff64",
+        "ffc895",
+        "5a5a5a"
+      ],
+      "a003_explicit_character_name_in_body": false,
+      "a003_native_sex_hair_valid_enum_known": false,
+      "a003_original_server_rgb_restriction_known": false,
       "a006_analysis": "task_a/roy2/A-006-analysis.md"
     },
     {
@@ -228,7 +249,10 @@
         "R-008",
         "R-006"
       ],
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
       "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static",
         "A006-E01",
         "A006-E02",
         "A006-E03",
@@ -261,6 +285,11 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-008"
+      ],
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
       ]
     },
     {
@@ -370,11 +399,14 @@
       ],
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "C35 two BE u16 only; no map_id/map_epoch/request_id; same revision map checksum pair is wire-identical across loads, Server epoch cannot distinguish late identical C35."
+      "a016_recovery_note": "C35 two BE u16 only; no map_id/map_epoch/request_id; same revision map checksum pair is wire-identical across loads, Server epoch cannot distinguish late identical C35.",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-C62",
@@ -420,7 +452,8 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": []
     },
     {
       "id": "PKT-S00",
@@ -475,13 +508,16 @@
         "ev_a021_20261031_asgard_static",
         "ev_a002_20261031_asgard_login_transfer_static",
         "ev_a027_20261031_asgard_identity_static",
-        "ev_a028_20261031_asgard_c04_response_static"
+        "ev_a028_20261031_asgard_c04_response_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
       "a027_analysis": "04-analysis-integration/A-027-preauth-safety-contract.md",
       "a028_newuser_status_flow": "MakeInfoDialog local state0x1d and status0 -> send C04/state0x1e; state0x1e/status0 -> UI 0x4b206b, not direct S03; status!=0 -> C15 CancelNewUser with empty body/state0x1f; status code textual meanings unknown",
-      "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md"
+      "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
+      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
+      "a003_create_error_meanings": "Unknown; UI focus status 3/4/17/18/26/31 not proof of duplicate-name or invalid hair/sex; S02(status0) first-stage triggers C04, second-stage enters local UI"
     },
     {
       "id": "PKT-S03",
@@ -533,6 +569,7 @@
       ],
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static",
         "A006-E01",
         "A006-E02",
         "A006-E03",
@@ -543,6 +580,8 @@
         "A006-E08"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
       "a006_analysis": "task_a/roy2/A-006-analysis.md",
       "a006_note": "4×BE u16 x,y,vx,vy; (8,9) maps to (400,300) in 912×672 48×32 pane(-56,-36) projected profile; native GUI not-run"
     },
@@ -553,11 +592,11 @@
       "name": "SelfAppearance",
       "system": "SYS-LOOK",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "29B flags0/0x1000 subset: BE u32 object, sex u8, clothing BE u16 at7, hair id u8 at9, hair RGB10..12, flags BE u32 at21, cloth RGB25..27; low flag bit0/bit4/bit1/bit7 add native fields",
-      "client_entry": "0x5895A0 native parser",
+      "layout": "外觀與flags；詳細欄位見appearance.md",
+      "client_entry": "0x5895a0",
       "state_precondition": "登入成功建立世界UI後",
       "related_packets": [],
-      "layout_status": "static-profile-ready-optional-variants-unknown",
+      "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
       ],
@@ -643,6 +682,11 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-008"
+      ],
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
       ]
     },
     {
@@ -669,11 +713,14 @@
       ],
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "control1 Client emits C35; control2 UI callback; control3 Sleep(3000ms) special path. None is original Server durable commit ack."
+      "a016_recovery_note": "control1 Client emits C35; control2 UI callback; control3 Sleep(3000ms) special path. None is original Server durable commit ack.",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-S15",
@@ -696,9 +743,12 @@
         "R-007"
       ],
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
-      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md"
+      "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-S19",
@@ -710,7 +760,11 @@
       "layout": "kind1:u8 kind=1,u8 repeat,BE u16 track；repeat0循環、track0停止",
       "client_entry": "0x584ae0",
       "state_precondition": "可播放音訊時",
-      "related_packets": [],
+      "related_packets": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35"
+      ],
       "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
@@ -718,7 +772,13 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-022"
-      ]
+      ],
+      "evidence_ids": [
+        "ev_a019_20261031_music_s19_map_index_bin_static"
+      ],
+      "a019_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "native_map_track_mapping_ready": false,
+      "native_client_validation": "not-run"
     },
     {
       "id": "PKT-S33",
@@ -727,11 +787,11 @@
       "name": "PutHuman",
       "system": "SYS-LOOK",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "flags0: BE u16 x,y,u8 facing, BE u32 actor; hair RGB15..17, cloth RGB30..32, flags BE u32 offset26, CP950 string8 name offset34; total 42+name-byte count. Flags bit0/bit4/bit1/bit7/bit13 add variable fields",
+      "layout": "玩家座標、面向、外觀及名稱；見appearance.md",
       "client_entry": "0x585570",
       "state_precondition": "玩家與地圖已建立",
       "related_packets": [],
-      "layout_status": "static-profile-ready-optional-variants-unknown",
+      "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
       ],
@@ -757,11 +817,15 @@
         "A006-E05",
         "A006-E06",
         "A006-E07",
-        "A006-E08"
+        "A006-E08",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "a004_ref": "task_a/roy2/A-004-analysis.md",
       "a004_note": "S33 first fields BE u16 x,y; u8 facing; BE u32 object; flags=0 profile S33 length 42+CP950-name-byte count; variable flags not covered.",
-      "a006_analysis": "task_a/roy2/A-006-analysis.md"
+      "a006_analysis": "task_a/roy2/A-006-analysis.md",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "visibility_scope": "other human with 32-bit object_ref, native AOI/ID lifetime unknown",
+      "native_client_validation": "not-run"
     },
     {
       "id": "PKT-S37",
@@ -783,7 +847,10 @@
         "R-008",
         "R-006"
       ],
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
       "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static",
         "A006-E01",
         "A006-E02",
         "A006-E03",
@@ -814,7 +881,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "type0 u32 distinct from type1 compressed text; don't assume all S60 are local notices",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-S66",
@@ -837,7 +909,8 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "evidence_ids": []
     },
     {
       "id": "PKT-C0F",
@@ -861,7 +934,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "type3 has NO other fields; type!=3 additional u8 + string8; server kind mapping unknown",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-C4B",
@@ -885,7 +963,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "empty body confirmed, but local C4B→S60 is designed matching, not proven original Server",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-C57",
@@ -910,7 +993,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "type0 selected_id requires ID in previously received valid S56 list; type1 is list request",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-C6C",
@@ -939,10 +1027,16 @@
         "A023-E06",
         "A023-E13",
         "A023-E14",
-        "A023-E16"
+        "A023-E16",
+        "ev_a020_20261031_asgard_prelogin_branch_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
       "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
-      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
+      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
+      "a020_prelogin_gate": "Local login C6C subtype3 is accepted without reply (designed minimal-profile); it does not start Born, does not prove Script state or authenticate Account; A-023 handles native script updates and Dispose",
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-S18",
@@ -964,7 +1058,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "kind0 count0 fixture is understood; kind1 compressed resource framing/data and official Server semantics need evidence",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-S56",
@@ -986,7 +1085,12 @@
       "requirements": [
         "R-001",
         "R-002"
-      ]
+      ],
+      "a020_native_branches": "parser supports multiple records; official list, ordering and optional extra semantics unknown",
+      "evidence_ids": [
+        "ev_a020_20261031_asgard_prelogin_branch_static"
+      ],
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md"
     },
     {
       "id": "PKT-S0A",
@@ -1041,14 +1145,20 @@
         "A023-E04",
         "A023-E14",
         "A023-E15",
-        "A023-E17"
+        "A023-E17",
+        "ev_a020_20261031_asgard_prelogin_branch_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
         "R-013",
         "R-027"
       ],
-      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md"
+      "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
+      "a020_prelogin_gate": "Not required in minimal prelogin fixture; S44 type1/subtype3 deletes/clears Script/*.dat in native Client. Must not synthesize fake ACK; follow A-023.",
+      "a020_analysis": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
       "id": "PKT-C15",
@@ -1076,12 +1186,14 @@
       ],
       "evidence_ids": [
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
       ],
       "native_static_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "server_handling": "Designed: cancel only uncommitted matching owner+generation pending operation; never rollback already durable Character, cannot grant account ownership",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "Empty body has no original intent/owner ID; late cancel cannot safely undo committed Character; designed cancel pending only."
+      "a016_recovery_note": "Empty body has no original intent/owner ID; late cancel cannot safely undo committed Character; designed cancel pending only.",
+      "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md"
     },
     {
       "id": "PKT-C0E",
@@ -1110,7 +1222,8 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ]
+      ],
+      "related_packets": []
     },
     {
       "id": "PKT-C19",
@@ -1139,7 +1252,8 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ]
+      ],
+      "related_packets": []
     },
     {
       "id": "PKT-C2E",
@@ -1168,7 +1282,8 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ]
+      ],
+      "related_packets": []
     },
     {
       "id": "PKT-C12",
@@ -1197,7 +1312,8 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ]
+      ],
+      "related_packets": []
     },
     {
       "id": "PKT-S0D",
@@ -1226,7 +1342,8 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ]
+      ],
+      "related_packets": []
     },
     {
       "id": "PKT-S58",
@@ -1255,7 +1372,8 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ]
+      ],
+      "related_packets": []
     },
     {
       "id": "PKT-S3A",
@@ -1284,7 +1402,416 @@
         "S58/S3A full group list row",
         "native guild wire class/semantics",
         "native S0A/S0D error subtype"
-      ]
+      ],
+      "related_packets": []
+    },
+    {
+      "id": "PKT-C13",
+      "direction": "C2S",
+      "opcode": "0x13",
+      "name": "Attack",
+      "system": "SYS-COMBAT",
+      "layout": "body BE u32 opaque_target_ref, no damage/quest flag; exact original writer 0x570ac0 using 0x45ac40; Client UI sender 0x55709c and 0x557a5d",
+      "client_entry": "0x570a10 ctor; 0x570ac0 writer; Client 0x55709c..0x5570b7 and 0x557a5d..0x557a78",
+      "state_precondition": "Client selected object and passed local flags/time gates; Server must validate authenticated World/target/version and authority",
+      "related_packets": [
+        "PKT-S3D",
+        "PKT-S1E",
+        "PKT-S07",
+        "PKT-S5F",
+        "PKT-S0E",
+        "PKT-S44",
+        "PKT-S13",
+        "PKT-S08"
+      ],
+      "layout_status": "observed-static",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static",
+        "A024-E08",
+        "A024-E09",
+        "A009-E01",
+        "A009-E02",
+        "A009-E08"
+      ],
+      "requirements": [
+        "R-010",
+        "R-030",
+        "R-012",
+        "R-027",
+        "R-029"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "analysis_request": "A-024",
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "a009_contract": "task_a/roy2/A-009-analysis.md",
+      "a009_addendum": "Original C13 BE u32 one field; two native producers 0x55709E/0x557A5F. Target identity/attack UI input not fully proven",
+      "roy2_static_subtype_schema": {
+        "layout": "BE u32 target/action opaque; semantic target acquisition not fully proven",
+        "client_entry": "0x570A10 ctor; 0x570AC0 writer; caller 0x55709E/0x557A5F",
+        "layout_status": "partial",
+        "source": "roy2"
+      }
+    },
+    {
+      "id": "PKT-C4D",
+      "direction": "C2S",
+      "opcode": "0x4d",
+      "name": "StartCastSpell",
+      "system": "SYS-SKILL",
+      "layout": "BE u16 spell_value from Client selected object word [ebx+0x80e]; native 0x5755c0",
+      "client_entry": "0x575510 ctor; 0x5755c0 writer; sender 0x402034..0x402052",
+      "state_precondition": "Client has selected nonzero spell value; Server validates learned/allowed spell and current World generation independently",
+      "related_packets": [
+        "PKT-S52"
+      ],
+      "layout_status": "observed-static",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-011",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+    },
+    {
+      "id": "PKT-C56",
+      "direction": "C2S",
+      "opcode": "0x56",
+      "name": "CastSpell",
+      "system": "SYS-SKILL",
+      "layout": "u8 opaque_cast_parameter; native writer 0x571800; full UI sender/semantic sequencing not established",
+      "client_entry": "0x571750 ctor; 0x571800 writer; UI sender pending further trace",
+      "state_precondition": "Original phase and value meaning UNKNOWN; do not accept as standalone damage/quest completion",
+      "related_packets": [
+        "PKT-S52"
+      ],
+      "layout_status": "observed-static",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-011",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+    },
+    {
+      "id": "PKT-C3D",
+      "direction": "C2S",
+      "opcode": "0x3d",
+      "name": "Battle",
+      "system": "SYS-COMBAT",
+      "layout": "u8 subtype (0..15) then variant body; 0:+u8; 1:+2 string8,u8,BE u32; 2:+string8; 4/5/6/10:+u8; 7/9:+2u8; 15:+BE u32; other branches may contain only subtype, but do not infer Server acceptance or semantics.",
+      "client_entry": "CBattlePacket 0x5711C0 ctor/push0x3D, 0x570DE0 serializer, 0x570F2C subtype jump table",
+      "state_precondition": "World session; original subtype command authority/method unproven; reject unsupported variants",
+      "related_packets": [
+        "PKT-S3D",
+        "PKT-C13",
+        "PKT-S13",
+        "PKT-S08"
+      ],
+      "layout_status": "observed-static-subtype-writer; subtypes-semantics-unknown",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static",
+        "A009-E03",
+        "A009-E08"
+      ],
+      "requirements": [
+        "R-010",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "analysis_request": "A-009",
+      "contract_reference": "task_a/roy2/A-009-analysis.md",
+      "unknowns": [
+        "Individual battle command semantic labels and UI producer are unknown",
+        "Server authentication/range/cooldown handling is DEV designed",
+        "Some subtype branches have legacy string8 and value semantics not proven"
+      ],
+      "roy2_static_subtype_schema": {
+        "layout": "u8 subtype (0..15) then variant body; 0:+u8; 1:+2 string8,u8,BE u32; 2:+string8; 4/5/6/10:+u8; 7/9:+2u8; 15:+BE u32; other branches may contain only subtype, but do not infer Server acceptance or semantics.",
+        "client_entry": "CBattlePacket 0x5711C0 ctor/push0x3D, 0x570DE0 serializer, 0x570F2C subtype jump table",
+        "layout_status": "observed-static-subtype-writer; subtypes-semantics-unknown",
+        "source": "roy2"
+      }
+    },
+    {
+      "id": "PKT-S3D",
+      "direction": "S2C",
+      "opcode": "0x3d",
+      "name": "Battle",
+      "system": "SYS-COMBAT",
+      "layout": "u8 subtype (0..15); 1/8/12:+none; 4/5/6/10:+u8; 7:+2u8; 15:+2 BE u32; 3:+string8,BE u32,u8,26xu8; subtype 0/2/9/11/13/14 have more complex dynamic count/string/vector variants not covered by safe codec. Never assume fixed body.",
+      "client_entry": "SBattlePacket 0x57C6E0 ctor/push0x3D; 0x57C890 reader; jump table 0x57CD98",
+      "state_precondition": "Original Client battle state; do not invent result/damage status or broadcast unsupported subtypes",
+      "related_packets": [
+        "PKT-C13",
+        "PKT-C3D",
+        "PKT-S13",
+        "PKT-S5F"
+      ],
+      "layout_status": "observed-static-partial-subtypes",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static",
+        "A009-E04",
+        "A009-E08"
+      ],
+      "requirements": [
+        "R-010",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "analysis_request": "A-009",
+      "contract_reference": "task_a/roy2/A-009-analysis.md",
+      "unknowns": [
+        "Complex S3D variants require deeper native reader/GUI tracing",
+        "No original Server hit/miss/death policy can be inferred from class name"
+      ],
+      "roy2_static_subtype_schema": {
+        "layout": "u8 subtype (0..15); 1/8/12:+none; 4/5/6/10:+u8; 7:+2u8; 15:+2 BE u32; 3:+string8,BE u32,u8,26xu8; subtype 0/2/9/11/13/14 have more complex dynamic count/string/vector variants not covered by safe codec. Never assume fixed body.",
+        "client_entry": "SBattlePacket 0x57C6E0 ctor/push0x3D; 0x57C890 reader; jump table 0x57CD98",
+        "layout_status": "observed-static-partial-subtypes",
+        "source": "roy2"
+      }
+    },
+    {
+      "id": "PKT-S52",
+      "direction": "S2C",
+      "opcode": "0x52",
+      "name": "CastSpell",
+      "system": "SYS-SKILL",
+      "layout": "BE u32 opaque_object_ref, u8 opaque_state_or_result; reader 0x57d600 calls 0x45aeb0 then 0x45adb0; enum meanings UNKNOWN",
+      "client_entry": "0x57d550 ctor (0x57d569 opcode 0x52); 0x57d600 parser",
+      "state_precondition": "Client spell UI/world state; do not interpret u8 as confirmed quest success",
+      "related_packets": [
+        "PKT-C4D",
+        "PKT-C56"
+      ],
+      "layout_status": "observed-static",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "requirements": [
+        "R-011",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run; BIN/codec signatures only",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
+    },
+    {
+      "id": "PKT-S1E",
+      "direction": "S2C",
+      "opcode": "0x1e",
+      "name": "S1E class semantics disputed; do not use as DieObjects",
+      "system": "SYS-COMBAT",
+      "layout": "BE u32 opaque object ref, native reader 0x57e260; object presentation removal/death candidate only; NOT an authoritative quest event",
+      "client_entry": "0x57e030 ctor (0x57e049 opcode 0x1e); 0x57e260 parser",
+      "state_precondition": "Client world entity exists; Server death/visibility/quest authority separately verified",
+      "related_packets": [
+        "PKT-C13",
+        "PKT-S3D"
+      ],
+      "layout_status": "disputed-native-reader-attribution-do-not-use-for-death",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "requirements": [
+        "R-010",
+        "R-030"
+      ],
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "manual_validation": "not-run",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "analysis_conflict": "roy1 labels S1E DieObjects using ctor 0x57E030 push 0x1E yet the cited 0x57E260 reader belongs to roy2-confirmed S5F DieObjects ctor 0x57E1B0 push 0x5F. Until S1E own vtable/reader verified, do not emit S1E as monster death.",
+      "source_correction": "A-004 roy1: prior label S1E DieObjects was mistaken; 0x57E260 reader is S5F, ctor0x57E1B0 push0x5f. S1E 0x57E030 push0x1e requires own class/reader mapping; do not send as death."
+    },
+    {
+      "id": "PKT-C39",
+      "direction": "C2S",
+      "opcode": "0x39",
+      "name": "Merchant",
+      "system": "SYS-NPC",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 field, BE u32 opaque ref, BE u16 field, subtype discriminator 1..9 then variant-specific u8/string8; full fields and meanings partial",
+      "client_entry": "0x5737b0 constructor opcode at 0x5737c9; 0x573860..0x5738f6 writer",
+      "state_precondition": "Only verified NPC binding and World session can produce domain effect; recruiter mapping unknown",
+      "related_packets": [
+        "PKT-C6C",
+        "PKT-S44"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "requirements": [
+        "R-013",
+        "R-031"
+      ],
+      "manual_validation": "not-run",
+      "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+    },
+    {
+      "id": "PKT-C0B",
+      "direction": "C2S",
+      "opcode": "0x0b",
+      "name": "Quit",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "EMPTY body; native writer 0x574c50 ret. NOT tutorial completion",
+      "client_entry": "0x574bb0 constructor opcode at 0x574bb9; 0x574c50 writer",
+      "state_precondition": "Exit/quit Client path, not tutorial completion",
+      "related_packets": [],
+      "layout_status": "observed-static",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "requirements": [
+        "R-017",
+        "R-031"
+      ],
+      "manual_validation": "not-run",
+      "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+    },
+    {
+      "id": "PKT-C08",
+      "direction": "C2S",
+      "opcode": "0x08",
+      "name": "Drop",
+      "system": "SYS-ITEM",
+      "layout": "3×u8 exactly, fields semantic roles (slot/count/location) UNKNOWN; do not grant World drop based on guesses",
+      "client_entry": "0x571f40 constructor push 0x08 at 0x571f59; 0x571ff0 writer",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+    },
+    {
+      "id": "PKT-C0C",
+      "direction": "C2S",
+      "opcode": "0x0c",
+      "name": "PutRequest",
+      "system": "SYS-ITEM",
+      "layout": "u32 BE opaque object reference; not proven persistent inventory instance ID or final pickup acceptance",
+      "client_entry": "0x574a40 ctor push 0x0c at 0x574a59; 0x574af0 writer",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+    },
+    {
+      "id": "PKT-S10",
+      "direction": "S2C",
+      "opcode": "0x10",
+      "name": "RemoveInventory",
+      "system": "SYS-ITEM",
+      "layout": "3×u8; parser stores fields at +0x18,+0x19,+0x1a; original action/count/slot meaning not verified",
+      "client_entry": "0x585b80 ctor push 0x10 at 0x585b99; 0x585c30 parser",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+    },
+    {
+      "id": "PKT-S38",
+      "direction": "S2C",
+      "opcode": "0x38",
+      "name": "RemoveEquipment",
+      "system": "SYS-ITEM",
+      "layout": "u8 slot, u8 raw_flag; parser boolean cast is (raw_flag==1), business meaning UNKNOWN",
+      "client_entry": "0x585a10 ctor push 0x38 at 0x585a29; 0x585ac0 parser",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "layout_status": "observed-static",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
     },
     {
       "id": "PKT-S07",
@@ -1299,10 +1826,7 @@
       "related_packets": [
         "PKT-S15",
         "PKT-S04",
-        "PKT-S44",
-        "PKT-C43",
-        "PKT-S34",
-        "PKT-S3C"
+        "PKT-S44"
       ],
       "layout_status": "observed-static-native-type1-14-nonempty-schema; client-display-semantics-pending",
       "evidence_kinds": [
@@ -1319,6 +1843,7 @@
         "A024-E10",
         "A024-E11",
         "A024-E12",
+        "ev_a004_20261031_world_entity_visibility_bin_static",
         "A011-E04",
         "A011-E08"
       ],
@@ -1337,8 +1862,24 @@
       ],
       "native_probe": "task_a/roy2/a024_object_native_probe.py",
       "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire.",
       "a011_monster_creation": "In World S07 receive handler 0x4F17C0..0x4F1C4A, native kind1/2/4 call MonsterObject ctor 0x4D6FA0 at 0x4F1AEB,0x4F1BC7,0x4F1C31; linked to resource library via separate image ID quotient/remainder native 0x4D7530/0x4D7560. The precise S07 row field→asset image ID still NOT proven.",
-      "a011_analysis": "task_a/roy2/A-011-analysis.md"
+      "a011_analysis": "task_a/roy2/A-011-analysis.md",
+      "a011_resource_mapping": {
+        "native_monster_constructor": "0x4D6FA0",
+        "s07_kinds_with_monster_object_ctor": [
+          1,
+          2,
+          4
+        ],
+        "resource_library_range": "8000..8042",
+        "asset_template": "Monster%02d.dat",
+        "file_prefix_at": false,
+        "resource_image_id_formula": "library_id=8000+floor((image_id-0x4000)/10); slot=(image_id-0x4000)%10; bounded image ids 0x4000..0x41AD are Server safety guard, not original official range",
+        "limits": "Actual SpriteID mapping of row field +0x222 and actual asset contents not proven"
+      }
     },
     {
       "id": "PKT-S5F",
@@ -1375,7 +1916,10 @@
         "A024-E07",
         "A009-E06",
         "A009-E08",
-        "A024-E10"
+        "A024-E10",
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1394,7 +1938,15 @@
       ],
       "a009_contract": "task_a/roy2/A-009-analysis.md",
       "a009_addendum": "Original S5F BE u32 object opaque; S5F DieObjects != S0E RemoveObjects; death decision/animation/revive unknown.",
-      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
+      "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
+      "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "native_client_validation": "not-run",
+      "opcode_correction": "S1E is INVALID; S5F native verified from 0x57e1c9 direct ctor→0x578730; 0x57e298 push0x1e is allocation/debug argument",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-S0C",
@@ -1426,7 +1978,8 @@
         "A024-E05",
         "A024-E06",
         "A024-E07",
-        "A024-E10"
+        "A024-E10",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1443,7 +1996,10 @@
         "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
       ],
-      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-S64",
@@ -1475,7 +2031,8 @@
         "A024-E05",
         "A024-E06",
         "A024-E07",
-        "A024-E10"
+        "A024-E10",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1492,7 +2049,10 @@
         "C43 object-info request 類別存在，但 Client 點選招募員/怪物實際 C2S opcode 與回包尚未從 UI 生產者確證",
         "原服怪物種類/數量/出生點、巡邏/追擊/攻擊/死亡/清除/重生時序屬原 Server 權威；原始配置/封包 trace 不在本次原件，不能由 Client 推導"
       ],
-      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-S0E",
@@ -1532,7 +2092,8 @@
         "A004-E06",
         "A004-E07",
         "A004-E08",
-        "A024-E10"
+        "A024-E10",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1553,48 +2114,10 @@
       ],
       "a004_ref": "task_a/roy2/A-004-analysis.md",
       "a004_note": "Shared entity removal S0E BE u32; whether native client deletes Human and NPC via same registry is not proven.",
-      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified."
-    },
-    {
-      "id": "PKT-C13",
-      "direction": "C2S",
-      "opcode": "0x13",
-      "name": "Attack",
-      "system": "SYS-NPC",
-      "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u32 target/action opaque; semantic target acquisition not fully proven",
-      "client_entry": "0x570A10 ctor; 0x570AC0 writer; caller 0x55709E/0x557A5F",
-      "state_precondition": "User action and in-world context inferred; exact UI target selector unknown",
-      "related_packets": [
-        "PKT-S07",
-        "PKT-S5F",
-        "PKT-S0E",
-        "PKT-S44",
-        "PKT-S13",
-        "PKT-S3D",
-        "PKT-S08"
-      ],
-      "layout_status": "partial",
-      "evidence_kinds": [
-        "observed-static"
-      ],
-      "evidence_ids": [
-        "A024-E08",
-        "A024-E09",
-        "A009-E01",
-        "A009-E02",
-        "A009-E08"
-      ],
-      "manual_validation": "not-run",
-      "requirements": [
-        "R-012",
-        "R-027",
-        "R-029"
-      ],
-      "analysis_request": "A-024",
-      "contract_reference": "task_a/roy2/A-024-analysis.md",
-      "a009_contract": "task_a/roy2/A-009-analysis.md",
-      "a009_addendum": "Original C13 BE u32 one field; two native producers 0x55709E/0x557A5F. Target identity/attack UI input not fully proven"
+      "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-C43",
@@ -1604,7 +2127,7 @@
       "system": "SYS-NPC",
       "profile": "TW-seed0-local-v0.1",
       "layout": "u8 type, BE u32 object opaque, u8 subtype; source UI/field semantics unknown",
-      "client_entry": "0x574500 ctor push0x43, 0x5745B0 writer (u8,BE u32,u8); native producer 0x479DC7 and 0x4A23F8 both demonstrate kind1, subtype4",
+      "client_entry": "0x574500 ctor; 0x5745B0 writer; producer 0x479DC7",
       "state_precondition": "User action and in-world context inferred; exact UI target selector unknown",
       "related_packets": [
         "PKT-S07",
@@ -1612,7 +2135,7 @@
         "PKT-S0E",
         "PKT-S44"
       ],
-      "layout_status": "observed-static-u8-BE-u32-u8-two-producers; click-to-chat-unknown",
+      "layout_status": "partial",
       "evidence_kinds": [
         "observed-static"
       ],
@@ -1631,7 +2154,12 @@
       "analysis_request": "A-024",
       "contract_reference": "task_a/roy2/A-024-analysis.md",
       "a011_known_profile": "Two original producer paths: 0x479DDB +0x24=1, +0x28=[esi+0x48] opaque key, +0x2C=4; 0x4A2409 +0x24=1, +0x28=[esi+0x4C] opaque key, +0x2C=4. Encoded decoded C43 body 01 + BE u32 + 04. Not proven universal NPC click or direct NPCChatDialog trigger.",
-      "a011_analysis": "task_a/roy2/A-011-analysis.md"
+      "a011_analysis": "task_a/roy2/A-011-analysis.md",
+      "a011_native_ui_producers": [
+        "0x479DC7",
+        "0x4A23F8"
+      ],
+      "a011_known_body": "01 + BE u32 object_ref + 04; exact NPC click→chat response is still unknown"
     },
     {
       "id": "PKT-S06",
@@ -1707,7 +2235,8 @@
         "A004-E05",
         "A004-E06",
         "A004-E07",
-        "A004-E08"
+        "A004-E08",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "manual_validation": "native-client-not-run",
       "requirements": [
@@ -1721,7 +2250,10 @@
         "Original client on-screen two-player join/move/turn/leave/disconnect E2E not-run",
         "S33 nonzero flags and conditionally present appearance/name fields not covered by fixed-profile helper",
         "Original Server AOI boundary/heartbeat/visibility radius and relog policy cannot be deduced from Client; belongs DEV/CT"
-      ]
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
     },
     {
       "id": "PKT-S08",
@@ -1801,78 +2333,6 @@
       ]
     },
     {
-      "id": "PKT-C3D",
-      "direction": "C2S",
-      "opcode": "0x3d",
-      "name": "Battle",
-      "system": "SYS-COMBAT",
-      "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 subtype (0..15) then variant body; 0:+u8; 1:+2 string8,u8,BE u32; 2:+string8; 4/5/6/10:+u8; 7/9:+2u8; 15:+BE u32; other branches may contain only subtype, but do not infer Server acceptance or semantics.",
-      "client_entry": "CBattlePacket 0x5711C0 ctor/push0x3D, 0x570DE0 serializer, 0x570F2C subtype jump table",
-      "state_precondition": "Client battle interaction and valid World state; exact UI producer and semantics unknown",
-      "related_packets": [
-        "PKT-S3D",
-        "PKT-C13",
-        "PKT-S13",
-        "PKT-S08"
-      ],
-      "layout_status": "observed-static-subtype-writer; subtypes-semantics-unknown",
-      "evidence_kinds": [
-        "observed-static"
-      ],
-      "evidence_ids": [
-        "A009-E03",
-        "A009-E08"
-      ],
-      "manual_validation": "native-client-not-run",
-      "requirements": [
-        "R-010"
-      ],
-      "analysis_request": "A-009",
-      "contract_reference": "task_a/roy2/A-009-analysis.md",
-      "unknowns": [
-        "Individual battle command semantic labels and UI producer are unknown",
-        "Server authentication/range/cooldown handling is DEV designed",
-        "Some subtype branches have legacy string8 and value semantics not proven"
-      ]
-    },
-    {
-      "id": "PKT-S3D",
-      "direction": "S2C",
-      "opcode": "0x3d",
-      "name": "Battle",
-      "system": "SYS-COMBAT",
-      "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 subtype (0..15); 1/8/12:+none; 4/5/6/10:+u8; 7:+2u8; 15:+2 BE u32; 3:+string8,BE u32,u8,26xu8; subtype 0/2/9/11/13/14 have more complex dynamic count/string/vector variants not covered by safe codec. Never assume fixed body.",
-      "client_entry": "SBattlePacket 0x57C6E0 ctor/push0x3D; 0x57C890 reader; jump table 0x57CD98",
-      "state_precondition": "Battle packet dispatch in World; exact UI callback and per-subtype state not fully traced",
-      "related_packets": [
-        "PKT-C3D",
-        "PKT-C13",
-        "PKT-S13",
-        "PKT-S5F"
-      ],
-      "layout_status": "observed-static-partial-subtypes",
-      "evidence_kinds": [
-        "observed-static",
-        "synthetic-test"
-      ],
-      "evidence_ids": [
-        "A009-E04",
-        "A009-E08"
-      ],
-      "manual_validation": "native-client-not-run",
-      "requirements": [
-        "R-010"
-      ],
-      "analysis_request": "A-009",
-      "contract_reference": "task_a/roy2/A-009-analysis.md",
-      "unknowns": [
-        "Complex S3D variants require deeper native reader/GUI tracing",
-        "No original Server hit/miss/death policy can be inferred from class name"
-      ]
-    },
-    {
       "id": "PKT-S13",
       "direction": "S2C",
       "opcode": "0x13",
@@ -1949,7 +2409,7 @@
       "semantics_boundary": "ObjectInfoReply carries a kind/subtype and opaque key with conditional detail arrays; no proof that all variants render NPC/monster data.",
       "unknowns": [
         "Opaque field-to-native GUI display mapping and NPC/Monster kind binding unverified",
-        "Native Client CT-066 not-run; Server content/AI choice independent"
+        "Native Client CT-081 not-run; Server content/AI choice independent"
       ],
       "offline_result": "GitHub Actions run 41185085803: 19 new S07/object tests and 7 earlier NPC tests PASS"
     },
@@ -2116,6 +2576,36 @@
         "Client GUI/world-object callback not fully traced",
         "Native E2E not-run; original Server NPC policies unknown"
       ]
+    },
+    {
+      "id": "PKT-S1A",
+      "opcode": "0x1a",
+      "name": "Motion",
+      "direction": "S2C",
+      "system": "SYS-WORLD",
+      "layout": "u32BE object_ref,u8 field0,u16BE field1,u8 field2 (8 bytes); animation/duration meanings unknown.",
+      "client_entry": "0x582f20 ctor push0x1a at0x582f39; 0x582fd0 reader",
+      "profile": "TW-seed0-local-v0.1",
+      "state_precondition": "InWorld with map loaded and reference scoped to current scene; native Server AOI constraints unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S15",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "layout_status": "observed-static-partial-semantics",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
     }
   ]
 }

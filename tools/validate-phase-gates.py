@@ -150,3 +150,84 @@ for tag in ("R-025,", "R-026,"):
             if line.startswith(tag)]
     require(len(rows) == 1 and "CT-054" in rows[0], tag + " missing traceability CT-054")
 print("Onboarding readiness gates valid: %d gates, CT-054 planned, Client original." % len(gates))
+
+# ADR-007: user-approved multiplayer map must be distinct from old per-character DEV-070 runtime
+shared = read("02-server-planning/shared-map-multiplayer-contract.json")
+require(shared.get("decision") == "user-approved-multiplayer-shared-map", "shared-map decision missing")
+require(shared.get("native_client_modified") is False, "original Client must remain unchanged")
+require(shared.get("native_client_validation") == "not-run", "shared-map native testing cannot be presumed")
+require(shared.get("development_status") == "design-approved-refactor-required", "shared-map refactor must not appear implemented")
+require(shared.get("map_instance_key") == ["world_id", "map_ref"], "shared map must not use per-character instance key")
+require(shared.get("same_map_content_revision_must_match") is True, "shared-map version safety missing")
+for ref in shared["analysis_requests"]:
+    require(ref in aid, "shared-map references unknown A " + ref)
+for ref in shared["work_items"]:
+    require(ref in wid, "shared-map references unknown ONB " + ref)
+for ref in shared["conformance"]:
+    require(ref in ctid, "shared-map references unknown CT " + ref)
+test = next((v for v in ct if v["id"] == "CT-055"), None)
+require(test is not None and test.get("status") == "planned" and
+        test.get("native_client_validation") == "not-run", "CT-055 must stay planned until real client tests")
+scene = next((x for x in w if x["id"] == "ONB-05"), None)
+require(scene is not None and scene.get("shared_map_contract") ==
+        "02-server-planning/shared-map-multiplayer-contract.json", "ONB-05 missing shared-map decision")
+require("CT-055" in scene["conformance"], "ONB-05 must track multiplayer acceptance")
+for id in ("SCN-005", "SCN-011", "SCN-012"):
+    scenario = next((v for v in read("04-analysis-integration/scenarios.json")["scenarios"]
+                     if v["id"] == id), None)
+    require(scenario is not None and scenario.get("shared_map_contract") ==
+            "02-server-planning/shared-map-multiplayer-contract.md", id + " missing ADR-007")
+print("Shared-map ADR-007 valid: public multiplayer scene planned, native CT-055 not-run.")
+
+# Merge 2026-10-31: evidence lineage, CT remapping and status boundaries
+EVIDENCE_IDS = {v["evidence_id"] for v in read("04-analysis-integration/evidence-index.json")["evidence"]}
+require(len(EVIDENCE_IDS) == len(read("04-analysis-integration/evidence-index.json")["evidence"]),
+        "duplicate evidence ids")
+for x in a:
+    if x["status"] == "integrated":
+        require(all(e in EVIDENCE_IDS for e in x.get("evidence_ids", [])),
+                x["id"] + " has evidence ID absent from shared index")
+for packet in read("04-analysis-integration/packets.json")["packets"]:
+    require(all(v in packet_ids for v in packet.get("related_packets", [])),
+            packet["id"] + " related_packets has unknown id")
+remap = read("05-conformance/ct-id-remap-roy1-roy2.json")
+require(len(remap["mapping"]) == 31, "source branch CT IDs must be remapped to 26 unique main IDs")
+require(len({m["main"] for m in remap["mapping"]}) == 31, "CT remap collisions")
+for mapping in remap["mapping"]:
+    require(mapping["main"] in ctid and mapping["source"] not in {"CT-054", "CT-055"}
+            or mapping["main"] in ctid, "invalid CT remap target")
+require(all(next((x for x in ct if x["id"] == m["main"]), {}).get("native_client_validation") == "not-run"
+            for m in remap["mapping"]), "merging static evidence must not automatically pass native CT")
+require(next(x for x in packet_ids if x == "PKT-S5F") == "PKT-S5F", "S5F monster death packet missing")
+s1e = next(x for x in read("04-analysis-integration/packets.json")["packets"] if x["id"] == "PKT-S1E")
+require("disputed" in s1e["layout_status"], "must not mistake S1E for confirmed S5F DieObjects")
+for p in ("02-server-planning/post-roy-merge-implementation-plan.md",
+          "03-analysis-requests/post-merge-analysis-queue.md",
+          "05-conformance/ct-id-remap-roy1-roy2.md"):
+    require((ROOT / p).is_file(), "missing integrated planning " + p)
+print("Roy1/Roy2 merge evidence and CT lineage: PASS")
+
+# Roy1 A-004 / Roy2 A-011 incremental Client I/O handoff
+npc = next(x for x in a if x["id"] == "A-011")
+require(npc["status"] == "integrated" and npc["handoff_status"] == "partial", "A-011 must remain integrated/partial")
+require(all(f"A011-E{i:02d}" in EVIDENCE_IDS for i in range(1,9)), "A-011 missing indexed evidence")
+require("PKT-S1A" in packet_ids, "A-004 Motion packet not merged")
+require(all(f"CT-{i:03d}" in ctid for i in range(82,87)), "new CT-082..086 not registered")
+print("Roy1 A-004 / Roy2 A-011 incremental evidence: PASS")
+
+# Final integration traceability contract, including incremental A-004/A-011 CT-082..086
+import csv as _csv
+with (ROOT / "00-governance/traceability.csv").open(encoding="utf-8", newline="") as _f:
+    _rows = list(_csv.DictReader(_f))
+require(len(_rows) == len(r), "traceability.csv must cover each R exactly once")
+_by_requirement = {record["requirement"]: record for record in _rows}
+require(len(_by_requirement) == len(_rows), "traceability.csv duplicate requirement")
+for _vector in ct:
+    for _rid in _vector.get("requirements", []):
+        require(_rid in _by_requirement and _vector["id"] in
+                _by_requirement[_rid]["conformance"].split(","),
+                _rid + " missing " + _vector["id"] + " traceability")
+for _id in ("CT-082", "CT-083", "CT-084", "CT-085", "CT-086"):
+    require(_id in ctid and next(x for x in ct if x["id"] == _id)["native_client_validation"] == "not-run",
+            _id + " native-client status must remain not-run")
+print("CT per-requirement traceability and incremental native gates: PASS")

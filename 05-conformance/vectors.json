@@ -406,12 +406,7 @@
         "R-027",
         "R-029"
       ],
-      "packet_ids": [
-        "PKT-S07",
-        "PKT-S0C",
-        "PKT-S64",
-        "PKT-S0E"
-      ],
+      "packet_ids": [],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -419,11 +414,9 @@
       "expected": "教學 NPC/怪物按原生內容合法生成、重連/重載不重複",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "S07 native 1..14 nonempty rows/conditional fields now documented; S0C/S64/S5F/S0E fixed bodies. Official tutorial NPC map/type/skin still unknown.",
-      "analysis_request": "A-024",
-      "offline_test": "task_a/roy2/test_a024_npc_codec.py",
-      "a024_native_report": "task_a/roy2/A-024-analysis.md",
-      "a024_nonempty_test": "task_a/roy2/test_a024_object_packets.py"
+      "packet_mapping": "unknown",
+      "shared_map_expected": "Players A/B in same world/map observe same NPC and Monster instances; one actor's death, despawn and respawn is shared. Stale A logout never deletes B scene; no native Client CT pass claim.",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md"
     },
     {
       "id": "CT-022",
@@ -432,13 +425,7 @@
       "requirements": [
         "R-029"
       ],
-      "packet_ids": [
-        "PKT-S0C",
-        "PKT-S64",
-        "PKT-S5F",
-        "PKT-S0E",
-        "PKT-C13"
-      ],
+      "packet_ids": [],
       "input": {
         "kind": "test-design",
         "reference": "05-conformance/tutorial-test-plan.md"
@@ -446,9 +433,9 @@
       "expected": "AI 更新、死亡、移除有序，無幽靈物件",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "A024 static Client body subset; AI/respawn original server authority still unknown",
-      "analysis_request": "A-024",
-      "offline_test": "task_a/roy2/test_a024_npc_codec.py"
+      "packet_mapping": "unknown",
+      "shared_map_expected": "Players A/B in same world/map observe same NPC and Monster instances; one actor's death, despawn and respawn is shared. Stale A logout never deletes B scene; no native Client CT pass claim.",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md"
     },
     {
       "id": "CT-023",
@@ -720,8 +707,7 @@
       ],
       "packet_ids": [
         "PKT-S44",
-        "PKT-C6C",
-        "PKT-C43"
+        "PKT-C6C"
       ],
       "input": {
         "kind": "test-design",
@@ -730,10 +716,8 @@
       "expected": "首個教學 NPC/Script/任務 UI 在資源/原服證據確認後可定位，未互動對照組不假設任務已完成",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
-      "packet_mapping": "A024 C43 object-info request client sends, recruiter-specific click trigger still unverified",
-      "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge.",
-      "a024_note": "C43 object-info request only a potential click candidate; not verified NPC binding",
-      "offline_test": "task_a/roy2/test_a024_npc_codec.py"
+      "packet_mapping": "script start/close specified; NPC click and original first-login policy unknown",
+      "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
     },
     {
       "id": "CT-035",
@@ -1313,6 +1297,494 @@
     },
     {
       "id": "CT-055",
+      "title": "雙玩家共用同圖場景、NPC/怪物及重連不重置",
+      "status": "planned",
+      "level": "shared-map-server-domain-and-native-client-e2e",
+      "requirements": [
+        "R-007",
+        "R-029"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "synthetic-first-native-client-later",
+        "reference": "05-conformance/shared-map-multiplayer-test-plan.md",
+        "cases": [
+          "A+B same world/map -> one SharedMap instance and one actor set",
+          "spawn/monster death/respawn observed identically by A/B",
+          "A leave/logout -> B scene and AI remain",
+          "stale A socket cleanup -> cannot evict B or new A generation",
+          "C joins after death -> current snapshot excludes removed monster",
+          "revision mismatch denied without shadow instance",
+          "different map -> isolated actor population",
+          "native two-client player/NPC visibility after A-004/A-011/A-024 wire evidence"
+        ]
+      },
+      "expected": "Shared map is keyed by world_id/map_ref, actors and lifecycle globally consistent; users observe one another and common monsters while individual progress remains isolated, no per-character instances. Original Client cannot be marked passed before verified packet mappings and two actual Clients.",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-004",
+        "A-005",
+        "A-011",
+        "A-024"
+      ]
+    },
+    {
+      "id": "CT-056",
+      "status": "planned",
+      "level": "prelogin-native-codec-fixtures",
+      "requirements": [
+        "R-001",
+        "R-002"
+      ],
+      "packet_ids": [
+        "PKT-C0F",
+        "PKT-S18",
+        "PKT-C57",
+        "PKT-S56",
+        "PKT-C4B",
+        "PKT-S60"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic",
+        "reference": "tools/a020_prelogin_contract.py",
+        "fixtures": [
+          "C0F type3 body03 and non3 byte+string8",
+          "S18 kind0 subtype3 empty count 00030000 and one name/u32 record",
+          "C57 list/selection 01/0000",
+          "S56 compressed record list, truncated and trailing reject",
+          "C4B empty",
+          "S60 type0 BE u32, type1 compressed text"
+        ]
+      },
+      "expected": "Fields and selectors match original constructor/readers; safe local profile supports only tested subset. Non3 C0F, S18 kind1 official text semantics, S60 type0 policy remain not native E2E verified.",
+      "evidence_kind": "observed-static-plus-designed-fixture",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "legacy_source_ct_id": "CT-049",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-057",
+      "status": "planned",
+      "level": "prelogin-order-and-script-safety",
+      "requirements": [
+        "R-001",
+        "R-002",
+        "R-021"
+      ],
+      "packet_ids": [
+        "PKT-C6C",
+        "PKT-S44",
+        "PKT-C0F",
+        "PKT-S18",
+        "PKT-C57",
+        "PKT-S56",
+        "PKT-C4B",
+        "PKT-S60",
+        "PKT-C03"
+      ],
+      "input": {
+        "kind": "designed-negative-profile",
+        "reference": "tools/a020_prelogin_contract.py",
+        "cases": [
+          "C57 before metadata denied",
+          "selection not in list denied",
+          "malformed/oversized zlib and string lengths denied",
+          "C6C3 local no-op never owner proof",
+          "no S44 subtype1/3 unsafe cache-clear as ACK",
+          "C03 identity independently required"
+        ]
+      },
+      "expected": "Local profile enforces state guards and length/ratio bounds without inventing native errors or account claim. Original Server rejection timing, full regional versions and Script start remain unknown.",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-020-roy1-prelogin-branches.md",
+      "legacy_source_ct_id": "CT-050",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-058",
+      "status": "planned",
+      "level": "bin-derived-attack-skill-codec",
+      "requirements": [
+        "R-010",
+        "R-011",
+        "R-030"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-S52",
+        "PKT-S1E"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic",
+        "reference": "tools/a025_tutorial_combat_model.py",
+        "expected_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+        "opcode_byte_signatures": 14,
+        "body_fixtures": {
+          "C13": "12345678",
+          "C4D": "1234",
+          "C56": "07",
+          "S52": "1122334403",
+          "S1E": "12345678"
+        }
+      },
+      "expected": "Client original opcode/codec signatures match C13 u32 BE,C4D u16 BE,C56 u8, S52 u32 BE+u8,S1E u32 BE. Not proof of original quest kill count or Server success result; native E2E not-run",
+      "evidence_kind": "observed-static-plus-synthetic",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "legacy_source_ct_id": "CT-051",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-059",
+      "status": "planned",
+      "level": "battle-variant-dispatch-and-failclosed",
+      "requirements": [
+        "R-010",
+        "R-011",
+        "R-030"
+      ],
+      "packet_ids": [
+        "PKT-C3D",
+        "PKT-S3D"
+      ],
+      "input": {
+        "kind": "bin-derived-variant-boundary",
+        "reference": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+        "subtype_range": "0..15",
+        "pending": "Full per-subtype wire schema and actual Client result UI mapping must be established before enabling those variants"
+      },
+      "expected": "Both native C3D writer and S3D parser branch on subtype u8 0..15; unsupported or unknown variants cannot produce damage/skill success/quest completion. Native full battle subtype E2E not-run",
+      "evidence_kind": "observed-static-plus-designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "legacy_source_ct_id": "CT-052",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-060",
+      "status": "planned",
+      "level": "tutorial-combat-quest-idempotency-negative",
+      "requirements": [
+        "R-009",
+        "R-010",
+        "R-011",
+        "R-030"
+      ],
+      "packet_ids": [
+        "PKT-C13",
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-S52",
+        "PKT-S1E"
+      ],
+      "input": {
+        "kind": "designed-sqlite-synthetic",
+        "reference": "tools/a025_tutorial_combat_model.py",
+        "cases": [
+          "wrong World generation",
+          "no target or off-map target",
+          "out-of-range/dead/unlearned skill/insufficient resource/cooldown",
+          "event replay before and after SQLite reopen",
+          "no verified tutorial objective means no progress even after valid attack",
+          "S1E disappear does not itself count quest"
+        ]
+      },
+      "expected": "Only server-authoritative verified combat result can produce an objective event; duplicate event once only with durable unique ledger; unverified Born tutorial requirement never invented",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
+      "legacy_source_ct_id": "CT-053",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-061",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "level": "tutorial-script-close-not-completed",
+      "requirements": [
+        "R-013",
+        "R-031"
+      ],
+      "packet_ids": [
+        "PKT-S44",
+        "PKT-C6C",
+        "PKT-C39"
+      ],
+      "input": {
+        "kind": "native-bin-plus-designed",
+        "test": "tools/a026_tutorial_completion_model.py",
+        "cases": [
+          "Born Main only PaperDialog",
+          "C6C subtype4 then subtype2 close",
+          "duplicate/old-generation close cannot grant",
+          "C39 click without NPC binding not completion"
+        ]
+      },
+      "expected": "Script close/merchant interaction alone never means original tutorial completion or optional reward; native Client E2E not-run",
+      "evidence_kind": "observed-static-plus-designed",
+      "legacy_source_ct_id": "CT-054",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-062",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "level": "tutorial-reward-transaction-once",
+      "requirements": [
+        "R-013",
+        "R-017",
+        "R-031"
+      ],
+      "packet_ids": [
+        "PKT-C6C",
+        "PKT-C39"
+      ],
+      "input": {
+        "kind": "designed-sqlite",
+        "test": "tools/a026_tutorial_completion_model.py",
+        "cases": [
+          "unknown original rule fail closed",
+          "unverified event fail closed",
+          "verified event unique completion",
+          "optional reward only if proven",
+          "duplicate/restart never regrant"
+        ]
+      },
+      "expected": "Completion/Reward/Outbox atomically committed once only after original-rule and authoritative-event proof; no invented native reward",
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-055",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-063",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "level": "tutorial-map-exit-recovery",
+      "requirements": [
+        "R-017",
+        "R-031"
+      ],
+      "packet_ids": [
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04"
+      ],
+      "input": {
+        "kind": "designed-sqlite",
+        "test": "tools/a026_tutorial_completion_model.py",
+        "cases": [
+          "exit destination unknown blocked",
+          "must be durable completed",
+          "stale generation blocked",
+          "overlapping ambiguous same CRC blocked",
+          "correct CRC plus single-epoch barrier",
+          "crash retains prior map and completion"
+        ]
+      },
+      "expected": "Exit map checkpoint only after verified original exit route and safe C35 barrier; Client C35 has no epoch; no duplicate reward or position drift on crash",
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-056",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-064",
+      "status": "planned",
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "level": "inventory-use-remove-codec",
+      "requirements": [
+        "R-008"
+      ],
+      "packet_ids": [
+        "PKT-C1C",
+        "PKT-C1E",
+        "PKT-C08",
+        "PKT-C0C",
+        "PKT-S10",
+        "PKT-S38"
+      ],
+      "input": {
+        "kind": "bin-derived-synthetic",
+        "reference": "tools/a007_inventory_contract.py",
+        "cases": [
+          "C1C use_kind1..9 exact tail length and BE",
+          "unknown kind/short/trailing reject",
+          "C1E slot u8",
+          "C08 3 u8 / C0C u32 BE",
+          "S10 3 u8 and S38 slot + flag boolean"
+        ]
+      },
+      "expected": "Original byte signatures pass, type codec/strict parsing; no claim native item effects/unknown use_kind enum meanings",
+      "evidence_kind": "observed-static-plus-synthetic",
+      "legacy_source_ct_id": "CT-057",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-065",
+      "status": "planned",
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "level": "inventory-equipment-variable-sync",
+      "requirements": [
+        "R-008"
+      ],
+      "packet_ids": [
+        "PKT-S0F",
+        "PKT-S37",
+        "PKT-S10",
+        "PKT-S38"
+      ],
+      "input": {
+        "kind": "static-parser-branches",
+        "reference": "04-analysis-integration/items.md",
+        "cases": [
+          "S0F mode0 u16,count; mode1 u8; mode2 nested list bounded",
+          "S37 extra description count bounded and tail checked",
+          "wrong slot/codepage/overflow fail closed",
+          "snapshot consistency after equip/unequip/reconnect"
+        ]
+      },
+      "expected": "No fixed length invented for variable S0F/S37; native body variants decoded and Client UI actual stock/revision validation required",
+      "evidence_kind": "observed-static-plus-designed",
+      "legacy_source_ct_id": "CT-058",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-066",
+      "status": "planned",
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "native_client_validation": "not-run",
+      "level": "durable-item-instance-lifecycle",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "packet_ids": [
+        "PKT-C1C",
+        "PKT-C1E",
+        "PKT-S10",
+        "PKT-S38",
+        "PKT-S0F",
+        "PKT-S37"
+      ],
+      "input": {
+        "kind": "designed-sqlite-synthetic",
+        "reference": "tools/a007_inventory_contract.py",
+        "cases": [
+          "same item instance unique owner+slot",
+          "equip/unequip full bag rollback",
+          "count split/consume underflow rejects",
+          "cross-owner and unverified item ref rejected",
+          "same op replay once / changed digest reject",
+          "disconnect and SQLite reopen retains exactly one item and outbox event"
+        ]
+      },
+      "expected": "Server creates unique internal item_instance_id and operations committed once without dupes. No original Server policy inferred.",
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-059",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-067",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "level": "audio-native-s19-codec",
+      "requirements": [
+        "R-022"
+      ],
+      "packet_ids": [
+        "PKT-S19"
+      ],
+      "input": {
+        "kind": "original-exe-static-and-synthetic",
+        "reference": "tools/a019_music_map_probe.py",
+        "cases": [
+          "S19 ctor opcode 0x19 and exact u8 selection",
+          "kind1 includes repeat u8 and BE u16 track",
+          "kind!=1 omits repeat and BE u16 sound id",
+          "01000012 synthetic music track18",
+          "01000000 music stop 0",
+          "truncated/extra bytes and other unknown selectors fail closed"
+        ]
+      },
+      "expected": "Original S19 music/sound wire branches and music filename scheme validated offline; native Client sound/track success pending; no claim map→track provenance",
+      "evidence_kind": "observed-static-plus-synthetic",
+      "legacy_source_ct_id": "CT-060",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-068",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "level": "map-audio-resource-provenance",
+      "requirements": [
+        "R-022"
+      ],
+      "packet_ids": [
+        "PKT-S19",
+        "PKT-S15"
+      ],
+      "input": {
+        "kind": "original-resource-index-static",
+        "reference": "tools/a019_music_map_probe.py",
+        "cases": [
+          "Exact Map0/1/2 original SHA pinned",
+          "289/185/23 index entries each size36",
+          "288/184/22 recognizable *.map names",
+          "index has no Music/*.mp3 entry",
+          "official map→track rows require source evidence"
+        ]
+      },
+      "expected": "Only indexed MAP names are evidenced; native map music rows remain empty/UNKNOWN until original Server trace or content mapping proves each row",
+      "evidence_kind": "observed-static-resource",
+      "legacy_source_ct_id": "CT-061",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-069",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "level": "map-audio-epoch-and-fallback",
+      "requirements": [
+        "R-022"
+      ],
+      "packet_ids": [
+        "PKT-S19",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35"
+      ],
+      "input": {
+        "kind": "designed-synthetic",
+        "reference": "tools/a019_music_map_probe.py",
+        "cases": [
+          "No native verified mapping: no automatic track1",
+          "Unverified catalog row is rejected",
+          "Verified synthetic map row leads one S19 per loading_epoch",
+          "Stale session/epoch invalid",
+          "local-fixture vs original provenance distinct",
+          "missing MP3/volume off does not fail World transition"
+        ]
+      },
+      "expected": "Fail-closed provenance-gated music cue, epoch fenced/duplicate suppressed; synthetic fixtures not official mapping, original Client multi-map E2E pending",
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-062",
+      "merge_source_branch": "task_a/roy1"
+    },
+    {
+      "id": "CT-070",
       "status": "planned",
       "level": "native-two-client-AOI-and-ID-lifecycle",
       "requirements": [
@@ -1335,10 +1807,12 @@
       "expected": "Two clients join same validated world map, receive third-party S33 and S06/S11 on movement/turn, S0E on leave/disconnect, observe no ghost actor after reconnect or late packet; record packet/body and GUI evidence before claiming passed",
       "evidence_kind": "designed-test",
       "native_client_validation": "not-run",
-      "analysis_request": "A-004"
+      "analysis_request": "A-004",
+      "legacy_source_ct_id": "CT-055",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-056",
+      "id": "CT-071",
       "status": "planned",
       "level": "original-MAP-and-synthetic-movement-body",
       "requirements": [
@@ -1360,10 +1834,12 @@
       "map_probe": "task_a/roy2/a005_collision_probe.py",
       "offline_test": "task_a/roy2/test_a005_move.py",
       "analysis_request": "A-005",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-056",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-057",
+      "id": "CT-072",
       "status": "planned",
       "level": "native-client-blocked-move-and-correction",
       "requirements": [
@@ -1383,10 +1859,12 @@
       "expected": "Actual native World move/turn, blocked tile, edge/corner, failed correction S0B, 0x7f→0x00 wrap, replay, speed and map-epoch reset must be observed before claiming compatible; bit4 line check cannot stand in for walking collision",
       "evidence_kind": "designed-test",
       "analysis_request": "A-005",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-057",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-058",
+      "id": "CT-073",
       "status": "planned",
       "level": "original-PE-static-and-synthetic-appearance-projection",
       "requirements": [
@@ -1407,10 +1885,12 @@
       "original_probe": "task_a/roy2/a006_look_probe.py",
       "offline_test": "task_a/roy2/test_a006_look.py",
       "analysis_request": "A-006",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-058",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-059",
+      "id": "CT-074",
       "status": "planned",
       "level": "native-original-client-eight-direction-color-equip-map-relogin",
       "requirements": [
@@ -1433,10 +1913,12 @@
       "expected": "Native screenshots and redacted traces of standing and 8 directional movements, hair/clothes independent RGB, equip and default reset, map transition, relog, self and other view; compare viewport8/9 center and 9/9 off-center",
       "evidence_kind": "designed-test",
       "native_client_validation": "not-run",
-      "analysis_request": "A-006"
+      "analysis_request": "A-006",
+      "legacy_source_ct_id": "CT-059",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-060",
+      "id": "CT-075",
       "status": "planned",
       "level": "world-visibility-decoded-body-and-synthetic-lifecycle",
       "requirements": [
@@ -1463,10 +1945,12 @@
       "offline_test": "task_a/roy2/test_a004_visibility.py",
       "original_probe": "task_a/roy2/a004_native_probe.py",
       "native_client_validation": "not-run",
-      "analysis_request": "A-004"
+      "analysis_request": "A-004",
+      "legacy_source_ct_id": "CT-060",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-061",
+      "id": "CT-076",
       "status": "planned",
       "level": "original-PE-static-and-synthetic-status-client-io",
       "requirements": [
@@ -1486,10 +1970,12 @@
       "original_probe": "task_a/roy2/a008_native_probe.py",
       "offline_test": "task_a/roy2/test_a008_status.py",
       "analysis_request": "A-008",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-061",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-062",
+      "id": "CT-077",
       "status": "planned",
       "level": "native-original-client-stats-panel-ability-and-HP-death-boundaries",
       "requirements": [
@@ -1509,10 +1995,12 @@
       "expected": "Native StatusDialog ability IDs 0x13..0x17 produce C47 body 01,02,04,08,10; S08 conditional full/current/relogin/update and GUI field labels/units verified; illegitimate/replay rejected; HP zero, death and revive transitions checked separately, without inventing original Server math",
       "evidence_kind": "designed-test",
       "analysis_request": "A-008",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-062",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-063",
+      "id": "CT-078",
       "status": "planned",
       "level": "original-Asgard-PE-static-and-synthetic-combat-codec",
       "requirements": [
@@ -1536,10 +2024,12 @@
       "original_probe": "task_a/roy2/a009_native_probe.py",
       "offline_test": "task_a/roy2/test_a009_combat.py",
       "analysis_request": "A-009",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-063",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-064",
+      "id": "CT-079",
       "status": "planned",
       "level": "original-native-client-combat-hit-damage-death-revive",
       "requirements": [
@@ -1561,10 +2051,12 @@
       "expected": "Trace native input→C13, decoded S13/S3D presentation and S08 resource updates, S5F vs S0E effects, hit/miss/death/revive and reject/replay/multi-target/simultaneous death, report original Server formulas as unknown unless independently observed.",
       "evidence_kind": "designed-test",
       "analysis_request": "A-009",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-064",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-065",
+      "id": "CT-080",
       "status": "planned",
       "level": "original-PE-npc-object-packets-static-and-synthetic",
       "requirements": [
@@ -1595,10 +2087,12 @@
       "offline_test": "task_a/roy2/test_a024_object_packets.py",
       "analysis_request": "A-024",
       "native_client_validation": "not-run",
-      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41185085803"
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41185085803",
+      "legacy_source_ct_id": "CT-065",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-066",
+      "id": "CT-081",
       "status": "planned",
       "level": "native-original-client-object-spawn-move-update-die-remove",
       "requirements": [
@@ -1626,10 +2120,125 @@
       "expected": "Native display of S07 nonempty rows and correct kind/resource mapping, S0C/S64 movement, S34/S3C/S62/S63/S29 contextual effects, S5F vs S0E removal, NPC interaction C43, relog/map stale events and safe object ID lifecycle; no original Server AI policy inferred.",
       "evidence_kind": "designed-test",
       "native_client_validation": "not-run",
-      "analysis_request": "A-024"
+      "analysis_request": "A-024",
+      "legacy_source_ct_id": "CT-066",
+      "merge_source_branch": "task_a/roy2"
     },
     {
-      "id": "CT-067",
+      "id": "CT-084",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "level": "native-object-visibility-codec",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S33",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S11",
+        "PKT-S1A"
+      ],
+      "input": {
+        "kind": "original-exe-plus-bounded-fixtures",
+        "reference": "tools/a004_visibility_model.py",
+        "cases": [
+          "Native constructor opcode decode 0x07/0x0e/0x5f/0x33/0x0c/0x64/0x11/0x1a",
+          "S07 u16 count and 11 byte common record (type5..12 only); type1/2/4 flags, type3/type13 string8, type14 u8,u8,u16 typed parser pending",
+          "S0E and S5F distinct u32BE ref and distinct handler",
+          "S0C BE u32/u16/u16/u8/u8; S64 count/length bounded; S11 ref+direction and S1A ref+u8+u16+u8",
+          "S33 other human ref and attributes; S05 own ref not other-player add"
+        ]
+      },
+      "expected": "Original 20 instruction signatures match; strict direction-specific typed codec; no S1E DieObjects opcode; native Client E2E not-run",
+      "evidence_kind": "observed-static-plus-synthetic",
+      "legacy_source_ct_id": "CT-063",
+      "merge_source_branch": "task_a/roy1",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+    },
+    {
+      "id": "CT-085",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "level": "two-native-client-aoi-lifecycle",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S33",
+        "PKT-S07",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S11",
+        "PKT-S15"
+      ],
+      "input": {
+        "kind": "native-client-manual-plan",
+        "cases": [
+          "Two original Clients same map mutual spawn and object ID equality of updates",
+          "Both directions move/change dir and walk out of AOI",
+          "Logout/abrupt socket close removes visible counterpart but not database Character",
+          "Map transition clears old other objects, preserves self/reloads new visible population",
+          "Death and revive separately from AOI exit; ID reuse collision and sequence"
+        ],
+        "missing": [
+          "Original Server two-client captures with verified map_instance and S07/S33/S0E/S5F sequence",
+          "Known release NPC/monster scene type mapping and model resources"
+        ]
+      },
+      "expected": "Each viewer sees only scoped entity, one binding per ref, no ghost; original AOI radius and notification timing UNKNOWN until runtime evidence",
+      "evidence_kind": "planned-native",
+      "legacy_source_ct_id": "CT-064",
+      "merge_source_branch": "task_a/roy1",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+    },
+    {
+      "id": "CT-086",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "level": "designed-server-interest-identity-fencing",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S33",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S0C",
+        "PKT-S64"
+      ],
+      "input": {
+        "kind": "designed-synthetic",
+        "reference": "tools/a004_visibility_model.py",
+        "cases": [
+          "same wire-ref duplicate same entity refresh vs different entity collision",
+          "wrong World map/map_instance or stale session generation rejected",
+          "death does not automatically delete visible object or grant quest kill",
+          "move without prior spawn rejected",
+          "old map S0E cannot remove new epoch binding in Domain",
+          "wire cannot distinguish old/new events within same TCP when ref reused: fence/reconnect"
+        ]
+      },
+      "expected": "No unauthorized cross-map observer visibility, ghost objects or ref aliasing; designed internal epoch does not change native wire layout",
+      "evidence_kind": "designed",
+      "legacy_source_ct_id": "CT-065",
+      "merge_source_branch": "task_a/roy1",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+    },
+    {
+      "id": "CT-082",
       "status": "planned",
       "level": "original-PE-static-and-synthetic-NPC-resource-ID-click-motion",
       "requirements": [
@@ -1652,10 +2261,13 @@
       "offline_test": "task_a/roy2/test_a011_resource.py",
       "analysis_request": "A-011",
       "native_client_validation": "not-run",
-      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751"
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751",
+      "legacy_source_ct_id": "CT-067",
+      "merge_source_branch": "task_a/roy2",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
     },
     {
-      "id": "CT-068",
+      "id": "CT-083",
       "status": "planned",
       "level": "native-original-client-NPC-monster-sprite-click-dialog-motion",
       "requirements": [
@@ -1679,10 +2291,13 @@
       "expected": "A real nonempty S07 entity→visible asset sprite ID→MonsterNN.dat member/YPF group and six local motion selector semantics must be demonstrated; click C43→S34/S3C/S44→NPCChatDialog with packet trace and original UI must be proven, including NPC/monster distinctions, dead/removed/relog boundaries. No actual game runtime proof yet.",
       "evidence_kind": "designed-test",
       "analysis_request": "A-011",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "legacy_source_ct_id": "CT-068",
+      "merge_source_branch": "task_a/roy2",
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
     },
     {
-      "id": "CT-069",
+      "id": "CT-087",
       "status": "planned",
       "level": "original-Asgard-MAP-raw-to-client-tile-coordinate-offline",
       "requirements": [
@@ -1699,7 +2314,7 @@
       },
       "expected": "SHA-locked PE 26 native VA patterns; original Map0/1/2 494 MAP and 7,701,805 tiles; raw 10B tile→Client memory17B row-major accessor; x/y bounds; bit0/bit4 distinct, auxiliary u32 grid, 48x32 candidate viewport; 18 synthetic negative/positive parser tests; keep walkability unverified.",
       "evidence_kind": "observed-static-PE+original-MAP-corpus+synthetic-test",
-      "offline_subset_result": "PASS original EXE 26 SHA-locked VA byte signatures and all 494 original MAP/7,701,805 tiles; GitHub Actions run 41188097214 PASS with 18 synthetic MAP coordinate tests, 19+7 A024 and 16 A011 tests, phase gates successful; native Client CT-070 NOT RUN.",
+      "offline_subset_result": "PASS original EXE 26 SHA-locked VA byte signatures and all 494 original MAP/7,701,805 tiles; GitHub Actions run 41188097214 PASS with 18 synthetic MAP coordinate tests, 19+7 A024 and 16 A011 tests, phase gates successful; native Client CT-088 NOT RUN.",
       "original_probe": "task_a/roy2/a015_map_native_probe.py",
       "offline_probe": "task_a/roy2/a015_map_coordinate.py",
       "offline_test": "task_a/roy2/test_a015_map_coordinate.py",
@@ -1708,7 +2323,7 @@
       "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41188097214"
     },
     {
-      "id": "CT-070",
+      "id": "CT-088",
       "status": "planned",
       "level": "original-native-client-player-walkability-and-spawn-coordinate",
       "requirements": [

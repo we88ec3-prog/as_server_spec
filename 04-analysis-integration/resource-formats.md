@@ -80,30 +80,21 @@ Roy2 提供 Born.dat 原件校驗報告：raw 589 bytes SHA256 `992e6d78819538b9
 
 Script 既有簡化 `BE u16 length` 的錯誤已更正為 **BE u16 version + BE u32 code units**；原 Born.dat 驗證通過，並加入大於 65535 code units 的合成回歸測試。原 EXE UTF-16LE 常值池的 resource selectors（Basic/Icon/Locale 等）可確認存在，但技能/物品定義的真正檔名 **unknown**，不能把候選檔案當成已解。完整資料盤點／來源／授權／下游邊界見 [A-015 結案審查](../task_a/roy2/A-015-closure-review.md)。
 
+## 2026-10-31 Monster00/World00 與三份新 Script 的實體補證
 
-## A-011 原件增補：Monster / World 圖庫 ID 與動畫選擇器（2026-10-31）
+已收到並離線解出 `Monster00.dat`、`World00.dat`：各自 `LE u32 slots=6`（含 sentinel），五筆 YPF payload，offset0=220、最後 offset=EOF。Monster 索引為五個 M_00_*（모스／모스워리어／나이트모스／드라스／모스캡틴）；World 索引為 TS_000_AnimStatic、AnimStaticShadows、Static、StaticShadows、Tile 的 .ypf。**這是索引存在與 member 名稱，不是 NPC spawn 種類、World 物件資料表或完整動畫解碼**；A-011 的「每 Monster archive 十個 client image slots」**不是**「十個 YPF member」。資產 SHA、長度詳 [實證](new-asset-samples-20261031.md)。
 
-原始 `Asgard.exe` SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 的 `0x404331..0x4043AF` 以 0x440720 登錄兩組 library：
-
-- `World%02d.dat`，library ID **7000..7023（24個）**、檔名 `World00.dat`～`World23.dat`；
-- `Monster%02d.dat`，library ID **8000..8042（43個）**、檔名 `Monster00.dat`～`Monster42.dat`。**重要勘誤**：EXE 的寬字常值從 0x5F1D3A 開頭是 `@Monster%02d.dat`，但原生註冊器 `0x40438B` 使用 `0x5F1D3C`，跳過字面 @，實際檔名應無 @；先前 A-024 報告中的 `@Monster%02d.dat` 是字串搜索結果，並非註冊器實際輸入。
-
-`MonsterImageLib` native `0x4D7530/0x4D7560` 進一步將 image ID（`0x4000` 起）分為 `library=8000+floor((id-0x4000)/10)`、`slot=(id-0x4000)%10`。40xx/41xx image ID、800x library ID 與 Server object key 是不同命名空間，不能混用。只在已登錄 43 個 Monster 庫內，安全候選 image ID 範圍為 `0x4000..0x41AD`（**designed bound**）；實際每一個檔內 slot 是否存在仍需檔案原件確認。
-
-另有 S07 receive handler native `0x4F1A8B/0x4F1B68/0x4F1BD1` 在 kind 1/2/4 時呼叫 `MonsterObject ctor 0x4D6FA0`；local motion selector `0x4D6BC0` 選出 `+0x20/+0x30/+0x40` 三組偏移（重複兩遍）。這些是**已證的程式碼映射**，不是已證的某種怪物／NPC species、動作名字或 YPF／DOI 方向圖群。
-
-具體資料、C43 兩條原生 UI request 路徑、缺件及驗證見 [A-011 報告](../task_a/roy2/A-011-analysis.md)、[CT-067/068](../05-conformance/A-011-npc-resource-click-animation-test-plan.md)。目前尚無同版 `MonsterNN.dat`/`WorldNN.dat` 實體檔，不應假設原服掉落/AI/動畫組已還原。
-
+`nNewJoin01.dat`、`PaperDialog.dat`、`PaperDialog02.dat` 以既有 Script `BE u16 version + BE u32 UTF16 units` 及 CP950 CRC 驗證：nNewJoin01 `d9390353`，PaperDialog `f870c574`，PaperDialog02 `42683546`。初級學校三頁選擇是 `STATE=ACCEPT/REFUSE`；PaperDialog02 另外產生 `PAPER02=START/NOT`，其同名 callback 不可與 PaperDialog 直接合併。資源行為不證明原服的學校 NPC 綁定／切圖政策。完整 Server 交接見 [入學規劃](../02-server-planning/novice-school-admission-flow.md)。
 
 ## A-015／roy2 MAP 座標、碰撞來源與真正可用座標（2026-10-31）
 
-以原始 `Asgard.exe` 與原件 `Map0.dat`～`Map2.dat` 獨立復核，**494 MAP、7,701,805 tiles**，詳見 [A-015 MAP／碰撞詳細分析](../task_a/roy2/A-015-map-coordinate-collision.md) 及 [CT-069／070](../05-conformance/A-015-map-coordinate-test-plan.md)。
+以原始 `Asgard.exe` 與原件 `Map0.dat`～`Map2.dat` 獨立復核，**494 MAP、7,701,805 tiles**，詳見 [A-015 MAP／碰撞詳細分析](../task_a/roy2/A-015-map-coordinate-collision.md) 及 [CT-087／070](../05-conformance/A-015-map-coordinate-test-plan.md)。
 
 - **raw tile**：MAP header 3×LE u16、width/height u8、block `ceil(w/2)*ceil(h/4)*2` bytes；每 tile `LE u16,u16,u16,u32` 佔 **10 bytes**。原生 loader `0x4B33A0` 轉成 Client 每格 **17 bytes**，`0x4B2C80` 依 `x+y*width` 尋址；超出範圍無效，`0x4B4920` 有 bounds guard。
 - **畫面像素 extent**：Native `0x4B4A3B` `height*32`、`0x4B4A73` `width*48`；`pixel//(48,32)` 可作 candidate tile 對應，不等於已證玩家腳底/pivot/可行走 grid。
 - **collision 分流**：tile `flags_u32` 的 **bit0** 在 `0x4B2CA0` 可被本地 set/clear、`0x4D120B` 另一 consumer 測試；**bit4** 在 `0x4B4BB0` 的線段/格列測試；`0x4B3250/0x4B2D00` 又有獨立 4 bytes/cell 網格與鄰格判斷。**沒有原生證據表明 bit0 或 bit4 是玩家唯一 walkability mask**。
 - **原件 flags**：全庫只有 `0=2,701,300`、`1=496,877`、`16=12`、`17=4,503,144`、`512=472`。注意 0x200 不是 0。Born(31,29) 對應 477 張 MAP 的 in-bounds tile，分別 flags 0(242)、1(109)、17(126)，**不是原版 spawn/可用位置驗證**。
 - **pixel candidate tails**：8B 尾段 `(+2,+4)` 是候選像素座標（396/396 在 bounds），16B 尾段 `(+12,+14)`（2269/2269 在 bounds）。尚未證明它們是 NPC、出生、傳送或碰撞資料。
-- **驗證**：原件 EXE SHA 鎖定 26 條 VA 指令位置、三庫 494 原始 MAP 結構、合成 MAP 座標/截斷/越界測試；Native Client 撞牆與回滾 `CT-070` **not-run**。Server 只可依此讀 raw grid、檢查 bounds，不能自動從 raw flags 產出官方全地圖 passable whitelist。
+- **驗證**：原件 EXE SHA 鎖定 26 條 VA 指令位置、三庫 494 原始 MAP 結構、合成 MAP 座標/截斷/越界測試；Native Client 撞牆與回滾 `CT-088` **not-run**。Server 只可依此讀 raw grid、檢查 bounds，不能自動從 raw flags 產出官方全地圖 passable whitelist。
 
 **缺少新資源檔：無**。Client EXE、MAP 三庫及 Born 都已提供；要真正判定可站立與角色碰撞，缺的是指定地圖、原生 Client 行走/撞牆的去識別 packet/UI trace 或更深的 movement candidate→collision handler XREF，而非更多美術圖。

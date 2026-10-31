@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "id": "A-026",
+  "profile": "TW-seed0-local-v0.1",
+  "evidence_id": "ev_a026_20261031_born_merchant_exit_bin_static",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "born_dat_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+  "analysis_status": "observed-static + observed-static-resource and designed Server model",
+  "native_client_validation": "not-run",
+  "original_server_policy_observed": false,
+  "original_first_login_script_trigger": null,
+  "original_quest_completion_rule": null,
+  "original_tutorial_reward": {
+    "exists": null,
+    "item_id": null,
+    "quantity": null,
+    "experience": null,
+    "gold": null
+  },
+  "original_exit": {
+    "map_ref": null,
+    "x": null,
+    "y": null,
+    "revision": null,
+    "origin_verified": false
+  },
+  "recruiter": {
+    "npc_entity_id": null,
+    "map_ref": null,
+    "verified_script_binding": false,
+    "candidate_script_filename": "nNewJoin01.dat",
+    "confidence": "script-content-observed; original-npc-binding-inferred-only"
+  },
+  "born": {
+    "guide_waypoint": [
+      31,
+      29
+    ],
+    "waypoint_is_spawn": false,
+    "entry": "Main",
+    "direct_dependency": "PaperDialog.dat",
+    "calls": [
+      "client.CreateArray",
+      "page.Insert",
+      "PaperDialog_Create"
+    ],
+    "normal_close_c6c_subtypes": [
+      4,
+      2
+    ],
+    "close_is_completion": false
+  },
+  "native_client_interfaces": [
+    {
+      "id": "PKT-C39",
+      "body": "u8,u32_be,u16_be,then subtype variant; original selector 1..9"
+    },
+    {
+      "id": "PKT-C6C",
+      "body": "subtype4/2 string8 Born,u32_be context; 1 reply key/value"
+    },
+    {
+      "id": "PKT-S44",
+      "body": "type1/subtype0 starts named Script.Main"
+    },
+    {
+      "id": "PKT-S15",
+      "body": "3×u16 BE,2×u8,string8; general map descriptor"
+    },
+    {
+      "id": "PKT-S14",
+      "body": "u8 loading control"
+    },
+    {
+      "id": "PKT-C35",
+      "body": "u16 BE,u16 BE; NO epoch/map id"
+    },
+    {
+      "id": "PKT-S04",
+      "body": "4×u16 BE position"
+    },
+    {
+      "id": "PKT-C0B",
+      "body": "empty quit; NOT tutorial completion"
+    }
+  ],
+  "server_only_state_machine": [
+    "TutorialEntered",
+    "ScriptRunning",
+    "ScriptClosed",
+    "AwaitVerifiedOriginalCompletionRule",
+    "TutorialCompleted",
+    "ExitPending",
+    "TutorialExited"
+  ],
+  "operation_gates": {
+    "complete": [
+      "authenticated character",
+      "verified original rule",
+      "verified authoritative event",
+      "matched npc/script/quest if required",
+      "current session/world generation",
+      "unique completion ledger",
+      "transactional optional proven reward/outbox"
+    ],
+    "exit": [
+      "durable tutorial completed",
+      "original valid exit map and x/y/revision verified",
+      "single pending map epoch",
+      "matched expected C35 pair",
+      "no overlapping indistinguishable epochs",
+      "durable exit checkpoint after loading"
+    ]
+  },
+  "native_tutorial_complete_ready": false,
+  "native_reward_proven": false,
+  "native_exit_destination_proven": false,
+  "missing_locally_named_files": [],
+  "other_required_evidence": [
+    "Original Server tutorial/quest/NPC/exit handler or configuration",
+    "First/returning login through recruit→completion→exit→relogin Server trace"
+  ],
+  "notes": "NULL means unknown, not zero/empty/default. Do not hardcode Born (31,29) as spawn or tutorial exit. State and transaction design is not a recovered native Server policy. Five newly supplied resource files verified locally, including admission/script reply values. This does NOT prove NPC binding, native school transfer, reward or tutorial completion; Client E2E not-run.",
+  "new_script_resource_validation": {
+    "date": "2026-10-31",
+    "evidence": "04-analysis-integration/new-asset-samples-20261031.md",
+    "observed_static_resource": true,
+    "nNewJoin01": {
+      "raw_sha256": "8410064a564e381bfe941c71af3fc70598ea2325df69c3d216d7fbba1c7f79ae",
+      "main_entry": "MerchantTalk (via shared Merchant runtime; no Main in this file)",
+      "page_names": [
+        "JoinMessage01",
+        "JoinMessage02",
+        "JoinMessage03"
+      ],
+      "reply_key": "STATE",
+      "reply_values": [
+        "ACCEPT",
+        "REFUSE"
+      ],
+      "npc_entity_binding_verified": false,
+      "accept_means_completed": false,
+      "accept_means_auto_transfer": false
+    },
+    "PaperDialog02": {
+      "raw_sha256": "49a618b9a59bda1294df6cbd8fa57e07c6e42c7647602dd988decf4a147bf22a",
+      "reply_key": "PAPER02",
+      "reply_values": [
+        "START",
+        "NOT"
+      ],
+      "follow_on_trigger_verified": false,
+      "separate_from_PaperDialog": true
+    },
+    "monster00": {
+      "raw_sha256": "ef45faefd96572695e0086753b2c881a218df2730d1cd5a0c40bf5d26c3ba505",
+      "archive_member_count": 5,
+      "monster_image_slot_to_ypf_member_verified": false
+    },
+    "world00": {
+      "raw_sha256": "01b1afc14daf4ca030004f825d8af39ff6667d184431a5aa9aa9b67a81160ef3",
+      "archive_member_count": 5,
+      "native_scene_id_mapping_verified": false
+    }
+  }
+}

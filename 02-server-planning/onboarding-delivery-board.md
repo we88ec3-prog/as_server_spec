@@ -59,3 +59,15 @@ A-002 新增 C03 登入欄位、S03 host/port/opaque token、C10 raw token，及
 ## 下一輪安全創角與 Native Client 的兩層出場門檻（2026-10-31）
 
 [可繼續開發 SAFE-01～04 / 後續 WIRE-01～02](native-creation-next-iteration.md) 與 [機讀就緒關卡](onboarding-readiness-gates.json) 已建立。**Server AuthContext、登入帳號比對、PendingIntent/C04 原子性、C15/重送可立即繼續設計或合成測試**。但不能因帳號字串相同就開放 native C02：A-027 仍未證實 C03(no-character)→NewUser UI 或 C02 field1 真實帳號語意。新 CT-054 為 planned/not-run，不修改 Client，不猜非零 S02 錯誤碼。ONB-03/04 Map/CRC/Transfer、ONB-05 Script Domain 與此並行，不須推論原服出生/首次派任務政策。
+
+## DEV-070-M 使用者最新決策（2026-10-31）
+
+已確認「**多人進同一地圖**」；原本按 Character 建立的 DEV-070 synthetic scene 不能作為正式完成狀態。現在將 ONB-05 的 Server 場景調整為同 world/map 共用一份 NPC/怪物、每玩家獨立 Session 與教學進度。DEV-070-M 重構可立即開發，不需等原生封包；**A-004/A-011/A-024** 必須證明 Client 互見與實體封包後才加入原版 Client 傳輸，CT-055 planned/not-run。詳見 [共享地圖 ADR](shared-map-multiplayer-contract.md)。
+
+## Roy1/Roy2 分支正式合併後（2026-10-31）
+
+A-004/005/006/008/009/024（Roy2）與 A-007/019/020/025/026（Roy1）已回寫 main 的 `integrated` 靜態/合成有限成果。ONB-05 可由純內部 Scene 走向 **DEV-070-M 共享場景 + 可證 S07 非空 row 等 codec**，ONB-06 可建立 ScriptClose≠完成的 ledger。**原生 Client CT-055/070/080/081、R-031 真實教學出口都未通過**。看 [新開發計畫](post-roy-merge-implementation-plan.md) 與 [待分析工作](../03-analysis-requests/post-merge-analysis-queue.md)，不要要求分析者重做已證 opcode。
+
+## P0 密碼相容性阻塞（使用者觀察，2026-10-31）
+
+**目前原 Client 登入欄最多 8 字**，而 `as_server_roy/main` 的 `Pbkdf2PasswordHasher.ValidatePassword` 實際限制 **10～128 字**；ONB-01 即使帳號存在也可能登入失敗。**規格已更新但 DEV-030 程式尚未修正**：遊戲建帳/重設採4～8 ASCII 英數（自動產生仍建議8字）、Admin 身份/密鑰不受影響；原長密碼需管理員重設，不截斷；C03 正常登入與原始 UI 需 CT-019/037/050 驗證。此為本期**先修再測**的 P0 工作，不依賴 A-027 創角 UI。詳見 [4～8 字相容政策](native-game-password-4to8-policy.md)。

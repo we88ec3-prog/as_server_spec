@@ -40,3 +40,11 @@ ONB-06：達成真正教學完成條件、一次性狀態/獎勵（若存在）�
 ## 出場標準
 
 先完成 A-021/A-022 保證能建立角色並進入原版教學，再由 A-023/A-024/A-025/A-026 建立各功能的 PKT/SCN/CT。SCN-011～013 與 CT-021～028 只是在此版本規劃；全部新情境尚未原生 Client 驗收。
+
+## 2026-10-31 — 使用者確定多人共享同圖（優先於上方未定場景假設）
+
+**新手教學也採共享地圖**：同一 world_id + map_ref 的 A/B 同在一份 Actor Registry，NPC/怪物狀態與死亡/重生對兩人一致。個人角色與教學進度仍獨立。DEV-070 目前按 Character 建 Scene 的舊實作須做 DEV-070-M 重構：共享 Map Key、玩家 Participant 連線世代、權威移動、Observer 唯讀、Tick 全地圖一次；舊 Socket logout 只清自己的參與者。既有單玩家 synthetic 測試可作回歸基線，但**不等於多人相容**。正式原 Client Player/NPC/Monster Spawn/Move/Despawn 仍須 A-004/011/024，未知 opcode 不能猜。見 [多人同圖契約](shared-map-multiplayer-contract.md)、[CT-055](../05-conformance/shared-map-multiplayer-test-plan.md)。
+
+## Roy1/Roy2 最新分析後 DEV-070-M / 080 / 090 重排（2026-10-31）
+
+A-024 已有 **S07 type1..14、S0C/S64、S5F、S0E、S34/S3C、S62/S63、S29** 的原始 Client 靜態 reader，故 Native adapter 的 decoded-body codec 可先做；但 type→NPC/Monster、sprite、ObjectRegistry、點擊 NPC 實際 C43/C39 回包尚未證明，不能宣稱真 Client 顯示。A-004/005 的玩家移動/可見性子集可給 SharedMapKey/Observer 和可信座標；**玩家共享一份地圖與 NPC/怪物是使用者 ADR-007 決策，不使用每 Character 私有 instance**。A-009/025 C13/S13/S5F 及 C3D/S3D subtype 可先做 Combat Domain，S1E DieObjects attribution 已標 disputed；A-026 Born/C6C 不代表任務完成或原服獎勵。完整 [可開發順序](post-roy-merge-implementation-plan.md)、[缺 A](../03-analysis-requests/post-merge-analysis-queue.md) 與 [CT 編號映射](../05-conformance/ct-id-remap-roy1-roy2.md)。

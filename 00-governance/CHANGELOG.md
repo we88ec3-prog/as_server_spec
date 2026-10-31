@@ -82,39 +82,26 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 
 規劃 DEV-IO-01～06，建立 6 條 Client 事件→C2S→S2C→Client 效果與 Server Authority 兩層機讀矩陣，連結 ONB-01～06、PKT/SCN/CT；新增分段驗收表並更新 README/roadmap/進度板。CI 對 Matrix 做 PKT/SCN/CT/A/ONB 參照完整性和原生 CT 不可假通過的欄位檢查。本次不修改任何 CT 的執行狀態，也不宣稱私有 Server 已實作。
 
-## A-024：NPC/怪物 Client I/O 已證子集（2026-10-31）
-
-原版 `Asgard.exe` SHA `db3df616...`：C13 Attack (`BE u32`)、C43 ObjectInfoRequest (`u8,BE u32,u8`)，S07 DrawObjects、S0C MoveObject、S64 MovePath、S5F DieObjects、S0E RemoveObjects 的 native ctor/reader；[A-024 分析](../task_a/roy2/A-024-analysis.md)、[7 項合成測試](../task_a/roy2/test_a024_npc_codec.py)。正式 Client I/O 矩陣的 `FLOW-GAMEPLAY` 已補收發欄位，但 **C43≠已證女招募員點擊**、S07 物件非空完整 row/原版 UI/封包操作還不完整；A-024 `integrated/partial`, CT-021/022/034 planned，Native E2E not-run。Server AI/重生規則由 DEV 設計，不是 Client A 完成條件。
-
-## A-004／roy2：原始 Client 多人視野／移動／移除（2026-10-31）
-
-以原版 `Asgard.exe` SHA256 `db3df616...` 的 RTTI、vtable 與 native reader，確認 **S33 PutHuman** 起首 BE u16 x/y、u8 facing、BE u32 actor 欄，**S06 MoveHumanAck** BE u32,u16,u16，**S11 ChangeDirection** BE u32,u8，**S0E RemoveObjects** BE u32，**S0B MoveAck** BE u16,u16,u8 **不含第三方 actor ID**。C33/C11 是 Client 移動／轉向送出方向；S33（玩家）與 S07（其他圖上物件）的資料路徑不可混淆。
-
-5 種 S2C native opcode constructor + 5 reader sequence 以實際 PE 及 SHA 鎖定 probe 全部 PASS；9 個合成 CP950/欄位長度/選配 flags/epoch/重送測試 PASS，**不是** native 兩 Client E2E。已更新 [A-004 分析報告](../task_a/roy2/A-004-analysis.md)、[機讀 locator](../task_a/roy2/A-004-native-locators.json)、[CT-060/CT-055](../05-conformance/A-004-visibility-test-plan.md)、SCN-005 與 FLOW-VISIBILITY。
-
-目前未追通完整原生 MapPane/ObjectRegistry callback、跨包 u32 ID 的實際 key 查找和 Native UI 的離視野效果。Server 可按 map_instance/epoch/id 做權威可見集合和斷線 fencing（**designed**），但原服 AOI 範圍、重用規則不得聲稱已證。`A-004.status=integrated`, `handoff_status=partial`, `native_client_validation=not-run`。
-
-## A-005／roy2 角色移動、地圖旗標與校正研究（2026-10-31）
-
-原始 `Asgard.exe`：C33（0x573BF0）連續寫 3×u8、C11（0x571960）寫 1×u8、S0B（0x583150）讀 BE u16 x/y + u8。S0B 是**自己的位置／序號回覆**，沒有第三方 actor ID，其他玩家應使用 A-004 的 S06/S11。C33 不含絕對座標、地圖 ID 或 timestamp；原服速度 tick、拒絕失敗的 bit7/UI 重試規則並未全證。
-
-原始三份 Map DAT 494 張／**7,701,805** 個 tile 的 `LE u32 flags` 只出現 0、1、16、17、512。`0x4B3520` 以每格 10B 原始 tile 轉成 17B native tile，`+6` u32 flags 原樣複製；`0x4B4BB0` 使用 bit4(0x10) 做線段遮擋測試，`0x4B2CA0` 動態設/清 bit0，`0x4D1206` 另一處用 bit0。**這些位元 consumer 不足以證明玩家走路唯一碰撞位元。** 不得直接以 `flags & 0x10` 決定移動通行；Server 的行走碰撞、最大速度、重送/epoch 保護必須明標 **designed**。
-
-來源 [A-005 報告](../task_a/roy2/A-005-analysis.md)、[完整旗標統計](../task_a/roy2/A-005-corpus-flags.json)、[原始 PE 驗證](../task_a/roy2/a005_native_probe.py)、[10 項 synthetic test](../task_a/roy2/test_a005_move.py)、[CT-056/057](../05-conformance/A-005-movement-test-plan.md)。`A-005 integrated/partial; native Client not-run`；已知 Client I/O 子集可交 Server DEV，仍需進一步原生 MapPane 失敗校正／實際角色碰撞 handler 驗證。
-
 ## 2026-10-31 — 使用者新增暫行創角帳號比對限制
 
 不修改 Asgard.exe。已驗證登入帳號與原生創角輸入帳號不匹配 → Server 直接拒絕，不建立 Character/草稿或 grant；無登入亦拒絕。ASCII 帳號大小寫不敏感、不 trim。更新 R-026/SCN-007/008/ONB-01/02、FLOW-NEWUSER 與 CT-041/044/053；Client 原生 C02 名稱欄與 UI 入口仍 unknown，不能因新限制假稱 native creation ready。
 
-
-## A-006／roy2 原版 S05/S33 flags 補證與置中驗收（2026-10-31）
-
-原始 `Asgard.exe` SHA `db3df616...` 以實際 binary VA 核對 13 組 native instruction patterns；`S05` `0x5895A0` 先 BE u32，按 flags 低 byte `bit0`（額外 RGB3）、`bit4`（額外 BE u16）、`bit1`（額外 u8）、`bit7`（額外 u8）條件讀取。**29B S05 僅能用於已知本版 `flags=0/0x1000`**；不適用全部 flags。自身 `S05` 髮色 RGB +10..12、衣色 +25..27 是兩個獨立值。
-
-`S33` 原生 parser `0x585570` 已確認前段 BE u16 x/y、u8 facing、BE u32 object；flags=0 的 CP950 string8 名稱與髮色 +15..17、衣色 +30..32；`0x585667` bit0 額外 RGB、`0x58568B` bit4 額外 u16、`0x5856A4` bit1 額外 byte、`0x5856B4` bit7 額外 byte、`0x585719` bit13 額外 string8。**`42+CP950-name-bytes` 僅 flags=0 profile**。另在 `0x585780..0x5857F4` 有三色全零→FF00FF 的原生 sentinel 正規化分支，但不能據此推論所有黑色顏色禁用或 YPF 完整染色層行為。
-
-已知 profile viewport `(8,9)` 在 48×32、pane(-56,-36) 計算錨點 `(400,300)`，`(9,9)` 則 `(448,300)`；**此為畫面座標投影/既有公式，非原生截圖完成證據**。13 組原件 PE checks 與 10 項合成測試 PASS；CT-058 offline subset 已驗，CT-059 原生 8 向動作／髮衣獨立染色／換裝／切圖／重登**未執行**。參見 [A-006 原生 Client 報告](../task_a/roy2/A-006-analysis.md) 與 [驗收腳本](../05-conformance/A-006-appearance-test-plan.md)。A-006 `integrated / ready` 是 Client I/O **靜態交付完成**，不代表 renderer/YPF/DOI/native GUI fully validated。
-
 ## 2026-10-31 — 下一輪 SAFE/WIRE/WORLD/SCRIPT 可開工規劃
 
 新增 `02-server-planning/native-creation-next-iteration.md`、`onboarding-readiness-gates.json`、`03-analysis-requests/next-client-io-evidence.md`、`05-conformance/native-creation-gate-test-plan.md`。收斂 A-027/028/022 method/deliverable 為 Client UI/封包行為，保留 A integrated/partial 的實證與 unknown。新增 CT-054 planned/not-run 追原生已驗登入空角→NewUser UI/帳號欄；ONB、SCN、FLOW、traceability/manifest 更新。SAFE-01～04 不需等待原服 Server 資料庫/出生點/派任務，Native C02/C04 仍 fail-closed；沒有執行原 Client E2E。
+
+## 2026-10-31 — 使用者確認多人同圖（ADR-007）
+
+明確採用 Public Shared Map：同 world/map 的玩家互見並共用 NPC/怪物、死/生/移動、AI 與 Actor EntityId，玩家自身進度獨立。新增 DEV-070-M 重構計畫、機讀共享地圖契約與 CT-055 (planned)，更新 R-007/R-029、ONB-03/05/06、SCN-005/011/012、CT-021/022；原版 Client 相容仍待 A-004/011/024，不修改 Asgard.exe。
+
+## 2026-10-31 — 整合 task_a/roy1 與 task_a/roy2 並依新證據更新 DEV
+
+以三父 merge commit `078b0d1d8aab9f443ba630f43b7e5c904dd5f3fb` 保留兩分支來源歷史與原始報告/測試；11 新 A 分析 static/partial 回寫、72 PKT、12 Client I/O flows。CT 原編號衝突避讓至 056～081；main CT-054/055 保留。標記 Roy1 S1E vs Roy2 S5F 死亡 parser 歸屬疑點，不猜 Native Death opcode。按共享地圖 ADR-007 重排 DEV-070-M actor wire/DEV-080/DEV-090，列出剩餘 A-027/024/004/022/005/009/025/026 及資源缺件。
+
+## 2026-10-31 P0：原版遊戲登入密碼八字限制與 DEV-030 修正規劃
+
+使用者觀察原版 Client 密碼框只輸入8字；核對 `as_server_roy/main` `Pbkdf2PasswordHasher.ValidatePassword` 實際最少 **10** 字（不是敘述的最少12字），造成管理員建帳與原版 Client 登入不相容。R-025/ONB-01 新增遊戲用恰好8 ASCII 英數的臨時安全相容 profile，與 Admin key 分離，並要求相應 DEV-030 SQLite/Postgres/重設/測試與8字短密碼防濫用補強；不截斷舊密碼、不更新原始 Client、不宣稱私有 Server 已修。詳 [政策](../02-server-planning/native-game-password-8char-policy.md)。
+
+## 2026-10-31 P0 密碼需求改版：4～8 字（取代固定 8 字）
+
+依使用者最新決策，R-025/ONB-01 遊戲帳號密碼由上一版「**恰好 8 位 ASCII 英數**」調整為**4～8 位 ASCII 英數**、大小寫敏感；自動產生仍推薦最長8位安全亂數。管理後台 key 規則與玩家帳號分開，短密碼加強限速、防暴力登入，原長密碼不可截斷。未來**可能**調整 `Asgard.exe`，但本次未授權/未修改；須獨立驗證修改版 Client build/profile 再提高上限。舊文件保留導向 [最新版](../02-server-planning/native-game-password-4to8-policy.md)，驗收測點更新至4、8及上下界；私有 DEV-030 尚未依此修正。

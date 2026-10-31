@@ -172,8 +172,8 @@
         "CT-018",
         "CT-039",
         "CT-040",
-        "CT-069",
-        "CT-070"
+        "CT-087",
+        "CT-088"
       ],
       "server_decisions": [
         "自行選合法 map_id、可呈現 spawn/朝向、版本和校驗配對",
@@ -233,7 +233,7 @@
     {
       "id": "FLOW-GAMEPLAY",
       "label": "NPC／怪物／技能／任務操作",
-      "client_trigger": "玩家在世界中執行攻擊 / object-info request（C13/C43 native constructor 可證；招募員特定點擊/target 選擇與技能觸發仍 unknown）",
+      "client_trigger": "玩家在世界中點擊 NPC、攻擊或施放技能、完成任務操作",
       "client_send": [
         "PKT-C13",
         "PKT-C43"
@@ -245,7 +245,7 @@
         "PKT-S5F",
         "PKT-S0E"
       ],
-      "client_reaction": "S07 顯示物件記錄、S0C/S64 移動/路徑、S5F 死亡事件、S0E 移除；非空 S07 row type1..14 完整渲染分支仍待深入",
+      "client_reaction": "尚缺具體事件與 opcode 的逐項 Client writer/parser/動畫/任務 UI 證據；禁止以設計任務數值代替原生 wire",
       "evidence": [
         "A-004",
         "A-005",
@@ -277,8 +277,9 @@
         "Server 自訂 NPC/怪物 spawn、AI、技能判定與 QuestGoal/RewardLedger；以已證 wire adapter 映射到 Client",
         "無已證 NPC/技能/任務 opcode 時保留 mock-only 子域測試，不向原 Client 送猜測回包"
       ],
-      "readiness": "npc-client-codec-partial; skill/quest-still-unknown",
+      "readiness": "requires-client-io-evidence",
       "unknowns": [
+        "實際 NPC 點擊 C→S、物件生成 S→C、技能 C→S/效果 S→C、任務完成/獎勵 UI 封包待分析",
         "C13 攻擊 UI/目標選擇條件及 Server 命中/拒絕政策",
         "C43 物件資訊請求確切 NPC 招募員點擊路徑",
         "S07 非空 row type1..14 完整 wire-to-entity 渲染和各類 UI 回應",
@@ -317,8 +318,8 @@
         "SCN-005"
       ],
       "tests": [
-        "CT-060",
-        "CT-055"
+        "CT-075",
+        "CT-070"
       ],
       "server_decisions": [
         "Server 認證與 world/map instance/epoch 確立 sender / fanout；視野半徑、廣播範圍自訂，不冒充原服",
@@ -363,30 +364,33 @@
       ],
       "tests": [
         "CT-004",
+        "CT-071",
+        "CT-072",
         "CT-056",
         "CT-057",
-        "CT-069",
-        "CT-070"
+        "CT-087",
+        "CT-088"
       ],
       "server_decisions": [
         "Server authoritative coordinate, instance, world generation, monotone sequence modulo128; duplicate/old epoch reject（designed）",
         "Server picks measured collision policy and speed/step threshold, not necessarily original; MAP bit4 native line test is NOT proven walking collision",
         "S0B with authoritative coordinate for candidate reject/correction; exact original failure status/GUI unknown; other observers use S06/S11"
       ],
-      "readiness": "C33/S0B subset and original MAP addressing/flags observed; native player collision and rollback not ready",
+      "readiness": "C33/C11/S0B codec and original-map-bit-consumer static-ready; true native walking collision, fail status and UI E2E pending",
       "unknowns": [
         "Which raw MAP flags decide player walking vs LOS/static blockers",
         "C33 direction/gait vs legal step/diagonal and tick (original Server policy)",
         "S0B bit7 failure handling and native rollback / resend state",
         "Original map content version-binding and selected world map",
-        "Actual standing tile/collision requires native path trace; in-bounds or flags=0/1/17 are not enough; CT-070 not-run"
+        "Actual standing tile/collision requires native path trace; in-bounds or flags=0/1/17 are not enough; CT-088 not-run"
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-005-analysis.md",
       "work_items": [
         "ONB-04"
       ],
-      "a015_collision_boundaries": "Native bit0 is locally mutable and separately consumed at 0x4D120B; bit4 (0x10) used in 0x4B4BB0 tile line test, not proven walking; secondary per-tile DWORD grid 0x4B3250/0x4B2D00 has separate neighbor predicate; no universal player-collision mask proven."
+      "a015_collision_boundaries": "Native bit0 is locally mutable and separately consumed at 0x4D120B; bit4 (0x10) used in 0x4B4BB0 tile line test, not proven walking; secondary per-tile DWORD grid 0x4B3250/0x4B2D00 has separate neighbor predicate; no universal player-collision mask proven.",
+      "a015_native_map_readiness": "C33/S0B subset and original MAP addressing/flags observed; native player collision and rollback not ready"
     },
     {
       "id": "FLOW-LOOK",
@@ -420,8 +424,8 @@
         "CT-003",
         "CT-007",
         "CT-008",
-        "CT-058",
-        "CT-059"
+        "CT-073",
+        "CT-074"
       ],
       "server_decisions": [
         "Server picks authoritative appearance state, event/version ordering, and safe supported flags/profile. C1C equip-to-S05/S33 routing is Server policy, not inferred from original-client parser",
@@ -433,7 +437,7 @@
         "Native YPF/DOI animation eight direction/frame and true skin/hair clothing dye layer reproduction requires real resource+GUI validation",
         "Native S05/S33 all optional flags and secondary string8 variants not fully parsed; 29B/42+n only supported fixed profiles",
         "Native self/other renderer matching colors, re-login, equipment C1C→S37/S05/S33 handoff not runtime verified",
-        "Viewport8/9 center (400,300) is formula/profile projection; original native GUI screenshot CT-059 not-run",
+        "Viewport8/9 center (400,300) is formula/profile projection; original native GUI screenshot CT-074 not-run",
         "Original Server persistence and sending times for new clothing/hair/realm are DEV policy"
       ],
       "native_client_validation": "not-run",
@@ -462,8 +466,8 @@
         "SCN-012"
       ],
       "tests": [
-        "CT-061",
-        "CT-062"
+        "CT-076",
+        "CT-077"
       ],
       "server_decisions": [
         "Server 只對已驗證 session/角色處理 C47；未登入、無點數、非法 one-hot、重送不得產生持久修改（designed）",
@@ -475,7 +479,7 @@
         "HP/MP 及其餘四組 resource 的 GUI 標籤、ExpBarDialog 經驗值分母及顯示單位未證",
         "原版 Server 能力點公式、裝備加成、超界及死亡/復活規則未證",
         "C47 是否每次返回 S08、合法失敗時 UI 錯誤包/訊息未證",
-        "Native Client E2E CT-062 not-run"
+        "Native Client E2E CT-077 not-run"
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-008-analysis.md",
@@ -504,8 +508,8 @@
       ],
       "scenarios": [],
       "tests": [
-        "CT-063",
-        "CT-064"
+        "CT-078",
+        "CT-079"
       ],
       "server_decisions": [
         "World session、map epoch、object generation、合法目標/距離/冷卻及生命狀態由 Server 審核；C13 不可指定傷害值（designed）",
@@ -559,10 +563,8 @@
         "CT-021",
         "CT-022",
         "CT-034",
-        "CT-065",
-        "CT-066",
-        "CT-067",
-        "CT-068"
+        "CT-080",
+        "CT-081"
       ],
       "server_decisions": [
         "Choose type and content map only from verified resource/version + designed data, do not assume kind1 is monster or Born(31,29) is NPC spawn.",
@@ -575,7 +577,7 @@
         "S34 subtype11 display mapping to actual UI and S62/63 Action UI context unknown",
         "Original tutorial spawn map/NPC IDs and Server AI policies unknown",
         "Native world object rendering/interaction E2E not run",
-        "NPC species / official S07 row → image ID → MonsterNN.dat member/YPF/DOI frame mapping needs original assets; C43→NPCChatDialog runtime callback not yet proven"
+        "Native S07 1/2/4 -> MonsterObject and MonsterNN.dat archive/slot known via A-011; exact NPC class/name/sprite field, GUI chat binding and real native Client E2E still unknown"
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-024-analysis.md",

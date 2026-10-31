@@ -67,10 +67,11 @@
       "system": "SYS-WORLD",
       "priority": "P0",
       "title": "多人可見性",
-      "acceptance": "兩個原客戶端互相看見進入、移動、換裝、離開與斷線；不殘留幽靈物件。",
+      "acceptance": "兩個原客戶端互相看見進入、移動、換裝、離開與斷線；不殘留幽靈物件。；同一世界同圖的玩家共用單一 NPC／怪物場景與死亡／重生狀態，不為每個 Character 產生私有複本，個人進度仍獨立。",
       "baseline": "待分析／開發",
       "status": "specified",
-      "stage": "requirement"
+      "stage": "requirement",
+      "shared_map_policy": "User-approved: players in the same public world+map share one scene, see each other when visible and observe one authoritative NPC/Monster population. Player progress remains individual. Client wire requires A-004/A-011/A-024."
     },
     {
       "id": "R-008",
@@ -247,11 +248,13 @@
       "system": "SYS-AUTH",
       "priority": "P0",
       "title": "管理員建帳、玩家僅 Client 登入",
-      "acceptance": "僅授權管理員可透過獨立管理 API 建立帳號；玩家 Client 不可建立 Account，只能登入已存在且未停權帳號；管理操作有稽核。",
+      "acceptance": "僅授權管理員可透過獨立管理 API 建立帳號；玩家 Client 不可建立 Account，只能登入已存在且未停權帳號；管理操作有稽核。；原版 Client UI 密碼輸入最多8字（使用者回報）：管理建帳及重設的遊戲密碼採4～8個 ASCII 英數、大小寫敏感，Admin key 不受8字限制；Server 必須用原版 Client 驗證 C03 登入且不得截斷長密碼。",
       "baseline": "需求方已確認；未實作/未驗收",
       "status": "specified",
       "stage": "requirement",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "credential_policy_source": "02-server-planning/native-game-password-4to8-policy.md",
+      "credential_compatibility_status": "P0-designed-4to8-await-DEV030-and-native-client-CT; future patched client needs separately approved version profile"
     },
     {
       "id": "R-026",
@@ -291,11 +294,12 @@
       "system": "SYS-NPC",
       "priority": "P1",
       "title": "教學 NPC/怪物生成與行動",
-      "acceptance": "教學場景依原 Client 證據生成 NPC/怪物，行動、可見性與回收由 Server 權威控制；未確認的內容不得假冒原生。",
+      "acceptance": "教學場景依原 Client 證據生成 NPC/怪物，行動、可見性與回收由 Server 權威控制；未確認的內容不得假冒原生。；同一世界同圖的玩家共用單一 NPC／怪物場景與死亡／重生狀態，不為每個 Character 產生私有複本，個人進度仍獨立。",
       "baseline": "設計需求，原 Client 玩法待 A-023..026 取證",
       "status": "specified",
       "stage": "requirement",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "shared_map_policy": "User-approved: players in the same public world+map share one scene, see each other when visible and observe one authoritative NPC/Monster population. Player progress remains individual. Client wire requires A-004/A-011/A-024."
     },
     {
       "id": "R-030",

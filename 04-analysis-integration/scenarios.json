@@ -36,9 +36,12 @@
       "notes": "已補最小本機公告與清單路徑；其他metadata／Script種類待A-020，未納入的Client確認包仍須分別查核。 A-002 static: S03 0x5886c0 reads u32 address/u16 port/u8 len/raw token; region3/4 transfer 0x4a8370 creates plain C10 raw token without length prefix, via 0x577330/0x5773e0. Native duplicate-login outcome unknown.",
       "analysis_evidence_ids": [
         "ev_a002_20261031_asgard_login_transfer_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a020_20261031_asgard_prelogin_branch_static"
       ],
-      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred."
+      "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
+      "a020_prelogin": "C0F3→S18(0,3,count0), C57(1)→S56 multi-entry, C57(0,id), optional C4B(empty)→S60(type1) are local tested profile; native branches C0F non3/S18 kind1/S60 type0 confirmed static but not official-server timing. C6C3 prelogin no-op is local policy. Original failures and regional settings unproven.",
+      "native_full_prelogin_verified": false
     },
     {
       "id": "SCN-002",
@@ -54,7 +57,7 @@
         "PKT-S11"
       ],
       "status": "manual-pass-subset",
-      "notes": "Existing normal-step profile/manual-pass-subset preserved; A005 10 synthetic + 7 native original static checks PASS, CT-057 native rejection/collision E2E remains not-run",
+      "notes": "正常步伐已驗證；障礙、速度裁定與校正失敗分支待A-005。",
       "a005_report": "task_a/roy2/A-005-analysis.md",
       "a005_evidence_ids": [
         "A005-E01",
@@ -133,8 +136,8 @@
       "tests": [
         "CT-007",
         "CT-008",
-        "CT-058",
-        "CT-059"
+        "CT-073",
+        "CT-074"
       ]
     },
     {
@@ -156,6 +159,33 @@
       ],
       "status": "analysis-required",
       "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。",
+      "shared_map_policy": "same world/map shares one instance; actor death/respawn and state visible to two players; character progression remains per-character; native packet mapping unknown",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md",
+      "failure_cases": [
+        "甲玩家斷線導致乙玩家 NPC/怪物被清除",
+        "同圖兩玩家生成兩組怪物",
+        "舊連線離開覆寫新世代或另一玩家",
+        "加入玩家看見已死亡怪物的過時 Spawn",
+        "duplicate S33 same visible entity",
+        "S0E then delayed S06/S11/S33",
+        "same actor id across map epoch",
+        "two actors in different map instances",
+        "S0B self ACK mistakenly used for remote actor",
+        "conditional S33 flags and truncated name",
+        "disconnect and reenter"
+      ],
+      "integration_sources": [
+        {
+          "branch": "roy1",
+          "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。",
+          "packet_mapping": "unknown"
+        },
+        {
+          "branch": "roy2",
+          "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。",
+          "packet_mapping": "unknown"
+        }
+      ],
       "native_client_validation": "not-run",
       "client_IO_mapping": "S33 PutHuman initial profile, S06 MoveHumanAck, S11 ChangeDirection, S0E RemoveObjects; C33/C11 send and self S0B ACK are distinct",
       "a004_evidence_ids": [
@@ -169,15 +199,6 @@
         "A004-E08"
       ],
       "a004_report": "task_a/roy2/A-004-analysis.md",
-      "failure_cases": [
-        "duplicate S33 same visible entity",
-        "S0E then delayed S06/S11/S33",
-        "same actor id across map epoch",
-        "two actors in different map instances",
-        "S0B self ACK mistakenly used for remote actor",
-        "conditional S33 flags and truncated name",
-        "disconnect and reenter"
-      ],
       "note_addendum": "Static client parser verified, native MapPane registry/visual result and original AOI radius unknown; Server cohort/epoch/tombstone are designed, not native observed.",
       "a006_visual_note": "External S33 actor appearance/color parser fields known; two-client native GUI and ID registry still not run."
     },
@@ -191,7 +212,24 @@
         "PKT-S19"
       ],
       "status": "manual-pass-subset",
-      "notes": "可聽見聲音已確認；原map→track對應未確認。"
+      "notes": "可聽見聲音已確認；原map→track對應未確認。",
+      "analysis_evidence_ids": [
+        "ev_a019_20261031_music_s19_map_index_bin_static"
+      ],
+      "a019_report": "03-analysis-requests/A-019-roy1-map-music.md",
+      "a019_contract": "04-analysis-integration/A-019-map-music-contract.md",
+      "native_map_track_mapping_ready": false,
+      "native_client_validation": "not-run",
+      "original_server_map_track_configuration_proven": false,
+      "packet_mapping": "S19 kind1=01 repeat u16BE track; other kind=u8 kind/u16BE id separate sound handler. Map archive index *.map names only; NO verified map→track rows. S15/S14/C35 map loading provides no proven track mapping.",
+      "failure_cases": [
+        "Unknown map track must not be filled with local test track1",
+        "Music cue old map_epoch/session generation cannot override newer scene",
+        "map/resource release mismatch rejects song mapping",
+        "missing MP3 or disabled volume does not fail map loading",
+        "S19 kind!=1 has 3-byte body and no repeat",
+        "Do not treat 494 MAP filenames as music filename mapping"
+      ]
     },
     {
       "id": "SCN-007",
@@ -228,7 +266,9 @@
       ],
       "analysis_evidence_ids": [
         "ev_a002_20261031_asgard_login_transfer_static",
-        "ev_a027_20261031_asgard_identity_static"
+        "ev_a027_20261031_asgard_identity_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static",
+        "ev_a020_20261031_asgard_prelogin_branch_static"
       ],
       "a027_evidence": "UI sends C02 with locally checked field1 length and field2/confirmation equality; cannot prove owner or native preprovisioned auth. Fail closed before independent identity proof.",
       "native_account_claim_ready": false,
@@ -236,7 +276,10 @@
       "temporary_account_match_policy": "If a valid authenticated account session exists, a submitted account name different from that logged-in account is denied (no C04-enable S02(0), draft, Character, or grant). Without authentication always deny. Exact C02 field semantics and native UI route remain unknown; policy is designed.",
       "native_ui_proof_gate": "CT-054",
       "iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
-      "native_creation_evidence_required": "A-027 must prove original Client reachable authenticated NewUser UI and C02 field1 account name before native C02/C04 can be enabled; server SAFE-01..04 does not need native E2E."
+      "native_creation_evidence_required": "A-027 must prove original Client reachable authenticated NewUser UI and C02 field1 account name before native C02/C04 can be enabled; server SAFE-01..04 does not need native E2E.",
+      "a003_character_creation": "C02 field1 UI local length region0 skipped / nonzero 12; C04 no name field, ten RGB UI palette values known. Native account/character name binding, sex/hair original enums and one-account-many-character unknown; designed owner/uniqueness safety only.",
+      "a020_prelogin": "C0F3→S18(0,3,count0), C57(1)→S56 multi-entry, C57(0,id), optional C4B(empty)→S60(type1) are local tested profile; native branches C0F non3/S18 kind1/S60 type0 confirmed static but not official-server timing. C6C3 prelogin no-op is local policy. Original failures and regional settings unproven.",
+      "native_full_prelogin_verified": false
     },
     {
       "id": "SCN-008",
@@ -273,7 +316,8 @@
       "analysis_evidence_ids": [
         "ev_a027_20261031_asgard_identity_static",
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
       ],
       "a027_evidence": "UI sends C02 with locally checked field1 length and field2/confirmation equality; cannot prove owner or native preprovisioned auth. Fail closed before independent identity proof.",
       "native_account_claim_ready": false,
@@ -283,7 +327,9 @@
       "temporary_account_match_policy": "If a valid authenticated account session exists, a submitted account name different from that logged-in account is denied (no C04-enable S02(0), draft, Character, or grant). Without authentication always deny. Exact C02 field semantics and native UI route remain unknown; policy is designed.",
       "native_ui_proof_gate": "CT-054",
       "iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
-      "native_creation_evidence_required": "A-027 must prove original Client reachable authenticated NewUser UI and C02 field1 account name before native C02/C04 can be enabled; server SAFE-01..04 does not need native E2E."
+      "native_creation_evidence_required": "A-027 must prove original Client reachable authenticated NewUser UI and C02 field1 account name before native C02/C04 can be enabled; server SAFE-01..04 does not need native E2E.",
+      "a003_character_creation": "C02 field1 UI local length region0 skipped / nonzero 12; C04 no name field, ten RGB UI palette values known. Native account/character name binding, sex/hair original enums and one-account-many-character unknown; designed owner/uniqueness safety only.",
+      "native_character_creation_ready": false
     },
     {
       "id": "SCN-009",
@@ -408,11 +454,13 @@
         "ev_a022_20261031_asgard_map_static",
         "ev_a002_20261031_asgard_login_transfer_static",
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "ev_a003_20261031_asgard_create_palette_ui_static"
       ],
       "a022_map_analysis_notes": "所有提交邊界前後斷線、重試和重啟，按已保存事實恢復，不複製角色、資產或教學完成狀態。 A-022 designed: epoch/resource version binds expected C35; wrong or old checksums rejected, reconcile after crash/disconnect; tutorial_entry_committed distinct from tutorial_completed.",
       "a016_recovery": "A-016 designed: generation/intent/ledger commit and outbox protect replay/crash; no Client native test performed, no original-server persistence policy inferred.",
-      "recovery_contract": "04-analysis-integration/A-016-idempotency-recovery.md"
+      "recovery_contract": "04-analysis-integration/A-016-idempotency-recovery.md",
+      "a003_character_creation": "C02 field1 UI local length region0 skipped / nonzero 12; C04 no name field, ten RGB UI palette values known. Native account/character name binding, sex/hair original enums and one-account-many-character unknown; designed owner/uniqueness safety only."
     },
     {
       "id": "SCN-011",
@@ -440,11 +488,32 @@
         "重複 spawn",
         "越界位置",
         "舊 instance AI",
-        "資源缺失"
+        "資源缺失",
+        "甲玩家斷線導致乙玩家 NPC/怪物被清除",
+        "同圖兩玩家生成兩組怪物",
+        "舊連線離開覆寫新世代或另一玩家",
+        "加入玩家看見已死亡怪物的過時 Spawn"
       ],
-      "packet_mapping": "native object S07/S0C/S64/S5F/S0E types/partial readers observed, actual tutorial spawn/interaction unknown",
+      "packet_mapping": "unknown",
       "a023_script_notes": "Born UI start and C6C close lifecycle now specified; no NPC entity/map/spawn mapping in Born. nNewJoin01 STATE ACCEPT/REFUSE is a school-join candidate, not a verified recruiter binding. See A023-E14..E18.",
       "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved",
+      "shared_map_policy": "same world/map shares one instance; actor death/respawn and state visible to two players; character progression remains per-character; native packet mapping unknown",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md",
+      "analysis_evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "integration_sources": [
+        {
+          "branch": "roy1",
+          "notes": "已進教學且地圖載入成功後，根據原生內容證據實體化 NPC/怪物，進行有權限的可見性廣播、狀態更新及回收。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+          "packet_mapping": "unknown"
+        },
+        {
+          "branch": "roy2",
+          "notes": "已進教學且地圖載入成功後，根據原生內容證據實體化 NPC/怪物，進行有權限的可見性廣播、狀態更新及回收。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+          "packet_mapping": "native object S07/S0C/S64/S5F/S0E types/partial readers observed, actual tutorial spawn/interaction unknown"
+        }
+      ],
       "a024_report": "task_a/roy2/A-024-analysis.md",
       "a024_evidence_ids": [
         "A024-E01",
@@ -464,7 +533,15 @@
         "R-011",
         "R-030"
       ],
-      "packets": [],
+      "packets": [
+        "PKT-C13",
+        "PKT-C4D",
+        "PKT-C56",
+        "PKT-C3D",
+        "PKT-S3D",
+        "PKT-S52",
+        "PKT-S1E"
+      ],
       "status": "analysis-required",
       "evidence_kind": "designed",
       "profile": "TW-seed0-local-v0.1",
@@ -476,9 +553,33 @@
         "cooldown",
         "重送",
         "亂序",
-        "死亡中斷"
+        "死亡中斷",
+        "甲玩家斷線導致乙玩家 NPC/怪物被清除",
+        "同圖兩玩家生成兩組怪物",
+        "舊連線離開覆寫新世代或另一玩家",
+        "加入玩家看見已死亡怪物的過時 Spawn"
       ],
-      "packet_mapping": "unknown"
+      "packet_mapping": "unknown",
+      "shared_map_policy": "same world/map shares one instance; actor death/respawn and state visible to two players; character progression remains per-character; native packet mapping unknown",
+      "shared_map_contract": "02-server-planning/shared-map-multiplayer-contract.md",
+      "analysis_evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static"
+      ],
+      "native_tutorial_combat_requirement_proven": false,
+      "native_quest_progress_mapping_ready": false,
+      "a025_contract": "04-analysis-integration/A-025-tutorial-combat-contract.md",
+      "integration_sources": [
+        {
+          "branch": "roy1",
+          "notes": "合法施放/攻擊經 Server 驗證目標、資源、冷卻與狀態，再產生效果與可去重的任務進度事件；原版是否要求攻擊待 A-025。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-025: Born.dat only recruiter PaperDialog, no explicit battle task; entire tutorial combat requirement unknown. Client C13 and C4D are intents, S1E is not quest ACK. Only independently verified Server objective mapping may count combat event.",
+          "packet_mapping": "observed-static: C13 u32 attack target, C4D u16 spell, C56 u8, C3D/S3D battle subtype0..15 partial, S52 u32+u8, S1E u32. No original/tutorial objective event protocol or mandatory-combat condition verified."
+        },
+        {
+          "branch": "roy2",
+          "notes": "合法施放/攻擊經 Server 驗證目標、資源、冷卻與狀態，再產生效果與可去重的任務進度事件；原版是否要求攻擊待 A-025。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+          "packet_mapping": "unknown"
+        }
+      ]
     },
     {
       "id": "SCN-013",
@@ -488,7 +589,16 @@
         "R-017",
         "R-031"
       ],
-      "packets": [],
+      "packets": [
+        "PKT-S44",
+        "PKT-C6C",
+        "PKT-C39",
+        "PKT-S15",
+        "PKT-S14",
+        "PKT-C35",
+        "PKT-S04",
+        "PKT-C0B"
+      ],
       "status": "analysis-required",
       "evidence_kind": "designed",
       "profile": "TW-seed0-local-v0.1",
@@ -499,9 +609,36 @@
         "回覆丟失",
         "重領",
         "切圖失敗",
-        "重啟"
+        "重啟",
+        "C6C4/C6C2 duplicate/old generation not completion",
+        "Unverified C39 recruiter or STATE=ACCEPT cannot complete",
+        "Unproven reward must never be granted",
+        "Unknown exit map/ref/revision cannot exit",
+        "C35 indistinguishable overlapping same checksum pair requires fail close",
+        "Crash after completion before exit retains safe map and reward once"
       ],
-      "packet_mapping": "unknown"
+      "packet_mapping": "unknown",
+      "analysis_evidence_ids": [
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a026_20261031_born_merchant_exit_bin_static"
+      ],
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a026_contract": "04-analysis-integration/A-026-tutorial-completion-contract.md",
+      "native_tutorial_complete_ready": false,
+      "native_reward_proven": false,
+      "native_exit_destination_proven": false,
+      "integration_sources": [
+        {
+          "branch": "roy1",
+          "notes": "已確認的教程條件成立後持久化完成進度，任何原版有的獎勵僅授予一次，按原生證據轉入一般地圖並可重登。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-025: do not auto-complete tutorial on S1E/CBattle or Script C6C close. Combat requirement remains unverified; verify A-026 original objective policy first. A-026: Born.Main just recruiter PaperDialog at (31,29); C6C4/C6C2 close no tutorial completion or award. C39 generic NPC, C0B quit and S15/S14/C35/S04 generic map exit. Original Server NPC quest proof, optional reward and official destination still unknown. Planned tests only; scenario remains analysis-required.",
+          "packet_mapping": "Native generic Script lifecycle, merchant interaction and map loading/quit only; no proven original tutorial completion/reward/exit opcode"
+        },
+        {
+          "branch": "roy2",
+          "notes": "已確認的教程條件成立後持久化完成進度，任何原版有的獎勵僅授予一次，按原生證據轉入一般地圖並可重登。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。",
+          "packet_mapping": "unknown"
+        }
+      ]
     },
     {
       "id": "SCN-014",
@@ -544,6 +681,45 @@
         "CT-050",
         "CT-051"
       ]
+    },
+    {
+      "id": "SCN-015",
+      "title": "Inventory / equipment lifecycle, stack changes and durable reconnect",
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
+      "packets": [
+        "PKT-C1C",
+        "PKT-C1E",
+        "PKT-C08",
+        "PKT-C0C",
+        "PKT-S0F",
+        "PKT-S10",
+        "PKT-S37",
+        "PKT-S38",
+        "PKT-S33"
+      ],
+      "status": "analysis-required",
+      "evidence_kind": "observed-static-plus-designed",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_evidence_ids": [
+        "ev_a007_20261031_inventory_lifecycle_static"
+      ],
+      "native_client_validation": "not-run",
+      "packet_mapping": "C1C 1..9 variable; C1E u8; C08 3×u8; C0C u32BE; S0F variable mode0/1/2; S37 variable; S10 3×u8; S38 u8+u8; S33 appearance. Original item semantics/IDs/stack/slot caps UNKNOWN",
+      "notes": "A-007 exact native codec subset known, local wardrobe is only a designed test. Server-only stable item_instance/owner + unique ledger/transaction/outbox. Original item catalog/unequip/drop/pickup/merchant flow unknown; do not turn designed policies into native claims.",
+      "failure_cases": [
+        "invalid item/slot/count",
+        "wrong owner/session generation",
+        "full bag unequip rollback",
+        "duplicate operation different body",
+        "same C1C wire replay ambiguous without transaction id",
+        "disconnect/restart between DB commit and S37/S33 projection",
+        "S0F/S37 variable payload truncation"
+      ],
+      "analysis_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
     }
   ]
 }

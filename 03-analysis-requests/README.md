@@ -89,59 +89,12 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 
 上面的歷史 A-XX 表格含有「原服怎麼決定帳號、出生、任務、AI」的舊問法；**以 [全員接案規範](../00-governance/task-ownership-and-client-io.md) 與 [最新 Client I/O 交付標準](client-io-handoff-standard.md) 為準**。每個 A 已有 `requests.json.handoff_track`，新接案必須用同一模板；Client 研究看 trigger→C→S→S→C→UI，Server 政策由 DEV。實際可開發分段見 [Server 縱切計畫](../02-server-planning/client-io-delivery-plan.md)。
 
-## A-024：NPC/怪物 Client I/O 已證子集（2026-10-31）
+## 2026-10-31 Roy1/Roy2 最新分析交接
 
-原版 `Asgard.exe` SHA `db3df616...`：C13 Attack (`BE u32`)、C43 ObjectInfoRequest (`u8,BE u32,u8`)，S07 DrawObjects、S0C MoveObject、S64 MovePath、S5F DieObjects、S0E RemoveObjects 的 native ctor/reader；[A-024 分析](../task_a/roy2/A-024-analysis.md)、[7 項合成測試](../task_a/roy2/test_a024_npc_codec.py)。正式 Client I/O 矩陣的 `FLOW-GAMEPLAY` 已補收發欄位，但 **C43≠已證女招募員點擊**、S07 物件非空完整 row/原版 UI/封包操作還不完整；A-024 `integrated/partial`, CT-021/022/034 planned，Native E2E not-run。Server AI/重生規則由 DEV 設計，不是 Client A 完成條件。
-
-## A-004／roy2：原始 Client 多人視野／移動／移除（2026-10-31）
-
-以原版 `Asgard.exe` SHA256 `db3df616...` 的 RTTI、vtable 與 native reader，確認 **S33 PutHuman** 起首 BE u16 x/y、u8 facing、BE u32 actor 欄，**S06 MoveHumanAck** BE u32,u16,u16，**S11 ChangeDirection** BE u32,u8，**S0E RemoveObjects** BE u32，**S0B MoveAck** BE u16,u16,u8 **不含第三方 actor ID**。C33/C11 是 Client 移動／轉向送出方向；S33（玩家）與 S07（其他圖上物件）的資料路徑不可混淆。
-
-5 種 S2C native opcode constructor + 5 reader sequence 以實際 PE 及 SHA 鎖定 probe 全部 PASS；9 個合成 CP950/欄位長度/選配 flags/epoch/重送測試 PASS，**不是** native 兩 Client E2E。已更新 [A-004 分析報告](../task_a/roy2/A-004-analysis.md)、[機讀 locator](../task_a/roy2/A-004-native-locators.json)、[CT-060/CT-055](../05-conformance/A-004-visibility-test-plan.md)、SCN-005 與 FLOW-VISIBILITY。
-
-目前未追通完整原生 MapPane/ObjectRegistry callback、跨包 u32 ID 的實際 key 查找和 Native UI 的離視野效果。Server 可按 map_instance/epoch/id 做權威可見集合和斷線 fencing（**designed**），但原服 AOI 範圍、重用規則不得聲稱已證。`A-004.status=integrated`, `handoff_status=partial`, `native_client_validation=not-run`。
-
-## A-005／roy2 角色移動、地圖旗標與校正研究（2026-10-31）
-
-原始 `Asgard.exe`：C33（0x573BF0）連續寫 3×u8、C11（0x571960）寫 1×u8、S0B（0x583150）讀 BE u16 x/y + u8。S0B 是**自己的位置／序號回覆**，沒有第三方 actor ID，其他玩家應使用 A-004 的 S06/S11。C33 不含絕對座標、地圖 ID 或 timestamp；原服速度 tick、拒絕失敗的 bit7/UI 重試規則並未全證。
-
-原始三份 Map DAT 494 張／**7,701,805** 個 tile 的 `LE u32 flags` 只出現 0、1、16、17、512。`0x4B3520` 以每格 10B 原始 tile 轉成 17B native tile，`+6` u32 flags 原樣複製；`0x4B4BB0` 使用 bit4(0x10) 做線段遮擋測試，`0x4B2CA0` 動態設/清 bit0，`0x4D1206` 另一處用 bit0。**這些位元 consumer 不足以證明玩家走路唯一碰撞位元。** 不得直接以 `flags & 0x10` 決定移動通行；Server 的行走碰撞、最大速度、重送/epoch 保護必須明標 **designed**。
-
-來源 [A-005 報告](../task_a/roy2/A-005-analysis.md)、[完整旗標統計](../task_a/roy2/A-005-corpus-flags.json)、[原始 PE 驗證](../task_a/roy2/a005_native_probe.py)、[10 項 synthetic test](../task_a/roy2/test_a005_move.py)、[CT-056/057](../05-conformance/A-005-movement-test-plan.md)。`A-005 integrated/partial; native Client not-run`；已知 Client I/O 子集可交 Server DEV，仍需進一步原生 MapPane 失敗校正／實際角色碰撞 handler 驗證。
-
-
-## A-006／roy2 原版 S05/S33 flags 補證與置中驗收（2026-10-31）
-
-原始 `Asgard.exe` SHA `db3df616...` 以實際 binary VA 核對 13 組 native instruction patterns；`S05` `0x5895A0` 先 BE u32，按 flags 低 byte `bit0`（額外 RGB3）、`bit4`（額外 BE u16）、`bit1`（額外 u8）、`bit7`（額外 u8）條件讀取。**29B S05 僅能用於已知本版 `flags=0/0x1000`**；不適用全部 flags。自身 `S05` 髮色 RGB +10..12、衣色 +25..27 是兩個獨立值。
-
-`S33` 原生 parser `0x585570` 已確認前段 BE u16 x/y、u8 facing、BE u32 object；flags=0 的 CP950 string8 名稱與髮色 +15..17、衣色 +30..32；`0x585667` bit0 額外 RGB、`0x58568B` bit4 額外 u16、`0x5856A4` bit1 額外 byte、`0x5856B4` bit7 額外 byte、`0x585719` bit13 額外 string8。**`42+CP950-name-bytes` 僅 flags=0 profile**。另在 `0x585780..0x5857F4` 有三色全零→FF00FF 的原生 sentinel 正規化分支，但不能據此推論所有黑色顏色禁用或 YPF 完整染色層行為。
-
-已知 profile viewport `(8,9)` 在 48×32、pane(-56,-36) 計算錨點 `(400,300)`，`(9,9)` 則 `(448,300)`；**此為畫面座標投影/既有公式，非原生截圖完成證據**。13 組原件 PE checks 與 10 項合成測試 PASS；CT-058 offline subset 已驗，CT-059 原生 8 向動作／髮衣獨立染色／換裝／切圖／重登**未執行**。參見 [A-006 原生 Client 報告](../task_a/roy2/A-006-analysis.md) 與 [驗收腳本](../05-conformance/A-006-appearance-test-plan.md)。A-006 `integrated / ready` 是 Client I/O **靜態交付完成**，不代表 renderer/YPF/DOI/native GUI fully validated。
-
-
-## A-009／roy2 原版攻擊與戰鬥效果（2026-10-31）
-
-已直接核對原始 `Asgard.exe`：`C13`（BE u32 攻擊請求）與兩條 native send producer；`S13`（14B 基礎效果資料、flags0x01 另加 17B、flags0x08/0x10 為原欄位拆分）；`S5F`（BE u32 死亡事件）；`C3D/S3D`（subtype0..15 多態戰鬥封包）。已證的 S3D 短格式可用安全 decoded-body codec，複雜 string/vector subtype 仍須 Native reader/UI 深查。
-
-**16 原件 PE 指令檢查 + 5 RTTI PASS；15 synthetic tests PASS**，不是原生 Client GUI 戰鬥驗收。完整詳見 [A-009 原生報告](../task_a/roy2/A-009-analysis.md)、[CT-063/064 計畫](../05-conformance/A-009-combat-test-plan.md)；`A-009 integrated/partial` 代表核心攻擊/效果/死亡 wire 可供 DEV 實作，尚未證明 hit/crit/死亡/復活公式或所有 S3D subtype。原服 Server 權威政策由 DEV 決定；`native_client_validation=not-run`。本輪不需追加原始素材檔。
-
-
-## A-024／roy2：NPC／怪物原生 S2C 生成、移動、資訊、動作、死亡與移除已完成靜態交付（2026-10-31）
-
-已依原始 `Asgard.exe` 的 ctor/reader 與 jump-table 補齊 **S07 非空 type1..14 全部 wire row 分支**、S0C/S64 物件移動，以及額外資訊/互動狀態封包 **S34 subtype6/11、S3C、S62、S63、S29**，並區分 S5F 死亡事件與 S0E 物件真正移除；Human 的 S33/S06/S11 不混用於一般物件。**靜態 Client I/O 研究 ready** 只代表可解碼上述封包，不代表已知道每種 type 是哪一種 NPC/怪物、官方 spawn、sprite/動畫或原版 Server AI。
-
-[完整 A-024 報告](../task_a/roy2/A-024-analysis.md)；[收包 decoded-body 工具](../task_a/roy2/a024_object_packets.py)；[離線原件證據](../task_a/roy2/a024_object_native_probe.py)；[CT-065/066 規範](../05-conformance/A-024-object-lifecycle-test-plan.md)。已對原始 SHA 鎖定 EXE 驗證 **20 native pattern＋14 switch entries＋六 RTTI PASS**；[CI run 41185085803](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41185085803) 的 **19 新增＋7 既有 NPC 測試 PASS**。A-024 `integrated/ready`（限靜態 Client S2C），`native_client_validation=not-run`，原生畫面及教程內容仍由後續 DEV/CT 驗證。此次無新增必要資源檔案。
-
-
-## A-011／roy2：NPC／怪物資源 ID、點擊封包、外觀與動畫 Client 靜態研究（2026-10-31）
-
-原始 Asgard.exe 的 World 註冊庫 **7000..7023**（`World00..23.dat`）、Monster 註冊庫 **8000..8042**（`Monster00..42.dat`）及 MonsterImageLib image ID `0x4000+N` → `8000+N//10` / `slot=N%10`，已有原生 binary 證據。注意字串內雖有 `@Monster%02d.dat`，**註冊實際跳過字面 @**。World S07 kind 1/2/4 原生 handler 會呼叫 `MonsterObject` ctor；兩個 C43 request producer 原生寫 `u8=1, BE u32 object, u8=4`。MonsterObject 的六種 selector 對應 `+0x20/+0x30/+0x40`（各重複一次），不能據此擅自命名具體動作動畫。
-
-[完整 A-011 研究](../task_a/roy2/A-011-analysis.md) · [原件 probe](../task_a/roy2/a011_native_probe.py) · [資源 ID/click codec](../task_a/roy2/a011_resource_codec.py) · [CT-067/CT-068 計畫](../05-conformance/A-011-npc-resource-click-animation-test-plan.md)。29 個 original PE anchors + 4 RTTI + 3 UTF16 檔名 literal PASS；[GitHub CI](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751) **16/16 tests PASS**。**`integrated/partial`（已證靜態子集；完整 NPC 物件貼圖/YPF/DOI 原生 GUI mapping 未完成）**、native Client CT-068 `not-run`。精確需補的範例檔名：`Monster00.dat` 與 `World00.dat`（僅為格式模板的實際樣本，非宣稱原檔必然存在）。
-
+11 項新 integrated/handoff 子集：Roy1 A-007/019/020/025/026，Roy2 A-004/005/006/008/009/024。**已證 S07 14 kind 解碼，不再回報「非空 S07 未解」**；真正需要補的是 kind→Client sprite/renderer/EntityId，以及 A-027 原生登入後創角、地圖真 C25/CRC、S1E/S5F 死亡類別爭議、教學 NPC/Quest UI。見 [新待分析列表](post-merge-analysis-queue.md)。Native E2E 是 CT 工作，不是 A 靜態 handoff 必要條件。
 
 ## A-015／roy2 MAP→Tile→碰撞證據→可用座標（2026-10-31）
 
 這次以同一原始 `Asgard.exe`＋`Map0.dat/Map1.dat/Map2.dat` 追到完整 **MAP raw 10B tile → Client memory 17B tile → index=x+y*width**。Native `0x4B4920` 只證合法 tile 邊界，`0x4B4A3B/0x4B4A73` 的 32×48 視窗單元是像素→tile 的**候選**；tile bit0、bit4 線段測試和獨立每格 4B grid 具有不同用途，尚不能自稱原版玩家 walkable map。
 
-原始 494 地圖／7,701,805 tile 重新掃描且 SHA 全部吻合；477 張地圖包含 Born(31,29) ，該格 flags 0:242／1:109／17:126，絕不能當玩家出生點證據。**26 原始 PE signatures PASS、18 synthetic map tests PASS**（[GitHub Actions run 41188097214](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41188097214)）；[完整分析](../task_a/roy2/A-015-map-coordinate-collision.md)、[metadata-only MAP codec](../task_a/roy2/a015_map_coordinate.py)、[26 PE checks](../task_a/roy2/a015_map_native_probe.py)、[CT-069/070](../05-conformance/A-015-map-coordinate-test-plan.md)。資源/地圖解析研究已交付，完整原版 passability / native Client GUI **未驗證**；不需要再提供 Asgard/Map0/1/2/Born，同版真實走路／撞牆 trace 有助於後續結案。
+原始 494 地圖／7,701,805 tile 重新掃描且 SHA 全部吻合；477 張地圖包含 Born(31,29) ，該格 flags 0:242／1:109／17:126，絕不能當玩家出生點證據。**26 原始 PE signatures PASS、18 synthetic map tests PASS**（[GitHub Actions run 41188097214](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41188097214)）；[完整分析](../task_a/roy2/A-015-map-coordinate-collision.md)、[metadata-only MAP codec](../task_a/roy2/a015_map_coordinate.py)、[26 PE checks](../task_a/roy2/a015_map_native_probe.py)、[CT-087/070](../05-conformance/A-015-map-coordinate-test-plan.md)。資源/地圖解析研究已交付，完整原版 passability / native Client GUI **未驗證**；不需要再提供 Asgard/Map0/1/2/Born，同版真實走路／撞牆 trace 有助於後續結案。

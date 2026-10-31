@@ -73,7 +73,7 @@ raw_flag_u32 = LE32(raw_map[raw_tile_offset+6:raw_tile_offset+10])
 |按 map ID 定位檔案|資源庫 `map_id//10000 +9`、`%05d.map`|對指定 map id 必須確認實際檔案存在|
 |用 tile (x,y) 取單格資料|負座標、越界檢查；raw offset 公式；tile BE/LE 正確處理|tile flag 是否可走的權威語義 |
 |計算畫面候選坐標|48×32 邊界與 floor 索引作**候選視圖座標**|Server spawn/移動封包的真實坐標單位、Client 角色腳底點與格中心|
-|驗證角色移動 C33|必須以 Server session、map instance、位置及合適碰撞版本校驗（**designed**）|Native 真實玩家 collision mask、移動時是否動態重設 bit0、撞牆時 S0B/動畫回滾；交 A-005／CT-070|
+|驗證角色移動 C33|必須以 Server session、map instance、位置及合適碰撞版本校驗（**designed**）|Native 真實玩家 collision mask、移動時是否動態重設 bit0、撞牆時 S0B/動畫回滾；交 A-005／CT-088|
 |選定合法出生點|先檢查地圖存在、位置 bounds，**另要求已證或人工驗收的 passability policy**|原版教程 MapID/出生點/原服策略未知，絕不可自動選 Born(31,29)|
 
 範例最小 enum（**designed**）：`OUT_OF_BOUNDS`、`IN_BOUNDS_UNVERIFIED`、`PASSABLE_NATIVE_VERIFIED`、`BLOCKED_NATIVE_VERIFIED`。在還沒有真正 Native CT 的 map/profile 上，只能出前兩種結果；**不能**對 Server 說「從 MAP 已取得全部可用座標」。
@@ -101,7 +101,7 @@ objdump -d -M intel --start-address=0x4b4bb0 --stop-address=0x4b4d81 Asgard.exe
 |A015-E25|bit0 讀/寫 `0x4B2CA0/0x4D120B`，bit4 線段 `0x4B4BB0`；不可混成 walking|
 |A015-E26|4-byte auxiliary grid `0x4B3250/0x4B2D00`，與 tile flag 分離|
 |A015-E27|SHA 鎖定 494 原件 MAP／7.7M tile 聚合 + Born(31,29) flags 0/1/17 分布|
-|A015-E28|26 PE 指令模式 + 合成 codec/tile bounds/負向測試；CT-069/CT-070 分開|
+|A015-E28|26 PE 指令模式 + 合成 codec/tile bounds/負向測試；CT-087/CT-088 分開|
 
 ## 7. 結案／真正缺口
 
