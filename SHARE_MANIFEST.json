@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "3f2fb82576e1d858119b2d9795bbdbf4d950e93a25eddeec5a66be99edf369aa"
+      "sha256": "c1bc4dc26d8fd14ce3004b33b0c67f0abc06f6e93492685eae4a7b19071856c3"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -49,7 +49,7 @@
     },
     {
       "path": "00-governance/traceability.csv",
-      "sha256": "71aa923c9674433ee44a267d659edb34d9ee289541063ede73014ef0950ba100"
+      "sha256": "d0e31c7753ece127797ece28a11ee7f0f1b8a968e73cff28cfe8e95b85503680"
     },
     {
       "path": "00-governance/workflow.md",
@@ -65,7 +65,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "39b3b1d83886fba37509d6175f01546305e0a5ef5accc341045338da062ccbd5"
+      "sha256": "3330ac6f55d6f12e97d3a82a25a0790c86124f97f4f1ca23484b4754bbad0984"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -101,7 +101,11 @@
     },
     {
       "path": "02-server-planning/decisions.md",
-      "sha256": "38b9b2cbe0d9cd4ee42040a63a63c464ed3bc0f38d5fab408c5d4d6ea5168870"
+      "sha256": "19f46ceedb825b8d900b24c832d48a681f43a64b1a9b08d84de6de0f12d4467d"
+    },
+    {
+      "path": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "sha256": "3ef28129bf33a274b0ecba1da6a25241d5ea04f2ae6af871ee7f9ef4ee714890"
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
@@ -169,7 +173,7 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "caa98ea1e35183ddc35973056ecd5d98273766b0cd9a444e8e4917159bca19b4"
+      "sha256": "c0f0b6bc8596cd5078b6b8a8de98f4e5f5a7787f1e215fd15ca826557f171f13"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
@@ -193,7 +197,7 @@
     },
     {
       "path": "02-server-planning/roy123-playable-world-implementation-20261101.md",
-      "sha256": "85a16a0079277c5df6eae6c9383ebdb63e39cc071e9f39c673e0cf4c98beab1d"
+      "sha256": "f762f9cc9e6673623cb73d232ce5c000019cc2fa56e94626eff4a491cca366d8"
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
@@ -241,7 +245,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "c233020f910a58e5de2dd70417904f8fa540892696d2a2a5a96752d050b53093"
+      "sha256": "16c60323c3b4a10cd2eac8c65d76fa8ec749c98f3f7dbcb2292f9d6d3bb1cd59"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -393,7 +397,7 @@
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
-      "sha256": "389aeb86c5bc74a94d4eb3cec417f1783c83b14b59141c5317160a1b077cd853"
+      "sha256": "94442edd6dcb2b29f8a183cfa7a2e893b4caa89503afd2d12f4a1ec4d1307da2"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
@@ -716,6 +720,10 @@
       "sha256": "7e92ac4f4b5e1df692efa77890b30a8af93e8561c0b2a1325cd8b884cbaafdb9"
     },
     {
+      "path": "05-conformance/expected-validation-failure-acceptance-20261101.md",
+      "sha256": "9d153ca61aba4a62c7ef9d42dfd033c3b8fa74d746bbd23a4adc498587e0329b"
+    },
+    {
       "path": "05-conformance/implementer-guide.md",
       "sha256": "82672a871be350d4da3e1c870a1c2eeb801b9d23a86b0747ca1c3f631556ebbf"
     },
@@ -761,7 +769,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "547703a805c55ddb11388bca1cb0433a868cc7c1e8576afa298e2a947771cf3a"
+      "sha256": "d34ff67ef05e9e8dbcb9847f489175ff1144f409cf7e2ef346649142c2952074"
     },
     {
       "path": "README.md",

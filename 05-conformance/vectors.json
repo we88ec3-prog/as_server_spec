@@ -2483,7 +2483,6 @@
         "native_client_validation": "not-run",
         "quest_authoritative_rules": "unknown"
       },
-      "offline_status": "original EXE+Merchant/nNewJoin/Born/PaperDialog/PaperDialog02 SHA/CRC and static source bindings with 25 local tests PASS; CT as a whole still planned original-client GUI not-run",
       "a012_supplied_original_script_test": {
         "report": "03-analysis-requests/A-012-roy1-new-script-resources-20261101.md",
         "test": "tools/a012_dialog_option_native_probe.py",
@@ -2505,7 +2504,8 @@
         "merchant_to_nnewjoin_globals": "proven by original source",
         "npc_binding_gui_timing": "not-run",
         "server_quest_rule": "unknown"
-      }
+      },
+      "offline_status": "original EXE+Merchant/nNewJoin/Born/PaperDialog/PaperDialog02 SHA/CRC and static source bindings with 25 local tests PASS; CT as a whole still planned original-client GUI not-run"
     },
     {
       "id": "CT-093",
@@ -2559,14 +2559,6 @@
         "native_gui": "not-run",
         "original_Server_quest_rule": "not-proven"
       },
-      "original_native_gui_new_cases": [
-        "PaperDialog Born one page OK -> C6C4+C6C2",
-        "PaperDialog02 OK -> PAPER02 START; CANCEL -> PAPER02 NOT, and ESC may route OK because cancelControl=OK",
-        "nNewJoin01 MerchantTalk through pages 1/2/3 then STATE ACCEPT/REFUSE only at final controls, verify runner script/context and no accidental QuestCompleted",
-        "Merchant.Main S44 runner/init ServerParam, ClientReply, MerchantTile, MerchantName, exact MerchantDialog_Create provider and callback to nNewJoin MerchantTalk",
-        "Get actual ScriptRun name/context and NPC EntityId mapping; compare nNewJoin third-page STATE ACCEPT/REFUSE C6C1",
-        "Check TYPE=DIRECT requires external MerchantDirectTalk, not proven direct nNewJoin link"
-      ],
       "a012_merchant_original_proof": {
         "evidence_id": "ev_a012_20261101_merchant_main_original_bridge",
         "report": "03-analysis-requests/A-012-roy1-merchant-original-bridge-20261101.md",
@@ -2578,7 +2570,15 @@
         "merchant_to_nnewjoin_globals": "proven by original source",
         "npc_binding_gui_timing": "not-run",
         "server_quest_rule": "unknown"
-      }
+      },
+      "original_native_gui_new_cases": [
+        "PaperDialog Born one page OK -> C6C4+C6C2",
+        "PaperDialog02 OK -> PAPER02 START; CANCEL -> PAPER02 NOT, and ESC may route OK because cancelControl=OK",
+        "nNewJoin01 MerchantTalk through pages 1/2/3 then STATE ACCEPT/REFUSE only at final controls, verify runner script/context and no accidental QuestCompleted",
+        "Merchant.Main S44 runner/init ServerParam, ClientReply, MerchantTile, MerchantName, exact MerchantDialog_Create provider and callback to nNewJoin MerchantTalk",
+        "Get actual ScriptRun name/context and NPC EntityId mapping; compare nNewJoin third-page STATE ACCEPT/REFUSE C6C1",
+        "Check TYPE=DIRECT requires external MerchantDirectTalk, not proven direct nNewJoin link"
+      ]
     },
     {
       "id": "CT-094",
@@ -3373,6 +3373,80 @@
       "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277",
       "original_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "roy123_merge_scope": "final C04 success Region3 original static creates LoginDialogPane object only, no proven automatic C03 or visible LoginDialog; native automatic World unknown"
+    },
+    {
+      "id": "CT-112",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "evidence_kind": "Server-designed-policy-verified-original-native-failure-response-required",
+      "implementation_status": "not-implemented",
+      "level": "original-native-newuser-validation-failure-error-ui-c15-retry",
+      "requirements": [
+        "R-026",
+        "R-036"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C04",
+        "PKT-C15"
+      ],
+      "analysis_request": "A-030",
+      "input": {
+        "kind": "original-unmodified-Asgard.exe-native-negative-ui-and-redacted-tcp-trace",
+        "reference": "05-conformance/expected-validation-failure-acceptance-20261101.md",
+        "cases": [
+          "C02 invalid password/account inactive/unknown name; no Account/Character/Email/proof mutation",
+          "S02 verified nonzero status+string8 visible in native Client, not generic TCP disconnect",
+          "observe native C15 empty and genuine subsequent socket or retry phase; do not assume C15 always sent",
+          "C04 name conflict/invalid appearance errors preserve atomicity",
+          "subsequent valid C02/C04 can succeed under documented native retry path without second manual login"
+        ]
+      },
+      "expected": "A normal native creation validation failure sends only verified Client-displayable S02 failure, is logged as EXPECTED_VALIDATION_FAILURE with reason_code, preserves the legitimate client retry/cancel route, and never sends S02(0) or persists a draft/Character/EMAIL. Native error status/C15/TCP flow remains unknown until A-030/A-028 and actual original Client CT.",
+      "analysis_dependency": [
+        "A-030",
+        "A-028",
+        "A-003"
+      ],
+      "policy_source": "02-server-planning/expected-validation-failure-policy-20261101.md"
+    },
+    {
+      "id": "CT-113",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "evidence_kind": "Server-designed-policy-and-local-diagnostic-regression",
+      "implementation_status": "not-implemented",
+      "level": "structured-validation-rejection-reason-and-safe-disconnect-policy",
+      "requirements": [
+        "R-002",
+        "R-003",
+        "R-005",
+        "R-036"
+      ],
+      "packet_ids": [
+        "PKT-C03",
+        "PKT-S02",
+        "PKT-C02",
+        "PKT-C04",
+        "PKT-C15",
+        "PKT-C33",
+        "PKT-S0B"
+      ],
+      "input": {
+        "kind": "server-domain-and-redacted-logger-regression-plus-original-client-ui-where-required",
+        "reference": "05-conformance/expected-validation-failure-acceptance-20261101.md",
+        "cases": [
+          "C03 bad password returns S02 and keeps socket, emits VALIDATION_FAILED reason_code and response_sent",
+          "C02/C04 normal negative domain outcomes do not fall through to generic Close",
+          "future movement/skill/quest/item/trade normal validation failures map to their own verified native responses",
+          "unknown opcode/malformed frame/cross-account forgery/replay separate UNEXPECTED_PACKET or SECURITY_REJECTED with close reason",
+          "logged TraceId/Opcode/phase/status/disposition; no password/ID/email/token/raw body leakage",
+          "native response_sent and original-client GUI observed separately classified"
+        ]
+      },
+      "expected": "Every expected business rejection produces one redacted reason-coded validation event and a verified native failure response with safe retry phase, never mislabeled as unexpected packet. Security/transport fatal cases can safely close and remain distinguishable. No unverified status is invented.",
+      "policy_source": "02-server-planning/expected-validation-failure-policy-20261101.md"
     }
   ]
 }

@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 ADR-009／R-036：預期內驗證失敗回覆、保留會話與原因 Log
+
+使用者要求 C02 正常錯密等不應直接踢線，而應按原版 S02(非零,錯誤文字)→Client 可見錯誤→C15/重試；以此延伸至其他正常功能驗證拒絕。獨立規劃 `EXPECTED_VALIDATION_FAILURE`／`PROTOCOL_UNEXPECTED`／`SECURITY_FATAL`，增 `[VALIDATION_FAILED]` 結構化去敏 reason_code/s2c_status/response_sent/connection_action，不能用既有 `[UNEXPECTED_PACKET]` 或 Close 摘要代替；尚未證原版 error status 與 C15 retry 故 A-030/A-028 增量及 CT-112/113 保留 not-run。新增 [ADR-009/DEV-REJECT-01..06](../02-server-planning/expected-validation-failure-policy-20261101.md)、[原版驗收](../05-conformance/expected-validation-failure-acceptance-20261101.md)，更新規格索引、ONB 工作、DEV-ENTRY 與分析缺口。**本次沒有更動 as_server_roy/DB/Asgard.exe，也沒有聲稱原版 Client 已顯示錯誤。**
+
 ## 2026-11-01 Roy3 追加 A005 局部路徑 / 動態碰撞補證（E15–E21）
 
 在首次 Roy1/2/3 合併後，Roy3 另有新提交（已補 merge）還原 `0x4BE470→0x4B8B20` 候選路徑阻擋、`0x4C1850` 動態 Tile flags overlay 與來源方向遮罩；Map6 raw flags0=902/flags17=2698、raw-only 4鄰可達900候選。已更新統整報告、DEV-ENTRY-05、A005 P0 缺口、Client I/O、PKT-C33、CT-109；這些是 static candidate，不等於可走原版 World，E2E remains not-run。

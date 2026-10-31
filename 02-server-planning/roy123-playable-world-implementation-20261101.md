@@ -56,3 +56,9 @@ AdminCreatedAccount
 Roy3 A005-E15～E21 已查出 Client 的局部 **8方向**候選 gate，不應再寫「毫無碰撞讀取規則」：先做地圖 bounds，`effective_flags=(native_memory_flags|overlay_add)&~overlay_remove`；候選 destination 若 `bit0` 設置則拒絕，source `bit3` 設置且 in-memory direction mask 命中則拒絕，場景物件 lookup==1 另拒；未知 global bypass 不能讓 Server 開全圖通行。方向索引 0北1東2南3西4東北5東南6西南7西北只是 path helper 事實，**非已證所有 C33 方向**。除非 Client 實際走通和有可批准的 Server 障礙策略，仍不得直接用 raw flags0 作無限通行或「合法出生」。
 
 Server 可先製作 `TileEffectiveFlags`、`DynamicCollisionOverlay`、`CandidatePathPredicate` **純 domain 測試**，確認動態 add/remove、source direction、actor gate/越界拒絕；再以 CT-109 實際成功5步、撞牆回滾、重複 C33、seq127→0、雙角色同圖驗收。A005 source 是 [Roy3 追加](../task_a/roy3/A-005-native-path-collision-closure.md)；P0 **新缺口是原版 Client 實測／動態 overlay 寫入來源、出生點與 Server 權威碰撞政策**，不是再問 raw MAP flags 是多少。
+
+## 2026-11-01 ADR-009／R-036：預期內驗證失敗必須有原生回覆及失敗原因 Log
+
+此規則 **覆蓋本頁一切「正常業務錯誤直接 fail-closed／Close」的暫行路線**。C02 錯密、停權、重名、C04 外觀失敗和後續技能、任務、物品等正常拒絕，不能只 `Close()`；應經已證 Client 原生 S2C 返回錯誤/校正，保留合法取消/重試路徑，避免 Client 顯示「連線中斷」。C02 失敗優先 `S02(nonzero,string8)` → Client 錯誤 GUI → 原生 C15 可能清理，再依本次 region/profile 確認恢復，不能自行假定 C15 後一定應 Close。
+
+**Native 尚有阻塞**：原版 S02 失敗 status 與 C15 後 socket/retry 行為仍未確認；不可直接選 C03 的自訂 status3、不猜 codec。無已證回覆時先維持安全拒絕，但記 `NATIVE_ERROR_MAPPING_UNVERIFIED`、列為未完成 P0 而非正常驗收；不能宣稱「無提示保持連線」完成。新增 DEV-REJECT-01～06、[實作政策](expected-validation-failure-policy-20261101.md)、[CT-112／113](../05-conformance/expected-validation-failure-acceptance-20261101.md)。Server C2S/S2C packet meta Log 已有，但缺 Domain `[VALIDATION_FAILED]` reason_code 和業務拒絕的語意化結果，不能以既有 `[PACKET]` 代替。**本次只改規格，Server 程式未修改**。

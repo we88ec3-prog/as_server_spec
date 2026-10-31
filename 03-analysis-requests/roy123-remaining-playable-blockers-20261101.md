@@ -25,3 +25,9 @@
 ## 2026-11-01 A-005 靜態結案後剩餘精準工作（覆蓋舊「位元全不明」）
 
 **已證**：局部 path gate 目的地 bit0、來源 bit3 + direction mask、場景 actor lookup、overlay add/remove、八鄰方向索引；map6 flags0=902/flags17=2698，bit0-clear 的 raw-only 候選 component=900。**未證**：dynamic overlay 寫入者、方向遮罩實際來源/更新、原版角色腳底／安全出生與 C33 方向是否全部同 path helper、合法速度與 GUI 真走路/撞牆回滾。DEV 可以依已證 read-side 設計候選/合成測試，但**不能僅憑 raw bit0 就讓正式玩家行走**。交 CT-109/E2E；完整補證 [Roy3](../task_a/roy3/A-005-native-path-collision-closure.md)。本追加**沒有新缺的原始檔名**。
+
+## 2026-11-01 A-030／A-028 新優先：可顯示的失敗回覆與 C15 後恢復
+
+使用者已明確決策 **一般驗證失敗不可由 Server 無回覆直接踢線**。A-030/A-028 需更精確交：原 Client NewUser state0x1d 與 state0x1e 各自的 `S02(nonzero,string8)` status → 本地錯誤訊息/焦點 → 是否送 `C15(empty)` → TCP 保留/Client 正常關閉 → 重新點「創角」時的第一次 C2S。錯密／停權／重名／C04 失敗對應的 **具體 status 尚無原版動態證據**，不用猜或從普通 C03 status3 複製。若原 Client 資料不足，交 `native-error-mapping-unverified` 和具體 Client 原始 TRACE 取樣步驟。
+
+原版 CT-112 負向 UI/C15、CT-113 Server 原因 Log，按 [ADR-009 規劃](../02-server-planning/expected-validation-failure-policy-20261101.md) 驗收。此工作可與 DEV-ENTRY、教學 A-012/023/026 並行；**沒有新增必缺的具名 DAT**。

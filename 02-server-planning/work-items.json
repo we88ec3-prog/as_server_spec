@@ -7,7 +7,8 @@
       "id": "ONB-01",
       "title": "管理建帳／登入",
       "requirements": [
-        "R-025"
+        "R-025",
+        "R-036"
       ],
       "analysis_requests": [
         "A-002",
@@ -29,7 +30,8 @@
         "CT-057",
         "CT-097",
         "CT-098",
-        "CT-099"
+        "CT-099",
+        "CT-113"
       ],
       "depends_on": [],
       "readiness": "design-ready-minimal-profile",
@@ -84,14 +86,17 @@
         "password_change_native_ui_only": true,
         "admin_reset_recovery_only": true,
         "native_client_validation": "not-run"
-      }
+      },
+      "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
     },
     {
       "id": "ONB-02",
       "title": "創角／保存",
       "requirements": [
         "R-026",
-        "R-035"
+        "R-035",
+        "R-036"
       ],
       "analysis_requests": [
         "A-003",
@@ -122,7 +127,9 @@
         "CT-104",
         "CT-105",
         "CT-106",
-        "CT-107"
+        "CT-107",
+        "CT-112",
+        "CT-113"
       ],
       "depends_on": [],
       "readiness": "A-030 Region2..4 NAME=F3, E-MAIL=F4 original Basic.dat+EXE confirmed; C02/S02/C04/C15 Host remains Close and S02 failure native UI/runtime region and direct post-C04 World unverified",
@@ -201,13 +208,17 @@
         "as_server_roy_sha": "a9326985b1d2899677d95bdb5a8496502b7e4bb1",
         "decision": "post-C04 seamless World/no manual C03",
         "analysis_status": "static resources/codec partial-ready, no native GUI end-to-end"
-      }
+      },
+      "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected",
+      "native_failure_flow": "C02 expected bad credential/name -> verified S02(nonzero,string8) -> original Client UI and optional C15 -> safe retry; raw Close is temporary native-error-mapping-unverified, NOT completion"
     },
     {
       "id": "ONB-03",
       "title": "教學入圖",
       "requirements": [
-        "R-027"
+        "R-027",
+        "R-036"
       ],
       "analysis_requests": [
         "A-022",
@@ -294,13 +305,16 @@
         "decision": "post-C04 seamless World/no manual C03",
         "analysis_status": "static resources/codec partial-ready, no native GUI end-to-end"
       },
-      "native_world_activation_gate": "Grant after authenticated owner C10 (or evidenced post-create equivalent), C25 Region3 optional metadata not auth; MAP from versioned true assets, exact C35 pair; map6 static interim candidate only; native Client C35/S04/S33/S14(2) not-run."
+      "native_world_activation_gate": "Grant after authenticated owner C10 (or evidenced post-create equivalent), C25 Region3 optional metadata not auth; MAP from versioned true assets, exact C35 pair; map6 static interim candidate only; native Client C35/S04/S33/S14(2) not-run.",
+      "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
     },
     {
       "id": "ONB-04",
       "title": "故障恢復",
       "requirements": [
-        "R-028"
+        "R-028",
+        "R-036"
       ],
       "analysis_requests": [
         "A-016",
@@ -369,7 +383,9 @@
         "decision": "post-C04 seamless World/no manual C03",
         "analysis_status": "static resources/codec partial-ready, no native GUI end-to-end"
       },
-      "native_movement_activation_gate": "A-005 proves C33 current sequence S0B low7+bit7 native handling; no safe walkability/Client rollback yet. Do not update durable position on unverified tiles or stale epoch."
+      "native_movement_activation_gate": "A-005 proves C33 current sequence S0B low7+bit7 native handling; no safe walkability/Client rollback yet. Do not update durable position on unverified tiles or stale epoch.",
+      "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
     },
     {
       "id": "ONB-05",
@@ -377,7 +393,8 @@
       "requirements": [
         "R-029",
         "R-030",
-        "R-033"
+        "R-033",
+        "R-036"
       ],
       "analysis_requests": [
         "A-023",
@@ -477,14 +494,17 @@
         "native_client_validation": "not-run",
         "original_spell_cost_cooldown_and_ui": "unknown"
       },
-      "party_reward_policy": "User decided: highest aggregated valid damage party gets rewards; every member full base EXP and personal independent loot roll once. Monster death and reward ledgers idempotent; party ties and roster/remote eligibility not resolved."
+      "party_reward_policy": "User decided: highest aggregated valid damage party gets rewards; every member full base EXP and personal independent loot roll once. Monster death and reward ledgers idempotent; party ties and roster/remote eligibility not resolved.",
+      "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
     },
     {
       "id": "ONB-06",
       "title": "教學完成/出口",
       "requirements": [
         "R-031",
-        "R-034"
+        "R-034",
+        "R-036"
       ],
       "analysis_requests": [
         "A-026",
@@ -537,13 +557,16 @@
         "native_client_validation": "not-run",
         "original_quest_completion": "unknown"
       },
-      "admission_refusal": "STATE=REFUSE or confirmed native Not Enroll is no-op, no quest/admission/reward/transfer changes, NPC remains clickable and reasks indefinitely; every run has independent context, ACCEPT is only intent."
+      "admission_refusal": "STATE=REFUSE or confirmed native Not Enroll is no-op, no quest/admission/reward/transfer changes, NPC remains clickable and reasks indefinitely; every run has independent context, ACCEPT is only intent.",
+      "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
     },
     {
       "id": "ONB-07",
       "title": "玩家透過原生遊戲 UI 修改既有帳號密碼",
       "requirements": [
-        "R-032"
+        "R-032",
+        "R-036"
       ],
       "analysis_requests": [
         "A-029",
@@ -576,7 +599,9 @@
       "native_ct_gate": "CT-098/099 must be genuine original Client, not synthetic or Admin JSON API",
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
       "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
-      "native_wire_contract": "04-analysis-integration/A-029-native-password-change-contract.md"
+      "native_wire_contract": "04-analysis-integration/A-029-native-password-change-contract.md",
+      "expected_validation_failure_policy": "02-server-planning/expected-validation-failure-policy-20261101.md",
+      "validation_rejection_logging": "must-log-reason-code-and-native-response; normal-business-rejection-not-protocol-unexpected"
     }
   ]
 }
