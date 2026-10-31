@@ -43,3 +43,15 @@ CT-034：若 Main 由原服真正觸發，應顯示 PaperDialog 引導；觸發�
 - CT-035：Born OK 的靜態送出呼叫為 C6C4(name,context)，再 C6C2(name,context)；有 SendReply 的腳本則先 C6C1(key/value) 設 replied=1，Dispose 仍送4，但清理不再送2。實際傳輸 flush/frame 行為另記 runtime。重送／舊 session/context 不得重複改 quest（designed）；不能將兩次 lifecycle 訊息各算一次進度。
 
 離線結果見 `task_a/roy2/script-entry-verification.json`、語料檢查見 `corpus-entry-audit.json`；315 XML + NDW 一個非 XML，nNewJoin01 只列候選。所有 native CT 仍 not-run。
+
+## 2026-11-01 原件靜態補測 CT-112（原 CT-033～035 不升級 native PASS）
+
+本次已實際核對原版 Born.dat、Basic.dat 素材與 `AlertFrame.ypf` metadata：Basic 39 index slots 含 sentinel、Frame offset13196 size177648 SHA `b641441d...`、YPF17；Born XML CRC CP950 `1d87b0c0`。新 22 個 EXE 原生 VA anchor 證實 `S44(type2/subtype0)` 會觸碰 UI slot0x23/component3/4，`S44(type2/subtype2)` 會操作 slot0x24，**不是 Born 的 type1/subtype0 Script Main 啟動**。
+
+```bash
+python task_a/roy2/a023_native_script_dispatch_probe.py Asgard.exe
+python task_a/roy2/a023_born_basic_probe.py --born Born.dat --basic Basic.dat
+python -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
+```
+
+GitHub CI 只執行 21 個合成資源格式邊界測試；原件 SHA/22 VA 為本地獨立驗證。完整請看 [CT-112 細則](A-023-original-born-basic-ui-test-plan.md)、[原始 Client 與資源證據](../task_a/roy2/A-023-born-basic-native-dispatch-20261101.md)。**PaperDialog.dat 的原件此輪未在本地，依賴只能沿用歷史已登記報告，不冒稱重跑全 GUI**。首次原服 Born 下發條件／女招募員 EntityId／Script 綁定與真正 Native GUI 必須在 CT-034/035 找到原始記錄或動態 UI 證據，不能以 synthetic S44／fake NPC 完工。
