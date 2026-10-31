@@ -38,6 +38,27 @@
 
 該觀測僅涵蓋 attach 後的同步 send／recv 與 closesocket，不涵蓋 attach 前流量、WSASend／WSARecv 非同步路徑、任意 TCP 分段的完整重組，opcode 只在可辨識 AA frame 開頭時記錄。沒有任何未覆蓋流量可據此宣稱「Client 從不保活」。原生 UI 畫面失敗、Client API 失敗與 Server C02 分支限制分開記錄；此次不是完整新連線創角回驗。
 
+## 新連線回驗：C02 已收到後主動關閉（RI-001 根因切片已確認）
+
+2026-10-31 23:51 的新連線，Client PID 32196，Server PID 8340。Client 仍為主選單預覽副本；REA 已在使用者送出前掛上純 metadata 觀測。本次結果不再沿用上一輪 send=-1 的解釋。
+
+|UTC+8 時間／來源|已確認事件|
+|---|---|
+|23:51:15.749，REA|觀測已掛上，之後由使用者操作送出；沒有代填帳密或更動封包。|
+|23:51:19.175，TCP|雙端 Established。|
+|23:51:40.180，Client send|C02 opcode=2，frame length=17，requested=20，result=20。僅這一步不能證明 Server 處理，下一步日誌補足。|
+|23:51:40.1812279，Server 摘要|LastClientOpcode=2、body length=15、ordinal=5，已在 Server 完成 frame／codec 解碼並進入分派。|
+|23:51:40.1812842，Server 摘要|reason=`native-c02-fields-unknown-a030`，phase=LoginReady，stage=FormInput，elapsed≈63.835秒。最後 S2C 是先前 S60(opcode96)，不是創角 S02。|
+|其後 TCP 取樣|Server FIN_WAIT_2／Client CLOSE_WAIT，Client 仍有回應。|
+
+Server 本地 journal 宣告 build `1.0.0+f2a4a388013b11b5472c3b1022dea5c8176e503b`，與此次唯讀 checkout 相符；本地另保存 DLL hash。journal 為實作自報身份，未因此聲稱原始碼與所有載入模組已完全證明一致。REA 事件身份：`ev_bdf4d3f0b91475682b8fcc7444eda7abb4dc0e023cd123ad2bed7c6f49dff231`。共享文件僅整理所需欄位，不發布原始營運 journal、traceId 或表單截圖。
+
+**本次直接原因已確認**：Server 收到 C02 後走明確的 fail-closed 分支，沒有發 S02，隨即關閉；不是本次送出 API 失敗，也不是一般60秒讀取逾時。該 commit 的 C02 分支無條件回傳這個 close reason，尚未接通原生創角資料的驗證／草稿／回應流程，所以不能由此判定使用者帳密、NAME 或 EMAIL 錯誤。
+
+**RI-005 的新版狀態**：開發者已在 `384e87a` 實作分階段期限，`f2a4a38` 更新交接。此連線實際摘要為 FormInput idle=600秒、absolute=1800秒，跨越連線第60秒後仍收到 C02，支持「本連線沒有被舊60秒總等待切斷」。這不等於已測完整600秒、原版 Client 或所有表單等待情境；RI-005 仍保留獨立回驗。
+
+**交付 Server 開發者**：RI-001 保持 open，根因分類由候選提升為本次已關聯的 `C02-explicit-close`。優先補 A-030 精確欄位／地區與相容錯誤 UI 契約，再接 C02→憑證驗證→pending→S02→C04→commit→S02；不要再只調 timeout、盲回 S02(0) 或歸咎網路／玩家輸入。原版 CT-103～105 仍未通過，本次是修改副本上的失敗重現與根因切片。
+
 ## 給 Server 開發者的增量合約（designed）
 
 這是對既有狀態／逾時規格的補充，不要求關閉全部 timeout，也不以延長60秒宣稱已修復本次問題。

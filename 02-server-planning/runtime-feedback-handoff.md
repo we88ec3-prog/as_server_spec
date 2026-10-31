@@ -6,6 +6,8 @@
 
 第二輪已觀察 Server FIN_WAIT_2／Client CLOSE_WAIT，使用者畫面為創角「登錄連線中」後「伺服器無回應」。需求拆分為 **RI-005 表單等待排除一般60秒 read timeout** 與 **RI-001 送出後 wire 失敗**，兩者獨立回驗。不能只延長期限就宣稱創角修好；也不能因未記到 C02 就把本次根因定為 C02。詳見同頁第二輪補充。
 
+**最新結論（23:51 新連線，Server f2a4a38）**：已關聯 Client C02 send=20/20、Server 收到 C02、reason=`native-c02-fields-unknown-a030` 後關閉且未回 S02；RI-001 的本次直接原因已確認。新版 FormInput 已實作 idle600／absolute1800秒，此次關閉不是60秒 timeout。詳見 [完整去敏時間線與交付](idle-disconnect-observability.md#新連線回驗c02-已收到後主動關閉ri-001-根因切片已確認)。下方 b8e212e 表為歷史查核；新版期限已有實作，原生 C02 adapter 仍未接通，不應重做已完成的期限工作。
+
 ## P0 / RI-001：原生創角斷線
 
 目前的 [斷線修正規劃](native-newuser-disconnect-remediation-20261031.md) 以 `ad84f9` 作歷史根因基線；不能把它的「尚未驗證憑證／沒有草稿處理」直接當成新版全部未實作。

@@ -5,8 +5,8 @@
   "spec_baseline_before_integration": "6b935906dbfa8db118aa058c73e880d6409bbf90",
   "implementation_review": {
     "repository": "we88ec3-prog/as_server_roy",
-    "commit": "b8e212ecc4d962b3fb68007b8204036c2ba48b6a",
-    "mode": "read-only source and documentation review; no native run in this integration"
+    "commit": "f2a4a388013b11b5472c3b1022dea5c8176e503b",
+    "mode": "read-only source/document review plus correlation with existing local Server close journal and instrumented diagnostic Client; original Client not run"
   },
   "issues": [
     {
@@ -14,7 +14,7 @@
       "title": "原生 NewUser 提交後出現重新連線提示",
       "priority": "P0",
       "status": "open",
-      "runtime_scope": "as_server_roy; exact server/client build of the reported failing run is not recorded here",
+      "runtime_scope": "2026-10-31 23:51 UTC+8: modified main-menu-preview Client PID32196; Server PID8340 journal build 1.0.0+f2a4a388013b11b5472c3b1022dea5c8176e503b",
       "source": "Existing A-030 user-report intake and native-newuser-disconnect-remediation-20261031.md; no new failure was executed by this integrator.",
       "analysis_requests": [
         "A-020",
@@ -31,21 +31,25 @@
       "evidence_classification": [
         "user-reported",
         "observed-static",
+        "observed-runtime",
         "implementation-reported"
       ],
       "current_facts": [
         "Earlier ad84f9 review identified unconditional C02/C04 closure with no S02; this is historical source evidence, not a captured runtime trace.",
         "At b8e212e backend creation credential/proof handling and close diagnostics are reported implemented; live C02/C04/C15 handling still explicitly closes pending A-030 evidence.",
         "A generic reconnect popup cannot identify whether C02 was sent or which endpoint initiated closure.",
-        "Second local run showed the creation UI progressing from connecting to server-no-response. A later C02 retry at 23:34:07.456 UTC+8 returned send=-1 on an already closed socket; this retry does not prove Server receipt or C02-triggered closure."
+        "Second local run showed the creation UI progressing from connecting to server-no-response. A later C02 retry at 23:34:07.456 UTC+8 returned send=-1 on an already closed socket; this retry does not prove Server receipt or C02-triggered closure.",
+        "Fresh connection at 23:51:40.180: C02 send requested20/result20. Server journal records C02 body15/ordinal5 at 23:51:40.1812279 and closes at .1812842 for native-c02-fields-unknown-a030, with no new S02. This attempt is not an idle timeout or failed local send."
       ],
       "unknowns": [
-        "Current failing-run version and sanitized opcode timeline",
-        "Native NAME/EMAIL/region mapping and compatible nonzero S02 response/retry behavior"
+        "Native NAME/EMAIL/region mapping and compatible nonzero S02/retry contract",
+        "Successful complete original-client creation and relogin acceptance"
       ],
-      "next_action": "Complete the missing A-030 Client evidence; hand off the validated field/error contract and use CT-103..105 for the wire adapter and native acceptance.",
+      "next_action": "Prioritize missing A-030 fields/error contract, then wire existing backend into native C02/C04/C15 and validate CT103..105. Do not treat another timeout increase as this fix.",
       "native_client_validation": "not-run",
-      "handoff_document": "02-server-planning/runtime-feedback-handoff.md"
+      "handoff_document": "02-server-planning/runtime-feedback-handoff.md",
+      "root_cause_slice": "runtime-confirmed: native C02 explicit close pending A-030; not fixed",
+      "diagnostic_client_validation": "failed: fresh C02-triggered close correlated on modified Client"
     },
     {
       "id": "RI-002",
@@ -128,7 +132,7 @@
       "id": "RI-005",
       "title": "視窗仍回應，但使用者回看已斷線",
       "priority": "P1",
-      "status": "open",
+      "status": "pending-native-validation",
       "runtime_scope": "Local main-menu-preview client PID 29780 and observed server PID 6400; loaded binary to source commit correspondence unverified",
       "source": "2026-10-31 user report, 11 process samples at 23:24:51..23:25:21 UTC+8, and post-report TCP/process observation; user explicitly closed client afterwards.",
       "analysis_requests": [
@@ -148,7 +152,8 @@
         "Post-report server remained listening on loopback 15010 and 18080 with no established game connection.",
         "At source b8e212e the TCP loop has a 60-second no-read timer, reset on nonempty reads, and a 20-second WorldLoading timer; this does not establish the cause of the reported run.",
         "Second run PID 1992: TCP Established at 23:30:49.619 UTC+8, Server FIN_WAIT_2 / Client CLOSE_WAIT at 23:30:50.919 while Responding=true; this indicates server-side TCP close initiation.",
-        "User confirmed retry; post-attach REA observed C02 send length 20 (frame length 17) with result=-1 at 23:34:07.456 UTC+8, after the connection was already gone. No payload was retained."
+        "User confirmed retry; post-attach REA observed C02 send length 20 (frame length 17) with result=-1 at 23:34:07.456 UTC+8, after the connection was already gone. No payload was retained.",
+        "Server 384e87a/f2a4a38 implements stage-specific deadlines and persistent redacted close journal. Latest session journal applies FormInput idle600/absolute1800 and remains alive until C02 at connection age63.835s; C02 then explicitly closes for RI-001, not timeout."
       ],
       "unknowns": [
         "Cause of original server-side close",
@@ -157,7 +162,7 @@
         "Whether native creation UI sends periodic traffic",
         "Whether loaded Server binary matches reviewed source"
       ],
-      "next_action": "Separate legitimate creation-form wait policy from generic 60-second read timeout; reproduce on a fresh connection and correlate successful C02 send with Server receipt and close reason. This retry is a local send failure, not proof of Server C02 rejection.",
+      "next_action": "Verify legitimate form waiting independently on original Client beyond60s and at configured bounds. Keep earlier unknown close and stale-socket retry distinct from the latest confirmed C02 explicit close.",
       "native_client_validation": "not-run",
       "handoff_document": "02-server-planning/idle-disconnect-observability.md"
     }

@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "5acc525bc00422ee1597e13eed59bf3d112550cf45452b1124f5d3db2d5e3c2d"
+      "sha256": "03bdc00e41823bb8fab89507e1afc05ec76f081a52ee80e67a10260f02ab84f0"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -297,7 +297,7 @@
     },
     {
       "path": "03-analysis-requests/A-030-native-newuser-disconnect-fields.md",
-      "sha256": "0609f78271b0ef45163dec27c2fd7375ad4213606134c00adf085b9f25f507ea"
+      "sha256": "1db8c85e633db430ba0b001d7bf32b3e07de9cc3def5d4d830f371bce5594157"
     },
     {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
@@ -325,7 +325,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "38e0c70c6b28a9922322b35a11486e6ef8dee87670f05e245eba67a3e8f8b395"
+      "sha256": "103e59ccd7fb004c07ae43fe7a138f2df4995591832ac36c664b63de71a63764"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -965,11 +965,11 @@
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
-      "sha256": "ac04487957c5e31614f794943e9a7125684c13d805fc5f4dba2a94e2b93cbc87"
+      "sha256": "41062bde8462ca90db33125b3ee2c12d9556cd587fb14127deb43c89596645b1"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "1860ae1aa47a069dc4af9d4b16f440afc6bd5c27c9d1d670984ed433e9d8cad8"
+      "sha256": "d5d9f67bf8039f454c6e35a48a7f1fe8f1e491c13143553d099eea3ff314d760"
     },
     {
       "path": "04-analysis-integration/local-account-entry-observations-20261031.md",
@@ -977,7 +977,7 @@
     },
     {
       "path": "02-server-planning/idle-disconnect-observability.md",
-      "sha256": "9cfed6f75a8d73f17ddc50f0311207fe41875f4cee4e46c376258d8561bf75bf"
+      "sha256": "c4a68da997a46f9a0d618c66e7ee6c6e192760c808073b8d3662f8569ba254c2"
     }
   ]
 }

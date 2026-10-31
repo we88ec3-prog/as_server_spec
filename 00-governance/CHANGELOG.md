@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-10-31 23:51 創角送出直接原因已確認
+
+新連線以 REA Client send 與 Server f2a4a38 本地去敏 close journal 關聯：C02 成功送出並收到，因 native-c02-fields-unknown-a030 立即關閉、未回 S02。將 RI-001 根因切片提升為 runtime-confirmed；A-030 僅補 A30-1，欄位與錯誤契約仍待研究。確認新版 FormInput idle600／absolute1800 已實作並在本次摘要生效，與舊60秒等待及前輪 send=-1 分開。不發布原始 journal／表單，Server 未由規格整合者修改或重啟；原版 CT 仍未通過。
+
 ## 2026-10-31 創角二次重現：等待輸入與送出分開
 
 第二輪同步 TCP／程序取樣已觀察 Server 先 FIN，Client 保持回應；整合使用者提供的「登錄連線中」→「伺服器無回應」畫面摘要。明示創角合法等待不套一般60秒讀取期限，仍保留分階段資源保護；送出後 C02 fail-closed 限制獨立交 Server 開發者。尚缺本次 C02 與 close reason，未定根因；沒有發布表單截圖或憑證，沒有修改 Server。

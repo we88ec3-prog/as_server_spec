@@ -4,6 +4,12 @@
 
 固定 EXE SHA256 db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145，TW-seed0-local-v0.1；本次 Server 唯讀版 ad84f9fb11606a318aff6bd67e065aa0ee07cc45。
 
+## 本地實測增量：已定位 C02 分派關閉
+
+2026-10-31 23:51 的 **修改主選單預覽 Client** 回驗：Client C02 send 成功，Server f2a4a38 journal 確認收到 C02(body15、ordinal5)，以 `native-c02-fields-unknown-a030` 關閉、未回 S02。本次 H1/C02 後關閉已定位，不再把這次原因列為「可能60秒閒置」。詳見 [去敏 Client／Server 時間線](../02-server-planning/idle-disconnect-observability.md)。
+
+這只補 A30-1 的診斷切片；欄位／地區、錯誤 UI、取消與成功路徑仍待分析，不重做已證 serializer，也不把修改副本當原版 Client passed。新版 Server 已有 FormInput 600/1800秒政策；後續優先補可接通 C02 的合約，而非繼續調整同一個 timeout。原版 Client SHA 與原版 CT 的要求維持不變。
+
 ## 1. 一定要回答的 Client 研究問題
 
 |題組|問題／查找位置|必要交付|

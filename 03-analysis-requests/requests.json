@@ -2109,7 +2109,9 @@
         "S02 status+string8 parser",
         "C15 zero-byte body",
         "0x1d/0x1e client transition already static proven"
-      ]
+      ],
+      "runtime_diagnostic_status": "A30-1 partial: C02 explicit close runtime-confirmed on modified diagnostic client, 2026-10-31 23:51 UTC+8; field/error research still open",
+      "runtime_diagnostic_report": "02-server-planning/idle-disconnect-observability.md"
     }
   ]
 }
