@@ -324,6 +324,10 @@
       "sha256": "28a8333b4b0d4fa167e13f340bfccfb178a86b87ace1ce4c65896d130138d07a"
     },
     {
+      "path": "05-conformance/A-005-movement-test-plan.md",
+      "sha256": "b8381f844cb9fb8003a07200cec8edb76d558cc8cc1ecd33dc3dcd3db4e3ed6b"
+    },
+    {
       "path": "05-conformance/A-014-social-test-plan.md",
       "sha256": "36611d265386fb0e9ce62865bfed6a564ececcb2750d32c5a35dd7464c2e0f39"
     },
@@ -372,6 +376,14 @@
       "sha256": "ee6dd69a14aef589db22f2a8cebca74000c037a23e325ac8022f79dc0b28d2aa"
     },
     {
+      "path": "task_a/roy2/A-005-analysis.md",
+      "sha256": "7578d291143bbe5c43c51eb5e813ae81dd4db89a45e1e38ddad1788a98ed9d64"
+    },
+    {
+      "path": "task_a/roy2/A-005-corpus-flags.json",
+      "sha256": "7ac6591153eac5dfd01f53aaf1a9a421d3f9b351875a67d19a08b539c6dd3a06"
+    },
+    {
       "path": "task_a/roy2/A-014-analysis.md",
       "sha256": "3274236f3e9d148b867bda3d282bc159247c9f9c5496c2fbbdb7d798d75aba6e"
     },
@@ -416,6 +428,18 @@
       "sha256": "35e3c08ff14a3f77696b239321d4504ae79970eed22c5d3e624d2c2a80e6f1ba"
     },
     {
+      "path": "task_a/roy2/a005_collision_probe.py",
+      "sha256": "3f45a5da23a7e07f5352012e582c0ecd58bb6f2293ae8eb712da852b97f5a7ea"
+    },
+    {
+      "path": "task_a/roy2/a005_move_codec.py",
+      "sha256": "544a6298a4299f6db8dff5eaec3cdc49a5faa59b743b7feb5ac5703b0c944481"
+    },
+    {
+      "path": "task_a/roy2/a005_native_probe.py",
+      "sha256": "5736ca3e1e25f53951a5c75caffd2892e49aa35bd87db6134b2f937b35f6883a"
+    },
+    {
       "path": "task_a/roy2/a014_social.py",
       "sha256": "552fd70b4acf3cd83649927c7884cab86b6bef24b311a8d228279052edef2d4f"
     },
@@ -442,6 +466,10 @@
     {
       "path": "task_a/roy2/test_a004_visibility.py",
       "sha256": "4cf5faa9262ecacc4a82ceb76e101161c0e425b69897cf617486d69b71fb390c"
+    },
+    {
+      "path": "task_a/roy2/test_a005_move.py",
+      "sha256": "37181c00af600df081e4fd9fed3940e8317e1e5cd876cdbadea9ab344956db95"
     },
     {
       "path": "task_a/roy2/test_a014_social.py",
