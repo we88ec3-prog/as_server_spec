@@ -147,3 +147,11 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 已證：Born `PaperDialog_Create` 的原始實體可對上 `PaperDialog.dat`，背景為 `Basic.dat/AlertFrame.ypf`。普通 PaperDialog OK 只關閉（C6C4→未回答 C6C2）；`PaperDialog02` OK `PAPER02=START`／CANCEL `PAPER02=NOT`，但 **`cancelControl="OK"`**，ESC GUI 真結果未驗。`Merchant.Main` 初始化 `ClientReply`，`nNewJoin01`（本身無 Main）`MerchantTalk→JoinMessage01/02/03` 最終回 `STATE=ACCEPT/REFUSE`；回覆是原生 C6C1→Dispose C6C4，不能當任務完成。**C6C1 的 script 名稱取當次 S44 root ScriptRunner，而非 nNewJoin01 依賴資源名稱**。兩種 PaperDialog 有 `PaperDialogProc/ShowIndexedHelp` 同名碰撞，不能無條件混用。
 
 目前缺的 Client 函式定義是 **`QuestDialog_Create`、`MerchantDialog_Create`、`MerchantDirectTalk`**（候選來源檔 `QuestDialog.dat`、`MerchantDialog.dat`，但**尚未證實檔名**），還有真正女招募員 NPC EntityId/map/spawn→Script root/依賴的原服綁定、首次 Born 發送政策與 native UI。A-023 新增 **9 個原件證據 E25～E33、28 synthetic tests／CT-115**；保留 `integrated/partial`、`native_client_validation=not-run`，只因這些真正的外部缺口，不是原件尚未讀。基本 World 進圖/行走 P0 不因 P1 教學 NPC 被卡住。
+
+## A-011／roy2 S07 真正 Monster image 欄位與 C43 三模式補證（2026-11-01）
+
+A-011 已在最新原件 `Asgard.exe` SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145` 追通：**S07 的共通第五欄 BEu16（reader `0x57E456` 寫入 row+0x0C）→ `0x4F1A7F` local 20B visual descriptor → kind1/2/4 `MonsterObject0x4D6FA0` → image factory `0x4D2340` → `MonsterImageLib0x4D7530/0x4D7560`**。已知註冊 image namespace `0x4000..0x41AD` 依 `Monster00..42.dat`、library8000..8042、每檔10 logical slots 對應。S07 tail `variant_u16` row+0x222 另轉 float 存 MonsterObject+0x27C，並非 image ID；u32 scene object-ref 又是另一個命名空間。
+
+UI panel `0x4A2376..0x4A2558` 確定 C43 送 `type1/subtype 0x04/0x10/0x40`（mode0/1/2）、全部用相同 pane object ref；**仍未證原版 NPC 點擊是否使用這些 mode**。完整 [A-011 新研究](../task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md)、[43 VA 原件檢查](../task_a/roy2/a011_s07_native_visual_probe.py)、[23 個 synthetic tests](../task_a/roy2/test_a011_s07_visual_chain.py)、[CT-116](../05-conformance/A-011-s07-visual-source-c43-test-plan.md)。原版獨立 Client GUI CT-083 `not-run`、A-011 `integrated/partial`。
+
+**缺少要進一步對照的具名檔**：本輪未提供實際 `Monster00.dat`／`World00.dat` bytes（或其他任一同版 MonsterNN/WorldNN），Git 已有其歷史五個 YPF member metadata 但不足以映射 logical slot 到 YPF/DOI frame/group。原服 NPC EntityId/spawn、哪個腳本綁到招募員、AI/掉落及實際 mouse→dialogue TCP trace 仍是其他證據缺口。這不影響已證 Client 靜態封包格式開發，也不影響基本 World 地圖/玩家行走 P0。
