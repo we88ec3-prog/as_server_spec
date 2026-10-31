@@ -3288,7 +3288,9 @@
       "native_client_validation": "not-run",
       "original_server_first_script_push": "unknown",
       "paper_dialog_original_this_turn": "not-provided",
-      "scope_note": "Local original resource and EXE static checks pass, but original Client/World Script GUI CT-034 remains not-run. Do not mark A-023 original Server NPC/quest complete."
+      "scope_note": "Local original resource and EXE static checks pass, but original Client/World Script GUI CT-034 remains not-run. Do not mark A-023 original Server NPC/quest complete.",
+      "offline_subset_result": "PASS user-provided original Asgard.exe 22 native S44 type1/type2 VA instruction spans, original Born.dat+Basic.dat member sha/offset+YPF17 and Born CP950 CRC verified locally. GitHub Actions run 41230455292: new 21/21 synthetic DAT/archive/zlib/UTF16 tests PASS; phase gates and other offline suites PASS. No original Client native script GUI/Server first Born/NPC CT-034/035 has been run.",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41230455292"
     }
   ]
 }
