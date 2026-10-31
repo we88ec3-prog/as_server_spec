@@ -22,6 +22,9 @@ ANCHORS={
  0x4a8981:"83f809",0x4a898f:"ff2485348d4a00",
  0x4a8996:"6acc",0x4a8a29:"6a00",0x4a8a30:"e8dbf2ffff",
  0x4a7d7d:"6a0c",0x4a7da2:"0f95c1",0x4a7dde:"e8bd0a0d00",
+ 0x4a7d85:"e836cff8ff",0x573110:"568bf1578d7e18",
+ 0x573129:"8dbe18020000",0x573141:"0fb6862a020000",
+ 0x573149:"8bce",0x4a889b:"6a01",
  0x573079:"6a03",0x4a8890:"8b44240485c0",0x4a889d:"e86ef4ffff",
 }
 REGION_CTOR_TARGETS=(0x4a9495,0x4a9549,0x4a9495,0x4a9508,0x4a9495)
@@ -68,7 +71,7 @@ def verify(path):
  return {"sha256":SHA,"call_edges":len(CALL_EDGES),"byte_anchors":len(ANCHORS),
   "region_ctor_cases":len(a),"event_cases":len(b),
   "region3_constructor_va":hex(a[3]),"event_argument_4_target":hex(b[0]),
-  "conditional_C03_sender":"0x4a7d10",
+  "conditional_C03_sender":"0x4a7d10","auto_C03_decoded_body":"string8, string8, u8(0)",
   "auto_send_trigger":"two cached wide chars nonzero and GetAsyncKeyState(VK_CONTROL) nonnegative",
   "native_gui":"not-run","S03_C10_World_after_auto_C03":"unverified"}
 def conditional_constructor_auto_c03(region,cached_first,cached_second,control_async_state):

@@ -8,7 +8,7 @@ class NativeAutoLoginChainTests(unittest.TestCase):
   exe=Path(os.environ.get("ASGARD_EXE","/mnt/data/Asgard.exe"))
   if not exe.exists():self.skipTest("original EXE not available")
   p=verify(exe)
-  self.assertEqual((p["call_edges"],p["byte_anchors"]),(7,36))
+  self.assertEqual((p["call_edges"],p["byte_anchors"]),(7,42))
   self.assertEqual((p["region_ctor_cases"],p["event_cases"]),(5,10))
   self.assertEqual(p["native_gui"],"not-run")
  def test_02_success_requires_region3(self):
@@ -39,7 +39,11 @@ class NativeAutoLoginChainTests(unittest.TestCase):
    with self.assertRaises(ValueError):conditional_constructor_auto_c03(3,True,True,v)
  def test_10_not_PE(self):
   with self.assertRaises(NativeMismatch):reader(b"bad")
- def test_11_explicit_no_world_proof(self):
+ def test_11_auto_c03_has_zero_tail(self):
+  exe=Path(os.environ.get("ASGARD_EXE","/mnt/data/Asgard.exe"))
+  if not exe.exists():self.skipTest("original EXE not available")
+  self.assertEqual(verify(exe)["auto_C03_decoded_body"],"string8, string8, u8(0)")
+ def test_12_explicit_no_world_proof(self):
   exe=Path(os.environ.get("ASGARD_EXE","/mnt/data/Asgard.exe"))
   if not exe.exists():self.skipTest("original EXE not available")
   self.assertEqual(verify(exe)["S03_C10_World_after_auto_C03"],"unverified")
