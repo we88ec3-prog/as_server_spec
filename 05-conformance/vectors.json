@@ -696,7 +696,8 @@
         "codepage_condition": "LanguageMan index4 CP950",
         "context_origin": "designed 0x11223344",
         "native_client_validation": "not-run"
-      }
+      },
+      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run."
     },
     {
       "id": "CT-034",
@@ -718,7 +719,8 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "packet_mapping": "script start/close specified; NPC click and original first-login policy unknown",
-      "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
+      "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge.",
+      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run."
     },
     {
       "id": "CT-035",
@@ -739,7 +741,8 @@
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "packet_mapping": "script lifecycle C6C subtype1/2/4; NPC/quest state meaning unknown",
-      "review_merge_note": "Renamed from roy2 CT-031 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge."
+      "review_merge_note": "Renamed from roy2 CT-031 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge.",
+      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run."
     },
     {
       "id": "CT-036",
@@ -3259,6 +3262,33 @@
       "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277",
       "original_exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "roy123_merge_scope": "final C04 success Region3 original static creates LoginDialogPane object only, no proven automatic C03 or visible LoginDialog; native automatic World unknown"
+    },
+    {
+      "id": "CT-112",
+      "status": "planned",
+      "level": "original-Asgard-S44-type2-Born-Basic-paper-frame-offline-static-and-synthetic",
+      "requirements": [
+        "R-013",
+        "R-027"
+      ],
+      "packet_ids": [
+        "PKT-S44",
+        "PKT-C6C"
+      ],
+      "analysis_request": "A-023",
+      "input": {
+        "kind": "original-SHA-locked-Born-Basic-Client-PE32-with-synthetic-resource-boundaries",
+        "reference": "05-conformance/A-023-original-born-basic-ui-test-plan.md"
+      },
+      "expected": "Original Asgard.exe SHA locked 22 S44 type1/type2 GUI VA anchors; type2/0 slot0x23+components3/4 and type2/2 slot0x24 distinct from type1 Born Main. Original Born.dat/Main CP950 CRC1d87b0c0, Basic.dat 39 index slots and AlertFrame.ypf offset13196 length177648 SHA + YPF v17; optional PaperDialog.dat must be supplied to independently reverify its XML. Synthetic 21 DAT/index/Script edge tests. No original-first-login or NPC entity mapping.",
+      "evidence_kind": "observed-original-resource-native-static-and-synthetic-offline",
+      "original_native_probe": "task_a/roy2/a023_native_script_dispatch_probe.py",
+      "original_resource_probe": "task_a/roy2/a023_born_basic_probe.py",
+      "synthetic_test": "task_a/roy2/test_a023_born_basic.py",
+      "native_client_validation": "not-run",
+      "original_server_first_script_push": "unknown",
+      "paper_dialog_original_this_turn": "not-provided",
+      "scope_note": "Local original resource and EXE static checks pass, but original Client/World Script GUI CT-034 remains not-run. Do not mark A-023 original Server NPC/quest complete."
     }
   ]
 }
