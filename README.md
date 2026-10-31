@@ -103,3 +103,7 @@ Roy1 A-011/A-022/A-013 及 Roy2 A-015 已交叉核對；原件 MAP 494/494，Roy
 ## 2026-10-31 第二輪增量：A-012 任務選項與 A-010 技能／BUFF
 
 Roy1 新增 C6C(1) name/context/key-value ScriptReply 與 C6C(4/2) close/cleanup 研究，Roy2 新增 C4D/C56/S52/S48/S2C/S2D 技能/持續效果協定。保留經濟 CT-087～089 與地圖 CT-090～091，新 quest CT-092～094、skill CT-095～096。對話選擇不是已完成 Quest，S2C 是 opcode0x2C（AddLastingSpell）；Server 新規劃見 [技能與任務](02-server-planning/new-quest-skill-dev-iteration-20261031.md)，[新增研究核驗](04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md)。原 Client 不修改、4～8字密碼、原生 E2E still not-run。
+
+## 管理 WEB 介面：只完成規劃（2026-10-31）
+
+現有私有 Server 只有可呼叫的 `/admin` JSON API，**沒有管理網頁**。本次使用者更正為「只規劃不實作」，已整理 [UI P0/P1/P2 設計](02-server-planning/admin-web-management-interface-plan.md) 與 [驗收案例](05-conformance/admin-web-management-acceptance-plan.md)，並建立 [日後實作前必須提醒確認的規則](00-governance/explicit-implementation-confirmation.md)。Roy1/Roy2 增量 [審查](04-analysis-integration/roy-branch-web-admin-sync-20261031.md) 只同步已證離線資料，未修改 Server/Web/Client 程式。

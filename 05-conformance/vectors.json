@@ -2552,7 +2552,9 @@
       "offline_test": "task_a/roy2/test_a010_skill_codec.py",
       "analysis_request": "A-010",
       "native_client_validation": "not-run",
-      "source_branch_original_ct": "CT-089"
+      "source_branch_original_ct": "CT-089",
+      "offline_subset_result": "Roy2 original EXE static 25 VA + 6 RTTI and 19 synthetic skill tests PASS, GitHub run 41193941400; original Client GUI not-run",
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41193941400"
     },
     {
       "id": "CT-096",

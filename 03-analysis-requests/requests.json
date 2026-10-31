@@ -681,7 +681,18 @@
         "Native original Client GUI/world combat casts and effect expiry trace not-run; CT-096 planned"
       ],
       "last_analysis_date": "2026-10-31",
-      "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md"
+      "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
+      "native_static_result": "Roy2 reported original Asgard.exe SHA and 25 native PE anchors + six RTTI PASS",
+      "offline_test_result": "Roy2 GitHub Actions run 41193941400: 19 synthetic A010 tests PASS; GUI E2E not-run",
+      "offline_ci_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41193941400",
+      "roy2_source_resync": {
+        "sha": "ab2525bbe7f36d5cec89f35189e2d776ea5a8942",
+        "main_ct_ids": [
+          "CT-095",
+          "CT-096"
+        ],
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "A-011",

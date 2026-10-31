@@ -61,7 +61,7 @@
       "constraints": [
         "account cannot be inserted from game C02",
         "hash credential; never audit plaintext",
-        "game login password TW-native-8 4..8 ASCII alphanumeric; recommend 8 secure random when auto-generating; never truncate; admin secret exempt"
+        "game login password TW-native-4to8 4..8 ASCII alphanumeric; recommend 8 secure random when auto-generating; never truncate; admin secret exempt"
       ]
     },
     {
@@ -201,5 +201,18 @@
     "native_client_validation": "not-run",
     "automatic_generation_length": 8,
     "future_client_extension": "only after explicitly approved patched Client build SHA/profile; original Client policy stays 4..8"
+  },
+  "web_ui_plan": {
+    "status": "specified-not-implemented",
+    "require_future_explicit_user_confirmation": true,
+    "source": "02-server-planning/admin-web-management-interface-plan.md",
+    "confirmation_gate": "00-governance/explicit-implementation-confirmation.md",
+    "real_server_base_path": "/admin",
+    "planned_api_base_path": "/admin/v1",
+    "suggested_nonexistent_ui_path": "/admin-ui/",
+    "current_backend_status": "json-api-only",
+    "existing_account_search_api": false,
+    "game_password": "4..8 ASCII letters or digits; distinct Admin Key length >=32",
+    "native_client_validation": "not-run"
   }
 }

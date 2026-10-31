@@ -79,3 +79,7 @@ ONB-03 MAP 494/494 可安全讀取，原版 Client 26/26 VA錨點核對，Roy1 �
 ## 第二輪 A-012/A-010 技能與教學選項（2026-10-31）
 
 Roy1 A-012 補齊 C6C(1) 任務選項回覆的 ScriptRun context/key/value 與 C6C(4)/(2) 關閉/清理差異；Roy2 A-010 補齊技能開始/取消及 Add/Remove LastingSpell 六種 native packet 靜態子集。ONB-05/06 可先做 DEV-090 Script intent、DEV-080 cast/effect ledger；但 NPC→Script 綁定、官方冷卻/耗魔/施法動畫/狀態顯示/原始 Client E2E 尚未知。新的 CT-092～096 planned/not-run，詳 [下一階段規劃](new-quest-skill-dev-iteration-20261031.md)。
+
+## 管理員 WEB UI（2026-10-31）：已規劃／未實作
+
+已核對私有 Server 現有 `/admin` JSON 管理 API，但**瀏覽器 UI 不存在**。使用者明確要求此輪**只規劃**；P0 帳號建查停權/解封/重設與稽核用既有 API，P1 搜尋/角色需新 API，P2 GM/遠端管理需新安全設計。詳 [規劃](admin-web-management-interface-plan.md)、[驗收](../05-conformance/admin-web-management-acceptance-plan.md)、[未來實作前先確認](../00-governance/explicit-implementation-confirmation.md)。原版 Client E2E 與 Web UI 測試均 not-run。

@@ -96,3 +96,7 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 ## 2026-10-31 現行 task_a/roy1 + task_a/roy2 再同步
 
 Roy1 A-013 的商店/交易原生 codec 與 A-011 的 Monster bank/S1A/C39，以及 Roy2 A-015 MAP/collision 研究已驗證增量整合；Roy1 A-022 地圖 index 多4B錯誤修正為494/494 MAP，不採491/494。主線新增經濟 CT-087/088/089、MAP CT-090/091（原版 Client E2E 未執行），詳 [整合審查](../04-analysis-integration/merge-review-roy1-roy2-20261031.md)。不修改原版 Client，遊戲密碼4～8字、多玩家同圖不變。
+
+## 2026-10-31 Roy1/Roy2 最新分支再次同步
+
+Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主線，主線保留 Economy CT-087..089、MAP CT-090/091、Quest CT-092..094、Skill CT-095/096。來源 Roy2 的局部編號 CT-087/088/089/090 **不可覆寫**。本輪 Web 管理 UI 只有 Server 設計，不需要偽造 Client 原生 opcode。詳 [整合審查](../04-analysis-integration/roy-branch-web-admin-sync-20261031.md)。

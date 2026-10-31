@@ -75,3 +75,7 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 ## A-002 更正 C25 誤標與登入轉服 wire
 
 原版 C03：`string8 account,string8 password,u8 flag`；S02：`u8 status,string8 message`；S03：`u32_be addr,u16_be port,u8 token_len,raw bytes`；C10：**raw token body**、無第二個 u8 length。位址 `0x4A8370` 是 S03 的 transfer handler，不可當 C25 的 region parser。真實 Server 的 duplicate-login status/policy 未知。見 [A-002 靜態核對](A-002-merge-verification.md)。
+
+## 2026-10-31 Roy2 A-010 來源離線驗證增量
+
+Roy2 `ab2525bbe7f36d5cec89f35189e2d776ea5a8942` 補充 C4D BEu16 實際 Client producer、C56 u8 未追 UI producer、S52 BEu32/u8、S48 BEu32、S2C(0x2C) 動態 AddLastingSpell（BEu32/u8/BEu16/u8/string8/u8/BEu32/BEu32）、S2D(0x2D) BEu32 RemoveLastingSpell。以上是原始 Client **static decoded-body**，不是已知 spell ID、MP、cooldown、BUFF duration、UI response。Roy2 對應離線 [CI 41193941400](https://github.com/we88ec3-prog/as_server_spec/actions/runs/41193941400) 已報 PASS，但 native Client GUI 尚未測；主線正式驗收為 **CT-095 offline / CT-096 native GUI**，不能照抄來源分支局部 CT-089/090。

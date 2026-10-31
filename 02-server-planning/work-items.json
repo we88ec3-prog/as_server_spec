@@ -64,6 +64,13 @@
           "CT-050"
         ],
         "future_modified_client_gate": "not approved or enabled; distinct client build hash/profile, verified UI/C03 bytes and original-client compatibility gate"
+      },
+      "web_admin_ui": {
+        "state": "planned-only-not-implemented",
+        "confirmation_required_before_implementation": true,
+        "planning_doc": "02-server-planning/admin-web-management-interface-plan.md",
+        "acceptance": "05-conformance/admin-web-management-acceptance-plan.md",
+        "no_server_code_changes": true
       }
     },
     {

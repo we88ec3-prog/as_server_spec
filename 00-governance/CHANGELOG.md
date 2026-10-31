@@ -113,3 +113,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 追補 Roy1 A-012 / Roy2 A-010（第二輪增量）
 
 在第一輪 Roy1/Roy2 MAP與經濟研究合併成功後，兩分支又提交 A-012 任務腳本 C6C 回覆/Dispose 與 A-010 技能施放/取消/持續效果。同步最新來源研究與測試、增加 Client packet S48/S2C/S2D，完成衝突 CT ID：A-012→CT-092～094、A-010→CT-095～096（此前經濟087～089及MAP090～091不變）。更新 Server DEV-090 Quest 和 DEV-080 Skill/BUFF Domain 的下輪交接；官方技能效果/原版 quest/Client GUI 尚未證。原始 Client 不改，遊戲密碼4～8字，Admin-only Account、多玩家共享 NPC/Monster 不變。
+
+## 2026-10-31 Roy1/Roy2 再同步與 Web 管理介面規劃（非實作）
+
+使用者要求只規劃管理頁面；此輪沒有寫 Web/Server 程式碼。核對 `as_server_roy` 現有 /admin JSON API 與4～8字密碼實作，新增 P0–P2 UI 設計、WEBUI-P01..P10驗收計畫（未測）及「日後實作必須先提醒並取得使用者確認」規範。Roy1 無新增，Roy2 A-010離線結果增量同步且主線 CT-095/096 保留，原版 Client E2E not-run。見 [審查](../04-analysis-integration/roy-branch-web-admin-sync-20261031.md)。
