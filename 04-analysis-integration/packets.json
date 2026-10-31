@@ -215,7 +215,10 @@
       "layout": "raw opaque token bytes, no u8 length prefix or string8 wrapper; native constructor 0x577330, writer 0x5773e0 -> 0x45b4c0; C2S plaintext exception",
       "client_entry": "runtime-transfer",
       "state_precondition": "轉服新連線首包",
-      "related_packets": [],
+      "related_packets": [
+        "PKT-C25",
+        "PKT-S03"
+      ],
       "layout_status": "profile-documented",
       "evidence_kinds": [
         "prior-static-analysis"
@@ -227,11 +230,15 @@
       ],
       "evidence_ids": [
         "ev_a002_20261031_asgard_login_transfer_static",
-        "ev_a016_20261031_asgard_replay_static"
+        "ev_a016_20261031_asgard_replay_static",
+        "A031-E04",
+        "A031-E06",
+        "A031-E09"
       ],
       "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "Opaque raw token, no extra len; Server designed one-shot consumption cannot infer original expiration from Client."
+      "a016_recovery_note": "Opaque raw token, no extra len; Server designed one-shot consumption cannot infer original expiration from Client.",
+      "a031_native_sender": "In native Region3 S03 callback0x4A8370: C10 ctor0x4A8415/send0x4A8446 followed by conditional C25 ctor0x4A8478/send0x4A84F3. Other transfer callback0x52FAD0 C10 ctor0x52FB5B/send0x52FB8C then region3 C25 at0x52FC4B. C10 decoded body token raw (not length-prefixed)."
     },
     {
       "id": "PKT-C11",
@@ -347,33 +354,48 @@
       "id": "PKT-C25",
       "direction": "C2S",
       "opcode": "0x25",
-      "name": "WorldEntryMetadata",
+      "name": "BillingInfo",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "World entry metadata: region-specific layout partial; do NOT cite 0x4a8370 as C25, that VA is S03 transfer handler",
-      "client_entry": "unresolved; previously misattributed 0x4a8370 is S03 callback",
-      "state_precondition": "token交接完成",
+      "layout": "Original CBillingInfoPacket: native writer region==3 only: string8 opaque_billing_0, string8 opaque_billing_1, string8 opaque_billing_2 (u8 encoded-byte length + that many codepage-encoded bytes each; decoded body 3+L0+L1+L2, L_i<=255). Native writer region!=3 emits empty body IF CALLED, but four known direct Client producers guard region3 and no non3 C25 send is proven. NOT World map ID/WorldEntryMetadata, NOT body=01.",
+      "client_entry": "0x5712E0 ctor push0x25 at 0x5712F9; 0x571420 writer checks 0x498000 region==3; RTTI CBillingInfoPacket via vtable0x61360C/COL0x62BB84. S03 handler0x4A8370 region3 enqueues C10 at0x4A8446 then C25 at0x4A84F3; alternate 0x52FB8C then0x52FC4B.",
+      "state_precondition": "REGION3 Client native transfer: C10 raw token queued on new TCP, then conditional C25 billing-info 3xstring8; non3 no C25 required by discovered callsites; original World S2C ordering unknown",
       "related_packets": [
         "PKT-S02",
         "PKT-S05",
         "PKT-S15",
-        "PKT-S14"
+        "PKT-S14",
+        "PKT-C10",
+        "PKT-S03"
       ],
-      "layout_status": "partial",
+      "layout_status": "observed-static-region3-3x-string8; runtime TCP not-run",
       "evidence_kinds": [
-        "prior-static-analysis"
+        "observed-static-original-client",
+        "synthetic-encoded-wire"
       ],
-      "manual_validation": "see scenario; not every branch validated",
+      "manual_validation": "35 original PE anchors and CBillingInfoPacket RTTI PASS offline. Native Client actual TCP capture / initial S2C / region0..4 GUI not-run.",
       "requirements": [
         "R-004",
         "R-007"
       ],
       "evidence_ids": [
         "ev_a022_20261031_asgard_map_static",
-        "ev_a002_20261031_asgard_login_transfer_static"
+        "ev_a002_20261031_asgard_login_transfer_static",
+        "A031-E01",
+        "A031-E02",
+        "A031-E03",
+        "A031-E04",
+        "A031-E05",
+        "A031-E06",
+        "A031-E07",
+        "A031-E08",
+        "A031-E09"
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
-      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
+      "a031_report": "task_a/roy2/A-031-analysis.md",
+      "a031_sender_fields": "global [0x66D100]+0x0C,+0x20C,+0x40E -> local packet +0x18,+0x218,+0x418; original semantics remain opaque",
+      "a031_server_warning": "Existing Development-only synthetic C25 body=01 is NOT original region3 C25; don't gate all World entries on C25; C10 token is authority."
     },
     {
       "id": "PKT-C33",
