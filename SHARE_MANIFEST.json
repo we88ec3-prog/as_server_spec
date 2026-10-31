@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "d45e875cb0e77799a02e1258d745de9633741b1b39aa18c13db20db403fdfe24"
+      "sha256": "0e0053dfc602c6282424d2d4fd973d8f9f1c2105f25b0766819023084ced9dda"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -141,7 +141,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "4f8bc4b42bc66731bd6cfe48030352e17de10c51239cb7d2451eb2060dac2e1c"
+      "sha256": "bdf52297570bc25af413824c22fdd782e2431d2a72ef51b8989e9068eb9e8cd7"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -369,7 +369,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "b1e4eccc011d8bda0d1f18d9576c7f3251b187716b437f63f3b16f9df5b39c8b"
+      "sha256": "8b93292d2ae7ebf2a5273d221dc5e44be1a490087437996b0fe2f34594af1e73"
     },
     {
       "path": "README.md",

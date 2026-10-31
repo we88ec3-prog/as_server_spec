@@ -1255,6 +1255,41 @@
       "source_ct_renumbered_from": "CT-048",
       "merge_note": "CT CT-048 in source roy1 A-003 was renamed to CT-053; main CT-047/048 are A-014 social",
       "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
+    },
+    {
+      "id": "CT-054",
+      "status": "planned",
+      "level": "native-client-authenticated-no-character-to-newuser-ui",
+      "title": "原 Client 已登入空角帳號可否進入 NewUser 與 C02 帳號欄",
+      "requirements": [
+        "R-025",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C03",
+        "PKT-S02",
+        "PKT-C02",
+        "PKT-C04"
+      ],
+      "input": {
+        "kind": "native-client-test-design",
+        "reference": "05-conformance/native-creation-gate-test-plan.md",
+        "cases": [
+          "C03 authenticates pre-provisioned account A with no Character",
+          "record original Client UI event/callback leading to NewUser, or report route not present",
+          "verify whether C02 first field is the logged-in account name",
+          "if native authenticated route exists, try A vs B submitted name and observe response"
+        ]
+      },
+      "expected": "No invented C03(no-character) -> NewUser path: prove UI callback and C02 account name mapping or record absent Client route. If authenticated creation is possible, mismatch B must be rejected without draft/Character/Grant and matched A still needs all other permissions. Anonymous C02 is never proof of owner.",
+      "evidence_kind": "designed",
+      "native_client_validation": "not-run",
+      "analysis_dependency": [
+        "A-027",
+        "A-021",
+        "A-028"
+      ],
+      "note": "Test design only; original client E2E not executed; no modified client."
     }
   ]
 }
