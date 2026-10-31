@@ -2037,7 +2037,10 @@
           "CT-105/107/108 original GUI trace not-run"
         ]
       },
-      "original_native_world_entry_e2e_ready": false
+      "original_native_world_entry_e2e_ready": false,
+      "native_static_validation": "PASS user-provided original Asgard.exe SHA256 and 31 PE instruction VA anchors plus LoginDialogPane vtable/COL/RTTI, locally verified 2026-11-01",
+      "synthetic_offline_validation": "PASS GitHub Actions 41226689277: 22 A028 S02/C04/C15 UI-state tests, all existing A010/A011/A015/A024/A031 suites, and phase gates",
+      "offline_ci_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41226689277"
     },
     {
       "id": "A-029",
