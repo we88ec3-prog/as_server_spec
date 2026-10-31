@@ -29,3 +29,7 @@ Original S02 parser 0x57dbc0: status:u8, string8 encoded text. For MakeInfoDialo
 
 ## CT closure
 Offline 30 EXE instruction signatures and full 29-entry focus selector, 15 synthetic unittest: PASS. CT-103/104/105 unchanged as **planned/native-client not-run**. Native completion requires documented visible NAME/E-MAIL widget IDs or user-verified UI resource mapping, region/seed/profile, two anonymized form submissions (EMAIL empty vs filled, NAME changed vs constant), S02 nonzero dialog observation and C15 trace plus no-disconnect proof. Source file is a *test of native static code and designed codec*, not a runtime client or server run. Full original Server auth/status logic remains unknown.
+
+## 2026-11-01 ADR-008（覆蓋上文所有回登入假設）
+
+**原版 Client 成功 C04／第二段 S02(0) 後直接進遊戲、不返回 LoginDialog，玩家不需手動第二次 C03。** 上方舊有「成功後回登入」「手動重新登入」是過時 Server 規劃，不再做開發或 CT 出場條件；A-028 的 0x4b206b callback 無立即 S03 仍是有效靜態觀察，但後續背景授權/轉服/首 World opcode 必須由 A-028/A-031 補證，不能猜。已存在角色日後的一般 C03/S03/C10 登入不變。新正式需求見 [ADR-008](../02-server-planning/post-create-direct-world-decision-20261101.md)。原版 Client E2E 未執行。

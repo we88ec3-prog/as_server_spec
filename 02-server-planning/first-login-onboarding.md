@@ -51,3 +51,7 @@ A-001 補齊 seed0..9 的候選 binary mask/加密格式、C00/S00/string8 codec
 **2026-10-31 使用者確認**：Client LoginDialog 的 C03 和 NewUser 的 C02 是兩個獨立入口，**不要求先有 C03 認證 Session 才能創角**。管理員先建帳，NewUser 輸入現存 Account 的**帳號＋密碼**，Server 必須以同一帳號憑證儲存驗證、不能只以帳號文字比對；成功後發 creation-only proof→限定 C04 角色提交，錯誤則回可由原版 Client 顯示的錯誤、不寫 Account/Character。原生 C02 各 region 欄位語意與 S02 失敗代碼尚需 A-027/A-028 證實，未證前不能亂發成功/失敗碼。
 
 舊本文「NoCharacter→已登入→NativeNewUser」、「無登入 C02 一律拒絕」及帳號只與先前 C03 比對，均標記為**過時歷史規劃，不再作為最新開發接受條件**。現行正式規格請讀 [三個獨立入口](three-native-account-entry-policy.md)。遊戲內修改密碼使用**原生 UI**，來源路徑待 A-029，不由管理 Web 代替；管理員重設僅救援。原版 Client 不修改，角色同圖和遊戲密碼4～8字規則不變。
+
+## 2026-11-01 ADR-008（覆蓋上文所有回登入假設）
+
+**原版 Client 成功 C04／第二段 S02(0) 後直接進遊戲、不返回 LoginDialog，玩家不需手動第二次 C03。** 上方舊有「成功後回登入」「手動重新登入」是過時 Server 規劃，不再做開發或 CT 出場條件；A-028 的 0x4b206b callback 無立即 S03 仍是有效靜態觀察，但後續背景授權/轉服/首 World opcode 必須由 A-028/A-031 補證，不能猜。已存在角色日後的一般 C03/S03/C10 登入不變。新正式需求見 [ADR-008](post-create-direct-world-decision-20261101.md)。原版 Client E2E 未執行。
