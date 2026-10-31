@@ -2853,7 +2853,7 @@
       "id": "CT-105",
       "status": "planned",
       "native_client_validation": "not-run",
-      "level": "original-client-direct-create-c02-c04-two-s02-commit-relogin",
+      "level": "original-native-create-two-s02-seamless-world",
       "requirements": [
         "R-025",
         "R-026"
@@ -2872,19 +2872,20 @@
         "reference": "05-conformance/native-newuser-disconnect-acceptance-plan.md",
         "cases": [
           "admin preprovisioned correct credentials direct NewUser without prior C03",
-          "two-stage S02 success with C04 five bytes, atomically persisted Character and return original login UI",
+          "two-stage S02 success with C04 five bytes, atomically persisted Character and directly continue into native World without LoginDialog",
           "C02/C04 disconnect/retry/cancel and independent Login C03 obtains created Character",
           "same request replay, stale generation, password version changed, duplicate/invalid names",
           "original UI E-MAIL optionality and region tested with same EXE hash"
         ]
       },
-      "expected": "Original unmodified Asgard.exe completes C02→S02(0)→C04→S02(0), character durable exactly once; native UI returns to login and later C03/S03/C10 accesses the saved character. Business auth negatives do not impersonate protocol disconnection where native failure reply known. Native acceptance remains not-run until actual client capture.",
+      "expected": "Original Asgard.exe C02→S02(0)→C04→S02(0) commits Character atomically and directly transitions to game World without displaying LoginDialog or requiring manual second C03; actual background post-C04 packet/World transfer requires A-028/A-031 native evidence. Later normal login remains independent; native Client not-run.",
       "evidence_kind": "designed-not-implemented",
       "analysis_dependency": [
         "A-021",
         "A-027",
         "A-028",
-        "A-030"
+        "A-030",
+        "A-031"
       ],
       "evidence_ids": [
         "ev_a030_20261031_newuser_regions_s02_failure_bin_static"
@@ -2932,7 +2933,7 @@
       "evidence_kind": "Server-designed-contract-requires-original-client-e2e",
       "implementation_status": "not-reported",
       "evidence_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
-      "level": "original-native-new-user-to-authenticated-world-transfer",
+      "level": "original-native-newuser-to-seamless-world-transfer",
       "requirements": [
         "R-025",
         "R-026",
@@ -2955,14 +2956,17 @@
         "cases": [
           "new Admin-created Account no Character opens native NewUser",
           "region-proven NAME/E-MAIL mapping and two-stage S02/C04 with atomic v5 persistence",
-          "original UI return to login and C03/S03/new TCP C10",
+          "post-C04 client automatically continues to World without LoginDialog; capture actual next C2S/S2C, do not require manual C03",
           "invalid credentials/bans/C15 and replay/crash do not create Character or email",
-          "native S02 nonzero failure UI and C15/retry without generic socket disconnect"
+          "native S02 nonzero failure UI and C15/retry without generic socket disconnect",
+          "original Client returning to LoginDialog or asking for manual second password entry is a failure"
         ]
       },
-      "expected": "One real Client workflow creates a persistently stored Character with Account.creation_email exactly once, returns to login and authenticates C03/S03/C10 without bypass or modifying native EXE. Synthetic Server domain results are distinct.",
+      "expected": "One original Client creates and durably stores Character+E-MAIL, then without showing LoginDialog or requiring player to manually resubmit C03 it automatically begins the native World flow; A-028/A-031 must confirm whether background C03/S03/C10 or another route occurs. Synthetic tests are separate.",
       "analysis_dependency": [
-        "A-030"
+        "A-030",
+        "A-028",
+        "A-031"
       ]
     },
     {
@@ -2997,14 +3001,16 @@
           "select real map with verified full MapData CRC and S15 compatibility",
           "C35 same header/checksum verified before commit",
           "wrong CRC/epoch/timeout/reconnect cannot skip or duplicate world entry",
-          "tutorial map vs interim genuine map properly distinguished"
+          "tutorial map vs interim genuine map properly distinguished",
+          "first World entry after C04 requires no visible login; normal later C03/S03/C10 tested separately"
         ]
       },
-      "expected": "No hardcoded synthetic C25=01 or guessed C35; real Client loads corresponding MAP and sees own Character, Server atomically records entry and not tutorial_completed.",
+      "expected": "No hardcoded synthetic C25=01 or guessed C35; real Client loads corresponding MAP and sees own Character, Server atomically records entry and not tutorial_completed. First successful creation does not return to LoginDialog; A-028/A-031 establish its actual World handoff.",
       "analysis_dependency": [
         "A-022",
         "A-031",
-        "A-032"
+        "A-032",
+        "A-028"
       ]
     },
     {

@@ -57,13 +57,14 @@
       "server_to_client": [
         "PKT-S02"
       ],
-      "client_reaction": "state 0x1d 收 S02(0) 發 C04/進0x1e；0x1e 成功走 UI；非零錯誤可觸發 C15 空 body/0x1f",
+      "client_reaction": "state 0x1d 收 S02(0) 發 C04/進0x1e；0x1e 成功走 UI；非零錯誤可觸發 C15 空 body/0x1f；最新需求：C04 第二次 S02(0) 成功後直接進 World，不顯示 LoginDialog；後續自動封包 A-028/A-031 未證",
       "evidence": [
         "A-003",
         "A-021",
         "A-027",
         "A-028",
-        "A-030"
+        "A-030",
+        "A-031"
       ],
       "scenarios": [
         "SCN-007",
@@ -86,7 +87,8 @@
         "CT-100",
         "CT-103",
         "CT-104",
-        "CT-105"
+        "CT-105",
+        "CT-107"
       ],
       "server_decisions": [
         "R-025/R-026: C02 絕不可建立 Account；直接用本次 C02 提交的 existing Account name + Password 於同一 DB CredentialVerifier 驗證；**無需 prior C03 Session**，帳號/密碼不符、停權/角色已存在 → 原版可辨識錯誤、不建 Pending/Character、不發 S02(0)。",
@@ -94,13 +96,14 @@
         "原生 field1/field2 和錯誤 status 的 Client evidence 仍缺 A-027/A-028；Native enablement 必須 fail closed，不能亂猜 status。",
         "Live private CharacterCreationAccountGuard loggedIn requirement is obsolete; direct C02 valid account+password must produce creation-only proof regardless of prior C03; Host wire still not native-tested.",
         "Private Server main ad84f9 LoginWireSession.HandleAsync case C02/C04 currently returns Close() and never invokes Auth/DecodeC02/DB/S02; future DEV-040 native routing required, no Client changes.",
-        "C02 identity+password auth in the Admin-created Account store without C03, generation-scoped creation-only proof, S02(0) first reply→C04 once-only commit→S02(0) final; ordinary failures require A-028/A-030 native-compatible nonzero replies, never guess status."
+        "C02 identity+password auth in the Admin-created Account store without C03, generation-scoped creation-only proof, S02(0) first reply→C04 once-only commit→S02(0) final; ordinary failures require A-028/A-030 native-compatible nonzero replies, never guess status.",
+        "ADR-008: committed C04 then final S02 must seamlessly continue to native World without visible login/manual C03; grant only after proof+commit and confirmed A-028/A-031 wire."
       ],
       "readiness": "confirmed current server unconditional C02/C04 Close, original native failure/NAME/EMAIL/region pending A-030; planning only",
       "unknowns": [
         "C02 第1/2欄 Account/Password 的各 region 精確 native UI/serializer 角色與本機限制",
         "S02(status!=0) 對錯帳號/錯密/停權/已有角色的 native UI/error code",
-        "C04 final success UI 到一般登入頁的實際按鍵、region差異",
+        "C04 final success 直接進 World 的 callback/背景連線/首 World C2S、region差異",
         "原版 Client 的 C03(no character) auto-route 只作補充觀察，不是使用者要求的 create 前置",
         "NAME and E-MAIL original form->C02 field mapping and E-MAIL required gate, region1 writer discrepancy",
         "Which native S02 nonzero status+message renders credential/duplicate errors, C15 retry/socket semantics",
@@ -112,7 +115,8 @@
         "ONB-01",
         "ONB-02"
       ],
-      "next_iteration": "02-server-planning/native-creation-next-iteration.md"
+      "next_iteration": "02-server-planning/native-creation-next-iteration.md",
+      "post_create_direct_world_decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md"
     },
     {
       "id": "FLOW-TRANSFER",
@@ -147,7 +151,8 @@
       "readiness": "wire-subset-ready",
       "unknowns": [
         "原服重複登入策略與 S02 拒絕碼",
-        "C25 全區域分支"
+        "C25 全區域分支",
+        "After first creation post-C04 automatic World transfer may differ from normal C03/S03/C10 and must be confirmed separately."
       ],
       "native_client_validation": "not-run",
       "work_items": [

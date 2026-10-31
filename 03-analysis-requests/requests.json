@@ -1946,9 +1946,9 @@
         "R-027"
       ],
       "priority": "P0",
-      "title": "C04 後 S02 回覆、角色提交與轉服／重登終局",
-      "method": "Client state0x1d/0x1e 的 S02→C04/C15 已知；補查 0x4B206B 成功 UI 後按鈕、返回登入與下一封包，不要求推論原服 DB commit。",
-      "deliverable": "C04→S02 成功/失敗後的 Client callback/UI 與實際下一步，已知 status 分支和未知文字語意清楚分級。",
+      "title": "創角 C04 最終 S02 後無重登入直接進 World 的 callback/UI/封包",
+      "method": "由 state0x1e + final S02(0)→0x4b206b 追所有後續 Client callback/畫面/新連線/第一個 C2S 與所需 S2C；原版使用者確認沒有返回登入畫面，不能推測背景 C03/S03/C10 是否存在。錯誤 S02/C15 保留既有靜態契約。",
+      "deliverable": "原版創角完成後無手動再次登入直接進 World 的 UI/socket/封包時序；指出 0x4b206b 之後何時、為何建立 World 連線，背景 grant/Client packet 是否存在；未查到明記 unknown。",
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
@@ -1974,11 +1974,11 @@
         "Native Server durable Character creation transaction point after C04 not observable from Client",
         "Native secure C02 to admin pre-provisioned account ownership (A-027) missing",
         "S02 failure codes exact native meanings and Server C15 semantics unconfirmed",
-        "C03 successful zero-character to MakeInfoDialog, and post-C04 successful UI navigation to login/World not proven",
+        "Post-C04 callback 0x4b206b seamless World transition, possible background auth/transfer, first World C2S unknown",
         "Original valid character fields/name/appearance and account character multiplicity (A-003) pending"
       ],
       "last_analysis_date": "2026-10-31",
-      "client_io_scope_correction": "查 Client 在 state0x1d/0x1e 收到各 S02 時的畫面、C04/C15 自動發包與回 Login 的實際路徑；不要求從 Client 證明原版 Server 的 durable Character commit 或 grant 時機。",
+      "client_io_scope_correction": "C04 final S02→native automatic World entry, without LoginDialog/manual C03; actual Client UI/C2S/S2C, not original Server DB policy.",
       "scope_owner": "Client I/O only; server authority decisions belong DEV; native CT is separate",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -1997,7 +1997,8 @@
         "CT-103",
         "CT-104",
         "CT-105"
-      ]
+      ],
+      "post_create_user_decision": "Seamless direct to World after success (2026-11-01); native mechanism still unknown."
     },
     {
       "id": "A-029",
@@ -2081,8 +2082,8 @@
       ],
       "priority": "P0",
       "title": "原版創角斷線切片：ID/PASSWORD/CONFIRM/NAME/E-MAIL、C02 region、S02 非零錯誤/UI 和 C15 重試",
-      "method": "只補既有 A-020/A-021/A-027/A-028 的殘留缺口；BIN-first 原版 Client 控件 label/widget/callback/xref 與 region-based C02 serializer，去敏 C2S/S2C trace + 原 Client UI 重現 H0..H4；追 Email 空值是否阻止 C02、NAME 的 wire 來源、S02 非零 status 顯示/cancel/retry、成功回 Login。不得把原服 Server 帳密算法或未證 Client E2E 當成已知。",
-      "deliverable": "逐區 widget/field1..4/flag 的 source→wire→label mapping（NAME/EMAIL 必填與否），獨立 NewUser 最短合法前置封包、錯誤 S02(status/message) 對焦點/顯示/是否 C15、送包及 TCP close 時點、可重試/回登入的原生客戶端演示；6 欄 handoff + 未解/需要精確資源檔名。",
+      "method": "只補既有 A-020/A-021/A-027/A-028 的殘留缺口；BIN-first 原版 Client 控件 label/widget/callback/xref 與 region-based C02 serializer，去敏 C2S/S2C trace + 原 Client UI 重現 H0..H4；追 Email 空值是否阻止 C02、NAME 的 wire 來源、S02 非零 status 顯示/cancel/retry、成功直接進 World。不得把原服 Server 帳密算法或未證 Client E2E 當成已知。",
+      "deliverable": "逐區 widget/field1..4/flag 的 source→wire→label mapping（NAME/EMAIL 必填與否），獨立 NewUser 最短合法前置封包、錯誤 S02(status/message) 對焦點/顯示/是否 C15、送包及 TCP close 時點、可重試/創角成功無手動再登入直入 World 的原生客戶端演示；6 欄 handoff + 未解/需要精確資源檔名。",
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
@@ -2101,7 +2102,7 @@
       "handoff_status": "partial",
       "native_client_validation": "not-run",
       "implementation_ready": false,
-      "analysis_scope": "Client I/O only: original NewUser UI field/region/submit, S02 failure focus/message, C15, popup and successful login navigation; Server rule and DB remain DEV scope",
+      "analysis_scope": "Client I/O only: original NewUser UI field/region/submit, S02 failure focus/message, C15, popup and successful seamless World transition; Server rule and DB remain DEV scope",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
       "handoff_requirements": [
@@ -2119,12 +2120,12 @@
         "Region0 has third string only, region1 UI-writer discrepancy, actual runtime selected region not confirmed",
         "E-MAIL blank vs filled effect on actual native Client submission not observed",
         "S02 status1 nonempty printable message has native static modal path; actual GUI acceptance and official status meanings unknown",
-        "C15 post-error socket and retry, full login return, H0-H4 actual disconnect timestamp/trace unknown",
+        "C15 post-error socket and retry, post-C04 direct World transition, H0-H4 actual disconnect timestamp/trace unknown",
         "Exact C02 native submitted ID/password/name/email widget and serializer field in current region, especially region1 mismatch",
         "Whether Email field is mandatory for UI submission and absent vs blank wire representation",
         "A-003/A-027 minimum12 first-field gate vs Admin allowed3..32 and actual selected Client region",
         "Which nonzero S02 status/message reliably shows native Create form error and emits C15 without generic disconnected popup",
-        "C15 state1f retry and C04 final success to independent login UI navigation"
+        "C15 state1f retry and C04 final success directly into World without LoginDialog"
       ],
       "conformance": [
         "CT-103",
@@ -2167,7 +2168,8 @@
         ]
       },
       "integration_baseline": "Roy1 static integrated with main c453538; private Server f2a4a38 has backend proof and phase deadlines but native C02/C04 still fail closed",
-      "runtime_diagnostic_client_scope": "Modified main-menu-preview diagnostic client; not original Asgard.exe E2E"
+      "runtime_diagnostic_client_scope": "Modified main-menu-preview diagnostic client; not original Asgard.exe E2E",
+      "post_create_user_decision": "Direct World after C04 final success, no manual re-login; A-028/A-031 native packet next steps unknown."
     },
     {
       "id": "A-031",
@@ -2177,17 +2179,19 @@
         "R-027",
         "R-028"
       ],
-      "title": "原版 S03/C10 後的 World 首個 C2S、C25 真格式與 Client 入圖觸發",
-      "method": "BIN-first search real World writer, region/seed state, encrypted ordinal, plus anonymized original Client packet trace from persisted-character C03→S03→C10; previous 0x4A8370 misidentified as C25 is S03 handler.",
-      "deliverable": "Document exact first World C2S opcode/C25 if present, bytes/field map, region and Client state, required S2C, failure path and native evidence/unknowns for DEV-ENTRY-03.",
+      "title": "原版創角 C04 成功直接 World 與正常 C03/S03/C10 兩條入口、C25 真實格式",
+      "method": "BIN-first 追 0x4b206b callback 及創角成功後自動 World 連線/首 C2S/S2C；另獨立追已有角色正常 C03/S03/新 TCP C10 的 World 第一封包。確認 C25 實際 writer/region/ordinal，不把 0x4a8370 S03 callback 當 C25。",
+      "deliverable": "兩條路分別提供 UI→C2S/S2C/下一個 Client 行為、首 World opcode/C25 layout 與必要授權時機；初次創角成功不得回 LoginDialog，背景 C03/S03/C10 是否發生需明確實證。",
       "dependencies": [
         "A-002",
-        "A-022"
+        "A-022",
+        "A-028"
       ],
       "remaining_unknowns": [
         "C10 follow-up first true native opcode and its body",
         "C25 real writer/region-specific serialization and Client UI preconditions",
-        "Whether S02 is required after C10/World entry and its Client state"
+        "Whether S02 is required after C10/World entry and its Client state",
+        "Post-C04 seamless World transfer uses which original Client packet(s), socket and grant; normal login path cannot be assumed identical."
       ],
       "priority": "P0",
       "status": "open",
@@ -2211,7 +2215,8 @@
         "unknowns"
       ],
       "client_server_boundary": "Research native Client UI and C2S/S2C/layout only; Server decides authenticated Character, map selection/spawn, permissions and durable commit. No invented packets.",
-      "analysis_report": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md"
+      "analysis_report": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md",
+      "post_create_user_decision": "No LoginDialog after successful C04; native wire still unknown."
     },
     {
       "id": "A-032",
