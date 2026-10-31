@@ -2299,7 +2299,8 @@
       "native_client_validation": "not-run",
       "legacy_source_ct_id": "CT-068",
       "merge_source_branch": "task_a/roy2",
-      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+      "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run",
+      "a011_static_visual_field_verified": "S07 fifth common field_c BEu16 row+0x0C now proven all the way to MonsterImageLib via 0x4F1A7F→0x4D6FA0→0x4D2340; variant_u16 is separate float. C43 panel type1/subtypes04/10/40 static proven, still no original GUI sprite/YPT/DOI/NPC click/dialog/AI/drop E2E; source task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md"
     },
     {
       "id": "CT-087",
@@ -3402,6 +3403,38 @@
         "Merchant.dat"
       ],
       "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41231915314"
+    },
+    {
+      "id": "CT-116",
+      "status": "planned",
+      "level": "original-PE-static-S07-kind124-visual-field-MonsterImageLib-and-C43-3-panel-modes",
+      "requirements": [
+        "R-012",
+        "R-027"
+      ],
+      "analysis_request": "A-011",
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-C43",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "input": {
+        "kind": "original-Asgard-SHA-locked-static-call-chain-and-synthetic-decoded-body",
+        "reference": "05-conformance/A-011-s07-visual-source-c43-test-plan.md"
+      },
+      "expected": "Original Asgard.exe 43 PE VA signature anchors show S07 common field_c BEu16 row+0x0C -> World handler kind1/2/4 descriptor -> MonsterObject ctor -> 0x4D2340 reads descriptor first u16 -> 0x4D7530/0x4D7560 library8000+delta/10 slot delta%10 in registered image0x4000..0x41AD. Tail variant_u16 row+0x222 is separate constructor float, scene object_ref separate BEu32. Original 0x4A2376 UI panel modes0/1/2 send C43 type1/subtype 0x04/0x10/0x40 with same BEu32 pane object ref; no proof universal NPC click. 23 synthetic tests; original Monster/World YPF/DOI asset mapping and GUI remain unverified.",
+      "evidence_kind": "observed-original-client-native-static-and-synthetic",
+      "native_probe": "task_a/roy2/a011_s07_native_visual_probe.py",
+      "offline_test": "task_a/roy2/test_a011_s07_visual_chain.py",
+      "analysis_report": "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "native_client_validation": "not-run",
+      "native_animation_validation": "not-run",
+      "native_npc_click_dialog_validation": "not-run",
+      "original_monster_archive_member_validation": "missing-source",
+      "scope_boundary": "The original Client static visual-source field and library formula are proven, not actual Monster YPF/DOI frame/motion/name, original NPC/monster identity/AI/drop, original GUI or original Server policies."
     }
   ]
 }
