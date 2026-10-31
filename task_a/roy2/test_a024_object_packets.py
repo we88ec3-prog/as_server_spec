@@ -79,9 +79,36 @@ class NativeObjectPackets(unittest.TestCase):
         self.assertEqual(decode_s34_info_reply(b)["subtype6"]["field_u32"],12)
         with self.assertRaises(PacketError): decode_s34_info_reply(b[:-1])
 
-    def test_s34_dynamic_subtype11_refused(self):
-        with self.assertRaises(PacketError): decode_s34_info_reply(b"\x0b"+be32(7)+b"\x00")
+    def test_s34_subtype11_all_six_conditional_groups(self):
+        b = b"\x0b" + be32(7) + b"\x5f"
+        b += b"\x01A\x02\x03" + be32(4)       # bit0
+        b += be16(3) + b"XYZ"                     # bit1 raw length
+        b += b"\x01\x05\x06\x01B"              # bit2
+        b += b"\x01\x07" + be16(8) + b"\x09\x0a\x0b\x0c\x01C"  # bit3
+        b += b"\x01\x01D\x01E\x01\x02\x01F"   # bit4
+        b += b"\x02\x08\x09"                    # bit6
+        groups = decode_s34_info_reply(b)["subtype11_groups"]
+        self.assertEqual(groups["bit0"]["opaque_u32"],4)
+        self.assertEqual(groups["bit1"],b"XYZ")
+        self.assertEqual(groups["bit2"][0]["name_raw_cp950"],b"B")
+        self.assertEqual(groups["bit3"][0]["quad_u8"],[9,10,11,12])
+        self.assertEqual(groups["bit4"][0]["third_raw_cp950"],b"F")
+        self.assertEqual(groups["bit6"],[8,9])
+
+    def test_s34_subtype11_optional_groups_and_default(self):
+        self.assertEqual(decode_s34_info_reply(b"\x0b"+be32(7)+b"\x00")["subtype11_groups"],{})
         self.assertEqual(decode_s34_info_reply(b"\x01"+be32(7)+b"\x00")["flags"],0)
+        b=b"\x0b"+be32(4)+b"\x40"+bytes([255])+bytes(range(255))
+        self.assertEqual(len(decode_s34_info_reply(b)["subtype11_groups"]["bit6"]),255)
+
+    def test_s34_subtype11_all_truncation_offsets(self):
+        b=b"\x0b"+be32(7)+b"\x03"+b"\x01A\x02\x03"+be32(4)+be16(2)+b"EF"
+        self.assertEqual(decode_s34_info_reply(b)["subtype11_groups"]["bit1"],b"EF")
+        for n in range(len(b)):
+            with self.subTest(n=n),self.assertRaises(PacketError):
+                decode_s34_info_reply(b[:n])
+        with self.assertRaises(PacketError):
+            decode_s34_info_reply(b+b"X")
 
     def test_s62_add_action_four_strings(self):
         b=b"\x01\x02"+be16(3)+b"\x04\x05\x06"
