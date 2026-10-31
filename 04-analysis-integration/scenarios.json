@@ -104,10 +104,38 @@
         "R-006"
       ],
       "packets": [
-        "PKT-S33"
+        "PKT-S33",
+        "PKT-S07",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S11",
+        "PKT-S1A",
+        "PKT-S15",
+        "PKT-S05"
       ],
       "status": "analysis-required",
-      "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。"
+      "notes": "移動廣播／物件移除尚未完整建模，不能用自身S0B冒充他人同步。 A-004 native BIN: MapPane-like registry lookup at 0x4eac30 by u32 ref, S07 handler 0x4f17c0 has count/record stride0x228; S0E Remove vs S5F Die. Previous S1E DieObjects label was WRONG (factory push0x1e), now corrected to S5F ctor push0x5f. Full AOI radius/2Client native E2E unknown; plan one observer's visible set per map-instance/generation and stable Server entity IDs (designed).",
+      "evidence_kind": "observed-static-plus-designed",
+      "analysis_evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_contract": "04-analysis-integration/A-004-entity-visibility-contract.md",
+      "native_client_validation": "not-run",
+      "native_entityid_scope_proven": false,
+      "native_interest_radius_proven": false,
+      "packet_mapping": "S33 human spawn, S07 variable generic draw(count*u32 refs), S0E u32 remove, S5F u32 die distinct, S0C u32+coords move, S64 path, S11 orientation, S1A motion. S15 map reset clears other objects (self remains). Ref is u32 wire ref, original persistent ID scope unknown.",
+      "failure_cases": [
+        "same wire_ref reused by different entities within one TCP without verified retirement fence",
+        "stale S0E after new S33 on overlapping map epochs cannot be disambiguated by original wire",
+        "S5F death is NOT S0E leave or quest completion",
+        "move without known spawn ref",
+        "duplicate spawn and missing remove",
+        "two clients different instances or maps must not see each other",
+        "map reset preserves self but clears other objects"
+      ]
     },
     {
       "id": "SCN-006",
@@ -364,7 +392,15 @@
         "R-027",
         "R-029"
       ],
-      "packets": [],
+      "packets": [
+        "PKT-S07",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S11",
+        "PKT-S1A"
+      ],
       "status": "analysis-required",
       "evidence_kind": "designed",
       "profile": "TW-seed0-local-v0.1",
@@ -380,8 +416,10 @@
       "a023_script_notes": "Born UI start and C6C close lifecycle now specified; no NPC entity/map/spawn mapping in Born. nNewJoin01 STATE ACCEPT/REFUSE is a school-join candidate, not a verified recruiter binding. See A023-E14..E18.",
       "script_onboarding_status": "script-entry-contract-ready; original NPC/quest/first-login policy unresolved",
       "analysis_evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
-      ]
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "a004_world_visibility": "A-004 original generic world object codecs now known; no original specific tutorial NPC/monster spawn type, entity-ref or script binding proven, A-024 remains open"
     },
     {
       "id": "SCN-012",
@@ -398,13 +436,13 @@
         "PKT-C3D",
         "PKT-S3D",
         "PKT-S52",
-        "PKT-S1E"
+        "PKT-S5F"
       ],
       "status": "analysis-required",
       "evidence_kind": "designed",
       "profile": "TW-seed0-local-v0.1",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "notes": "合法施放/攻擊經 Server 驗證目標、資源、冷卻與狀態，再產生效果與可去重的任務進度事件；原版是否要求攻擊待 A-025。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-025: Born.dat only recruiter PaperDialog, no explicit battle task; entire tutorial combat requirement unknown. Client C13 and C4D are intents, S1E is not quest ACK. Only independently verified Server objective mapping may count combat event.",
+      "notes": "合法施放/攻擊經 Server 驗證目標、資源、冷卻與狀態，再產生效果與可去重的任務進度事件；原版是否要求攻擊待 A-025。 尚無已確認的教程專用 opcode；packets 留空直到 A-024/025/026 補證。 A-025: Born.dat only recruiter PaperDialog, no explicit battle task; entire tutorial combat requirement unknown. Client C13 and C4D are intents, S1E is not quest ACK. Only independently verified Server objective mapping may count combat event. A-004 opcode correction: SDieObjects is S5F (native constructor push 0x5f at 0x57e1c9); old S1E was wrong. Death presentation remains separate from quest objective.",
       "failure_cases": [
         "非法目標",
         "資源不足",
@@ -413,9 +451,10 @@
         "亂序",
         "死亡中斷"
       ],
-      "packet_mapping": "observed-static: C13 u32 attack target, C4D u16 spell, C56 u8, C3D/S3D battle subtype0..15 partial, S52 u32+u8, S1E u32. No original/tutorial objective event protocol or mandatory-combat condition verified.",
+      "packet_mapping": "observed-static: C13 u32 attack target, C4D u16 spell, C56 u8, C3D/S3D battle subtype0..15 partial, S52 u32+u8, S5F u32. No original/tutorial objective event protocol or mandatory-combat condition verified.",
       "analysis_evidence_ids": [
-        "ev_a025_20261031_attack_skill_bin_static"
+        "ev_a025_20261031_attack_skill_bin_static",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "native_tutorial_combat_requirement_proven": false,
       "native_quest_progress_mapping_ready": false,

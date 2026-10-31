@@ -99,7 +99,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 
 ## A-025 / roy1：教學首次攻擊、技能與目標事件（2026-10-31）
 
-[完整 BIN-first 報告](A-025-roy1-tutorial-combat.md)、[Server 安全交接](../04-analysis-integration/A-025-tutorial-combat-contract.md)、[14 條原件 byte signatures／7 項測試](../tools/a025_tutorial_combat_model.py)。原 Client C13 Attack BE u32（0x55709C/0x557A5D sender）、C4D StartCastSpell BE u16（0x402034）、C56 CastSpell u8，C3D/S3D Battle subtype0..15（不同多態 payload），S52 CastSpell u32+u8、S1E DieObjects u32 已確證。**Born.dat 只有招募員紙張導引，不含證明必須殺怪/施法的條件；不能推及整個教程不需戰鬥**。A-025 `integrated/handoff partial`，可交 DEV 的是 codec、Server 攻擊/技能權威輸入檢查和 **conditional** quest event unique-ledger 方案；原服戰鬥公式、首 NPC、教學目標必需性 unknown。SCN-012 仍 analysis-required；CT-051～053 planned、native Client not-run。
+[完整 BIN-first 報告](A-025-roy1-tutorial-combat.md)、[Server 安全交接](../04-analysis-integration/A-025-tutorial-combat-contract.md)、[14 條原件 byte signatures／7 項測試](../tools/a025_tutorial_combat_model.py)。原 Client C13 Attack BE u32（0x55709C/0x557A5D sender）、C4D StartCastSpell BE u16（0x402034）、C56 CastSpell u8，C3D/S3D Battle subtype0..15（不同多態 payload），S52 CastSpell u32+u8、S5F DieObjects u32 已確證。**Born.dat 只有招募員紙張導引，不含證明必須殺怪/施法的條件；不能推及整個教程不需戰鬥**。A-025 `integrated/handoff partial`，可交 DEV 的是 codec、Server 攻擊/技能權威輸入檢查和 **conditional** quest event unique-ledger 方案；原服戰鬥公式、首 NPC、教學目標必需性 unknown。SCN-012 仍 analysis-required；CT-051～053 planned、native Client not-run。
 
 ## A-026 / roy1：教學完成、可能獎勵、出圖與中斷恢復（2026-10-31）
 
@@ -112,3 +112,7 @@ A-021 保留 `integrated / handoff_status=partial` **僅表示靜態證據子集
 ## A-019 / roy1：原版地圖與音樂曲目對應（2026-10-31）
 
 [完整 S19 Client BIN-first 與 Map archive 三份原件盤點](A-019-roy1-map-music.md) / [Server 交接](../04-analysis-integration/A-019-map-music-contract.md) / [map→track 官方對照明示空表及原件 SHA](../02-server-planning/map-music-evidence.json) / [10 項離線測試工具](../tools/a019_music_map_probe.py)。S19 kind1 接 u8 repeat+u16BE track（音樂），kind!=1 只接 u16BE sound_id；原版依 `%05d.mp3` 產生音樂檔名。Map0/1/2 索引合計可辨識 494 個 *.map，未索引 Music/*.mp3 或 map→track，但這不是證明整份資源/原 Server 都無對應。**官方每張地圖音樂仍 unknown**，不可把本機測試 track1 或合成 CT-005 track18 充作官方。A-019 integrated/handoff partial，SCN-006 保留 manual-pass-subset，CT-060～062 planned/native Client not-run。
+
+## A-004 / roy1：多人及 NPC 物件可見性
+
+[原版 Client 封包／物件容器／消失深度研究](A-004-roy1-world-visibility.md)、[Server interest/EntityId 契約](../04-analysis-integration/A-004-entity-visibility-contract.md)、[20 BIN signatures 與 18 Python 單元測試](../tools/a004_visibility_model.py)。原生 S07/S33 生成／更新、S0C/S64 移動、S11 方向、S1A 動作、S0E RemoveObjects、**S5F DieObjects（更正舊 PKT-S1E）** 可交接；官方 AOI radius、原服 wire ref 重用及 NPC/Monster 內容綁定仍 unknown。A-004 integrated/handoff partial，原 Client 兩人 E2E 未執行、CT-063..065 planned。

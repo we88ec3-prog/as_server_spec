@@ -472,7 +472,7 @@
         "PKT-C3D",
         "PKT-S3D",
         "PKT-S52",
-        "PKT-S1E"
+        "PKT-S5F"
       ],
       "input": {
         "kind": "test-design",
@@ -502,7 +502,7 @@
         "PKT-C3D",
         "PKT-S3D",
         "PKT-S52",
-        "PKT-S1E"
+        "PKT-S5F"
       ],
       "input": {
         "kind": "test-design",
@@ -532,7 +532,7 @@
         "PKT-C3D",
         "PKT-S3D",
         "PKT-S52",
-        "PKT-S1E"
+        "PKT-S5F"
       ],
       "input": {
         "kind": "test-design",
@@ -1294,7 +1294,7 @@
         "PKT-C4D",
         "PKT-C56",
         "PKT-S52",
-        "PKT-S1E"
+        "PKT-S5F"
       ],
       "input": {
         "kind": "bin-derived-synthetic",
@@ -1309,7 +1309,7 @@
           "S1E": "12345678"
         }
       },
-      "expected": "Client original opcode/codec signatures match C13 u32 BE,C4D u16 BE,C56 u8, S52 u32 BE+u8,S1E u32 BE. Not proof of original quest kill count or Server success result; native E2E not-run",
+      "expected": "Client original opcode/codec signatures match C13 u32 BE,C4D u16 BE,C56 u8, S52 u32 BE+u8,S5F (corrected opcode) u32 BE. Not proof of original quest kill count or Server success result; native E2E not-run",
       "evidence_kind": "observed-static-plus-synthetic",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md"
@@ -1353,7 +1353,7 @@
         "PKT-C4D",
         "PKT-C56",
         "PKT-S52",
-        "PKT-S1E"
+        "PKT-S5F"
       ],
       "input": {
         "kind": "designed-sqlite-synthetic",
@@ -1634,6 +1634,110 @@
         ]
       },
       "expected": "Fail-closed provenance-gated music cue, epoch fenced/duplicate suppressed; synthetic fixtures not official mapping, original Client multi-map E2E pending",
+      "evidence_kind": "designed"
+    },
+    {
+      "id": "CT-063",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "level": "native-object-visibility-codec",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S33",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S11",
+        "PKT-S1A"
+      ],
+      "input": {
+        "kind": "original-exe-plus-bounded-fixtures",
+        "reference": "tools/a004_visibility_model.py",
+        "cases": [
+          "Native constructor opcode decode 0x07/0x0e/0x5f/0x33/0x0c/0x64/0x11/0x1a",
+          "S07 u16 count and 11 byte common record (type5..12 only); type1/2/4 flags, type3/type13 string8, type14 u8,u8,u16 typed parser pending",
+          "S0E and S5F distinct u32BE ref and distinct handler",
+          "S0C BE u32/u16/u16/u8/u8; S64 count/length bounded; S11 ref+direction and S1A ref+u8+u16+u8",
+          "S33 other human ref and attributes; S05 own ref not other-player add"
+        ]
+      },
+      "expected": "Original 20 instruction signatures match; strict direction-specific typed codec; no S1E DieObjects opcode; native Client E2E not-run",
+      "evidence_kind": "observed-static-plus-synthetic"
+    },
+    {
+      "id": "CT-064",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "level": "two-native-client-aoi-lifecycle",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S33",
+        "PKT-S07",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S0C",
+        "PKT-S64",
+        "PKT-S11",
+        "PKT-S15"
+      ],
+      "input": {
+        "kind": "native-client-manual-plan",
+        "cases": [
+          "Two original Clients same map mutual spawn and object ID equality of updates",
+          "Both directions move/change dir and walk out of AOI",
+          "Logout/abrupt socket close removes visible counterpart but not database Character",
+          "Map transition clears old other objects, preserves self/reloads new visible population",
+          "Death and revive separately from AOI exit; ID reuse collision and sequence"
+        ],
+        "missing": [
+          "Original Server two-client captures with verified map_instance and S07/S33/S0E/S5F sequence",
+          "Known release NPC/monster scene type mapping and model resources"
+        ]
+      },
+      "expected": "Each viewer sees only scoped entity, one binding per ref, no ghost; original AOI radius and notification timing UNKNOWN until runtime evidence",
+      "evidence_kind": "planned-native"
+    },
+    {
+      "id": "CT-065",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "level": "designed-server-interest-identity-fencing",
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "packet_ids": [
+        "PKT-S07",
+        "PKT-S33",
+        "PKT-S0E",
+        "PKT-S5F",
+        "PKT-S0C",
+        "PKT-S64"
+      ],
+      "input": {
+        "kind": "designed-synthetic",
+        "reference": "tools/a004_visibility_model.py",
+        "cases": [
+          "same wire-ref duplicate same entity refresh vs different entity collision",
+          "wrong World map/map_instance or stale session generation rejected",
+          "death does not automatically delete visible object or grant quest kill",
+          "move without prior spawn rejected",
+          "old map S0E cannot remove new epoch binding in Domain",
+          "wire cannot distinguish old/new events within same TCP when ref reused: fence/reconnect"
+        ]
+      },
+      "expected": "No unauthorized cross-map observer visibility, ghost objects or ref aliasing; designed internal epoch does not change native wire layout",
       "evidence_kind": "designed"
     }
   ]

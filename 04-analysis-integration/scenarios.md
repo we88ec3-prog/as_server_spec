@@ -67,11 +67,11 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 
 ## A-025：SCN-012 教學技能/攻擊到任務目標（條件式；非原服必需戰鬥已證）
 
-[詳細研究](../03-analysis-requests/A-025-roy1-tutorial-combat.md)。Client C13 攻擊 target u32、C4D 開始施法 u16、C56 CastSpell u8；S52 CastSpell u32+u8、S1E DieObjects u32，C3D/S3D Battle 的 u8 subtype 0..15 多態（每個 subtype 尚未完整）。**不能把 S1E 消失、C13 攻擊指令或 Script C6C 關閉直接算 quest success**。Born 引導找 (31,29) 女性招募員、未宣告殺怪需求，但其他未知任務 Script/原服可能另有戰鬥。Server 對已驗證目標/怪物/原服任務 mapping 才可生成 unique event 並計進度；目前 `native_tutorial_combat_requirement_proven=false`、`native_quest_progress_mapping_ready=false`，SCN-012 維持 `analysis-required`。A-024、A-008/009/010、A-012/026 接續；CT-051/052/053 planned。
+[詳細研究](../03-analysis-requests/A-025-roy1-tutorial-combat.md)。Client C13 攻擊 target u32、C4D 開始施法 u16、C56 CastSpell u8；S52 CastSpell u32+u8、S5F DieObjects u32，C3D/S3D Battle 的 u8 subtype 0..15 多態（每個 subtype 尚未完整）。**不能把 S5F 消失、C13 攻擊指令或 Script C6C 關閉直接算 quest success**。Born 引導找 (31,29) 女性招募員、未宣告殺怪需求，但其他未知任務 Script/原服可能另有戰鬥。Server 對已驗證目標/怪物/原服任務 mapping 才可生成 unique event 並計進度；目前 `native_tutorial_combat_requirement_proven=false`、`native_quest_progress_mapping_ready=false`，SCN-012 維持 `analysis-required`。A-024、A-008/009/010、A-012/026 接續；CT-051/052/053 planned。
 
 ## A-026 / roy1：SCN-013 完成教學／發獎／出圖的有界證據
 
-[A-026 原版 Client/資源核對](../03-analysis-requests/A-026-roy1-tutorial-completion.md) / [安全 Domain 設計](A-026-tutorial-completion-contract.md)。Client 只證：S44 指名 Born Main → 紙張引導 (31,29) 招募員 → C6C4/C6C2 lifecycle close；另有 C39 generic Merchant NPC、C0B Quit empty、S15/S14/C35/S04 generic map load。**沒有**證實的 Server quest completion、npc id/script binding、可選獎勵、退出目的 map/x/y 或重登入恢復政策。SCN-013 不得因 C6C close、C39 click、S1E death、C35 或 S14 control2 標 completed。只在 verified original rule + authoritative event 時做單事務 Complete+optional Reward+Outbox，only verified exit map/revision 能切圖；失敗時保留 durable completion 並按上次 map/pos 恢復。CT-026～028 仍 planned，另 CT-054～056 synthetic/design；原 Client not-run。
+[A-026 原版 Client/資源核對](../03-analysis-requests/A-026-roy1-tutorial-completion.md) / [安全 Domain 設計](A-026-tutorial-completion-contract.md)。Client 只證：S44 指名 Born Main → 紙張引導 (31,29) 招募員 → C6C4/C6C2 lifecycle close；另有 C39 generic Merchant NPC、C0B Quit empty、S15/S14/C35/S04 generic map load。**沒有**證實的 Server quest completion、npc id/script binding、可選獎勵、退出目的 map/x/y 或重登入恢復政策。SCN-013 不得因 C6C close、C39 click、S5F death、C35 或 S14 control2 標 completed。只在 verified original rule + authoritative event 時做單事務 Complete+optional Reward+Outbox，only verified exit map/revision 能切圖；失敗時保留 durable completion 並按上次 map/pos 恢復。CT-026～028 仍 planned，另 CT-054～056 synthetic/design；原 Client not-run。
 
 ## A-007：SCN-015 物品實例、裝備、背包數量/移除及重登
 
@@ -80,3 +80,7 @@ scenarios.json 的對應 packets 目前為空，意思是**尚未取得有證據
 ## A-019 / roy1：SCN-006 地圖背景音樂配置仍只有通用原版播放能力
 
 [A-019 native S19/Map 索引報告](../03-analysis-requests/A-019-roy1-map-music.md) / [音樂來源安全契約](A-019-map-music-contract.md)。原 Client 會依 S19 kind1+repeat+u16BE track 決定播放編號並組 `%05d.mp3`；kind!=1 是另一個音效處理分支，不含 repeat。Map0/1/2.dat 確認有 494 個索引 *.map 名稱、無 MP3 filename 或官方 map→track table，因此**任何地圖的 track 設定均未經原始 Server/資源證實**；未知時不要自動播放 track1，若選擇換圖 stop，須標示為 designed fallback。已通過的本地「聽見音樂」只限 manual-pass-subset，不能說原服背景音樂對應完成；正式驗收應取同版本多張地圖的 Server→Client S19 與 map_id 對照 trace。CT-060～062 planned，原版 Client E2E not-run。
+
+## A-004 / roy1：SCN-005/011 多人視野、其他物件消失
+
+[完整原件研究](../03-analysis-requests/A-004-roy1-world-visibility.md) / [Server Domain](A-004-entity-visibility-contract.md)。Client 對其他 human 使用 S33；generic object 使用 S07(count/type/u32 ref＋變長尾欄)；S0C/S64 同步他人位置/路徑，S11 同步方向，S1A 動作，S0E u32 ref 離開/移除，**S5F u32 ref 是獨立死亡相關事件**（勘誤舊 S1E opcode）。MapPane ref lookup 0x4eac30、S15 換圖清舊場景其他物件。新 Server 每個 observer/WorldGeneration/map_instance 維護 visible ref→stable entity 綁定，不允許跨地圖、跨 generation 刪除；同 TCP 原生 wire 無 epoch，重用 ref 前需排序/屏障。不把 S5F 視為 Server quest progress 或把 S0E 視為永久刪除。SCN-005/011 分析仍需原版雙 Client/runtime 與 A-024 NPC/Monster mapping；CT-063～065 planned。

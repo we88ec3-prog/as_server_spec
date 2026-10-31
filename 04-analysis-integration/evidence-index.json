@@ -2142,6 +2142,51 @@
         "resource/client release pairing unverified",
         "real original Client audio across different maps not tested"
       ]
+    },
+    {
+      "evidence_id": "ev_a004_20261031_world_entity_visibility_bin_static",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "method": "Original Asgard.exe x86 objdump ctor→BasePacket for S07/S0E/S5F/S0C/S64/S11/S1A/S33; virtual reader BE helper and S07 type switch/record stride, MapPane map ID ref registry and handler; 20 binary signatures; 18 Python synthetic Domain tests",
+      "scope": "A-004 multi-entity visibility: draw/leave/death/move/dir/path/motion 32-bit wire refs and original Client registry lookup; designed per-viewer scope/epoch fencing; no native Server ID allocation/AOI radius or two Client E2E",
+      "functions": [
+        "0x57e329",
+        "0x57e3e0",
+        "0x57e3f1",
+        "0x57e447",
+        "0x57e5d4",
+        "0x57e5e8",
+        "0x585e79",
+        "0x585f10",
+        "0x57e1c9",
+        "0x57e260",
+        "0x5854d9",
+        "0x585570",
+        "0x5833b9",
+        "0x583450",
+        "0x583549",
+        "0x5835e0",
+        "0x57d6d9",
+        "0x57d770",
+        "0x582f39",
+        "0x582fd0",
+        "0x4f17c0",
+        "0x4f1818",
+        "0x4eac30",
+        "0x4f16e0",
+        "0x4f1750"
+      ],
+      "report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "contract": "04-analysis-integration/A-004-entity-visibility-contract.md",
+      "synthetic_test": "tools/a004_visibility_model.py",
+      "original_opcode_correction": "SDieObjects is 0x5f native ctor 0x57e1c9. Previous S1E/0x1e was factory allocation argument, NOT packet opcode.",
+      "limits": [
+        "No original Server AOI radius/visibility recipient selection; observer interest policy designed",
+        "No original Server entity ID permanence/reuse proven",
+        "S07 native type->NPC/monster resource mapping/optional tails and S0E vs S5F visual side effects partial",
+        "Original two-Client E2E, map reload/disconnect/drop/death test not run"
+      ]
     }
   ]
 }

@@ -676,8 +676,8 @@
       "name": "PutHuman",
       "system": "SYS-LOOK",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "玩家座標、面向、外觀及名稱；見appearance.md",
-      "client_entry": "0x585570",
+      "layout": "u16BE x,u16BE y,u8 facing,u32BE object_ref, then appearance flags/CP950 name/extra variable body; other human visibility spawn/update, S05 is self; see appearance.md; original Server AOI/ref scope unknown",
+      "client_entry": "0x5854c0 constructor push0x33 at 0x5854d9; reader 0x585570",
       "state_precondition": "玩家與地圖已建立",
       "related_packets": [],
       "layout_status": "profile-documented",
@@ -687,6 +687,12 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-006"
+      ],
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "visibility_scope": "other human with 32-bit object_ref, native AOI/ID lifetime unknown",
+      "native_client_validation": "not-run",
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ]
     },
     {
@@ -1049,7 +1055,7 @@
       "state_precondition": "Client selected object and passed local flags/time gates; Server must validate authenticated World/target/version and authority",
       "related_packets": [
         "PKT-S3D",
-        "PKT-S1E"
+        "PKT-S5F"
       ],
       "layout_status": "observed-static",
       "profile": "TW-seed0-local-v0.1",
@@ -1210,14 +1216,14 @@
       "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown"
     },
     {
-      "id": "PKT-S1E",
+      "id": "PKT-S5F",
       "direction": "S2C",
-      "opcode": "0x1e",
+      "opcode": "0x5f",
       "name": "DieObjects",
-      "system": "SYS-COMBAT",
-      "layout": "BE u32 opaque object ref, native reader 0x57e260; object presentation removal/death candidate only; NOT an authoritative quest event",
-      "client_entry": "0x57e030 ctor (0x57e049 opcode 0x1e); 0x57e260 parser",
-      "state_precondition": "Client world entity exists; Server death/visibility/quest authority separately verified",
+      "system": "SYS-WORLD",
+      "layout": "u32 BE opaque object_ref (4 bytes), ctor 0x57e1c9 push 0x5f; reader 0x57e260; different from S0E RemoveObjects and NOT a quest kill ACK. Correction: old PKT-S1E opcode 0x1e was factory allocation parameter at 0x57e298, not actual native ctor opcode",
+      "client_entry": "0x57e1b0 constructor (opcode 0x5f at 0x57e1c9); 0x57e260 reader; world registry lookup handlers 0x4f16e0/0x4f1750 actions distinct; exact binding/visual effect pending",
+      "state_precondition": "Original Client world already exists; represented ref must be known in current map; no Server quest progress inference",
       "related_packets": [
         "PKT-C13",
         "PKT-S3D"
@@ -1229,17 +1235,23 @@
       ],
       "evidence_ids": [
         "ev_a025_20261031_attack_skill_bin_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a004_20261031_world_entity_visibility_bin_static"
       ],
       "requirements": [
         "R-010",
-        "R-030"
+        "R-030",
+        "R-004",
+        "R-007"
       ],
       "native_static_report": "03-analysis-requests/A-025-roy1-tutorial-combat.md",
       "manual_validation": "not-run; BIN/codec signatures only",
       "a025_scope_note": "No evidence original tutorial requires combat; original Server damage/quest conditions unknown",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
-      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "native_client_validation": "not-run",
+      "opcode_correction": "S1E is INVALID; S5F native verified from 0x57e1c9 direct ctor→0x578730; 0x57e298 push0x1e is allocation/debug argument"
     },
     {
       "id": "PKT-C39",
@@ -1385,6 +1397,186 @@
       ],
       "native_client_validation": "not-run",
       "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+    },
+    {
+      "id": "PKT-S07",
+      "opcode": "0x07",
+      "name": "DrawObjects",
+      "direction": "S2C",
+      "system": "SYS-WORLD",
+      "layout": "u16 BE count; count × record [u16BE x,u16BE y,u8 kind,u32BE object_ref,u16BE attr, type tail]; kind 1/2/4 optional flags/RGB/string8, kind3 5×u8+string8, kind5..12 no tail, kind13 string8, kind14 u8+u8+u16BE. Original count*0x228 internal allocation; Server must bound.",
+      "client_entry": "0x57e310 ctor push0x07 at0x57e329; 0x57e3e0 reader, type table 0x57e5d4/0x57e5e8; handler 0x4f17c0 and lookup 0x4eac30",
+      "profile": "TW-seed0-local-v0.1",
+      "state_precondition": "InWorld with map loaded and reference scoped to current scene; native Server AOI constraints unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S15",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "layout_status": "observed-static-partial-semantics",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+    },
+    {
+      "id": "PKT-S0E",
+      "opcode": "0x0e",
+      "name": "RemoveObjects",
+      "direction": "S2C",
+      "system": "SYS-WORLD",
+      "layout": "u32BE object_ref (4 bytes); removal/visibility-event candidate, NOT permanent entity delete or quest kill; exact Client visual effects pending.",
+      "client_entry": "0x585e60 ctor push0x0e at0x585e79; 0x585f10 reader; MapPane reference lookup 0x4eac30",
+      "profile": "TW-seed0-local-v0.1",
+      "state_precondition": "InWorld with map loaded and reference scoped to current scene; native Server AOI constraints unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S15",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "layout_status": "observed-static-partial-semantics",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+    },
+    {
+      "id": "PKT-S0C",
+      "opcode": "0x0c",
+      "name": "MoveObject",
+      "direction": "S2C",
+      "system": "SYS-WORLD",
+      "layout": "u32BE object_ref,u16BE x,u16BE y,u8 field0,u8 field1 (10 bytes); final u8 semantics unknown.",
+      "client_entry": "0x5833a0 ctor push0x0c at0x5833b9; 0x583450 reader",
+      "profile": "TW-seed0-local-v0.1",
+      "state_precondition": "InWorld with map loaded and reference scoped to current scene; native Server AOI constraints unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S15",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "layout_status": "observed-static-partial-semantics",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+    },
+    {
+      "id": "PKT-S64",
+      "opcode": "0x64",
+      "name": "MovePath",
+      "direction": "S2C",
+      "system": "SYS-WORLD",
+      "layout": "u32BE object_ref,u16BE x,u16BE y,u8 field0,u8 path_count,path_count×u8 path_bytes,u16BE field1,u16BE field2,u8 field3 (15+path_count bytes). Movement/tempo semantics unknown; bounded parser required.",
+      "client_entry": "0x583530 ctor push0x64 at0x583549; 0x5835e0 reader",
+      "profile": "TW-seed0-local-v0.1",
+      "state_precondition": "InWorld with map loaded and reference scoped to current scene; native Server AOI constraints unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S15",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "layout_status": "observed-static-partial-semantics",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+    },
+    {
+      "id": "PKT-S11",
+      "opcode": "0x11",
+      "name": "ChangeDirection",
+      "direction": "S2C",
+      "system": "SYS-WORLD",
+      "layout": "u32BE object_ref,u8 direction (5 bytes); direction code mapping 0..7 in local profile, original all bounds unknown.",
+      "client_entry": "0x57d6c0 ctor push0x11 at0x57d6d9; 0x57d770 reader",
+      "profile": "TW-seed0-local-v0.1",
+      "state_precondition": "InWorld with map loaded and reference scoped to current scene; native Server AOI constraints unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S15",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "layout_status": "observed-static-partial-semantics",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+    },
+    {
+      "id": "PKT-S1A",
+      "opcode": "0x1a",
+      "name": "Motion",
+      "direction": "S2C",
+      "system": "SYS-WORLD",
+      "layout": "u32BE object_ref,u8 field0,u16BE field1,u8 field2 (8 bytes); animation/duration meanings unknown.",
+      "client_entry": "0x582f20 ctor push0x1a at0x582f39; 0x582fd0 reader",
+      "profile": "TW-seed0-local-v0.1",
+      "state_precondition": "InWorld with map loaded and reference scoped to current scene; native Server AOI constraints unknown",
+      "related_packets": [
+        "PKT-S33",
+        "PKT-S15",
+        "PKT-S5F",
+        "PKT-S0E"
+      ],
+      "layout_status": "observed-static-partial-semantics",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "native_client_validation": "not-run",
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
     }
   ]
 }

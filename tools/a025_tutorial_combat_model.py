@@ -20,7 +20,7 @@ SIGNATURES = {
     'CCastSpell writer u8': (0x571800, bytes.fromhex('0fb6411850e8f692eeff')),
     'SCastSpell ctor 0x52': (0x57D569, bytes.fromhex('6a52')),
     'SCastSpell reader u32,u8': (0x57D600, bytes.fromhex('568bf1e8a8d8edff')),
-    'SDieObjects ctor 0x1E': (0x57E049, bytes.fromhex('6a1e')),
+    'SDieObjects ctor 0x5F': (0x57E1C9, bytes.fromhex('6a5f')),
     'SDieObjects reader u32': (0x57E260, bytes.fromhex('568bf1e848ccedff')),
     'CBattle ctor 0x3D': (0x5711CB, bytes.fromhex('6a3d')),
     'CBattle writer 16 variant branches': (0x570DEC, bytes.fromhex('8b461883f80f')),
@@ -57,7 +57,7 @@ def s52_cast_result(body):
     if len(body)!=5: raise ValueError('requires 5 bytes')
     return struct.unpack('>IB',body)
 
-def s1e_die(body):
+def s5f_die(body):
     if len(body)!=4: raise ValueError('requires u32')
     return struct.unpack('>I',body)[0]
 
@@ -115,8 +115,8 @@ class A025Tests(unittest.TestCase):
             with self.assertRaises(ValueError):f(x)
     def test_server_inbound_parser_fixtures(self):
         self.assertEqual(s52_cast_result(bytes.fromhex('1122334403')),(0x11223344,3))
-        self.assertEqual(s1e_die(bytes.fromhex('12345678')),0x12345678)
-        for p,body in ((s52_cast_result,b'\0'*4),(s1e_die,b'\0'*5)):
+        self.assertEqual(s5f_die(bytes.fromhex('12345678')),0x12345678)
+        for p,body in ((s52_cast_result,b'\0'*4),(s5f_die,b'\0'*5)):
             with self.assertRaises(ValueError):p(body)
     def _authority(self):
         t=tempfile.TemporaryDirectory()

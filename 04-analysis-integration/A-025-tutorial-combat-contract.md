@@ -14,7 +14,7 @@
 |S2C opcode|reader|body|
 |---|---|---|
 |0x52 SCastSpell|0x57D600|BE u32 opaque,u8 unknown result/state|
-|0x1E SDieObjects|0x57E260|BE u32 opaque object ref；**不是 server quest kill ACK**|
+|0x5F SDieObjects|0x57E260|BE u32 opaque object ref；**不是 server quest kill ACK**|
 |0x3D SBattle|0x57C890|u8 subtype0..15 + branch-specific body，需逐型補充|
 |SAddLastingSpell 等|參照本輪報告|Client buff reader 存在；效果持續/傷害計算未證|
 
@@ -26,7 +26,7 @@ AuthorizedCharacter + WorldReady + current WorldGeneration
   → Server validates target identity, map/instance, alive, range/LOS,
      learned skill, resource, cooldown, tick and intent replay
   → CombatResolved(server_event_id, generation) authoritative
-  → Project S3D/S52/S1E (only supported native layouts)
+  → Project S3D/S52/S5F (only supported native layouts)
   → IF verified_tutorial_objective_mapping from original content/server evidence:
          unique objective_event ledger → progress transaction → optional response
     ELSE: no tutorial progress change
@@ -37,3 +37,8 @@ C13 包只有 target u32，不信任 Client 對傷害/擊殺/目標計數宣告�
 ## 責任與測試
 
 A-025 = `integrated/handoff partial`；已證 opcode codec / hostile input validation / designed objective once ledger 可交 DEV；`native_tutorial_combat_requirement_proven=false`、`quest_progress_ready=false`。原生戰鬥公式、合法技能列表與 status、怪物 spawn/object id、教學 quest objective 由 A-008/009/010/012/024/026 或原服封包/資源證據補證。CT-023/024/025 尚未 native E2E；CT-051/052/053 為 planned synthetic/native-replay 設計。離線核對工具：`tools/a025_tutorial_combat_model.py`，須以原始 `Asgard.exe` 比對 14 組 byte signature；在單純 synthetic 環境中沒有 EXE 時只能部分跳過，不能聲稱已重現原生證據。
+
+
+## A-004 / roy1 更正（2026-10-31）
+
+原版 `SDieObjects` 真正 constructor 是 `0x57e1b0`，在 `0x57e1c9` 將 opcode **0x5F** 傳 `0x578730`；reader `0x57e260` 仍是 BE u32 object_ref。先前把 factory `push0x1e` 誤當 opcode，已更正成 **S5F**（另有 S0E RemoveObjects）。死亡通知本身仍非原服 quest completion 證據。參照 [A-004](../03-analysis-requests/A-004-roy1-world-visibility.md)。

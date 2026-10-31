@@ -121,12 +121,36 @@
       "title": "多人進出視野",
       "method": "兩原客戶端與MapPane/object registry；追加入、移除、死亡、斷線與ID重用。",
       "deliverable": "確定出生／更新／移除封包、ID生命週期、作用域與可見性情境。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a004_20261031_world_entity_visibility_bin_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
-      "native_client_validation": "not-run"
+      "handoff_status": "partial",
+      "native_client_validation": "not-run",
+      "evidence_kind": "observed-static-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "implementation_ready": true,
+      "implementation_ready_scope": "S07/0E/5F/0C/64/11/1A and S33 codecs/32-bit-ref identification, MapPane lookup and designed observer visibility state/epoch/reuse fencing; NOT original Server AOI/EntityId allocation policy",
+      "native_complete_visibility_ready": false,
+      "native_entityid_scope_proven": false,
+      "native_original_aoi_radius_proven": false,
+      "native_client_two_player_e2e": false,
+      "analysis_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "analysis_contract": "04-analysis-integration/A-004-entity-visibility-contract.md",
+      "analysis_test": "tools/a004_visibility_model.py",
+      "analysis_scope": "Original Asgard.exe S07 DrawObjects per-record x/y/type/ref, S0E RemoveObjects ref, S5F DieObjects ref corrected from S1E, S0C MoveObject, S64 MovePath, S11 ChangeDirection, S1A Motion, S33 PutHuman, MapPane ID lookup and designed AOI/ID lifetime; 20 BIN signature, 18 synthetic unittest",
+      "remaining_unknowns": [
+        "Original Server visibility radius/occlusion/interest update schedule and kind1..14 model/NPC/monster mapping",
+        "Wire u32 object_ref lifetime/scope/reuse policy across maps and disconnect and any authoritative persistent server EntityId relationship",
+        "S0E vs S5F complete native handler presentation/death/corpse semantics and resurrection/pickup effects",
+        "Original 2-Client same-map enter/leave/map-change/logout/reconnect runtime captures not run",
+        "Native S07 flags/color/string variants full safe parser, S64 path interpretation and S33 multi-subtype appearance across models partial",
+        "Original Server NPC spawn/content/map binding under A-024 remains unknown"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-005",

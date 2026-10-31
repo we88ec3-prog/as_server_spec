@@ -49,3 +49,7 @@ body offset不含opcode／ordinal／frame header。此處只規範原型已實�
 S04四個u16為x,y,viewport_x,viewport_y。原版此畫面viewport912×672、pane偏移(-56,-36)、tile48×32。格中心=(x*48+24,y*32+16)，鏡頭origin=((x-vx-1)*48,(y-vy-1)*32)。vx=8,vy=9使站立錨點與行走強制中點皆為(400,300)；舊9,9站立為(448,300)。改鏡頭參數不修改world x/y。此推導已服務測試，最後原生畫面驗收仍待A-006。
 
 Evidence：S04 ev_08f45301d5c17fcf09333f54c049442dd32a4a6f551c4eba162e87fdd9ea893a；行走中點ev_7ef42381f981f43d0445908032c8e49e53fae75cac4328784b83661e4bcb97a7；S33 parser ev_b87944056795dfae54db7b4dbb56b24f2d5ddaf2fe93da340822ca1a2a1c257b；S05 parser ev_2e40660b7657ca90cb324c25e7c8a1bb095e3c1395b6335e1109c17f4740bcb0；renderer ev_26329f59fb408885c1bf63d2650f557748afd1ca6df71c02cb9298596e9e2864。
+
+## A-004 / roy1：S33 human visibility 與 S07 generic visibility
+
+[原始證據](../03-analysis-requests/A-004-roy1-world-visibility.md)。S33 `object_id` 為 native u32BE wire object ref，不保證是永久 Server EntityId；原版 MapPane registry `0x4eac30` 依此 ref 查已建立物件。S07 DrawObjects 類型分支，S0C/S64 他人移動，S11 改方向，S1A 動作，S0E u32BE ref 移除，**S5F u32BE ref 死亡**（舊 S1E 誤判）。S15 跨圖清舊場景其他物件；自我透過 S05/S04。Server 應以 per observer world/map epoch 管理 refs，wire 無原生 epoch，ref 重用衝突時只能序列化/fence/reconnect。AOI 原服半徑與 2Client E2E unknown。

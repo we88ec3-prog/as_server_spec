@@ -80,3 +80,7 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## A-007 物品與裝備的原生 Client 驗收補強（CT-057～059 planned）
 
 [A-007](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) 列出已證 opcode：C1C type1..9 變長，C1E，C08 Drop，C0C PutRequest，S0F/S37 變長，S10/S38 removal。CT-057 核所有 branch 的 body length/字段與截斷拒絕；CT-058 在原 Client 具真實 resource/catalog 的環境確認 S0F mode0/1/2、S37 descriptors 並測 bag sync/remove。CT-059 在獨立 Server DB 測 item owner、slot+instance unique、split/consume、滿背包卸裝、不同 owner/replay/斷線/重啟及 outbox；再以原 Client GUI 確認物品顯示與裝備外觀。離線 Python 12 unittest 通過只證設計模型，**未執行原版 Client 真實物品生命週期**；不能把衣櫃的 01 slot 00 05 當全部物品 use packet。
+
+## A-004：CT-063～065 物件可見性/更新/消失驗收（planned）
+
+[原版 BIN-first 與 ID lookup](../03-analysis-requests/A-004-roy1-world-visibility.md)：CT-063 驗 S07 逐 kind 變長、S33 u32 ref、S0E/**S5F**（先前 S1E 勘誤）兩種事件、S0C/S64/S11/S1A 解析與長度拒絕。CT-064 以**兩個原版 Client** 同圖互見、連續移動、出視野、斷線、重登、切圖、死亡/復活，比對每個封包 ref/地圖實例及 UI 殘影；CT-065 Server-synthetic 測不同 observer/WorldGeneration/epoch 的 ID 回收、重複 spawn/leave、先死後消失、stale ref/reconnect。離線 20 signature +18 unittest pass 不是 native E2E；原服 AOI radius、NPC 資源與 wire ref scope unknown。

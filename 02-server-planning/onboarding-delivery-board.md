@@ -64,7 +64,7 @@ A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/hando
 
 ## A-025 / roy1：ONB-05 可實作的技能/攻擊子集（2026-10-31）
 
-[A-025 BIN-first](../03-analysis-requests/A-025-roy1-tutorial-combat.md) / [安全交接](../04-analysis-integration/A-025-tutorial-combat-contract.md)：已追 C13 Attack u32、C4D StartCastSpell u16、C56 CastSpell u8、C3D/S3D 0..15 多態、S52 CastSpell u32+u8 與 S1E DieObjects u32；Client C13 實際輸入觸發/本地 timer gate 具地址。可 DEV：typed codec、未授權/非法對象的 fail-closed、Server authoritative combat resolution / unique event ledger。**但原服傷害公式、技能 catalog/魔力/冷卻參數、NPC/怪物 entity、教學是否需要攻擊、任務目標映射都還未知**，不能直接標 ONB-05 native-ready。Born.dat 僅有 PaperDialog 導引，不能因 script 沒戰鬥指令就斷言全部教程無戰鬥。A-025 integrated/handoff partial；CT-051..053 planned、Client native not-run。
+[A-025 BIN-first](../03-analysis-requests/A-025-roy1-tutorial-combat.md) / [安全交接](../04-analysis-integration/A-025-tutorial-combat-contract.md)：已追 C13 Attack u32、C4D StartCastSpell u16、C56 CastSpell u8、C3D/S3D 0..15 多態、S52 CastSpell u32+u8 與 S5F DieObjects u32；Client C13 實際輸入觸發/本地 timer gate 具地址。可 DEV：typed codec、未授權/非法對象的 fail-closed、Server authoritative combat resolution / unique event ledger。**但原服傷害公式、技能 catalog/魔力/冷卻參數、NPC/怪物 entity、教學是否需要攻擊、任務目標映射都還未知**，不能直接標 ONB-05 native-ready。Born.dat 僅有 PaperDialog 導引，不能因 script 沒戰鬥指令就斷言全部教程無戰鬥。A-025 integrated/handoff partial；CT-051..053 planned、Client native not-run。
 
 ## A-026 / roy1：ONB-06 教學完成與出口的限制（2026-10-31）
 
@@ -73,3 +73,7 @@ A-017 管理/營運 API 規格與合成權限測試已交付：`integrated/hando
 ## A-007 / roy1 物品/裝備交付邊界（2026-10-31）
 
 [A-007 原版協定分支](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) / [可開發的資產安全骨架](../04-analysis-integration/A-007-inventory-domain-contract.md)。Server 可先實作 C1C use_kind1..9、C1E、C08、C0C 的有界 decoder、S10/S38 的 reader schema、S0F/S37 合成分支與 item instance/slot/owner/revision unique transaction/outbox。**不代表完整官方背包、卸裝、交易已經 Client 驗收或原服策略已知**。既有衣櫃 C1C(type5) 是本機用例，不能替代真正 item 掉落/使用/背包滿；A-013 交易/A-015 模板/原服 trace 是下游阻塞。CT-057/058/059 planned，native validation not-run。
+
+## A-004 / roy1：其他物件生成、可見、移動與消失（2026-10-31）
+
+[原始 EXE 逆向](../03-analysis-requests/A-004-roy1-world-visibility.md)／[Server AOI/ref 安全契約](../04-analysis-integration/A-004-entity-visibility-contract.md)：S07 DrawObjects 含 count/variable typed records、S33 Human、S0E RemoveObjects(u32)、S5F DieObjects(u32)（A-025 先前 S1E opcode 誤判已更正）、S0C MoveObject、S64 MovePath、S11 ChangeDirection、S1A Motion；MapPane 0x4eac30 依 ref 查實體。Server 用 internal stable EntityId 和 per observer connection/world instance/epoch wire ref projection。未知原服 AOI 半徑、ID 復用與 2 原版 Client 動態驗收；SCN-005/011 analysis-required、A-024 未完成、CT-063～065 planned。

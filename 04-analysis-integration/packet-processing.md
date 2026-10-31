@@ -78,7 +78,7 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 
 ## A-025 / roy1：Client 如何發攻擊/施法封包及原生回覆（2026-10-31）
 
-[原始函式/逐欄證據](../03-analysis-requests/A-025-roy1-tutorial-combat.md) / [Server 契約](A-025-tutorial-combat-contract.md)：原 Client `0x55709c/0x557a5d` 選取對象並通過本地狀態/時間閘後送 C13 `BE u32 target_ref`（writer `0x570ac0`）；`0x402034` 從被選技能 `[ebx+0x80e]` 送 C4D `BE u16 spell_value`（writer `0x5755c0`）；C56 `u8`（`0x571800`，完整發送 stage 未確認）。C3D/S3D Battle `0x3d` 先 subtype `u8`、0..15 多態，不可把全部分支編成同一 layout。原 S52 `0x52` reader `BE u32,u8`、S1E `0x1e` reader `BE u32`，**這些並非「任務已完成」封包**。Server 必須先判定目標/同場景/距離/資源/冷卻/世代，再提交戰鬥結果；只有獨立核對原服目標 mapping 才可由 server_event_id 唯一紀錄更新任務。Born.dat 本身沒有殺怪條件，但不證明全部教程都沒有；SCN-012/CT-023～025 保持分析/驗收未完成，新增 CT-051～053。
+[原始函式/逐欄證據](../03-analysis-requests/A-025-roy1-tutorial-combat.md) / [Server 契約](A-025-tutorial-combat-contract.md)：原 Client `0x55709c/0x557a5d` 選取對象並通過本地狀態/時間閘後送 C13 `BE u32 target_ref`（writer `0x570ac0`）；`0x402034` 從被選技能 `[ebx+0x80e]` 送 C4D `BE u16 spell_value`（writer `0x5755c0`）；C56 `u8`（`0x571800`，完整發送 stage 未確認）。C3D/S3D Battle `0x3d` 先 subtype `u8`、0..15 多態，不可把全部分支編成同一 layout。原 S52 `0x52` reader `BE u32,u8`、S5F `0x1e` reader `BE u32`，**這些並非「任務已完成」封包**。Server 必須先判定目標/同場景/距離/資源/冷卻/世代，再提交戰鬥結果；只有獨立核對原服目標 mapping 才可由 server_event_id 唯一紀錄更新任務。Born.dat 本身沒有殺怪條件，但不證明全部教程都沒有；SCN-012/CT-023～025 保持分析/驗收未完成，新增 CT-051～053。
 
 ## A-026 / roy1：新手教學完成不由 Client C6C 或載圖封包直接證明
 
@@ -86,8 +86,12 @@ Roy2 BIN-first 確認 Client C6C opcode 0x6C（ctor `0x575140`、serializer `0x5
 
 ## A-007 / roy1：完整背包/裝備指令與同步有界規格（2026-10-31）
 
-[A-007 詳盡分支](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) / [Safe Domain](A-007-inventory-domain-contract.md)：C1C `0x1c` **四個 u8 + use_kind1..9 變長尾部**，並非先前本機服裝使用的固定 `01 slot 00 05`。另外 C1E `0x1e` u8、C08 Drop `0x08` 3×u8、C0C PutRequest `0x0c` u32BE；Drop/Put 真正效果未證，不可將數值直接當持久 item ID。新增 S10 RemoveInventory `0x10` 3×u8、S38 RemoveEquipment `0x38` u8+u8（第二欄 bool transform `raw==1`）；S0F 的 0/1/2 數量模式與 S37 變長描述不能編成固定封包。C1E(C2S) 與 S1E(S2C DieObjects) opcode 相同但方向/類別不同。新 Server 應用內部 item instance/owner/stack/slot/revision、transaction+unique ledger+outbox，失敗不先改 S33 appearance；任何未證 use_kind 業務拒絕，SCN-015/CT-057～059 planned。
+[A-007 詳盡分支](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) / [Safe Domain](A-007-inventory-domain-contract.md)：C1C `0x1c` **四個 u8 + use_kind1..9 變長尾部**，並非先前本機服裝使用的固定 `01 slot 00 05`。另外 C1E `0x1e` u8、C08 Drop `0x08` 3×u8、C0C PutRequest `0x0c` u32BE；Drop/Put 真正效果未證，不可將數值直接當持久 item ID。新增 S10 RemoveInventory `0x10` 3×u8、S38 RemoveEquipment `0x38` u8+u8（第二欄 bool transform `raw==1`）；S0F 的 0/1/2 數量模式與 S37 變長描述不能編成固定封包。C1E(C2S) 與 S5F(S2C DieObjects) opcode 相同但方向/類別不同。新 Server 應用內部 item instance/owner/stack/slot/revision、transaction+unique ledger+outbox，失敗不先改 S33 appearance；任何未證 use_kind 業務拒絕，SCN-015/CT-057～059 planned。
 
 ## A-019：S19 的 music / other-sound 原版分流與曲目來源
 
 [原件](../03-analysis-requests/A-019-roy1-map-music.md)：SPlaySound ctor 0x584A49 opcode0x19；parser 0x584AE0 `kind=u8`，`kind==1` 才讀 `repeat=u8`，最後都讀 `track_or_sound_id=u16BE`。handler 0x4F25D0 `kind==1` → 0x53CDC0 音樂、其他 → 0x53D250 音效；音樂檔名 UTF-16LE `%05d.mp3`，Music 目錄資源。既有 CT-005 `01 00 00 12` 及 CT-006 `01 00 00 00` 是合成測試，**不是官方 map→track**。三份 Map archive 原件索引 494 個 *.map，未列 Music/mp3；正式 Server catalog 需 `origin_verified` 才可 map→track，不得猜 `map_ref==track_id`。SCN-006 manual-pass-subset 維持，CT-060～062 planned；Client multi-map E2E not-run。
+
+## A-004 / roy1：原版其他物件生命週期、EntityId 與消失
+
+[A-004 BIN-first](../03-analysis-requests/A-004-roy1-world-visibility.md) / [Server projection](A-004-entity-visibility-contract.md)。S07 DrawObjects ctor0x57e329，parser0x57e3e0：u16BE count + 每筆 u16 x/y,u8 kind,u32BE object_ref,u16 attr，依 type1/2/4/3/13/14 變長，type5..12 無尾欄。S33 PutHuman (u32BE ref+human look/name)；S0E RemoveObjects ctor0x585e79,parser0x585f10 = u32BE ref；**S5F DieObjects** ctor0x57e1c9,parser0x57e260 = u32BE ref（舊 S1E 是把 factory 0x1e 誤當 opcode）；S0C MoveObject ref+2u16+2u8，S64 MovePath ref+2u16+u8+u8 count+count×u8+2u16+u8，S11 ChangeDirection ref+u8，S1A Motion ref+u8+u16+u8。0x4eac30 MapPane registry 根據 ref 查找；S15 換圖清除其他物件（自身另由 S05/S04 維護）。**wire ref 並非已證持久 EntityId**；Server 另以 per observer connection+world/map instance+generation+epoch 做投影，舊 S0E 與重用 ref 的新 S33 在原生 wire 無 epoch 時會產生歧義，必須 fence/reconnect。SCN-005/011 analysis-required、CT-063～065 planned；原生雙 Client AOI 半徑與 NPC 資源綁定尚未驗收。

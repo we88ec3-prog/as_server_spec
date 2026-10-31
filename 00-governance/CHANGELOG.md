@@ -89,3 +89,7 @@ Fast-forward merge `task_a/roy1` (d1b53b0)；獨立比對 Client SHA 與 BIN，�
 ## task_a/roy1 — 2026-10-31 A-019 原生地圖音樂對應與 S19 解析
 
 以原始 Asgard.exe SHA256 固定追 SPlaySound 0x584A49/0x584AE0、S19 handler 0x4F25D0（kind1 音樂 → 0x53CDC0，非1 音效 → 0x53D250）、曲目 `%05d.mp3`，重查已提供的 Map0/1/2.dat 原件 SHA與36-byte entry directory，索引分別有288/184/22 可辨識 `*.map`，沒有 MP3/music filename 和已證實官方 map→track mapping。明示 unknown（不把本機 track1 當官方）。新增 BIN-first 報告、Domain 契約、map-music-evidence.json（verified rows0）、offline 11 signature/10 unittest，以及 CT-060/061/062；更新 A-019/PKT-S19/SCN-006/CT-005/006/Manifest。A-019 integrated/partial，native Client E2E not-run，原服 map→track 尚未還原。
+
+## task_a/roy1 — 2026-10-31 A-004 其他物件 Visibility / EntityId / Remove
+
+使用原始 Asgard.exe SHA256 固定的 BIN-first 證據：S07 DrawObjects count/type/ref、S33 PutHuman、S0E RemoveObjects、**S5F DieObjects（修正 A-025 錯誤 S1E/0x1e）**、S0C MoveObject、S64 MovePath、S11 ChangeDirection、S1A Motion；0x4eac30 registry lookup/ref，0x4f17c0 DrawObjects 消費。提交 A-004 詳細報告、Server AOI/ID/epoch/ref fencing contract、20 原始 signature＋18 synthetic unittest、機讀 PKT/SCN/CT-063～065/Manifest。A-004 integrated/handoff partial，兩原版 Client native E2E、Server AOI 半徑、真正原服 EntityId 重用與 NPC/怪物 type 綁定仍 unknown。沿用 task_a/roy1，不新增 branch 或 merge main。
