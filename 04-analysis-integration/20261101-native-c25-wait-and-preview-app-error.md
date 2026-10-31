@@ -95,3 +95,7 @@ Get-WinEvent -FilterHashtable @{
 - 若需要**排錯**，可唯讀檢查 WER dump 之 exception context、暫存 fault address、call stack、修改版檔案 hash 和預覽版 RVA；此流程不得覆蓋原件 SHA 或污染原版 A-028/A-031 結論。
 - **另一路問題保持有效但狀態須精準：** 03:47 的 C03→S03→C10→C25 已在 Server JSONL 觀察到；Server `_worldFixture==null` 於 C25 後 `Continue()` 零回覆是 Server 程式既有設計。這可用於定位**Server 目前沒有啟動原生 World 載入回應**，但若送包者是修改版，並不等於未修改原件的 GUI/World E2E 已實測。
 
+
+## RI-008 修改版 EXE 的實際 byte diff（排錯證據，非原版 Client 驗收）
+
+已以原始 EXE SHA db3df616... 和 Preview SHA e834a07d... 逐 byte 對照。Windows WER 的修改版 fault RVA 0x141264 在 Preview 實際是 mov [eax+4],edx，周邊位元組與原件相同。Region3 創角 final S02 UI callback 0x4B212A 會呼叫該函式，但不能從 WER 單獨證明該 callsite 是崩潰 caller；測試版另有 0x4A880D jne→jmp、UI handler 與 .tipfix 變更。詳細風險與需取得的 EAX/stack 見 [RI-008](20261101-preview-exe-crash-debug-diff.md)。請不要把修改版當作原始 Client。

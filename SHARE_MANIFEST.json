@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "b0e5d6ea7c1ac5ff1076d2f5afc0c7088bcd9c6414b97150369f715ef9fb9014"
+      "sha256": "58162a103663d1197e7d4fc80b0a70abdfa785d9853cfd792e4edbed796b0e63"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -397,11 +397,15 @@
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
-      "sha256": "38c02ffcab8d4c307895fb27431280a6b9d30ee028ff5d4dc84ce01f0dd4632f"
+      "sha256": "f88f79dc14a17ac5d55c294a483a9de2bccc951692ed1018e055b10857a4ba9c"
     },
     {
       "path": "04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md",
       "sha256": "f17d182c55e61616ed19a92c336d5765f8f6ec33c42d68a1b8c6703c3f18f960"
+    },
+    {
+      "path": "04-analysis-integration/20261101-preview-exe-crash-debug-diff.md",
+      "sha256": "0991691ca9ea120e0b81ffeb01a26ebbcc9a08f587fb1d858d90c2af418d3c4a"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",

@@ -1,4 +1,8 @@
 # 變更紀錄
+## 2026-11-01 RI-008：實際比對修改版 EXE 的 0xC0000005 崩潰位址
+
+讀取用戶提供的 Preview 與原件，確認修改版新增 .tipfix、.text 8 個差異區塊；Windows WER RVA 0x141264 的實際 Preview 指令為 mov [eax+4],edx。創角 S02(0) Region3 callback 是其可能 caller 之一，缺 EAX/stack 無法證實真正根因。列出 Preview Region3 條件跳轉等 Patch 候選，只供排錯，不能當原件 Client 研究成果。詳 [RI-008](../04-analysis-integration/20261101-preview-exe-crash-debug-diff.md)；未修改 Server 或任何 EXE。
+
 ## 2026-11-01 修改版 Preview 僅供排錯，不得冒認原版遊戲分析
 
 使用者明確更正 `Asgard-main-menu-preview.exe` 經調整僅供排除錯誤；WER APPCRASH `0xC0000005` / RVA `0x00141264` 僅是修改版 debug evidence，不可直接套到原版 `Asgard.exe` 的 VA `0x00541264` 當成已證原版 faulting instruction。更新 RI-006/007 與 P0 分析隔離標記。Server C25 後 `Continue()` 零 S2C 屬程式碼事實，但原版 Native Client E2E 仍 not-run。只修改 `as_server_spec`；沒有修改 Server/遊戲 EXE。
