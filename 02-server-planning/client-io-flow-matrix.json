@@ -618,7 +618,7 @@
     {
       "id": "FLOW-NPC-OBJECTS",
       "label": "NPC／怪物生成、移動、資訊、動作、死亡與移除",
-      "client_trigger": "進入 World/map、AOI 內有非 Human 物件；Client 收 S07/S0C/S64/S34/S3C/S62/S63/S29/S5F/S0E；玩家攻擊或物件資訊請求另可送 C13/C43，但 NPC 對應 UI 未完全證",
+      "client_trigger": "World/map AOI receives S07 kind1/2/4 MonsterObject spawn then S0C/S64 motion/position, S11 direction, S1A motion, S5F die and S0E removal (different semantics). Independent UI panel 0x4A2376 with state0/1/2 may send C43 type1/subtype04,10,40 keyed to current pane object ref. Original click→dialog/NPC entity not proven.",
       "client_send": [
         "PKT-C13",
         "PKT-C43"
@@ -635,7 +635,7 @@
         "PKT-S5F",
         "PKT-S0E"
       ],
-      "client_reaction": "S07 0x57E3E0 full type1..14 native row parse, nonempty variants 1/2/4,3,5..12,13,14; S0C fixed10B; S64 path15+N (cap11 designed); S34 object-info subtype6 plus subtype11 full native six flag-based groups; S3C display info7B; S62 add action variable strings; S63 remove action2B; S29 effect13B; S5F death4B != S0E removal4B. Exact kind-to-NPC/monster map and GUI/object registry handlers still need CT.",
+      "client_reaction": "S07 reader 0x57E456 reads common fifth u16BE into row+0x0C. Handler0x4F1A7F places it first in20B descriptor passed to kind1/2/4 MonsterObject0x4D6FA0; ctor0x4D7020 copies visual descriptor and image factory0x4D2340 uses its first u16 for MonsterImageLib0x4D7530/0x4D7560. Safe registered image0x4000..0x41AD resolves Monster00..42.dat, library8000..8042, image slot0..9. Tail variant_u16 row+0x222 is separately converted to float+0x27C, not image ID. C43 same UI panel mode0/1/2 sends subtype04/10/40 with BEu32 pane+0x4C ref; actual S34/S3C/S44 dialogue response linkage unknown. S5F death and S0E removal distinct.",
       "evidence": [
         "A-024",
         "A-004",
@@ -652,21 +652,25 @@
         "CT-022",
         "CT-034",
         "CT-080",
-        "CT-081"
+        "CT-081",
+        "CT-116"
       ],
       "server_decisions": [
         "Choose type and content map only from verified resource/version + designed data, do not assume kind1 is monster or Born(31,29) is NPC spawn.",
         "Server defines authoritative NPC AI/respawn/visibility, map epoch, object generation and event ordering, with no claim of original Server timing.",
         "Do not conflate S63 action removal, S5F death and S0E object removal; ensure invalid map, stale epoch, duplicate ID and excessive path counts fail closed."
       ],
-      "readiness": "S07 kind1..14 complete static row schema, S34 subtype6/11 full conditional decoded-body and other object S2C packet inventory ready; renderer/monster-kind mapping/native GUI still separate",
+      "readiness": "Now static ready: exact S07 kind1/2/4 picture source field -> MonsterImageLib registered bank/slot and C43 three bounded UI-panel subtypes. Still NOT ready: real MonsterNN.dat/WorldNN.dat member/YPF/DOI frame+motion mapping, which NPC/monster template/name uses which image ID, original NPC click dialogue, native GUI/Server AI/drop/spawn.",
       "unknowns": [
         "Kind1..14->NPC/monster/static sprite and object key registry mapping unknown",
         "S34 subtype11 display mapping to actual UI and S62/63 Action UI context unknown",
         "Original tutorial spawn map/NPC IDs and Server AI policies unknown",
         "Native world object rendering/interaction E2E not run",
-        "Native S07 1/2/4 -> MonsterObject and MonsterNN.dat archive/slot known via A-011; exact NPC class/name/sprite field, GUI chat binding and real native Client E2E still unknown",
-        "nNewJoin01 MerchantTalk school dialogue (3 pages) source now confirmed by original file, but original NPC EntityId/Map/ScriptRunner root/dependency mapping is not in Script XML. QuestDialog_Create/MerchantDialog_Create definitions not in four supplied resources; native NPC GUI E2E not-run."
+        "nNewJoin01 MerchantTalk school dialogue (3 pages) source now confirmed by original file, but original NPC EntityId/Map/ScriptRunner root/dependency mapping is not in Script XML. QuestDialog_Create/MerchantDialog_Create definitions not in four supplied resources; native NPC GUI E2E not-run.",
+        "Actual original Monster00.dat or other MonsterNN raw archive bytes not provided this turn; cannot map bank/image slot to YPF member/group/direction/frame; historical five-member metadata alone insufficient.",
+        "Native C43 UI panel mode04/10/40 meaning and mouse click→C39/C43→S34/S3C/S44/NPCChatDialog chain not confirmed by GUI.",
+        "Scene u32 object_ref, Monster imageID, Client libraryID and original Server template/NPC/entity/drop/AI are distinct namespaces; actual templates/Server policy still unknown.",
+        "Native Client NPC/monster rendering/animation/click CT-083 not-run."
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-024-analysis.md",
@@ -677,8 +681,11 @@
       "a011_implementation_boundary": "Client library ID/asset image ID/Server actor EntityId different namespaces; no proof which official NPC species or S07 row maps to which MonsterNN.dat member; original Monster/World assets missing. Do not invent NPC chat or animation semantic names.",
       "analysis_reports": [
         "task_a/roy2/A-024-analysis.md",
-        "task_a/roy2/A-011-analysis.md"
-      ]
+        "task_a/roy2/A-011-analysis.md",
+        "task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md"
+      ],
+      "a011_visual_chain": "S07 common field_c BEu16 -> 0x4F1A7F descriptor -> MonsterObject ctor0x4D6FA0 -> image factory0x4D2340 -> MonsterImageLib 0x4D7530/0x4D7560. Distinct variant_u16 native row+0x222 -> float object+0x27C. Source task_a/roy2/A-011-native-s07-visual-id-c43-20261101.md",
+      "a011_c43_panel": "mode0/1/2 C43 type1 subtype04/10/40, BEu32 pane+0x4C ref, enqueue0x4A2558. Actual mouse→NPC chat not verified."
     },
     {
       "id": "FLOW-SKILL",
