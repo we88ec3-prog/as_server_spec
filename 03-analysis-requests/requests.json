@@ -1221,7 +1221,8 @@
         "A024-E15",
         "A024-E16",
         "A024-E17",
-        "A024-E18"
+        "A024-E18",
+        "A024-E19"
       ],
       "dependencies": [
         "A-004",
@@ -1252,15 +1253,15 @@
       "analysis_report": "task_a/roy2/A-024-analysis.md",
       "codec_probe": "task_a/roy2/a024_npc_codec.py",
       "implementation_ready": true,
-      "implementation_ready_scope": "Client S2C decoded-body: S07 nonempty rows kind1..14; S0C and S64 movement; S34 object info subtype6 (subtype11 parser pending), S3C show info, S62/S63 action, S29 effect, S5F death and S0E removal. Native renderer / spawn category still unknown.",
+      "implementation_ready_scope": "Native Client S2C object/event bodies: full S07 kind1..14 nonempty rows; S0C/S64 movements; S34 subtype6 and subtype11 all six flag-dependent groups; S3C info; S62/S63 action; S29 effect; S5F death/S0E removal. Actual GUI, object-kind content bindings, original AI still unknown.",
       "original_tutorial_spawn_ready": false,
       "native_npc_interaction_ready": false,
       "npc_ai_parameters_known": false,
       "remaining_unknowns": [
-        "Type1..14 visual category and NPC/monster mapping, per-object UI/registry callback",
-        "S34 subtype11 full dynamic variant to GUI",
-        "First tutorial NPC/map/official spawn and Server AI source (separate Server/content owner)",
-        "Native Client E2E CT-066 not-run"
+        "S07 kind1..14 -> NPC/Monster/static visual classification and resource mapping",
+        "Native client world-object registry/rendering callbacks and C43 NPC click specificity",
+        "Original Server tutorial NPC/map/spawn/AI policies, outside Client wire scope",
+        "Native Client E2E CT-066 still not-run"
       ],
       "resource_name_candidates": [
         "World%02d.dat",
@@ -1293,7 +1294,7 @@
       ],
       "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md",
       "native_reader_probe": "task_a/roy2/a024_object_native_probe.py",
-      "native_reader_probe_result": "Original Asgard.exe 20 instruction VA patterns, S07 all 14 kind dispatch entries, 6 RTTI classes PASS",
+      "native_reader_probe_result": "Original Asgard.exe SHA locked, 20 instruction anchors + S07 14 type switch entries + six RTTI PASS",
       "nonempty_s07_codec": "task_a/roy2/a024_object_packets.py",
       "nonempty_s07_test": "task_a/roy2/test_a024_object_packets.py",
       "server_receives_client_packets": [
@@ -1333,13 +1334,14 @@
         "client_reaction": "Native readers for S07 full nonempty type1..14, S0C/S64 move, S34/S3C info, S62/S63 action, S29 effects, S5F death and S0E removal verified by PE instructions; graphic/UI object registry callbacks and native E2E not yet verified.",
         "evidence": "task_a/roy2/A-024-analysis.md#六a-024-追加完成實際收包清單與-s07-非空-14-type-靜態解析2026-10-31",
         "unknowns": [
-          "Type1..14 visual category and NPC/monster mapping, per-object UI/registry callback",
-          "S34 subtype11 full dynamic variant to GUI",
-          "First tutorial NPC/map/official spawn and Server AI source (separate Server/content owner)",
-          "Native Client E2E CT-066 not-run"
+          "S07 kind1..14 -> NPC/Monster/static visual classification and resource mapping",
+          "Native client world-object registry/rendering callbacks and C43 NPC click specificity",
+          "Original Server tutorial NPC/map/spawn/AI policies, outside Client wire scope",
+          "Native Client E2E CT-066 still not-run"
         ]
       },
-      "handoff_deliverable_status": "S2C packet inventory and native decoded-body all S07 kind 1..14 ready; dynamic subtype11 and native GUI explicitly pending"
+      "handoff_deliverable_status": "Complete native-static Client S2C object packet inventory and validated decoded wire groups; native rendering & server content semantics separately pending",
+      "offline_test_result": "GitHub Actions run 41185085803 PASS: 19 native-schema synthetic object tests and seven existing NPC tests; phase-gates PASS"
     },
     {
       "id": "A-025",
