@@ -697,7 +697,8 @@
         "context_origin": "designed 0x11223344",
         "native_client_validation": "not-run"
       },
-      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run."
+      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run.",
+      "a023_four_script_original_update": "2026-11-01 user provided PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat, all matching earlier SHA and original XML/CRC. PaperDialog02 cancelControl=OK despite CANCEL button; choice replies vs born close; Merchant root vs nNewJoin dependency. Missing QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk. CT-113 offline; native GUI/NPC/quest status still not-run."
     },
     {
       "id": "CT-034",
@@ -720,7 +721,8 @@
       "native_client_validation": "not-run",
       "packet_mapping": "script start/close specified; NPC click and original first-login policy unknown",
       "review_merge_note": "Renamed from roy2 CT-030 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge.",
-      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run."
+      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run.",
+      "a023_four_script_original_update": "2026-11-01 user provided PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat, all matching earlier SHA and original XML/CRC. PaperDialog02 cancelControl=OK despite CANCEL button; choice replies vs born close; Merchant root vs nNewJoin dependency. Missing QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk. CT-113 offline; native GUI/NPC/quest status still not-run."
     },
     {
       "id": "CT-035",
@@ -742,7 +744,8 @@
       "native_client_validation": "not-run",
       "packet_mapping": "script lifecycle C6C subtype1/2/4; NPC/quest state meaning unknown",
       "review_merge_note": "Renamed from roy2 CT-031 because main had existing auth/onboarding CT-029..032; offline Born outcome from roy2 report, not independently replayed during this merge.",
-      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run."
+      "a023_20261101_native_static_refinement": "Original EXE S44 type2/0 UI slot0x23, type2/2 UI slot0x24, not Born type1 start. Born and Basic AlertFrame hashes verified locally; PaperDialog.dat original bytes not present this run. Source task_a/roy2/A-023-born-basic-native-dispatch-20261101.md; native original-first-login NPC/script/GUI still not-run.",
+      "a023_four_script_original_update": "2026-11-01 user provided PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat, all matching earlier SHA and original XML/CRC. PaperDialog02 cancelControl=OK despite CANCEL button; choice replies vs born close; Merchant root vs nNewJoin dependency. Missing QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk. CT-113 offline; native GUI/NPC/quest status still not-run."
     },
     {
       "id": "CT-036",
@@ -3290,7 +3293,36 @@
       "paper_dialog_original_this_turn": "not-provided",
       "scope_note": "Local original resource and EXE static checks pass, but original Client/World Script GUI CT-034 remains not-run. Do not mark A-023 original Server NPC/quest complete.",
       "offline_subset_result": "PASS user-provided original Asgard.exe 22 native S44 type1/type2 VA instruction spans, original Born.dat+Basic.dat member sha/offset+YPF17 and Born CP950 CRC verified locally. GitHub Actions run 41230455292: new 21/21 synthetic DAT/archive/zlib/UTF16 tests PASS; phase gates and other offline suites PASS. No original Client native script GUI/Server first Born/NPC CT-034/035 has been run.",
-      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41230455292"
+      "ci_run_url": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41230455292",
+      "a023_four_script_original_update": "2026-11-01 user provided PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat, all matching earlier SHA and original XML/CRC. PaperDialog02 cancelControl=OK despite CANCEL button; choice replies vs born close; Merchant root vs nNewJoin dependency. Missing QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk. CT-113 offline; native GUI/NPC/quest status still not-run."
+    },
+    {
+      "id": "CT-113",
+      "status": "planned",
+      "level": "original-four-Script-Born-PaperDialog02-nNewJoin01-Merchant-resource-static-and-synthetic",
+      "requirements": [
+        "R-013",
+        "R-027"
+      ],
+      "analysis_request": "A-023",
+      "packet_ids": [
+        "PKT-S44",
+        "PKT-C6C"
+      ],
+      "input": {
+        "kind": "original-user-uploaded-four-Script-dat-sha-and-offline-synthetic-C6C1",
+        "reference": "05-conformance/A-023-four-script-verify-test-plan.md"
+      },
+      "expected": "Original PaperDialog.dat/PaperDialog02.dat/nNewJoin01.dat/Merchant.dat full SHA+strict zlib BEu16+BEu32 UTF16 XML CP950 CRC, all functions; PaperDialog OK unreplied C6C4+C6C2, PaperDialog02 OK=PAPER02 START/CANCEL=PAPER02 NOT (original cancelControl=OK), nNewJoin01 3-page final OK STATE ACCEPT/CANCEL REFUSE, Merchant.Main initializes ServerParam/ClientReply, C6C(1) script name is root ScriptRunner (not dependency nNewJoin01 name), shared PaperDialogProc/ShowIndexedHelp collisions. External QuestDialog_Create/MerchantDialog_Create/MerchantDirectTalk unresolved; first NPC/quest/GUI not-proven.",
+      "evidence_kind": "observed-original-user-provided-script-resources-plus-synthetic-wire",
+      "original_resource_audit": "task_a/roy2/a023_script_bundle_probe.py",
+      "metadata_manifest": "task_a/roy2/a023-four-script-verification.json",
+      "synthetic_test": "task_a/roy2/test_a023_script_bundle.py",
+      "native_client_validation": "not-run",
+      "native_original_merchant_gui_complete": false,
+      "original_server_npc_bind": "unknown",
+      "original_first_Born_trigger": "unknown",
+      "scope_note": "28 synthetic tests and original source hash/XML/function audit. Native GUI, source of QuestDialog_Create and MerchantDialog_Create, original Server NPC→script association remain unverified; CT-034/035 not-run."
     }
   ]
 }
