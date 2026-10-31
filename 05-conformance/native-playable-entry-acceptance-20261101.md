@@ -6,6 +6,8 @@
 建立無角色 Account（Admin，不經 Client 註冊）→ 原版 NewUser C02 → stage1 S02(0) → C04 → stage2 S02(0) → 原生 UI 回登入 → C03 → S03 → 新連線 C10。SQLite/Pg 均檢查 Character+Appearance+onboarding+`creation_email` 原子提交及持久化、帳戶 owner 不變；不存在／錯密／停權／重名／NAME/EMAIL 失效／C15/重播/中斷不多寫一筆、錯誤 UI 可見。記 S02 非零正確 native message/retry/C15，不把正常 S03 關線誤判成失敗。預建帳號測試值必須符合選定原 Client UI region 欄位限制。
 
 ## CT-108：真 Client World entry 與地圖載入
+**A-031 已證明的接線條件**：C10 為 raw opaque token，Region3 的原生 Client 在已追到的 transfer callback 先 enqueue C10 再 enqueue C25；C25 不是 WorldEntryMetadata，而是 `CBillingInfoPacket`，包含 **三個 string8**（body 3+sum(0..255 的三個長度)）；非3 Region 不得強制期待 C25，合成 `C25=01` 不代表原版。C10 和 C25 的這兩條 native enqueue 路徑**沒有中間 S02 wait**。驗收必須遮蔽 transfer token 和三個 string 原值，記 Region、seed/ordinal、原版 Frame/Body 與 first S2C；靜態 CT-110 另測、Native CT-108 仍 not-run。[A-031](../task_a/roy2/A-031-analysis.md)。
+
 從 CT-107 已保存的 Character（或用安全合成預置角色**僅用於單獨驗 C10 之後 wire**，不是 CT-107 PASS）開始：S03/C10 → A-031 驗證的 World 首包/C25（不猜）→ S05/S15/S14(1) → 真 Client 回 C35 正確 header + structured checksum → Server 原子 world-entry checkpoint → S04/S33/S14(2) → 地圖顯示、人物定位、loading 結束。MAP 綁定真 `Map0.dat`／`Map1.dat`／`Map2.dat` revision；錯 C35/非法 epoch/錯碼/斷線不能偷寫 tutorial_completed，重登恢復。若只在其他合法圖測得，標 interim，非正式教程圖通過。
 
 ## CT-109：世界可操作與位置安全
