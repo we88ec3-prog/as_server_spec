@@ -17,7 +17,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "54aecac4915b19beef7b217f13fdd465451b03d4bedeed7b41e9d0e4cf939b7b"
+      "sha256": "c44aa538415a7897afd1fc1f7b47c4a224e80f6f312e3761bef5f53562fc3c50"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -269,7 +269,11 @@
     },
     {
       "path": "03-analysis-requests/A-012-roy1-quest-dialog.md",
-      "sha256": "505cc6a793d776cae12933c94460ac4d77b4210c77641cf8133e8c7c1a5977a5"
+      "sha256": "2a7086a67cbbed216f895201369e4b5368383176d4bc98471dce4827b806b8b4"
+    },
+    {
+      "path": "03-analysis-requests/A-012-roy1-quest-script-closure-20261101.md",
+      "sha256": "332ff58fea531d5775cb7b3162765e2eaea8c0f4cc1ec129fdf973f3b64818d7"
     },
     {
       "path": "03-analysis-requests/A-013-roy1-economy-wire.md",
@@ -369,7 +373,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "db8e8a713630603ee4c6292afbd81c40b9d56af65abf78dd8fe5125802735ab8"
+      "sha256": "be931641c3e3a817a6cf8be72f94607aceb9d43fc51e2ea95145ad5208fe6217"
     },
     {
       "path": "03-analysis-requests/request-template.md",
@@ -377,7 +381,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "77d93c79856b739985c19a953db34906cb58c33b92e8f9e967b7f4b485707a91"
+      "sha256": "50f57b71e46573da76e98d2111280c586185e45d976e8c7a49614fdbc71dfe84"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -421,7 +425,7 @@
     },
     {
       "path": "04-analysis-integration/A-012-quest-dialog-contract.md",
-      "sha256": "d1af8bec899828838852cbf4989621b6a69ddb33d20a8af568ba864586c8f119"
+      "sha256": "f9dd08823c35743fe732b653227862b06b02df0bb6b0417d96ea805fa0e853db"
     },
     {
       "path": "04-analysis-integration/A-013-economy-contract.md",
@@ -521,7 +525,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "28f364dcdad43cb9d40e0c2c578fcadf71f799addf02ced77a52a9e0f51ed920"
+      "sha256": "9b4dd8853446167978fe1001373d30ee58d4981e9070dc603f19299837b632ea"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -553,7 +557,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "166b5f794e1957b28cb10ed430fc01a209d3ebf8fc305911dc472ecbc5188893"
+      "sha256": "17929b0bc9ce3c0d251ed6ff144ff1f8fe52618ae55fec90bafd1ec8fd2103d3"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -585,7 +589,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "83eebe52851bd5bcdefd0d7b014f1b29353a3635deeee198a9c693420c64808a"
+      "sha256": "bc072f749ceb350f937d00b295f2a3b3819901f0d0c1bea4e555b51d01a1bfa6"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -638,6 +642,10 @@
     {
       "path": "05-conformance/A-011-npc-resource-click-animation-test-plan.md",
       "sha256": "656741b272f30f3f678902e1880fb862edb7da1cbb804a689f74f4d1b69d5870"
+    },
+    {
+      "path": "05-conformance/A-012-script-dialog-native-acceptance-20261101.md",
+      "sha256": "0f301a36888fd1eb51048b6a7a76626a6003dbf42d32759cf9db735c2bc8a6b5"
     },
     {
       "path": "05-conformance/A-014-social-test-plan.md",
@@ -745,7 +753,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "4b888c4b40608103da447fa294301bcc1a5a5c64421c85b55864f6bc5e7c3383"
+      "sha256": "94edff4a14b942d722b7da0917a5b9dcb407e2626e0cc9b4b38e95d29a965307"
     },
     {
       "path": "README.md",
@@ -1090,6 +1098,10 @@
     {
       "path": "tools/a012_quest_dialog_contract.py",
       "sha256": "7c0a24dc659654384f428bb3a7a29a4663953fab634af70774505a2ea490deb6"
+    },
+    {
+      "path": "tools/a012_quest_resource_bridge.py",
+      "sha256": "56f25fa6f6c8a9c4bbf15e4caa38a0a62b07b5b6f3ff015584520b03d6a9aa64"
     },
     {
       "path": "tools/a013_economy_contract.py",
