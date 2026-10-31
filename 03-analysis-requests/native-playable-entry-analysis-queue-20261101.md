@@ -14,6 +14,8 @@
 - **允許部分交付**：能嚴格證明某個 region 的 World 首包即可提供 DEV region-scoped adapter；其他 region fail-closed。不要把合成 body `01` 當原生 C25。
 - **交給**：DEV-ENTRY-03，CT-108。分析來源 A-002/A-022，後續 A-031 完成時標 `integrated/partial` 亦可，不要求 Server 先通過原版 CT。
 
+**A-031 靜態結果更新（2026-11-01）**：`task_a/roy2/A-031-analysis.md` 已從原版 EXE 證實 C25 為 `CBillingInfoPacket`，其 region3 writer `0x571420` body 是 3×`string8`，兩條 transfer callback C10→C25 （`0x4A8446→0x4A84F3`、`0x52FB8C→0x52FC4B`），而非通用 World metadata/map ID；實體 C25 發送四條路徑全檢 region3。現 A-031 `integrated/ready` 僅 Client 靜態可證的 Region3 wire，**原版 TCP/World 首個 S2C/成功進圖仍 CT-108 not-run**，追加 CT-110 offline。DEV-ENTRY-03 不得要求合成 C25=01，也不能要求所有 Region 都有 C25。
+
 ## P0-C：A-032（新開，Client-selected MapData/C35 真值 + 初始可通行地圖）
 - **必須證實**：選定原版 MAP 的 `map_ref`→Map0/1/2 索引/檔名／資源修訂／Client S15 解析；真實 `header_word`（來源 MAP offset+4）及完整 `0x4B2EC0` structured checksum 的 Client C35 兩個 BE u16，不能用 raw CRC 或只驗 header；寬高、初始畫面可接受的 `spawn(x,y)/facing/viewport` 和至少一段已觀察可通行座標。
 - **出生點責任**：不要求解析「官方 Server 原本選哪個出生點」；Server 負責**選一個由原始資源與 Client 實際顯示驗證**的教程入口。若無法證明教程圖，先做另一張合法地圖的有限測試，但標 interim/不稱教學成功。Born (31,29) 是引導招募員的文字，不是 spawn。
