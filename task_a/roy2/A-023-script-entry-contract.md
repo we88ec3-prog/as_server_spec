@@ -132,3 +132,16 @@ python task_a/roy2/a023_born_basic_probe.py --born Born.dat --basic Basic.dat
 python task_a/roy2/a023_native_script_dispatch_probe.py Asgard.exe
 python -m unittest discover -s task_a/roy2 -p 'test_a023_born_basic.py' -v
 ```
+
+## A-023／2026-11-01 四份新上傳 Script 原件全數核對（E25～E33）
+
+此次已**實際讀取並核對** `PaperDialog.dat`、`PaperDialog02.dat`、`nNewJoin01.dat`、`Merchant.dat` 四份原始 zlib/UTF16LE XML（SHAs、BEu16+BEu32 units、CP950 CRC 和所有函式與分支皆與前次證據一致）；`PaperDialog.dat` **不再是缺檔**。參照 [最新完整對應](A-023-four-script-native-dependencies-20261101.md)、[機讀檔案身份與函式](a023-four-script-verification.json)、[CT-113](../../05-conformance/A-023-four-script-verify-test-plan.md)。
+
+- **Born/普通 PaperDialog**：`Born.Main` 呼叫 `PaperDialog_Create`，該函式在本輪 `PaperDialog.dat` 原件找到，引用 `Basic.dat/AlertFrame.ypf`（先前已驗原件）。PaperDialog OK 不送選擇，native `client.Dispose` C6C(4)＋unreplied cleanup C6C(2)；這不是 quest completion。
+- **PaperDialog02**：自身只有 `PaperDialog02_Create` 與 `ShowIndexedHelp`／`PaperDialogProc`（沒有 Main）。OK → `PAPER02=START`，按 CANCEL → `PAPER02=NOT`，兩者用外部 `ClientReply` 先 `SendReply` 再 Dispose，對應 native **C6C(1)→C6C(4)**，replied 不會再送 C6C2。**原版 `cancelControl="OK"`**，雖有 CANCEL object14，按 ESC/鍵盤取消可能走 OK/START，原版 GUI 未實測，不可當官方行為 PASS。
+- **Merchant+nNewJoin01**：`Merchant.dat` 是有 `Main(args)` 的 root，建立 global `ServerParam`／`ClientReply`；`nNewJoin01.dat` 23 函式但**沒有 Main**，`DoesTalk=true`、其他商人動作 false；`MerchantTalk→JoinMessage01→02→03`，最後 OK `STATE=ACCEPT`／CANCEL `STATE=REFUSE` → C6C(1)＋C6C(4)。但 NPC 與商人主 Script 的原版綁定沒有證據。
+- **C6C(1) 名稱**：依原版 native CScript sender，script name 是 **S44 建立的活躍 ScriptRunner root**，不是含 `JoinMessage03Proc` 的檔案名稱；若 Server 發 `S44(root="Merchant",deps=["nNewJoin01",...])`，回覆名應是 `Merchant`。這個 root 的原服實際設定仍未取得，合成 fixture 不能代替。
+- **共用函式衝突／未提供的定義**：兩份 PaperDialog 都定義 `ShowIndexedHelp`、`PaperDialogProc`；不應在一個 ScriptRun 無條件同時載入。上述四份原件沒有 `QuestDialog_Create`、`MerchantDialog_Create`、`MerchantDirectTalk` 的定義，**來源檔名未知**（可能候選 `QuestDialog.dat`／`MerchantDialog.dat`，尚未證實）。未取得原服 NPC EntityId/map/spawn、首次 Born 下發時機、任務旗標、原生 GUI。
+- 驗證：read-only [四檔原件檢查](a023_script_bundle_probe.py) 與 **28 項新增 synthetic CI**，原始字串與檔案本體不入 Git。
+
+**A-023 Client Script 及已取得四檔的靜態依賴可交接；原服女性招募員真正綁定／缺 UI 函式／首次觸發／任務政策不能由 Client Scripts 補猜，因此 `integrated/partial`，原生 Client CT-034/035 `not-run`。**
