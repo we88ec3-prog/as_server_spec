@@ -762,12 +762,17 @@
       "analysis_requests": [
         "A-029"
       ],
-      "packets": [],
+      "packets": [
+        "PKT-C26",
+        "PKT-S02",
+        "PKT-C03",
+        "PKT-C02"
+      ],
       "status": "analysis-required",
       "native_client_validation": "not-run",
       "client_profile": "TW-seed0-local-v0.1",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
-      "client_entry": "User-reported original Client ChangePassword UI; packet/opcode unknown until A-029",
+      "client_entry": "LoginDialogPane 0x4a8950 event12 ->0x4a8a81, controls8 account/9 old/10 new/11 confirm local only, CChangePasswordPacket 0x571a10 opcode0x26",
       "designed_server_policy": "Verify old account/password, new 4..8 ASCII alphanumeric + confirmation, update same existing Account hash/version atomically, revoke grants/session and preserve characters. Login C03 and direct Create C02 then both require new password.",
       "failure_cases": [
         "incorrect current password",
@@ -779,10 +784,19 @@
         "old credential after change",
         "pre-change grants/sessions should be rejected"
       ],
-      "native_wire_unknown": true,
+      "native_wire_unknown": false,
       "ui_test": "CT-098",
       "security_test": "CT-099",
-      "policy_source": "02-server-planning/three-native-account-entry-policy.md"
+      "policy_source": "02-server-planning/three-native-account-entry-policy.md",
+      "observed_client_wire": "C26 body 3xstring8(account,old,new) native writer 0x571ac0; 0x4a8d05 enqueue. Confirm mismatch and old==new only local prompt. Generic S02 handler 0x4a8d60; status meanings not proven.",
+      "native_wire_status": "native-C26-body-observed-static; S02-change-status-unknown",
+      "native_password_change_e2e_ready": false,
+      "a029_analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
+      "a029_contract": "04-analysis-integration/A-029-native-password-change-contract.md",
+      "a029_evidence_ids": [
+        "ev_a029_20261031_native_c26_password_change_static"
+      ],
+      "native_original_server_status_mapping": "unknown"
     }
   ]
 }

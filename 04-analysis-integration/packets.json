@@ -493,7 +493,8 @@
       "related_packets": [
         "PKT-C02",
         "PKT-C04",
-        "PKT-C15"
+        "PKT-C15",
+        "PKT-C26"
       ],
       "layout_status": "profile-documented",
       "evidence_kinds": [
@@ -502,14 +503,17 @@
       "manual_validation": "see scenario; not every branch validated",
       "requirements": [
         "R-001",
-        "R-002"
+        "R-002",
+        "R-025",
+        "R-032"
       ],
       "evidence_ids": [
         "ev_a021_20261031_asgard_static",
         "ev_a002_20261031_asgard_login_transfer_static",
         "ev_a027_20261031_asgard_identity_static",
         "ev_a028_20261031_asgard_c04_response_static",
-        "ev_a003_20261031_asgard_create_palette_ui_static"
+        "ev_a003_20261031_asgard_create_palette_ui_static",
+        "ev_a029_20261031_native_c26_password_change_static"
       ],
       "native_static_report": "04-analysis-integration/A-021-native-flow.md",
       "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
@@ -517,7 +521,15 @@
       "a028_newuser_status_flow": "MakeInfoDialog local state0x1d and status0 -> send C04/state0x1e; state0x1e/status0 -> UI 0x4b206b, not direct S03; status!=0 -> C15 CancelNewUser with empty body/state0x1f; status code textual meanings unknown",
       "a028_analysis": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "a003_analysis": "03-analysis-requests/A-003-roy1-create-legal-values.md",
-      "a003_create_error_meanings": "Unknown; UI focus status 3/4/17/18/26/31 not proof of duplicate-name or invalid hair/sex; S02(status0) first-stage triggers C04, second-stage enters local UI"
+      "a003_create_error_meanings": "Unknown; UI focus status 3/4/17/18/26/31 not proof of duplicate-name or invalid hair/sex; S02(status0) first-stage triggers C04, second-stage enters local UI",
+      "a029_native_change_password": {
+        "packet": "PKT-C26",
+        "observed_static": "LoginDialogPane shared opcode0x02 packet dispatch 0x4a9670/0x4a9694 ->0x4a8d60, status byte field +0x24, switch 0..0x23 and generic UI focus/message states",
+        "unknown": "Specific S02 status code for native password-change success/wrong old password/banned/new password errors and post-response focus; do not reuse C03/C02 status meaning without test",
+        "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
+        "evidence_id": "ev_a029_20261031_native_c26_password_change_static",
+        "native_client_validation": "not-run"
+      }
     },
     {
       "id": "PKT-S03",
@@ -2818,6 +2830,40 @@
         "PKT-S2C"
       ],
       "a010_boundary": "UI callback and correspondence to S2C ID not completely proven"
+    },
+    {
+      "id": "PKT-C26",
+      "direction": "C2S",
+      "opcode": "0x26",
+      "name": "CChangePasswordPacket",
+      "system": "SYS-AUTH",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "3×string8: account candidate (LoginDialogPane ctrl8), old password (ctrl9), new password (ctrl10). Confirm ctrl11 is local-only; no subtype. string8=u8 encoded byte length+bytes, no NUL; codepage from LanguageMan, CP950 conditional for index4. Packet/framing excluded.",
+      "client_entry": "0x571a10 ctor push 0x26; 0x571ac0 writer (0x45b1b0 x3); 0x4a8950 UI callback event12; 0x4a8ab1 constructor; 0x4a8d05 send",
+      "state_precondition": "Original LoginDialogPane ChangePassword UI event; pre-login/active-session/world access unresolved; Server must verify account/old credential",
+      "related_packets": [
+        "PKT-S02",
+        "PKT-C03",
+        "PKT-C02"
+      ],
+      "layout_status": "native-static-wire-proven; native-success-E2E-not-run",
+      "evidence_kinds": [
+        "observed-static",
+        "synthetic-test",
+        "designed-server-boundary"
+      ],
+      "manual_validation": "not-run; C26-specific S02 success/error statuses unknown",
+      "requirements": [
+        "R-025",
+        "R-032"
+      ],
+      "evidence_ids": [
+        "ev_a029_20261031_native_c26_password_change_static"
+      ],
+      "contract_reference": "04-analysis-integration/A-029-native-password-change-contract.md",
+      "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
+      "native_client_validation": "not-run",
+      "security_note": "Do not log raw strings. Old/new are transmitted in native packet body; protect transport, never treat local confirmation as auth, do not invent response status."
     }
   ]
 }

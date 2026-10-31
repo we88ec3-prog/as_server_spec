@@ -60,3 +60,10 @@ Native Change Password UI → native opcode UNKNOWN → account+old credential v
 ## 4. 實作權限界線
 
 此文件**只更新 `as_server_spec` 規格**；私有 `as_server_roy` 是否要修改 C02 Auth Guard、加入 password-change wire handler、調整 Admin UI，都需另一次用戶明確授權／確認，尤其 Web UI 不得未經確認自行實作。既有 `Asgard.exe` 不是待改標的。
+
+
+## A-029 原生靜態結果（2026-10-31；更新此節，取代上面「wire UNKNOWN」的歷史描述）
+
+**已取得原 Client 的更改密碼封包**：`PKT-C26` C2S opcode **0x26**，原 `CChangePasswordPacket` ctor `0x571a10/0x571a29`，writer `0x571ac0` 依序三個 `string8`：（1）原生 UI control8 的 Account 候選，（2）control9 舊密碼，（3）control10 新密碼。control11 再輸入新密碼只在本地確認相等，不在 wire；新舊密碼相同時也只本地提示並拒送。原生 widget 對密碼 controls9～11 設 UI length 8。所需 Client opcode **不再未知，絕不自造 opcode**。
+
+S→C 走共用 `PKT-S02` selector2→`0x4a8d60` status/UI callback，**專屬 C26 的成功、舊密碼錯、停權等 S02 status-to-UI 意義仍 unknown，原生 Client GUI 未測**。所以只開放規格的 C26 decoder/authority 設計，不能宣稱改密碼 E2E 已可正式上線；`4～8 ASCII 英數` 仍由新 Server 執行帳號 policy（本次未由原版完整驗證 4 字下限與字元集）。原 Account 同時供 C03 登入與 C02 無前置登入直接創角，原子 credential rotation / char retention / revoke 仍是 Server 設計，不能當作原版 Server 事實。本次只改 `as_server_spec`；未觸碰 Server 或管理 Web。詳 [A-029](../03-analysis-requests/A-029-roy1-native-password-change.md)、[契約](../04-analysis-integration/A-029-native-password-change-contract.md)、[CT-098/099](../05-conformance/account-password-native-change-test-plan.md)。

@@ -121,3 +121,8 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 玩家更正：三個原生帳號入口 + 舊創角身份假設作廢
 
 使用者確認**登入、創角兩獨立 UI 入口**；管理先建立 Account，創角直接以既有帳號＋密碼對後端同一 CredentialStore 驗證，錯誤需回 UI 而不寫角色，**不要求先 C03**。另原版有**更改密碼 UI**，玩家正常修改必須用此入口，管理 `credential-reset` 改定位為救援。新增 R-032/A-029/ONB-07/SCN-017/CT-097..099 與三入口安全、原生測試文件；A-027需核 C02 field1/field2 與 native error status，A-029需定位 change-password opcode/回覆，未證一律 unknown。維持4～8密碼、原 Client不修改、僅設計不實作、後續 Web 實作前必須確認。
+
+
+## 2026-10-31 — A-029 原生改密碼封包與 UI / roy1
+
+已由 Asgard.exe 原件 RVA/RTTI 和 GUI producer 確認 CChangePasswordPacket C26，三個 string8 = (帳號、舊密碼、新密碼)，確認欄只本地比較；LoginDialogPane event12→C26 / event13 cancel，兩個本地拒絕（confirm mismatch/old=new），S02 generic callback selector2 和 status 分派已追，C26 專用成功/錯誤 status 未得原服證據。新增 A029 報告/契約、19 x86 靜態簽章＋合成 codec 工具、PKT-C26 / PKT-S02、SCN-017、CT-098/099、evidence/traceability。A029 integrated/partial，原生 GUI E2E not-run；不改 Client、Server/DB，不建立分支。

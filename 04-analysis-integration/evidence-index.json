@@ -3862,6 +3862,23 @@
       "synthetic_test": "task_a/roy2/test_a010_skill_codec.py",
       "native_client_validation": "not-run",
       "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "ev_a029_20261031_native_c26_password_change_static",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "date": "2026-10-31",
+      "evidence_kind": "observed-static-exe",
+      "source_branch": "task_a/roy1",
+      "locator": "Original CChangePasswordPacket RTTI and UTF16 source string; VA 0x571a10 ctor push0x26; 0x571ac0 3xstring8 writer; 0x4a8950 LoginDialogPane callback, 0x4a8a81 packet producer, 0x4a8b39 confirm compare, 0x4a8bf4 old/new compare, 0x4a8d05 enqueue; 0x4a9670→0x4a9694→0x4a8d60 generic S02 callback",
+      "native_anchors": 19,
+      "raw_assets_shared": false,
+      "report_path": "03-analysis-requests/A-029-roy1-native-password-change.md",
+      "contract_path": "04-analysis-integration/A-029-native-password-change-contract.md",
+      "offline_test": "tools/a029_password_change_contract.py",
+      "validation": "19/19 EXE byte signatures + original binary SHA/RTTI and synthetic fixture checked offline; native Client GUI NOT executed; 14 synthetic unittest cases added; no claim full tool-suite run",
+      "native_client_validation": "not-run",
+      "unknowns": "C26-specific S02 status meanings, in-world entry, exact user-facing strings, original Server change policy"
     }
   ]
 }

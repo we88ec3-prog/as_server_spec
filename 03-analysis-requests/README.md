@@ -100,3 +100,8 @@ Roy1 A-013 的商店/交易原生 codec 與 A-011 的 Monster bank/S1A/C39，以
 ## 2026-10-31 Roy1/Roy2 最新分支再次同步
 
 Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主線，主線保留 Economy CT-087..089、MAP CT-090/091、Quest CT-092..094、Skill CT-095/096。來源 Roy2 的局部編號 CT-087/088/089/090 **不可覆寫**。本輪 Web 管理 UI 只有 Server 設計，不需要偽造 Client 原生 opcode。詳 [整合審查](../04-analysis-integration/roy-branch-web-admin-sync-20261031.md)。
+
+
+## A-029（2026-10-31，roy1 完成 Client 靜態交付）
+
+原始 Asgard.exe 中 `CChangePasswordPacket` 的 C→S opcode **0x26** 已證，writer 依序發 **account / old password / new password 三個 string8**；LoginDialogPane 的第四個確認欄僅用於本地比對，取消不送 C26。共用 `S02` 原生 callback 已追至 status/UI switch，但 **改密成功與錯密的原服 status/文案尚無證據**，不能套登入/創角的 status 語意。詳見 [A029 BIN-first](A-029-roy1-native-password-change.md)、[Server 契約](../04-analysis-integration/A-029-native-password-change-contract.md) 與 [離線 probe](../tools/a029_password_change_contract.py)。A gate integrated/partial；native CT-098/099 planned/not-run，Server 邏輯與原 Client 仍未修改。

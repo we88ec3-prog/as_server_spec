@@ -2621,15 +2621,22 @@
       "requirements": [
         "R-032"
       ],
-      "packet_ids": [],
+      "packet_ids": [
+        "PKT-C26",
+        "PKT-S02"
+      ],
       "input": {
         "kind": "native-original-client-ui-capture-and-exe-static",
         "reference": "05-conformance/account-password-native-change-test-plan.md"
       },
-      "expected": "Locate original in-game change password UI and actual C2S opcode/body plus S2C status/Client success/error/cancel callback; no modified Client and no invented packet. Verify 4..8 text input and old/new/confirm semantics if present.",
-      "evidence_kind": "user-reported-client-UI, native-wire-unknown",
+      "expected": "Native Client LoginDialogPane event12 -> C26 three string8(account,old,new), local confirm only; S02 shared dispatcher; capture exact change-specific S02 status/message, UI focus/entry/cancel/prelogin/world/region. Native GUI not-run; do not guess result code.",
+      "evidence_kind": "observed-static-native-writer-and-callback; E2E-not-run",
       "analysis_request": "A-029",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "evidence_ids": [
+        "ev_a029_20261031_native_c26_password_change_static"
+      ],
+      "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md"
     },
     {
       "id": "CT-099",
@@ -2642,16 +2649,21 @@
       "packet_ids": [
         "PKT-C03",
         "PKT-C02",
-        "PKT-S02"
+        "PKT-S02",
+        "PKT-C26"
       ],
       "input": {
         "kind": "designed-DB-transaction-plus-original-native-recovery",
         "reference": "05-conformance/account-password-native-change-test-plan.md"
       },
-      "expected": "Player change password only through original game UI; verify old credential/new4..8, atomically rotate hash/version, revoke old sessions/grants, preserve Account/Character. Later C03 login and independent C02 create accept new password, reject old; errors/retries/concurrency do not change Account. Admin credential-reset is authorized recovery only.",
-      "evidence_kind": "designed; native-path-unverified",
+      "expected": "DESIGNED: C26 verifies existing account/old password and new4..8, only then rotate verifier/version/revoke grants, retain Character; C03 and C02 must accept new not old; concurrency/replay/ban/disconnect tests planned; no native S02 status mapping invented.",
+      "evidence_kind": "observed-static-C26-wire plus designed-Server-policy; E2E-not-run",
       "analysis_request": "A-029",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "evidence_ids": [
+        "ev_a029_20261031_native_c26_password_change_static"
+      ],
+      "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md"
     }
   ]
 }
