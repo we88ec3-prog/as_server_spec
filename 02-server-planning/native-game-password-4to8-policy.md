@@ -46,3 +46,7 @@
 - **A-020/A-002**：確定原版 UI 最長字元與實際 C03 送出的 bytes、是否有特殊字符／貼上路徑。A 的研究狀態與 CT 的通過狀態不混用。
 
 這次僅更新共用規格／開發交接文件，不觸及私人 Server 或原版 Client 的執行檔。
+
+## 最新增補：遊戲內原生更改密碼是正常玩家操作（2026-10-31）
+
+最新使用者決策：**登入 C03、創角 C02、遊戲內更改密碼 UI 為三個不同入口**，三者採同一資料庫 Account/credential；創角無需先用 C03 登入，必須直接核對本次輸入的既有帳號與密碼。玩家正常更改密碼**只走遊戲原版 UI**，Server 驗舊憑證與新4～8字設定，成功原子更新 password hash 和 credential_version、撤銷舊 grant/sessions；管理員 `/admin/.../credential-reset` 僅限緊急救援／遺失密碼。原版 UI 的 opcode、欄位、回應尚缺 **A-029**；不許創建想像的新封包。**先前提到私有 DEV-030 還需修改10～128字是歷史狀態，最新版私有 Server 已完成4～8字程式修正**；原生改密碼 handler 尚未完成。詳細見 [三入口規格](three-native-account-entry-policy.md)。

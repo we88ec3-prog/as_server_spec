@@ -1,32 +1,22 @@
-# Server 下一階段規劃：登入帳號一致性與原版創角 UI 安全橋接
+# Server 下一段創角規劃：原版登入與創角獨立（新決策覆蓋舊 C03 前置）
 
-日期：2026-10-31。限制：**不修改 Asgard.exe**；帳號欄維持原始可輸入狀態，輸入帳號與已驗證登入帳號不同就拒絕創角。此為新 Server designed 政策，不是已證的原服政策。
+目前使用者要求：管理端建帳，原版 Client 登入與創角是兩個入口；創角直接輸入帳密，必須和後端既有 Account 的 **名稱＋密碼** 都一致，否則回原版 UI 錯誤。玩家正常改密碼走遊戲既有更改密碼介面。原版 `Asgard.exe` 不修改。
 
-## 目前能立刻繼續的工作
+## 可規劃的 Server 安全切片
 
-|工作切片|Server 交付|阻擋原生相容性的 A 證據|
+|Slice|Server 契約|Client/分析阻塞|
 |---|---|---|
-|SAFE-01|C03 成功身份產生可信 AuthContext(account_id,account_name,connection_id,generation,expiry)；過期、停權、換世代即無權|不需要新 A；原生無角色 UI 仍待 A-027|
-|SAFE-02|C02 依 region 解 string8，保留各欄來源與 unknown；不可從 Client 字串建立認證|A-003/021/027 已足夠開發 codec；field1「帳號」仍待 A-027 證|
-|SAFE-03|輸入帳號與登入帳號不同/無有效登入/跨連線/停權 → 禁止 PendingDraft、Character、TransferGrant，且**不得回會誘發 C04 的 S02(0)**|Server 可先做檢查及 SQLite 合成測試|
-|SAFE-04|已驗證 Owner+generation 綁 PendingIntent；C04 原子提交，重送只提交一次；C15 只能取消未提交同 owner 草稿|已知 A-016/028 子集可做，不能宣稱原生 Client 完整創角|
-|WIRE-01|驗證「C03 已登入、無角色」後真的能用原版 Client 進 NewUser/MakeInfoDialog，並確認 C02 首欄意義|**A-027/A-021 定點補 Client xref 與 UI 事件；未證則 native C02/C04 不開放**|
-|WIRE-02|依 state0x1D→S02(0)→C04→0x1E→S02 / C15→0x1F 的有證分支回覆；追 C04 成功後操作/登入返回|**A-028** 補最後 UI callback；錯誤 status 不猜|
-|WORLD-01|S03→C10 一次性 token、可用 MAP 的 S15/S14→C35→S04/S33；Server 自訂合法出生座標|A-022 只需 Client MAP/CRC/呈現條件，**不需還原原服出生選擇**|
-|SCRIPT-01|Server 自訂 Born 首次發送政策，執行 S44/C6C 生命週期；關閉不是任務完成|A-023 已有子集；真 PaperDialog UI 可另驗|
+|SAFE-01：共用憑證服務|`CredentialVerifier` 同時服務 C03 登入、C02 創角、原版改密碼（當其 wire 已查明）。既有帳號唯一，停權/過期/credential_version 一致，4～8 ASCII 英數；C03 和 C02 必須分別認證，不拿帳號名當 owner|C03 已證；C02 第二欄雖高度符合 password，需 A-027 查 native fields|
+|SAFE-02：獨立創角會話|NewUser C02 **不要求之前有 C03 Session**；只有本次 C02 正確帳號及密碼才發 creation-only `CreateAuthProof`，它不得直接授權 World 登入或修改其他 Account|A-027 C02 UI/region 欄位及原版錯誤 S02 status|
+|SAFE-03：創角負面安全|未知/錯帳號、錯密、停權、重放、同帳號已創角，均不發會觸發 C04 的 S02 success；原版 UI 要有錯誤提示但 wire/status 先查證|A-027/A-028 原生 status/focus/message；不能猜用 S02(3) 表示錯密|
+|SAFE-04：C04 提交|同 connection/generation/proof 的 C04 才可原子建 Character；C15 取消未提交、不動別人帳號、不誤刪角色；已成功 C04 的 UI 回登入不直接 S03|A-028 相關 Client callback 部分已證，最終原生 E2E 未測|
+|SAFE-05：原生改密碼|由遊戲原生密碼 UI 觸發，驗舊憑證、新憑證符合 4～8、原子更新同一 hash/credential_version + 撤銷舊 grant/sessions，保留角色與進度|**A-029 P0** 原 Client UI、C2S opcode/body/S2C UI、region 鍵值 unknown；未證前不能發未知封包|
+|WIRE-01|Client NewUser 是否可自主開啟、C02 第1/2欄是否輸出帳密、錯誤如何顯示|A-027/A-021；**不再要求 C03(no character)→NewUser 自動跳轉**|
+|WIRE-02|C02 的 S02(0)→C04；C04 的 S02(0)→本地 UI，失敗 C15；原版實際回登入步驟|A-028|
+|WIRE-03|改密碼 UI→C2S→S2C→成功/失敗提示|A-029|
 
-## 強制安全狀態
+## 出場與交付
 
-`Unauthenticated` → C03 成功 → `AuthenticatedNoCharacter`（Server **內部**）→ **僅有 Client 證據支持的入口**進 `NativeNewUser` → C02 第一欄與已驗證 account name 比對 → `MatchingDraft` → C04 → `CommittedCharacter` → **依 A-028 有證 Client UI**返回登入/進 World。
+Server 實作仍需另行批准；能先設計 Account Store 共用 CredentialVerifier、creation-only proof、登入/創角/改密碼 rate limit 和限時性。**不能**因原版有 NewUser UI 就開放免驗證自助 AccountCreate，不能在同名失敗時修改帳號、不能回捏造的 S02 成功/錯誤狀態。**所有原生 CT 目前未執行**。
 
-只有帳號名稱相同不足以取得 owner；角色 owner 永遠取 Server account_id。沿用 Admin 帳號 canonical 比較（3～32 ASCII 字母/數字/底線、大小寫不敏感、不修剪、不接受別名）。如果有未登入或舊世代的 C02，即使欄位剛好填了 A 也必須拒絕；密碼/停權/一帳一角/名稱唯一/appearance 都需其他獨立檢查。
-
-**開發與原生啟用是不同門檻**：SAFE-01～04 可立即繼續規劃或實作；NativeNewUser 必須先取得 A-027 的原生 UI 可達性與 C02 欄位意義，才能開放 Host C02/C04。未知時保持目前的 fail-closed，不為了測試改 Client 或虛構 S02 錯誤碼。C04 最終成功 UI 並不等於直接 S03；C15 晚到不能刪已提交角色。
-
-## 對應現有 Server 程式與後續交接
-
-已核對 `as_server_roy` 的 `CharacterCreationAccountGuard.cs`／`CharacterCreationStore.cs`／`LoginWireSession.cs`。安全守衛及草稿持久化是已存在的開發基線，但 Host 目前拒絕原版 C02/C04，且沒有證據證明空角登入可由 Client 進原生創角。**本輪只更新規劃，不宣稱 Server 實作或測試已執行。** 正式追蹤仍為 ONB-01～06；SAFE/WIRE 僅是交接切片。
-
-短期並行：A-027（登入後 UI/帳號欄）、A-020（登入 metadata）、A-022（MAP/C35）、A-028（C04 後續 UI）。下一階段 A-024（NPC 點擊/生成）、A-025（技能）、A-026（任務完成）；Server AI/任務/出生點決策由 DEV，不用要求 A 找原服內部設定。
-
-參考 [分析者精準問題](../03-analysis-requests/next-client-io-evidence.md) · [就緒關卡](onboarding-readiness-gates.json) · [驗收計畫](../05-conformance/native-creation-gate-test-plan.md)。
+[總契約](three-native-account-entry-policy.md) · [Gate](onboarding-readiness-gates.json) · [原生測試](../05-conformance/native-creation-gate-test-plan.md)。

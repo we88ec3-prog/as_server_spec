@@ -135,7 +135,8 @@
         "same TW-native-4to8 game password rules as provisioning",
         "invalidate credential_version and active grants/sessions",
         "never log or echo plaintext",
-        "preserve account ID and characters"
+        "preserve account ID and characters",
+        "ADMIN-ONLY recovery/initialization for lost password; normal player password changes MUST go through original game's native Change Password UI after A-029 wire evidence; no player self-service Admin API"
       ]
     }
   ],
@@ -214,5 +215,13 @@
     "existing_account_search_api": false,
     "game_password": "4..8 ASCII letters or digits; distinct Admin Key length >=32",
     "native_client_validation": "not-run"
+  },
+  "native_password_change_separation": {
+    "source": "02-server-planning/three-native-account-entry-policy.md",
+    "normal_player_change": "original native Client UI only; A-029 C2S/S2C mapping pending, no invented opcode",
+    "admin_reset": "privileged recovery only",
+    "requires_prior_login_for_newuser": false,
+    "direct_newuser_credentials": "verify existing account+password against same Server credential store",
+    "implementation_status": "planned-only"
   }
 }

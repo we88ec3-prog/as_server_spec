@@ -13,9 +13,10 @@
         "A-027"
       ],
       "tests": [
-        "CT-041"
+        "CT-041",
+        "CT-097"
       ],
-      "rule": "AuthContext requires validated C03 credentials; bind account_id and session_generation; no owner from Client strings."
+      "rule": "Use single Server CredentialVerifier for Login C03 and independent NewUser C02 using entered existing account+password. Both require validated credentials, account not suspended and current credential_version; creation-only proof not a login/World grant. No C03 prerequisite for create."
     },
     {
       "id": "SAFE-02",
@@ -27,9 +28,10 @@
         "A-027"
       ],
       "tests": [
-        "CT-052"
+        "CT-042",
+        "CT-097"
       ],
-      "rule": "Decode C02 region variants but do not assume its field1 is authenticated account name."
+      "rule": "Region-aware C02 decoded-body; the first/second UI fields are account/password inferred candidates, require native A-027 evidence before production enabling; no account create via Client."
     },
     {
       "id": "SAFE-03",
@@ -40,9 +42,10 @@
       ],
       "tests": [
         "CT-041",
-        "CT-053"
+        "CT-053",
+        "CT-097"
       ],
-      "rule": "Create input account name != authenticated login (case-insensitive ASCII canonical) -> deny with no S02(0), draft, Character or Grant; unauthenticated always deny."
+      "rule": "Direct NewUser C02 with existing account+wrong/missing password, nonexistent/banned account, replay or wrong credential version => reject with verified native error and no S02(0), pending, Character or Grant; do not reject solely because C03 was not performed."
     },
     {
       "id": "SAFE-04",
@@ -56,7 +59,7 @@
         "CT-044",
         "CT-053"
       ],
-      "rule": "Owner+generation pending; C04 atomic one-time commit; C15 only cancels uncommitted draft."
+      "rule": "A verified creation-only owner proof tied to C02 account_id+credential_version+connection/generation authorizes only matching pending C04; atomic once-only Character commit and C15 pending-only cancellation."
     },
     {
       "id": "WIRE-01",
@@ -67,9 +70,10 @@
         "A-021"
       ],
       "tests": [
-        "CT-054"
+        "CT-054",
+        "CT-097"
       ],
-      "rule": "Prove native authenticated C03 no-character -> NewUser UI (or another authenticated native route) and actual C02 account field. Native C02/C04 remain fail-closed."
+      "rule": "Validate independent native NewUser UI, C02 first/second fields genuine existing Account+Password and original nonzero S02 failure UI; do NOT demand C03(no character)->NewUser callback as prerequisite. Native C02/C04 fail closed until source/profile proven."
     },
     {
       "id": "WIRE-02",
@@ -112,6 +116,30 @@
         "CT-034"
       ],
       "rule": "S44/C6C Script lifecycle; Server decides first dispatch and quest rules, close is not completion."
+    },
+    {
+      "id": "SAFE-05",
+      "owner": "Server",
+      "mode": "design-only-await-A-029",
+      "analysis": [
+        "A-029"
+      ],
+      "tests": [
+        "CT-099"
+      ],
+      "rule": "Native Change Password UI must authenticate old/current credential, validate new 4..8, atomically update hash/version, revoke old grants/sessions and preserve Account/Character; admin reset recovery-only. No guessed original opcode."
+    },
+    {
+      "id": "WIRE-03",
+      "owner": "Client research",
+      "mode": "needs-client-evidence",
+      "analysis": [
+        "A-029"
+      ],
+      "tests": [
+        "CT-098"
+      ],
+      "rule": "Identify and verify game's existing password-change UI, original C2S and S2C writer/reader, success/error/cancel display, regional path; no new client and no native-ready claim before evidence."
     }
   ]
 }

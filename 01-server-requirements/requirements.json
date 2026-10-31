@@ -248,24 +248,26 @@
       "system": "SYS-AUTH",
       "priority": "P0",
       "title": "管理員建帳、玩家僅 Client 登入",
-      "acceptance": "僅授權管理員可透過獨立管理 API 建立帳號；玩家 Client 不可建立 Account，只能登入已存在且未停權帳號；管理操作有稽核。；原版 Client UI 密碼輸入最多8字（使用者回報）：管理建帳及重設的遊戲密碼採4～8個 ASCII 英數、大小寫敏感，Admin key 不受8字限制；Server 必須用原版 Client 驗證 C03 登入且不得截斷長密碼。",
-      "baseline": "需求方已確認；未實作/未驗收",
+      "acceptance": "只有授權管理員能建立既有遊戲 Account（初始密碼4～8 ASCII 英數）；原版 Client 有獨立登入入口 C03 和創角入口 C02，兩者驗證同一後端帳密，Client 絕不能自行建立 Account。一般玩家更改密碼必須走遊戲原生修改密碼 UI；管理端 credential-reset 只用於授權救援。驗證失敗不核發 grant/Character 且原版 UI 需有相容的錯誤回覆。",
+      "baseline": "使用者 2026-10-31 最新決策；私有 DEV030 帳密4～8已實作，原生 Client E2E/創角/改密仍未驗收",
       "status": "specified",
       "stage": "requirement",
       "evidence_kind": "designed",
       "credential_policy_source": "02-server-planning/native-game-password-4to8-policy.md",
-      "credential_compatibility_status": "P0-designed-4to8-await-DEV030-and-native-client-CT; future patched client needs separately approved version profile"
+      "credential_compatibility_status": "P0-designed-4to8-await-DEV030-and-native-client-CT; future patched client needs separately approved version profile",
+      "three_entry_policy_source": "02-server-planning/three-native-account-entry-policy.md"
     },
     {
       "id": "R-026",
       "system": "SYS-CHAR",
       "priority": "P0",
       "title": "已預建無角色帳號首次創角",
-      "acceptance": "原 Client 合法創角並原子保存角色、外觀與 owner；重名、無前置、重送、斷線及並發不產生半角色或重複角色。",
-      "baseline": "部分封包入口已知，完整 Client 分支待 A-021",
+      "acceptance": "創角是獨立原版 Client 入口，不必先從 C03 登入；玩家在創角 UI 所輸入的 existing Account 名稱＋密碼，均須通過同一 Server CredentialVerifier 且帳號未停權，才可建立只供創角的授權 proof，依 C02/S02/C04/S02 一次性原子保存 Character。不存在／錯密／停權應回原生 UI 錯誤且不可建立 Account/草稿/角色/Grant。各 region C02 欄位與原生錯誤碼待 A-027/A-028 驗證。",
+      "baseline": "使用者明確區分兩個入口；C02 pre-C03 已有 Client 靜態證據，但 field1/field2 精確身分/密碼、錯誤訊息 native E2E 未證",
       "status": "specified",
       "stage": "requirement",
-      "evidence_kind": "designed"
+      "evidence_kind": "designed",
+      "creation_direct_password_credential_policy": "02-server-planning/three-native-account-entry-policy.md"
     },
     {
       "id": "R-027",
@@ -322,6 +324,19 @@
       "status": "specified",
       "stage": "requirement",
       "evidence_kind": "designed"
+    },
+    {
+      "id": "R-032",
+      "system": "SYS-AUTH",
+      "priority": "P0",
+      "title": "遊戲原生更改密碼 UI（玩家一般改密碼必須走 Client）",
+      "acceptance": "玩家透過原版遊戲內更改密碼 UI，使用同一 Account 的可信舊密碼驗證並設定新4～8 ASCII 英數密碼，Server 原子更新現有 hash/credential_version、撤銷舊 sessions/grants，保留角色與進度；成功後登入 C03 與直接創角 C02 只認新密碼，錯密/重放/停權不改資料；管理員重設僅救援。Client 原生 opcode/body/error UI 必須由 A-029 靜態/實機確認，未證前不得實作臆測封包。",
+      "baseline": "使用者確認 Client 已有改密碼 UI；native wire 未定位，A-029 P0",
+      "status": "specified",
+      "stage": "requirement",
+      "evidence_kind": "designed",
+      "policy_source": "02-server-planning/three-native-account-entry-policy.md",
+      "native_client_validation": "not-run"
     }
   ]
 }

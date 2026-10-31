@@ -117,3 +117,7 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 Roy1/Roy2 再同步與 Web 管理介面規劃（非實作）
 
 使用者要求只規劃管理頁面；此輪沒有寫 Web/Server 程式碼。核對 `as_server_roy` 現有 /admin JSON API 與4～8字密碼實作，新增 P0–P2 UI 設計、WEBUI-P01..P10驗收計畫（未測）及「日後實作必須先提醒並取得使用者確認」規範。Roy1 無新增，Roy2 A-010離線結果增量同步且主線 CT-095/096 保留，原版 Client E2E not-run。見 [審查](../04-analysis-integration/roy-branch-web-admin-sync-20261031.md)。
+
+## 2026-10-31 玩家更正：三個原生帳號入口 + 舊創角身份假設作廢
+
+使用者確認**登入、創角兩獨立 UI 入口**；管理先建立 Account，創角直接以既有帳號＋密碼對後端同一 CredentialStore 驗證，錯誤需回 UI 而不寫角色，**不要求先 C03**。另原版有**更改密碼 UI**，玩家正常修改必須用此入口，管理 `credential-reset` 改定位為救援。新增 R-032/A-029/ONB-07/SCN-017/CT-097..099 與三入口安全、原生測試文件；A-027需核 C02 field1/field2 與 native error status，A-029需定位 change-password opcode/回覆，未證一律 unknown。維持4～8密碼、原 Client不修改、僅設計不實作、後續 Web 實作前必須確認。

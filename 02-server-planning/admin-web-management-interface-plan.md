@@ -46,3 +46,7 @@
 |WEB-P2|正式 GM 操作、多使用者 RBAC/MFA、遠端管理|安全／權限／正式 Client 行為與業務決策|僅方向規劃|
 
 驗收規劃 [WEBUI-P01..P10](../05-conformance/admin-web-management-acceptance-plan.md) 全是 `planned/not-run`。**下一次即使收到「實作」指示，先請使用者確認範圍，不得直接開始寫碼**。
+
+## 最新決策：正常玩家不得靠 Admin Web 修改密碼（2026-10-31）
+
+原版 Client 本身具有**更改密碼 UI**；玩家正常改密碼時必須從該遊戲 UI 進行，不能把管理端 `POST /admin/accounts/{id}/credential-reset` 當作玩家自助頁。管理端保留授權管理員 **救援/忘記密碼/初始化密碼** 的功能與審計，任何遊戲中改密碼只由查證後的原生封包路徑進後端同一 CredentialStore。更改密碼 UI 的欄位/opcode/回覆需 [A-029](../03-analysis-requests/requests.json)；本次只規劃，**即使後續要求實作 Web UI，也須先再確認範圍**。

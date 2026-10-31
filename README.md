@@ -107,3 +107,7 @@ Roy1 新增 C6C(1) name/context/key-value ScriptReply 與 C6C(4/2) close/cleanup
 ## 管理 WEB 介面：只完成規劃（2026-10-31）
 
 現有私有 Server 只有可呼叫的 `/admin` JSON API，**沒有管理網頁**。本次使用者更正為「只規劃不實作」，已整理 [UI P0/P1/P2 設計](02-server-planning/admin-web-management-interface-plan.md) 與 [驗收案例](05-conformance/admin-web-management-acceptance-plan.md)，並建立 [日後實作前必須提醒確認的規則](00-governance/explicit-implementation-confirmation.md)。Roy1/Roy2 增量 [審查](04-analysis-integration/roy-branch-web-admin-sync-20261031.md) 只同步已證離線資料，未修改 Server/Web/Client 程式。
+
+## 最新玩家帳號流程：登入、創角、遊戲內改密碼是獨立入口（2026-10-31）
+
+**使用者已確認**：管理員先建 Account，原版 Client 的 **登入 C03** 和 **創角 NewUser C02** 是兩個獨立入口。玩家創角直接輸入預建帳號及密碼，Server 驗同一 CredentialStore 才能建角色；錯密/不存在/停權應回原版 UI 錯誤、無草稿/Character/Grant。**舊「創角一定先 C03 登入」假設作廢**。玩家正常改密碼必須使用原版遊戲內 **修改密碼 UI**，管理端重設僅救援；其真正 opcode/回覆目前待 A-029。新增 [三入口權威契約](02-server-planning/three-native-account-entry-policy.md) 與 CT-097..099 規劃。**本輪只規劃，不修改 Server/Client/Web 程式，Web 日後實作仍需再次確認**。

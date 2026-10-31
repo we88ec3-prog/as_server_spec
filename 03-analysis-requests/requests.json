@@ -1394,7 +1394,8 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "latest_user_decision": "Direct create UI independent of C03; Server verify C02 existing account+password against DB then allow C04; wrong password must generate native-compatible error, details require A-027/A-028."
     },
     {
       "id": "A-022",
@@ -1875,7 +1876,7 @@
       "handoff_status": "partial",
       "native_client_validation": "not-run",
       "implementation_ready": false,
-      "implementation_ready_scope": "Region-aware C02 codec, UI source/confirmation controls and fail-closed pre-auth guard only; native account-claim/character-authorizing route remains blocked",
+      "implementation_ready_scope": "Verified original C02 UI/writer shapes permit designed credential verification on C02 as independent entry; exact account/password native field mapping and failure UI response remain pending, native enablement fail closed",
       "native_account_claim_ready": false,
       "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
       "analysis_test": "tools/a027_pre_auth_contract.py",
@@ -1885,7 +1886,9 @@
         "true UI labels and whether field2 is a preprovisioned Account credential",
         "C03 successful no-character to MakeInfoDialog native transition not demonstrated",
         "region1 third-field UI/serializer discrepancy",
-        "exact server status/error for unauthorized C02 and final C04 status (A-028)"
+        "exact server status/error for unauthorized C02 and final C04 status (A-028)",
+        "C02 field1/field2 exact name/password semantics for TW region and which S02 nonzero error is actually displayed for unknown account vs wrong password",
+        "Direct NewUser launch does not require C03; confirm native event/control availability and correct C02 submit/reply sequence"
       ],
       "security_decision": "fail-closed: C02 parser may run but cannot claim existing Account, issue S02 success, create pending owner or Character unless independent authenticated credential or verified bound C03 session path is demonstrated",
       "last_analysis_date": "2026-10-31",
@@ -1902,7 +1905,8 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md",
+      "latest_user_decision": "Login and NewUser are independent Client entry points. C02 direct pre-C03 account+password must authenticate an existing provisioned Account against same Server verifier; not just name match. Earlier mandatory C03 path is superseded. Native UI field1/2 and S02 failure code still require evidence."
     },
     {
       "id": "A-028",
@@ -1959,6 +1963,46 @@
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
       "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
+    },
+    {
+      "id": "A-029",
+      "system": "SYS-AUTH",
+      "requirements": [
+        "R-025",
+        "R-032"
+      ],
+      "priority": "P0",
+      "title": "原版遊戲內更改密碼 UI：輸入、封包、回覆與錯誤反應",
+      "method": "BIN-first 從 Asgard.exe 已有 Change Password UI/選單的建立和按鍵 callback 起，沿原密碼、新密碼、確認欄/region 及 writer→實際 C2S opcode/body，對照 S2C parser、成功/錯誤/取消 UI；找不到時列已查 VA 與 unknown，不得從英文名稱猜封包。",
+      "deliverable": "Client trigger→native C2S→native S2C→Client UI 的位址/欄位/編碼/狀態序列，4～8字欄位限制、錯密/成功/重送/斷線/停權的 UI 可觀察反應及後續 CT-098/099 手工操作步驟；Server 只依證據接原本 UI 的 wire，不能創新 opcode。",
+      "status": "open",
+      "assignee": null,
+      "evidence_ids": [],
+      "dependencies": [
+        "A-027",
+        "A-002"
+      ],
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "profile": "TW-seed0-local-v0.1",
+      "evidence_kind": "user-reported-client-UI; native-wire-unknown",
+      "completion_policy": "A-EVIDENCE-HANDOFF-v1",
+      "handoff_status": "not-started",
+      "native_client_validation": "not-run",
+      "implementation_ready": false,
+      "analysis_scope": "original game password-change UI only, not Admin API or Server DB policy",
+      "remaining_unknowns": [
+        "UI creation route and controls labels",
+        "C2S opcode/payload, old password/new password/confirm fields and encoding",
+        "S2C response opcode/status and native success/error UI",
+        "credential requirement with/without login, region variants, retry/cancel and disconnect",
+        "Client generated password length validation"
+      ],
+      "conformance": [
+        "CT-098",
+        "CT-099"
+      ],
+      "source_policy": "02-server-planning/three-native-account-entry-policy.md",
+      "client_server_boundary": "A finds native Client observable wire/UI; Server credential verification, version/session revocation and audit are designed DEV responsibilities."
     }
   ]
 }

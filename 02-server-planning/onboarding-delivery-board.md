@@ -83,3 +83,7 @@ Roy1 A-012 補齊 C6C(1) 任務選項回覆的 ScriptRun context/key/value 與 C
 ## 管理員 WEB UI（2026-10-31）：已規劃／未實作
 
 已核對私有 Server 現有 `/admin` JSON 管理 API，但**瀏覽器 UI 不存在**。使用者明確要求此輪**只規劃**；P0 帳號建查停權/解封/重設與稽核用既有 API，P1 搜尋/角色需新 API，P2 GM/遠端管理需新安全設計。詳 [規劃](admin-web-management-interface-plan.md)、[驗收](../05-conformance/admin-web-management-acceptance-plan.md)、[未來實作前先確認](../00-governance/explicit-implementation-confirmation.md)。原版 Client E2E 與 Web UI 測試均 not-run。
+
+## 新用戶決策：登入與創角是獨立入口，改密碼必須用遊戲 UI
+
+ONB-01 C03 登入原有 Account 及 ONB-02 C02 直接創角為**互不要求事先操作的兩個 Client 入口**；管理端仍獨占 Account.Create。創角要直接驗證本次 UI 的 existing 帳號＋密碼，錯密/不存在/停權應回原版可理解錯誤、不建任何草稿/角色/grant；不再要求先有 C03 AuthContext，原 C02 field1/field2 和錯誤 S02/status 待 A-027/028 native 證據。新增 ONB-07 玩家正常改密碼只走遊戲內原生 UI（A-029），管理端密碼 reset 僅救援。見 [主規格](three-native-account-entry-policy.md)；原版 Client 未修改、Server 邏輯修改尚未獲授權、Native E2E not-run。

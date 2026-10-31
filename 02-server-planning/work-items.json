@@ -13,7 +13,8 @@
         "A-002",
         "A-020",
         "A-021",
-        "A-027"
+        "A-027",
+        "A-029"
       ],
       "scenarios": [
         "SCN-007"
@@ -25,7 +26,10 @@
         "CT-041",
         "CT-054",
         "CT-056",
-        "CT-057"
+        "CT-057",
+        "CT-097",
+        "CT-098",
+        "CT-099"
       ],
       "depends_on": [],
       "readiness": "design-ready-minimal-profile",
@@ -44,11 +48,11 @@
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
-      "temporary_creation_account_policy": "Server must reject C02 submitted account name != authenticated login AccountIdentity.Name; without valid login also reject; account equivalence is ASCII case-insensitive per admin store, no trim/aliases. C02 field1 and native no-character route not yet proven.",
-      "creation_account_policy_source": "02-server-planning/character-account-match-policy.md",
+      "temporary_creation_account_policy": "SUPERSEDED: Login C03 and Create C02 independent. C02 must directly verify submitted existing account+password. No prior C03 needed. Verified creation-only proof bound to connection/generation; false credentials fail without Account/Character/Grant. See three-native-account-entry-policy.md",
+      "creation_account_policy_source": "02-server-planning/three-native-account-entry-policy.md",
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
       "next_iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
-      "native_creation_activation_gate": "Native C02/C04 remains fail-closed until A-027 proves C03 no-character to NewUser native route and C02 account field; Server SAFE-01..04 is design-ready.",
+      "native_creation_activation_gate": "A-027 must verify native C02 field1/field2 are account+password for profile and failure S02 UI; C03(no-character)->NewUser is NOT required. Native enablement pending evidence, refuse unknown semantics.",
       "latest_merged_analysis": "roy1 A-020/025/026 and roy2 A-004/005/006/008/009/024 static/partial; original Client E2E remains not-run",
       "native_game_password_p0_compatibility": {
         "source": "02-server-planning/native-game-password-4to8-policy.md",
@@ -71,6 +75,15 @@
         "planning_doc": "02-server-planning/admin-web-management-interface-plan.md",
         "acceptance": "05-conformance/admin-web-management-acceptance-plan.md",
         "no_server_code_changes": true
+      },
+      "latest_three_entry_decision": {
+        "source": "02-server-planning/three-native-account-entry-policy.md",
+        "login_and_create_independent": true,
+        "create_requires_c02_account_and_password": true,
+        "requires_prior_c03": false,
+        "password_change_native_ui_only": true,
+        "admin_reset_recovery_only": true,
+        "native_client_validation": "not-run"
       }
     },
     {
@@ -98,11 +111,10 @@
         "CT-042",
         "CT-043",
         "CT-044",
-        "CT-054"
+        "CT-054",
+        "CT-097"
       ],
-      "depends_on": [
-        "ONB-01"
-      ],
+      "depends_on": [],
       "readiness": "codec-partial-native-authorization-blocked",
       "implementation_status": "not-reported",
       "client_acceptance": "not-run",
@@ -117,11 +129,20 @@
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
-      "temporary_creation_account_policy": "Server must reject C02 submitted account name != authenticated login AccountIdentity.Name; without valid login also reject; account equivalence is ASCII case-insensitive per admin store, no trim/aliases. C02 field1 and native no-character route not yet proven.",
-      "creation_account_policy_source": "02-server-planning/character-account-match-policy.md",
+      "temporary_creation_account_policy": "SUPERSEDED: NewUser authenticates the entered existing Account + Password via Server CredentialVerifier directly; C03 login session is not prerequisite. Wrong/nonexistent/banned => native error/no draft; C04 must have creation-only proof.",
+      "creation_account_policy_source": "02-server-planning/three-native-account-entry-policy.md",
       "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
       "next_iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
-      "native_creation_activation_gate": "Native C02/C04 remains fail-closed until A-027 proves C03 no-character to NewUser native route and C02 account field; Server SAFE-01..04 is design-ready."
+      "native_creation_activation_gate": "A-027 field1/account and field2/password native UI/wire + error S02 mapping before release, A-028 terminal native E2E; not C03(no character) auto-route",
+      "provisioning_dependency": "ONB-01 authorized admin-provisioned Account record required, but ONB-01 C03 login action is NOT required before C02",
+      "latest_three_entry_decision": {
+        "source": "02-server-planning/three-native-account-entry-policy.md",
+        "independent_native_create_entry": true,
+        "credential_source": "Admin-provisioned Account credential verifier",
+        "existing_account_only": true,
+        "requires_prior_c03": false,
+        "creation_only_auth_proof": true
+      }
     },
     {
       "id": "ONB-03",
@@ -380,6 +401,42 @@
         "native_client_validation": "not-run",
         "original_quest_completion": "unknown"
       }
+    },
+    {
+      "id": "ONB-07",
+      "title": "玩家透過原生遊戲 UI 修改既有帳號密碼",
+      "requirements": [
+        "R-032"
+      ],
+      "analysis_requests": [
+        "A-029",
+        "A-002"
+      ],
+      "scenarios": [
+        "SCN-017"
+      ],
+      "conformance": [
+        "CT-098",
+        "CT-099"
+      ],
+      "depends_on": [
+        "ONB-01"
+      ],
+      "dependency_boundary": "requires existing managed Account and CredentialVerifier, not requiring C03/login GUI before UI action unless native Client proves it",
+      "readiness": "planned-native-wire-blocked",
+      "implementation_status": "not-reported",
+      "client_acceptance": "not-run",
+      "completion_policy": "DEV-CT-SPLIT-v1",
+      "client_acceptance_owner": "DEV/CT",
+      "client_io_flows": [
+        "FLOW-PASSWORD-CHANGE"
+      ],
+      "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
+      "authority_policy_source": "02-server-planning/three-native-account-entry-policy.md",
+      "analysis_prerequisite": "A-029 must locate existing native password-change opcode/body and original Client error/success UI; no invented packet",
+      "server_domain_scope": "old credential verification, new 4..8 password hash transaction and credential_version; revoke old sessions/grants, preserve characters, shared credential source for C03 and direct C02",
+      "admin_web_policy": "normal player password change is native game UI; admin credential reset is recovery only",
+      "native_ct_gate": "CT-098/099 must be genuine original Client, not synthetic or Admin JSON API"
     }
   ]
 }

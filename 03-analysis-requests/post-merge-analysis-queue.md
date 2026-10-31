@@ -54,3 +54,10 @@
 - **A-012**：S44 啟動 NPC script→真 GUI 點選→C6C(1) Context / key-value，再回 S44/任務畫面；關閉 C6C(4)/(2) 的原生差異。確認 NPC EntityId/Script 名稱綁定與官方任務條件，Client IO 與 Server policy 各自交付，CT-093/094 native not-run。
 - **A-010**：技能 UI 選取後 C4D 原生 producer已證，追 C56 真 producer、S52/S48 callback/UI 與 S2C(0x2C)／S2D(0x2D) BUFF 顯示、持續效果 ID/刷新/結束；官方 spell-id、CD/MP 的真正資料定義檔名**未知，不得用猜測的 Skill*.dat/Spell*.dat 作必備缺件**。CT-096 native not-run。
 - 新 CT-092～094=Quest，CT-095/096=Skill，保留經濟087～089與地圖090/091。詳 [整合審核](../04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md)。
+
+## P0 最新指定 Client I/O：雙入口創角與原生改密碼（2026-10-31）
+
+- **A-027／A-021**：以原版 NewUser UI（**可不先 C03**）追 C02 第一、二欄是否真正輸出管理端既有 Account 的名稱／密碼（含 region 0/1/2/3/4 writer）；Server 採用本次直接帳密驗證而非「必須是 C03 已登入者」。追 S02 失敗碼與實際 Client error UI，避免錯密卻被 S02(0) 觸發 C04；仍不允許 C02 CreateAccount。
+- **A-028**：查 C02 認證成功後 S02(0)→C04；C04 的 S02 非零錯誤、C15及 UI 回登入。Client 研究不必還原 Server 密碼 hash、創角帳務策略。
+- **新增 A-029／P0**：使用者確認**遊戲內有更改密碼 UI**，定位開啟和送出、原密碼/新密碼/再次確認、本地欄位限制、Client C2S opcode/body、S2C status/message、成功/失敗/取消/retry與 region；此資訊不能猜或自造 Client opcode。玩家正常密碼修改必須走這個 UI，與 Admin 授權救援 reset 分離。
+- 正式 **CT-097 direct-create，CT-098 native change UI，CT-099 change security**，皆 planned/not-run。現有 EXE 已足夠展開靜態追蹤，**目前沒有可證明缺少的具名額外資源檔**。

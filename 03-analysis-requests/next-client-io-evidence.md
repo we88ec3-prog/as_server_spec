@@ -14,3 +14,7 @@
 **A-027 的最小結論格式**：列出已查的 C03-success/no-character callback、兩個 MakeInfoDialog 的 xref、Client UI/操作步驟；能追出 authenticated route 就提供 state/packet chain；追不出就明列「找不到原生可達性」及所查位置，不可把匿名 C02 當 Account owner。它**不是**研究原服怎麼驗證管理員預建帳號的 DB。
 
 **資源**：目前已有 `Asgard.exe`、`Map0.dat`、`Map1.dat`、`Map2.dat`、`Born.dat`。A-027/020/022 不需要新檔案；若需 Script 依賴再指定缺件 `PaperDialog.dat`。
+
+## 2026-10-31 需求更正：不要再要求 C03→NewUser 為獨立創角前置
+
+使用者觀察登入與創角為獨立 UI。更新 A-027 核查項目：直接操作 NewUser→C02 field1+field2 與管理員預建 Account/name/password 的原始 UI/封包對應；追錯密／未知帳號的 S02 非零回覆如何顯示，且 C02(成功)→C04 final 行為。**不應為了規劃要求先登入 C03 才能創角。** 新增 **A-029**：定位原版更改密碼 UI→C2S native opcode/field→S2C reply/Client UI，提供 VA/字串/狀態與負面 case；未查出前標 unknown。現有 `Asgard.exe` 已提供，沒有新增已確認缺件。見 [三入口正式需求](../02-server-planning/three-native-account-entry-policy.md)。

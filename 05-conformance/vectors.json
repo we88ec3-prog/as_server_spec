@@ -586,12 +586,13 @@
         "kind": "test-design",
         "reference": "05-conformance/onboarding-test-plan.md"
       },
-      "expected": "未知/偽造/他人預建帳號不能單憑 C02 字串取得 owner、角色建立許可或 World grant，直到 A-027 確認有效 credential proof",
+      "expected": "C02 before C03 must never claim account on name alone. Native valid C02 account+password may create only a creation-specific owner proof (after field/UI verified); nonexistent/wrong password/banned => native error, no draft/Character/Grant/S02(0); no C03 prerequisite.",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_dependency": [
         "A-027"
-      ]
+      ],
+      "policy_superseded": "Old C03 pre-login mandatory name-only match is superseded: direct C02 must authenticate submitted existing Account+Password in same CredentialVerifier. Unauthenticated (no valid password proof) still denied. No C03 prerequisite."
     },
     {
       "id": "CT-031",
@@ -896,13 +897,14 @@
           "duplicate concurrent"
         ]
       },
-      "expected": "Decode permitted, but no Account claim/Create, no Character lease or S02 success until owner proven by independently authenticated native path; no Client account creation ever",
+      "expected": "A pre-C03 C02 with only account name/forged/wrong password cannot claim Account or Character; with native-verified existing account + correct password may create only creation proof, then C04 gate. No requirement for prior C03; no Client Account.Create.",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_report": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
       "merge_source_id": "CT-039",
       "merge_note": "roy1 CT CT-039 renumbered to CT-041 because roy2 A-015 retains CT-039/040; native Client not-run",
-      "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
+      "temporary_account_name_match": "SUPSERSEDED: Use same Server account+password verifier on independent create UI, not previous C03 name matching.",
+      "policy_superseded": "Old C03 pre-login mandatory name-only match is superseded: direct C02 must authenticate submitted existing Account+Password in same CredentialVerifier. Unauthenticated (no valid password proof) still denied. No C03 prerequisite."
     },
     {
       "id": "CT-042",
@@ -996,7 +998,8 @@
       "analysis_report": "03-analysis-requests/A-028-roy1-c04-terminal-analysis.md",
       "merge_source_id": "CT-042",
       "merge_note": "roy1 CT CT-042 renumbered to CT-044 because roy2 A-015 retains CT-039/040; native Client not-run",
-      "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
+      "temporary_account_name_match": "SUPERSEDED prior-C03 check; C04 requires valid independent C02 credential-verification proof tied account_id+generation+version.",
+      "policy_superseded": "Old C03 pre-login mandatory name-only match is superseded: direct C02 must authenticate submitted existing Account+Password in same CredentialVerifier. Unauthenticated (no valid password proof) still denied. No C03 prerequisite."
     },
     {
       "id": "CT-045",
@@ -1242,14 +1245,11 @@
         "kind": "designed-sqlite-synthetic",
         "reference": "tools/a003_create_contract.py",
         "cases": [
-          "anonymous pre-C03 claim denied",
-          "owner mismatch refused",
           "same account duplicate intent idempotent",
           "same character display-name two owners unique",
           "C15 empty after committed does not delete character",
           "S02 errors do not have native text mapping yet",
-          "authenticated account A, submitted different account B denied without draft/character",
-          "authenticated A, submitted same account with different ASCII letter case passes name gate only"
+          "direct C02 Account A + correct password creates only an owner proof; wrong or other Account password rejected; no prior C03 session required"
         ]
       },
       "expected": "No Account INSERT via Client, no Character without verified owner and pending intent; same pending/body succeeds once; duplicate name/account conflict and delayed C15 have zero unintended effects; full native new-user UI/Server error status not-run",
@@ -1258,13 +1258,14 @@
       "analysis_report": "03-analysis-requests/A-003-roy1-create-legal-values.md",
       "source_ct_renumbered_from": "CT-048",
       "merge_note": "CT CT-048 in source roy1 A-003 was renamed to CT-053; main CT-047/048 are A-014 social",
-      "temporary_account_name_match": "Logged in as A, submitted C02 account-name B => fail closed with no draft/Character/grant/S02(0); anonymous C02(A) also rejected; matching canonical account permits only further authorization checks, not automatic success."
+      "temporary_account_name_match": "SUPERSEDED: verify both C02 name and password from existing account DB; not previous C03 name",
+      "policy_superseded": "Old C03 pre-login mandatory name-only match is superseded: direct C02 must authenticate submitted existing Account+Password in same CredentialVerifier. Unauthenticated (no valid password proof) still denied. No C03 prerequisite."
     },
     {
       "id": "CT-054",
       "status": "planned",
       "level": "native-client-authenticated-no-character-to-newuser-ui",
-      "title": "原 Client 已登入空角帳號可否進入 NewUser 與 C02 帳號欄",
+      "title": "原版 NewUser 獨立入口、C02 帳密與錯誤 UI 的補證",
       "requirements": [
         "R-025",
         "R-026"
@@ -1279,13 +1280,13 @@
         "kind": "native-client-test-design",
         "reference": "05-conformance/native-creation-gate-test-plan.md",
         "cases": [
-          "C03 authenticates pre-provisioned account A with no Character",
-          "record original Client UI event/callback leading to NewUser, or report route not present",
-          "verify whether C02 first field is the logged-in account name",
-          "if native authenticated route exists, try A vs B submitted name and observe response"
+          "directly open original NewUser UI without performing C03 login",
+          "trace native C02 first and second input fields and per-region writer",
+          "submit existing admin-provisioned account+correct/wrong password and record native S02 UI error",
+          "optional: observe C03 no-character->NewUser transition (not prerequisite)"
         ]
       },
-      "expected": "No invented C03(no-character) -> NewUser path: prove UI callback and C02 account name mapping or record absent Client route. If authenticated creation is possible, mismatch B must be rejected without draft/Character/Grant and matched A still needs all other permissions. Anonymous C02 is never proof of owner.",
+      "expected": "Prove independent NewUser UI C02 account+password submission and actual native S02 error; C03 no-character->NewUser auto-route only optional diagnostic, not required to start creation. Correct credential proof required, not account name only.",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_dependency": [
@@ -1293,7 +1294,8 @@
         "A-021",
         "A-028"
       ],
-      "note": "Test design only; original client E2E not executed; no modified client."
+      "note": "Test design only; original client E2E not executed; no modified client.",
+      "policy_superseded": "Old C03 pre-login mandatory name-only match is superseded: direct C02 must authenticate submitted existing Account+Password in same CredentialVerifier. Unauthenticated (no valid password proof) still denied. No C03 prerequisite."
     },
     {
       "id": "CT-055",
@@ -2583,6 +2585,73 @@
       "analysis_request": "A-010",
       "native_client_validation": "not-run",
       "source_branch_original_ct": "CT-090"
+    },
+    {
+      "id": "CT-097",
+      "status": "planned",
+      "level": "native-original-client-independent-create-entry-and-credential-check",
+      "requirements": [
+        "R-025",
+        "R-026"
+      ],
+      "packet_ids": [
+        "PKT-C02",
+        "PKT-S02",
+        "PKT-C04",
+        "PKT-C15"
+      ],
+      "input": {
+        "kind": "original-client-native-plus-synthetic-DB",
+        "reference": "05-conformance/native-creation-gate-test-plan.md",
+        "cases": [
+          "existing admin Account+correct password directly via NewUser before C03",
+          "wrong password, missing account, suspended, already has Character",
+          "C04 valid/invalid proof, repeated packet and C15 after commit"
+        ]
+      },
+      "expected": "Original NewUser can submit existing account+password independently of C03. Server verifies both via authoritative CredentialVerifier; incorrect proof produces original UI-compatible failure without any Account/Character/draft/grant. Correct proof only enables C04 and one atomic Character commit; actual failure status must be native-evidence-backed, not guessed.",
+      "evidence_kind": "user-decided-policy; native-fields-ui-await-A027-A028",
+      "analysis_request": "A-027",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-098",
+      "status": "planned",
+      "level": "native-original-client-change-password-ui-wire",
+      "requirements": [
+        "R-032"
+      ],
+      "packet_ids": [],
+      "input": {
+        "kind": "native-original-client-ui-capture-and-exe-static",
+        "reference": "05-conformance/account-password-native-change-test-plan.md"
+      },
+      "expected": "Locate original in-game change password UI and actual C2S opcode/body plus S2C status/Client success/error/cancel callback; no modified Client and no invented packet. Verify 4..8 text input and old/new/confirm semantics if present.",
+      "evidence_kind": "user-reported-client-UI, native-wire-unknown",
+      "analysis_request": "A-029",
+      "native_client_validation": "not-run"
+    },
+    {
+      "id": "CT-099",
+      "status": "planned",
+      "level": "server-domain-password-change-credential-consistency",
+      "requirements": [
+        "R-025",
+        "R-032"
+      ],
+      "packet_ids": [
+        "PKT-C03",
+        "PKT-C02",
+        "PKT-S02"
+      ],
+      "input": {
+        "kind": "designed-DB-transaction-plus-original-native-recovery",
+        "reference": "05-conformance/account-password-native-change-test-plan.md"
+      },
+      "expected": "Player change password only through original game UI; verify old credential/new4..8, atomically rotate hash/version, revoke old sessions/grants, preserve Account/Character. Later C03 login and independent C02 create accept new password, reject old; errors/retries/concurrency do not change Account. Admin credential-reset is authorized recovery only.",
+      "evidence_kind": "designed; native-path-unverified",
+      "analysis_request": "A-029",
+      "native_client_validation": "not-run"
     }
   ]
 }

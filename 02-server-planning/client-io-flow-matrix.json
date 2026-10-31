@@ -48,7 +48,7 @@
     {
       "id": "FLOW-NEWUSER",
       "label": "原生 NewUser 兩階段表單",
-      "client_trigger": "玩家開啟 NewUser UI，提交本地檢查過的輸入欄位；不是已證 C03 無角色後自動切入",
+      "client_trigger": "原版 NewUser UI 獨立入口，可在未先使用 C03 的情況下提交已預建 Account 的帳號＋密碼候選 C02；本 Client 觸發/欄位對應待 A-027 完整驗證",
       "client_send": [
         "PKT-C02",
         "PKT-C04",
@@ -80,20 +80,20 @@
         "CT-044",
         "CT-052",
         "CT-053",
-        "CT-054"
+        "CT-054",
+        "CT-097"
       ],
       "server_decisions": [
-        "R-025: Client 不建立 Account，C02 不可無認證認領其他預建帳號",
-        "合法 owner + PendingCharacterIntent 才能回引發 C04 的 S02(0)；C04 原子保存後再依合法 UI 回覆",
-        "暫行 R-026：只有已登入 AccountIdentity，且創角輸入帳號依現有 ASCII 不分大小寫規則等於已驗證登入帳號時，才可進入建角其他檢查；不相同/無登入拒絕且不可發 S02(0)。C02 第一欄帳號語意仍需 A-027 核對"
+        "R-025/R-026: C02 絕不可建立 Account；直接用本次 C02 提交的 existing Account name + Password 於同一 DB CredentialVerifier 驗證；**無需 prior C03 Session**，帳號/密碼不符、停權/角色已存在 → 原版可辨識錯誤、不建 Pending/Character、不發 S02(0)。",
+        "成功憑證只建立 creation-only owner proof (account_id, credential_version, connection/generation, TTL) 與 PendingCharacterIntent，C04 同 proof 才一次性提交 Character；這不授權 World grant。",
+        "原生 field1/field2 和錯誤 status 的 Client evidence 仍缺 A-027/A-028；Native enablement 必須 fail closed，不能亂猜 status。"
       ],
-      "readiness": "wire-and-ui-partial-auth-route-unproven",
+      "readiness": "original C02/C04 decoded-body ready, direct credential auth designed; native field semantics + error UI not proven",
       "unknowns": [
-        "C03 無角是否可到 NewUser UI",
-        "C02 各 region 真正欄位語意與安全認證條件",
-        "錯誤碼的原服文字含義",
-        "尚未證明 C02 field1 是已登入 Account 名稱；這項設計守衛不能使原生建角路徑自動 ready",
-        "A-027 C03(no-character)->NewUser UI and C02 first account field not native-proven; CT-054 remains not-run"
+        "C02 第1/2欄 Account/Password 的各 region 精確 native UI/serializer 角色與本機限制",
+        "S02(status!=0) 對錯帳號/錯密/停權/已有角色的 native UI/error code",
+        "C04 final success UI 到一般登入頁的實際按鍵、region差異",
+        "原版 Client 的 C03(no character) auto-route 只作補充觀察，不是使用者要求的 create 前置"
       ],
       "native_client_validation": "not-run",
       "work_items": [
@@ -644,6 +644,41 @@
       ],
       "native_client_validation": "not-run",
       "analysis_report": "task_a/roy2/A-010-analysis.md"
+    },
+    {
+      "id": "FLOW-PASSWORD-CHANGE",
+      "label": "原版遊戲內更改密碼（Client 已有 UI，native wire 待 A-029）",
+      "client_trigger": "玩家進入原始 Asgard.exe 遊戲內更改密碼 UI，輸入既有帳號/原密碼/新密碼/確認（實際欄位與前置登入條件待原生 A-029）",
+      "client_send": [],
+      "server_to_client": [],
+      "client_reaction": "使用者確認 UI 存在；實際 C2S/S2C opcode、body、錯誤回覆/成功回登入 UI、region 仍未知，不能自造封包",
+      "evidence": [
+        "A-029"
+      ],
+      "scenarios": [
+        "SCN-017"
+      ],
+      "tests": [
+        "CT-098",
+        "CT-099"
+      ],
+      "work_items": [
+        "ONB-07"
+      ],
+      "server_decisions": [
+        "Server uses same Account CredentialVerifier as Login C03 and direct Create C02; old credential must be trusted; new game password 4..8 ASCII alphanumeric; atomic hash and credential version update, revoke grants/sessions, preserve characters and progress.",
+        "Normal player password change is strictly via original native Client UI; Admin credential-reset is authorized recovery, not normal self-service. Brute force throttling and generic errors apply."
+      ],
+      "readiness": "user-reported UI only, native packet unconfirmed; implementation blocked",
+      "unknowns": [
+        "Original C2S opcode/writer fields",
+        "Original S2C opcode/error UI feedback",
+        "Whether UI requires prior C03 or has old password independently",
+        "Regional differences and retry/cancel/invalid fields"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_report": "03-analysis-requests/requests.json",
+      "source_policy": "02-server-planning/three-native-account-entry-policy.md"
     }
   ]
 }

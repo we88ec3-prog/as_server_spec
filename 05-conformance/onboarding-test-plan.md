@@ -59,3 +59,7 @@ CT-016：按既有 S15 3×u16+2×u8+string8、S14 控制碼、C35 MAP header+4�
 ## P0 / DEV-030 密碼長度相容性驗收（2026-10-31；未執行）
 
 原 Client 使用者回報登入密碼欄**最多 8 字元**，現私有 Server `Pbkdf2PasswordHasher.ValidatePassword` **10～128** 不相容。依 [原生 4～8 字遊戲密碼政策](../02-server-planning/native-game-password-4to8-policy.md) 在既有 **CT-019/CT-037/CT-050** 增列測試，不新增測試編號：管理員建帳及重設 4/5/6/7/8 字 ASCII 英數成功；3/9/10/12 字、控制/空白/非 ASCII、非法字元拒絕；大小寫敏感；SQLite/PostgreSQL 一致；舊 10+ 字密碼不截斷、需重設；重設後舊 grants/token 失效但角色保留；Admin X-Admin-Key 不縮短。**真正原版 Client** 必須親自鍵入4字及8字並證明 C03 不丟字，成功/錯密/停權與 transfer，否則 Client CT=not-run；合成 C03 fixture 成功只能算 unit/integration。
+
+## 最新 R-026 身份流程取代原有「先 C03」假設（2026-10-31）
+
+**本附錄優先於本文早期 CT-030/041/053/054 的「匿名 C02 一律拒絕、必須先 C03」文字**：使用者已確認登入與創角是兩個獨立 Client 入口；有效直接創角的 C02 含既有 Account 的**帳號＋正確密碼**，由 Server CredentialVerifier 驗明文比對雜湊後才建立 creation-only AuthProof；**不要求先有 C03 Session**。只帶名稱/錯密/未知帳號/停權的 C02 仍拒絕，不發誘發 C04 的 S02(0)，且要讓原版 UI 顯示可理解的失敗（S02 非零碼待 A-027/A-028 驗證）。C04 成功/失敗、C15 取消/重送均需同 owner/connection/generation。CT-097 加測原版直接創角的正確/錯誤帳密；CT-098/099 新增遊戲內原生改密碼 UI 與共用帳密更新/撤銷測試。詳 [新版原生創角驗收](native-creation-gate-test-plan.md) 與 [改密碼測試](account-password-native-change-test-plan.md)，Native E2E **全部尚未執行**。

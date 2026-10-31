@@ -1,24 +1,16 @@
-# R-026 — 創角輸入帳號必須匹配登入帳號（暫行 Server 政策）
+# R-026：創角入口輸入帳密需符合管理端已建帳號（取代舊先 C03 登入政策）
 
-## 暫行創角帳號比對政策（使用者決策，2026-10-31）
+**最新使用者決策（2026-10-31）**：原版登入與創角是**兩個獨立入口**。創角輸入的帳號和密碼須都符合 **Server 後端**既有 Account；不需先經過 C03 登入。正常改密碼必須走原版遊戲內修改密碼 UI。詳細見 [權威契約](three-native-account-entry-policy.md)。
 
-**不修改 Client，也不禁止編輯原生帳號輸入框。** 在原 Client 的 NewUser/C02 第一欄被確認為帳號欄、且存在與此創角會話相同 generation 的 Server 已驗證登入 Account 後，Server 只接受 **輸入帳號與該登入帳號相同** 的創角請求；不符必須失敗，且不得建立 PendingCharacterIntent/Character、改別人帳號、核發 Grant 或送會觸發 C04 的 S02(status0)。帳號相等依現有管理帳號規格使用 3～32 ASCII 字母/數字/底線且大小寫不敏感比較（不 trim、無別名），實際角色 owner 一律使用 Server account_id。
+## 創角時的後端判定（DESIGNED）
 
-**無有效登入 AuthContext → 一律拒絕**，即使字串剛好相同；匹配成功只通過此檢查，另需帳號未停權、有效 session/generation、角色/外觀唯一性等規則。A-027 仍未確認 C03 無角色→NewUser 原生可達及 C02 第1欄確為既有登入帳號，因此正式 native C02/C04 仍必須 fail closed，直到證據足夠；不得把原服註冊 UI 直接當作新 Server 的角色創建授權。原生錯誤回覆 status 尚未知：拒絕時不得發 S02(status0) 或亂猜 status；目前安全實作可結束未授權連線。這是 **Server designed**，不宣稱原版原本有相同限制。
+1. 管理員先建立 `Account(account_id,canonical_name,credential_hash,status)`；遊戲 Client 不可用 C02 建新 Account。
+2. 玩家從原 Client NewUser/MakeInfoDialog 直接輸入「帳號＋密碼」與原版既有其他欄位。Server 依 **該原始 UI 已證對應的 C02 欄位**查既有 Account、用同一 `CredentialVerifier` 比對完整密碼（大小寫敏感，4～8 ASCII 英數）及停權狀態；**無 C03 Session 不構成拒絕理由，若本次 C02 自身憑證驗證成立即可**。
+3. 錯帳號/錯密/停權/帳號不可創角 → 回傳原版 UI **可以顯示的錯誤**，不建立 Account/草稿/Character/WorldGrant，不發會誘發 C04 的 `S02(status0)`。目前 S02 native failure code/文字與 region UI 仍未知；**不能因要求錯誤回覆而捏造 status**，此 native route 先 fail closed，需 A-027/A-028 補證。
+4. 正確 → 只建 `CreateAuthProof(account_id,credential_version,connection,generation,expiry)`（不能用它冒充 World 登入 grant），建立 owner 綁定 `PendingCharacterIntent`，回真 Client 已證能接受的 C02 階段成功 S02；再 C04 appearance 只在有效同一 proof/connection/generation 下原子保存一次 Character。
+5. 同名/已有角色、錯外觀、C04 缺 C02、C15 取消/競爭與重送一律用持久唯一性、過期/世代、單次提交保護。Client **欄位自己比對密碼確認**不能取代 Server Hash 驗證。原版 CharacterName/AccountName 欄位語意與 region 0/1 差異仍須研究。
+6. 角色成功後，玩家照原版登入 UI 使用同一既有帳密登入。**不假定 C04 成功的 UI 會自動進入 C03/S03/C10**；Client 真實回登入步驟仍待證。
 
-## 處理順序（DESIGNED）
+**歷史舊政策已作廢**：先前本檔要求 `C03 已登入 AuthContext`、C02 欄位名稱與它相同才允許建角，**與使用者確認的雙入口不相容**。現在帳號一致性改成「本次 C02 帳號/密碼實際驗證結果指向 Server 同一筆 existing Account」，而不是「本次 C02 名稱必須等於先前登入帳號」。匿名只送帳號名或跳過密碼的 C02 仍必須拒絕；若不能確認密碼欄位原生 wire，暫不得開放創角成功。
 
-1. Session 具有先前成功的 C03 身份驗證，讀取 `authenticated_account_id`、`authenticated_account_name`、`session_generation`；不得從 C02 欄位生成 AuthContext。
-2. 按 Client profile 正確解析 C02，且證實第一欄原生用途符合帳號輸入。比對 `submitted_account_name` 與已驗證的 account name（ASCII case-insensitive，完全不修剪）。
-3. 不相同、無登入、過期/停權/舊世代：立即拒絕；**禁止建立 PendingIntent/Character，禁止 S02(0) 觸發 C04**。如原生失敗 S02 非零碼未知，採 fail closed 而不是猜錯誤代碼。
-4. 相同：繼續驗證其他條件，於 Server 建立同一 account_id + generation 的草稿；C04 必須對應同一草稿、只持久保存一次。
-5. 不變更 `Asgard.exe`，不禁用、不自動填入帳號欄。若 C03→NewUser 原生流程無證據，C02 在登入前送達仍保持拒絕。
-
-## 對應驗收（CT-041/044/053）
-
-- 帳號 A 已登入，C02 第一欄為 B → 拒絕、不建草稿、角色、grant；B 帳號不受影響。
-- 已登入 A，C02 第一欄大小寫不同但 canonical 同帳號 → 僅通過名稱一致檢查，仍受其他創角條件限制。
-- 無登入的 C02 填 A → 拒絕；登入後另一個 connection/generation 的 C02 → 拒絕；登入 A 但停權/失效 → 拒絕。
-- C04 無已認證且匹配的 C02 pending → 拒絕；帳號 A 的 C15 不可刪 B 或已提交角色。
-
-此頁只更新設計與合成測試預期，原生 Client E2E 尚未完成。
+[原生驗收](../05-conformance/native-creation-gate-test-plan.md) · [A-027 證據](../03-analysis-requests/A-027-roy1-identity-ui-security.md)。
