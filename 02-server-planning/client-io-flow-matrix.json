@@ -231,14 +231,14 @@
     {
       "id": "FLOW-SCRIPT",
       "label": "Client Script 執行與關閉",
-      "client_trigger": "Client 收到合法 S44(1,0) 指定 script/context 及依賴",
+      "client_trigger": "Server issues verified S44(1,0) named Born start plus PaperDialog dependency (original Server first-login push unknown) or a distinct S44 type2 dialog control; original Client XML+resource setup requires appropriate Script/World context.",
       "client_send": [
         "PKT-C6C"
       ],
       "server_to_client": [
         "PKT-S44"
       ],
-      "client_reaction": "資源足夠執行 Main／PaperDialog；缺資源 C6C(0) 請求補檔；關閉 C6C(4)／條件下 C6C(2)",
+      "client_reaction": "S44(1,0) Native ScriptManager checks main/dependency CP950 text CRC, executes Born.Main with PaperDialog_Create, referencing Basic.dat/AlertFrame.ypf original member verified (39-slot indexed DAT, YPF17). Born OK's client.Dispose invokes C6C(4), unreplied runner cleanup C6C(2); neither means quest completion. S44(2,0) outer Client handler uses UI slot0x23/component3/4 and S44(2,2) uses UI slot0x24, separate from Born type1 start; native first NPC/GUI not-run.",
       "evidence": [
         "A-012",
         "A-023"
@@ -254,24 +254,28 @@
         "CT-092",
         "CT-093",
         "CT-094",
-        "CT-102"
+        "CT-102",
+        "CT-112"
       ],
       "server_decisions": [
         "WorldReady 或指定受控事件觸發一次合法 ScriptRun（Server 自訂教學政策）",
         "資源 revision/CRC/依賴相符才送 S44；C6C close 只表示生命周期，不等於任務完成",
         "STATE=REFUSE on recruiter admission is no-op; closing dialog may be UI-only and NPC may be clicked again to obtain fresh run/context, repeated refusals never block future acceptance."
       ],
-      "readiness": "script-client-lifecycle-ready-dispatch-policy-designed",
+      "readiness": "S44 type1 start/dependency/CRC + C6C lifecycle static-ready; new S44 type2 UI slots and Born/Basic exact resource SHA verified. First original Server Born push/NPC binding and native GUI CT-034/035 not-run; PaperDialog.dat not supplied for independent recheck this turn.",
       "unknowns": [
         "原服首次派發 Born 的時刻不是 Client 研究必答",
-        "當前缺完整 PaperDialog.dat 原件可作獨立依賴驗證",
-        "Recruiter NPC real script binding and native STATE=REFUSE UI callback unverified."
+        "Recruiter NPC real script binding and native STATE=REFUSE UI callback unverified.",
+        "Exact PaperDialog.dat original currently not supplied in this local session (historical SHA/decoded source are indexed); optional to recheck full XML dependency.",
+        "Original Server first push of Born, first recruiter NPC EntityId/map/spawn/script mapping, quest flags and native UI/packet trace not proven; C6C(4)/(2) means runner disposal not tutorial completion.",
+        "S44 type2 UI slot0x23/0x24 exact visible dialog/label and type2 sender state native GUI unverified."
       ],
       "native_client_validation": "not-run",
       "work_items": [
         "ONB-05",
         "ONB-06"
-      ]
+      ],
+      "a023_latest_analysis": "task_a/roy2/A-023-born-basic-native-dispatch-20261101.md"
     },
     {
       "id": "FLOW-GAMEPLAY",
