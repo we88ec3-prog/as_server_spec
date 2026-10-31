@@ -117,7 +117,7 @@
     {
       "id": "FLOW-TRANSFER",
       "label": "Login TCP 轉 World TCP",
-      "client_trigger": "Client 收到 S03，依地址/port 建立新連線",
+      "client_trigger": "Original S03→new TCP: region3 native 0x4A8370 C10 ctor0x4A8415/send0x4A8446 then CBillingInfo C25 ctor0x4A8478/send0x4A84F3; second native 0x52FB8C then region3 0x52FC4B. Other regions' verified callback may only queue C10.",
       "client_send": [
         "PKT-C10",
         "PKT-C25"
@@ -125,10 +125,11 @@
       "server_to_client": [
         "PKT-S03"
       ],
-      "client_reaction": "向 World TCP 發 C10 body raw token（不含 string8 長度），再進入 C25 等 World 流程",
+      "client_reaction": "First World C2S is C10 containing raw S03 transfer token. Region3 immediately sends opcode0x25 CBillingInfoPacket with 3×string8 in known callbacks, without waiting S02. All four known direct C25 senders region3-guarded. Non3 C25 not required by original known producers. Native World initial S2C/GUI remains CT-108 not-run.",
       "evidence": [
         "A-002",
-        "A-016"
+        "A-016",
+        "A-031"
       ],
       "scenarios": [
         "SCN-001",
@@ -138,23 +139,30 @@
         "CT-037",
         "CT-038",
         "CT-045",
-        "CT-046"
+        "CT-046",
+        "CT-110",
+        "CT-108"
       ],
       "server_decisions": [
         "只允許一次消費且有期限的 token；登入 TCP 關閉不應直接撤銷合法轉服",
-        "generation/owner/destination 由 Server 校驗；重複登入採明示設計策略"
+        "generation/owner/destination 由 Server 校驗；重複登入採明示設計策略",
+        "C25 opcode0x25 on this original client is CBillingInfoPacket, NOT World map entry metadata. Only native region3 three string8 can be recognized; never require development fake C25 body01 from real Client, nor use C25 strings as authentication.",
+        "No S02 ack is expected between the two enqueues in region3 original callback; Server authority begins with validated once-only C10 grant. For other regions, nonarrival of C25 must not automatically reject World entry (designed)."
       ],
-      "readiness": "wire-subset-ready",
+      "readiness": "C10 native raw token and region3 C25 3×encoded string8 static-ready (A-031/CT-110); original World first S2C, non3 subsequent flow, native Client successful map display CT-108 not-run.",
       "unknowns": [
         "原服重複登入策略與 S02 拒絕碼",
-        "C25 全區域分支"
+        "Native packet capture seed/ordinal/billing string values and other region 0/1/2/4 World follow-up beyond C10",
+        "Actual World first S2C or S02 error branch and native GUI first map display after transfer CT-108 not-run"
       ],
       "native_client_validation": "not-run",
       "work_items": [
         "ONB-01",
         "ONB-03",
         "ONB-04"
-      ]
+      ],
+      "a031_analysis_report": "task_a/roy2/A-031-analysis.md",
+      "a031_original_c25_format": "CBillingInfoPacket ctor0x5712E0 writer0x571420. Region3: three encoded string8 from global[0x66D100]+0x0C/+0x20C/+0x40E (3+L0+L1+L2 bytes); not a required all-region entry marker."
     },
     {
       "id": "FLOW-MAP",
@@ -172,7 +180,8 @@
       "client_reaction": "讀取本地對應 MAP，回 C35 的 2 個 BE u16；在恰當的 S04/S33/S14 狀態更新角色和地圖",
       "evidence": [
         "A-015",
-        "A-022"
+        "A-022",
+        "A-031"
       ],
       "scenarios": [
         "SCN-009",
@@ -195,7 +204,8 @@
       "unknowns": [
         "目前驗證過的 494 MAP 之 map_id/相容版本與原生顯示完整映射",
         "合法出生點、碰撞與 C35 配對需要對具體選定地圖完成測試",
-        "Map tile in-bounds != actual player-passable/spawn-safe; selected original map and native pixel-foot mapping unknown"
+        "Map tile in-bounds != actual player-passable/spawn-safe; selected original map and native pixel-foot mapping unknown",
+        "A-031 proves C10 then region3 BillingInfo C25 queue; does not prove first S2C, map loading packet order, or native successful World GUI. CT-108 still not-run"
       ],
       "native_client_validation": "not-run",
       "work_items": [
