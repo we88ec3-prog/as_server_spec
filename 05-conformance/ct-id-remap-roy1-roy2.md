@@ -33,6 +33,18 @@
 
 Roy1 CT-045～048 已早在 main 分別整合/更名為 **CT-050～053**（不是新測試），不重複登錄。Roy2 CT-054 與 main 原生創角 UI 同一項；Roy2 的舊 CT-055 是「原生兩玩家 AOI」，現在是 CT-070，不要與 main CT-055 的「多人共享場景」混淆。
 
-新 CT **共 26 項**，目前都是 planned/not-run。即使來源報告有離線 python 測試 PASS 也不是原始 Client E2E；看到報告寫 CT-055 時必須先確認是哪個 branch。
+新 CT **共 31 項**，目前都是 planned/not-run。即使來源報告有離線 python 測試 PASS 也不是原始 Client E2E；看到報告寫 CT-055 時必須先確認是哪個 branch。
 
 [機讀映射](ct-id-remap-roy1-roy2.json)。
+
+## 第二輪來源 CT 對照
+
+|來源|原編號|main 編號|
+|---|---|---|
+|Roy2 A-011|CT-067|CT-082|
+|Roy2 A-011|CT-068|CT-083|
+|Roy1 A-004|CT-063|CT-084|
+|Roy1 A-004|CT-064|CT-085|
+|Roy1 A-004|CT-065|CT-086|
+
+全部是 planned/not-run，來源合成測試通過不等於原始 Client E2E。

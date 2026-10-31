@@ -18,9 +18,16 @@
 
 - 已有：`Asgard.exe`、`Born.dat`、`Map0.dat`、`Map1.dat`、`Map2.dat`，**不要重複索取**。
 - 可明確指出的 Script 依賴：`PaperDialog.dat`；交互 Script 目前僅有候選名 `nNewJoin01.dat`，要由 A-023/026 確認是同版/同 NPC，不可當已證。
-- **NPC 資源**：原件中有 selector `World%02d.dat` 與 `@Monster%02d.dat`，具體例子 `World00.dat`、`@Monster00.dat` 只是模板展開，不保證存在或就是 NPC 定義檔。**請 A-011/A-024 先回報真實被載入的檔名/目錄索引**，不要讓使用者盲傳整包圖像。
+- **NPC 資源**：原件中有 selector `World%02d.dat` 與 `Monster%02d.dat`，具體例子 `World00.dat`、`Monster00.dat` 只是模板展開，不保證存在或就是 NPC 定義檔。**請 A-011/A-024 先回報真實被載入的檔名/目錄索引**，不要讓使用者盲傳整包圖像。
 - 原服的原生 quest/mob/drop/地圖/死亡時序若僅靠 Client 無法還原，可標「Server policy unknown」不阻擋已知 Client codec 交 DEV。
 
 ## 交付驗收
 
 每個 A 的增量要有 `trigger / client_sends / client_receives / client_reaction / evidence(original VA or resource hash) / unknowns`。協定及合成測試可先進整合；Native E2E 必須獨立錄原版 Client SHA、畫面/方向/去敏封包/下一個 UI/Server state，**不可使用合成 fixture 冒充實機**。同一種已知封包的欄位切片不要重做，集中補 registry/UI、地圖資源綁定及錯誤/成功分支。
+
+
+## Roy2 A-011 / Roy1 A-004 第二輪分析結果
+
+**A-011 已 integrated/partial**，不再要求它從頭找出 NPC／怪物 resource library 或 C43 serializer：S07 kind1/2/4→MonsterObject、Monster 10 sprite slot/檔、C43 兩條 producer 已查。**剩餘的 P0 項目**：哪個實際 SpriteImage ID 對應教學招募員／首隻怪；S07 row+0x222 到最終圖像 ID 的完整 XREF；`C43→S34/S44→NPCChatDialog` native UI chain；Monster motion 六 selector 真實動作/動畫素材；A-004 已有 0x4EAC30 ObjectRegistry lookup，但 death/remove callback、雙原 Client AOI E2E 尚未證。
+
+**需要的具名原件**（若要確認圖像/動畫）：原版同版本、確實存在的 `Monster00.dat`（或任一 `MonsterNN.dat`）和 `World00.dat`（或任一 `WorldNN.dat`）各一份樣本即可。**不需要 `@Monster00.dat`，也不用重新提供 Asgard.exe／Map0～2.dat／Born.dat**。互動 PaperDialog 的 `PaperDialog.dat` 可另提供；`nNewJoin01.dat` 仍只是候選。最新 CT-082/083（Roy2）及 CT-084～086（Roy1）均 planned/not-run。

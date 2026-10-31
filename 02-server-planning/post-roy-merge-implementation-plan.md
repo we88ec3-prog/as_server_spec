@@ -52,3 +52,12 @@ Script `Born` 顯示/關閉只更新 `ScriptRun`，不更新 `TutorialCompleted`
 ## 仍需分析的 Client 問題
 
 詳見 [下一輪可發給 A 開工的精確清單](../03-analysis-requests/post-merge-analysis-queue.md)，只列真正的 Client trigger→C2S→S2C→reaction、資源 identity/renderer 證據；不再籠統要求「完整還原 Server」。
+
+## Roy1 A-004 / Roy2 A-011 最新補證（2026-10-31）
+
+- **A-004**：原始 S07 decoded `u32 object_ref` 進入 `0x4F17C0` DrawObjects handler，再由 `0x4EAC30` 查 MapPane registry；補 S1A Motion，且更正先前錯把 S1E 認作 DieObjects 的說法。Native death packet 是 **S5F**，死亡≠S0E 離場。
+- **A-011**：S07 kind **1/2/4** 會建立 `MonsterObject`（ctor `0x4D6FA0`），但不能因此宣稱三種 kind 分別代表何種 NPC/怪。Resource Library **World IDs 7000..7023** → `World%02d.dat`、**Monster IDs 8000..8042** → `Monster%02d.dat`；Monster Image ID `0x4000+` 按每檔 10 槽：library=8000+floor((id-0x4000)/10)，slot=(id-0x4000)%10。0x4000..0x41AD 是 Server designed 安全範圍，不是原服官方全域值。
+- **檔名更正**：原 EXE 寬字 literal 以 `@Monster` 開頭，但查檔呼叫指向第二個字元，實際使用 **`MonsterNN.dat`，沒有 `@`**。
+- **C43** 兩條原生 producer `0x479DC7`、`0x4A23F8` 都可構造 `01 BE-u32 04`，仍未證明 NPC 點擊一定送 C43、也未連成 S34→NPCChatDialog 的完整路徑。
+
+DEV-070-M 可以立即增加 `MonsterResourceCatalog` 及由原始 id→檔名/槽的安全映射、原生 S07 kind1/2/4 to MonsterObject adapter 設計、共享地圖 AOI；**實際原版 Client Sprite、NPC 對話與原生 CT-082～086 仍 not-run**。

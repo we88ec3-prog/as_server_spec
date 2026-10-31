@@ -191,8 +191,8 @@ for packet in read("04-analysis-integration/packets.json")["packets"]:
     require(all(v in packet_ids for v in packet.get("related_packets", [])),
             packet["id"] + " related_packets has unknown id")
 remap = read("05-conformance/ct-id-remap-roy1-roy2.json")
-require(len(remap["mapping"]) == 26, "source branch CT IDs must be remapped to 26 unique main IDs")
-require(len({m["main"] for m in remap["mapping"]}) == 26, "CT remap collisions")
+require(len(remap["mapping"]) == 31, "source branch CT IDs must be remapped to 26 unique main IDs")
+require(len({m["main"] for m in remap["mapping"]}) == 31, "CT remap collisions")
 for mapping in remap["mapping"]:
     require(mapping["main"] in ctid and mapping["source"] not in {"CT-054", "CT-055"}
             or mapping["main"] in ctid, "invalid CT remap target")
@@ -206,3 +206,11 @@ for p in ("02-server-planning/post-roy-merge-implementation-plan.md",
           "05-conformance/ct-id-remap-roy1-roy2.md"):
     require((ROOT / p).is_file(), "missing integrated planning " + p)
 print("Roy1/Roy2 merge evidence and CT lineage: PASS")
+
+# Roy1 A-004 / Roy2 A-011 incremental Client I/O handoff
+npc = next(x for x in a if x["id"] == "A-011")
+require(npc["status"] == "integrated" and npc["handoff_status"] == "partial", "A-011 must remain integrated/partial")
+require(all(f"A011-E{i:02d}" in EVIDENCE_IDS for i in range(1,9)), "A-011 missing indexed evidence")
+require("PKT-S1A" in packet_ids, "A-004 Motion packet not merged")
+require(all(f"CT-{i:03d}" in ctid for i in range(82,87)), "new CT-082..086 not registered")
+print("Roy1 A-004 / Roy2 A-011 incremental evidence: PASS")

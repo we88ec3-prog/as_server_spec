@@ -9,3 +9,7 @@
 - **Server**：DEV-070-M 以 SharedMapKey 及每玩家 Observer/Session，S07/S0C/S64/S5F/S0E 引入 Native Adapter 但只在 object kind/renderer 完成後發送；DEV-080 把 C13/S13/S5F 與 S08/技能串成 Domain；DEV-090 不把 Born/ScriptClose 當 quest complete，C39/S2F 只是 Merchant candidate，獎勵/exit 保持 unknown。
 
 需後續原生研究清單見 [A-XX 交接](../03-analysis-requests/post-merge-analysis-queue.md)。整合報告沒有聲稱任何新的 native Client CT Pass 或私有 Server 代碼已更改。
+
+## 增量合併：task_a/roy1@c4d42ac0、task_a/roy2@5c99fd33
+
+第二個三父合併 commit `b3d6536a1b95c675b78083f0cc7443a6e962233a` 收入 Roy1 A-004 原生 ObjectRegistry/可見性補證、Roy2 A-011 MonsterObject、DAT 資源索引、C43 原生 UI producer，並修正 `@MonsterNN.dat` 的查檔誤認：**真檔名是 MonsterNN.dat**。新增 CT-082/083、CT-084/085/086，總計 86 項；原版 Client 未實測。

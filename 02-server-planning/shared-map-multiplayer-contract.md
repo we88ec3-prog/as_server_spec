@@ -44,3 +44,7 @@
 ## Roy2 A-004/A-024 已交 Client 封包證據（2026-10-31）
 
 ADR-007 的共享地圖/Actor authority 不變：**Human** S33/S06/S11，**非 Human Objects** S07 1..14 rows、S0C/S64 Move、S5F Death、S0E Remove。實際 Client ObjectRegistry、kind→NPC/Monster/sprite與真 UI callback 未驗，不能用確知 opcode 直接冒稱可投送正確原生 Actor。Adapter codec 可依 A-024 安全實作；原版雙 Client 可視測試 CT-055/070/080/081 待執行。詳見 [新開發序列](post-roy-merge-implementation-plan.md)。
+
+## 最新 A-004/A-011 補證
+
+A-004 已追原生 ObjectRegistry `0x4EAC30`，A-011 已確認 S07 kind1/2/4→MonsterObject 與 `Monster%02d.dat` (**不含 @**) 的 Library/Slot 映射。多玩家仍共用同一 world/map 的 NPC/怪物，Client 物件 ref 不等於 Server EntityId；Native CT-082～086 尚未執行。
