@@ -2185,19 +2185,31 @@
         "A-022"
       ],
       "remaining_unknowns": [
-        "C10 follow-up first true native opcode and its body",
-        "C25 real writer/region-specific serialization and Client UI preconditions",
-        "Whether S02 is required after C10/World entry and its Client state"
+        "Original native Client transfer packet capture and actual outgoing C25 byte strings, seed/ordinal for every region not-run",
+        "First mandatory S2C and failure/GUI after World C10 and C25 not observed in runtime",
+        "Region!=3 follow-up Client packet after C10 and true native post-transfer confirmation sequence unknown",
+        "Original C25 field purposes and link to payment service not proven; not World map id",
+        "Map selection/checksum and original in-world playable UI remain CT-108/A-032 not-run"
       ],
       "priority": "P0",
-      "status": "open",
-      "assignee": "unassigned",
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy2",
+      "evidence_ids": [
+        "A031-E01",
+        "A031-E02",
+        "A031-E03",
+        "A031-E04",
+        "A031-E05",
+        "A031-E06",
+        "A031-E07",
+        "A031-E08",
+        "A031-E09"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "ready",
       "native_client_validation": "not-run",
-      "evidence_kind": "unknown-pending-original-client",
-      "implementation_ready": false,
+      "evidence_kind": "observed-original-PE-native-static-and-synthetic-tests",
+      "implementation_ready": true,
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "profile": "TW-seed0-local-v0.1",
       "handoff_track": "client-io",
@@ -2210,8 +2222,43 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Research native Client UI and C2S/S2C/layout only; Server decides authenticated Character, map selection/spawn, permissions and durable commit. No invented packets.",
-      "analysis_report": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md"
+      "client_server_boundary": "Original Client's CBillingInfo C25 Region3 string8 and C10 order are static facts; Server account/character World ownership and map selection are server authority. Do not require fake C25 body01 or success S02 between enqueues.",
+      "analysis_report": "task_a/roy2/A-031-analysis.md",
+      "native_probe": "task_a/roy2/a031_native_probe.py",
+      "analysis_codec": "task_a/roy2/a031_world_entry_codec.py",
+      "analysis_test": "task_a/roy2/test_a031_world_entry.py",
+      "conformance": [
+        "CT-110",
+        "CT-108"
+      ],
+      "implementation_ready_scope": "Original TW Client static Region3 C25 opcode0x25 CBillingInfoPacket 3xstring8, native C10 then C25 sequential enqueue on two original S03/transfer callbacks. Non-3 original C25 not required by discovered producer paths. Safe decoded-body parser ready; actual first World S2C, billing field business semantics, native GUI & codepage/seed observed wire not-ready.",
+      "original_native_world_entry_e2e_ready": false,
+      "original_c25_native_layout": "region3: (u8 length+raw multibyte bytes)*3 ; 3+L0+L1+L2 decoded bytes, L_i<=255; local global 0x66D100 fields +0x0c,+0x20c,+0x40e; CBillingInfoPacket ctor0x5712e0 writer0x571420",
+      "original_c25_nonregion3": "all four known direct native C25 senders are region3 guarded; serializer writes empty for other regions if ever invoked but no direct non3 native send proven",
+      "original_first_world_c2s": "C10 raw transfer token from S03 on new World TCP; in two region3 native producer paths queued immediately C25 3×string8, no S02 await between these calls",
+      "client_io_handoff": {
+        "trigger": "Client receives S03 transfer, establishes destination TCP; Region3 original native callbacks 0x4A8370 or 0x52FAD0 enqueue raw-token C10 then conditional CBillingInfo C25 on same path.",
+        "client_sends": [
+          "PKT-C10",
+          "PKT-C25"
+        ],
+        "client_receives": [
+          "PKT-S03",
+          "PKT-S05",
+          "PKT-S15",
+          "PKT-S14",
+          "PKT-S04",
+          "PKT-S33"
+        ],
+        "client_reaction": "C10 body copies S03 raw token (no nested length). Region3 C25 writer emits 3 encoded string8 from [0x66D100]+0x0C/+0x20C/+0x40E. Non3 known paths do not need C25. C10/C25 consecutive sender does not await S02. Next S2C sequence and actual MapPane display require CT-108.",
+        "evidence": "task_a/roy2/A-031-analysis.md",
+        "unknowns": [
+          "Actual original TCP frame/seed/ordinal and dynamic first S2C after C10/C25 absent; no original GUI capture; CT-108 not-run",
+          "Three billing wide string fields' business labels/credentials semantics not identified; never authenticate using them",
+          "Non-region3 next World entry C2S or first S2C beyond C10 and original failure status/UI not established",
+          "Map revision/entry map_id, native S14/C35 and persistence checkpoint belong to A-032 / DEV-ENTRY-04, not a C25 field"
+        ]
+      }
     },
     {
       "id": "A-032",
