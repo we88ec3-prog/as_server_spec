@@ -81,7 +81,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "3b4e2e9c28d98a152284b52c73e2cabe6e3a2c9b18f343311d26ba54b15d68de"
+      "sha256": "c1a1bf9868b7439c595271511ffd6e9479d7e5c7cb4e8a71c240316fd4eb883f"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -209,7 +209,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "2798595a25afa650a82012bfc93d1a7df2ba4a1548cff48d72c79b9a5a3b1e42"
+      "sha256": "dace98c1d55e96bc9a35d56b7a44eb6128a6119789077b4950ffc6122fec94f4"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -285,7 +285,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "40caf92bb81d68659411dddd804c6169fb0d6cbd7fc7a5394dff674d3ab81ce4"
+      "sha256": "02aa76ae9bf47f193e8541f3c508fb586c9086d2d460135d25b0dc0e1c61aebd"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -301,7 +301,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "23eb32a4fb65acc211010e920fb684f13e7e9364e3d6231a3f23081d04a03a6d"
+      "sha256": "f1d5395ca5e878d1cc32c047ba01f1970ed02405535a6fa1925de812c08549e4"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -317,7 +317,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.json",
-      "sha256": "4d86bd811c24b37e21cf5dfb0f414153615be42db65a68b6788ddd38295083ea"
+      "sha256": "7d2d666eebe2abe74fcb5f92bcda24feac07ec93d0a020f93b6cbb8c2cc373e6"
     },
     {
       "path": "04-analysis-integration/scenarios.md",
@@ -342,6 +342,10 @@
     {
       "path": "05-conformance/A-005-movement-test-plan.md",
       "sha256": "b8381f844cb9fb8003a07200cec8edb76d558cc8cc1ecd33dc3dcd3db4e3ed6b"
+    },
+    {
+      "path": "05-conformance/A-006-appearance-test-plan.md",
+      "sha256": "739fc3eafbabb33a5fa9f9687ea7452098f31e378ee7d5473719f42d9547fafd"
     },
     {
       "path": "05-conformance/A-014-social-test-plan.md",
@@ -381,7 +385,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "313342804d225c7f4724b8fe7222edf67c2465a0ac58ace5d0c8c8ff2856f14f"
+      "sha256": "d42029f1f57959bea6050eae436d05e6557aaec77d795e14bc5d5f1d630b1e57"
     },
     {
       "path": "README.md",
@@ -402,6 +406,10 @@
     {
       "path": "task_a/roy2/A-005-corpus-flags.json",
       "sha256": "7ac6591153eac5dfd01f53aaf1a9a421d3f9b351875a67d19a08b539c6dd3a06"
+    },
+    {
+      "path": "task_a/roy2/A-006-analysis.md",
+      "sha256": "76843ed703c8db6d5db498d8f07a8d0752c3e51d455e881b893980e99d80b287"
     },
     {
       "path": "task_a/roy2/A-014-analysis.md",
@@ -460,6 +468,10 @@
       "sha256": "5736ca3e1e25f53951a5c75caffd2892e49aa35bd87db6134b2f937b35f6883a"
     },
     {
+      "path": "task_a/roy2/a006_look_probe.py",
+      "sha256": "70f4096d79562f78f819455a2ef90a11b2dfc7b8366b21f6a6a1d859cac03109"
+    },
+    {
       "path": "task_a/roy2/a014_social.py",
       "sha256": "552fd70b4acf3cd83649927c7884cab86b6bef24b311a8d228279052edef2d4f"
     },
@@ -490,6 +502,10 @@
     {
       "path": "task_a/roy2/test_a005_move.py",
       "sha256": "37181c00af600df081e4fd9fed3940e8317e1e5cd876cdbadea9ab344956db95"
+    },
+    {
+      "path": "task_a/roy2/test_a006_look.py",
+      "sha256": "d1916b1979bd5865e99fea4a7b53a6d4ba188d422a775c464d869a0947ca9424"
     },
     {
       "path": "task_a/roy2/test_a014_social.py",
