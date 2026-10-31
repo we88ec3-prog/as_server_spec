@@ -105,3 +105,8 @@ A-017 administrative account provisioning, ban/unban and sanitized audit integra
 ## 2026-10-31 P0 密碼需求改版：4～8 字（取代固定 8 字）
 
 依使用者最新決策，R-025/ONB-01 遊戲帳號密碼由上一版「**恰好 8 位 ASCII 英數**」調整為**4～8 位 ASCII 英數**、大小寫敏感；自動產生仍推薦最長8位安全亂數。管理後台 key 規則與玩家帳號分開，短密碼加強限速、防暴力登入，原長密碼不可截斷。未來**可能**調整 `Asgard.exe`，但本次未授權/未修改；須獨立驗證修改版 Client build/profile 再提高上限。舊文件保留導向 [最新版](../02-server-planning/native-game-password-4to8-policy.md)，驗收測點更新至4、8及上下界；私有 DEV-030 尚未依此修正。
+
+
+## 2026-10-31 — task_a/roy1 同步 main 並完成 A-013 Client Economy 靜態交接
+
+在指定原分支 \`task_a/roy1\` 以雙 parent merge commit \`09724d3\` 同步 \`main@8e4f42d\`，保留 A-011/A-022 獨立證據與測試，主線 Client I/O 安全規範優先。繼續以原始 Asgard.exe SHA 原件定位 CExchangePacket 0x4A/SExchangePacket0x42、CMerchantPacket0x39/SMerchantPacket0x2F、CTradePacket0x17/STradePacket0x6E；追 C4A subtype0..5、C39 7B common、C17 type0/3/128/130 list/numeric layout 及三個 S2C 變長 reader。18 處 native VA signatures + 6 RTTI + 10 個合成測試通過（非原 Client E2E）。新增 A-013 報告、安全 Server Domain 契約、offline tests、PKT/SCN-016/CT-087～089/證據；\`status=integrated/handoff=partial\`、\`native_client_validation=not-run\`。Exchange 不等於已證倉庫；交易確認/取消/官方金額/掉線回復不可冒稱已解。未新建 branch、不合 main 回主線。

@@ -2295,6 +2295,98 @@
       "legacy_source_ct_id": "CT-068",
       "merge_source_branch": "task_a/roy2",
       "native_client_profile_claim": "static/synthetic subset only, original Client runtime not-run"
+    },
+    {
+      "id": "CT-087",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "economy-native-static-and-synthetic",
+      "analysis_report": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "packet_ids": [
+        "PKT-C17",
+        "PKT-S6E",
+        "PKT-C39",
+        "PKT-S2F",
+        "PKT-C4A",
+        "PKT-S42"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "input": {
+        "kind": "native-exe-static-and-synthetic",
+        "reference": "tools/a013_economy_contract.py",
+        "cases": [
+          "EXE SHA and 18 original x86 byte anchors / 6 RTTI classes",
+          "C4A subtype0..5, C39 common prefix, C17 special types0/3/128/130 and negative malformed/overflows",
+          "Server-only SQLite ledger replay/collision, insufficient balance, overflow, no pre-confirm mutation"
+        ]
+      },
+      "expected": "Offline bytes + synthetic tests PASS; never claim native Server trade policy, original Client runtime or official price limits"
+    },
+    {
+      "id": "CT-088",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "economy-merchant-exchange-original-client",
+      "analysis_report": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "packet_ids": [
+        "PKT-C39",
+        "PKT-S2F",
+        "PKT-C4A",
+        "PKT-S42",
+        "PKT-S0F",
+        "PKT-S10"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "input": {
+        "kind": "two-way-native-client-e2e-plan",
+        "cases": [
+          "Open Merchant UI, click item, buy/sell, request discount/invalid gold and capture bidirectional framed packets/UI outcomes",
+          "Open ExchangeDialog and verify whether storage/vault is really implemented; deposit/withdraw and close/denial paths",
+          "Record visual item-stack and balance before/after with native S0F/S10 as needed"
+        ]
+      },
+      "expected": "Exact on-click subtype and S42/S2F response→GUI action, currency displayed/max and fail/cancel proven; until then unknown"
+    },
+    {
+      "id": "CT-089",
+      "status": "planned",
+      "native_client_validation": "not-run",
+      "level": "economy-trade-two-client-recovery",
+      "analysis_report": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "packet_ids": [
+        "PKT-C17",
+        "PKT-S6E",
+        "PKT-S0F",
+        "PKT-S10"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "input": {
+        "kind": "two-native-client-e2e-plan",
+        "cases": [
+          "Two clients offer item and money, edit offer after ready, accept/decline/close",
+          "One party disconnects before both confirm; reconnect, retry same packet; verify no duplicated assets",
+          "Boundary tests item owner, wrong slot, stacked quantity, money overflow, expired interaction and moved map"
+        ]
+      },
+      "expected": "Map each native C17 type to UI triggers and S6E type to response, plus authoritative once-only settlement; no original Client E2E yet"
     }
   ]
 }

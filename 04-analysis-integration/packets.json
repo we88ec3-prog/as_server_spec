@@ -1680,21 +1680,24 @@
       "state_precondition": "Only verified NPC binding and World session can produce domain effect; recruiter mapping unknown",
       "related_packets": [
         "PKT-C6C",
-        "PKT-S44"
+        "PKT-S44",
+        "PKT-S2F"
       ],
       "layout_status": "partial",
       "evidence_kinds": [
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_a013_20261031_client_economy_wire_static"
       ],
       "requirements": [
         "R-013",
         "R-031"
       ],
       "manual_validation": "not-run",
-      "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
+      "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
+      "a013_economy_scope": "common 7 byte prefix only; subtype tails variable, prices/official purchase semantics unverified"
     },
     {
       "id": "PKT-C0B",
@@ -2606,6 +2609,141 @@
       ],
       "native_client_validation": "not-run",
       "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+    },
+    {
+      "id": "PKT-C4A",
+      "direction": "C2S",
+      "opcode": "0x4a",
+      "name": "Exchange",
+      "system": "SYS-ECONOMY",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 subtype0..5; subtype0/4/5:u32BE; subtype1:u32BE+2u8; subtype2:u32BE+3u8; subtype3:2xu32BE",
+      "client_entry": "0x572559 / 0x5725f0",
+      "state_precondition": "Original Client UI action and successful Server state not yet verified; only bounded original codec supported",
+      "related_packets": [
+        "PKT-S42"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_document": "03-analysis-requests/A-013-roy1-economy-wire.md"
+    },
+    {
+      "id": "PKT-S42",
+      "direction": "S2C",
+      "opcode": "0x42",
+      "name": "ExchangeReply",
+      "system": "SYS-ECONOMY",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 subtype0..5, variable branches; type0:u32BE+string8+u8; type1:2u8; other types vary",
+      "client_entry": "0x57e939 / 0x57e9f0",
+      "state_precondition": "Original Client UI action and successful Server state not yet verified; only bounded original codec supported",
+      "related_packets": [
+        "PKT-C4A"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_document": "03-analysis-requests/A-013-roy1-economy-wire.md"
+    },
+    {
+      "id": "PKT-C17",
+      "direction": "C2S",
+      "opcode": "0x17",
+      "name": "Trade",
+      "system": "SYS-ECONOMY",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 type0..130; 0:count8+(u8,u8,u32BE,u16BE)*n; 3/130:count8+(u8,u16BE)*n; 128:u32BE; others:only type",
+      "client_entry": "0x577109 / 0x5763a0",
+      "state_precondition": "Original Client UI action and successful Server state not yet verified; only bounded original codec supported",
+      "related_packets": [
+        "PKT-S6E"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_document": "03-analysis-requests/A-013-roy1-economy-wire.md"
+    },
+    {
+      "id": "PKT-S6E",
+      "direction": "S2C",
+      "opcode": "0x6e",
+      "name": "TradeReply",
+      "system": "SYS-ECONOMY",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 type0..3; type0 u8 count then variable item rows incl u8,u16BE,u32BE,string8,nested; other branches variable",
+      "client_entry": "0x588169 / 0x588330",
+      "state_precondition": "Original Client UI action and successful Server state not yet verified; only bounded original codec supported",
+      "related_packets": [
+        "PKT-C17"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_document": "03-analysis-requests/A-013-roy1-economy-wire.md"
+    },
+    {
+      "id": "PKT-S2F",
+      "direction": "S2C",
+      "opcode": "0x2f",
+      "name": "MerchantReply",
+      "system": "SYS-ECONOMY",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "u8 subtype then u8,u32BE,u8,u16BE,u8,4-byte skipped,string buffer; subtype0..9 variable arrays/text",
+      "client_entry": "0x581ba9 / 0x581ca0",
+      "state_precondition": "Original Client UI action and successful Server state not yet verified; only bounded original codec supported",
+      "related_packets": [
+        "PKT-C39"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static"
+      ],
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
+      "requirements": [
+        "R-014",
+        "R-017"
+      ],
+      "native_client_validation": "not-run",
+      "analysis_document": "03-analysis-requests/A-013-roy1-economy-wire.md"
     }
   ]
 }

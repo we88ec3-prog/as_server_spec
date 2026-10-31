@@ -92,3 +92,8 @@ Roy2 現已獨立解析 `Map0.dat`、`Map1.dat`、`Map2.dat`：**494 張地圖�
 ## 2026-10-31 Roy1/Roy2 最新分析交接
 
 11 項新 integrated/handoff 子集：Roy1 A-007/019/020/025/026，Roy2 A-004/005/006/008/009/024。**已證 S07 14 kind 解碼，不再回報「非空 S07 未解」**；真正需要補的是 kind→Client sprite/renderer/EntityId，以及 A-027 原生登入後創角、地圖真 C25/CRC、S1E/S5F 死亡類別爭議、教學 NPC/Quest UI。見 [新待分析列表](post-merge-analysis-queue.md)。Native E2E 是 CT 工作，不是 A 靜態 handoff 必要條件。
+
+
+## A-013 / roy1：商店、Exchange、玩家交易 Client I/O
+
+[Native BIN-first 逐欄報告](A-013-roy1-economy-wire.md) / [安全 Server 交接契約](../04-analysis-integration/A-013-economy-contract.md) / [18 Native anchors + 10 offline tests](../tools/a013_economy_contract.py)。Client 的三對 packet 分別為 C39/S2F (Merchant)、C4A/S42 (Exchange)、C17/S6E (Trade)；已具不同 type/欄位/變長列表的實際 serializer/reader 靜態證據，但 UI 按鈕→subtype、購買/倉庫/交易完成時序和 Server 原版交易政策尚未確認。A-013 \`integrated/handoff partial/native-client not-run\`；CT-087..089 獨立追蹤。不能拿類別 \`ExchangeDialog\` 直接當官方倉庫，亦不可將 wire u32 寬度視為原服金錢上限。

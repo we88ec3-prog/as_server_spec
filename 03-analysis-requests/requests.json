@@ -643,7 +643,8 @@
         "A011-E05",
         "A011-E06",
         "A011-E07",
-        "A011-E08"
+        "A011-E08",
+        "ev_a011_20261031_monster_bank_s07_c39_motion_static"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -717,7 +718,11 @@
       "static_validation_ci": "https://github.com/we88ec3-prog/as_server_spec/actions/runs/41186221751",
       "source_commit": "5c99fd334451624cb4d08d4a065e6f7cd838ab18",
       "analysis_report": "task_a/roy2/A-011-analysis.md",
-      "next_client_io_handoff": "03-analysis-requests/post-merge-analysis-queue.md"
+      "next_client_io_handoff": "03-analysis-requests/post-merge-analysis-queue.md",
+      "roy1_additional_analysis_report": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
+      "roy1_additional_analysis_contract": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
+      "roy1_additional_analysis_test": "tools/a011_npc_asset_contract.py",
+      "roy1_resource_registry": "02-server-planning/npc-monster-resource-index.json"
     },
     {
       "id": "A-012",
@@ -761,11 +766,13 @@
       "title": "商店／倉庫／玩家交易",
       "method": "逐情境拆開追選擇、價格、堆疊、鎖定、確認、取消及斷線。",
       "deliverable": "各情境交易邊界及防重領測試；金額上限與編碼來源。",
-      "status": "open",
-      "assignee": null,
-      "evidence_ids": [],
+      "status": "integrated",
+      "assignee": "roy1",
+      "evidence_ids": [
+        "ev_a013_20261031_client_economy_wire_static"
+      ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
-      "handoff_status": "not-started",
+      "handoff_status": "partial",
       "native_client_validation": "not-run",
       "handoff_track": "client-io",
       "handoff_document": "03-analysis-requests/client-io-handoff-standard.md",
@@ -777,7 +784,46 @@
         "evidence",
         "unknowns"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "evidence_kind": "observed-static-plus-designed",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "implementation_ready": true,
+      "implementation_ready_scope": "C4A/C39/C17 and S42/S2F/S6E native codec bounded subset, Server-safe designed economy ledgers only; not original prices/warehouse/accept/cancel UI",
+      "native_economy_semantics_ready": false,
+      "analysis_report": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "analysis_contract": "04-analysis-integration/A-013-economy-contract.md",
+      "analysis_test": "tools/a013_economy_contract.py",
+      "client_io_handoff": {
+        "trigger": "ExchangeDialog/Merchant/TradeDialog native packet families exist; actual user action->subtype producer mapping pending UI xrefs",
+        "client_sends": [
+          "PKT-C4A",
+          "PKT-C39",
+          "PKT-C17"
+        ],
+        "client_receives": [
+          "PKT-S42",
+          "PKT-S2F",
+          "PKT-S6E"
+        ],
+        "client_reaction": "Native S42/S2F/S6E reader branch support confirmed; exact original UI response, acceptance, cancellation, close and disconnect not mapped",
+        "evidence": "03-analysis-requests/A-013-roy1-economy-wire.md",
+        "unknowns": [
+          "ExchangeDialog is not proven to be vault/storage",
+          "No native successful purchase, refund, cancellation or trade accept UI/result mapping",
+          "Original prices, money cap, stack restrictions, fees and disconnected trade outcome unknown"
+        ]
+      },
+      "remaining_unknowns": [
+        "ExchangeDialog is not proven to be vault/storage",
+        "No native successful purchase, refund, cancellation or trade accept UI/result mapping",
+        "Original prices, money cap, stack restrictions, fees and disconnected trade outcome unknown"
+      ],
+      "conformance": [
+        "CT-087",
+        "CT-088",
+        "CT-089"
+      ],
+      "last_analysis_date": "2026-10-31"
     },
     {
       "id": "A-014",
@@ -1219,7 +1265,8 @@
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
-        "ev_a022_20261031_asgard_map_static"
+        "ev_a022_20261031_asgard_map_static",
+        "ev_a022_20261031_map_archive_collision_resource"
       ],
       "dependencies": [
         "A-015",
@@ -1265,7 +1312,9 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md"
+      "next_client_io_handoff": "03-analysis-requests/next-client-io-evidence.md",
+      "roy1_additional_analysis_report": "03-analysis-requests/A-022-roy1-bin-analysis.md",
+      "resource_geometry_evidence": "02-server-planning/map-geometry-evidence.json"
     },
     {
       "id": "A-023",
