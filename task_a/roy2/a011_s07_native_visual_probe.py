@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """A-011 native S07 row resource->MonsterImageLib proof; original PE only.
 
-35 SHA-locked VA patterns. These signatures are static control-flow
+43 SHA-locked VA patterns. These signatures are static control-flow
 anchors, not execution of the original Client, or original monster assets.
 """
 import hashlib
@@ -46,6 +46,14 @@ ANCHORS = {
     "local motion base+0x20": (0x4D6BDA, "66052000"),
     "local motion base+0x30": (0x4D6BE7, "66053000"),
     "local motion base+0x40": (0x4D6BF4, "66054000"),
+    "C43 info panel state switch": (0x4A2376, "8a464884c0"),
+    "C43 panel subtype04 type1": (0x4A2409, "c6402401"),
+    "C43 panel subtype04": (0x4A2410, "c6402c04"),
+    "C43 panel subtype10": (0x4A24B3, "c6402c10"),
+    "C43 panel subtype40": (0x4A254F, "c6402c40"),
+    "C43 panel all modes use object ref": (0x4A2553, "894828"),
+    "C43 panel enqueues packet": (0x4A2558, "e843630d00"),
+    "C43 other type1/subtype04 UI producer": (0x479DEB, "e8b0ea0f00"),
 }
 
 
