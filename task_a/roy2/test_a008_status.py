@@ -6,7 +6,6 @@ def be32(n): return n.to_bytes(4, "big")
 class StatusWireTest(unittest.TestCase):
     def test_no_payload(self):
         self.assertEqual(decode_s08(b"\x00\x00")["flags"], 0)
-    def test_mode_bits_no_payload(self):
         self.assertTrue(decode_s08(be16(0x183))["mode_bit8"])
     def test_full_layout_61_bytes(self):
         block=b"\x7f\x09"+b"".join(be32(x) for x in (10,20,30,40))
