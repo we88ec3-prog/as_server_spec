@@ -1299,7 +1299,10 @@
       "related_packets": [
         "PKT-S15",
         "PKT-S04",
-        "PKT-S44"
+        "PKT-S44",
+        "PKT-C43",
+        "PKT-S34",
+        "PKT-S3C"
       ],
       "layout_status": "observed-static-native-type1-14-nonempty-schema; client-display-semantics-pending",
       "evidence_kinds": [
@@ -1315,7 +1318,9 @@
         "A024-E07",
         "A024-E10",
         "A024-E11",
-        "A024-E12"
+        "A024-E12",
+        "A011-E04",
+        "A011-E08"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1331,7 +1336,9 @@
         "Official tutorial NPC map/spawn policy is Server content and not Client wire evidence"
       ],
       "native_probe": "task_a/roy2/a024_object_native_probe.py",
-      "offline_test": "task_a/roy2/test_a024_object_packets.py"
+      "offline_test": "task_a/roy2/test_a024_object_packets.py",
+      "a011_monster_creation": "In World S07 receive handler 0x4F17C0..0x4F1C4A, native kind1/2/4 call MonsterObject ctor 0x4D6FA0 at 0x4F1AEB,0x4F1BC7,0x4F1C31; linked to resource library via separate image ID quotient/remainder native 0x4D7530/0x4D7560. The precise S07 row field→asset image ID still NOT proven.",
+      "a011_analysis": "task_a/roy2/A-011-analysis.md"
     },
     {
       "id": "PKT-S5F",
@@ -1597,7 +1604,7 @@
       "system": "SYS-NPC",
       "profile": "TW-seed0-local-v0.1",
       "layout": "u8 type, BE u32 object opaque, u8 subtype; source UI/field semantics unknown",
-      "client_entry": "0x574500 ctor; 0x5745B0 writer; producer 0x479DC7",
+      "client_entry": "0x574500 ctor push0x43, 0x5745B0 writer (u8,BE u32,u8); native producer 0x479DC7 and 0x4A23F8 both demonstrate kind1, subtype4",
       "state_precondition": "User action and in-world context inferred; exact UI target selector unknown",
       "related_packets": [
         "PKT-S07",
@@ -1605,13 +1612,15 @@
         "PKT-S0E",
         "PKT-S44"
       ],
-      "layout_status": "partial",
+      "layout_status": "observed-static-u8-BE-u32-u8-two-producers; click-to-chat-unknown",
       "evidence_kinds": [
         "observed-static"
       ],
       "evidence_ids": [
         "A024-E08",
-        "A024-E09"
+        "A024-E09",
+        "A011-E06",
+        "A011-E08"
       ],
       "manual_validation": "not-run",
       "requirements": [
@@ -1620,7 +1629,9 @@
         "R-029"
       ],
       "analysis_request": "A-024",
-      "contract_reference": "task_a/roy2/A-024-analysis.md"
+      "contract_reference": "task_a/roy2/A-024-analysis.md",
+      "a011_known_profile": "Two original producer paths: 0x479DDB +0x24=1, +0x28=[esi+0x48] opaque key, +0x2C=4; 0x4A2409 +0x24=1, +0x28=[esi+0x4C] opaque key, +0x2C=4. Encoded decoded C43 body 01 + BE u32 + 04. Not proven universal NPC click or direct NPCChatDialog trigger.",
+      "a011_analysis": "task_a/roy2/A-011-analysis.md"
     },
     {
       "id": "PKT-S06",
