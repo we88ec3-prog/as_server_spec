@@ -38,3 +38,6 @@ jobs:
       - name: Validate A-023 four original Script dependency reply semantics and synthetic C6C vectors
         run: |
           python3 -m unittest discover -s task_a/roy2 -p 'test_a023_script_bundle.py' -v
+      - name: Validate A-011 S07 native visual field-to-MonsterImageLib static mapping
+        run: |
+          python3 -m unittest discover -s task_a/roy2 -p 'test_a011_s07_visual_chain.py' -v
