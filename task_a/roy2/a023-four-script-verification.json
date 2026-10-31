@@ -1,0 +1,131 @@
+{
+  "result": "PASS",
+  "date": "2026-11-01",
+  "evidence_kind": "observed-static-original-script-files",
+  "profile": "TW-seed0-local-v0.1",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "codepage_condition": "LanguageMan index4 CP950; not universal for all region builds",
+  "original_files": [
+    {
+      "filename": "PaperDialog.dat",
+      "raw_size": 1639,
+      "raw_sha256": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+      "unpacked_size": 9196,
+      "unpacked_sha256": "491021376f9500c2a32a3c3ab56439bb302b39c660147903dcc4ba4b5c6f526a",
+      "utf16_units": 4595,
+      "cp950_text_crc32": "f870c574",
+      "function_count": 3,
+      "root_main": false
+    },
+    {
+      "filename": "PaperDialog02.dat",
+      "raw_size": 1771,
+      "raw_sha256": "49a618b9a59bda1294df6cbd8fa57e07c6e42c7647602dd988decf4a147bf22a",
+      "unpacked_size": 10518,
+      "unpacked_sha256": "b908c0112f25622f45a2b8c2aa07e4d3b728d6bbb6dd8262909f115cdb2fcb84",
+      "utf16_units": 5256,
+      "cp950_text_crc32": "42683546",
+      "function_count": 3,
+      "root_main": false
+    },
+    {
+      "filename": "nNewJoin01.dat",
+      "raw_size": 1359,
+      "raw_sha256": "8410064a564e381bfe941c71af3fc70598ea2325df69c3d216d7fbba1c7f79ae",
+      "unpacked_size": 9962,
+      "unpacked_sha256": "16b4190cbf0a3ed483ce5fb579832a77b8454bc58b713765909857193f8fd257",
+      "utf16_units": 4978,
+      "cp950_text_crc32": "d9390353",
+      "function_count": 23,
+      "root_main": false
+    },
+    {
+      "filename": "Merchant.dat",
+      "raw_size": 1603,
+      "raw_sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+      "unpacked_size": 7856,
+      "unpacked_sha256": "ec7e2df1efeb56d9ed84439f2d2c2503934a7ae8aa5953a4524872b51e519457",
+      "utf16_units": 3925,
+      "cp950_text_crc32": "e9b389cf",
+      "function_count": 1,
+      "root_main": true
+    }
+  ],
+  "identified_relations": {
+    "born_main_requires": "PaperDialog_Create from PaperDialog.dat; frame Basic.dat/AlertFrame.ypf, both separately verified original",
+    "paper_dialog": "No SendReply; OK -> Dispose -> original C6C4 then unreplied C6C2",
+    "paper_dialog02": {
+      "callback_ok": [
+        "PAPER02",
+        "START"
+      ],
+      "callback_cancel": [
+        "PAPER02",
+        "NOT"
+      ],
+      "cancel_control": "OK",
+      "default_control": "OK",
+      "requires_external_global": "ClientReply",
+      "root_main_present": false
+    },
+    "nnewjoin01": {
+      "does_talk": true,
+      "other_merchant_actions": false,
+      "merchant_talk_pages": [
+        1,
+        2,
+        3
+      ],
+      "final_ok": [
+        "STATE",
+        "ACCEPT"
+      ],
+      "final_cancel": [
+        "STATE",
+        "REFUSE"
+      ],
+      "requires": "QuestDialog_Create",
+      "root_main_present": false
+    },
+    "merchant": {
+      "root_main_present": true,
+      "initializes": [
+        "ServerParam",
+        "ClientReply"
+      ],
+      "argument_keys": [
+        "TILE",
+        "MNAME",
+        "UGOLD",
+        "UBAL",
+        "UAGOLD",
+        "UABAL",
+        "UCOLOR",
+        "GREETING optional",
+        "TYPE optional"
+      ],
+      "requires_known": "MerchantDialog_Create",
+      "direct_type_requires": "MerchantDirectTalk"
+    },
+    "common_function_collisions_between_paper_variants": [
+      "PaperDialogProc",
+      "ShowIndexedHelp"
+    ],
+    "native_c6c_reply_script_name": "root ScriptRunner issued via S44, not callback definition file name",
+    "potential_missing_source_function_definitions": [
+      "QuestDialog_Create",
+      "MerchantDialog_Create",
+      "MerchantDirectTalk"
+    ]
+  },
+  "resource_dependency_filenames_for_unresolved_functions": "unknown; QuestDialog.dat/MerchantDialog.dat are unverified candidate filenames, NOT confirmed",
+  "original_first_login_born_push": "unknown",
+  "original_recruiter_entity_map_spawn": "unknown",
+  "original_server_quest_flags_and_completed_rewards": "unknown",
+  "original_client_native_gui_validation": "not-run",
+  "synthetic_unittest_count": 28,
+  "source_report": "task_a/roy2/A-023-four-script-native-dependencies-20261101.md",
+  "offline_probe": "task_a/roy2/a023_script_bundle_probe.py",
+  "synthetic_test": "task_a/roy2/test_a023_script_bundle.py",
+  "copyrighted_original_script_contents_committed": false
+}
