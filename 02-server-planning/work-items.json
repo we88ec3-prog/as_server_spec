@@ -22,7 +22,8 @@
         "CT-019",
         "CT-037",
         "CT-038",
-        "CT-041"
+        "CT-041",
+        "CT-054"
       ],
       "depends_on": [],
       "readiness": "design-ready-minimal-profile",
@@ -42,7 +43,10 @@
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
       "temporary_creation_account_policy": "Server must reject C02 submitted account name != authenticated login AccountIdentity.Name; without valid login also reject; account equivalence is ASCII case-insensitive per admin store, no trim/aliases. C02 field1 and native no-character route not yet proven.",
-      "creation_account_policy_source": "02-server-planning/character-account-match-policy.md"
+      "creation_account_policy_source": "02-server-planning/character-account-match-policy.md",
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
+      "next_iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
+      "native_creation_activation_gate": "Native C02/C04 remains fail-closed until A-027 proves C03 no-character to NewUser native route and C02 account field; Server SAFE-01..04 is design-ready."
     },
     {
       "id": "ONB-02",
@@ -68,7 +72,8 @@
         "CT-041",
         "CT-042",
         "CT-043",
-        "CT-044"
+        "CT-044",
+        "CT-054"
       ],
       "depends_on": [
         "ONB-01"
@@ -88,7 +93,10 @@
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
       "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
       "temporary_creation_account_policy": "Server must reject C02 submitted account name != authenticated login AccountIdentity.Name; without valid login also reject; account equivalence is ASCII case-insensitive per admin store, no trim/aliases. C02 field1 and native no-character route not yet proven.",
-      "creation_account_policy_source": "02-server-planning/character-account-match-policy.md"
+      "creation_account_policy_source": "02-server-planning/character-account-match-policy.md",
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json",
+      "next_iteration_handoff": "02-server-planning/native-creation-next-iteration.md",
+      "native_creation_activation_gate": "Native C02/C04 remains fail-closed until A-027 proves C03 no-character to NewUser native route and C02 account field; Server SAFE-01..04 is design-ready."
     },
     {
       "id": "ONB-03",
@@ -134,7 +142,8 @@
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
-      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
     },
     {
       "id": "ONB-04",
@@ -175,7 +184,8 @@
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
-      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
     },
     {
       "id": "ONB-05",
@@ -224,7 +234,8 @@
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
-      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
     },
     {
       "id": "ONB-06",
@@ -260,7 +271,8 @@
       ],
       "client_contract_source": "02-server-planning/client-io-flow-matrix.json",
       "authority_policy_source": "02-server-planning/client-server-responsibility.md",
-      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent"
+      "native_ct_gate": "Client I/O evidence handoff is not Client E2E; implementation_status and client_acceptance stay independent",
+      "readiness_gate_source": "02-server-planning/onboarding-readiness-gates.json"
     }
   ]
 }

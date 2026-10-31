@@ -73,3 +73,7 @@
 ## 暫行創角帳號一致性政策
 
 玩家在原 Client 創角輸入的帳號與已驗證登入帳號不同時，Server **拒絕創角**；無登入也拒絕。Client 不修改、輸入框不鎖定。詳見 [創角帳號比對規劃](02-server-planning/character-account-match-policy.md)；A-027 的原生 UI 入口仍 partial。
+
+## 下一階段安全創角規劃與 A-027 精準證據
+
+已新增 [Server SAFE-01～04 / WIRE-01～02 / WORLD / SCRIPT 的可開發切片](02-server-planning/native-creation-next-iteration.md)、[機讀就緒關卡](02-server-planning/onboarding-readiness-gates.json)、[A-027/020/022/028 必答的 Client 收發/畫面問題](03-analysis-requests/next-client-io-evidence.md)、[CT-054 原版 Client UI 路徑驗收](05-conformance/native-creation-gate-test-plan.md)。登入帳號與創角輸入帳號不同必須拒絕；原 Client 不修改；即使 Server SAFE 工作可做，Native NewUser route 未證時仍 fail closed，CT-054 目前 not-run。

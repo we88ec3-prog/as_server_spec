@@ -111,3 +111,42 @@ for item in w:
     require(all(key in next(f for f in flows if f["id"] == x)["work_items"] for x in linked), key + " mismatched ONB/flow link")
     require(bool(item.get("authority_policy_source") and item.get("native_ct_gate")), key + " missing Server authority or Client CT gate")
 print("Client I/O flows valid: %d flows; all packet, A, SCN, CT and ONB links resolved." % len(flows))
+
+# Onboarding next iteration safe/native activation checks
+ready = read("02-server-planning/onboarding-readiness-gates.json")
+gates = ready.get("gates", [])
+gate_ids = {g["id"] for g in gates}
+require(ready.get("unmodified_client_required") is True, "original Asgard Client must remain unmodified")
+require(ready.get("native_client_validation") == "not-run", "native Client not actually tested")
+require(len(gates) == len(gate_ids) and len(gates) >= 8, "missing or duplicate onboarding gates")
+require({"SAFE-01", "SAFE-02", "SAFE-03", "SAFE-04", "WIRE-01", "WIRE-02", "WORLD-01", "SCRIPT-01"} <= gate_ids,
+        "missing required next iteration gate")
+for gate in gates:
+    key = gate["id"]
+    require(gate["mode"] in {"develop-now", "needs-client-evidence", "partial-client-evidence"},
+            key + " has invalid readiness")
+    require(bool(gate.get("rule")), key + " missing rule")
+    require(all(id in aid for id in gate["analysis"]), key + " bad A reference")
+    require(all(id in ctid for id in gate["tests"]), key + " bad CT reference")
+require(next(g for g in gates if g["id"] == "WIRE-01")["mode"] == "needs-client-evidence",
+        "must not enable unproven C03 no-character -> NewUser UI")
+for w_item in w:
+    require(w_item.get("readiness_gate_source") == "02-server-planning/onboarding-readiness-gates.json",
+            w_item["id"] + " missing next iteration gate source")
+for scn in read("04-analysis-integration/scenarios.json")["scenarios"]:
+    if scn["id"] in {"SCN-007", "SCN-008"}:
+        require(scn.get("native_ui_proof_gate") == "CT-054",
+                scn["id"] + " must retain native UI proof gate")
+for req_item in a:
+    if req_item["id"] in {"A-020", "A-022", "A-024", "A-027", "A-028"}:
+        require(req_item.get("next_client_io_handoff") == "03-analysis-requests/next-client-io-evidence.md",
+                req_item["id"] + " missing targeted Client I/O handoff")
+test = next((v for v in ct if v["id"] == "CT-054"), None)
+require(test is not None and test.get("status") == "planned" and
+        test.get("native_client_validation") == "not-run",
+        "CT-054 cannot be marked passed without native Client evidence")
+for tag in ("R-025,", "R-026,"):
+    rows = [line for line in (ROOT / "00-governance/traceability.csv").read_text(encoding="utf-8").splitlines()
+            if line.startswith(tag)]
+    require(len(rows) == 1 and "CT-054" in rows[0], tag + " missing traceability CT-054")
+print("Onboarding readiness gates valid: %d gates, CT-054 planned, Client original." % len(gates))
