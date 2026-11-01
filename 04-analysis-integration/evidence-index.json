@@ -4591,6 +4591,43 @@
         "length": 112
       },
       "integration_document": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md"
+    },
+    {
+      "evidence_id": "ev_f4228c3d7b533e44801a49be40fdaf34baaccd71be47a47ebf6b0876d9de8886",
+      "record_scope": "original-native-static; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x45ac40"
+      },
+      "integration_document": "04-analysis-integration/20261101-c44-play-disconnect.md"
+    },
+    {
+      "evidence_id": "ev_a0aca4c011ade4c60173d298a4a13bc162953bbdcda7fc69dffe6fe01aaca75f",
+      "record_scope": "original-native-static; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x4bee70"
+      },
+      "integration_document": "04-analysis-integration/20261101-c44-play-disconnect.md"
+    },
+    {
+      "evidence_id": "ev_b425e2eebf0a2637bf7aca6c282644142b35bfb06006def5915c41e1eb1c3e2c",
+      "record_scope": "original-native-static; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x5753b0"
+      },
+      "integration_document": "04-analysis-integration/20261101-c44-play-disconnect.md"
+    },
+    {
+      "evidence_id": "ev_51ca1060975c5157f930722e993e9f895d7665b191504995ff810d43e5dfcdd8",
+      "record_scope": "original-native-static; raw evidence retained locally",
+      "operation": "read_bytes",
+      "locator": {
+        "address": "0x575460",
+        "length": 16
+      },
+      "integration_document": "04-analysis-integration/20261101-c44-play-disconnect.md"
     }
   ]
 }

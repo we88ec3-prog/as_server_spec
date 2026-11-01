@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "57ba640bf0a7aae830d8080e7a9d2addc244ef21df4056ad590d27f992a9ef71"
+      "sha256": "4a715a4f2afe8408c4423a3ae78fc004eef96f65c75910df94edc91a1c5f1bd8"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -441,11 +441,15 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "2202611a4dc29f6b7aa6e076b668b5671d30b2fad757b60fbe18aee7b3939d26"
+      "sha256": "5a4ed4b0a0939fc14b8d68a6c00721a7adb704d44190c1b88c0ad74472a24464"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
       "sha256": "0211422a2d0b37c05f9d91b69978ce4a8b1a611c73ae9aee4a5225a8453b342c"
+    },
+    {
+      "path": "04-analysis-integration/20261101-c44-play-disconnect.md",
+      "sha256": "dbc9d417984d478dbe4a0d2091d61fb8dd8705f705ef917f4749d0295cb52a15"
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
@@ -609,7 +613,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "63d7eea1b69fb171bbed6912f01fdc4c7f1b46a48205eee719f5cb3258859d3b"
+      "sha256": "a5b1747b66d29a88ddf8b05c99c6daff44558773a2908c342aae2b29bac07d97"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -641,7 +645,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "bd1451c392848f6d2174f13342c576375aaa30bbf48fec230ee45da17f45b246"
+      "sha256": "5d67fe6d59e2dd6c63fbc4f516604620efcdf28d5cfab49ca6ef1d39bb5c5b76"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -857,7 +861,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "6686d34e4bd9becc2b141255a136ffcb18eb9d096c54d30b53dca42f6b4cabe1"
+      "sha256": "06bc8a26f7184bb6cf815f727c283fdaf421d497d2b2220f223f450b576c5301"
     },
     {
       "path": "AGENTS.md",

@@ -2969,7 +2969,14 @@
         "native_client_validation": "not-run"
       },
       "a028_postcreate_static_refinement": "Final S02(0) callback0x4B206B clears 0B/0C/0D/07 UI entries; Region3 constructs native LoginDialogPane0x4A9380, but no direct C03/C10 in callback or pane constructor. User confirmed seamless no-manual-login behavior; actual background World opcode and GUI E2E not-run. Source task_a/roy2/A-028-postcreate-ui-native-followup.md",
-      "roy123_source_grade": "native-resource/static-verified Region2..4 C02 F3 NAME F4 E-MAIL, but S02 error UI and success seamless World GUI not-run"
+      "roy123_source_grade": "native-resource/static-verified Region2..4 C02 F3 NAME F4 E-MAIL, but S02 error UI and success seamless World GUI not-run",
+      "implementation_status": "native-trial-implemented-original-e2e-pending",
+      "diagnostic_runtime_increment": {
+        "report": "04-analysis-integration/20261101-c44-play-disconnect.md",
+        "client_sha256": "e5f7b1ac742afdda9c6ec30a8934267dfac10221e115f74c2acd6449a4832dba",
+        "observed": "short-name C04 automatic transfer, C35 entry, Born close and actual walking; later C44 disconnect fixed, live retest pending",
+        "scope": "partial diagnostic-copy evidence, not full original CT or fixed route/wall/relogin acceptance"
+      }
     },
     {
       "id": "CT-106",
@@ -3084,7 +3091,7 @@
       "status": "planned",
       "native_client_validation": "not-run",
       "evidence_kind": "Server-designed-contract-requires-original-client-e2e",
-      "implementation_status": "not-reported",
+      "implementation_status": "native-trial-implemented-original-e2e-pending",
       "evidence_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
       "level": "original-native-world-entry-after-c10-and-mapcrc",
       "requirements": [
@@ -3134,6 +3141,12 @@
         "tutorial_map": "unknown",
         "region3_c25": "3 string8 CBillingInfoPacket only after C10 native transfer, never body 01",
         "non3_c25": "not mandatory"
+      },
+      "diagnostic_runtime_increment": {
+        "report": "04-analysis-integration/20261101-c44-play-disconnect.md",
+        "client_sha256": "e5f7b1ac742afdda9c6ec30a8934267dfac10221e115f74c2acd6449a4832dba",
+        "observed": "short-name C04 automatic transfer, C35 entry, Born close and actual walking; later C44 disconnect fixed, live retest pending",
+        "scope": "partial diagnostic-copy evidence, not full original CT or fixed route/wall/relogin acceptance"
       }
     },
     {
@@ -3141,7 +3154,7 @@
       "status": "planned",
       "native_client_validation": "not-run",
       "evidence_kind": "Server-designed-contract-requires-original-client-e2e",
-      "implementation_status": "not-reported",
+      "implementation_status": "native-trial-implemented-original-e2e-pending",
       "evidence_source": "02-server-planning/native-playable-entry-roadmap-20261101.md",
       "level": "original-native-in-world-turn-movement-and-restart",
       "requirements": [
@@ -3197,6 +3210,12 @@
           "do not enable global bypass or raw-only 900-cell whitelist as native walkable",
           "actual client five-step path and wall rollback, seq127->0, multiuser S06/S11"
         ]
+      },
+      "diagnostic_runtime_increment": {
+        "report": "04-analysis-integration/20261101-c44-play-disconnect.md",
+        "client_sha256": "e5f7b1ac742afdda9c6ec30a8934267dfac10221e115f74c2acd6449a4832dba",
+        "observed": "short-name C04 automatic transfer, C35 entry, Born close and actual walking; later C44 disconnect fixed, live retest pending",
+        "scope": "partial diagnostic-copy evidence, not full original CT or fixed route/wall/relogin acceptance"
       }
     },
     {

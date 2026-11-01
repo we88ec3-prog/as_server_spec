@@ -3207,6 +3207,38 @@
       ],
       "analysis_document": "04-analysis-integration/c54-native-path-intent-20261101.md",
       "manual_validation": "Diagnostic copy sent body11 after entry; corrected handler GUI retest pending. Original Client E2E not-run."
+    },
+    {
+      "id": "PKT-C44",
+      "direction": "C2S",
+      "opcode": "0x44",
+      "name": "ShowObjectInfo",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BEu32 target object key, exact4 bytes. Distinct from S2C S44 Script.",
+      "client_entry": "0x5753B0 ctor; 0x575460 writer bytes; MapPane0x4BEE70 producer",
+      "state_precondition": "WorldReady with valid owner and committed native map",
+      "related_packets": [
+        "PKT-C43"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "original-native-static",
+        "diagnostic-client-runtime-metadata"
+      ],
+      "requirements": [
+        "R-004",
+        "R-007"
+      ],
+      "evidence_ids": [
+        "ev_b425e2eebf0a2637bf7aca6c282644142b35bfb06006def5915c41e1eb1c3e2c",
+        "ev_51ca1060975c5157f930722e993e9f895d7665b191504995ff810d43e5dfcdd8",
+        "ev_f4228c3d7b533e44801a49be40fdaf34baaccd71be47a47ebf6b0876d9de8886",
+        "ev_a0aca4c011ade4c60173d298a4a13bc162953bbdcda7fc69dffe6fe01aaca75f"
+      ],
+      "analysis_document": "04-analysis-integration/20261101-c44-play-disconnect.md",
+      "server_behavior": "Native-trial authenticated WorldReady parses request; does not change authority/position or fabricate an object-detail response. Stale/zero/self target does not close the socket.",
+      "remaining": "native object-detail response unimplemented; after-fix GUI retest pending"
     }
   ]
 }

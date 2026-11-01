@@ -249,14 +249,14 @@
         "Exact Client UI timeout timing after C25, and native-first-create versus existing-character route",
         "Whether unmodified original Client reproduces same UI state in a fully configured native Server"
       ],
-      "next_action": "User correct-account NewUser GUI retry: verify automatic World, Born paper close, movement, relogin position and no duplicate intro. Original tutorial map identity and recruiter binding remain unverified.",
+      "next_action": "User retest C44 fix, sustained walking/hover and relogin position. Original tutorial map/recruiter identity still open.",
       "native_client_validation": "not-run",
       "github_issues": [
         "https://github.com/we88ec3-prog/as_server_spec/issues/8"
       ],
       "handoff_document": "03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md",
       "direct_development_report": "04-analysis-integration/world-ui-prelude-c43-20261101.md",
-      "diagnostic_client_validation": "map and character displayed; then Server closed C54 body11 as unknown opcode; persistent play not yet passed",
+      "diagnostic_client_validation": "C04->S03->C10/C25/C35 accepted; Born lifecycle acknowledged; actual movement and durable28/28 confirmed; later C44 disconnect RI-009",
       "correction_document": "04-analysis-integration/c35-map-reference-correction-20261101.md",
       "c54_report": "04-analysis-integration/c54-native-path-intent-20261101.md",
       "movement_creation_report": "02-server-planning/native-new-character-movement-increment-20261101.md",
@@ -268,7 +268,7 @@
       "id": "RI-008",
       "title": "兩字角色名被Server自訂最小長度拒絕，Client停在創角連線中",
       "priority": "P0",
-      "status": "short-name-policy-fixed-native-retest-pending",
+      "status": "short-name-fix-confirmed-diagnostic-client",
       "runtime_scope": "2026-11-01 16:22/16:23 UTC+8; diagnostic Client tooltip-delay/no-intro; Server5da03dd",
       "source": "User screenshot and local redacted C02 validation/close journals; read-only DB counts; current Server name policy source",
       "evidence_classification": [
@@ -291,14 +291,42 @@
         "Screenshot short NAME has two ASCII bytes; source required at least3 CP950 bytes, a local conservative policy with no original minimum proof.",
         "Roy067d129 accepts1..24 CP950 bytes, adds CHAR_INVALID_NAME and experimental S02/C15 retry with unused-proof reset. 261 tests and real short-name creation/World/Born/movement/relogin TCP smoke passed."
       ],
-      "next_action": "User rerun fresh trial with the same short name, verify native C04, automatic World transfer, Born and actual movement; keep trial Server for local journal.",
+      "next_action": "Keep short-name fix; follow RI-009 for later World disconnect and relogin acceptance.",
       "native_client_validation": "not-run",
-      "diagnostic_client_validation": "before-fix C02 rejection reproduced by two user trials; after-fix GUI pending",
+      "diagnostic_client_validation": "After fix, two-CP950-byte Character committed via C04 and automatically entered World; user walked. Later C44 failure is RI-009.",
       "report": "04-analysis-integration/20261101-short-name-creation-rejection.md"
+    },
+    {
+      "id": "RI-009",
+      "title": "創角進場可移動後，C44物件檢視被當未知封包關閉",
+      "priority": "P0",
+      "status": "c44-handler-implemented-diagnostic-retest-pending",
+      "runtime_scope": "2026-11-01 16:29..16:32 UTC+8; diagnostic Client e5f7b1ac...; Server067d129",
+      "source": "User report and private redacted packet/close journals plus read-only SQLite metadata",
+      "analysis_requests": [
+        "A-004",
+        "A-011"
+      ],
+      "conformance_tests": [
+        "CT-105",
+        "CT-108",
+        "CT-109"
+      ],
+      "current_facts": [
+        "C04 completed then S03/C10/C25/C35 entry; no second manual login.",
+        "Born C6C4/2 accepted and one durable intro acknowledgement; tutorial_completed0.",
+        "World position moved30/30->28/28; position_version60 includes turns, not60 walked tiles.",
+        "At elapsed168.9s C2S C44/body4 closed as unknown-opcode, not idle timeout or C35 mismatch.",
+        "Original REA confirms CShowObjectInfo opcode44 and one BEu32 target. Roy51bed5b implements strict native-trial WorldReady request parsing without invented S2C detail or authority changes;264 tests and real TCP passed."
+      ],
+      "next_action": "User sustain movement and hover, then relogin using same trial Server to verify saved position; keep Server logs.",
+      "native_client_validation": "not-run",
+      "diagnostic_client_validation": "before-fix creation/Born/movement observed; after-fix stable play/relogin pending",
+      "report": "04-analysis-integration/20261101-c44-play-disconnect.md"
     }
   ],
   "latest_direct_increment": {
-    "commit": "067d129",
-    "report": "04-analysis-integration/20261101-short-name-creation-rejection.md"
+    "commit": "51bed5b",
+    "report": "04-analysis-integration/20261101-c44-play-disconnect.md"
   }
 }
