@@ -1,5 +1,8 @@
 # A-026 / roy1 — 原版教學完成／獎勵／出圖／復原研究
 
+> 2026-11-01更新：本機已核對13份nNew及6份依賴，含PaperDialog／nNewJoin01；下文缺檔敘述為歷史範圍。主要未知改為NPC綁定、數值職業／原服rule與出口。新手教學為目前主線；[本輪結果](../04-analysis-integration/20261101-tutorial-resource-route.md)。
+
+
 **日期**：2026-10-31；**Branch**：task_a/roy1（沿用，不創建）。**Client**：Asgard.exe PE32/I386，SHA256 db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145；**Resource**：Born.dat 589 bytes，SHA256 992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98。Evidence ID：ev_a026_20261031_born_merchant_exit_bin_static；需求 R-013/R-017/R-031；參照 A-012/015/016/022/023/024/025。
 
 **交付判定**：A-026 integrated / handoff_status=partial，implementation_ready=true **只限觀察到的 Client 通用協定、設計的交易/防重/出口恢復骨架**；native_client_validation=not-run；native_tutorial_complete_ready=false、native_reward_proven=false、native_exit_destination_proven=false。沒有原版 Server 的完成/獎勵/出口政策原件，不能冒充完整原服教學復刻。

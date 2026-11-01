@@ -1,5 +1,8 @@
 # A-026 — 新手教學完成/獎勵/退出圖 Server 交接
 
+> 2026-11-01更新：本機已核對13份nNew及6份依賴，含PaperDialog／nNewJoin01；下文缺檔敘述為歷史範圍。主要未知改為NPC綁定、數值職業／原服rule與出口。新手教學為目前主線；[本輪結果](../04-analysis-integration/20261101-tutorial-resource-route.md)。
+
+
 [完整 A-026 BIN-first](../03-analysis-requests/A-026-roy1-tutorial-completion.md)；Evidence ev_a026_20261031_born_merchant_exit_bin_static。原 Client SHA256 db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145。以下**設計**，不是原始 Server 的完成判定。
 
 ## Client 輸入與結果

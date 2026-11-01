@@ -1,0 +1,318 @@
+{
+  "source": "Original Script resources, bounded zlib/UTF16 wrapper check and literal static index",
+  "publication": "identity and interface metadata only; no original script text",
+  "authority_limits": "No original Server NPC bindings, numeric jobs, rewards or exit map inferred",
+  "scripts": [
+    {
+      "name": "nNewGuild01",
+      "raw_sha256": "07f5bd4d4b8acb62f73c50eca7de9240d65f9c5e214bf1cfb0063b25f8e2c6d1",
+      "raw_bytes": 1073,
+      "strict_cp950_text_crc32": null,
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [],
+      "literal_reply_keys": [
+        "INPUT",
+        "STATE"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewJob01",
+      "raw_sha256": "df01c69fe36eb0ab60d03d5da7bf56c52b5c520ca81c5ae07ef1b0ba9b70d9cc",
+      "raw_bytes": 2200,
+      "strict_cp950_text_crc32": "360c6da8",
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [
+        "JOBALD",
+        "JOBRET"
+      ],
+      "literal_reply_keys": [
+        "JOB",
+        "STATE"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewJoin01",
+      "raw_sha256": "8410064a564e381bfe941c71af3fc70598ea2325df69c3d216d7fbba1c7f79ae",
+      "raw_bytes": 1359,
+      "strict_cp950_text_crc32": "d9390353",
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [],
+      "literal_reply_keys": [
+        "STATE"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewLife01",
+      "raw_sha256": "7caa5c656c7ab50b9701506e0d137f7fb1550f6eb6fd7ceb1bd0b3e72f169414",
+      "raw_bytes": 3546,
+      "strict_cp950_text_crc32": "1256ae8c",
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [],
+      "literal_reply_keys": [],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewStartPoint01",
+      "raw_sha256": "07f521836b1a143b97681f2d0fbdcb8aa52715a5ffc8534cc0836603e2b22a5b",
+      "raw_bytes": 1244,
+      "strict_cp950_text_crc32": "e3067273",
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [
+        "JOBRET"
+      ],
+      "literal_reply_keys": [
+        "STATE"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewStartPoint02",
+      "raw_sha256": "5bb98d47cc66b7cbb2820523bceef20e5b31a0565002fe1033de1eafbacaa076",
+      "raw_bytes": 1326,
+      "strict_cp950_text_crc32": null,
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [
+        "JOBRET"
+      ],
+      "literal_reply_keys": [
+        "STATE"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewStartPoint03",
+      "raw_sha256": "3753bfdb0c87d3c24a22841e9d68954ec35f9f54c3530c51f2ef8444a5b1eeb9",
+      "raw_bytes": 1286,
+      "strict_cp950_text_crc32": "9d1c6240",
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [
+        "JOBRET"
+      ],
+      "literal_reply_keys": [
+        "STATE"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewStartPoint04",
+      "raw_sha256": "67aebac94967848c68cce5924420afd9a98a4cf796761f4dfefddc64e9119e67",
+      "raw_bytes": 1326,
+      "strict_cp950_text_crc32": null,
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [
+        "JOBRET"
+      ],
+      "literal_reply_keys": [
+        "STATE"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewStartPoint05",
+      "raw_sha256": "77b9ceaf99c84896116571a326b0655745ef9f9d542eaafc8a12dc6e65fd410b",
+      "raw_bytes": 1330,
+      "strict_cp950_text_crc32": null,
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [
+        "JOBRET"
+      ],
+      "literal_reply_keys": [
+        "STATE"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewStartPoint06",
+      "raw_sha256": "55f42e85ae7a4b1af4b089b3c91440365661c3e1f399c6b7ed8d8dd0da5b2b67",
+      "raw_bytes": 2381,
+      "strict_cp950_text_crc32": null,
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [
+        "JOBRET",
+        "STEW",
+        "TOWN01",
+        "TOWN02",
+        "TOWN03",
+        "TOWN04",
+        "TOWN05",
+        "TOWN06"
+      ],
+      "literal_reply_keys": [
+        "DUMI",
+        "GM",
+        "STATE",
+        "TOWN"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewStartPoint07",
+      "raw_sha256": "0ed1fa116d5fc64812f607402f709d23c9a7ab5b00f1e4c0547312b0635f1f5e",
+      "raw_bytes": 1388,
+      "strict_cp950_text_crc32": "cd1153f8",
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [
+        "SPELL"
+      ],
+      "literal_reply_keys": [
+        "DUMI",
+        "STEP"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewTeleport01",
+      "raw_sha256": "092f168d5de1a25b09b080065419c62279a696fa7798cf7aa98dc82b26f90c06",
+      "raw_bytes": 1252,
+      "strict_cp950_text_crc32": "4e711abf",
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [
+        "JOBRET"
+      ],
+      "literal_reply_keys": [
+        "STATE"
+      ],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "nNewWar01",
+      "raw_sha256": "3d3590a7f4a346cafa538d8216091a6f6073c6aab146d696d0fb2736100f2453",
+      "raw_bytes": 2008,
+      "strict_cp950_text_crc32": "7bab73a4",
+      "has_main": false,
+      "has_merchant_talk": true,
+      "literal_parameter_reads": [],
+      "literal_reply_keys": [],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "Born",
+      "raw_sha256": "992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98",
+      "raw_bytes": 589,
+      "strict_cp950_text_crc32": "1d87b0c0",
+      "has_main": true,
+      "has_merchant_talk": false,
+      "literal_parameter_reads": [],
+      "literal_reply_keys": [],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "Merchant",
+      "raw_sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+      "raw_bytes": 1603,
+      "strict_cp950_text_crc32": "e9b389cf",
+      "has_main": true,
+      "has_merchant_talk": false,
+      "literal_parameter_reads": [
+        "GREETING",
+        "MNAME",
+        "TILE",
+        "TYPE",
+        "UABAL",
+        "UAGOLD",
+        "UBAL",
+        "UCOLOR",
+        "UGOLD"
+      ],
+      "literal_reply_keys": [],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "QuestDialog",
+      "raw_sha256": "13f068d8053ea7e7b0231357c318bc6effae867888b94305820fe483a17a02dc",
+      "raw_bytes": 1938,
+      "strict_cp950_text_crc32": "d4844b07",
+      "has_main": false,
+      "has_merchant_talk": false,
+      "literal_parameter_reads": [],
+      "literal_reply_keys": [],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "QuestSelDialog",
+      "raw_sha256": "06868b472cf874e08077ef29ee42edd9c0d4aa1cef304699658b091a4b1c8366",
+      "raw_bytes": 1522,
+      "strict_cp950_text_crc32": "c64e29a3",
+      "has_main": false,
+      "has_merchant_talk": false,
+      "literal_parameter_reads": [],
+      "literal_reply_keys": [],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "MultiHelpDialog",
+      "raw_sha256": "9cf1725574ae4157767fcdb179e06f1241aa5a45f5dd38f73ab7a7c570b1ce8c",
+      "raw_bytes": 1646,
+      "strict_cp950_text_crc32": "ed556a37",
+      "has_main": false,
+      "has_merchant_talk": false,
+      "literal_parameter_reads": [],
+      "literal_reply_keys": [],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    },
+    {
+      "name": "PaperDialog",
+      "raw_sha256": "5b86a4b18075e8c457b36f0d6f6f4b6ad1e86c6e4b0ac9d5fb5e28795b070054",
+      "raw_bytes": 1639,
+      "strict_cp950_text_crc32": "f870c574",
+      "has_main": false,
+      "has_merchant_talk": false,
+      "literal_parameter_reads": [],
+      "literal_reply_keys": [],
+      "npc_binding": "unknown",
+      "completion_rule": "unknown",
+      "exit_map": "unknown"
+    }
+  ]
+}

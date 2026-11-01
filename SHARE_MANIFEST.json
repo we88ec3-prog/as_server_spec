@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "632aafb58e44e1d7d15990789e6a4591cc5461cc71ee4e9e2b48cc7560dcf9be"
+      "sha256": "38d48f288c194b872ada62734ce914390b1b8e1b9b32ec179b94b05489c7c2cb"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -197,7 +197,7 @@
     },
     {
       "path": "02-server-planning/next-increments-and-test-queue-20261101.md",
-      "sha256": "a715615ae5a233027e0c3c96023f0ce7959786afda3df66e8d4b399fad5db9a3"
+      "sha256": "534f95b9c9b9db64b82e1f8cac284672d8db0ce83340d780d90c9f7726f1f06e"
     },
     {
       "path": "02-server-planning/novice-school-admission-flow.md",
@@ -225,7 +225,7 @@
     },
     {
       "path": "02-server-planning/prototype-parity-backlog.json",
-      "sha256": "99d95d64265a1b32897c0c51cf22a03f2b14f654848c28e40d95df0ba2992685"
+      "sha256": "ecdbdbb34f79d988842374ffce7ec2deec43ce24f33c68fddc8be5f8e7857b2b"
     },
     {
       "path": "02-server-planning/prototype-parity-delivery-plan-20261101.md",
@@ -373,7 +373,7 @@
     },
     {
       "path": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
-      "sha256": "4310b0ebbbacccf80380263bf6ee263dcc75773cfea154c719fa10879df44e2c"
+      "sha256": "04173b50648a732ef598027fc0dfb8ff4056d464ad6c466a9ada939684d31d50"
     },
     {
       "path": "03-analysis-requests/A-027-roy1-identity-ui-security.md",
@@ -484,6 +484,10 @@
       "sha256": "afde27df14703fbdd46b98bc0201dce19804e19458637d5c47badbf5186b6280"
     },
     {
+      "path": "04-analysis-integration/20261101-tutorial-resource-route.md",
+      "sha256": "bf9e296243922cebb3f537b516b9489f37b4cce170bd17420d521f0027f6d909"
+    },
+    {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
       "sha256": "1cf33e6c48bffa7bdff9d748ca2060a7bf866d19c0fcaf8112187ffdc03e6942"
     },
@@ -565,7 +569,7 @@
     },
     {
       "path": "04-analysis-integration/A-026-tutorial-completion-contract.md",
-      "sha256": "53c13c67103efb3bc41ac54ecdfd2250e1fa4cf935a8813ae99d7da01ee65786"
+      "sha256": "ada5c887bbaeabba832dfe4a94963b607dee0181422c46bc532b4039a3425fcc"
     },
     {
       "path": "04-analysis-integration/A-027-preauth-safety-contract.md",
@@ -714,6 +718,10 @@
     {
       "path": "04-analysis-integration/tutorial-born-resource.json",
       "sha256": "5b09bd847fa7998fecc0a408f71a76a1e507d640a5672a3c67491b1ebfb72de0"
+    },
+    {
+      "path": "04-analysis-integration/tutorial-resource-route-20261101.json",
+      "sha256": "154e14ac75036cc359926bfa0a17bff97c1255fe14dea966eb31633b2abd016f"
     },
     {
       "path": "04-analysis-integration/world-ui-prelude-c43-20261101.md",

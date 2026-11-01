@@ -702,5 +702,15 @@
       "PAR-007 two-map online transfer",
       "PAR-009/010 management and test workspace"
     ]
+  },
+  "current_product_priority": {
+    "source": "direct-user-instruction",
+    "primary": "Complete playable tutorial through exit and durable relogin",
+    "while_user_tests": "Develop wardrobe and independent clothing tint",
+    "transition_clarification": "Administrative teleport is a test tool; NPC, skill and map-gate transitions are normal gameplay with shared fenced loading",
+    "plan": "02-server-planning/next-increments-and-test-queue-20261101.md",
+    "analysis": "04-analysis-integration/20261101-tutorial-resource-route.md",
+    "implementation_increment": "e12cec2",
+    "validation": "273 Server tests; actual tutorial NPC/job/exit not yet implemented or validated"
   }
 }
