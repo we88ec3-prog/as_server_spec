@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "38d48f288c194b872ada62734ce914390b1b8e1b9b32ec179b94b05489c7c2cb"
+      "sha256": "4dd023512fa811c5d9869a5c1327c32c53b7ad39c09852e1438c4823853f755d"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -197,7 +197,7 @@
     },
     {
       "path": "02-server-planning/next-increments-and-test-queue-20261101.md",
-      "sha256": "534f95b9c9b9db64b82e1f8cac284672d8db0ce83340d780d90c9f7726f1f06e"
+      "sha256": "011eb798a4f2ee8448fd7c70669af4d98fca3abc4abfcd0333c817d2c779068c"
     },
     {
       "path": "02-server-planning/novice-school-admission-flow.md",
@@ -225,7 +225,7 @@
     },
     {
       "path": "02-server-planning/prototype-parity-backlog.json",
-      "sha256": "ecdbdbb34f79d988842374ffce7ec2deec43ce24f33c68fddc8be5f8e7857b2b"
+      "sha256": "79c98d451fee4b3368c20ac69e30ce186fb9636b8df1955f548cba5b3714a5b1"
     },
     {
       "path": "02-server-planning/prototype-parity-delivery-plan-20261101.md",
@@ -286,6 +286,10 @@
     {
       "path": "02-server-planning/tutorial-completion-conditions.json",
       "sha256": "b7641343bb2643ae64fa36bb80e72a77c1a24a4d6d2cfcdeff8ec3e112b294db"
+    },
+    {
+      "path": "02-server-planning/tutorial-delivery-progress-20261101.json",
+      "sha256": "d6a0f11b92c210278382d4437e192f411d70d9b76c5acb23d154afdc9a74536b"
     },
     {
       "path": "02-server-planning/tutorial-runtime-plan.md",
@@ -445,7 +449,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "2882be3479d1c61e968e0710bd990a56a2b2e5d40d89b4be8a5b2cfea85927cf"
+      "sha256": "bd90d97ccb2f04e69ae2f541afd9b1c291f5725d17e0aad2acf4ee66dcdfbef5"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -474,6 +478,10 @@
     {
       "path": "04-analysis-integration/20261101-preview-exe-crash-debug-diff.md",
       "sha256": "0991691ca9ea120e0b81ffeb01a26ebbcc9a08f587fb1d858d90c2af418d3c4a"
+    },
+    {
+      "path": "04-analysis-integration/20261101-recruiter-interaction.md",
+      "sha256": "ca04415e1d9fb5fa8a2191338ab6d4e9d9d8343be72291034e636844b433196e"
     },
     {
       "path": "04-analysis-integration/20261101-same-client-relogin.md",
@@ -517,7 +525,7 @@
     },
     {
       "path": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
-      "sha256": "5446e96ff9b0cad89baaa5e95bebc127db30695c948836bc2f43b60e2a49dd4c"
+      "sha256": "662edd180a8cd565f46c5b2399f6888d197c07ad8b13e115dd29c5b13d167b6d"
     },
     {
       "path": "04-analysis-integration/A-012-quest-dialog-contract.md",
@@ -969,7 +977,7 @@
     },
     {
       "path": "task_a/roy2/A-024-analysis.md",
-      "sha256": "b130499a0e00554f031e8d2e68085b87aad9cfa9826c561994f90c60feb39652"
+      "sha256": "84189d50d0a8dbbe13fc34ce4671b9e48450725be20e2070834411462e1ceca9"
     },
     {
       "path": "task_a/roy2/A-028-postcreate-ui-native-followup.md",

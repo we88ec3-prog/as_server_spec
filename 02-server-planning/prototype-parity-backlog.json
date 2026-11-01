@@ -710,7 +710,8 @@
     "transition_clarification": "Administrative teleport is a test tool; NPC, skill and map-gate transitions are normal gameplay with shared fenced loading",
     "plan": "02-server-planning/next-increments-and-test-queue-20261101.md",
     "analysis": "04-analysis-integration/20261101-tutorial-resource-route.md",
-    "implementation_increment": "e12cec2",
-    "validation": "273 Server tests; actual tutorial NPC/job/exit not yet implemented or validated"
+    "implementation_increment": "36c71fd",
+    "validation": "275 tests; candidate recruiter TCP and baseline pass; visual/native-click pending",
+    "tutorial_progress": "02-server-planning/tutorial-delivery-progress-20261101.json"
   }
 }

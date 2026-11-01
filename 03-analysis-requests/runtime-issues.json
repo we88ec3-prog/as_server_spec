@@ -398,8 +398,9 @@
     }
   ],
   "latest_direct_increment": {
-    "commit": "fdb4d81",
-    "report": "04-analysis-integration/20261101-native-map-music-increment.md",
-    "test_queue": "02-server-planning/next-increments-and-test-queue-20261101.md"
+    "commit": "36c71fd",
+    "report": "04-analysis-integration/20261101-recruiter-interaction.md",
+    "test_queue": "02-server-planning/next-increments-and-test-queue-20261101.md",
+    "tutorial_progress": "02-server-planning/tutorial-delivery-progress-20261101.json"
   }
 }

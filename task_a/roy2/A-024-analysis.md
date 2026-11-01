@@ -1,5 +1,8 @@
 # A-024／roy2 — 原版 NPC／怪物「Client I/O」BIN-first 交付
 
+> 2026-11-01後續：已追S07 kind1→mode1→MapPane點選C43(1,target,0)，並追descriptor首u16到圖像library/slot。獨立招募員及原有Merchant／Join接線已實作、275項Server測試通過，GUI待驗；不升級官方NPC綁定／教學完成。詳[本輪結果](../../04-analysis-integration/20261101-recruiter-interaction.md)。
+
+
 > **最新版裁定（2026-10-31）**：第六節更新後，S07 非空 kind1..14 與 S34 subtype11 已依原始 EXE 補齊 wire schema；前四節保留為早期研究歷程，舊的「非空 S07 未解／partial」不得覆蓋第六節結論。靜態 Client 收包交付 `integrated / ready`，Native Client E2E 尚未執行。
 
 - 原件：`Asgard.exe` PE32 SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，ImageBase `0x400000`；`Born.dat` SHA256 `992e6d78819538b9fd924bc2bf6a2ad2f2ced9eeaff4baa57c16140208aacf98`；Map0/1/2 三庫共 494 MAP。2026-10-31，既有分支／目錄 `task_a/roy2`。

@@ -1,5 +1,8 @@
 # A-011 — NPC / Monster asset identity, interaction, animation handoff
 
+> 2026-11-01後續：已追S07 kind1→mode1→MapPane點選C43(1,target,0)，並追descriptor首u16到圖像library/slot。獨立招募員及原有Merchant／Join接線已實作、275項Server測試通過，GUI待驗；不升級官方NPC綁定／教學完成。詳[本輪結果](../04-analysis-integration/20261101-recruiter-interaction.md)。
+
+
 源自 [BIN-first 原件研究](../03-analysis-requests/A-011-roy1-npc-monster-resources.md)，Client SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，Evidence `ev_a011_20261031_monster_bank_s07_c39_motion_static`。**Observed resource-registration/packet shape 與 Server designed mapping 分開。**
 
 Client 資源：`Monster%02d.dat` UTF16VA0x5F1D3C，0x404371..0x4043B0 for index0x1F40..0x1F6A (43 filenames Monster00.dat..Monster42.dat)；`Basic.dat` resource registration 0x403FA4。已有 Monster00.dat / World00.dat 的5+5個 YPF member，但 Client ImageId→實際 member、Monster外觀動畫仍未證，因此未取得原版 monster template→asset/animation tables。不能從註冊 0x1F40 就宣稱 S07 appearance value 同數值。
