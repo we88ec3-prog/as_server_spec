@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "c03093facb6b92b70a47012d87a831bc8760f1248fbb36568c73af3fa0b88804"
+      "sha256": "b3dd8c6a4c28a892dd3e2d05cc451772926f1612e9ea1a60a355996dc4ff2587"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -449,7 +449,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "77e7b4b6d3452f2b5ab575fd75897281ca31ad7d71e3f00fb060d31e11a49365"
+      "sha256": "ffa437d821681a9c44316d7c18c22a6de6a0ffc50d20cf72492ff0a1e016c9d5"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -724,6 +724,10 @@
       "sha256": "78ccc98b30b625fed50b32810ad33207eccc0b0a3c44bec27b406b5291d28360"
     },
     {
+      "path": "04-analysis-integration/20261102-native-portals-and-route-authority.md",
+      "sha256": "493cff32c4d48ebe16f7e8607c419e7f9f56b9e4ecfe2ad26749f061120751df"
+    },
+    {
       "path": "04-analysis-integration/20261102-native-shortcut-followup-and-npc-miss.md",
       "sha256": "5cf39dbf689eb6bd9836645e2ecc913cc49e82710204852143597474c3c9fefa"
     },
@@ -737,7 +741,7 @@
     },
     {
       "path": "04-analysis-integration/20261102-school-room-and-exit-scope.md",
-      "sha256": "59ac3d6d07b4c18c1bc45a7fd386fdeb027111523364779b3485391f062a629a"
+      "sha256": "fb5f9165d3d8a2c5ae70749d1aced0d321261c74f749df3b1eea777fe326e33e"
     },
     {
       "path": "04-analysis-integration/20261102-town-guide-role-conflicts-and-space-defaults.md",
@@ -853,7 +857,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "233c14a9271beeedfc5ecade426edfaa134a30fcb4546659c1120a6cdfc689d8"
+      "sha256": "08cd03a3969f85e932b6908da3ce295566638be6207b9656b5acfc0f18eb617c"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -969,7 +973,7 @@
     },
     {
       "path": "04-analysis-integration/native-minimap-exit-leads-20261102.json",
-      "sha256": "8a81d3e7aec926f4704109cda572e42258df2fe6940aa64ea8a5f243f1ca2a36"
+      "sha256": "4c221203937a400622cf523fbf124fac13948a1839e33f991fc8c2b5b015e622"
     },
     {
       "path": "04-analysis-integration/native-miss-c65-20261102.json",
@@ -978,6 +982,14 @@
     {
       "path": "04-analysis-integration/native-pane-visibility-20261101.json",
       "sha256": "41a1b16624134b350f79c113aedafb42426c374dbc1f346137dc9e7b15893a6c"
+    },
+    {
+      "path": "04-analysis-integration/native-portals-evidence-20261102.json",
+      "sha256": "4c02c4b3c4fe879dbf9787a30d697a18456750fb14eeff57775d22e4af8c74fe"
+    },
+    {
+      "path": "04-analysis-integration/native-portals-reviewed-subset-20261102.json",
+      "sha256": "6c9546e0c5eab77006721d03dc6d02de16f94b6f186288b8f5891e24bad203a6"
     },
     {
       "path": "04-analysis-integration/native-space-initialization-20261102.json",
@@ -1001,7 +1013,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "398e0098830d94298ce2cae390db2f9d5c2e747cefdc8af4968d18d47873b22a"
+      "sha256": "414b51ddaa61032d53eda1d8a62f9a9f3294411874c410049169c6a6d07f7ff1"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1017,7 +1029,7 @@
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "0fffee8a0a385b4b4138cd87bd780b35164b887d6294b14fa69d65822d901c68"
+      "sha256": "bb9cf7c402c57637e00b408be69b537b1b620517a6eb5afd86387855d825b927"
     },
     {
       "path": "04-analysis-integration/roy-branch-web-admin-sync-20261031.md",

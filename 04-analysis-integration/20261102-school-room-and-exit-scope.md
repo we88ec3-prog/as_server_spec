@@ -1,5 +1,7 @@
 # 教學地圖數、室內資源與出口的實作範圍
 
+**後續補正**：[原生傳送入口表已找到](20261102-native-portals-and-route-authority.md)，為Basic.dat slot24 Portals.tbl；Map7有10個入口格與兩個native小地圖anchor。下方保留先前查找歷程，hover/grid來源已補證，目的MAP／落點仍未恢復。
+
 使用者詢問目前是否只有一張教學圖，以及畫面上的門／出口是否可換圖。
 目前Server候選流程為Map6招募區→Map7學校→所選職業候選城鎮；學校只接Map7一張，
 Life／War／Career／Departure NPC與摩斯練習都同圖。這是重建安排，不是原版圖數結論。

@@ -1,5 +1,7 @@
 # 已有資源及地圖分析整合
 
+2026-11-02 新增：[Basic.dat slot24 Portals.tbl](20261102-native-portals-and-route-authority.md)為version/header/count與6B LE i16 map/x/y入口列；2840列／312圖皆在494 MAP尺寸內。入口與游標／minimap consumer已證，沒有目的MAP欄，不能與MinimapLocation metadata或MAP尾部record混用。
+
 > 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
 
 

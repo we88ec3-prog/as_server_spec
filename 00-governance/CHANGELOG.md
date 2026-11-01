@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-02 原生傳送入口表與小地圖標記規則
+
+REA確認Basic.dat slot24 Portals.tbl的6B map/x/y列，SHA鎖定工具核對2840列／312圖，全部在494原MAP範圍內。補上原生hover cursor5、小地圖NW/N/NE/W anchor條件、S07 kind13座標名稱與近入口擺攤限制；目的MAP／落點未恢復，不猜接房間或改玩家位置。四項純格式測試通過，完整派生索引留本地，公開精選子集與[可獨立實作契約](../04-analysis-integration/20261102-native-portals-and-route-authority.md)。
+
 ## 2026-11-02 原生角色能力初始化與持久數值
 
 依能力窗異常追至StatusDialog欄位，補上旗標0078的S08完整初始化，每次地圖提交後以持久狀態投影，既有角色與新角色首次缺值才建基線，重登不重置。舊SQLite缺表先一致性備份，帳號／位置／職業／金鑰保留。384項.NET、五職業完整TCP與固定環境啟停測試通過；出生數值明示為Server設計，不宣稱原版公式或hover當機已修復。見[契約與待測](../04-analysis-integration/20261102-native-status-initialization.md)。

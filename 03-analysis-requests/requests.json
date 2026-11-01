@@ -376,7 +376,15 @@
       "native_path_tests": "task_a/roy3/test_a005_roy3_collision_recovery.py",
       "native_path_fixture": "task_a/roy3/a005_native_path_fixture.json",
       "native_path_contract": "04-analysis-integration/A-005-native-path-collision-contract.md",
-      "native_path_ct_plan": "05-conformance/A-005-native-path-collision-test-plan.md"
+      "native_path_ct_plan": "05-conformance/A-005-native-path-collision-test-plan.md",
+      "portal_entrance_followup": {
+        "contract": "04-analysis-integration/20261102-native-portals-and-route-authority.md",
+        "evidence": "04-analysis-integration/native-portals-evidence-20261102.json",
+        "content_subset": "04-analysis-integration/native-portals-reviewed-subset-20261102.json",
+        "observed_scope": "Basic bank0 slot24 Portals.tbl entrance rows and cursor/minimap consumers; 2840 rows validated against 494 MAP geometries",
+        "remaining_unknown": "Original destination map/arrival pairs and tutorial room route; do not infer from nearby map IDs or 8-neighbour groups",
+        "native_gui": "not-run-this-increment"
+      }
     },
     {
       "id": "A-006",

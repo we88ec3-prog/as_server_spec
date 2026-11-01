@@ -1,0 +1,102 @@
+{
+  "target_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "provider": {
+    "id": "ghidra",
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "scope": "selected static portal consumers; no observed destination or runtime transfer",
+  "evidence": [
+    {
+      "address": "0x4b3250",
+      "evidence_id": "ev_51e3e12af57d244bdc579e2522e8ab899e08a9b30d2fab2cca9c396d2350bbda",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "Open resource bank0 slot24; read 2-byte header, 4-byte count and 6-byte i16 map/x/y rows; set auxiliary grid+0x258 for matching map."
+    },
+    {
+      "address": "0x4c0920",
+      "evidence_id": "ev_a5ebfca46a704b384f2df7bd5c47f7fcbf5fd77e1b02470b5982f345741782cb",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "Hover hit-tests tile; grid nonzero selects cursor5 and optionally looks up S07 coordinate label."
+    },
+    {
+      "address": "0x4b2d00",
+      "evidence_id": "ev_dbc2abbdf95e6c23b1ce7b82a53056ccd740f26b2f2f3cbc7ad5552585a2c502",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "Minimap anchor requires marked current tile and zero NW/N/NE/W neighbours."
+    },
+    {
+      "address": "0x4d1080",
+      "evidence_id": "ev_7f2ff58d9f26a72b60413a9d74f9124a90397505cd1d6c441b11bcbd79f08730",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "Collects and draws anchors from 4b2d00 separately from MinimapLocation metadata."
+    },
+    {
+      "address": "0x4f17c0",
+      "evidence_id": "ev_deb6d724b94d46dc20f39c4addf9650920b00bf3ce8e3ef4e63f9e0645fb8edf",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "Kind13 forwards row x,y and wide label to 4c0640; no destination map field in this branch."
+    },
+    {
+      "address": "0x4c0640",
+      "evidence_id": "ev_c928dc4ae6116bb05f8bbb98cdf1380aadcbe665f8a19444e9193c6925525f17",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "Coordinate/UTF16 label records; duplicate x,y ignored; native record stride0x204."
+    },
+    {
+      "address": "0x4b97e0",
+      "evidence_id": "ev_b3197c004afcfb0c3603e50000a840ac87f7f3a3e9babece18e86570279f8ff5",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "Exact x,y match returns label string; no destination coordinate lookup."
+    },
+    {
+      "address": "0x556aa0",
+      "evidence_id": "ev_a1033e9f2996e3a4b6a108eedaa5e522ddc43fdbf85da01eaf4231e8fee9954c",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "Checks an 11x11 area centred on player for any portal-grid cell."
+    },
+    {
+      "address": "0x4bf4c0",
+      "evidence_id": "ev_fa816afd2d7539e8b6ed9f111fe18ab55e4b9e6fdb74d74d9c7da9e92be13a4a",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "Near-portal condition selects BasicString491 prohibition of doing business; alternate path constructs C17."
+    },
+    {
+      "address": "0x5770f0",
+      "evidence_id": "ev_d81de0ac76a7a9a4e84071372e07603b6dc59e3deb7cbe87c013e86ebc7bee27",
+      "operation": "procedure_pseudo_code",
+      "authority": "shipped-artifact",
+      "confidence": "observed-static",
+      "observation": "C packet constructor opcode0x17; not identified as a portal movement request."
+    }
+  ],
+  "unknowns": [
+    "Original portal destination map and arrival coordinate pairing",
+    "Native original tutorial room/NPC ordering",
+    "Dynamic S07 label updates across map resets",
+    "Five-career original city bindings, especially conflicting Thief/Monk resources"
+  ],
+  "limits": [
+    "No raw original game assets or private Server implementation are included.",
+    "Decompiler output is not original source; no-return truncations retained in private full Evidence.",
+    "Observed static path does not prove a user GUI or packet capture execution."
+  ]
+}

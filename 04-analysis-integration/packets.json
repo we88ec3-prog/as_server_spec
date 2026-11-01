@@ -2204,7 +2204,9 @@
         "file_prefix_at": false,
         "resource_image_id_formula": "library_id=8000+floor((image_id-0x4000)/10); slot=(image_id-0x4000)%10; bounded image ids 0x4000..0x41AD are Server safety guard, not original official range",
         "limits": "Actual SpriteID mapping of row field +0x222 and actual asset contents not proven"
-      }
+      },
+      "kind13_portal_label_contract": "04-analysis-integration/20261102-native-portals-and-route-authority.md",
+      "kind13_observed_semantics": "0x4f17c0 forwards x/y and string to0x4c0640; exact-coordinate hover labels, duplicate XY ignored; not a destination or transfer command"
     },
     {
       "id": "PKT-S5F",

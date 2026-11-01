@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "scope": "Reviewed numeric entrance subset Map6..12; full original table and artwork excluded; destination not recovered",
+  "source": {
+    "archive": "Basic.dat",
+    "archive_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+    "slot": 24,
+    "name": "Portals.tbl",
+    "offset": 3774221,
+    "bytes": 17046,
+    "member_sha256": "b63c4f07765271baf83c9a5104fafe21070e2e3ca7926aec23c17eda84047d00",
+    "version": 1,
+    "count": 2840,
+    "row_format": "LE i16 map_ref, i16 x, i16 y"
+  },
+  "map_archives": [
+    {
+      "archive": "Map0.dat",
+      "sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761"
+    },
+    {
+      "archive": "Map1.dat",
+      "sha256": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b"
+    },
+    {
+      "archive": "Map2.dat",
+      "sha256": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb"
+    }
+  ],
+  "source_map_count": 494,
+  "maps_with_entrances": 312,
+  "all_rows_geometry_validation": "2840/2840 valid against 494 hash-pinned MAP members",
+  "native_marker_boundary_scope": "all original entrance tiles interior; no boundary out-of-range reads modeled",
+  "selected_maps": [
+    {
+      "map_ref": 6,
+      "width": 60,
+      "height": 60,
+      "member_sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760",
+      "entrance_count": 0,
+      "entrance_tiles": [],
+      "analysis_8_neighbor_groups": [],
+      "native_minimap_marker_anchors": [],
+      "entrance_tile_flags": [],
+      "destination_map": null,
+      "arrival_xy": null
+    },
+    {
+      "map_ref": 7,
+      "width": 60,
+      "height": 70,
+      "member_sha256": "947984db169c84df1766babc52b0b2d581b6384d6eb4e1013d367530eaaa3f76",
+      "entrance_count": 10,
+      "entrance_tiles": [
+        [
+          14,
+          41
+        ],
+        [
+          15,
+          41
+        ],
+        [
+          15,
+          42
+        ],
+        [
+          16,
+          42
+        ],
+        [
+          16,
+          43
+        ],
+        [
+          29,
+          38
+        ],
+        [
+          29,
+          39
+        ],
+        [
+          30,
+          37
+        ],
+        [
+          30,
+          38
+        ],
+        [
+          31,
+          37
+        ]
+      ],
+      "analysis_8_neighbor_groups": [
+        [
+          [
+            14,
+            41
+          ],
+          [
+            15,
+            41
+          ],
+          [
+            15,
+            42
+          ],
+          [
+            16,
+            42
+          ],
+          [
+            16,
+            43
+          ]
+        ],
+        [
+          [
+            29,
+            38
+          ],
+          [
+            29,
+            39
+          ],
+          [
+            30,
+            37
+          ],
+          [
+            30,
+            38
+          ],
+          [
+            31,
+            37
+          ]
+        ]
+      ],
+      "native_minimap_marker_anchors": [
+        [
+          14,
+          41
+        ],
+        [
+          30,
+          37
+        ]
+      ],
+      "entrance_tile_flags": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "destination_map": null,
+      "arrival_xy": null
+    },
+    {
+      "map_ref": 8,
+      "width": 60,
+      "height": 70,
+      "member_sha256": "25423742c1e670c722ccb6250c81ed18be258a2243eecd8adbda0f794ce0d9cb",
+      "entrance_count": 8,
+      "entrance_tiles": [
+        [
+          14,
+          41
+        ],
+        [
+          15,
+          41
+        ],
+        [
+          15,
+          42
+        ],
+        [
+          16,
+          42
+        ],
+        [
+          16,
+          43
+        ],
+        [
+          33,
+          35
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          35,
+          33
+        ]
+      ],
+      "analysis_8_neighbor_groups": [
+        [
+          [
+            14,
+            41
+          ],
+          [
+            15,
+            41
+          ],
+          [
+            15,
+            42
+          ],
+          [
+            16,
+            42
+          ],
+          [
+            16,
+            43
+          ]
+        ],
+        [
+          [
+            33,
+            35
+          ],
+          [
+            34,
+            34
+          ],
+          [
+            35,
+            33
+          ]
+        ]
+      ],
+      "native_minimap_marker_anchors": [
+        [
+          14,
+          41
+        ],
+        [
+          35,
+          33
+        ]
+      ],
+      "entrance_tile_flags": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "destination_map": null,
+      "arrival_xy": null
+    },
+    {
+      "map_ref": 9,
+      "width": 60,
+      "height": 70,
+      "member_sha256": "ee991d0c275a42a55f1da649412ee5254bfa6559b3c5f13ce7d6d0ad6a830f56",
+      "entrance_count": 8,
+      "entrance_tiles": [
+        [
+          20,
+          40
+        ],
+        [
+          21,
+          41
+        ],
+        [
+          22,
+          42
+        ],
+        [
+          39,
+          49
+        ],
+        [
+          39,
+          50
+        ],
+        [
+          40,
+          48
+        ],
+        [
+          40,
+          49
+        ],
+        [
+          41,
+          48
+        ]
+      ],
+      "analysis_8_neighbor_groups": [
+        [
+          [
+            20,
+            40
+          ],
+          [
+            21,
+            41
+          ],
+          [
+            22,
+            42
+          ]
+        ],
+        [
+          [
+            39,
+            49
+          ],
+          [
+            39,
+            50
+          ],
+          [
+            40,
+            48
+          ],
+          [
+            40,
+            49
+          ],
+          [
+            41,
+            48
+          ]
+        ]
+      ],
+      "native_minimap_marker_anchors": [
+        [
+          20,
+          40
+        ],
+        [
+          40,
+          48
+        ]
+      ],
+      "entrance_tile_flags": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "destination_map": null,
+      "arrival_xy": null
+    },
+    {
+      "map_ref": 10,
+      "width": 60,
+      "height": 70,
+      "member_sha256": "fe67686e2eb72c18dd58ce23c8f0869e9b013bb9130e8bca3e497fc88f4331ec",
+      "entrance_count": 10,
+      "entrance_tiles": [
+        [
+          14,
+          41
+        ],
+        [
+          15,
+          41
+        ],
+        [
+          15,
+          42
+        ],
+        [
+          16,
+          42
+        ],
+        [
+          16,
+          43
+        ],
+        [
+          33,
+          34
+        ],
+        [
+          33,
+          35
+        ],
+        [
+          34,
+          33
+        ],
+        [
+          34,
+          34
+        ],
+        [
+          35,
+          33
+        ]
+      ],
+      "analysis_8_neighbor_groups": [
+        [
+          [
+            14,
+            41
+          ],
+          [
+            15,
+            41
+          ],
+          [
+            15,
+            42
+          ],
+          [
+            16,
+            42
+          ],
+          [
+            16,
+            43
+          ]
+        ],
+        [
+          [
+            33,
+            34
+          ],
+          [
+            33,
+            35
+          ],
+          [
+            34,
+            33
+          ],
+          [
+            34,
+            34
+          ],
+          [
+            35,
+            33
+          ]
+        ]
+      ],
+      "native_minimap_marker_anchors": [
+        [
+          14,
+          41
+        ],
+        [
+          34,
+          33
+        ]
+      ],
+      "entrance_tile_flags": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "destination_map": null,
+      "arrival_xy": null
+    },
+    {
+      "map_ref": 11,
+      "width": 60,
+      "height": 70,
+      "member_sha256": "7a70ce3b27f01c0499eb3c6c6f98fda65d47266f5eee2f7354db6690687ec966",
+      "entrance_count": 10,
+      "entrance_tiles": [
+        [
+          24,
+          44
+        ],
+        [
+          25,
+          44
+        ],
+        [
+          25,
+          45
+        ],
+        [
+          26,
+          45
+        ],
+        [
+          26,
+          46
+        ],
+        [
+          39,
+          49
+        ],
+        [
+          39,
+          50
+        ],
+        [
+          40,
+          48
+        ],
+        [
+          40,
+          49
+        ],
+        [
+          41,
+          48
+        ]
+      ],
+      "analysis_8_neighbor_groups": [
+        [
+          [
+            24,
+            44
+          ],
+          [
+            25,
+            44
+          ],
+          [
+            25,
+            45
+          ],
+          [
+            26,
+            45
+          ],
+          [
+            26,
+            46
+          ]
+        ],
+        [
+          [
+            39,
+            49
+          ],
+          [
+            39,
+            50
+          ],
+          [
+            40,
+            48
+          ],
+          [
+            40,
+            49
+          ],
+          [
+            41,
+            48
+          ]
+        ]
+      ],
+      "native_minimap_marker_anchors": [
+        [
+          24,
+          44
+        ],
+        [
+          40,
+          48
+        ]
+      ],
+      "entrance_tile_flags": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "destination_map": null,
+      "arrival_xy": null
+    },
+    {
+      "map_ref": 12,
+      "width": 60,
+      "height": 70,
+      "member_sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "entrance_count": 3,
+      "entrance_tiles": [
+        [
+          14,
+          41
+        ],
+        [
+          15,
+          42
+        ],
+        [
+          16,
+          43
+        ]
+      ],
+      "analysis_8_neighbor_groups": [
+        [
+          [
+            14,
+            41
+          ],
+          [
+            15,
+            42
+          ],
+          [
+            16,
+            43
+          ]
+        ]
+      ],
+      "native_minimap_marker_anchors": [
+        [
+          14,
+          41
+        ]
+      ],
+      "entrance_tile_flags": [
+        0,
+        0,
+        0
+      ],
+      "destination_map": null,
+      "arrival_xy": null
+    }
+  ],
+  "all_map_flag_counts": {
+    "0": 2837,
+    "1": 1,
+    "17": 2
+  },
+  "grouping_policy": "8-neighbour adjacency is analysis only, not native portal ID/pairing",
+  "native_marker_policy": "marked current tile with unmarked NW,N,NE,W neighbours; not necessarily one per 8-connected group",
+  "destination_pairing": "unknown; no destination fields in this table"
+}

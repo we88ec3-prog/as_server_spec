@@ -141,5 +141,6 @@
         "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
       ]
     }
-  ]
+  ],
+  "followup": "20261102-native-portals-and-route-authority.md: Basic slot24 portal grid and cursor5 now proven; retained evidence below records earlier MinimapLocation-only scope."
 }
