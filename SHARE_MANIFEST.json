@@ -664,6 +664,10 @@
       "sha256": "8764f2dae293efe7e32afdfa07e1a7fd6a316e9997407de764cbaa6d8c182db8"
     },
     {
+      "path": "04-analysis-integration/20261101-town-candidate-v4-migration.md",
+      "sha256": "911d38e9097a422d3f88f8c6ddb7d41822d730ce0209e4ee752ea59d1b6cfbd5"
+    },
+    {
       "path": "04-analysis-integration/20261101-town-script-geography-followup.md",
       "sha256": "abb5519fb366b53c3298ea72f98deb8d5e3499008b304204261f5d3ea8e7d7ea"
     },
@@ -685,7 +689,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-geography-and-content-profile.md",
-      "sha256": "b2df8619f1b75edf4c87029da6567549d4f9d64751ee972f7227aefb1d15139d"
+      "sha256": "9b0d8131e830ca57e14a5214a52d3fbeae46c576d95cfc1e8506652efd4a6a51"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-lesson-npcs.md",
@@ -1020,12 +1024,16 @@
       "sha256": "9a216065f6cf4c39825fda04e230716baa3c02bd88bbe431b4468e17a0c1bd65"
     },
     {
+      "path": "04-analysis-integration/tutorial-town-candidates-v4-20261101.json",
+      "sha256": "e7f604e27c6245fdae9c17ece2509327579b29b875473d2b3878679e23dba0eb"
+    },
+    {
       "path": "04-analysis-integration/world-ui-prelude-c43-20261101.md",
       "sha256": "9df802a284ddb2d248a77038b0c56629faea0732b2328984630b6e970aca261a"
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "337b3a9e07c4866d54bbb57bf7a6efb2cc2b667592fe7dcfdccbdb080de308a4"
+      "sha256": "661d4bbd29de335310c6bbb9a6bd1ba70a95a32d8bfcb070743f0ef27c937210"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",

@@ -1,0 +1,185 @@
+{
+  "scope": "Reconstruction candidate route v4; town morphology observed offline, original job-map bindings unverified",
+  "profile_id": "isolated-tutorial-route-candidate-v4",
+  "source_profile_sha256": "d7c760e03c0dbf84898889ca5e9e0abb90c64cbb31564c7ac12e689d9f2f1da3",
+  "career_destinations": {
+    "Cleric": {
+      "MapRef": 1,
+      "MapRevision": "map-sha256-e2c329ad88a9b44c2760d5a996f187e68b7a5b90419f087a2471fabc03490f00"
+    },
+    "Thief": {
+      "MapRef": 7001,
+      "MapRevision": "map-sha256-ac30779fac09dd3de4f9ddd5c1321737cf23b7e219280ab634fe52c196c45c3a"
+    },
+    "Warrior": {
+      "MapRef": 2001,
+      "MapRevision": "map-sha256-bc220a638c7e710016af65acc83de2f6255e1b690bfb9ef477871589b56c865f"
+    },
+    "Monk": {
+      "MapRef": 6001,
+      "MapRevision": "map-sha256-d17336536d711135260990cea39dfedb7d6fea63189aa04e9f752b1cd71a309d"
+    },
+    "Mage": {
+      "MapRef": 4001,
+      "MapRevision": "map-sha256-3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4"
+    }
+  },
+  "maps": [
+    {
+      "MapRef": 7,
+      "ArchiveSha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "MemberSha256": "947984db169c84df1766babc52b0b2d581b6384d6eb4e1013d367530eaaa3f76",
+      "SpawnX": 30,
+      "SpawnY": 34,
+      "ViewportX": 8,
+      "ViewportY": 9
+    },
+    {
+      "MapRef": 1,
+      "ArchiveSha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "MemberSha256": "e2c329ad88a9b44c2760d5a996f187e68b7a5b90419f087a2471fabc03490f00",
+      "SpawnX": 62,
+      "SpawnY": 92,
+      "ViewportX": 8,
+      "ViewportY": 9
+    },
+    {
+      "MapRef": 7001,
+      "ArchiveSha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "MemberSha256": "ac30779fac09dd3de4f9ddd5c1321737cf23b7e219280ab634fe52c196c45c3a",
+      "SpawnX": 104,
+      "SpawnY": 102,
+      "ViewportX": 8,
+      "ViewportY": 9
+    },
+    {
+      "MapRef": 2001,
+      "ArchiveSha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "MemberSha256": "bc220a638c7e710016af65acc83de2f6255e1b690bfb9ef477871589b56c865f",
+      "SpawnX": 100,
+      "SpawnY": 100,
+      "ViewportX": 8,
+      "ViewportY": 9
+    },
+    {
+      "MapRef": 6001,
+      "ArchiveSha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "MemberSha256": "d17336536d711135260990cea39dfedb7d6fea63189aa04e9f752b1cd71a309d",
+      "SpawnX": 100,
+      "SpawnY": 100,
+      "ViewportX": 8,
+      "ViewportY": 9
+    },
+    {
+      "MapRef": 4001,
+      "ArchiveSha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "MemberSha256": "3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "SpawnX": 100,
+      "SpawnY": 100,
+      "ViewportX": 8,
+      "ViewportY": 9
+    },
+    {
+      "MapRef": 1001,
+      "ArchiveSha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "MemberSha256": "07868f8a56189ca275b55ee2739623ffab5fc4981296526d85307b188336600a",
+      "SpawnX": 99,
+      "SpawnY": 100,
+      "ViewportX": 8,
+      "ViewportY": 9
+    },
+    {
+      "MapRef": 3001,
+      "ArchiveSha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "MemberSha256": "2578a7b3c0fbda5ba757c19212e92a4579c58e751a07600fcd245ea659d5eccd",
+      "SpawnX": 105,
+      "SpawnY": 98,
+      "ViewportX": 8,
+      "ViewportY": 9
+    }
+  ],
+  "legacy_recovery_maps": [
+    1001,
+    3001
+  ],
+  "binding_origin": "reconstruction-candidate",
+  "original_server_binding_verified": false,
+  "native_gui": "not-run",
+  "verification": {
+    "python_profile_migration_tests_passed": 12,
+    "host_regression_baseline_tests_passed": 363,
+    "tcp_routes": [
+      {
+        "career": "Warrior",
+        "candidate_town_map_ref": 2001,
+        "tcp_flow": "passed",
+        "creation": "C02/C04",
+        "idle_death_respawn": "passed",
+        "school_and_town_relogin": "passed",
+        "all_encrypted_response_ordinals": "checked-per-socket",
+        "native_class_code": 1,
+        "career_wire_projection": "passed",
+        "damage_number_wire_actual_hp_clamp": "passed",
+        "native_gui": "not-run",
+        "original_town_identity": "unverified"
+      },
+      {
+        "career": "Cleric",
+        "candidate_town_map_ref": 1,
+        "tcp_flow": "passed",
+        "creation": "C02/C04",
+        "idle_death_respawn": "passed",
+        "school_and_town_relogin": "passed",
+        "all_encrypted_response_ordinals": "checked-per-socket",
+        "native_class_code": 4,
+        "career_wire_projection": "passed",
+        "damage_number_wire_actual_hp_clamp": "passed",
+        "native_gui": "not-run",
+        "original_town_identity": "unverified"
+      },
+      {
+        "career": "Mage",
+        "candidate_town_map_ref": 4001,
+        "tcp_flow": "passed",
+        "creation": "C02/C04",
+        "idle_death_respawn": "passed",
+        "school_and_town_relogin": "passed",
+        "all_encrypted_response_ordinals": "checked-per-socket",
+        "native_class_code": 3,
+        "career_wire_projection": "passed",
+        "damage_number_wire_actual_hp_clamp": "passed",
+        "native_gui": "not-run",
+        "original_town_identity": "unverified"
+      },
+      {
+        "career": "Thief",
+        "candidate_town_map_ref": 7001,
+        "tcp_flow": "passed",
+        "creation": "C02/C04",
+        "idle_death_respawn": "passed",
+        "school_and_town_relogin": "passed",
+        "all_encrypted_response_ordinals": "checked-per-socket",
+        "native_class_code": 2,
+        "career_wire_projection": "passed",
+        "damage_number_wire_actual_hp_clamp": "passed",
+        "native_gui": "not-run",
+        "original_town_identity": "unverified"
+      },
+      {
+        "career": "Monk",
+        "candidate_town_map_ref": 6001,
+        "tcp_flow": "passed",
+        "creation": "C02/C04",
+        "idle_death_respawn": "passed",
+        "school_and_town_relogin": "passed",
+        "all_encrypted_response_ordinals": "checked-per-socket",
+        "native_class_code": 5,
+        "career_wire_projection": "passed",
+        "damage_number_wire_actual_hp_clamp": "passed",
+        "native_gui": "not-run",
+        "original_town_identity": "unverified"
+      }
+    ],
+    "native_gui": "not-run"
+  }
+}

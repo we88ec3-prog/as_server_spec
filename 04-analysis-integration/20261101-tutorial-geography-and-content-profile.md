@@ -73,6 +73,10 @@ Profile需schema_version1、非空profile_id、binding_origin明確為
 石牆迷宮提出形態反證，兩者不能再作已驗畢業城鎮。上表是歷史候選profile，
 保留供重現；6001／7001新增為待核對聚落候選，尚未改動使用者保存設定。
 
+[v4候選升級](20261101-town-candidate-v4-migration.md)已將新盜賊／武道家畢業
+改往7001／6001，保留舊MAP供位置恢復。五職業新版TCP已通過；原版身份仍未證，
+本地使用者保存profile本輪沒有直接升級，正常入口下次啟動才備份處理。
+
 出生點設計為離圖中心最近的完整可站立5×5區域，依距離、Y、X穩定排序；
 不是原版spawn。學校四位NPC、練習目標放在該區域相鄰格，使用既有helper
 候選外觀。三份MAP庫SHA與各member身份固定，完整Host reader再驗checksum。
