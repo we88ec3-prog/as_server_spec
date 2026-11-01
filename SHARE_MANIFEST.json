@@ -585,7 +585,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-basic-attack-motion-action-and-death.md",
-      "sha256": "f1a9be493625147e5ef297c857a522d8aa71f83fde2009cba40ab8763d9122dd"
+      "sha256": "d3180de7b28101cbbf53de1ba64477b8e1a9e21ddb06f288d1d53726f86d8a09"
     },
     {
       "path": "04-analysis-integration/20261101-c44-play-disconnect.md",
@@ -598,6 +598,10 @@
     {
       "path": "04-analysis-integration/20261101-damage-number-mos-and-action-list.md",
       "sha256": "0dc0876841a51a12e2d3c1dcb88253f2d96c5a4c7dc246489069a170830ffb5d"
+    },
+    {
+      "path": "04-analysis-integration/20261101-default-space-attack.md",
+      "sha256": "ef282d854145cf08f5c895d07a083fb36082d943e99a12a668872fb13e572703"
     },
     {
       "path": "04-analysis-integration/20261101-map-title-provenance.md",
@@ -892,6 +896,10 @@
       "sha256": "7654843ec9eb7512c04f04b44276e58c3b795cab43dbd398d9b89ab0aed10298"
     },
     {
+      "path": "04-analysis-integration/native-default-space-attack-20261101.json",
+      "sha256": "c7677e3fd1aeba6ab065e37c0bb704287d5da5c037d55d4d005eb2a4785d527a"
+    },
+    {
       "path": "04-analysis-integration/native-map-catalog-20261101.json",
       "sha256": "9929d5b87c89c859888232bea2ad51717b3e9e34af3feb1b8e20f64c03d1b19f"
     },
@@ -997,7 +1005,7 @@
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "a280fd51b0f6a244278e9630ba81faadbfa1529c491b0b69c3f0ccf0b9f55da6"
+      "sha256": "b3dc62723180029751fe3c07505b61d49da741e8dfcf09c721d1a871c9adf8a6"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
