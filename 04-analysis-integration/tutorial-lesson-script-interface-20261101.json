@@ -1,0 +1,466 @@
+{
+  "scope": "Static original Script metadata; no native execution or original Server binding established",
+  "limits": "Literal index after removing full-line // comments; not a complete Script-language parser, dynamic flow proof or runtime trace",
+  "method": "bounded zlib; BE version/u32 UTF16 length; strict UTF16/CP950; source SHA pinned; text CRC compared with prior resource index where available (MerchantDialog SHA pin from recruiter analysis)",
+  "scripts": [
+    {
+      "name": "Merchant",
+      "raw_sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+      "text_cp950_crc32": "e9b389cf",
+      "functions": [
+        {
+          "name": "Main",
+          "body_utf8_sha256": "ad047498ce1d722edd1e56f710bd1ff68133c9c0be1271307717e98152cb1b0d",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false,
+          "literal_control_cases": []
+        }
+      ]
+    },
+    {
+      "name": "MerchantDialog",
+      "raw_sha256": "ed194a77a669cbd8f83fbbd01bb08ed0f800b122695cc204a3a12f002f945095",
+      "text_cp950_crc32": "9267d99d",
+      "functions": [
+        {
+          "name": "MerchantDialogProc",
+          "body_utf8_sha256": "58641e2e514f0f2814d00d78f97389777a9257424524782f4b0fdd94e7067c83",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "TYPE",
+              "BUY"
+            ],
+            [
+              "TYPE",
+              "SELL"
+            ],
+            [
+              "TYPE",
+              "REPAIR"
+            ],
+            [
+              "TYPE",
+              "BANK"
+            ],
+            [
+              "TYPE",
+              "IDENTIFY"
+            ],
+            [
+              "TYPE",
+              "TALK"
+            ],
+            [
+              "TYPE",
+              "ABORT"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "BUY",
+            "SELL",
+            "REPAIR",
+            "BANK",
+            "IDENTIFY",
+            "TALK",
+            "CANCEL"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nNewJob01",
+      "raw_sha256": "df01c69fe36eb0ab60d03d5da7bf56c52b5c520ca81c5ae07ef1b0ba9b70d9cc",
+      "text_cp950_crc32": "360c6da8",
+      "functions": [
+        {
+          "name": "MerchantTalk",
+          "body_utf8_sha256": "39af4a8f82c8c0ac2d8f8bd2308198c3f5080cb63714515deb5901cf850de17d",
+          "server_parameter_reads": [
+            "JOBALD"
+          ],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false,
+          "literal_control_cases": []
+        },
+        {
+          "name": "JobMessage01Proc",
+          "body_utf8_sha256": "e409b84688987ccca914912a683b168f5f714a4c0e30708b74ff94a757c99546",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "NEXT",
+            "CANCEL"
+          ]
+        },
+        {
+          "name": "JobMessage02Proc",
+          "body_utf8_sha256": "11fa1460ded0e21082d550d867b960e9f7b06280e81258dfa80add4a8019b0e6",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "PREV",
+            "NEXT",
+            "CANCEL"
+          ]
+        },
+        {
+          "name": "JobMessage03Proc",
+          "body_utf8_sha256": "34d7a4c3a934895774545658bd4012a382b3734b38093421b576e2da6631b8d2",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "CANCEL",
+            "SEL0",
+            "SEL1"
+          ]
+        },
+        {
+          "name": "JobMessage04Proc",
+          "body_utf8_sha256": "43aa22fc5e7111a3950849ab7d3811c90b10cc627f6a85acf21ebf7fa8ac4595",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [
+            "盜賊",
+            "戰士",
+            "武道家",
+            "魔法師",
+            "聖職者"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false,
+          "literal_control_cases": [
+            "CANCEL",
+            "SEL0",
+            "SEL1",
+            "SEL2",
+            "SEL3",
+            "SEL4"
+          ]
+        },
+        {
+          "name": "JobMessage05Proc",
+          "body_utf8_sha256": "d80270c6ba4ab8c6fa18d3b30a76f65e8bb52ef62b9dd0ee342063c5b11dff32",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "OK"
+            ]
+          ],
+          "sends_job_variable": true,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "OK",
+            "CANCEL"
+          ]
+        },
+        {
+          "name": "MerchantDirectTalk",
+          "body_utf8_sha256": "f3b0c6f127b9a2759e0694fb2bc24d991a4e7641af200ce07ec2044ede83afad",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false,
+          "literal_control_cases": []
+        },
+        {
+          "name": "JobMessage06",
+          "body_utf8_sha256": "e7f61a4a3f1491ace67d4479ddd0f892c7d33a6215addfa5da083fc2f059c2e0",
+          "server_parameter_reads": [
+            "JOBRET"
+          ],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false,
+          "literal_control_cases": []
+        },
+        {
+          "name": "JobMessage06Proc",
+          "body_utf8_sha256": "3c1d8be7d544997bf12bd4b6055e0c27226c4dc6336d30f6563348ab2fe99435",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "OK"
+          ]
+        },
+        {
+          "name": "JobMessage07Proc",
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "OK"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nNewTeleport01",
+      "raw_sha256": "092f168d5de1a25b09b080065419c62279a696fa7798cf7aa98dc82b26f90c06",
+      "text_cp950_crc32": "4e711abf",
+      "functions": [
+        {
+          "name": "MerchantTalk",
+          "body_utf8_sha256": "94efc472d80a68974d9597934186756d7b45f8b51f404a140b226fac0faca2a4",
+          "server_parameter_reads": [
+            "JOBRET"
+          ],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false,
+          "literal_control_cases": []
+        },
+        {
+          "name": "TeleportMessage01Proc",
+          "body_utf8_sha256": "e26a1bb4fe4ff3d07f0698c58bd6a70c8448cfe22c8b48ae929dd94ac7e6d6c4",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "OK"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "OK"
+          ]
+        },
+        {
+          "name": "TeleportMessage02Proc",
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "OK"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "QuestSelDialog",
+      "raw_sha256": "06868b472cf874e08077ef29ee42edd9c0d4aa1cef304699658b091a4b1c8366",
+      "text_cp950_crc32": "c64e29a3",
+      "functions": []
+    },
+    {
+      "name": "MultiHelpDialog",
+      "raw_sha256": "9cf1725574ae4157767fcdb179e06f1241aa5a45f5dd38f73ab7a7c570b1ce8c",
+      "text_cp950_crc32": "ed556a37",
+      "functions": []
+    },
+    {
+      "name": "nNewLife01",
+      "raw_sha256": "7caa5c656c7ab50b9701506e0d137f7fb1550f6eb6fd7ceb1bd0b3e72f169414",
+      "text_cp950_crc32": "1256ae8c",
+      "functions": [
+        {
+          "name": "MerchantTalk",
+          "body_utf8_sha256": "a9b8b477a77d5c57d1a5ae3106b93b4820b4fb2f5a3e00fedf5623f95341a792",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false,
+          "literal_control_cases": []
+        },
+        {
+          "name": "LifeMessage01Proc",
+          "body_utf8_sha256": "9888f0596c54b42753693e8d1d960c156193d5ea6483f083aaf610683f560b77",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "NEXT",
+            "CANCEL"
+          ]
+        },
+        {
+          "name": "LifeMessage02Proc",
+          "body_utf8_sha256": "a9603374b709e546a052133e21557e7d7e5b2b09286fec5dc2d0f7050063fbf8",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "CANCEL",
+            "SEL0",
+            "SEL1",
+            "SEL2",
+            "SEL3"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nNewWar01",
+      "raw_sha256": "3d3590a7f4a346cafa538d8216091a6f6073c6aab146d696d0fb2736100f2453",
+      "text_cp950_crc32": "7bab73a4",
+      "functions": [
+        {
+          "name": "MerchantTalk",
+          "body_utf8_sha256": "b8999a09a6e20e5c4ff7dc4c62522f1b323d4f1555151c4507d8795b9b965231",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false,
+          "literal_control_cases": []
+        },
+        {
+          "name": "WarMessage01Proc",
+          "body_utf8_sha256": "1d99e938477f65d5ec9fe90a1fc0f20cbe90bc5aa386c0b3706d959b475db91d",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "NEXT",
+            "CANCEL"
+          ]
+        },
+        {
+          "name": "WarMessage02Proc",
+          "body_utf8_sha256": "f497efcf367bf56aec4a78cb234c0c1ecb2958862292569bf02cb82983c0e820",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "CANCEL",
+            "SEL0",
+            "SEL1",
+            "SEL2",
+            "SEL3"
+          ]
+        },
+        {
+          "name": "WarMessage03Proc",
+          "body_utf8_sha256": "c8bcae472e720ce6ec9aebb7ff77fdf742c110aadbe9a6312ade977f18fa7431",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "NEXT",
+            "CANCEL"
+          ]
+        },
+        {
+          "name": "WarMessage04Proc",
+          "body_utf8_sha256": "efbd152c83e21e9e26713ff9e6aedff598cb210e9dddcf30def51be1998eab87",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "PREV",
+            "NEXT",
+            "CANCEL"
+          ]
+        },
+        {
+          "name": "WarMessage05Proc",
+          "body_utf8_sha256": "55318e6c24228e76d95399281d36cf0fe640054b1f73456b375c0b23cb70430f",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": true,
+          "literal_control_cases": [
+            "PREV",
+            "OK"
+          ]
+        }
+      ]
+    }
+  ]
+}

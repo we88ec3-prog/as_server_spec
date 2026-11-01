@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "c53735b38b0b2698be22ea127d47ddb2267f26243fbe236758c75db006138b93"
+      "sha256": "7e44e6a8f0c2412c484e48c831fb52c36f213ff0348671af590add3a42af5aea"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -628,12 +628,16 @@
       "sha256": "4243db3a76f89cc499cc1b3afd4d3a9dec97eab29283ebf7ccab01c31c755b91"
     },
     {
+      "path": "04-analysis-integration/20261101-tutorial-lesson-npcs.md",
+      "sha256": "0219622de4ad7d40ee84f5dc4d4e58d8f02bf064f12128c64028286b819cf070"
+    },
+    {
       "path": "04-analysis-integration/20261101-tutorial-resource-route.md",
-      "sha256": "56641a5832e25b2e964d4cc21ec4adf7d0b6a24f2b5797f1170ad89ac89eae38"
+      "sha256": "87391c9a49b6aff85df07d07b0e7f6f2206119a617ff8a27d4792e16da972f09"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-town-departure.md",
-      "sha256": "dae6bebd4e66dc469e7df6394d01aaef527dd28ddc6444653118d61343661407"
+      "sha256": "4c4c37da99493c65eb6e994f80f99664ff006f35da932d949b589063afe38ea8"
     },
     {
       "path": "04-analysis-integration/20261101-world-transfer-transaction.md",
@@ -878,6 +882,10 @@
     {
       "path": "04-analysis-integration/tutorial-career-script-interface-20261101.json",
       "sha256": "210cc3228dd9aae736b3b19464087f9311d9a7407c7db4e0017293f8aa88e2ba"
+    },
+    {
+      "path": "04-analysis-integration/tutorial-lesson-script-interface-20261101.json",
+      "sha256": "acc1cd4316ee8c3509814c087b42d4781a4384a6f37a3459be37c947beb65c94"
     },
     {
       "path": "04-analysis-integration/tutorial-resource-route-20261101.json",
