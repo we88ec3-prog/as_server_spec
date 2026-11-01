@@ -329,7 +329,7 @@
     },
     {
       "path": "03-analysis-requests/A-011-map-monster-placement-followup.md",
-      "sha256": "3334832d00fa17cd091d73cdbd473138093a2c5e23c002c9a6b8180ac4551d78"
+      "sha256": "9caebec2ba22fd7566113d17041a1b9531896dec1b6e001172fc6758576ef4bb"
     },
     {
       "path": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
@@ -661,7 +661,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-static-map-town-review.md",
-      "sha256": "8764f2dae293efe7e32afdfa07e1a7fd6a316e9997407de764cbaa6d8c182db8"
+      "sha256": "03e6d8e6193a04e5cd08ae6d940774f4b21e888682c7d29a7fa0da2ce04e7d25"
     },
     {
       "path": "04-analysis-integration/20261101-town-candidate-v4-migration.md",
@@ -669,7 +669,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-town-script-geography-followup.md",
-      "sha256": "abb5519fb366b53c3298ea72f98deb8d5e3499008b304204261f5d3ea8e7d7ea"
+      "sha256": "0cbc1cb32a8b6d5f859d2bb3f90457cf751cd364171a85111b115efe0c7bf7a1"
     },
     {
       "path": "04-analysis-integration/20261101-training-combat-authority.md",
@@ -722,6 +722,10 @@
     {
       "path": "04-analysis-integration/20261102-native-shortcut-followup-and-npc-miss.md",
       "sha256": "797c6412fe1bd64d294c29994dfdb071abb34ed9b2865129b3d219cc9aacc3bf"
+    },
+    {
+      "path": "04-analysis-integration/20261102-town-guide-role-conflicts-and-space-defaults.md",
+      "sha256": "df1a2d3e05f24cf972ad515e0c30981fc328b3b38d2b4eb733e53e7445e0e4a6"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -948,6 +952,10 @@
       "sha256": "41a1b16624134b350f79c113aedafb42426c374dbc1f346137dc9e7b15893a6c"
     },
     {
+      "path": "04-analysis-integration/native-space-initialization-20261102.json",
+      "sha256": "42e37f9d7b39325b3f251f32faa1beca0cb6e87e51dc1242ca3f84acf8dc9150"
+    },
+    {
       "path": "04-analysis-integration/native-static-map-render-20261101.json",
       "sha256": "780df78babde8e911b99757a0c4896ae29cf828a78980061354c09b952889f8b"
     },
@@ -1012,8 +1020,16 @@
       "sha256": "7dd39e00b86f7908d08f9938f13ba272b4d5695e6abddd84a8c6baf1aedc3a48"
     },
     {
+      "path": "04-analysis-integration/script-geography-expanded-20261102.json",
+      "sha256": "cfd5757710c23cee8995cb019ea206a30bad321c5d4266b54e99fa48478bb575"
+    },
+    {
       "path": "04-analysis-integration/script-geography-literals-20261101.json",
       "sha256": "11e8b04817f6534695b18687e5aa61b1bff447220a3105ce96582f2f258e0a89"
+    },
+    {
+      "path": "04-analysis-integration/town-guide-crosscheck-20261102.json",
+      "sha256": "9c02b522303f5d504ae22e90c2e47e895ed378a688b027a62eefb251c34d5d25"
     },
     {
       "path": "04-analysis-integration/transport.md",

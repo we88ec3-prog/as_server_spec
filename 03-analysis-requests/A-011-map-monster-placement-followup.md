@@ -38,3 +38,10 @@
 後續[城鎮腳本地理補證](../04-analysis-integration/20261101-town-script-geography-followup.md)
 已掃描316份Script資源，保留315件解析成功與1件失敗；新增五城地理描述、
 銀行地名及原生傳送點STATE回覆界線。仍未建立精確MAP／怪物出生綁定。
+
+最新[導覽圖片與光／闇城鎮矛盾](../04-analysis-integration/20261102-town-guide-role-conflicts-and-space-defaults.md)
+把地理索引擴充至14詞，315件成功、17件命中，並核對494個MAP member。
+下一輪交給web AI時，請優先追「一般新角色職業／陣營→雅柏、瑪賽或實際目的MAP」
+的正面綁定：6001／7001的JPG分別標魔界村／海賊村，Script列為闇系都市；
+18001則標萊貝雅中立城。不得因海岸或積雪形態相似，把它們直接當作所需光系城市。
+也須釐清HELP、教學Script與導覽圖是否為相同版本的已實作設定，保留無法判定的分支。

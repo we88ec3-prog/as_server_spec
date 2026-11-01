@@ -1,0 +1,2533 @@
+{
+  "scope": "static literal geography index; no runtime, original spawn or official map binding claim",
+  "method": "bounded zlib, BE version/UTF16 length, strict UTF16LE, XML function bodies; lexical matches may include comments",
+  "town_search_terms": [
+    "路爾斯",
+    "米魯里斯",
+    "斯歐米",
+    "雅柏",
+    "瑪賽",
+    "海賊村",
+    "塔克魯",
+    "歐倫",
+    "魔界村",
+    "加利卡拉",
+    "萊貝雅",
+    "來貝雅",
+    "伊卡魯斯",
+    "依卡魯斯"
+  ],
+  "files_considered": 316,
+  "files_parsed": 315,
+  "failures": [
+    {
+      "path": "Script/NDW.dat",
+      "sha256": "5b51dcf9c137c04835dfff2c5e24458fe8df5079e1eb57e3aa0e95c47d7c13da",
+      "error": "ParseError",
+      "reason": "not well-formed (invalid token): line 1, column 0"
+    }
+  ],
+  "matching_files": [
+    {
+      "path": "Script/nBarberShop.dat",
+      "bytes": 2509,
+      "sha256": "3fd204d92a2285e382e79ff89f124bcd151a2c668ca5662810d35b1aea8ef292",
+      "functions": [
+        {
+          "name": "Barber02",
+          "town_literals": [
+            "路爾斯"
+          ],
+          "body_utf8_sha256": "9bf62746338fec3818c7a01b5e5dd8f2aeab499f345d874c3001923689cfff02",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nLebiaKnight1-2_01.dat",
+      "bytes": 1694,
+      "sha256": "4e213a5332307cf70235e32127f38fb1babc82fa104a7c230227294f4e2585cb",
+      "functions": [
+        {
+          "name": "Knight07",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "7d1ea954350729fac603fa4dd26577af7792212fccd715cc33e0e09cdcf16ca7",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nLebiaPortal01.dat",
+      "bytes": 2708,
+      "sha256": "3f42e1a688c24bb7c9e14627ab66783f444ae16d6b0267eff9ffa18934d2ec52",
+      "functions": [
+        {
+          "name": "BuildMuttering",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "d8c337bd99cc106d8650b8aa35f16d3de32f4a5b7ddfe75202946c1aa6862a75",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "9a4c062294b562a76c718a4c72ffc4a972b1bc5be4dfefe1f2255c04b470caf0",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "9a4c062294b562a76c718a4c72ffc4a972b1bc5be4dfefe1f2255c04b470caf0",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First02",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "b8b262097facb094da46bcf02efe9cabff502bf98a77a6df51407e9b5db7b45e",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First03",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "5d66f15fa5f914bdde98dc020f032cf7772f087e13bf960e40969e66b0f880d8",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First04",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "eaf10d5dab19c40c63909bcaca36d9cae00b2a098c275fa4e68aa2086c9763e2",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First05",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "ebd946bfad52ca53e3d3d91872c8d10aee1cef1bfc0df6e1db6c1d901d6aac9d",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First06",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "e0202fdc5c9acc82ed67c9d5fb7021ed6deb08f8032570b9d13a5eb3dcea8741",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First07",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "cfde268273759661106d98422540187112041535cf3403b40bbab380d8f1c965",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First08",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "a310c9c8b4d2459179c5d5df812cad2895d0f7e12d3257b84f528f6b4a060ea5",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First09",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "7fb11a21783108f643d011e346e301c410c95e8294de5a2826a3670ce0998014",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate_First10",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "079bff6855a74630dbdecf9e320e3d8619385c0dda613dc0786bc97e0dd868ff",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate022",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "57516aa20d4946d3e1c47125fa76b67335c71b50404f3e15adab933367df70fe",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate023",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "7e6b10080ccf53a34564eea0191ef72f73d8bfd21ad6d24b6c1c5a2b33d3a7ed",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate024",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "a483a3253c4ac6700c81a1bdf6e9a31e7125ff44d9527d177203b34ebdc01284",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LebiaGate025",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "5be262092b6a93562bdd64f310a5b95aef9ca2e2f7154e86e8110add7da79372",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Finish022",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "0d65cf7d1edd707939cb8fb083495483504ac518091e912529210c0e5091a6af",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nNewLife01.dat",
+      "bytes": 3546,
+      "sha256": "7caa5c656c7ab50b9701506e0d137f7fb1550f6eb6fd7ceb1bd0b3e72f169414",
+      "functions": [
+        {
+          "name": "LifeMessage02Proc",
+          "town_literals": [
+            "路爾斯",
+            "米魯里斯",
+            "斯歐米",
+            "雅柏",
+            "瑪賽",
+            "海賊村",
+            "塔克魯",
+            "歐倫",
+            "魔界村",
+            "加利卡拉",
+            "萊貝雅",
+            "伊卡魯斯"
+          ],
+          "body_utf8_sha256": "a9603374b709e546a052133e21557e7d7e5b2b09286fec5dc2d0f7050063fbf8",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": true
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nNewStartPoint01.dat",
+      "bytes": 1244,
+      "sha256": "07f521836b1a143b97681f2d0fbdcb8aa52715a5ffc8534cc0836603e2b22a5b",
+      "functions": [
+        {
+          "name": "DoesBuy",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesSell",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesRepair",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesBank",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesIdentify",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "15e9489a4a50e2c5f315584b541795018ad61965c02d314d15fc0e2e0f52f36e",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "BuildMuttering",
+          "town_literals": [
+            "魔界村"
+          ],
+          "body_utf8_sha256": "871cb77154259d1ce36f7cd80b6e4b16d1efcf0b48a0edac811f9c66d0366a2c",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadBuyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "3bf0050a7cae1d19f91691d5a3039a2479eb45f737e3f56f213726dd48819644",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadSellMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "484d32d4e934725c522543e6bdf25b4e8f8b50e844a2c45a26ed0a3477ad6c7a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadRepairMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9bfcc46f3b809d007eafc8a2e21e65bf2d68191108bcfbdc99b22a09f3387af7",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4d4d8d0bcfa1f5954e7cf59dc3661cccd6f478309ff355cc226b2227fe0ed913",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "b4472d83f472cf35d72fb062aea04909ae501bf8673b472aab9550126793c9d5",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "0c816c92f9318283b5740ce926b24afa1896a3a5c45e6be1f8aa4391e276d473",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9a0e96d75125fe20b823756734855fdfcfcae693aaad1c7d96f0884e4fb4925a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadIdentifyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "6c4db9d3419dffee3f86b2489acfdb0e132a8090b346d1f68fa32c641e503a96",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadTalkMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4dc501d66cd78903b81b1a53459d0432939728c537bbe9ffab55ab81521cb352",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "MerchantTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "b3ab748d19442f720e0cf4bf76b1b7d572646552a0d80a4a617ecbfbe09fd8e0",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [
+            "JOBRET"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01",
+          "town_literals": [
+            "魔界村"
+          ],
+          "body_utf8_sha256": "4cff1e0991e08c8906626ea9009ee2379f6eae7a65491f2a79d3b94d1fc55017",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "e26a1bb4fe4ff3d07f0698c58bd6a70c8448cfe22c8b48ae929dd94ac7e6d6c4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "OK"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage02",
+          "town_literals": [],
+          "body_utf8_sha256": "d8d51de5deabe0c152d93a03face2233342544a9798724cc06ef01314cb248d4",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage02Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage03",
+          "town_literals": [],
+          "body_utf8_sha256": "32159b68f86bbd933d2444e5fd356cafbeb6ce990be67ad6b5bd6fa532180810",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage03Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nNewStartPoint02.dat",
+      "bytes": 1326,
+      "sha256": "5bb98d47cc66b7cbb2820523bceef20e5b31a0565002fe1033de1eafbacaa076",
+      "functions": [
+        {
+          "name": "DoesBuy",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesSell",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesRepair",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesBank",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesIdentify",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "15e9489a4a50e2c5f315584b541795018ad61965c02d314d15fc0e2e0f52f36e",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "BuildMuttering",
+          "town_literals": [],
+          "body_utf8_sha256": "79b0bd2fbacd591a9c4585f2f56f6557f887a3961c02ab19115766f3bb313da7",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadBuyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "3bf0050a7cae1d19f91691d5a3039a2479eb45f737e3f56f213726dd48819644",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadSellMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "484d32d4e934725c522543e6bdf25b4e8f8b50e844a2c45a26ed0a3477ad6c7a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadRepairMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9bfcc46f3b809d007eafc8a2e21e65bf2d68191108bcfbdc99b22a09f3387af7",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4d4d8d0bcfa1f5954e7cf59dc3661cccd6f478309ff355cc226b2227fe0ed913",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "b4472d83f472cf35d72fb062aea04909ae501bf8673b472aab9550126793c9d5",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "0c816c92f9318283b5740ce926b24afa1896a3a5c45e6be1f8aa4391e276d473",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9a0e96d75125fe20b823756734855fdfcfcae693aaad1c7d96f0884e4fb4925a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadIdentifyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "6c4db9d3419dffee3f86b2489acfdb0e132a8090b346d1f68fa32c641e503a96",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadTalkMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4dc501d66cd78903b81b1a53459d0432939728c537bbe9ffab55ab81521cb352",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "MerchantTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "3e7b0da33a2944023b3f782463db987a6452edb9f57fce11ebee20be0374ee38",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [
+            "JOBRET"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01",
+          "town_literals": [],
+          "body_utf8_sha256": "3520cb990bfb23ae8ee58f075e2a70f8935a6687619ea05d37737e1d122fddc5",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "e26a1bb4fe4ff3d07f0698c58bd6a70c8448cfe22c8b48ae929dd94ac7e6d6c4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "OK"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage02",
+          "town_literals": [],
+          "body_utf8_sha256": "ab62a36da1bb3d99f5e041e050932d607737c3a24361609bf07945075e64a056",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage02Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage03",
+          "town_literals": [],
+          "body_utf8_sha256": "2c469f7e9de7529a1f97c4265a22c191a10a21c0152ade161370f722b9690522",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage03Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "641960a503edaa48892ae355a04e56b814b9d7d8ed785636413a66790bc1e983",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nNewStartPoint03.dat",
+      "bytes": 1286,
+      "sha256": "3753bfdb0c87d3c24a22841e9d68954ec35f9f54c3530c51f2ef8444a5b1eeb9",
+      "functions": [
+        {
+          "name": "DoesBuy",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesSell",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesRepair",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesBank",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesIdentify",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "15e9489a4a50e2c5f315584b541795018ad61965c02d314d15fc0e2e0f52f36e",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "BuildMuttering",
+          "town_literals": [
+            "路爾斯"
+          ],
+          "body_utf8_sha256": "d90cd03f63b4a46f461fbd7caa13d75f9cb4c8d64ac3a8aa43a1616f24a96a8e",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadBuyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "3bf0050a7cae1d19f91691d5a3039a2479eb45f737e3f56f213726dd48819644",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadSellMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "484d32d4e934725c522543e6bdf25b4e8f8b50e844a2c45a26ed0a3477ad6c7a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadRepairMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9bfcc46f3b809d007eafc8a2e21e65bf2d68191108bcfbdc99b22a09f3387af7",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4d4d8d0bcfa1f5954e7cf59dc3661cccd6f478309ff355cc226b2227fe0ed913",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "b4472d83f472cf35d72fb062aea04909ae501bf8673b472aab9550126793c9d5",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "0c816c92f9318283b5740ce926b24afa1896a3a5c45e6be1f8aa4391e276d473",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9a0e96d75125fe20b823756734855fdfcfcae693aaad1c7d96f0884e4fb4925a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadIdentifyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "6c4db9d3419dffee3f86b2489acfdb0e132a8090b346d1f68fa32c641e503a96",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadTalkMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4dc501d66cd78903b81b1a53459d0432939728c537bbe9ffab55ab81521cb352",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "MerchantTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "3e7b0da33a2944023b3f782463db987a6452edb9f57fce11ebee20be0374ee38",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [
+            "JOBRET"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01",
+          "town_literals": [
+            "路爾斯"
+          ],
+          "body_utf8_sha256": "47fccae7fc2891c7e08dadb74a85bf753da835321d376e52b27d2e2375ea2306",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "e26a1bb4fe4ff3d07f0698c58bd6a70c8448cfe22c8b48ae929dd94ac7e6d6c4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "OK"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage02",
+          "town_literals": [],
+          "body_utf8_sha256": "d8d51de5deabe0c152d93a03face2233342544a9798724cc06ef01314cb248d4",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage02Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage03",
+          "town_literals": [],
+          "body_utf8_sha256": "ca02e3d2066e4f93520898c247f46c93c582f5b6d9d1c03cc62ca6d98fc053ee",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage03Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "641960a503edaa48892ae355a04e56b814b9d7d8ed785636413a66790bc1e983",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nNewStartPoint04.dat",
+      "bytes": 1326,
+      "sha256": "67aebac94967848c68cce5924420afd9a98a4cf796761f4dfefddc64e9119e67",
+      "functions": [
+        {
+          "name": "DoesBuy",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesSell",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesRepair",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesBank",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesIdentify",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "15e9489a4a50e2c5f315584b541795018ad61965c02d314d15fc0e2e0f52f36e",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "BuildMuttering",
+          "town_literals": [],
+          "body_utf8_sha256": "119953f842dc9d679dbc37996219aa166391c0bb73d62baca28c968ef54a2e05",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadBuyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "3bf0050a7cae1d19f91691d5a3039a2479eb45f737e3f56f213726dd48819644",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadSellMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "484d32d4e934725c522543e6bdf25b4e8f8b50e844a2c45a26ed0a3477ad6c7a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadRepairMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9bfcc46f3b809d007eafc8a2e21e65bf2d68191108bcfbdc99b22a09f3387af7",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4d4d8d0bcfa1f5954e7cf59dc3661cccd6f478309ff355cc226b2227fe0ed913",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "b4472d83f472cf35d72fb062aea04909ae501bf8673b472aab9550126793c9d5",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "0c816c92f9318283b5740ce926b24afa1896a3a5c45e6be1f8aa4391e276d473",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9a0e96d75125fe20b823756734855fdfcfcae693aaad1c7d96f0884e4fb4925a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadIdentifyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "6c4db9d3419dffee3f86b2489acfdb0e132a8090b346d1f68fa32c641e503a96",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadTalkMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4dc501d66cd78903b81b1a53459d0432939728c537bbe9ffab55ab81521cb352",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "MerchantTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "3e7b0da33a2944023b3f782463db987a6452edb9f57fce11ebee20be0374ee38",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [
+            "JOBRET"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01",
+          "town_literals": [],
+          "body_utf8_sha256": "f34bd003179149cdc1e363aa4e3ffb83de62a1905909e90d35e11bb77b681b3c",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "e26a1bb4fe4ff3d07f0698c58bd6a70c8448cfe22c8b48ae929dd94ac7e6d6c4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "OK"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage02",
+          "town_literals": [],
+          "body_utf8_sha256": "ab62a36da1bb3d99f5e041e050932d607737c3a24361609bf07945075e64a056",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage02Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage03",
+          "town_literals": [],
+          "body_utf8_sha256": "2c469f7e9de7529a1f97c4265a22c191a10a21c0152ade161370f722b9690522",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage03Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "641960a503edaa48892ae355a04e56b814b9d7d8ed785636413a66790bc1e983",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nNewStartPoint05.dat",
+      "bytes": 1330,
+      "sha256": "77b9ceaf99c84896116571a326b0655745ef9f9d542eaafc8a12dc6e65fd410b",
+      "functions": [
+        {
+          "name": "DoesBuy",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesSell",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesRepair",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesBank",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesIdentify",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "15e9489a4a50e2c5f315584b541795018ad61965c02d314d15fc0e2e0f52f36e",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "BuildMuttering",
+          "town_literals": [],
+          "body_utf8_sha256": "04cad1d5ffcf37839b8909f01ccf8d7c79767a387d94fec2a6cc447f858f6062",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadBuyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "3bf0050a7cae1d19f91691d5a3039a2479eb45f737e3f56f213726dd48819644",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadSellMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "484d32d4e934725c522543e6bdf25b4e8f8b50e844a2c45a26ed0a3477ad6c7a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadRepairMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9bfcc46f3b809d007eafc8a2e21e65bf2d68191108bcfbdc99b22a09f3387af7",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4d4d8d0bcfa1f5954e7cf59dc3661cccd6f478309ff355cc226b2227fe0ed913",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "b4472d83f472cf35d72fb062aea04909ae501bf8673b472aab9550126793c9d5",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "0c816c92f9318283b5740ce926b24afa1896a3a5c45e6be1f8aa4391e276d473",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9a0e96d75125fe20b823756734855fdfcfcae693aaad1c7d96f0884e4fb4925a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadIdentifyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "6c4db9d3419dffee3f86b2489acfdb0e132a8090b346d1f68fa32c641e503a96",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadTalkMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4dc501d66cd78903b81b1a53459d0432939728c537bbe9ffab55ab81521cb352",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "MerchantTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "3e7b0da33a2944023b3f782463db987a6452edb9f57fce11ebee20be0374ee38",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [
+            "JOBRET"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01",
+          "town_literals": [],
+          "body_utf8_sha256": "6ed3690ee718dc3f51c546b64c29c93ff04e650af4585b189e96410c585f1769",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "e26a1bb4fe4ff3d07f0698c58bd6a70c8448cfe22c8b48ae929dd94ac7e6d6c4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "OK"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage02",
+          "town_literals": [],
+          "body_utf8_sha256": "ab62a36da1bb3d99f5e041e050932d607737c3a24361609bf07945075e64a056",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage02Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage03",
+          "town_literals": [],
+          "body_utf8_sha256": "2c469f7e9de7529a1f97c4265a22c191a10a21c0152ade161370f722b9690522",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage03Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "641960a503edaa48892ae355a04e56b814b9d7d8ed785636413a66790bc1e983",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nNewStartPoint06.dat",
+      "bytes": 2381,
+      "sha256": "55f42e85ae7a4b1af4b089b3c91440365661c3e1f399c6b7ed8d8dd0da5b2b67",
+      "functions": [
+        {
+          "name": "DoesBuy",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesSell",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesRepair",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesBank",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesIdentify",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "15e9489a4a50e2c5f315584b541795018ad61965c02d314d15fc0e2e0f52f36e",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "BuildMuttering",
+          "town_literals": [
+            "加利卡拉"
+          ],
+          "body_utf8_sha256": "8469db2444c6fd1c8e57dd5187ddb63116b0f115ab04eefa0c56b428dc8f381f",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadBuyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "3bf0050a7cae1d19f91691d5a3039a2479eb45f737e3f56f213726dd48819644",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadSellMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "484d32d4e934725c522543e6bdf25b4e8f8b50e844a2c45a26ed0a3477ad6c7a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadRepairMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9bfcc46f3b809d007eafc8a2e21e65bf2d68191108bcfbdc99b22a09f3387af7",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4d4d8d0bcfa1f5954e7cf59dc3661cccd6f478309ff355cc226b2227fe0ed913",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "b4472d83f472cf35d72fb062aea04909ae501bf8673b472aab9550126793c9d5",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "0c816c92f9318283b5740ce926b24afa1896a3a5c45e6be1f8aa4391e276d473",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9a0e96d75125fe20b823756734855fdfcfcae693aaad1c7d96f0884e4fb4925a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadIdentifyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "6c4db9d3419dffee3f86b2489acfdb0e132a8090b346d1f68fa32c641e503a96",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadTalkMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4dc501d66cd78903b81b1a53459d0432939728c537bbe9ffab55ab81521cb352",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "MerchantTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "7382ba24b11ca37651f766b52d886bbba596b70785555f42b2db850f8b5e1c00",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [
+            "JOBRET",
+            "STEW"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew01",
+          "town_literals": [],
+          "body_utf8_sha256": "8394bab0689def583cd14640fc47cbb32c1692b5ab8f8cf2b645a973a5293345",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew01_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "203709654b91651fb03c30edfe8985d627339bd3d490dbac3578492de06b19e7",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew02",
+          "town_literals": [],
+          "body_utf8_sha256": "965af53a10c3cb901208b78ec582ea600abd1662d3c10a8d70a30e824008a96b",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew02_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "f0aa25893bf386147955f54e85649584841618c2d221ebf2411d11437deef5e4",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew03",
+          "town_literals": [],
+          "body_utf8_sha256": "0776ac182f4b5e43bfe75d4c6ca9617b2f8d8205bf87aa775d7d470ddb92bc08",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew03_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "41f3230f91599c1443cad9886a4f7076e87c321c3781918b1fed177d9bed4d44",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew04",
+          "town_literals": [],
+          "body_utf8_sha256": "a0e5d99cc3b3c519e8378d22a415d52a5d8e962cd937c70bbf9efb72bd4f5092",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew04_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "76bb7eb75857a9ead1d6b3b2cc1c8da1038e260f216121d44fc43ae30a7e7ef0",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew05",
+          "town_literals": [],
+          "body_utf8_sha256": "74c55899cea72700e0e7eda59f5c233face61dc1693d6e35ec08c782242677a4",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew05_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "f0aa25893bf386147955f54e85649584841618c2d221ebf2411d11437deef5e4",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew06",
+          "town_literals": [],
+          "body_utf8_sha256": "ec5d7f0a7574daba13552d9f8e5a3c01c6ba933e7f894a1afa97b902eba85131",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew06_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "bbab68c759492ab9687d1f5807b39f3f165bdd9a0248e7c2d6b0a46d23e4c772",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew_List",
+          "town_literals": [],
+          "body_utf8_sha256": "a8f2ed19532c57d5a4288cbcfebf736259f61b297871800913d2ed3d3949c505",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [
+            "TOWN01",
+            "TOWN02",
+            "TOWN03",
+            "TOWN04",
+            "TOWN05",
+            "TOWN06"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew_List_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "9568bcf35e2ab1ee48af463501dd01ae7e94e5d977d51df820fa82a3234be15e",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "GM",
+              "value": "1"
+            },
+            {
+              "key": "TOWN",
+              "value": "1"
+            },
+            {
+              "key": "TOWN",
+              "value": "2"
+            },
+            {
+              "key": "TOWN",
+              "value": "3"
+            },
+            {
+              "key": "TOWN",
+              "value": "4"
+            },
+            {
+              "key": "TOWN",
+              "value": "5"
+            },
+            {
+              "key": "TOWN",
+              "value": "6"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "Stew07",
+          "town_literals": [],
+          "body_utf8_sha256": "9b1ed63c749e2ff252d4bfe8e505ed742cd31cd13f2161b60c91c21a7e286621",
+          "contains_private_use_characters": true,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Stew07_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "cd9e8c51fd0e93ed44f1c93d1585468412e8fd2ff17bd9f2db4848d07c027cf6",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "DUMI",
+              "value": "6"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage01",
+          "town_literals": [
+            "加利卡拉"
+          ],
+          "body_utf8_sha256": "c2cc1eb7559698a51c5ed78ecc29aaf5cf2d5656c5f0295b76f7eabae5da7294",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "e26a1bb4fe4ff3d07f0698c58bd6a70c8448cfe22c8b48ae929dd94ac7e6d6c4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "OK"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage02",
+          "town_literals": [],
+          "body_utf8_sha256": "993fcbeeca2775db9cd34f0cc935484a9bfd00df134ddd68149f695b1c2dac50",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage02Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage03",
+          "town_literals": [],
+          "body_utf8_sha256": "8c64f11d7304d3f55f0eaf9c21688c35b07cd3ddeba3cb8c7fa941ad2ddc00d2",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage03Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "641960a503edaa48892ae355a04e56b814b9d7d8ed785636413a66790bc1e983",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STATE",
+              "value": "CANCEL"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nNewStartPoint07.dat",
+      "bytes": 1388,
+      "sha256": "0ed1fa116d5fc64812f607402f709d23c9a7ab5b00f1e4c0547312b0635f1f5e",
+      "functions": [
+        {
+          "name": "DoesBuy",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesSell",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesRepair",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesBank",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesIdentify",
+          "town_literals": [],
+          "body_utf8_sha256": "520d1f42f6b1383fe48fed313816abbceb38261467307fb3f33e07b92ae7af8b",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "DoesTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "15e9489a4a50e2c5f315584b541795018ad61965c02d314d15fc0e2e0f52f36e",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "BuildMuttering",
+          "town_literals": [
+            "來貝雅"
+          ],
+          "body_utf8_sha256": "97da03108d3499197ab12f56e79097c59276a8b2fd21da39ae8311ff24b466b4",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadBuyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "3bf0050a7cae1d19f91691d5a3039a2479eb45f737e3f56f213726dd48819644",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadSellMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "484d32d4e934725c522543e6bdf25b4e8f8b50e844a2c45a26ed0a3477ad6c7a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadRepairMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9bfcc46f3b809d007eafc8a2e21e65bf2d68191108bcfbdc99b22a09f3387af7",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4d4d8d0bcfa1f5954e7cf59dc3661cccd6f478309ff355cc226b2227fe0ed913",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWGMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "b4472d83f472cf35d72fb062aea04909ae501bf8673b472aab9550126793c9d5",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadDIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "0c816c92f9318283b5740ce926b24afa1896a3a5c45e6be1f8aa4391e276d473",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadWIMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "9a0e96d75125fe20b823756734855fdfcfcae693aaad1c7d96f0884e4fb4925a",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadIdentifyMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "6c4db9d3419dffee3f86b2489acfdb0e132a8090b346d1f68fa32c641e503a96",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "LoadTalkMessage",
+          "town_literals": [],
+          "body_utf8_sha256": "4dc501d66cd78903b81b1a53459d0432939728c537bbe9ffab55ab81521cb352",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "MerchantTalk",
+          "town_literals": [],
+          "body_utf8_sha256": "83e552d2a6585d404760690aa2aec1e2f7f877aafa0ddf3a0b3c7ee3ae135d2f",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step01",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "0b4b230772697fcd5dc806a221896e63ebba143fe02e672d7b9b3c6bb1410a06",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step01_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "490217e6dc2eba2fe4694281ebccad580d61ae76b53afba62510236ed6a11f97",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [
+            "SPELL"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step02",
+          "town_literals": [],
+          "body_utf8_sha256": "355b6906091c0668523b28f8016bd222af454cd1b483a693e33a435bb1d4fee6",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step02_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "5ec91283e1ea12078f5a9d386d282811fac7b1e400975c5fe419b62d762a3026",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "STEP",
+              "value": "2"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "Step03",
+          "town_literals": [],
+          "body_utf8_sha256": "0f3268d9c76a9cd83f7b5bdaab5cf3d7335d3670071b8da10a2289a5f7920dbf",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step03_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "bbd34bd3784805b4c9aa4240fe7c4be799a1b708c71b4eeb7956b8ab3eb9b138",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step032",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "6d9f4eb5124a3ae0a8ac029eab036c3c78c8202cab4a71b40c3805c3277c3dd8",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step032_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "ca47a850c790fb8f04dcdebe3dc07d0dccf7d00a9a10ee4614ba6c57755f5c4f",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "DUMI",
+              "value": "2"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "Step04",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "b1793d0f4868ee9f9ed9d2e74cb914f63c005e87e97aa200253b0fbcfe30d269",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step04_Proc",
+          "town_literals": [],
+          "body_utf8_sha256": "ca47a850c790fb8f04dcdebe3dc07d0dccf7d00a9a10ee4614ba6c57755f5c4f",
+          "contains_private_use_characters": false,
+          "literal_replies": [
+            {
+              "key": "DUMI",
+              "value": "2"
+            }
+          ],
+          "server_parameter_keys": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nProphetJob01.dat",
+      "bytes": 1932,
+      "sha256": "fe2e3883394e54e94ea82eb7b1f5c970e943e6c250b8ee2a16267c073b3af02a",
+      "functions": [
+        {
+          "name": "Go",
+          "town_literals": [
+            "路爾斯"
+          ],
+          "body_utf8_sha256": "bfcd04a9566181324d640db64ff06702388f42e20a1ce16b0c512fe794826ac1",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "MerchantDirectTalk",
+          "town_literals": [
+            "路爾斯"
+          ],
+          "body_utf8_sha256": "7851242247e2d807d69c139ffae84c56e6672606c08faecfb5db79945b005857",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [
+            "JOBRET"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nRuBanker01.dat",
+      "bytes": 2506,
+      "sha256": "843efc7886e7ed44e76639e6e3dd47999c656f9d5284639ef66a3cd3c8553429",
+      "functions": [
+        {
+          "name": "BuildMuttering",
+          "town_literals": [
+            "路爾斯"
+          ],
+          "body_utf8_sha256": "e37b016763fe0fbbb41531c4444986cf6f8596b05c35234e679086d7b50a741d",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nSaBanker01.dat",
+      "bytes": 1384,
+      "sha256": "42ca1d084c76e1da05feaecbe84873de4a9d322e56f7bb952c456f63557ceaff",
+      "functions": [
+        {
+          "name": "BuildMuttering",
+          "town_literals": [
+            "魔界村"
+          ],
+          "body_utf8_sha256": "de1b58c4808277c75a6b3dae9a64aed2712ba0a25c5f86b6fce8e210f141dfe3",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nSaInn01.dat",
+      "bytes": 2580,
+      "sha256": "75800cc5cd58af1b2d1c0ec2fa4712e55b748ee48198ac12a0fae2131e97d428",
+      "functions": [
+        {
+          "name": "BuildMuttering",
+          "town_literals": [
+            "魔界村"
+          ],
+          "body_utf8_sha256": "3022256589d1360f6b346b05736c47277f4debb7bd67dd28494befb38064a974",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step034",
+          "town_literals": [
+            "魔界村"
+          ],
+          "body_utf8_sha256": "2249eaa5ec3e3c9a691e044c8e0e591027a5a5ee93d6b7edbdab46e8bc15094f",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step04",
+          "town_literals": [
+            "魔界村"
+          ],
+          "body_utf8_sha256": "c4a47893c1b4e4708737c9adf42855ef20bb2f777d14749feea7a110abedb60d",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "Step059",
+          "town_literals": [
+            "萊貝雅"
+          ],
+          "body_utf8_sha256": "af26e3f3dd954192c5afc80eaee1cd931be3639215900fd93f480bcc69789296",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/nSuBanker01.dat",
+      "bytes": 1234,
+      "sha256": "c6df4370e01ce826e339460870f16d9b3f799486c37137ee5a73cc5292760f1b",
+      "functions": [
+        {
+          "name": "BuildMuttering",
+          "town_literals": [
+            "斯歐米"
+          ],
+          "body_utf8_sha256": "e1204b8135eff154ad579c68b61942105fe9033358bc96961292e69a60229c48",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ],
+      "map_ref_binding": "not-established"
+    },
+    {
+      "path": "Script/Quest17.dat",
+      "bytes": 1737,
+      "sha256": "155681a6a8daf9fdb7dd980eb3838cc191054d08eeb422fdc3b0a687a71b904f",
+      "functions": [
+        {
+          "name": "Quest17_FinishProc",
+          "town_literals": [
+            "路爾斯",
+            "斯歐米"
+          ],
+          "body_utf8_sha256": "7e62a3f76f42c6b2618f755a34c0bc563bd857806aebe928f98d8188091e479d",
+          "contains_private_use_characters": false,
+          "literal_replies": [],
+          "server_parameter_keys": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ],
+      "map_ref_binding": "not-established"
+    }
+  ]
+}

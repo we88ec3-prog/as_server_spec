@@ -1,0 +1,673 @@
+{
+  "scope": "supplied guide-image title transcription and filename association; not an original Server role-to-map binding; images omitted",
+  "guide_records": [
+    {
+      "map_ref_from_filename": 1,
+      "guide_image": {
+        "path": "World/img/00001.jpg",
+        "sha256": "cff7a943dc2278af0da8da0de8babfbd4498e888c3c223a254d128062a96d535",
+        "size": [
+          584,
+          421
+        ],
+        "visible_title_analyst_transcription": "米魯里斯"
+      },
+      "html": {
+        "path": "World/00001.html",
+        "sha256": "c4d9679086e0f9a59add6018f4f975d5fa352b52b1f41bdad5208e7804513ebb",
+        "title": [],
+        "local_modification_marker_present": true
+      }
+    },
+    {
+      "map_ref_from_filename": 2001,
+      "guide_image": {
+        "path": "World/img/02001.jpg",
+        "sha256": "18144de758cca0abedcf778986448d71c5ce88f76aeecf3b112a7e816f0d9261",
+        "size": [
+          584,
+          421
+        ],
+        "visible_title_analyst_transcription": "路爾斯"
+      },
+      "html": {
+        "path": "World/02001.html",
+        "sha256": "faf5b8e4223b137401173f8820e04aa6c365c20fda269f9c24ff1b3796df9045",
+        "title": [],
+        "local_modification_marker_present": true
+      }
+    },
+    {
+      "map_ref_from_filename": 4001,
+      "guide_image": {
+        "path": "World/img/04001.jpg",
+        "sha256": "c7622b5d6e077b73864520058ac070e92b6eb257c91f285ec8afb3fde904322d",
+        "size": [
+          584,
+          421
+        ],
+        "visible_title_analyst_transcription": "斯歐米"
+      },
+      "html": {
+        "path": "World/04001.html",
+        "sha256": "9437e289f3406c78e26660ffadddd2946135f54b5d5addef03da7271f0555571",
+        "title": [],
+        "local_modification_marker_present": true
+      }
+    },
+    {
+      "map_ref_from_filename": 6001,
+      "guide_image": {
+        "path": "World/img/06001.jpg",
+        "sha256": "2d19a8ffac021d0d1d5afd5455bf70260fc3f9f2fbb732b25fa721d3940a1030",
+        "size": [
+          584,
+          421
+        ],
+        "visible_title_analyst_transcription": "魔界村"
+      },
+      "html": {
+        "path": "World/06001.html",
+        "sha256": "9193a2359c446141c4eb82bdcace3f97ef866879a399d468191a45d09fc3c263",
+        "title": [
+          "사라센마을"
+        ],
+        "local_modification_marker_present": true
+      }
+    },
+    {
+      "map_ref_from_filename": 7001,
+      "guide_image": {
+        "path": "World/img/07001.jpg",
+        "sha256": "5385266d914a12595ea93c257fb8b9c2223b97a309661e08ce63e52a206b16c8",
+        "size": [
+          584,
+          421
+        ],
+        "visible_title_analyst_transcription": "海賊村"
+      },
+      "html": {
+        "path": "World/07001.html",
+        "sha256": "b9612f42d4e1be1411e3acd4c58c5a497f64a46a7aebc9b63468b272a418ac6c",
+        "title": [
+          "뤼케시온마을"
+        ],
+        "local_modification_marker_present": true
+      }
+    },
+    {
+      "map_ref_from_filename": 12001,
+      "guide_image": {
+        "path": "World/img/12001.jpg",
+        "sha256": "e5240e26d34cabfcb7f5e4d0e149ad0016d652e518bf87099adc4a09ca3abddb",
+        "size": [
+          584,
+          421
+        ],
+        "visible_title_analyst_transcription": "加利卡拉"
+      },
+      "html": {
+        "path": "World/12001.html",
+        "sha256": "94bada7cd1962e19836ab207f8198686e5cb0ee17d8f5e735c84353c6c0ce667",
+        "title": [
+          "Sarasen"
+        ],
+        "local_modification_marker_present": true
+      }
+    },
+    {
+      "map_ref_from_filename": 15001,
+      "guide_image": {
+        "path": "World/img/15001.jpg",
+        "sha256": "ef9e4c990c6355f55532d6330e3b2e733d63a9fcc92ec587c3164e2bef8a4cda",
+        "size": [
+          584,
+          421
+        ],
+        "visible_title_analyst_transcription": "依卡魯斯"
+      },
+      "html": {
+        "path": "World/15001.html",
+        "sha256": "35ce910597d0b4a07a159b2a30db81584ab8f5248398fdd4185729d8b45d4ac4",
+        "title": [
+          "Icarus"
+        ],
+        "local_modification_marker_present": true
+      }
+    },
+    {
+      "map_ref_from_filename": 18001,
+      "guide_image": {
+        "path": "World/img/18001.jpg",
+        "sha256": "4f58a6c27078fd0250c4df696a9794b98327f7106c7c2955a6ab9938eb6a2094",
+        "size": [
+          584,
+          421
+        ],
+        "visible_title_analyst_transcription": "萊貝雅"
+      },
+      "html": {
+        "path": "World/18001.html",
+        "sha256": "4885e20fdc5ac2bc06ac96f8aa385cdb2a7f759a77a1900f0770094ff3bef1e5",
+        "title": [
+          "Lucesion"
+        ],
+        "local_modification_marker_present": true
+      }
+    }
+  ],
+  "map_member_inventory": {
+    "scope": "all member filenames in SHA-pinned three MAP archives; modulo1000=1 is a research selection, not a native town classification",
+    "archives": {
+      "Map0.dat": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+      "Map1.dat": "8681dc75ef2517ffa02ca6aa3c2d849a412544d250b659ae2b9a38189055487b",
+      "Map2.dat": "5320a09576ad2199853a2613a00e65c2181e25c8c3b4f5a3d88099ef04893bcb"
+    },
+    "member_count": 494,
+    "primary_candidates": [
+      {
+        "map_ref": 1,
+        "archive": "Map0.dat",
+        "member": "00001.map",
+        "bytes": 236298,
+        "sha256": "e2c329ad88a9b44c2760d5a996f187e68b7a5b90419f087a2471fabc03490f00",
+        "layer_bank_words_le": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "map_ref": 1001,
+        "archive": "Map0.dat",
+        "member": "01001.map",
+        "bytes": 411560,
+        "sha256": "07868f8a56189ca275b55ee2739623ffab5fc4981296526d85307b188336600a",
+        "layer_bank_words_le": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "map_ref": 2001,
+        "archive": "Map0.dat",
+        "member": "02001.map",
+        "bytes": 413212,
+        "sha256": "bc220a638c7e710016af65acc83de2f6255e1b690bfb9ef477871589b56c865f",
+        "layer_bank_words_le": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "map_ref": 3001,
+        "archive": "Map0.dat",
+        "member": "03001.map",
+        "bytes": 414024,
+        "sha256": "2578a7b3c0fbda5ba757c19212e92a4579c58e751a07600fcd245ea659d5eccd",
+        "layer_bank_words_le": [
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "map_ref": 4001,
+        "archive": "Map0.dat",
+        "member": "04001.map",
+        "bytes": 413072,
+        "sha256": "3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+        "layer_bank_words_le": [
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "map_ref": 6001,
+        "archive": "Map0.dat",
+        "member": "06001.map",
+        "bytes": 411973,
+        "sha256": "d17336536d711135260990cea39dfedb7d6fea63189aa04e9f752b1cd71a309d",
+        "layer_bank_words_le": [
+          20,
+          20,
+          20
+        ]
+      },
+      {
+        "map_ref": 7001,
+        "archive": "Map0.dat",
+        "member": "07001.map",
+        "bytes": 412981,
+        "sha256": "ac30779fac09dd3de4f9ddd5c1321737cf23b7e219280ab634fe52c196c45c3a",
+        "layer_bank_words_le": [
+          9,
+          9,
+          9
+        ]
+      },
+      {
+        "map_ref": 8001,
+        "archive": "Map0.dat",
+        "member": "08001.map",
+        "bytes": 65823,
+        "sha256": "fdcca50da35fcc6a12f3fc02b5d416de073fcf5a3f62ee13c594ba06cbfd4bf4",
+        "layer_bank_words_le": [
+          9,
+          9,
+          9
+        ]
+      },
+      {
+        "map_ref": 10001,
+        "archive": "Map1.dat",
+        "member": "10001.map",
+        "bytes": 414766,
+        "sha256": "f5fff31402e52e403b76c62204dd00e509e4d1801ce7512487921a8854d166bf",
+        "layer_bank_words_le": [
+          9,
+          9,
+          9
+        ]
+      },
+      {
+        "map_ref": 11001,
+        "archive": "Map1.dat",
+        "member": "11001.map",
+        "bytes": 168240,
+        "sha256": "5302528ec52b1ae0dc936f7975ad8eb2286001949f6469e68b622e801b14f135",
+        "layer_bank_words_le": [
+          11,
+          11,
+          11
+        ]
+      },
+      {
+        "map_ref": 12001,
+        "archive": "Map1.dat",
+        "member": "12001.map",
+        "bytes": 332946,
+        "sha256": "98f204acb5a8090686a725db476ee8bdb39afb8e3b3e395ed5db3bf08e1e2711",
+        "layer_bank_words_le": [
+          12,
+          12,
+          12
+        ]
+      },
+      {
+        "map_ref": 13001,
+        "archive": "Map1.dat",
+        "member": "13001.map",
+        "bytes": 296396,
+        "sha256": "0ffdab6e46857c051dc29553260f7def415ab1690645ce4520e66d1c56759917",
+        "layer_bank_words_le": [
+          13,
+          13,
+          13
+        ]
+      },
+      {
+        "map_ref": 14001,
+        "archive": "Map1.dat",
+        "member": "14001.map",
+        "bytes": 413912,
+        "sha256": "cf6697c712ed43543b916e5b7383a1bae8f3dc3c0dedb017ff8c3d59f725b9be",
+        "layer_bank_words_le": [
+          14,
+          14,
+          14
+        ]
+      },
+      {
+        "map_ref": 15001,
+        "archive": "Map1.dat",
+        "member": "15001.map",
+        "bytes": 233408,
+        "sha256": "2ec4447f3fc6f7483d8e77ae41549437159de55d6cf4a0fee31c80c8c408be5d",
+        "layer_bank_words_le": [
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "map_ref": 16001,
+        "archive": "Map1.dat",
+        "member": "16001.map",
+        "bytes": 234654,
+        "sha256": "6724a837653c3d317da017bffad9db612d0d110b2e7186ec58626173678dda94",
+        "layer_bank_words_le": [
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "map_ref": 17001,
+        "archive": "Map1.dat",
+        "member": "17001.map",
+        "bytes": 231875,
+        "sha256": "54efdf07792c89bacd258986ecebf9b0dd80dd1e9ffcfbd8489251b1b26a97db",
+        "layer_bank_words_le": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "map_ref": 18001,
+        "archive": "Map1.dat",
+        "member": "18001.map",
+        "bytes": 235301,
+        "sha256": "faaa79663eff4479071c61850643b9d4baf428bbc43af682f82b8758b9d461d6",
+        "layer_bank_words_le": [
+          18,
+          18,
+          18
+        ]
+      },
+      {
+        "map_ref": 19001,
+        "archive": "Map1.dat",
+        "member": "19001.map",
+        "bytes": 148293,
+        "sha256": "5f2f0524fef3099eba219cad5dc399cff59ea80252961028e142423017b5ebe9",
+        "layer_bank_words_le": [
+          19,
+          19,
+          19
+        ]
+      },
+      {
+        "map_ref": 20001,
+        "archive": "Map2.dat",
+        "member": "20001.map",
+        "bytes": 37060,
+        "sha256": "e48303c5662d960fdc6f47e2412200522773cd5c4272c09bc06e32ed3184bf51",
+        "layer_bank_words_le": [
+          22,
+          22,
+          22
+        ]
+      },
+      {
+        "map_ref": 21001,
+        "archive": "Map2.dat",
+        "member": "21001.map",
+        "bytes": 233361,
+        "sha256": "c4848bb1a1921a58fd89600f078c000d7d20b1e6d91c904fdb11e47a5fec5db4",
+        "layer_bank_words_le": [
+          22,
+          22,
+          22
+        ]
+      }
+    ],
+    "map_05000_05999": [],
+    "map_09000_09999": []
+  },
+  "new_static_previews": {
+    "scope": "Offline 1/8-scale primary paletted channels and Y-sorted flag0 static objects; not native Client acceptance",
+    "limits": "No shadows, animated objects, alternate channels, NPCs, lighting, precise occlusion, camera or collision proof. Alpha/RGB565 are research decoding; visual similarity does not establish original town-map binding.",
+    "tool_sha256": "f1db3085aaed3d99c1934369e902c12a1abd949d4e96075181f509e20c003e88",
+    "sources": {
+      "9:Tile": {
+        "archive": "World09.dat",
+        "archive_sha256": "0bf2493f51a7dcacccff004379563cb078cb4e22dcf3d48495df617e69ad72e9",
+        "member": "TS_009_Tile.ypf",
+        "member_sha256": "7ca820e8ad0cbf45e887bbe858a74cf5e05486ae7445f2d769b53648322fad48"
+      },
+      "9:Static": {
+        "archive": "World09.dat",
+        "archive_sha256": "0bf2493f51a7dcacccff004379563cb078cb4e22dcf3d48495df617e69ad72e9",
+        "member": "TS_009_Static.ypf",
+        "member_sha256": "287e323c0f98190e783fa34705613b71f7d5e28f3e9a68079ea784a33757d98a"
+      },
+      "4:Static": {
+        "archive": "World04.dat",
+        "archive_sha256": "82053a932f3be969244f080f36bf9cb3c5551f89494a20d0ba8b46e662466cc2",
+        "member": "TS_004_Static.ypf",
+        "member_sha256": "d7857bcbe56532282f897003ba67c83525869541382450749c31680f65d739af"
+      },
+      "10:Static": {
+        "archive": "World10.dat",
+        "archive_sha256": "5a81cad528da089a8340b62e80657f1c6abf51de0b27cd0b55ad64101bdf6411",
+        "member": "TS_010_Static.ypf",
+        "member_sha256": "74e725dfa78fe5894995831782668297492adacebc054bedf86f3beaed287cc6"
+      },
+      "11:Tile": {
+        "archive": "World11.dat",
+        "archive_sha256": "9f1584f2c5ea9443acc6b5d85158d234795fa19d89d6dc3f70a590fda7f62d76",
+        "member": "TS_011_Tile.ypf",
+        "member_sha256": "ea82aa2fcdd159fc8925d97005b6137f96aa54eb27ea4fb0ed4f86be07d762e9"
+      },
+      "11:Static": {
+        "archive": "World11.dat",
+        "archive_sha256": "9f1584f2c5ea9443acc6b5d85158d234795fa19d89d6dc3f70a590fda7f62d76",
+        "member": "TS_011_Static.ypf",
+        "member_sha256": "e5b972b2bd18b29cab1585ed708b1d59dda8f9c5908d012a6baedf89929711a6"
+      },
+      "13:Tile": {
+        "archive": "World13.dat",
+        "archive_sha256": "0820b0b194b33f1da26af3e59f8354192c8565f367b696dd0f5bef4e3d0fa8f5",
+        "member": "TS_013_Tile.ypf",
+        "member_sha256": "2b8ff77e7a4dd57a710429b53c482bb026dda55e6509a1b9074605be3e1a565d"
+      },
+      "13:Static": {
+        "archive": "World13.dat",
+        "archive_sha256": "0820b0b194b33f1da26af3e59f8354192c8565f367b696dd0f5bef4e3d0fa8f5",
+        "member": "TS_013_Static.ypf",
+        "member_sha256": "17941359659c498063d13b181c4774f689a853fec4418e67348542c82a47dde4"
+      },
+      "14:Tile": {
+        "archive": "World14.dat",
+        "archive_sha256": "64c2296008604c14f0344a0ffb82cb030f3e90b51e62863f4135757e6d593aeb",
+        "member": "TS_014_Tile.ypf",
+        "member_sha256": "49428a05582473b44560922a4ee161ad63b5b5303f032a903e6f3c2cd7020f3e"
+      },
+      "14:Static": {
+        "archive": "World14.dat",
+        "archive_sha256": "64c2296008604c14f0344a0ffb82cb030f3e90b51e62863f4135757e6d593aeb",
+        "member": "TS_014_Static.ypf",
+        "member_sha256": "fb29400231280500b8b0982b85849a8e1c9a7fd8a335c9d3d2d1c6b34c9b219e"
+      },
+      "1:Static": {
+        "archive": "World01.dat",
+        "archive_sha256": "517a635f465d6336b8db15147de87d560615bdab87038f39fd1da551c965106f",
+        "member": "TS_001_Static.ypf",
+        "member_sha256": "391f963e6e919f601bc4f7c284b706fbfe5631bd05ec9b03c33579b67b139a78"
+      },
+      "15:Static": {
+        "archive": "World15.dat",
+        "archive_sha256": "cb4e26bc581c31e6fb3c6003740b782f667485e97a31c9a6e0a20f3477fb08f6",
+        "member": "TS_015_Static.ypf",
+        "member_sha256": "01595f696c7a45977fd44098c6e92c3f44d7951d338cdba063d4decce8e83354"
+      },
+      "16:Tile": {
+        "archive": "World16.dat",
+        "archive_sha256": "cfd7da6a411662b073b328cda2548e9b43503dd2423150d637d64b218c6bbf3b",
+        "member": "TS_016_Tile.ypf",
+        "member_sha256": "cca0f0b65d7da77057cb160d275e1749c025869dbaa57499e345eac08a6aed1e"
+      },
+      "16:Static": {
+        "archive": "World16.dat",
+        "archive_sha256": "cfd7da6a411662b073b328cda2548e9b43503dd2423150d637d64b218c6bbf3b",
+        "member": "TS_016_Static.ypf",
+        "member_sha256": "0edb6bd95876cd29cfcb0116413fc0bb75a617e0f34ef8a33f989d3439cb1349"
+      },
+      "0:Tile": {
+        "archive": "World00.dat",
+        "archive_sha256": "01b1afc14daf4ca030004f825d8af39ff6667d184431a5aa9aa9b67a81160ef3",
+        "member": "TS_000_Tile.ypf",
+        "member_sha256": "51148ec2aba6b0937deff0215caa3ffbfaf164d1aeb1da225346f5fd61972790"
+      },
+      "3:Static": {
+        "archive": "World03.dat",
+        "archive_sha256": "788b566365d3492ef5db20aed92c362f8d3613dc6c22eaebad25e9f7bb0c6c6f",
+        "member": "TS_003_Static.ypf",
+        "member_sha256": "1aea97ab16dd11d79c7c811f8ca8f0646fbe3fa729aa4e783924657f73e71f2a"
+      },
+      "0:Static": {
+        "archive": "World00.dat",
+        "archive_sha256": "01b1afc14daf4ca030004f825d8af39ff6667d184431a5aa9aa9b67a81160ef3",
+        "member": "TS_000_Static.ypf",
+        "member_sha256": "0667fa221f24ad227b3c7998ebafd986b7a6f26866c569556c964f74c120e495"
+      },
+      "17:Static": {
+        "archive": "World17.dat",
+        "archive_sha256": "3a91a55a355601e1fae1b735968724b8a553a51fab94887ef604d9eab15b7b48",
+        "member": "TS_017_Static.ypf",
+        "member_sha256": "ef65a32077a6609502488e75121e5855a24c893d4f0488a47a70f2fa732015a7"
+      },
+      "19:Tile": {
+        "archive": "World19.dat",
+        "archive_sha256": "2d3cf3e27c2596e8ae830a8a5270db4128d112cec55f532a7e8b56d3aa6cc046",
+        "member": "TS_019_Tile.ypf",
+        "member_sha256": "5ec985eb37be557d5711642484c7ca2f4c4e06ac3ed3cb573ae65e741e4d44d7"
+      },
+      "19:Static": {
+        "archive": "World19.dat",
+        "archive_sha256": "2d3cf3e27c2596e8ae830a8a5270db4128d112cec55f532a7e8b56d3aa6cc046",
+        "member": "TS_019_Static.ypf",
+        "member_sha256": "eb3f3bf30964911646b519b9479dcb0ee1a0502cd5a315a10a86940d82ea8db4"
+      },
+      "22:Tile": {
+        "archive": "World22.dat",
+        "archive_sha256": "5f204f7978723fdf6dcab74c8887da81b90e81beaa23ae6cb38980237189234e",
+        "member": "TS_022_Tile.ypf",
+        "member_sha256": "63361dfb0f28ea48fd75c3a695829f75b85840e896bcdb3bf43abf76ee0cf2a8"
+      },
+      "22:Static": {
+        "archive": "World22.dat",
+        "archive_sha256": "5f204f7978723fdf6dcab74c8887da81b90e81beaa23ae6cb38980237189234e",
+        "member": "TS_022_Static.ypf",
+        "member_sha256": "18dee7e37ecb0cf2cf989c487d6bd84a7ef865ac29d7002079416756b1f57d55"
+      }
+    },
+    "maps": [
+      {
+        "map_ref": 8001,
+        "map_sha256": "fdcca50da35fcc6a12f3fc02b5d416de073fcf5a3f62ee13c594ba06cbfd4bf4",
+        "width": 80,
+        "height": 80,
+        "objects": 29,
+        "painted_static": 29,
+        "omitted_animated": 0,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-08001-static-overview.png"
+      },
+      {
+        "map_ref": 10001,
+        "map_sha256": "f5fff31402e52e403b76c62204dd00e509e4d1801ce7512487921a8854d166bf",
+        "width": 200,
+        "height": 200,
+        "objects": 678,
+        "painted_static": 674,
+        "omitted_animated": 4,
+        "clipped_static": 35,
+        "unsupported_static": [],
+        "output": "map-10001-static-overview.png"
+      },
+      {
+        "map_ref": 11001,
+        "map_sha256": "5302528ec52b1ae0dc936f7975ad8eb2286001949f6469e68b622e801b14f135",
+        "width": 124,
+        "height": 132,
+        "objects": 64,
+        "painted_static": 46,
+        "omitted_animated": 18,
+        "clipped_static": 4,
+        "unsupported_static": [],
+        "output": "map-11001-static-overview.png"
+      },
+      {
+        "map_ref": 13001,
+        "map_sha256": "0ffdab6e46857c051dc29553260f7def415ab1690645ce4520e66d1c56759917",
+        "width": 165,
+        "height": 175,
+        "objects": 46,
+        "painted_static": 46,
+        "omitted_animated": 0,
+        "clipped_static": 4,
+        "unsupported_static": [],
+        "output": "map-13001-static-overview.png"
+      },
+      {
+        "map_ref": 14001,
+        "map_sha256": "cf6697c712ed43543b916e5b7383a1bae8f3dc3c0dedb017ff8c3d59f725b9be",
+        "width": 200,
+        "height": 200,
+        "objects": 556,
+        "painted_static": 550,
+        "omitted_animated": 6,
+        "clipped_static": 53,
+        "unsupported_static": [],
+        "output": "map-14001-static-overview.png"
+      },
+      {
+        "map_ref": 16001,
+        "map_sha256": "6724a837653c3d317da017bffad9db612d0d110b2e7186ec58626173678dda94",
+        "width": 150,
+        "height": 150,
+        "objects": 562,
+        "painted_static": 529,
+        "omitted_animated": 33,
+        "clipped_static": 67,
+        "unsupported_static": [],
+        "output": "map-16001-static-overview.png"
+      },
+      {
+        "map_ref": 17001,
+        "map_sha256": "54efdf07792c89bacd258986ecebf9b0dd80dd1e9ffcfbd8489251b1b26a97db",
+        "width": 150,
+        "height": 150,
+        "objects": 165,
+        "painted_static": 165,
+        "omitted_animated": 0,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-17001-static-overview.png"
+      },
+      {
+        "map_ref": 19001,
+        "map_sha256": "5f2f0524fef3099eba219cad5dc399cff59ea80252961028e142423017b5ebe9",
+        "width": 120,
+        "height": 120,
+        "objects": 71,
+        "painted_static": 71,
+        "omitted_animated": 0,
+        "clipped_static": 1,
+        "unsupported_static": [],
+        "output": "map-19001-static-overview.png"
+      },
+      {
+        "map_ref": 20001,
+        "map_sha256": "e48303c5662d960fdc6f47e2412200522773cd5c4272c09bc06e32ed3184bf51",
+        "width": 60,
+        "height": 60,
+        "objects": 4,
+        "painted_static": 4,
+        "omitted_animated": 0,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-20001-static-overview.png"
+      },
+      {
+        "map_ref": 21001,
+        "map_sha256": "c4848bb1a1921a58fd89600f078c000d7d20b1e6d91c904fdb11e47a5fec5db4",
+        "width": 150,
+        "height": 150,
+        "objects": 303,
+        "painted_static": 303,
+        "omitted_animated": 0,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-21001-static-overview.png"
+      }
+    ]
+  }
+}
