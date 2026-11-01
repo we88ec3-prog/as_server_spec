@@ -8,11 +8,13 @@
 
 ## 本地問題與 Server 修正交接（2026-10-31）
 
-本工作負責收集本地測試問題、補分析與修正共享規格，**不修改 `as_server_roy`**。目前入口：[問題紀錄](03-analysis-requests/runtime-issues.json) → [給 Server 開發者的修正交接](02-server-planning/runtime-feedback-handoff.md) → [收件／驗收流程](00-governance/runtime-feedback-workflow.md)。使用者直接回報即可，由規格整合者整理成可實作、可驗收的契約。
+本工作收集本地測試問題，現在亦依最新授權**直接開發私有 `as_server_roy`，同步補分析與公開規格**。目前入口：[問題紀錄](03-analysis-requests/runtime-issues.json) → [修正合約](02-server-planning/runtime-feedback-handoff.md) → [直接開發流程](00-governance/direct-development-workflow-20261101.md)。使用者直接回報即可，不需在分析與開發之間代傳。
 
 交接已按 `as_server_roy@b8e212e` 唯讀核對：後端創角驗證及部分診斷已有實作，原生創角 wire 仍待 A-030。舊原型的置中、獨立衣色及修改 Client 的主選單預覽分別標記，不能當成新 Server 原版驗收。以下保留的歷史進度應按所載 commit／日期閱讀；帳號入口的最新政策是 Login／NewUser／ChangePassword 獨立，不要求 C02 前先 C03。
 
 ## 從這裡開始
+
+**2026-11-01 工作方式更新**：[直接開發、同步分析與規格](00-governance/direct-development-workflow-20261101.md)。本對話現在可在私有roy直接實作，不受下方歷史僅分析分工限制；spec仍公開且不收私有實作。使用的正式本地spec路徑為 `E:\Asgard\asgard_server\as_server_spec`。
 
 需求來源請見 [使用者需求／程式分析／Server設計的歸因規範](00-governance/requirement-origin-policy.md)。R與PAR逐項附來源，保留使用者提出的功能目的；封包證據與實作建議另列，不把兩者混為需求起源。
 

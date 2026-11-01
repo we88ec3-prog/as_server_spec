@@ -543,6 +543,17 @@
         "analysis_scope": "process／TCP／phase等觀測由分析",
         "design_scope": "回報schema、revision／trace關聯、工作台是設計；非使用者逐條指定",
         "attribution_confidence": "direct-user-message"
+      },
+      "tooling_increment": {
+        "implementation_commit": "c4170f820b1b0fbf81d33b278d31e7f343a4a8c8",
+        "source_ids": [
+          "USR-015",
+          "USR-016"
+        ],
+        "contract": "02-server-planning/client-monitor-tool-contract.md",
+        "status": "source-implemented; offline prefix/privacy and benign OS/TCP smoke passed",
+        "native_client_validation": "not-run",
+        "limits": "Basic mode is process/TCP sampling only. Frida CLI requires optional dependency; this increment did not attach a real game or complete report-workbench UI."
       }
     },
     {

@@ -80,7 +80,11 @@
       "source_type": "direct-user-message",
       "location": "current conversation history",
       "quote": "你不要修改as_server_roy，你的工作是將Server規劃做修正給負責as_server_roy的人進行修正",
-      "note": ""
+      "note": "",
+      "superseded_by": [
+        "USR-016",
+        "USR-017"
+      ]
     },
     {
       "id": "USR-011",
@@ -165,6 +169,27 @@
       "document": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
       "recorded_scope": "R-037既有逐包metadata、未預期標記及留存決策；原始訊息尚未於本次重新核對",
       "note": "Existing spec attribution; original user message is not reproduced or independently reconstructed here."
+    },
+    {
+      "id": "USR-015",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "你用來監聽遊戲的程式我能使用嗎?該怎麼使用?",
+      "note": "Latest user instruction; implementation in private roy, public portable specification only."
+    },
+    {
+      "id": "USR-016",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "現在你直接在as_server_roy開發，把分析與規劃放入as_server_spec",
+      "note": "Latest user instruction; implementation in private roy, public portable specification only."
+    },
+    {
+      "id": "USR-017",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "更正，是as_server_roy不想給別人看，as_server_spec是公開",
+      "note": "Latest user instruction; implementation in private roy, public portable specification only."
     }
   ]
 }

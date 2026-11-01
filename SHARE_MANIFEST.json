@@ -17,11 +17,11 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "b830aef4bc32853cfed4beb38da82d028bee0472b4edac05215cde5e33f34a25"
+      "sha256": "56bb6a0f3ba4912318aae7c9592a53dc947835486c577491320b5869a96dae9a"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
-      "sha256": "aa13ed5eb267d02f6ec3ab9b9f7a07294b65ccc8fee4114f6fad3285ae198f49"
+      "sha256": "f73c65ae6e555e03c9ee84e4be19e985e6a26f248560bd224c8d4f1a21ba3e3c"
     },
     {
       "path": "00-governance/implementation-status-template.json",
@@ -37,7 +37,7 @@
     },
     {
       "path": "00-governance/runtime-feedback-workflow.md",
-      "sha256": "26c9d8079a07cdc8993bec58f98944f65f461aef47b64ebadd4b491dbb31571d"
+      "sha256": "fbdface3eff8bbde9b63fbba2216ba97cab01579b6731f8852b9049a1684a794"
     },
     {
       "path": "00-governance/sharing-and-license.md",
@@ -73,7 +73,7 @@
     },
     {
       "path": "02-server-planning/admin-web-management-interface-plan.md",
-      "sha256": "be23a68acbc325a3581b470fbefd8aed1c46f18b61bb11cba3cb9dcb1f3b7829"
+      "sha256": "d47f8b3184a742410f47489ed596f36ec6019e461a266656c1a845667b3f8be6"
     },
     {
       "path": "02-server-planning/analysis-priority-after-A022-A023.md",
@@ -781,7 +781,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "54037c5ce9734f39ea3f9868dc12f0cb0658118387169ebd168dc4507774bfc3"
+      "sha256": "fb0f91ce1040658c829460465115793bb35c89b49fc9feb0e5121912791478d0"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -1205,7 +1205,7 @@
     },
     {
       "path": "02-server-planning/prototype-parity-backlog.json",
-      "sha256": "b18e600df97a6dee23f072856c97236c953025a1035b0fd6afaa27b2838dc3bd"
+      "sha256": "c745f68b95377f27df7f9c1595f7a100c73b20abe5e98810c6f3cba6f480af6a"
     },
     {
       "path": "05-conformance/prototype-parity-regression-20261101.md",
@@ -1221,7 +1221,19 @@
     },
     {
       "path": "00-governance/requirement-origins.json",
-      "sha256": "8babfe729ec3bcf2a85b515f5520324f7630fffbec586c5bf321a7c6a679862e"
+      "sha256": "c62c752f4967d81b7a2353561ede23ad826a9428b4ed68ad16f3161f4f0aebb4"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "551f564c10ed951742b7db4f1c8339ec17be1cd20f50508d5b5788aa6cbde6c2"
+    },
+    {
+      "path": "00-governance/direct-development-workflow-20261101.md",
+      "sha256": "1815d7d17137df4df2493c8510e93a9961e1536b6f13eb9b26b63e6c9d2b9a20"
+    },
+    {
+      "path": "02-server-planning/client-monitor-tool-contract.md",
+      "sha256": "ac0e26b35344300be833ecd87c44356d2904127f060182af431400da9561a24c"
     }
   ]
 }

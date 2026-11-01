@@ -1,5 +1,7 @@
 # Asgard Web 管理介面：分階段規劃與實作快照
 
+最新授權補充：使用者已改為 [直接開發、同步spec](../00-governance/direct-development-workflow-20261101.md)，可在私有roy完成已授權增量；本頁歷史「分析者不得代改／規劃與實作分輪確認」不再是工作方式限制。功能範圍、安全要求及尚未完成的驗收仍各自有效。
+
 2026-11-01 更新：唯讀查核 `as_server_roy@e93c9a17`，**WEB-P0 已實作／人工E2E獨立**；P1/P2角色／地圖／衣色／音樂／測試工作台仍待後端能力與頁面交付。本次只更新規格，不變更Server、HTML/JS、API、DB或Client。依 [使用者實作前確認規則](../00-governance/explicit-implementation-confirmation.md) 由DEV負責實作，分析者不得代改。
 
 ## 管理API與P0範圍（原始查核 be3d2444；最新補充 e93c9a17）
