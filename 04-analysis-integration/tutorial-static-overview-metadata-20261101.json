@@ -1,0 +1,282 @@
+{
+  "scope": "Offline 1/8-scale primary paletted channels and Y-sorted flag0 static objects; not native Client acceptance",
+  "limits": "No shadows, animated objects, alternate channels, NPCs, lighting, precise occlusion, camera or collision proof. Alpha/RGB565 are research decoding; visual similarity does not establish original town-map binding.",
+  "sources": {
+    "0:Tile": {
+      "archive": "World00.dat",
+      "archive_sha256": "01b1afc14daf4ca030004f825d8af39ff6667d184431a5aa9aa9b67a81160ef3",
+      "member": "TS_000_Tile.ypf",
+      "member_sha256": "51148ec2aba6b0937deff0215caa3ffbfaf164d1aeb1da225346f5fd61972790"
+    },
+    "0:Static": {
+      "archive": "World00.dat",
+      "archive_sha256": "01b1afc14daf4ca030004f825d8af39ff6667d184431a5aa9aa9b67a81160ef3",
+      "member": "TS_000_Static.ypf",
+      "member_sha256": "0667fa221f24ad227b3c7998ebafd986b7a6f26866c569556c964f74c120e495"
+    },
+    "4:Static": {
+      "archive": "World04.dat",
+      "archive_sha256": "82053a932f3be969244f080f36bf9cb3c5551f89494a20d0ba8b46e662466cc2",
+      "member": "TS_004_Static.ypf",
+      "member_sha256": "d7857bcbe56532282f897003ba67c83525869541382450749c31680f65d739af"
+    },
+    "1:Tile": {
+      "archive": "World01.dat",
+      "archive_sha256": "517a635f465d6336b8db15147de87d560615bdab87038f39fd1da551c965106f",
+      "member": "TS_001_Tile.ypf",
+      "member_sha256": "b555221031ea675e42b0014cbb7d58ab3a70c86389feb1d5010ccdb4359f7844"
+    },
+    "1:Static": {
+      "archive": "World01.dat",
+      "archive_sha256": "517a635f465d6336b8db15147de87d560615bdab87038f39fd1da551c965106f",
+      "member": "TS_001_Static.ypf",
+      "member_sha256": "391f963e6e919f601bc4f7c284b706fbfe5631bd05ec9b03c33579b67b139a78"
+    },
+    "2:Tile": {
+      "archive": "World02.dat",
+      "archive_sha256": "8ef8eab936ae25de98471798e8fdb1baeb9f292550b40a689d51f3aaf1b17d45",
+      "member": "TS_002_Tile.ypf",
+      "member_sha256": "b86f404eeffb45fbd18744eb1c48ceba42beccea0234d3048232873dec38c711"
+    },
+    "2:Static": {
+      "archive": "World02.dat",
+      "archive_sha256": "8ef8eab936ae25de98471798e8fdb1baeb9f292550b40a689d51f3aaf1b17d45",
+      "member": "TS_002_Static.ypf",
+      "member_sha256": "806d501c3bf97824fe0b473baca84a41b4da1a64358379d8416a53a2bb0765df"
+    },
+    "3:Tile": {
+      "archive": "World03.dat",
+      "archive_sha256": "788b566365d3492ef5db20aed92c362f8d3613dc6c22eaebad25e9f7bb0c6c6f",
+      "member": "TS_003_Tile.ypf",
+      "member_sha256": "32acd023a8d709efe07ba39eb1f866f0eef1961f8c800a19639ef51ad51772e0"
+    },
+    "3:Static": {
+      "archive": "World03.dat",
+      "archive_sha256": "788b566365d3492ef5db20aed92c362f8d3613dc6c22eaebad25e9f7bb0c6c6f",
+      "member": "TS_003_Static.ypf",
+      "member_sha256": "1aea97ab16dd11d79c7c811f8ca8f0646fbe3fa729aa4e783924657f73e71f2a"
+    },
+    "4:Tile": {
+      "archive": "World04.dat",
+      "archive_sha256": "82053a932f3be969244f080f36bf9cb3c5551f89494a20d0ba8b46e662466cc2",
+      "member": "TS_004_Tile.ypf",
+      "member_sha256": "25ded595ee0300d82751217d684226eb3c9fdb39ae962921f1aa76d4f8260985"
+    },
+    "5:Static": {
+      "archive": "World05.dat",
+      "archive_sha256": "bad88977deb3f41223348275a25e28d016fd8b13a473070d63df12bb0297fadb",
+      "member": "TS_005_Static.ypf",
+      "member_sha256": "b44eb7e2b03b8bde939a5f83532c882a0586b150785b3b33c5d47af8c21cf383"
+    },
+    "20:Tile": {
+      "archive": "World20.dat",
+      "archive_sha256": "da051e9391e3dab50687d768c3048c2b0d3ed6cd07e4272737199227bcb75d68",
+      "member": "TS_020_Tile.ypf",
+      "member_sha256": "efc6ff019df4155924807aeab2febf8e097ebfede40442d62ef30fd967089e81"
+    },
+    "20:Static": {
+      "archive": "World20.dat",
+      "archive_sha256": "da051e9391e3dab50687d768c3048c2b0d3ed6cd07e4272737199227bcb75d68",
+      "member": "TS_020_Static.ypf",
+      "member_sha256": "aee6f045aa07ffc1f3da82f0b47f5603a733c44b3ee86f641d2294c5a307075f"
+    },
+    "9:Tile": {
+      "archive": "World09.dat",
+      "archive_sha256": "0bf2493f51a7dcacccff004379563cb078cb4e22dcf3d48495df617e69ad72e9",
+      "member": "TS_009_Tile.ypf",
+      "member_sha256": "7ca820e8ad0cbf45e887bbe858a74cf5e05486ae7445f2d769b53648322fad48"
+    },
+    "9:Static": {
+      "archive": "World09.dat",
+      "archive_sha256": "0bf2493f51a7dcacccff004379563cb078cb4e22dcf3d48495df617e69ad72e9",
+      "member": "TS_009_Static.ypf",
+      "member_sha256": "287e323c0f98190e783fa34705613b71f7d5e28f3e9a68079ea784a33757d98a"
+    },
+    "12:Tile": {
+      "archive": "World12.dat",
+      "archive_sha256": "51bba11d5bed9714712722d4e446d88bda85997096d3778c5d57dd47b4de960f",
+      "member": "TS_012_Tile.ypf",
+      "member_sha256": "951d7be32a477dde12b57642c12c590dd9a2c94145b7792f276b1c24a55f851f"
+    },
+    "7:Static": {
+      "archive": "World07.dat",
+      "archive_sha256": "64df1799404bff1cb62e1feb4e69756da0b52c56d20ac482d1129009c0983a0d",
+      "member": "TS_007_Static.ypf",
+      "member_sha256": "c04ff8d95a857365382c73954ed064b4d2ee14e0b8dec305b6e338a370b1924e"
+    },
+    "8:Static": {
+      "archive": "World08.dat",
+      "archive_sha256": "c254af72ff110cfcb32dced14007107d7d688ba065c9b906dd281b8035f71ad6",
+      "member": "TS_008_Static.ypf",
+      "member_sha256": "2d1d3dc11ce13ed028fc1f79b92435b2dadae86e672b7793b7263795e6acb064"
+    },
+    "12:Static": {
+      "archive": "World12.dat",
+      "archive_sha256": "51bba11d5bed9714712722d4e446d88bda85997096d3778c5d57dd47b4de960f",
+      "member": "TS_012_Static.ypf",
+      "member_sha256": "56ffa54e9022ffa0439e46637f6a756e9cee21010d3267996600b94314b0f93e"
+    },
+    "16:Tile": {
+      "archive": "World16.dat",
+      "archive_sha256": "cfd7da6a411662b073b328cda2548e9b43503dd2423150d637d64b218c6bbf3b",
+      "member": "TS_016_Tile.ypf",
+      "member_sha256": "cca0f0b65d7da77057cb160d275e1749c025869dbaa57499e345eac08a6aed1e"
+    },
+    "16:Static": {
+      "archive": "World16.dat",
+      "archive_sha256": "cfd7da6a411662b073b328cda2548e9b43503dd2423150d637d64b218c6bbf3b",
+      "member": "TS_016_Static.ypf",
+      "member_sha256": "0edb6bd95876cd29cfcb0116413fc0bb75a617e0f34ef8a33f989d3439cb1349"
+    },
+    "18:Tile": {
+      "archive": "World18.dat",
+      "archive_sha256": "1c64ab219164e322558124b2f373e0496b3f33a00cf1e5052adb3225a24fd73a",
+      "member": "TS_018_Tile.ypf",
+      "member_sha256": "eff4558cffb565f67a434683dec121de3e95e71d42265e7880740b5085f5d2e7"
+    },
+    "18:Static": {
+      "archive": "World18.dat",
+      "archive_sha256": "1c64ab219164e322558124b2f373e0496b3f33a00cf1e5052adb3225a24fd73a",
+      "member": "TS_018_Static.ypf",
+      "member_sha256": "2a9f01f4a060eb5de5ae414cf6b1d0a8e3f81c73319018573a5cb31dd0cf2986"
+    }
+  },
+  "maps": [
+    {
+      "map_ref": 1,
+      "map_sha256": "e2c329ad88a9b44c2760d5a996f187e68b7a5b90419f087a2471fabc03490f00",
+      "width": 124,
+      "height": 185,
+      "objects": 150,
+      "painted_static": 150,
+      "omitted_animated": 0,
+      "clipped_static": 1,
+      "unsupported_static": [],
+      "output": "map-00001-static-overview.png"
+    },
+    {
+      "map_ref": 7,
+      "map_sha256": "947984db169c84df1766babc52b0b2d581b6384d6eb4e1013d367530eaaa3f76",
+      "width": 60,
+      "height": 70,
+      "objects": 60,
+      "painted_static": 58,
+      "omitted_animated": 2,
+      "clipped_static": 0,
+      "unsupported_static": [],
+      "output": "map-00007-static-overview.png"
+    },
+    {
+      "map_ref": 1001,
+      "map_sha256": "07868f8a56189ca275b55ee2739623ffab5fc4981296526d85307b188336600a",
+      "width": 200,
+      "height": 200,
+      "objects": 220,
+      "painted_static": 220,
+      "omitted_animated": 0,
+      "clipped_static": 28,
+      "unsupported_static": [],
+      "output": "map-01001-static-overview.png"
+    },
+    {
+      "map_ref": 2001,
+      "map_sha256": "bc220a638c7e710016af65acc83de2f6255e1b690bfb9ef477871589b56c865f",
+      "width": 200,
+      "height": 200,
+      "objects": 456,
+      "painted_static": 455,
+      "omitted_animated": 1,
+      "clipped_static": 2,
+      "unsupported_static": [],
+      "output": "map-02001-static-overview.png"
+    },
+    {
+      "map_ref": 3001,
+      "map_sha256": "2578a7b3c0fbda5ba757c19212e92a4579c58e751a07600fcd245ea659d5eccd",
+      "width": 200,
+      "height": 200,
+      "objects": 572,
+      "painted_static": 572,
+      "omitted_animated": 0,
+      "clipped_static": 4,
+      "unsupported_static": [],
+      "output": "map-03001-static-overview.png"
+    },
+    {
+      "map_ref": 4001,
+      "map_sha256": "3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "width": 200,
+      "height": 200,
+      "objects": 436,
+      "painted_static": 436,
+      "omitted_animated": 0,
+      "clipped_static": 3,
+      "unsupported_static": [],
+      "output": "map-04001-static-overview.png"
+    },
+    {
+      "map_ref": 6001,
+      "map_sha256": "d17336536d711135260990cea39dfedb7d6fea63189aa04e9f752b1cd71a309d",
+      "width": 200,
+      "height": 200,
+      "objects": 279,
+      "painted_static": 279,
+      "omitted_animated": 0,
+      "clipped_static": 6,
+      "unsupported_static": [],
+      "output": "map-06001-static-overview.png"
+    },
+    {
+      "map_ref": 7001,
+      "map_sha256": "ac30779fac09dd3de4f9ddd5c1321737cf23b7e219280ab634fe52c196c45c3a",
+      "width": 200,
+      "height": 200,
+      "objects": 423,
+      "painted_static": 418,
+      "omitted_animated": 5,
+      "clipped_static": 33,
+      "unsupported_static": [],
+      "output": "map-07001-static-overview.png"
+    },
+    {
+      "map_ref": 12001,
+      "map_sha256": "98f204acb5a8090686a725db476ee8bdb39afb8e3b3e395ed5db3bf08e1e2711",
+      "width": 180,
+      "height": 180,
+      "objects": 118,
+      "painted_static": 114,
+      "omitted_animated": 4,
+      "clipped_static": 2,
+      "unsupported_static": [],
+      "output": "map-12001-static-overview.png"
+    },
+    {
+      "map_ref": 15001,
+      "map_sha256": "2ec4447f3fc6f7483d8e77ae41549437159de55d6cf4a0fee31c80c8c408be5d",
+      "width": 150,
+      "height": 150,
+      "objects": 384,
+      "painted_static": 384,
+      "omitted_animated": 0,
+      "clipped_static": 88,
+      "unsupported_static": [],
+      "output": "map-15001-static-overview.png"
+    },
+    {
+      "map_ref": 18001,
+      "map_sha256": "faaa79663eff4479071c61850643b9d4baf428bbc43af682f82b8758b9d461d6",
+      "width": 150,
+      "height": 150,
+      "objects": 555,
+      "painted_static": 553,
+      "omitted_animated": 2,
+      "clipped_static": 68,
+      "unsupported_static": [],
+      "output": "map-18001-static-overview.png"
+    }
+  ],
+  "decoder_formula_status": "Asset-derived: run=(word>>8)|((word&7)<<8), alpha=word&0xf8; all rendered rows and primary color lengths match. Not yet independently proved across native pixel decoder modes.",
+  "current_tool_sha256": "f1db3085aaed3d99c1934369e902c12a1abd949d4e96075181f509e20c003e88",
+  "render_tool_sha256": "4e5fc74ccf13a03c0ec0deb2b7b5a777596406b8de06965d828c4d1c588e0cc4",
+  "tool_change_after_render": "Only added pre-read DAT size bound; raster code unchanged"
+}
