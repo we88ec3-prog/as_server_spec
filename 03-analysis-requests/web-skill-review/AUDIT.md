@@ -37,3 +37,11 @@ BUFF identity與計時、各類效果、技能切圖及內容表再依tasks.json
 nNewWar01包含基本攻擊與技能操作說明，但沒有在本次所讀函式中送kill完成回覆。
 這只能限定這些函式，不足以證明整個教學無擊殺需求。A025-D01必須取得正面
 objective/event來源；否則保留unknown，將使用者希望可打怪的玩法需求另列。
+
+## 本地後續補證（不變更既有Web輸入包身份）
+
+S62技能清單／ActionInventory、C0E非cast入口、Human普攻Motion4、S13數字與
+S5F原生CorpseObject已有[新增分析](../../04-analysis-integration/20261101-basic-attack-motion-action-and-death.md)。
+初始普攻項目已用原生wire的重建值接入；不是找回原服技能ID或完整學習表。
+Web任務請先讀此增量，避免重派已完成的入口定位；舊jobs仍保留其baseline／
+manifest身份，不能把後續新檔假稱為舊包已reviewed。GUI與原版數值仍待驗證。

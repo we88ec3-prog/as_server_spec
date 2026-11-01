@@ -465,7 +465,7 @@
     },
     {
       "path": "03-analysis-requests/web-skill-review/AUDIT.md",
-      "sha256": "98f20709503daaa4cfe8e660ca4eaf266da4b8ef772bd934743f774ecd9f41d4"
+      "sha256": "2be6b0bd1ed3d64bb53a4c185b6c119d45ba0ed6e5567c7c93282fc1a382381d"
     },
     {
       "path": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
@@ -582,6 +582,10 @@
     {
       "path": "03-analysis-requests/web-skill-review/tasks.json",
       "sha256": "61e90b938f5e284f4d09c45f7c19352dfbe602231c0b7de3cd38feeb2fe34e25"
+    },
+    {
+      "path": "04-analysis-integration/20261101-basic-attack-motion-action-and-death.md",
+      "sha256": "f1a9be493625147e5ef297c857a522d8aa71f83fde2009cba40ab8763d9122dd"
     },
     {
       "path": "04-analysis-integration/20261101-c44-play-disconnect.md",
@@ -816,6 +820,10 @@
       "sha256": "aa9f45419ea7150af633717cb5f0b23d0e5db3aa66610c1d115e9a390b2c9e72"
     },
     {
+      "path": "04-analysis-integration/base-human-and-mos-actions-20261101.json",
+      "sha256": "4001ed3ecacf400edaef353fd19379cedb0387653b95a4c30005d8e0e071330b"
+    },
+    {
       "path": "04-analysis-integration/c35-map-reference-correction-20261101.md",
       "sha256": "1581de0e9c5d15939e51bb1afd786b117766d39b8f8126adf139163db3941b8b"
     },
@@ -862,6 +870,10 @@
     {
       "path": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
       "sha256": "8736e8982b6bd0ee0ec85bbbef5d39b2d4d1251905a0a9f26079bc7437b2b99d"
+    },
+    {
+      "path": "04-analysis-integration/native-basic-attack-motion-and-corpse-20261101.json",
+      "sha256": "3b4ef1ac07078c12aa2e29bb322d3d2aac9f91703ed914ab2b4b19aa8e395660"
     },
     {
       "path": "04-analysis-integration/native-career-appearance-20261101.json",
@@ -969,7 +981,7 @@
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "e0a30f80e09addf1e0c993b0e19def2d846920cf6f75fa4011b9feeb1237c294"
+      "sha256": "7ca21640997cd26dee9a0edc1022de23d2fad3a5437c4bbbe9855113d4c4df7b"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
