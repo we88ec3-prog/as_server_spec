@@ -1,5 +1,7 @@
 # 分析結果整合
 
+[2026-11-02 魔法師／預言者徽章原因](20261102-occupation-rank-badge.md)：原件signed FAME=-52選到occupation.ypf object7/frame2，並非選職碼或Title；hover卡死仍待實機。
+
 [2026-11-02 原生傳送入口與路由授權](20261102-native-portals-and-route-authority.md)：Portals.tbl全表格式與幾何驗證、游標／小地圖anchor／S07標籤分工，及未接線的Server入口路由契約。
 
 [2026-11-02 原生能力初始化](20261102-native-status-initialization.md)：S08可見欄位與body offset、持久出生基線、進圖／重登順序與備份政策；384項Server與五職業TCP通過，hover仍待GUI。

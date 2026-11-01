@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "b3dd8c6a4c28a892dd3e2d05cc451772926f1612e9ea1a60a355996dc4ff2587"
+      "sha256": "4d3eda21bb45bd199cd66a2c0b5ff299853a35965e4ec583d04b8a81e1d792d3"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -733,11 +733,15 @@
     },
     {
       "path": "04-analysis-integration/20261102-native-status-initialization.md",
-      "sha256": "be95d4346c166b43f07dcf4bc4f36a3b467b04e85bfdc90361423b585d5cf055"
+      "sha256": "c2bd2dd21214423b71651003dc109d83c8c337cdfa5669fa23fa93309035ba0d"
+    },
+    {
+      "path": "04-analysis-integration/20261102-occupation-rank-badge.md",
+      "sha256": "8751de1bfe29c092a3e30d65337129e53b18e99c2f00d523665fffffc77f2b2f"
     },
     {
       "path": "04-analysis-integration/20261102-personal-account-admin-and-status-window.md",
-      "sha256": "da59814adb2c6387c1bdff99ab5f11a589fb6708c3efc8f4a875dde7691fc116"
+      "sha256": "9bbdf1dbc81fb6fd1771166afa596aa463bc4d858fff5f92c547e910f2a69def"
     },
     {
       "path": "04-analysis-integration/20261102-school-room-and-exit-scope.md",
@@ -857,7 +861,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "08cd03a3969f85e932b6908da3ce295566638be6207b9656b5acfc0f18eb617c"
+      "sha256": "b40fafbe4879be5234a900313b1df7798175d2bd84a074c43cefce342f0fd017"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -978,6 +982,10 @@
     {
       "path": "04-analysis-integration/native-miss-c65-20261102.json",
       "sha256": "350c0d4a848c817bda4454d49a2e32f30b51e6a16c65c7c293fa84dd213e41c3"
+    },
+    {
+      "path": "04-analysis-integration/native-occupation-rank-evidence-20261102.json",
+      "sha256": "bf1743c939b3c33cc6e18f8282f6aa832785541a0287bc43ceefe61d3e51fec8"
     },
     {
       "path": "04-analysis-integration/native-pane-visibility-20261101.json",

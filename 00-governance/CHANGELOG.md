@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-02 預言者徽章的未初始化FAME來源
+
+原件指令確認StatusDialog依signed FAME選徽章，截圖-52進負值分支得到object7/frame2；離線解碼occupation.ypf確認該frame正是預言者。補正將職業／Title／徽章混為一談的可能性；已發S08之FAME0會按native分支隱藏徽章，但hover穩定性仍待既定實機測試。只讀探針加入經this+4調整核對的職業byte與徽章預測，見[完整證據與限制](../04-analysis-integration/20261102-occupation-rank-badge.md)。
+
 ## 2026-11-02 原生傳送入口表與小地圖標記規則
 
 REA確認Basic.dat slot24 Portals.tbl的6B map/x/y列，SHA鎖定工具核對2840列／312圖，全部在494原MAP範圍內。補上原生hover cursor5、小地圖NW/N/NE/W anchor條件、S07 kind13座標名稱與近入口擺攤限制；目的MAP／落點未恢復，不猜接房間或改玩家位置。四項純格式測試通過，完整派生索引留本地，公開精選子集與[可獨立實作契約](../04-analysis-integration/20261102-native-portals-and-route-authority.md)。

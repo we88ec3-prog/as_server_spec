@@ -21,7 +21,7 @@
 
 這張表只適用本輪 flags 0x0078 的全量組合，不能套到刪減區塊的 S08。職業名稱 child 0x19 另由自身外觀 class byte 加 BasicString ID 455 取得，Mage=3 顯示魔法師；不由 S08 Title 或能力值決定。
 
-Basic.dat 的 BasicString.txt SHA256 `fa92f7a3cf544ff9e141d98620943b362e2d3dcc6e327878a818ebaa6ac3123b` 有 ID 448「預言者」。僅找到同名本地字串不能證明截圖中的欄位如何取得它；尚未重現該文字的動態寫入。不得把它直接解釋為選職被改成別的職業。
+後續已追出[預言者為階級徽章](20261102-occupation-rank-badge.md)：child0x1b由signed FAME=-52選到occupation.ypf object7/frame2，與截圖圖像相符。它與上表的child0x1a獨立稱號文字不同。BasicString448雖同名，並非這條徽章選圖路徑來源；不得直接解釋為選職被改成別的職業。
 
 `0x53f510` 建構子僅初始化部分 Status 欄位，先前未送 S08 的情況不能依賴這些欄位已有合法值。`0x4cebc0` metadata 載入失敗路徑另列待查，仍沒有證據證明本次 hover 卡死就是 metadata 遞迴；未宣稱 Windows 更新所致。
 

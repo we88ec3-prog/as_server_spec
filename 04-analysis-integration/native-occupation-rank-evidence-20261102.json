@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "target_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "source": {
+    "archive": "Basic.dat",
+    "archive_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+    "slot": 23,
+    "member": "occupation.ypf",
+    "member_sha256": "5a75469e3390595bbda63bac235e7bca03e2ba90306c43c11337fc86c796be2b",
+    "offset": 3623935,
+    "bytes": 150286,
+    "header": {
+      "version": 17,
+      "width": 63,
+      "height": 17,
+      "flags": 0,
+      "data_base": 3340
+    },
+    "object_frame_counts": [
+      10,
+      8,
+      9,
+      10,
+      10,
+      8,
+      8,
+      17,
+      17,
+      3
+    ],
+    "metadata_complete": true,
+    "all_action_state_transition_counts_zero": true
+  },
+  "native_evidence": {
+    "selector": "ev_edc9f293d3d175a3079c61e6f86abbd31acd06598fbe55b0fc934fbaf5c947ed",
+    "threshold": "ev_e5886bbab0d4567a97cef2cd4a2ab91a2f99b5487a256a7d675ed03c4d3f4ca4",
+    "mage": "ev_39007276fb59d92900d326d2f6b313be42abc104fd25759327827c5584e402f2",
+    "refresh": "ev_1eadd9808d66c7fea131ccaf02aa2fe46d80780f45b64a93d2061438c5123f0f",
+    "humanInfo": "ev_ee945fb4f0061b31cb0f5f93ed6b5e08b3be904301be1bc927ddfc3495977165",
+    "ypfReader": "ev_5861ea3a54650d5c992d391777c4e95a46a3c4b343298522712a635902b5d9cd"
+  },
+  "selector": {
+    "address": "0x47d090",
+    "fame_field": "Status+0x452 signed byte",
+    "zero": {
+      "object": -1,
+      "frame": 65535,
+      "effect": "StatusDialog hides child0x1b"
+    },
+    "negative": {
+      "instructions": [
+        "0x47d110 MOV word ptr [EDI],0x7",
+        "0x47d117 MOV EAX,0xc3",
+        "0x47d11c MOVSX EDX,DL",
+        "0x47d120 CMP EDX,EAX",
+        "0x47d122 JLE0x47d142",
+        "0x47d145 MOV DX,word ptr [ECX*4+0x60710a]"
+      ],
+      "example_fame": -52,
+      "object": 7,
+      "frame": 2,
+      "selected_artwork_text": "預言者",
+      "classification": "static branch result plus private source-frame visual inspection; not a live memory observation of the reported hang"
+    },
+    "positive": {
+      "object_rule": "class_code-1",
+      "threshold_base": "0x607118",
+      "class_stride": 44,
+      "entry_stride": 4,
+      "cutoff_type": "unsigned byte",
+      "frame_type": "LE u16",
+      "mage_cutoffs": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        98,
+        99,
+        255
+      ],
+      "mage_frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "frame_count": 9,
+      "limit": "cutoff/frame table is display selection, not server fame award formula; fame>=100 would select outside observed Mage asset frame count"
+    }
+  },
+  "ui_roles": {
+    "class_name": {
+      "child": 25,
+      "source": "HumanInfo+5 -> BasicString455+code"
+    },
+    "title": {
+      "child": 26,
+      "source": "Status+0x210 string"
+    },
+    "badge": {
+      "child": 27,
+      "source": "class code plus signed Fame -> occupation.ypf object/frame"
+    }
+  },
+  "passive_probe": {
+    "user_pointer": "0x66d0d4",
+    "career_byte_offset": "0x28d",
+    "derivation": "5400e6 adjusts User pointer +4;479ea0 reads HumanInfo+0x284; career+5",
+    "mode": "query+VM_READ only; no strings, hooks or writes",
+    "dynamic_validation": "not-run; no selected retained diagnostic Client for this observation"
+  },
+  "hang_cause": "unresolved; wrong badge cause does not prove hover freeze cause"
+}
