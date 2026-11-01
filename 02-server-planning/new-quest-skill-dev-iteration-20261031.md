@@ -1,5 +1,12 @@
 # Server 新手教學第二輪：NPC 對話、技能施放及狀態效果
 
+> 2026-11-01追補：使用者要求先盤點既有A成果，再由ChatGPT／Claude網頁版深入
+> 技能內容；另提出新手場景普通攻擊線索。已建立[盤點](../03-analysis-requests/web-skill-review/AUDIT.md)
+> 與[8個子任務](../03-analysis-requests/web-skill-review/tasks.json)，沿A-009／010／025等
+> 追普通攻擊閉環、技能清單／ID／快捷列、C56時序、效果UI／計時、技能切圖與內容來源。
+> 不重做已交付codec、不新增同題正式A，也不把原版Server公式補成Client分析結果。
+> 本地Server繼續開發完整教學路線；外部結果經原件核對後整合，未驗不改正式CT。
+
 依據 [A-012 Quest / A-010 Skill 交叉整合審查](../04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md)；本文件是 Server **新規劃**，未宣稱私有實作或原生 Client CT 完成。原版 Client 不修改。
 
 ## ONB-05/06 DEV-090：Quest Dialog 與入學選擇
