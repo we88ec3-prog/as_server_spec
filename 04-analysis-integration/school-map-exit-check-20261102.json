@@ -1,0 +1,132 @@
+{
+  "scope": "Map6..12 byte coverage, not proof that all portal information is absent",
+  "map0_sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+  "maps": [
+    {
+      "map_ref": 6,
+      "sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760",
+      "tail_counts_7_8_16": [
+        7,
+        0,
+        0
+      ],
+      "exact_eof": true,
+      "block_u16_counts": {
+        "0": 450
+      },
+      "tile_flags_u32_counts": {
+        "0": 902,
+        "17": 2698
+      }
+    },
+    {
+      "map_ref": 7,
+      "sha256": "947984db169c84df1766babc52b0b2d581b6384d6eb4e1013d367530eaaa3f76",
+      "tail_counts_7_8_16": [
+        60,
+        0,
+        0
+      ],
+      "exact_eof": true,
+      "block_u16_counts": {
+        "0": 540
+      },
+      "tile_flags_u32_counts": {
+        "0": 299,
+        "1": 3860,
+        "17": 41
+      }
+    },
+    {
+      "map_ref": 8,
+      "sha256": "25423742c1e670c722ccb6250c81ed18be258a2243eecd8adbda0f794ce0d9cb",
+      "tail_counts_7_8_16": [
+        31,
+        0,
+        0
+      ],
+      "exact_eof": true,
+      "block_u16_counts": {
+        "0": 540
+      },
+      "tile_flags_u32_counts": {
+        "0": 352,
+        "1": 361,
+        "17": 3487
+      }
+    },
+    {
+      "map_ref": 9,
+      "sha256": "ee991d0c275a42a55f1da649412ee5254bfa6559b3c5f13ce7d6d0ad6a830f56",
+      "tail_counts_7_8_16": [
+        26,
+        0,
+        0
+      ],
+      "exact_eof": true,
+      "block_u16_counts": {
+        "0": 540
+      },
+      "tile_flags_u32_counts": {
+        "0": 355,
+        "1": 3806,
+        "16": 1,
+        "17": 38
+      }
+    },
+    {
+      "map_ref": 10,
+      "sha256": "fe67686e2eb72c18dd58ce23c8f0869e9b013bb9130e8bca3e497fc88f4331ec",
+      "tail_counts_7_8_16": [
+        62,
+        0,
+        0
+      ],
+      "exact_eof": true,
+      "block_u16_counts": {
+        "0": 540
+      },
+      "tile_flags_u32_counts": {
+        "0": 296,
+        "1": 3844,
+        "17": 60
+      }
+    },
+    {
+      "map_ref": 11,
+      "sha256": "7a70ce3b27f01c0499eb3c6c6f98fda65d47266f5eee2f7354db6690687ec966",
+      "tail_counts_7_8_16": [
+        18,
+        0,
+        0
+      ],
+      "exact_eof": true,
+      "block_u16_counts": {
+        "0": 540
+      },
+      "tile_flags_u32_counts": {
+        "0": 282,
+        "1": 3895,
+        "17": 23
+      }
+    },
+    {
+      "map_ref": 12,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "tail_counts_7_8_16": [
+        17,
+        0,
+        0
+      ],
+      "exact_eof": true,
+      "block_u16_counts": {
+        "0": 540
+      },
+      "tile_flags_u32_counts": {
+        "0": 115,
+        "1": 242,
+        "17": 3843
+      }
+    }
+  ]
+}

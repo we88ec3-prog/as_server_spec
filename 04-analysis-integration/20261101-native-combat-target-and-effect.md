@@ -82,8 +82,9 @@ ReferenceB物件另進0x4a4b00效果處理。這些觀察**不證明任何u16/u3
 
 ### 解碼長度
 
-固定14 bytes。Flags bit3/bit4會把對應u32拆成兩個16-bit座標候選並清該ref，
-不多讀bytes。bit0才追加17 bytes：u8、3×BEu16、u8、2×BEu32、u8，共31。
+固定欄位14 bytes，**另有必讀tail u8，未擴充總長15 bytes**（2026-11-02更正）。
+Flags bit3/bit4會把對應u32拆成兩個16-bit座標候選並清該ref，不多讀bytes。
+bit0才追加16 bytes：u8、3×BEu16、u8、2×BEu32；尾碼兩分支都讀，擴充共31。
 新增codec保留兩個原始u32、flags及擴充的中性欄位，不抹掉packed值；
 flag與extension必須一致，截斷或多餘bytes均拒絕。codec不授權發包或扣血。
 

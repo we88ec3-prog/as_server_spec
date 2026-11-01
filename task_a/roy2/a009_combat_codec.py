@@ -32,7 +32,8 @@ def s5f_die(body):
 
 def s13_damage_effect(body):
     """Native S13 reader 0x57DE90: 2 BE u32, u8, 2 BE u16, flags u8;
-    bit0 extends the body; bits3,4 reinterpret existing u32, add no bytes."""
+    bit0 adds16 bytes, followed by one mandatory tail byte on both branches.
+    Bits3,4 reinterpret existing u32, add no bytes. Corrected2026-11-02."""
     c=Cursor(body)
     first,second=c.u32(),c.u32()
     kind=c.u8(); f34=c.u16(); f30=c.u16(); flags=c.u8()
@@ -46,8 +47,8 @@ def s13_damage_effect(body):
         result["opaque_2"]=0
     if flags & 0x01:
         result["extra"]={"kind":c.u8(),"fields_u16":[c.u16(),c.u16(),c.u16()],
-                         "flag":c.u8(),"opaque_u32":[c.u32(),c.u32()],
-                         "last_u8":c.u8()}
+                         "flag":c.u8(),"opaque_u32":[c.u32(),c.u32()]}
+    result["tail_u8"]=c.u8()
     c.finish()
     return result
 

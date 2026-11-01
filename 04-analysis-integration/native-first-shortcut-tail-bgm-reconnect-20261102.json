@@ -1,0 +1,325 @@
+{
+  "scope": "Original Client reconnection and mandatory S13 tail; native GUI fix acceptance pending",
+  "target_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "evidence": [
+    {
+      "evidence_id": "ev_81b99b8d654ae2afc0525adc70b9e836f0651535896c0649ade06cbb5001ed7e",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x4f1050"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\n/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */\r\n\r\nvoid FUN_004f1050(void)\r\n\r\n{\r\n  undefined2 uVar1;\r\n  int iVar2;\r\n  undefined4 uVar3;\r\n  undefined1 local_830 [512];\r\n  wchar_t awStack_630 [260];\r\n  undefined1 auStack_428 [520];\r\n  wchar_t awStack_220 [262];\r\n  void *pvStack_14;\r\n  undefined4 local_10;\r\n  void *pvStack_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005dbbeb;\r\n  pvStack_c = ExceptionList;\r\n  local_10 = DAT_0066c19c;\r\n  ExceptionList = &pvStack_c;\r\n  iVar2 = FUN_004dc720(0x2c,0,L\".\\\\PacketDispatcher.cpp\",0x35,0xffffffcc);\r\n  local_4 = 0;\r\n  if (iVar2 == 0) {\r\n    iVar2 = 0;\r\n  }\r\n  else {\r\n    iVar2 = FUN_00577dd0();\r\n  }\r\n  local_4 = 0xffffffff;\r\n  uVar1 = FUN_00402eb0();\r\n  *(undefined2 *)(iVar2 + 0x24) = uVar1;\r\n  *(undefined1 *)(iVar2 + 0x26) = 0x41;\r\n  (*DAT_009202c8)(0x104,local_830);\r\n  uVar3 = FUN_0043feb0(0);\r\n  _swprintf(awStack_630,L\"%s\\\\%s\",&stack0xfffff7c8,uVar3);\r\n  uVar1 = FUN_0043f760(awStack_630);\r\n  *(undefined2 *)(iVar2 + 0x28) = uVar1;\r\n  FUN_00402dc0(auStack_428);\r\n  _swprintf(awStack_220,L\"%s\\\\%s\",&stack0xfffff7c8,auStack_428);\r\n  uVar1 = FUN_0043f760(awStack_220);\r\n  *(undefined2 *)(iVar2 + 0x2a) = uVar1;\r\n  uVar3 = FUN_00498000();\r\n  switch(uVar3) {\r\n  default:\r\n    *(undefined1 *)(iVar2 + 0x27) = 0x4b;\r\n    break;\r\n  case 1:\r\n    *(undefined1 *)(iVar2 + 0x27) = 0x45;\r\n    break;\r\n  case 2:\r\n    *(undefined1 *)(iVar2 + 0x27) = 0x4a;\r\n    break;\r\n  case 3:\r\n    *(undefined1 *)(iVar2 + 0x27) = 0x54;\r\n    break;\r\n  case 4:\r\n    *(undefined1 *)(iVar2 + 0x27) = 0x43;\r\n  }\r\n  FUN_005788a0();\r\n  ExceptionList = pvStack_14;\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_e5d9f9901701b01eebef008dc77a7e8fdcdcccb9b020bb0c6233ad4b063c364d",
+      "operation": "procedure_callers",
+      "parameters": {
+        "procedure": "0x4f1050"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": [
+        "0x4320a0",
+        "0x432140",
+        "0x4c02f0",
+        "0x52f910",
+        "0x52fad0"
+      ],
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_d9eb13a424b218026032e1e61ba8ebc6b79d3a47a09b65037c8061634703a6b2",
+      "operation": "procedure_callers",
+      "parameters": {
+        "procedure": "0x577dd0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": [
+        "0x4f1050",
+        "0x577ed0"
+      ],
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_c11307638427d3d480208c1b8595be70fd915d05d40542dbf29abfb1931ca759",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x4be2b0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_004be2b0(int param_1)\r\n\r\n{\r\n  int iVar1;\r\n  undefined4 uVar2;\r\n  int iVar3;\r\n  int in_ECX;\r\n  undefined4 local_4c;\r\n  undefined4 local_48;\r\n  undefined4 local_44;\r\n  undefined4 local_40;\r\n  void *pvStack_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  iVar3 = DAT_0066d0c8;\r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d8469;\r\n  pvStack_c = ExceptionList;\r\n  ExceptionList = &pvStack_c;\r\n  if ((DAT_0066d234 == 0) || (ExceptionList = &pvStack_c, iVar1 = FUN_0042ccb0(), iVar1 == 0)) {\r\n    uVar2 = 0;\r\n  }\r\n  else {\r\n    uVar2 = 1;\r\n  }\r\n  *(undefined4 *)(iVar3 + 0x60) = uVar2;\r\n  *(undefined4 *)(iVar3 + 100) = *(undefined4 *)(DAT_0066d23c + 0x30);\r\n  if (param_1 != 0) {\r\n    iVar3 = FUN_004dc720(0x24,0,L\".\\\\mappane.cpp\",0xb45,0xffffffcc);\r\n    local_4 = 0;\r\n    if (iVar3 != 0) {\r\n      FUN_00574ba0();\r\n    }\r\n    local_4 = 0xffffffff;\r\n    FUN_005788a0();\r\n  }\r\n  uVar2 = FUN_004c6e90(0x4d507175);\r\n  local_4 = 1;\r\n  FUN_005412b0(uVar2);\r\n  local_4 = 0xffffffff;\r\n  FUN_004c6d60();\r\n  local_48 = 0;\r\n  local_4c = 0;\r\n  local_40 = 0;\r\n  local_44 = 0;\r\n  FUN_004bd4c0(&local_4c,0);\r\n  FUN_004ba620();\r\n  if (*(undefined4 **)(in_ECX + 0xf8) != (undefined4 *)0x0) {\r\n    (**(code **)**(undefined4 **)(in_ECX + 0xf8))(1);\r\n  }\r\n  FUN_00535560();\r\n  FUN_005354e0();\r\n  FUN_0041b8b0();\r\n  iVar3 = FUN_00498000();\r\n  if (iVar3 == 3) {\r\n    iVar3 = FUN_004dc720(600,0,L\".\\\\mappane.cpp\",0xb58,0xffffffcc);\r\n    local_4 = 2;\r\n    if (iVar3 != 0) {\r\n      FUN_004b0890(1,0);\r\n    }\r\n  }\r\n  else {\r\n    iVar3 = FUN_004dc720(600,0,L\".\\\\mappane.cpp\",0xb5c,0xffffffcc);\r\n    local_4 = 3;\r\n    if (iVar3 != 0) {\r\n      FUN_004b0890(0,0xffffffff);\r\n    }\r\n  }\r\n  local_4 = 0xffffffff;\r\n  FUN_004b00d0();\r\n  ExceptionList = pvStack_c;\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_4eea742d9819da86e4532e0592e026386d870ddad75b25a7ba4b6d6c31ed2386",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x57de90"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_0057de90(void)\r\n\r\n{\r\n  undefined1 uVar1;\r\n  byte bVar2;\r\n  undefined2 uVar3;\r\n  undefined4 uVar4;\r\n  int in_ECX;\r\n  \r\n  uVar4 = FUN_0045aeb0();\r\n  *(undefined4 *)(in_ECX + 0x18) = uVar4;\r\n  uVar4 = FUN_0045aeb0();\r\n  *(undefined4 *)(in_ECX + 0x1c) = uVar4;\r\n  uVar1 = FUN_0045adb0();\r\n  *(undefined1 *)(in_ECX + 0x33) = uVar1;\r\n  uVar3 = FUN_0045ade0();\r\n  *(undefined2 *)(in_ECX + 0x34) = uVar3;\r\n  uVar3 = FUN_0045ade0();\r\n  *(undefined2 *)(in_ECX + 0x30) = uVar3;\r\n  bVar2 = FUN_0045adb0();\r\n  *(byte *)(in_ECX + 0x32) = bVar2;\r\n  if ((bVar2 & 8) == 0) {\r\n    *(undefined4 *)(in_ECX + 0x20) = 0;\r\n    *(undefined4 *)(in_ECX + 0x24) = 0;\r\n  }\r\n  else {\r\n    *(uint *)(in_ECX + 0x20) = *(uint *)(in_ECX + 0x18) >> 0x10;\r\n    *(uint *)(in_ECX + 0x24) = *(uint *)(in_ECX + 0x18) & 0xffff;\r\n    *(undefined4 *)(in_ECX + 0x18) = 0;\r\n  }\r\n  if ((bVar2 & 0x10) == 0) {\r\n    *(undefined4 *)(in_ECX + 0x28) = 0;\r\n    *(undefined4 *)(in_ECX + 0x2c) = 0;\r\n  }\r\n  else {\r\n    *(uint *)(in_ECX + 0x28) = *(uint *)(in_ECX + 0x1c) >> 0x10;\r\n    *(uint *)(in_ECX + 0x2c) = *(uint *)(in_ECX + 0x1c) & 0xffff;\r\n    *(undefined4 *)(in_ECX + 0x1c) = 0;\r\n  }\r\n  if ((bVar2 & 1) != 0) {\r\n    uVar1 = FUN_0045adb0();\r\n    *(undefined1 *)(in_ECX + 0x36) = uVar1;\r\n    uVar3 = FUN_0045ade0();\r\n    *(undefined2 *)(in_ECX + 0x38) = uVar3;\r\n    uVar3 = FUN_0045ade0();\r\n    *(undefined2 *)(in_ECX + 0x3a) = uVar3;\r\n    uVar3 = FUN_0045ade0();\r\n    *(undefined2 *)(in_ECX + 0x3c) = uVar3;\r\n    uVar1 = FUN_0045adb0();\r\n    *(undefined1 *)(in_ECX + 0x3e) = uVar1;\r\n    uVar4 = FUN_0045aeb0();\r\n    *(undefined4 *)(in_ECX + 0x40) = uVar4;\r\n    uVar4 = FUN_0045aeb0();\r\n    *(undefined4 *)(in_ECX + 0x44) = uVar4;\r\n    FUN_0045adb0();\r\n    return;\r\n  }\r\n  *(undefined1 *)(in_ECX + 0x36) = 0;\r\n  *(undefined2 *)(in_ECX + 0x38) = 0;\r\n  *(undefined2 *)(in_ECX + 0x3a) = 0;\r\n  *(undefined2 *)(in_ECX + 0x3c) = 0;\r\n  *(undefined1 *)(in_ECX + 0x3e) = 0;\r\n  *(undefined4 *)(in_ECX + 0x40) = 0;\r\n  *(undefined4 *)(in_ECX + 0x44) = 0;\r\n  FUN_0045adb0();\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Ghidra Listing reports a terminal call at 0x57df6b to 0x45adb0 FUN_0045adb0 (external=false, thunk=false, hasNoReturn=false); fallthrough is excluded by Ghidra's flow model. The reason for the terminal flow is not established by this observation.",
+        "Ghidra Listing reports a terminal call at 0x57df8b to 0x45adb0 FUN_0045adb0 (external=false, thunk=false, hasNoReturn=false); fallthrough is excluded by Ghidra's flow model. The reason for the terminal flow is not established by this observation.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_81837110bb5d793f3cf035a8aa14895ef56f0d0d1fc203df5a1a4bc55ade48e4",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x45adb0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nint FUN_0045adb0(void)\r\n\r\n{\r\n  undefined1 uVar1;\r\n  int iVar2;\r\n  uint3 uVar3;\r\n  int in_ECX;\r\n  \r\n  if (*(int *)(in_ECX + 0x14) == 0) {\r\n    return 0;\r\n  }\r\n  iVar2 = *(int *)(in_ECX + 0xc);\r\n  uVar3 = (uint3)((uint)iVar2 >> 8);\r\n  if (*(int *)(in_ECX + 8) < iVar2 + 1) {\r\n    *(undefined4 *)(in_ECX + 0x14) = 0;\r\n    return (uint)uVar3 << 8;\r\n  }\r\n  uVar1 = *(undefined1 *)(iVar2 + *(int *)(in_ECX + 4));\r\n  *(int *)(in_ECX + 0xc) = iVar2 + 1;\r\n  return CONCAT31(uVar3,uVar1);\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_1e16b65a9e136f5f437dcca4b2bfd2f96d58014f2879db0857c743584ea2753a",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x4430c0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nundefined8 FUN_004430c0(undefined4 param_1)\r\n\r\n{\r\n  undefined4 uVar1;\r\n  undefined4 uVar2;\r\n  undefined8 local_8;\r\n  \r\n  switch(param_1) {\r\n  case 0:\r\n    uVar2 = 0xffffffff;\r\n    break;\r\n  case 1:\r\n    FUN_0046e500(&local_8,1,0);\r\n    return local_8;\r\n  case 2:\r\n    FUN_0046e500(&local_8,0,1);\r\n    return local_8;\r\n  case 3:\r\n    uVar2 = 0;\r\n    uVar1 = 0xffffffff;\r\n    goto LAB_0044319c;\r\n  case 4:\r\n    FUN_0046e500(&local_8,1,0xffffffff);\r\n    return local_8;\r\n  case 5:\r\n    FUN_0046e500(&local_8,1,1);\r\n    return local_8;\r\n  case 6:\r\n    uVar2 = 1;\r\n    uVar1 = 0xffffffff;\r\n    goto LAB_0044319c;\r\n  case 7:\r\n    FUN_0046e500(&local_8,0xffffffff,0xffffffff);\r\n    return local_8;\r\n  case 8:\r\n    FUN_0046e500(&local_8,0,0);\r\n    return local_8;\r\n  default:\r\n    uVar2 = 0;\r\n  }\r\n  uVar1 = 0;\r\nLAB_0044319c:\r\n  FUN_0046e500(&local_8,uVar1,uVar2);\r\n  return local_8;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_072ecc634d6b42c330e3b188542fbce4d173c127404662f89daafbe8a33ba91e",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x4320a0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\n/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */\r\n\r\nvoid FUN_004320a0(void)\r\n\r\n{\r\n  int in_ECX;\r\n  char local_84 [128];\r\n  undefined4 local_4;\r\n  \r\n  local_4 = DAT_0066c19c;\r\n  FUN_0053b400(0);\r\n  FUN_0053b390(*(int *)(in_ECX + 0x30) == 2);\r\n  FUN_0054cce0();\r\n  _sprintf(local_84,\"baram\");\r\n  FUN_0053ba10(local_84,5);\r\n  FUN_00462ae0();\r\n  FUN_004f1050();\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_10975e2d319f5016f8b5b5d1d23d254c2af070d04ea9dcd1fb3cab04f533bdcb",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x432140"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\n/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */\r\n\r\nundefined4 FUN_00432140(int param_1)\r\n\r\n{\r\n  byte bVar1;\r\n  int iVar2;\r\n  undefined4 uVar3;\r\n  int iVar4;\r\n  LPCWSTR lpText;\r\n  uint uVar5;\r\n  undefined4 *puVar6;\r\n  undefined4 *puVar7;\r\n  WCHAR *lpCaption;\r\n  UINT uType;\r\n  int local_214;\r\n  WCHAR local_210 [256];\r\n  undefined4 local_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005cbfec;\r\n  local_c = ExceptionList;\r\n  local_10 = DAT_0066c19c;\r\n  ExceptionList = &local_c;\r\n  FUN_0053b300(*(undefined4 *)(param_1 + 0x24),*(undefined2 *)(param_1 + 0x28));\r\n  uVar3 = FUN_0053b360(&local_214);\r\n  FUN_0054c4f0(uVar3,0xffffffff,0);\r\n  if (local_214 == 0) {\r\n    FUN_00402da0(local_210);\r\n    uType = 0;\r\n    lpCaption = local_210;\r\n    lpText = (LPCWSTR)FUN_00498010(6);\r\n    MessageBoxW((HWND)0x0,lpText,lpCaption,uType);\r\n    FUN_00402ca0(1);\r\n  }\r\n  else {\r\n    iVar4 = FUN_004dc720(0x128,0,L\".\\\\connectpane.cpp\",0x2e7,0xffffffcc);\r\n    local_4 = 0;\r\n    if (iVar4 == 0) {\r\n      iVar4 = 0;\r\n    }\r\n    else {\r\n      iVar4 = FUN_00577330();\r\n    }\r\n    local_4 = 0xffffffff;\r\n    *(undefined1 *)(iVar4 + 0x24) = *(undefined1 *)(param_1 + 0x2a);\r\n    bVar1 = *(byte *)(param_1 + 0x2a);\r\n    puVar6 = (undefined4 *)(param_1 + 0x2b);\r\n    puVar7 = (undefined4 *)(iVar4 + 0x25);\r\n    for (uVar5 = (uint)(bVar1 >> 2); uVar5 != 0; uVar5 = uVar5 - 1) {\r\n      *puVar7 = *puVar6;\r\n      puVar6 = puVar6 + 1;\r\n      puVar7 = puVar7 + 1;\r\n    }\r\n    for (uVar5 = bVar1 & 3; uVar5 != 0; uVar5 = uVar5 - 1) {\r\n      *(undefined1 *)puVar7 = *(undefined1 *)puVar6;\r\n      puVar6 = (undefined4 *)((int)puVar6 + 1);\r\n      puVar7 = (undefined4 *)((int)puVar7 + 1);\r\n    }\r\n    FUN_005788a0();\r\n    FUN_004f1050();\r\n    iVar4 = FUN_00498000();\r\n    if (iVar4 == 3) {\r\n      iVar4 = FUN_004dc720(0x624,0,L\".\\\\connectpane.cpp\",0x2f0,0xffffffcc);\r\n      local_4 = 1;\r\n      if (iVar4 == 0) {\r\n        iVar4 = 0;\r\n      }\r\n      else {\r\n        iVar4 = FUN_005712e0();\r\n      }\r\n      iVar2 = DAT_0066d100;\r\n      local_4 = 0xffffffff;\r\n      _wcsncpy((wchar_t *)(iVar4 + 0x24),(wchar_t *)(DAT_0066d100 + 0xc),0xff);\r\n      *(undefined2 *)(iVar4 + 0x222) = 0;\r\n      _wcsncpy((wchar_t *)(iVar4 + 0x224),(wchar_t *)(iVar2 + 0x20c),0xff);\r\n      *(undefined2 *)(iVar4 + 0x422) = 0;\r\n      _wcsncpy((wchar_t *)(iVar4 + 0x424),(wchar_t *)(iVar2 + 0x40e),0xff);\r\n      *(undefined2 *)(iVar4 + 0x622) = 0;\r\n      FUN_005788a0();\r\n    }\r\n  }\r\n  ExceptionList = local_c;\r\n  return 1;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_f046811818b8e6033851f506b8ecbb28ba11ec1be4a0736f877334850286dd20",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x4c02f0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_004c02f0(int param_1)\r\n\r\n{\r\n  undefined4 uVar1;\r\n  int iVar2;\r\n  undefined4 uVar3;\r\n  int in_ECX;\r\n  undefined4 uVar4;\r\n  undefined4 uVar5;\r\n  undefined4 uVar6;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d8716;\r\n  local_c = ExceptionList;\r\n  if (param_1 == 0) {\r\n    ExceptionList = &local_c;\r\n    FUN_00402ca0(1);\r\n    ExceptionList = local_c;\r\n    return;\r\n  }\r\n  ExceptionList = &local_c;\r\n  FUN_0053b300(*(undefined4 *)(in_ECX + 0x78),*(undefined2 *)(in_ECX + 0x7c));\r\n  uVar1 = FUN_0053b360(&param_1);\r\n  FUN_0054c4f0(uVar1,0xffffffff,0);\r\n  if (param_1 == 0) {\r\n    iVar2 = FUN_004dc720(0x18,0,L\".\\\\mappane.cpp\",0x191f,0xffffffcc);\r\n    local_4 = 0;\r\n    if (iVar2 == 0) {\r\n      uVar1 = 0;\r\n    }\r\n    else {\r\n      uVar1 = FUN_004b5160(FUN_004c02f0,0,in_ECX);\r\n    }\r\n    local_4 = 0xffffffff;\r\n    iVar2 = FUN_004dc720(0x5c,0,L\".\\\\mappane.cpp\",0x1920,0xffffffcc);\r\n    local_4 = 1;\r\n    if (iVar2 != 0) {\r\n      uVar6 = 1;\r\n      uVar5 = 0;\r\n      uVar4 = 0;\r\n      uVar3 = FUN_00498010(0x10);\r\n      FUN_00442570(uVar3,uVar4,uVar5,uVar6,uVar1);\r\n    }\r\n    ExceptionList = local_c;\r\n    return;\r\n  }\r\n  FUN_004f1050();\r\n  FUN_004be2b0(0);\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_3f1b397f588aed086cd43804b10a12982d7cc714b9efc543dff37da65bb047f0",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x577dd0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_00577dd0(void)\r\n\r\n{\r\n  undefined4 *in_ECX;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005e65e8;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_00578600(0);\r\n  *in_ECX = &PTR_FUN_006144f0;\r\n  in_ECX[3] = &PTR_LAB_006144e4;\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_cfe90a179271db40ddb7f115ba91a0a2547eb6c3827911709fe5e36d85d521f5",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x577e80"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_00577e80(void)\r\n\r\n{\r\n  int in_ECX;\r\n  \r\n  FUN_0045ab40(*(undefined2 *)(in_ECX + 0x18));\r\n  FUN_0045ab00(*(undefined1 *)(in_ECX + 0x1a));\r\n  FUN_0045ab00(*(undefined1 *)(in_ECX + 0x1b));\r\n  FUN_0045ab40(*(undefined2 *)(in_ECX + 0x1c));\r\n  FUN_0045ab40(*(undefined2 *)(in_ECX + 0x1e));\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    }
+  ]
+}

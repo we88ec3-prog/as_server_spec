@@ -329,7 +329,7 @@
     },
     {
       "path": "03-analysis-requests/A-011-map-monster-placement-followup.md",
-      "sha256": "9caebec2ba22fd7566113d17041a1b9531896dec1b6e001172fc6758576ef4bb"
+      "sha256": "1cb1d017043a0885c768316211f74d87c2c7124c04a10f557ddf11d9d5334b93"
     },
     {
       "path": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
@@ -585,7 +585,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-basic-attack-motion-action-and-death.md",
-      "sha256": "9ce74f9494c55b50578331b55158e306d2d6684aa5fbc22c1b3ce8927438c9ba"
+      "sha256": "0ade5ddcff61ff90b16b886b785797d2a7810ad75794a7a432175e7e6d178e62"
     },
     {
       "path": "04-analysis-integration/20261101-c44-play-disconnect.md",
@@ -597,7 +597,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-damage-number-mos-and-action-list.md",
-      "sha256": "0dc0876841a51a12e2d3c1dcb88253f2d96c5a4c7dc246489069a170830ffb5d"
+      "sha256": "2569ffdf4e3ebaa7b8d1bd4318f3c843a30baa0f1f290556d058284cdffa2438"
     },
     {
       "path": "04-analysis-integration/20261101-default-space-attack.md",
@@ -617,7 +617,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-native-combat-target-and-effect.md",
-      "sha256": "3cf850bbeccca668684f944c6b4d4386d0d4072a861ab7b25da56312a4242a53"
+      "sha256": "b964553f64ba547dfe223db3302a40776ace2228ff0316907a87efe44784d93b"
     },
     {
       "path": "04-analysis-integration/20261101-native-map-content-and-school-transfer.md",
@@ -720,8 +720,16 @@
       "sha256": "e6de147cf4d03dcdfadecdc30ea3ae122c1fe216e6e9fc8efab6badb4763466d"
     },
     {
+      "path": "04-analysis-integration/20261102-first-shortcut-npc-tail-school-music-and-reconnect.md",
+      "sha256": "78ccc98b30b625fed50b32810ad33207eccc0b0a3c44bec27b406b5291d28360"
+    },
+    {
       "path": "04-analysis-integration/20261102-native-shortcut-followup-and-npc-miss.md",
-      "sha256": "797c6412fe1bd64d294c29994dfdb071abb34ed9b2865129b3d219cc9aacc3bf"
+      "sha256": "5cf39dbf689eb6bd9836645e2ecc913cc49e82710204852143597474c3c9fefa"
+    },
+    {
+      "path": "04-analysis-integration/20261102-school-room-and-exit-scope.md",
+      "sha256": "59ac3d6d07b4c18c1bc45a7fd386fdeb027111523364779b3485391f062a629a"
     },
     {
       "path": "04-analysis-integration/20261102-town-guide-role-conflicts-and-space-defaults.md",
@@ -892,6 +900,10 @@
       "sha256": "c5dc595d3f68f6669b0c1412524ff5c45f07465f4b197d4c8885b4ab17dc5d72"
     },
     {
+      "path": "04-analysis-integration/first-shortcut-tail-bgm-reconnect-validation-20261102.json",
+      "sha256": "a55f7d350d9eff626b54ea269c80383a4e66d6e3c17bb80bf11bdafe46d11fdf"
+    },
+    {
       "path": "04-analysis-integration/game-systems.md",
       "sha256": "4a271ed6328d9133fbd857149a6ad4989c707e3365fc721cc605fe4169e1e8ea"
     },
@@ -936,12 +948,20 @@
       "sha256": "c7677e3fd1aeba6ab065e37c0bb704287d5da5c037d55d4d005eb2a4785d527a"
     },
     {
+      "path": "04-analysis-integration/native-first-shortcut-tail-bgm-reconnect-20261102.json",
+      "sha256": "83321117efdfa4c94febcacfa2185f41dde5544ae89fe8de63e2eb834e4a9f1b"
+    },
+    {
       "path": "04-analysis-integration/native-map-catalog-20261101.json",
       "sha256": "9929d5b87c89c859888232bea2ad51717b3e9e34af3feb1b8e20f64c03d1b19f"
     },
     {
       "path": "04-analysis-integration/native-map-title-provenance-20261101.json",
       "sha256": "f8b3021bf680a12f91bdf6912b94b48192f4b9d0db6ab6304d19555febaf81e4"
+    },
+    {
+      "path": "04-analysis-integration/native-minimap-exit-leads-20261102.json",
+      "sha256": "8a81d3e7aec926f4704109cda572e42258df2fe6940aa64ea8a5f243f1ca2a36"
     },
     {
       "path": "04-analysis-integration/native-miss-c65-20261102.json",
@@ -973,7 +993,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "5d67fe6d59e2dd6c63fbc4f516604620efcdf28d5cfab49ca6ef1d39bb5c5b76"
+      "sha256": "61f69cefe3a1cec08b0eaafbc5d808c5bc5f153503c5d4f01bf84ee6d36b73c1"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1014,6 +1034,14 @@
     {
       "path": "04-analysis-integration/scenarios.md",
       "sha256": "22ec8f4d4eba2caab2f312c0ad19ab2ff42c62682326fa9cf1a9fcaf21034740"
+    },
+    {
+      "path": "04-analysis-integration/school-map-exit-check-20261102.json",
+      "sha256": "9306139c5f4cf9b9850a715fa1c1bc223092667756b9fb3efe7a1536f39c1405"
+    },
+    {
+      "path": "04-analysis-integration/school-room-candidates-20261102.json",
+      "sha256": "dfd60b58d093b0f82e93510b6f4b1c70c309cd1a8610fb4da5fc23fc2cb85618"
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
@@ -1073,7 +1101,7 @@
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "bcad898dbdee358bec962567dffcfe12d66e70d51997abe7eaf55de61c13d9bc"
+      "sha256": "a10c41af365da746302c910e4da14f2b93652328fa049694d64f4c6714f76cd2"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
@@ -1101,7 +1129,7 @@
     },
     {
       "path": "05-conformance/A-009-combat-test-plan.md",
-      "sha256": "7634467b9557c7c6d5853ecbd73820f6fba72d94157c5b6b5c1b235e5b09938a"
+      "sha256": "cc5604574eb8070e2b5fd24a45f1a5bf73c5654ecdee34ffdd78de72316efad5"
     },
     {
       "path": "05-conformance/A-010-skill-cast-lifecycle-test-plan.md",
@@ -1269,7 +1297,7 @@
     },
     {
       "path": "task_a/roy2/A-009-analysis.md",
-      "sha256": "af21be101aa75502f752fad4260d59f3852857ae29666683c8ac80b58c99e267"
+      "sha256": "246a5e8cb339e91a8e8af99f369ffeec9f19ac1b6ef7925865d98b632f993f52"
     },
     {
       "path": "task_a/roy2/A-010-analysis.md",
@@ -1365,7 +1393,7 @@
     },
     {
       "path": "task_a/roy2/a009_combat_codec.py",
-      "sha256": "bfeff91a6c933caf5bfff302895e13da5b47c14a21efbd2b2d5d93f696fb3ce3"
+      "sha256": "eead525998817cbc53ebec42cbdea1266f5171017d6662682796bfd236df20a6"
     },
     {
       "path": "task_a/roy2/a009_native_probe.py",
@@ -1461,7 +1489,7 @@
     },
     {
       "path": "task_a/roy2/test_a009_combat.py",
-      "sha256": "2bd44f4fb19fe3909fb9854af414feddb52e277991c2dd7c349b09e3141b2ea5"
+      "sha256": "2ba54f7fcf453ece631789abdcb0a98a631f9595381a1db999dbc26d3821f41b"
     },
     {
       "path": "task_a/roy2/test_a010_skill_codec.py",

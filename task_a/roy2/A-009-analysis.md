@@ -24,7 +24,10 @@
 
 ## 二、S13 DamageEffect 逐欄 Native Reader
 
-`0x57DE93/0x57DE9D` 依次 `0x45AEB0`（BE u32），`0x57DEA7` 讀 u8、`0x57DEB1/0x57DEBC` 讀 BE u16、`0x57DEC7` 讀 flags u8。**基礎 decoded body 長度 14 bytes**：
+2026-11-02更正：[原生必讀尾碼與NPC實機失敗追查](../../04-analysis-integration/20261102-first-shortcut-npc-tail-school-music-and-reconnect.md)。
+2026-10-31的14B測試結果屬歷史錯誤邊界；當前codec及15項測試已改為15B最小長度。
+
+`0x57DE93/0x57DE9D` 依次 `0x45AEB0`（BE u32），`0x57DEA7` 讀 u8、`0x57DEB1/0x57DEBC` 讀 BE u16、`0x57DEC7` 讀 flags u8。固定欄位14 bytes後，**兩分支都必讀tail u8，最小 decoded body為15 bytes**（2026-11-02更正）：
 
 |wire offset|type|Packet 本地欄位／證據|
 |---:|---|---|
@@ -38,9 +41,9 @@
 Flags 分支：
 - `flags & 0x08`（`0x57DECC`）：**不另消耗 wire bytes**；把第一個 u32 拆成高16與低16（local +0x20/+0x24），清空本地 +0x18。此處可證「混合/packed ID representation」，**不能**由此宣告它一定是 attacker/target。
 - `flags & 0x10`（`0x57DEF6`）：同理把第二個 u32 拆成高16與低16（local +0x28/+0x2C）、清 +0x1C，**不新增 wire bytes**。
-- `flags & 0x01`（`0x57DF1B`）：額外 **17 bytes**，依序 u8(+0x36)、BE u16×3(+0x38,+0x3A,+0x3C)、u8(+0x3E)、BE u32×2(+0x40,+0x44)、u8（reader tail-call）。**最小/此分支總 decoded body 14/31 bytes**。其他 flags 的完整業務語意未知，不可當作命中/暴擊/治療 enum。
+- `flags & 0x01`（`0x57DF1B`）：額外16 bytes，依序 u8(+0x36)、BE u16×3(+0x38,+0x3A,+0x3C)、u8(+0x3E)、BE u32×2(+0x40,+0x44)。最後u8兩分支都消耗，不屬可選資料。**最小/擴充分支總 decoded body為15/31 bytes**。其他 flags 的完整業務語意未知，不可當作命中/暴擊/治療 enum。
 
-高風險實作錯誤：把 bit3/bit4 的拆分當成額外 4 bytes，會使後續欄位全部錯位；把可選 bit0 永遠當固定 17 bytes，會使不帶附加效果的普通 S13 裁切錯誤。
+高風險實作錯誤：把 bit3/bit4 的拆分當成額外 4 bytes，會使後續欄位全部錯位；把最後u8只放在bit0分支，會漏掉未擴充S13的必讀尾碼。原先14B合成向量與codec均已更正，不能繼續引用舊通過結果證明native可解析。
 
 ## 三、C3D / S3D subtype 多態
 

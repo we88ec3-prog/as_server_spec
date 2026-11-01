@@ -15,12 +15,14 @@ class CombatTest(unittest.TestCase):
         for b in (b"",b"\0"*3,b"\0"*5):
             with self.assertRaises(ValueError): s5f_die(b)
     def test_damage_base(self):
-        b=U32(0x10203040)+U32(0x50607080)+b"\x04"+U16(0x1234)+U16(0x9876)+b"\0"
+        b=U32(0x10203040)+U32(0x50607080)+b"\x04"+U16(0x1234)+U16(0x9876)+b"\0\xcc"
         x=s13_damage_effect(b)
-        self.assertEqual(len(b),14)
+        self.assertEqual(len(b),15)
+        self.assertEqual(x["tail_u8"],0xcc)
+        with self.assertRaises(ValueError): s13_damage_effect(b[:-1])
         self.assertEqual((x["field34_u16"],x["field30_u16"]),(0x1234,0x9876))
     def test_damage_split_bits_do_not_read_extra(self):
-        b=U32(0x12345678)+U32(0x9abcdef0)+b"\x07"+U16(2)+U16(3)+b"\x18"
+        b=U32(0x12345678)+U32(0x9abcdef0)+b"\x07"+U16(2)+U16(3)+b"\x18\0"
         x=s13_damage_effect(b)
         self.assertEqual(x["opaque_1_split"],[0x1234,0x5678])
         self.assertEqual(x["opaque_2_split"],[0x9abc,0xdef0])
@@ -29,12 +31,13 @@ class CombatTest(unittest.TestCase):
         b+=b"\x05"+U16(6)+U16(7)+U16(8)+b"\x09"+U32(10)+U32(11)+b"\x0c"
         self.assertEqual(len(b),31)
         self.assertEqual(s13_damage_effect(b)["extra"]["opaque_u32"],[10,11])
+        self.assertEqual(s13_damage_effect(b)["tail_u8"],12)
     def test_damage_cut_each_byte(self):
         b=U32(1)+U32(2)+b"\0"+U16(3)+U16(4)+b"\x01"+b"\x05"+U16(6)+U16(7)+U16(8)+b"\x09"+U32(10)+U32(11)+b"\x0c"
         for n in range(len(b)):
             with self.subTest(n=n),self.assertRaises(ValueError): s13_damage_effect(b[:n])
     def test_damage_extra_rejected(self):
-        with self.assertRaises(ValueError): s13_damage_effect(b"\0"*15)
+        with self.assertRaises(ValueError): s13_damage_effect(b"\0"*16)
     def test_battle_no_payload(self):
         for subtype in (1,8,12):
             self.assertEqual(s3d_battle_simple(bytes([subtype]))["subtype"],subtype)

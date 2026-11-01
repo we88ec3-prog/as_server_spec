@@ -1,0 +1,747 @@
+{
+  "map0_sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+  "scope": "resource presence and header only; not original tutorial role or exit links",
+  "maps": [
+    {
+      "map_ref": 6,
+      "bytes": 36969,
+      "sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760",
+      "banks_le": [
+        1,
+        1,
+        4
+      ],
+      "width": 60,
+      "height": 60
+    },
+    {
+      "map_ref": 7,
+      "bytes": 43520,
+      "sha256": "947984db169c84df1766babc52b0b2d581b6384d6eb4e1013d367530eaaa3f76",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 8,
+      "bytes": 43317,
+      "sha256": "25423742c1e670c722ccb6250c81ed18be258a2243eecd8adbda0f794ce0d9cb",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 9,
+      "bytes": 43282,
+      "sha256": "ee991d0c275a42a55f1da649412ee5254bfa6559b3c5f13ce7d6d0ad6a830f56",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 10,
+      "bytes": 43534,
+      "sha256": "fe67686e2eb72c18dd58ce23c8f0869e9b013bb9130e8bca3e497fc88f4331ec",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 11,
+      "bytes": 43226,
+      "sha256": "7a70ce3b27f01c0499eb3c6c6f98fda65d47266f5eee2f7354db6690687ec966",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 12,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 13,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 14,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 15,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 16,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 17,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 18,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 19,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 20,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 21,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 22,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 23,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 24,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 25,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 26,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 27,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 28,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 29,
+      "bytes": 43219,
+      "sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 30,
+      "bytes": 43184,
+      "sha256": "1d6c5a9863f420e0640c00efd21aac1305822b50d132aab9b0d02c7d1c71deed",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 31,
+      "bytes": 43184,
+      "sha256": "1d6c5a9863f420e0640c00efd21aac1305822b50d132aab9b0d02c7d1c71deed",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 32,
+      "bytes": 43184,
+      "sha256": "1d6c5a9863f420e0640c00efd21aac1305822b50d132aab9b0d02c7d1c71deed",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 33,
+      "bytes": 43184,
+      "sha256": "1d6c5a9863f420e0640c00efd21aac1305822b50d132aab9b0d02c7d1c71deed",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 34,
+      "bytes": 43184,
+      "sha256": "1d6c5a9863f420e0640c00efd21aac1305822b50d132aab9b0d02c7d1c71deed",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 35,
+      "bytes": 43184,
+      "sha256": "1d6c5a9863f420e0640c00efd21aac1305822b50d132aab9b0d02c7d1c71deed",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 36,
+      "bytes": 43184,
+      "sha256": "1d6c5a9863f420e0640c00efd21aac1305822b50d132aab9b0d02c7d1c71deed",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 37,
+      "bytes": 43184,
+      "sha256": "1d6c5a9863f420e0640c00efd21aac1305822b50d132aab9b0d02c7d1c71deed",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 38,
+      "bytes": 43184,
+      "sha256": "1d6c5a9863f420e0640c00efd21aac1305822b50d132aab9b0d02c7d1c71deed",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 39,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 40,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 41,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 42,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 43,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 44,
+      "bytes": 14499,
+      "sha256": "210cb290c8dbe589df26c4cf748009aa778f2433604f2706620a6a18e07ca8e2",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 45,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 46,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 47,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 48,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 49,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 50,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 51,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 52,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 53,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 54,
+      "bytes": 14499,
+      "sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 35,
+      "height": 40
+    },
+    {
+      "map_ref": 56,
+      "bytes": 43254,
+      "sha256": "2cace3216da0e81ec88377dfa532cbf4c02597c0f3653acd896960ed4b312123",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 57,
+      "bytes": 43254,
+      "sha256": "d02ca1422d397301937dc8bba37e4662e92c6039fc0f203a8dcd990f2828ea94",
+      "banks_le": [
+        0,
+        0,
+        0
+      ],
+      "width": 60,
+      "height": 70
+    },
+    {
+      "map_ref": 58,
+      "bytes": 37242,
+      "sha256": "0302cba188e3697a9c6ac7e4b9c87286fa09437161de4d84addffca6745fd5cb",
+      "banks_le": [
+        1,
+        1,
+        4
+      ],
+      "width": 60,
+      "height": 60
+    }
+  ],
+  "new_preview_metadata": {
+    "scope": "Offline 1/8-scale primary paletted channels and Y-sorted flag0 static objects; not native Client acceptance",
+    "limits": "No shadows, animated objects, alternate channels, NPCs, lighting, precise occlusion, camera or collision proof. Alpha/RGB565 are research decoding; visual similarity does not establish original town-map binding.",
+    "tool_sha256": "f1db3085aaed3d99c1934369e902c12a1abd949d4e96075181f509e20c003e88",
+    "sources": {
+      "0:Tile": {
+        "archive": "World00.dat",
+        "archive_sha256": "01b1afc14daf4ca030004f825d8af39ff6667d184431a5aa9aa9b67a81160ef3",
+        "member": "TS_000_Tile.ypf",
+        "member_sha256": "51148ec2aba6b0937deff0215caa3ffbfaf164d1aeb1da225346f5fd61972790"
+      },
+      "0:Static": {
+        "archive": "World00.dat",
+        "archive_sha256": "01b1afc14daf4ca030004f825d8af39ff6667d184431a5aa9aa9b67a81160ef3",
+        "member": "TS_000_Static.ypf",
+        "member_sha256": "0667fa221f24ad227b3c7998ebafd986b7a6f26866c569556c964f74c120e495"
+      }
+    },
+    "maps": [
+      {
+        "map_ref": 8,
+        "map_sha256": "25423742c1e670c722ccb6250c81ed18be258a2243eecd8adbda0f794ce0d9cb",
+        "width": 60,
+        "height": 70,
+        "objects": 31,
+        "painted_static": 30,
+        "omitted_animated": 1,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-00008-static-overview.png"
+      },
+      {
+        "map_ref": 9,
+        "map_sha256": "ee991d0c275a42a55f1da649412ee5254bfa6559b3c5f13ce7d6d0ad6a830f56",
+        "width": 60,
+        "height": 70,
+        "objects": 26,
+        "painted_static": 23,
+        "omitted_animated": 3,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-00009-static-overview.png"
+      },
+      {
+        "map_ref": 10,
+        "map_sha256": "fe67686e2eb72c18dd58ce23c8f0869e9b013bb9130e8bca3e497fc88f4331ec",
+        "width": 60,
+        "height": 70,
+        "objects": 62,
+        "painted_static": 59,
+        "omitted_animated": 3,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-00010-static-overview.png"
+      },
+      {
+        "map_ref": 11,
+        "map_sha256": "7a70ce3b27f01c0499eb3c6c6f98fda65d47266f5eee2f7354db6690687ec966",
+        "width": 60,
+        "height": 70,
+        "objects": 18,
+        "painted_static": 15,
+        "omitted_animated": 3,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-00011-static-overview.png"
+      },
+      {
+        "map_ref": 12,
+        "map_sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+        "width": 60,
+        "height": 70,
+        "objects": 17,
+        "painted_static": 16,
+        "omitted_animated": 1,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-00012-static-overview.png"
+      },
+      {
+        "map_ref": 13,
+        "map_sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+        "width": 60,
+        "height": 70,
+        "objects": 17,
+        "painted_static": 16,
+        "omitted_animated": 1,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-00013-static-overview.png"
+      },
+      {
+        "map_ref": 14,
+        "map_sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+        "width": 60,
+        "height": 70,
+        "objects": 17,
+        "painted_static": 16,
+        "omitted_animated": 1,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-00014-static-overview.png"
+      },
+      {
+        "map_ref": 15,
+        "map_sha256": "19aa530e3c13d4c56e19389c2a8400ca0b9241079959101b89ba161661d970ee",
+        "width": 60,
+        "height": 70,
+        "objects": 17,
+        "painted_static": 16,
+        "omitted_animated": 1,
+        "clipped_static": 0,
+        "unsupported_static": [],
+        "output": "map-00015-static-overview.png"
+      }
+    ]
+  }
+}

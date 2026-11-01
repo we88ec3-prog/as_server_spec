@@ -1,5 +1,8 @@
 # 普攻動作、初始技能項目與原生死亡投影
 
+2026-11-02後續：[首次快捷鍵／NPC尾碼／學校BGM修正](20261102-first-shortcut-npc-tail-school-music-and-reconnect.md)
+已撤除下述歷史3秒C44選取政策，C0E改取面向相鄰格。未擴充S13亦更正為15B。
+
 接續[數字／摩斯追查](20261101-damage-number-mos-and-action-list.md)。本輪只改Server、
 測試與規格，不修改原始或診斷Client EXE。尚待diagnostic-copy集中GUI驗證。
 

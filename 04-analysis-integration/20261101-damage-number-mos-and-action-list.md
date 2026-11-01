@@ -7,7 +7,8 @@
 
 ## S13傷害數字的正面證據
 
-原S13基礎14B；flags bit0追加17B，不能把傷害量塞入基礎effect selector。
+S13固定欄位14B後必須讀tail u8，未擴充總長15B；flags bit0追加16B，擴充總長31B
+（2026-11-02依0x57de90未擴充分支更正）。不能把傷害量塞入基礎effect selector。
 原件 `0x4a4b00` 依flags bit0，將完整packet+0x4c傳給 `0x4b6850`；
 後者選擇數字樣式並建立 `0x474390` 的HitNumber候選物件。逐指令確認
 `0x474435..0x474444` 讀取第三個stack參數、保存於物件+0x2c，送入

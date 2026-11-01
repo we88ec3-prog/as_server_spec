@@ -2664,7 +2664,7 @@
       "name": "DamageEffect",
       "system": "SYS-COMBAT",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u32 opaque1,BE u32 opaque2,u8 kind,BE u16 field34,BE u16 field30,u8 flags [14B]; flags&0x08 reinterprets first u32 high/low u16, flags&0x10 reinterprets second u32 high/low u16 (no extra wire); flags&0x01 adds u8,3xBE u16,u8,2xBE u32,u8 [17B], total 31B. Numeric effects not necessarily authoritative HP delta.",
+      "layout": "BE u32 opaque1,BE u32 opaque2,u8 motion,BE u16 effectSelector,BE u16 animationParameter,u8 flags [14B fixed fields]; flags&0x08/0x10 reinterpret the corresponding existing u32 as two u16 without extra bytes; flags&0x01 adds u8,3xBE u16,u8,2xBE u32 [16B]; mandatory trailing u8 on BOTH branches, total15B/31B. Corrected2026-11-02 from original reader0x57DE90. Effects are not authoritative HP transactions.",
       "client_entry": "SDamageEffectPacket ctor 0x57DDE0/push0x13; parser 0x57DE90; bit flags at 0x57DECC,0x57DEF6,0x57DF1B",
       "state_precondition": "Combat event projection, but original packet ordering/receiver UI not completely proven",
       "related_packets": [

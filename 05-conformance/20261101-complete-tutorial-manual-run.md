@@ -103,3 +103,10 @@ NPC邊緣觀察另依[原生窗格修正](../04-analysis-integration/20261101-na
 下輪只需集中確認：快捷列1空揮後仍能走動／再攻擊摩斯、鄰近NPC普攻是否MISS且
 不增加打怪進度、命中與死亡音效。空白鍵若仍無效，保留Client／Server給被動讀取；
 不能只憑C65修復而把空白鍵列為成功。不必重創、重設金鑰或再重複NPC南往北案例。
+
+最新實機回報：NPC完全沒有揮拳、首次快捷鍵命中依賴先Space命中、學校登入無BGM。
+[更正與集中驗收](../04-analysis-integration/20261102-first-shortcut-npc-tail-school-music-and-reconnect.md)
+補足未擴充S13必讀尾碼（15B）、C0E依面前格選取、額外地圖音樂繼承與C00起始重連。
+下一輪請同時確認面向相鄰新生摩斯直接按1造成第一次傷害、對面前NPC按Space揮拳及MISS，
+並聽學校BGM；接著完成Life／War、選職、Departure出發與同Client重登。
+當前學校僅接Map7，門／其他室內圖未接線，不能把該重建路線當成原版完整圖數。

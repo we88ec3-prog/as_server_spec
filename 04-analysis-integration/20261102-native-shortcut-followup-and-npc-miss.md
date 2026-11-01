@@ -63,10 +63,14 @@ amount0經 `0x473790` 得1位，`0x4736d0` 取0，對應這些單 frame 組的fr
 ## 教學 NPC 攻擊重建政策
 
 對已發普攻、當前 map/revision、確實已投影的設定 NPC，且距離 Chebyshev<=1，
-回 S13 `ReferenceA=1,ReferenceB=NPC,Motion4,Effect0,Animation100,Flags0`，body14。
-範例 ref0x1001：`00000001 00001001 04 0000 0064 00`。
+回 S13 `ReferenceA=1,ReferenceB=NPC,Motion4,Effect0,Animation100,Flags0,Tail0`，body15。
+範例 ref0x1001：`00000001 00001001 04 0000 0064 00 00`。
+2026-11-02更正：先前錯記body14，漏掉reader在未擴充分支仍必讀的尾碼，
+使用者實測NPC完全不揮拳；舊版synthetic/TCP通過不足以證明native可解析。
 目前涵蓋設定的招募員／講師／選職與出發 NPC，不泛化玩家或任意 object ref。
 最近3秒 C44 選取政策可供 C0E 普攻選取 NPC；這仍是重建政策，非空白鍵目標規則。
+此為本頁初版政策，後續[首次命中修正](20261102-first-shortcut-npc-tail-school-music-and-reconnect.md)
+已撤除最近選取依賴，改依當下權威位置／面向一格找目標，不需先C44或C13。
 開啟對話時不攻擊；NPC miss、空揮與真命中共用普攻呈現冷卻。
 MISS 不進扣血交易，不寫 MP／SP／HP，不建立 training hit或practice里程碑。
 NPC 攻擊必定 MISS 的規則來自使用者回憶及本階段教學無敵政策，並非找回原服命中率。

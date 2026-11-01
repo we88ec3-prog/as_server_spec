@@ -45,3 +45,8 @@
 的正面綁定：6001／7001的JPG分別標魔界村／海賊村，Script列為闇系都市；
 18001則標萊貝雅中立城。不得因海岸或積雪形態相似，把它們直接當作所需光系城市。
 也須釐清HELP、教學Script與導覽圖是否為相同版本的已實作設定，保留無法判定的分支。
+
+使用者另指出左側地圖及出口hover會換游標；新增
+[室內圖／出口查證](../04-analysis-integration/20261102-school-room-and-exit-scope.md)。
+MiniMap已找到MinimapLocation座標／顯示類型consumer，但目的MAP／XY與cursor分支
+尚未確定。Map6..12的MAP附加段沒有非零8B／16B記錄，不能據此排除其他metadata。
