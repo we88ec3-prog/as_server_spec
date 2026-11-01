@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 創角完成提示與首次退出例外
+
+使用者確認C44修正後持續在線、重登位置正確；另回報Born後空白框與新角色退出卡住。補最終S02原生MessageDialog作用、C0B正常退出合約，以及Windows當機與快捷列數未初始化證據。royfd3ffeb提供非空提示、正常退出分類及獨立Client相容副本；265項測試與本機TCP通過，副本GUI重測待完成。原始Client正式CT不升級。詳見[分析與合約](../04-analysis-integration/20261101-creation-notice-and-quit.md)。
+
 > 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](../04-analysis-integration/c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
 
 

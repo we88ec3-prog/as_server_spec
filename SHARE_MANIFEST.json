@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "4a715a4f2afe8408c4423a3ae78fc004eef96f65c75910df94edc91a1c5f1bd8"
+      "sha256": "0194d1ba42fb0e999815208bed1f5f805db2e0c56473afef089d8c91646a095e"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -441,7 +441,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "5a4ed4b0a0939fc14b8d68a6c00721a7adb704d44190c1b88c0ad74472a24464"
+      "sha256": "d7004afa209173758eeb35bbf029c6d3740927bcf3cf63c2a6b45d27af258b7f"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -450,6 +450,10 @@
     {
       "path": "04-analysis-integration/20261101-c44-play-disconnect.md",
       "sha256": "dbc9d417984d478dbe4a0d2091d61fb8dd8705f705ef917f4749d0295cb52a15"
+    },
+    {
+      "path": "04-analysis-integration/20261101-creation-notice-and-quit.md",
+      "sha256": "0330549fe9bfb5abe335cdaf03bd0c78974a423a5a8f72ab2363134a29f2034d"
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
@@ -861,7 +865,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "06bc8a26f7184bb6cf815f727c283fdaf421d497d2b2220f223f450b576c5301"
+      "sha256": "6eeb38b0ca674957b54b19d69056f252138c64e12bfc585b6233d0f0a46b87d9"
     },
     {
       "path": "AGENTS.md",

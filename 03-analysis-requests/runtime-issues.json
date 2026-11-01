@@ -300,7 +300,7 @@
       "id": "RI-009",
       "title": "創角進場可移動後，C44物件檢視被當未知封包關閉",
       "priority": "P0",
-      "status": "c44-handler-implemented-diagnostic-retest-pending",
+      "status": "stable-play-and-relogin-confirmed-diagnostic-client",
       "runtime_scope": "2026-11-01 16:29..16:32 UTC+8; diagnostic Client e5f7b1ac...; Server067d129",
       "source": "User report and private redacted packet/close journals plus read-only SQLite metadata",
       "analysis_requests": [
@@ -319,14 +319,58 @@
         "At elapsed168.9s C2S C44/body4 closed as unknown-opcode, not idle timeout or C35 mismatch.",
         "Original REA confirms CShowObjectInfo opcode44 and one BEu32 target. Roy51bed5b implements strict native-trial WorldReady request parsing without invented S2C detail or authority changes;264 tests and real TCP passed."
       ],
-      "next_action": "User sustain movement and hover, then relogin using same trial Server to verify saved position; keep Server logs.",
+      "next_action": "Retain bounded C44 handling; investigate new RI-010/011 independently.",
       "native_client_validation": "not-run",
-      "diagnostic_client_validation": "before-fix creation/Born/movement observed; after-fix stable play/relogin pending",
+      "diagnostic_client_validation": "User confirms sustained online play and correct saved position on relogin with Server51bed5b; new creation-notice and exit issues tracked separately.",
       "report": "04-analysis-integration/20261101-c44-play-disconnect.md"
+    },
+    {
+      "id": "RI-010",
+      "title": "Born歡迎紙張後出現空白創角完成提示",
+      "priority": "P1",
+      "status": "implemented-diagnostic-gui-retest-pending",
+      "source": "User feedback plus original-EXE REA evidence and local diagnostic runtime correlation",
+      "evidence_classification": [
+        "user-reported",
+        "shipped-artifact-static",
+        "diagnostic-client-runtime",
+        "server-policy-design"
+      ],
+      "current_facts": [
+        "User screenshots show a welcome paper then a small blank OK dialog.",
+        "Original MakeInfo state1E Region3 unconditionally displays final S02.message; empty success message explains blank dialog.",
+        "Royfd3ffeb keeps initial C02 S02 empty, sends nonempty CP950 creation completion text only after committed C04;265 tests and real TCP smoke pass."
+      ],
+      "report": "04-analysis-integration/20261101-creation-notice-and-quit.md",
+      "native_client_validation": "not-run",
+      "next_action": "One user test: create, close both notices, walk, exit, relogin with saved position, exit again."
+    },
+    {
+      "id": "RI-011",
+      "title": "新角色首次退出在個人設定快捷列序列化當機",
+      "priority": "P0",
+      "status": "implemented-diagnostic-gui-retest-pending",
+      "source": "User feedback plus original-EXE REA evidence and local diagnostic runtime correlation",
+      "evidence_classification": [
+        "user-reported",
+        "shipped-artifact-static",
+        "diagnostic-client-runtime",
+        "server-policy-design"
+      ],
+      "current_facts": [
+        "User reports new-character close hangs but returning login closes normally.",
+        "Windows Application Error16:39:49 identifies diagnostic Client C0000005 at RVA15BC85; original VA55BC85 reads a shortcut-slot DWORD during profile save.",
+        "Default profile initialization leaves shortcut-row count byte18 unset; save loops using it without capacity guard; valid profile reader sets a bounded value.",
+        "This supports an uninitialized-count diagnosis; crash registers were not captured. A separate diagnostic copy initializes one row; actual GUI retest is pending.",
+        "C0B/body0 occurs on both creation and returning exits. Royfd3ffeb classifies authorized WorldReady empty C0B as normal close without invented S2C ACK; not itself proof of Client crash repair."
+      ],
+      "report": "04-analysis-integration/20261101-creation-notice-and-quit.md",
+      "native_client_validation": "not-run",
+      "next_action": "One user test: create, close both notices, walk, exit, relogin with saved position, exit again."
     }
   ],
   "latest_direct_increment": {
-    "commit": "51bed5b",
-    "report": "04-analysis-integration/20261101-c44-play-disconnect.md"
+    "commit": "fd3ffeb",
+    "report": "04-analysis-integration/20261101-creation-notice-and-quit.md"
   }
 }
