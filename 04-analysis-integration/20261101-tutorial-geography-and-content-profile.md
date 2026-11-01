@@ -70,6 +70,9 @@ Profile需schema_version1、非空profile_id、binding_origin明確為
 
 ## 本輪驗證與接續
 
+後續[五職業完整TCP路線](20261101-tutorial-route-tcp-evidence.md)已驗真實內容下
+全流程與重登；下列啟動-only限制屬本篇初版時點，地理身份與原生GUI仍未定。
+
 以真實六張MAP、所有對話腳本／helper素材、全套候選設定啟動獨立Host成功，
 使用獨立SQLite及隨機loopback埠，確認seed0 greeting後停止。沒有改動執行中
 的使用者Server或DB。這證明設定接線與素材驗證能整體載入；**沒有證明**

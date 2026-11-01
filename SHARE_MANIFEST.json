@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "04855b443f1f25582fbdcd901692bd5d0bbe3c19c182bdbfccd1a678362bf5c0"
+      "sha256": "1fb24e9a9fc20ebf3a497be4ef5c67c068345021a3725431d6b67f6cb9a15c59"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -641,7 +641,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-geography-and-content-profile.md",
-      "sha256": "5188c66e845b882806531f78d81705e0cfb6649472049c3255a42bd2d161d96e"
+      "sha256": "a9c985a71b71626bd7a4d44e54b0733fcc78fcbd51c78f702970ce13900d4e5d"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-lesson-npcs.md",
@@ -650,6 +650,10 @@
     {
       "path": "04-analysis-integration/20261101-tutorial-resource-route.md",
       "sha256": "87391c9a49b6aff85df07d07b0e7f6f2206119a617ff8a27d4792e16da972f09"
+    },
+    {
+      "path": "04-analysis-integration/20261101-tutorial-route-tcp-evidence.md",
+      "sha256": "dc2025353ea1730514b38555f58cc12bd2a901395bb8831e83ed723929be1f2e"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-town-departure.md",

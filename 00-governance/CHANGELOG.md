@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 五職業真實TCP完整教學路線
+
+以真實MAP／腳本設定及獨立Host，五名角色各經C02／C04建角、加入轉學校、講師、選職、學校重登、C13扣血／死亡／靜默重生、各目的圖提交及再重登通過；唯讀核對完成時點、職業、首次checkpoint與hit audit，逐socket檢查S2C ordinal。原生嘗試因computer-use視窗核准逾時未取得畫面，沒有升級Native CT或城鎮身份。見[驗證範圍與結果](../04-analysis-integration/20261101-tutorial-route-tcp-evidence.md)。
+
 ## 2026-11-01 教學地理線索與完整候選內容入口
 
 核對生活講義的五職業城鎮名稱，REA追出WorldMap依runtime metadata選HTML或內建圖像；提供的HTML／7z已有本地修改，不能當官方綁定。私有工具新增明示候選profile，含六張真實MAP、教學NPC／戰鬥／選職／五條目的地，獨立Host整體載入及seed0 greeting通過；城鎮身份與完整GUI仍未驗，正常開發入口未變。見[分析與候選契約](../04-analysis-integration/20261101-tutorial-geography-and-content-profile.md)。
