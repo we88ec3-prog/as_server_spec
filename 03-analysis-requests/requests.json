@@ -504,7 +504,16 @@
       "last_analysis_date": "2026-10-31",
       "source_branch": "task_a/roy1",
       "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
-      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A010-D01"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
+      }
     },
     {
       "id": "A-008",
@@ -577,7 +586,18 @@
       ],
       "source_branch": "task_a/roy2",
       "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
-      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A010-D01",
+          "A010-D03",
+          "A010-D04"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
+      }
     },
     {
       "id": "A-009",
@@ -656,7 +676,19 @@
       "source_branch": "task_a/roy2",
       "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
       "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
-      "reward_damage_client_io_focus": "Native attack hit vs real damage/death client observation, Server damage ledger allocation policy is designed R-033."
+      "reward_damage_client_io_focus": "Native attack hit vs real damage/death client observation, Server damage ledger allocation policy is designed R-033.",
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A009-D01",
+          "A010-D02",
+          "A010-D04",
+          "A025-D01"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
+      }
     },
     {
       "id": "A-010",
@@ -755,6 +787,21 @@
           "CT-096"
         ],
         "native_client_validation": "not-run"
+      },
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A010-D01",
+          "A010-D02",
+          "A010-D03",
+          "A010-D04",
+          "A025-D01",
+          "A010-D05",
+          "A010-D06"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
       }
     },
     {
@@ -1166,7 +1213,16 @@
         "CT-090",
         "CT-091"
       ],
-      "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md"
+      "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A010-D06"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
+      }
     },
     {
       "id": "A-016",
@@ -1210,7 +1266,16 @@
         "failure_modes",
         "validation"
       ],
-      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate."
+      "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A010-D05"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
+      }
     },
     {
       "id": "A-017",
@@ -1654,7 +1719,16 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "admission_refuse_policy": "R-034 selected NOT ENROLL should be no-op and NPC repeatable; native NPC->Script association not proven."
+      "admission_refuse_policy": "R-034 selected NOT ENROLL should be no-op and NPC repeatable; native NPC->Script association not proven.",
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A010-D06"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
+      }
     },
     {
       "id": "A-024",
@@ -1811,7 +1885,18 @@
       "offline_test_result": "GitHub Actions run 41185085803 PASS: 19 native-schema synthetic object tests and seven existing NPC tests; phase-gates PASS",
       "source_branch": "task_a/roy2",
       "source_commit": "9e3b0ce1f5121909ea2760e8a2ceadb47abeb90b",
-      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run"
+      "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A009-D01",
+          "A010-D04",
+          "A025-D01"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
+      }
     },
     {
       "id": "A-025",
@@ -1858,7 +1943,7 @@
       ],
       "client_server_boundary": "Client observable packet/UI behavior derives from Asgard.exe; original Server policy for AI, reward, ownership, map/spawn and timing is designed separately. Native Client E2E is independent.",
       "implementation_ready": true,
-      "implementation_ready_scope": "C13 attack-u32, C4D start-spell-u16, C56 cast-u8, C3D/S3D Battle subtype0..15 discriminator, S52 u32+u8 and S1E u32 codec plus designed fail-closed combat authority/event ledger. NOT full battle variant/skill/quest implementation",
+      "implementation_ready_scope": "C13 attack-u32, C4D start-spell-u16, C56 cast-u8, C3D/S3D Battle subtype0..15 discriminator, S52 u32+u8 and S5F u32 death codec plus designed fail-closed combat authority/event ledger. NOT full battle variant/skill/quest implementation",
       "native_tutorial_combat_requirement_proven": false,
       "native_quest_progress_mapping_ready": false,
       "native_combat_e2e_ready": false,
@@ -1878,7 +1963,17 @@
       "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
       "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
       "s1e_correction": "Roy1 later A-004 confirmed previous S1E DieObjects attribution was mistaken; native DieObjects is S5F ctor 0x57E1B0 push 0x5F and reader 0x57E260. S1E source is quarantined; no original Client combat E2E.",
-      "reward_allocation_crossref": "R-033 user decided team aggregation/full party experience/one independent loot resolution per member; A only needs attack/death/exp/loot Client-visible evidence, not original Server reward formula."
+      "reward_allocation_crossref": "R-033 user decided team aggregation/full party experience/one independent loot resolution per member; A only needs attack/death/exp/loot Client-visible evidence, not original Server reward formula.",
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A009-D01",
+          "A025-D01"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
+      }
     },
     {
       "id": "A-026",
@@ -1945,7 +2040,16 @@
       "source_branch": "task_a/roy1",
       "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
       "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
-      "admission_refuse_policy": "R-034 REFUSE is not quest completed, reward, transport or permanent refusal. New NPC interaction may ask again; ACCEPT is intent only."
+      "admission_refuse_policy": "R-034 REFUSE is not quest completed, reward, transport or permanent refusal. New NPC interaction may ask again; ACCEPT is intent only.",
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A025-D01"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
+      }
     },
     {
       "id": "A-027",
@@ -2533,6 +2637,15 @@
           "Native walkable tile/path/collision correction, including C33/C11/S0B",
           "Is map_ref=6 tutorial? (No evidence; selected interim only)"
         ]
+      },
+      "web_deep_review": {
+        "plan": "03-analysis-requests/web-skill-review/tasks.json",
+        "tasks": [
+          "A010-D05"
+        ],
+        "status": "requested-not-completed",
+        "source": "direct-user-request",
+        "native_validation_unchanged": true
       }
     }
   ]

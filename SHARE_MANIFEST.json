@@ -445,7 +445,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "bda82de8ffa3482404bc3c044ba5276078ce998391bbfa2aaf0f64487b56b588"
+      "sha256": "cb12133908ce8e09268f606add629266dbc1ee5dbec19824dbd9ebaa576d1020"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -458,6 +458,26 @@
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
       "sha256": "0211422a2d0b37c05f9d91b69978ce4a8b1a611c73ae9aee4a5225a8453b342c"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/AUDIT.md",
+      "sha256": "98f20709503daaa4cfe8e660ca4eaf266da4b8ef772bd934743f774ecd9f41d4"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/PROMPT.md",
+      "sha256": "31f3159de860fda0d65ea9b8eb3e1df6c0a086a779bcb03cd974b7e78428771b"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/README.md",
+      "sha256": "51b4ecb2f49aac0b7c1a0cb5c8fc453c7896628d933972cbed3248a275eb866a"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/RESULT-CONTRACT.md",
+      "sha256": "39c4123e4aba6a3514d0e0c1efc98e195ffa79f47f6ea49de4e3a3f8251a51c9"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/tasks.json",
+      "sha256": "c217b17799379f5386f760760af38c22239547fb4fe00db501ce717ba052036b"
     },
     {
       "path": "04-analysis-integration/20261101-c44-play-disconnect.md",
@@ -921,7 +941,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "8341f6366537745edea86c27260082e15236c9a94e0053bda227607962d29eb6"
+      "sha256": "1e88c926db7001c2de7d6aaabce5001fc8fdc6f0d583149c0accb64ac044f1fc"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -949,11 +969,11 @@
     },
     {
       "path": "task_a/roy2/A-009-analysis.md",
-      "sha256": "6e22e95372f6c233811829f1ced94b205508a92786e7eb19b7b318fe814024fe"
+      "sha256": "af21be101aa75502f752fad4260d59f3852857ae29666683c8ac80b58c99e267"
     },
     {
       "path": "task_a/roy2/A-010-analysis.md",
-      "sha256": "98817f205e9c6c4506d19408f1b080b721c93ba2f4b534e0743980a3ebb8c4e9"
+      "sha256": "c71804734b49be690fd8fe7b9f4b42d585fa0eba833dbc6b3e87db511e097c03"
     },
     {
       "path": "task_a/roy2/A-011-analysis.md",

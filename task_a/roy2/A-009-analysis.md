@@ -1,5 +1,7 @@
 # A-009／roy2 — 攻擊、傷害、死亡：原版 Client BIN-first 收發契約
 
+> main追補：正式CT採requests.json的CT-078/079，本文來源舊號保留歷史。2026-11-01新增[深入分析任務](../../03-analysis-requests/web-skill-review/tasks.json)，優先補Client攻擊／受擊／死亡閉環，既有codec不重做。
+
 - **日期**：2026-10-31。工作分支：既有 `task_a/roy2`；系統 `SYS-COMBAT`／R-010。
 - **原件**：`Asgard.exe` PE32、ImageBase `0x400000`；SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`。本報告所列為該版本原始 PE 靜態證據，**不是原版 Server 封包錄影、戰鬥公式、Native Client 實機**。
 - **依賴**：A-008 的 S08 Status、A-024 的 C13/S5F 與 S07 物件、A-004 的可見玩家與 object ID、A-025 的教學攻擊。所有 decoded body **不含 framing / XOR / opcode**。

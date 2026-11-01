@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+技能／普通攻擊新增[Web深入分析工作台](03-analysis-requests/web-skill-review/README.md)：已先盤點A-009／010／025等既有成果，列8個子任務及ChatGPT／Claude共用提示詞、結果契約；不重複建立正式A編號。
+
 版本：0.1.0-draft · 日期：2026-10-30
 
 這是本作者及其他開發者共同依循的、與實作語言無關的 Server 規格專案。任何實作，包括作者的私有 Server，都應依同一版本實作與驗收。此 repository 不包含作者的 Server 原始碼、部署憑證、帳號資料庫或原始遊戲檔案。

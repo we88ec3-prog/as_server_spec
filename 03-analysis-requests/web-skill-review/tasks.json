@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "plan_id": "WEB-SKILL-COMBAT-20261101",
+  "source": "User requests independent ChatGPT/Claude web analysis after checking existing A work; basic-attack tutorial question is a user lead, not proven kill objective.",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "new_formal_a_ids": [],
+  "priority_order": [
+    "A009-D01",
+    "A010-D01",
+    "A010-D02",
+    "A010-D03",
+    "A010-D04",
+    "A025-D01",
+    "A010-D05",
+    "A010-D06"
+  ],
+  "tasks": [
+    {
+      "id": "A009-D01",
+      "parents": [
+        "A-009",
+        "A-024",
+        "A-025"
+      ],
+      "title": "普通攻擊到受擊、死亡的Client閉環",
+      "baseline_documents": [
+        "task_a/roy2/A-009-analysis.md",
+        "task_a/roy2/A-024-analysis.md",
+        "04-analysis-integration/A-025-tutorial-combat-contract.md"
+      ],
+      "already_known": [
+        "C13 BEu32 and producers0x55709E/0x557A5F",
+        "S13 base14/bit0+17B;S5F vsS0E separate"
+      ],
+      "focus": [
+        "追滑鼠／空白鍵與自動連擊狀態進C13時u32實際代表target還是其他ref",
+        "追S13／S5F dispatcher到actor registry、受擊動畫／數字／死亡／移除，找最小合法投影序列",
+        "區分Client本地攻速gate與Server冷卻，不恢復不存在於Client的傷害公式"
+      ],
+      "seed_artifacts": [
+        "report-a009",
+        "report-a024",
+        "report-a025",
+        "rea-attack-update",
+        "rea-attack-action",
+        "rea-c13-callers",
+        "resource-war-teaching"
+      ],
+      "completion_criteria": [
+        "給出原生producer-to-target與receiver-to-effect的函式／分支證據，或精確列缺失handler",
+        "列普通攻擊／連點／死目標／跨圖舊ref等Server所需處理，但將設計與原件分開"
+      ]
+    },
+    {
+      "id": "A010-D01",
+      "parents": [
+        "A-010",
+        "A-007",
+        "A-008"
+      ],
+      "title": "已學技能清單、圖示、快捷列與ID／slot",
+      "baseline_documents": [
+        "task_a/roy2/A-010-analysis.md",
+        "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+        "task_a/roy2/A-008-analysis.md"
+      ],
+      "already_known": [
+        "C4D取選取物件+0x80E的word，不知道它等同技能ID或slot"
+      ],
+      "focus": [
+        "從SkillSpellDialog及選取物件追清單如何增加／刪除／重登入場載入，原生packet或resource selector為何",
+        "由清單、tooltip與快捷列一路追至+0x80E賦值與C4D，分開skill_id／inventory slot／hotbar slot／icon ref",
+        "追學習／升級技能的真UI與packet，不能由類別名編造opcode"
+      ],
+      "seed_artifacts": [
+        "report-a010",
+        "report-a007",
+        "report-a008",
+        "rea-c4d-producer",
+        "rea-c4d-callers"
+      ],
+      "completion_criteria": [
+        "技能清單資料來源→UI→快捷列／選取值→C4D有具體引用；缺函式時列精確selector",
+        "未知的學習包或ID映射保持unknown，不只重列C4D writer"
+      ]
+    },
+    {
+      "id": "A010-D02",
+      "parents": [
+        "A-010",
+        "A-009"
+      ],
+      "title": "C4D／C56開始、確認、取消及S52／S48狀態",
+      "baseline_documents": [
+        "task_a/roy2/A-010-analysis.md"
+      ],
+      "already_known": [
+        "六包wire shape已交付；C56 producer及S52 enum未證"
+      ],
+      "focus": [
+        "C56 constructor direct caller若僅factory，繼續追incoming data refs／註冊／間接建立，不宣告沒有UI producer",
+        "追C4D後Client等待條件、目標選取、何時C56以及u8來源",
+        "追S52 state與S48 ref到具體物件和分支，列中斷、移動、取消／失敗的Client反應"
+      ],
+      "seed_artifacts": [
+        "report-a010",
+        "rea-c56-callers",
+        "rea-c56-factory",
+        "rea-c56-factory-entry",
+        "rea-c56-writer-bytes",
+        "rea-c4d-producer",
+        "rea-s52-reader",
+        "rea-s48-reader"
+      ],
+      "completion_criteria": [
+        "交付附分支證據的時序圖或轉移表，不將writer欄位猜成成功enum",
+        "每個ref／state值有reader到consumer引用；缺資料列精確擴展請求"
+      ]
+    },
+    {
+      "id": "A010-D03",
+      "parents": [
+        "A-010",
+        "A-008"
+      ],
+      "title": "持續效果identity、圖示、刷新與計時",
+      "baseline_documents": [
+        "task_a/roy2/A-010-analysis.md",
+        "task_a/roy2/A-008-analysis.md"
+      ],
+      "already_known": [
+        "0x2C dynamic18+N及0x2D u32；尾u32未證時間單位"
+      ],
+      "focus": [
+        "新增／刷新／移除handler如何匹配同一effect instance及LastingSpellInventory row",
+        "追圖示、倒數顯示與尾端兩u32的每個讀取／計算，不套秒或毫秒",
+        "區分Client畫面自然到期與Server真正效果到期、疊加／驅散與重登投影"
+      ],
+      "seed_artifacts": [
+        "report-a010",
+        "report-a008",
+        "rea-lasting-add-reader",
+        "rea-lasting-remove-reader"
+      ],
+      "completion_criteria": [
+        "給出新增→容器key→UI→移除的函式鏈",
+        "時間單位需常數／算式與引用；Client-only倒數不當Server權威持續時間"
+      ]
+    },
+    {
+      "id": "A010-D04",
+      "parents": [
+        "A-010",
+        "A-009",
+        "A-008",
+        "A-024"
+      ],
+      "title": "單體／範圍／治療／BUFF／召喚的最小範例",
+      "baseline_documents": [
+        "task_a/roy2/A-010-analysis.md",
+        "task_a/roy2/A-009-analysis.md",
+        "task_a/roy2/A-008-analysis.md"
+      ],
+      "already_known": [
+        "類別名稱與effect存在不能證特定spell類型／數值"
+      ],
+      "focus": [
+        "優先各找一個有證據的Client target／range presentation及效果流程；沒有就明列缺口",
+        "連到S13／S08／S07等必要projection，不把S52當扣血、0x2D當死亡",
+        "列只有Server能決定的MP/SP、CD、半徑、命中／傷害／治療／召喚owner欄"
+      ],
+      "seed_artifacts": [
+        "report-a010",
+        "report-a009",
+        "report-a008",
+        "report-a024"
+      ],
+      "completion_criteria": [
+        "每種類型分Client可觀察、Server自訂、未知；不能補造正式技能ID表",
+        "至少一條可用範例或精確缺失artifact，無證不能填通用假流程"
+      ]
+    },
+    {
+      "id": "A025-D01",
+      "parents": [
+        "A-025",
+        "A-026",
+        "A-009",
+        "A-010",
+        "A-024"
+      ],
+      "title": "教學怪物／普通攻擊與畢業條件是否相連",
+      "baseline_documents": [
+        "04-analysis-integration/A-025-tutorial-combat-contract.md",
+        "04-analysis-integration/20261101-tutorial-resource-route.md",
+        "task_a/roy2/A-009-analysis.md"
+      ],
+      "already_known": [
+        "nNewWar01講普通攻擊與技能，但講義／Dispose不等於kill objective",
+        "Born waypoint不是官方怪物spawn或擊殺條件"
+      ],
+      "focus": [
+        "從具名教學資源／NPC腳本／物件資料追真正objective selector及事件，不因對話提及怪物就強加kill gate",
+        "若有目標，交付怪物ref/template與Server authoritative death event→個人objective的關聯",
+        "若只有操作講義，明列尚不能證必殺怪或不需戰鬥，與復原版訓練規則分開"
+      ],
+      "seed_artifacts": [
+        "report-a025",
+        "report-tutorial-route",
+        "resource-war-teaching",
+        "report-a009",
+        "report-a024"
+      ],
+      "completion_criteria": [
+        "對是否存在必殺教學怪提出正面證據或明確未證結論，不能用單一腳本作全程不存在證明",
+        "普通攻擊可玩性與必須擊殺才能畢業兩個驗收分開"
+      ]
+    },
+    {
+      "id": "A010-D05",
+      "parents": [
+        "A-010",
+        "A-016",
+        "A-032"
+      ],
+      "title": "技能觸發在線切圖的Client前置與回覆",
+      "baseline_documents": [
+        "task_a/roy2/A-010-analysis.md",
+        "04-analysis-integration/20261101-native-map-content-and-school-transfer.md",
+        "04-analysis-integration/20261101-world-transfer-transaction.md"
+      ],
+      "already_known": [
+        "管理切圖非普通遊玩；NPC／技能可共用載圖核心但授權不同"
+      ],
+      "focus": [
+        "追傳送／回城類技能的選取與目標輸入，是否有額外C2S需原件證據",
+        "確認Client施法／取消狀態與S15/S14/C35切圖的交會及清除條件",
+        "不因相同opcode就允許Client自行指定map/xy，分開Server目的地／資源／CD授權"
+      ],
+      "seed_artifacts": [
+        "report-a010",
+        "report-transfer",
+        "report-map-content",
+        "rea-c4d-producer"
+      ],
+      "completion_criteria": [
+        "交付有證的Client事件鏈及Server未知，不新增猜測傳送opcode",
+        "可供切圖核心接線的前置／取消／中斷清單"
+      ]
+    },
+    {
+      "id": "A010-D06",
+      "parents": [
+        "A-010",
+        "A-015",
+        "A-023"
+      ],
+      "title": "技能資源定義來源與逐欄溯源",
+      "baseline_documents": [
+        "task_a/roy2/A-010-analysis.md",
+        "04-analysis-integration/content-resource-catalog.json"
+      ],
+      "already_known": [
+        "尚無已證Skill*.dat／Spell*.dat；Basic.dat僅候選"
+      ],
+      "focus": [
+        "追實際filename selector及loader再指定所需檔／member，不盲要整套資源",
+        "若找出skill表，逐欄列名稱、icon、client-visible限制／數值及引用函式",
+        "將tooltip描述與Server權威MP／CD／傷害／命中公式分欄；Client不存在的資料保持Server-only unknown"
+      ],
+      "seed_artifacts": [
+        "report-a010",
+        "report-resource-catalog"
+      ],
+      "completion_criteria": [
+        "真selector→檔案身份→loader→consumer，或精確缺失位置",
+        "不得把資料夾沒有某檔當整個技能定義不在Client的證明"
+      ]
+    }
+  ]
+}

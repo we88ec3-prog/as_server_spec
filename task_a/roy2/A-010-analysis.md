@@ -1,5 +1,7 @@
 # A-010／roy2 — 原版技能施放、取消與持續效果 Client I/O（BIN-first）
 
+> 2026-11-01：[既有成果盤點與Web深挖](../../03-analysis-requests/web-skill-review/AUDIT.md)，沿用A-010子任務追技能清單／選取值、C56、效果UI及內容來源；本報告已交付的六包不代表技能系統完成。
+
 > **main 合併補正**：來源分支測試 CT-089/090 與已整合經濟/地圖測試同號，本版使用 **CT-095（技能離線）／CT-096（原版施法/BUFF UI）**。本報告是 Client packet/producer 靜態子集，不是原服技能冷卻、效果或原生GUI完成證明。
 
 
