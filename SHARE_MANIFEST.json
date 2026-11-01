@@ -328,6 +328,10 @@
       "sha256": "1d0b5e26b1bef6c967b529a2aa76e4c814abd309a1d27c86ea66b4c6eed18786"
     },
     {
+      "path": "03-analysis-requests/A-011-map-monster-placement-followup.md",
+      "sha256": "057f5e5d97c3bd94b67d66adf213323e2b7c080b388775825dc0f5471cd1ec64"
+    },
+    {
       "path": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
       "sha256": "d334f761be68adeb009dde094ca181a09d0f63d7512e3085107d3bbcb05f4452"
     },
@@ -588,6 +592,10 @@
       "sha256": "c38f266d73daf69f369f73e7fea34b38fe6dce2a85be20de98e01bfde09d98fa"
     },
     {
+      "path": "04-analysis-integration/20261101-damage-number-mos-and-action-list.md",
+      "sha256": "0dc0876841a51a12e2d3c1dcb88253f2d96c5a4c7dc246489069a170830ffb5d"
+    },
+    {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
       "sha256": "f88f79dc14a17ac5d55c294a483a9de2bccc951692ed1018e055b10857a4ba9c"
     },
@@ -844,6 +852,10 @@
       "sha256": "9a88a22ca893010448b60fe5d06b317cb1bff89bf5f7d5ce13e6d8dd5c2dd56f"
     },
     {
+      "path": "04-analysis-integration/local-help-geography-sources-20261101.json",
+      "sha256": "ec017bcf126578648b8022d0993528c18d7cb2a0b2e449a96b17f4f621a34e09"
+    },
+    {
       "path": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
       "sha256": "d50d5782e92850ca5bbbdb91e8a7a89932fded870783e5938080e51f2574abc8"
     },
@@ -854,6 +866,10 @@
     {
       "path": "04-analysis-integration/native-career-appearance-20261101.json",
       "sha256": "050184b078f0bf37b18f41cc6ec750fbe390abf9cb6b36475502276882921104"
+    },
+    {
+      "path": "04-analysis-integration/native-damage-number-and-action-list-20261101.json",
+      "sha256": "7654843ec9eb7512c04f04b44276e58c3b795cab43dbd398d9b89ab0aed10298"
     },
     {
       "path": "04-analysis-integration/native-map-catalog-20261101.json",

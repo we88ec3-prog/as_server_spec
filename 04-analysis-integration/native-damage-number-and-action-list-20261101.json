@@ -1,0 +1,617 @@
+{
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "scope": "Reviewed original Client static views only; no private Server source or native GUI acceptance. Missing procedure entries and decompiler calling-convention limitations remain.",
+  "items": [
+    {
+      "key": "attack-effects-decompile",
+      "evidence_id": "ev_0612e0d4043707b17956f973914b4bcfa3c410acab1768847aa2d0edbf7e7703",
+      "operation": "batch_decompile",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e",
+      "locations": [
+        {
+          "kind": "address",
+          "address": "0x4b6850"
+        },
+        {
+          "kind": "address",
+          "address": "0x4d2520"
+        }
+      ],
+      "result": [
+        {
+          "address": "0x4b6850",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4b6850",
+            "name": "FUN_004b6850"
+          },
+          "pseudocode": "\r\nvoid FUN_004b6850(int *param_1,int param_2,int param_3,undefined4 param_4,short param_5,int param_6,\r\n                 undefined4 param_7,short param_8,undefined4 param_9)\r\n\r\n{\r\n  int iVar1;\r\n  undefined4 uVar2;\r\n  int iVar3;\r\n  int *piVar4;\r\n  undefined4 in_ECX;\r\n  int local_48;\r\n  undefined4 uStack_44;\r\n  undefined4 uStack_40;\r\n  void *pvStack_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 uStack_4;\r\n  \r\n  uStack_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d7a2c;\r\n  pvStack_c = ExceptionList;\r\n  local_48 = 0;\r\n  ExceptionList = &pvStack_c;\r\n  if ((short)param_4 != 0) {\r\n    ExceptionList = &pvStack_c;\r\n    (**(code **)(*param_1 + 0x44))(param_4,param_9);\r\n  }\r\n  if (param_5 != 0) {\r\n    iVar1 = FUN_004dc720(0x84,0,L\".\\\\mappane.cpp\",0xed1,0xffffffcc);\r\n    uStack_4 = 0;\r\n    if (iVar1 == 0) {\r\n      local_48 = 0;\r\n    }\r\n    else {\r\n      local_48 = FUN_00458bc0(param_1,0,param_5,0);\r\n    }\r\n    uStack_4 = 0xffffffff;\r\n  }\r\n  if (param_6 == 0) goto LAB_004b6c45;\r\n  FUN_00535590(0x20);\r\n  iVar1 = FUN_0050d290();\r\n  uVar2 = FUN_004c6e90(0x4c506869);\r\n  uStack_4 = 1;\r\n  FUN_005412b0(uVar2);\r\n  uStack_4 = 0xffffffff;\r\n  FUN_004c6d60();\r\n  if (param_3 == 0) {\r\n    iVar3 = FUN_0046e2e0();\r\n    if (param_2 == iVar3) {\r\n      iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf02,0xffffffcc);\r\n      uStack_4 = 7;\r\n      if (iVar1 == 0) {\r\nLAB_004b6be2:\r\n        iVar1 = 0;\r\n      }\r\n      else {\r\n        iVar1 = FUN_00474390(param_1,3,param_7);\r\n      }\r\n    }\r\n    else {\r\n      if (DAT_0066d0d4 == 0) {\r\n        piVar4 = (int *)0x0;\r\n      }\r\n      else {\r\n        piVar4 = (int *)(DAT_0066d0d4 + 0xc);\r\n      }\r\n      if (param_1 == piVar4) {\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf08,0xffffffcc);\r\n        uStack_4 = 8;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,4,param_7);\r\n      }\r\n      else if (iVar1 == 0) {\r\nLAB_004b6bf1:\r\n        iVar1 = FUN_004a6700(&DAT_009200e8);\r\n        if (iVar1 == 0) goto LAB_004b6c45;\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf1a,0xffffffcc);\r\n        uStack_4 = 0xb;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,5,param_7);\r\n      }\r\n      else if (param_2 == iVar1) {\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf0e,0xffffffcc);\r\n        uStack_4 = 9;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,3,param_7);\r\n      }\r\n      else {\r\n        iVar3 = FUN_0046e2e0();\r\n        if (iVar3 != iVar1) goto LAB_004b6bf1;\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf14,0xffffffcc);\r\n        uStack_4 = 10;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,4,param_7);\r\n      }\r\n    }\r\n  }\r\n  else {\r\n    iVar3 = FUN_0046e2e0();\r\n    if (param_2 == iVar3) {\r\n      iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xee1,0xffffffcc);\r\n      uStack_4 = 2;\r\nLAB_004b6977:\r\n      if (iVar1 == 0) goto LAB_004b6be2;\r\n      iVar1 = FUN_00474390(param_1,0,param_7);\r\n    }\r\n    else {\r\n      if (DAT_0066d0d4 == 0) {\r\n        piVar4 = (int *)0x0;\r\n      }\r\n      else {\r\n        piVar4 = (int *)(DAT_0066d0d4 + 0xc);\r\n      }\r\n      if (param_1 == piVar4) {\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xee7,0xffffffcc);\r\n        uStack_4 = 3;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,1,param_7);\r\n        goto LAB_004b6be4;\r\n      }\r\n      if (iVar1 != 0) {\r\n        if (param_2 == iVar1) {\r\n          iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xeed,0xffffffcc);\r\n          uStack_4 = 4;\r\n          goto LAB_004b6977;\r\n        }\r\n        iVar3 = FUN_0046e2e0();\r\n        if (iVar3 == iVar1) {\r\n          iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xef3,0xffffffcc);\r\n          uStack_4 = 5;\r\n          if (iVar1 == 0) goto LAB_004b6be2;\r\n          iVar1 = FUN_00474390(param_1,1,param_7);\r\n          goto LAB_004b6be4;\r\n        }\r\n      }\r\n      iVar1 = FUN_004a6700(&DAT_009200e8);\r\n      if (iVar1 == 0) goto LAB_004b6c45;\r\n      iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xef9,0xffffffcc);\r\n      uStack_4 = 6;\r\n      if (iVar1 == 0) goto LAB_004b6be2;\r\n      iVar1 = FUN_00474390(param_1,2,param_7);\r\n    }\r\n  }\r\nLAB_004b6be4:\r\n  uStack_4 = 0xffffffff;\r\n  if (iVar1 == 0) {\r\n    iVar1 = 0;\r\n  }\r\n  else {\r\n    iVar1 = iVar1 + 8;\r\n  }\r\n  FUN_004b6450(iVar1);\r\nLAB_004b6c45:\r\n  if (param_8 != 0) {\r\n    FUN_0046e020(&uStack_44);\r\n    iVar1 = FUN_004dc720(0x24,0,L\".\\\\mappane.cpp\",0xf26,0xffffffcc);\r\n    uStack_4 = 0xc;\r\n    if (iVar1 == 0) {\r\n      uVar2 = 0;\r\n    }\r\n    else {\r\n      uVar2 = FUN_0053d420(param_8,0,uStack_44,uStack_40);\r\n    }\r\n    uStack_4 = 0xffffffff;\r\n    FUN_004b6450(uVar2);\r\n  }\r\n  uVar2 = FUN_0046e2e0();\r\n  iVar1 = FUN_004ea240(uVar2);\r\n  if ((iVar1 != 0) && (local_48 != 0)) {\r\n    FUN_00541250(in_ECX,0x45527772,1,0);\r\n  }\r\n  ExceptionList = pvStack_c;\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4d2520",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4d2520",
+            "name": "FUN_004d2520"
+          },
+          "pseudocode": "\r\nint FUN_004d2520(undefined4 param_1,int param_2,byte param_3)\r\n\r\n{\r\n  if ((9 < param_3) && (param_3 < 0x50)) {\r\n    return param_2 + -8 + (uint)param_3 * 8;\r\n  }\r\n  switch(param_3) {\r\n  default:\r\n    return param_2 + 0x20;\r\n  case 1:\r\n    return param_2 + 0x28;\r\n  case 2:\r\n    return param_2 + 0x30;\r\n  case 3:\r\n    return param_2 + 0x40;\r\n  case 4:\r\n    return param_2 + 0x38;\r\n  }\r\n}\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "key": "attack-number-motion",
+      "evidence_id": "ev_91b5f0d160f27386622dbf3a5c30cb4bb5d903ce4bda86ec9b579ab0cbcc969f",
+      "operation": "batch_decompile",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e",
+      "locations": [
+        {
+          "kind": "address",
+          "address": "0x474390"
+        },
+        {
+          "kind": "address",
+          "address": "0x4744a0"
+        },
+        {
+          "kind": "address",
+          "address": "0x4a6030"
+        },
+        {
+          "kind": "address",
+          "address": "0x4a6310"
+        },
+        {
+          "kind": "address",
+          "address": "0x4d6070"
+        },
+        {
+          "kind": "address",
+          "address": "0x4753d0"
+        }
+      ],
+      "result": [
+        {
+          "address": "0x474390",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x474390",
+            "name": "FUN_00474390"
+          },
+          "pseudocode": "\r\nvoid FUN_00474390(int *param_1,undefined4 param_2)\r\n\r\n{\r\n  undefined4 *puVar1;\r\n  undefined1 uVar2;\r\n  undefined4 *in_ECX;\r\n  void *pvStack_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d13a3;\r\n  pvStack_c = ExceptionList;\r\n  ExceptionList = &pvStack_c;\r\n  FUN_0054d010();\r\n  local_4 = 0;\r\n  puVar1 = in_ECX + 2;\r\n  FUN_0046df00(0,0);\r\n  local_4 = CONCAT31(local_4._1_3_,1);\r\n  *in_ECX = &PTR_FUN_00606dec;\r\n  *puVar1 = &PTR_LAB_00606db4;\r\n  in_ECX[4] = &PTR_LAB_00606da8;\r\n  in_ECX[5] = 2;\r\n  (**(code **)(*param_1 + 0x38))(in_ECX + 6);\r\n  in_ECX[7] = in_ECX[7] + -5;\r\n  FUN_00541250(puVar1,0x4947726d,1,0);\r\n  FUN_00541250(puVar1,0x4c4f7063,1,0);\r\n  FUN_00541250(puVar1,0x4c506869,1,0);\r\n  in_ECX[10] = param_1;\r\n  *(undefined1 *)(in_ECX + 0xc) = 0;\r\n  in_ECX[0xb] = param_2;\r\n  uVar2 = FUN_00473790(param_2);\r\n  *(undefined1 *)((int)in_ECX + 0x31) = uVar2;\r\n  *(undefined1 *)(in_ECX + 0x11) = param_1._0_1_;\r\n  FUN_00474100();\r\n  FUN_004fd1d0(in_ECX,0x66733132,0xcd,0,0);\r\n  ExceptionList = in_ECX;\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4744c0",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4744a0",
+            "name": "FUN_004744a0"
+          },
+          "pseudocode": "\r\nvoid FUN_004744a0(void)\r\n\r\n{\r\n  undefined4 *in_ECX;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  puStack_8 = &LAB_005d13b8;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  *in_ECX = &PTR_FUN_00606ea4;\r\n  in_ECX[2] = &PTR_LAB_00606e54;\r\n  in_ECX[4] = &PTR_LAB_00606e44;\r\n  local_4 = 0xffffffff;\r\n  FUN_00441c60();\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4a6030",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4a6030",
+            "name": "FUN_004a6030"
+          },
+          "pseudocode": "\r\nvoid FUN_004a6030(int param_1,int param_2)\r\n\r\n{\r\n  int iVar1;\r\n  int iVar2;\r\n  int iVar3;\r\n  int iVar4;\r\n  int in_ECX;\r\n  undefined4 local_1c;\r\n  int local_18;\r\n  undefined4 local_14;\r\n  undefined1 local_10;\r\n  undefined1 local_f;\r\n  undefined2 local_e;\r\n  undefined2 local_c;\r\n  undefined2 local_a;\r\n  undefined4 local_8;\r\n  undefined2 local_4;\r\n  \r\n  iVar2 = param_1;\r\n  iVar1 = *(int *)(in_ECX + 0x234);\r\n  for (iVar3 = *(int *)(in_ECX + 0x230);\r\n      (iVar4 = iVar1, iVar3 != iVar1 && (iVar4 = iVar3, *(int *)(iVar3 + 4) != param_1));\r\n      iVar3 = iVar3 + 0x1c) {\r\n  }\r\n  if (iVar4 != iVar1) {\r\n    FUN_004a54e0(&param_1,iVar4);\r\n  }\r\n  FUN_00541250(in_ECX,0x4c4f6170,1,0);\r\n  FUN_00541250(in_ECX,0x4947726d,1,0);\r\n  local_14 = *(undefined4 *)(param_2 + 0x24);\r\n  local_10 = *(undefined1 *)(param_2 + 0x3e);\r\n  local_f = *(undefined1 *)(param_2 + 0x42);\r\n  local_e = *(undefined2 *)(param_2 + 0x44);\r\n  local_c = *(undefined2 *)(param_2 + 0x46);\r\n  local_a = *(undefined2 *)(param_2 + 0x48);\r\n  local_8 = *(undefined4 *)(param_2 + 0x4c);\r\n  local_4 = *(undefined2 *)(param_2 + 0x40);\r\n  local_1c = 0;\r\n  local_18 = iVar2;\r\n  FUN_004a5e70(&local_1c);\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4a6310",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4a6310",
+            "name": "FUN_004a6310"
+          },
+          "pseudocode": "\r\nvoid FUN_004a6310(undefined4 param_1,int param_2)\r\n\r\n{\r\n  undefined4 local_14;\r\n  undefined1 local_10;\r\n  undefined1 local_f;\r\n  undefined2 local_e;\r\n  undefined2 local_c;\r\n  undefined2 local_a;\r\n  undefined4 local_8;\r\n  undefined2 local_4;\r\n  \r\n  local_14 = *(undefined4 *)(param_2 + 0x24);\r\n  local_10 = *(undefined1 *)(param_2 + 0x3e);\r\n  local_f = *(undefined1 *)(param_2 + 0x42);\r\n  local_e = *(undefined2 *)(param_2 + 0x44);\r\n  local_c = *(undefined2 *)(param_2 + 0x46);\r\n  local_a = *(undefined2 *)(param_2 + 0x48);\r\n  local_8 = *(undefined4 *)(param_2 + 0x4c);\r\n  local_4 = *(undefined2 *)(param_2 + 0x40);\r\n  FUN_004a5fb0(param_1,&local_14);\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4d6080",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4d6070",
+            "name": "FUN_004d6070"
+          },
+          "pseudocode": "\r\nvoid FUN_004d6070(undefined4 *param_1)\r\n\r\n{\r\n  int in_ECX;\r\n  \r\n  *param_1 = *(undefined4 *)(in_ECX + 0x28c);\r\n  param_1[1] = *(undefined4 *)(in_ECX + 0x290);\r\n  param_1[2] = *(undefined4 *)(in_ECX + 0x294);\r\n  param_1[3] = *(undefined4 *)(in_ECX + 0x298);\r\n  param_1[4] = *(undefined4 *)(in_ECX + 0x29c);\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x475460",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4753d0",
+            "name": "FUN_004753d0"
+          },
+          "pseudocode": "\r\n/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */\r\n\r\nundefined4 FUN_004753d0(byte *param_1,int param_2)\r\n\r\n{\r\n  byte bVar1;\r\n  short sVar2;\r\n  int iVar3;\r\n  \r\n  if ((_DAT_0066e3d8 & 1) == 0) {\r\n    _DAT_0066e3d8 = _DAT_0066e3d8 | 1;\r\n    DAT_0066e3d0 = DAT_00665564 * 8 + -0xf8;\r\n    DAT_0066e3d4 = DAT_00665568 * 8 + -0xf8;\r\n  }\r\n  sVar2 = *(short *)(param_2 + 10);\r\n  if ((((((0x277 < sVar2) && (sVar2 < 0x2c8)) || ((0x3f < sVar2 && (sVar2 < 0x48)))) ||\r\n       ((*param_1 & 4) != 0)) ||\r\n      ((bVar1 = param_1[5], bVar1 == 5 &&\r\n       (((-1 < sVar2 && (sVar2 < 8)) ||\r\n        (((0xf < sVar2 && (sVar2 < 0x18)) || ((0x2c9 < sVar2 && (sVar2 < 0x2d2)))))))))) ||\r\n     (((bVar1 == 3 || (bVar1 == 4)) && ((0x47 < sVar2 && (sVar2 < 0x278)))))) {\r\n    return 1;\r\n  }\r\n  if (bVar1 == 6) {\r\n    iVar3 = (int)sVar2;\r\n    if ((DAT_0066e3d0 <= iVar3) && (iVar3 < DAT_0066e3d0 + 8)) {\r\n      return 1;\r\n    }\r\n    if ((DAT_0066e3d4 <= iVar3) && (iVar3 < DAT_0066e3d4 + 8)) {\r\n      return 1;\r\n    }\r\n  }\r\n  return 0;\r\n}\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "key": "basic-attack-source-2",
+      "evidence_id": "ev_7aa3109ee1f56c1a9a03753a786179bcdd7129093a0012bc302b2540a75cef3d",
+      "operation": "batch_decompile",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e",
+      "locations": [
+        {
+          "kind": "address",
+          "address": "0x473790"
+        },
+        {
+          "kind": "address",
+          "address": "0x4738e0"
+        },
+        {
+          "kind": "address",
+          "address": "0x4a5e70"
+        }
+      ],
+      "result": [
+        {
+          "address": "0x473790",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x473790",
+            "name": "FUN_00473790"
+          },
+          "pseudocode": "\r\nundefined4 FUN_00473790(uint param_1)\r\n\r\n{\r\n  if (param_1 / 100000 != 0) {\r\n    return CONCAT31((uint3)(byte)(param_1 / 25600000),6);\r\n  }\r\n  if (param_1 / 10000 != 0) {\r\n    return CONCAT31((int3)((ulonglong)param_1 * 0xd1b71759 >> 8),5);\r\n  }\r\n  if (param_1 / 1000 != 0) {\r\n    return CONCAT31((int3)((ulonglong)param_1 * 0x10624dd3 >> 8),4);\r\n  }\r\n  if (param_1 / 100 != 0) {\r\n    return CONCAT31((int3)((ulonglong)param_1 * 0x51eb851f >> 8),3);\r\n  }\r\n  return CONCAT31((int3)((ulonglong)param_1 * 0xcccccccd >> 8),(param_1 / 10 != 0) + '\\x01');\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4738e0",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4738e0",
+            "name": "FUN_004738e0"
+          },
+          "pseudocode": "\r\nundefined4 FUN_004738e0(undefined4 param_1)\r\n\r\n{\r\n  char cVar1;\r\n  undefined4 uVar2;\r\n  int in_ECX;\r\n  undefined1 local_1c [4];\r\n  undefined4 local_18;\r\n  undefined4 local_14;\r\n  ushort local_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d1378;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_0047ec50();\r\n  local_4 = 0;\r\n  cVar1 = *(char *)(in_ECX + 0x44);\r\n  local_18 = 0;\r\n  local_14 = 0xd;\r\n  if (cVar1 == '\\0') {\r\n    local_10 = (ushort)*(byte *)(in_ECX + 0x30);\r\n  }\r\n  else if (cVar1 == '\\x01') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 6;\r\n  }\r\n  else if (cVar1 == '\\x02') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 0xc;\r\n  }\r\n  else if (cVar1 == '\\x03') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 0x12;\r\n  }\r\n  else if (cVar1 == '\\x04') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 0x18;\r\n  }\r\n  else if (cVar1 == '\\x05') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 0x1e;\r\n  }\r\n  uVar2 = FUN_004838b0(local_1c,param_1);\r\n  local_4 = 0xffffffff;\r\n  FUN_0047ed10();\r\n  ExceptionList = local_c;\r\n  return uVar2;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4a5e70",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4a5e70",
+            "name": "FUN_004a5e70"
+          },
+          "pseudocode": "\r\nvoid FUN_004a5e70(undefined4 param_1)\r\n\r\n{\r\n  int iVar1;\r\n  int in_ECX;\r\n  \r\n  iVar1 = *(int *)(in_ECX + 4);\r\n  if ((iVar1 != 0) &&\r\n     ((uint)((*(int *)(in_ECX + 8) - iVar1) / 0x1c) <\r\n      (uint)((*(int *)(in_ECX + 0xc) - iVar1) / 0x1c))) {\r\n    iVar1 = *(int *)(in_ECX + 8);\r\n    FUN_004a5360(iVar1,1,param_1);\r\n    *(int *)(in_ECX + 8) = iVar1 + 0x1c;\r\n    return;\r\n  }\r\n  FUN_004a5da0(&param_1,*(undefined4 *)(in_ECX + 8),param_1);\r\n  return;\r\n}\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "key": "s62-reader-ctor",
+      "evidence_id": "ev_716f57b56d4262cf6fd0242351fc28d475eec53c02e5fc944465d716e6ae663d",
+      "operation": "batch_decompile",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e",
+      "locations": [
+        {
+          "kind": "address",
+          "address": "0x579020"
+        },
+        {
+          "kind": "address",
+          "address": "0x578f70"
+        }
+      ],
+      "result": [
+        {
+          "address": "0x579020",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x579020",
+            "name": "FUN_00579020"
+          },
+          "pseudocode": "\r\nvoid FUN_00579020(void)\r\n\r\n{\r\n  undefined1 uVar1;\r\n  undefined2 uVar2;\r\n  int in_ECX;\r\n  \r\n  uVar1 = FUN_0045adb0();\r\n  *(undefined1 *)(in_ECX + 0x18) = uVar1;\r\n  uVar1 = FUN_0045adb0();\r\n  *(undefined1 *)(in_ECX + 0x19) = uVar1;\r\n  uVar2 = FUN_0045ade0();\r\n  *(undefined2 *)(in_ECX + 0x1a) = uVar2;\r\n  uVar1 = FUN_0045adb0();\r\n  *(undefined1 *)(in_ECX + 0x1c) = uVar1;\r\n  uVar1 = FUN_0045adb0();\r\n  *(undefined1 *)(in_ECX + 0x1d) = uVar1;\r\n  uVar1 = FUN_0045adb0();\r\n  *(undefined1 *)(in_ECX + 0x1e) = uVar1;\r\n  FUN_0045b7a0(in_ECX + 0x22,0xff,0);\r\n  FUN_0045b7a0(in_ECX + 0x222,0xff,0);\r\n  FUN_0045b7a0(in_ECX + 0x422,0xff,0);\r\n  *(undefined1 *)(in_ECX + 0x622) = 100;\r\n  FUN_0045b7a0(in_ECX + 0x624,0xff,0);\r\n  uVar1 = FUN_0045adb0();\r\n  *(undefined1 *)(in_ECX + 0x824) = uVar1;\r\n  uVar2 = FUN_0045ade0();\r\n  *(undefined2 *)(in_ECX + 0x20) = uVar2;\r\n  uVar1 = FUN_0045adb0();\r\n  *(undefined1 *)(in_ECX + 0x825) = uVar1;\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x578f70",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x578f70",
+            "name": "FUN_00578f70"
+          },
+          "pseudocode": "\r\nvoid FUN_00578f70(void)\r\n\r\n{\r\n  undefined4 *in_ECX;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005e6998;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_00578730(0x62);\r\n  *in_ECX = &PTR_FUN_006146c4;\r\n  in_ECX[3] = &PTR_LAB_006146b8;\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "key": "s62-thunk",
+      "evidence_id": "ev_b649175ff7379256319428a10d8b3231d62570400f279fc464062a440bfee688",
+      "operation": "inspect_native_instruction",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "locations": [],
+      "result": {
+        "address": "0x4f49db",
+        "status": "decoded",
+        "procedure": null,
+        "architecture": "x86:LE:32:default",
+        "mode": "default",
+        "bytes": "e9f0e2ffff",
+        "length": 5,
+        "mnemonic": "JMP",
+        "raw_disassembly": "JMP 0x004f2cd0",
+        "operands": [
+          {
+            "index": 0,
+            "raw": "0x004f2cd0",
+            "provider_type": 8256,
+            "components": [
+              {
+                "kind": "address",
+                "text": "004f2cd0",
+                "value": "0x4f2cd0",
+                "bit_width": null
+              }
+            ],
+            "memory_addressing": "unavailable"
+          }
+        ],
+        "flow": {
+          "kind": "call",
+          "conditional": false,
+          "computed": false,
+          "direct_destinations": [
+            "0x4f2cd0"
+          ],
+          "classification_evidence": [
+            {
+              "source": "ghidra-listing-flow-type",
+              "value": "CALL_TERMINATOR"
+            }
+          ]
+        },
+        "references": [
+          {
+            "target_address": "0x4f2cd0",
+            "type": "UNCONDITIONAL_CALL",
+            "call": true,
+            "jump": false,
+            "indirect": false,
+            "computed": false,
+            "operand_index": 0,
+            "source_address": "0x4f49db",
+            "data": false,
+            "read": false,
+            "write": false,
+            "primary": true,
+            "provenance": "ghidra-reference-manager",
+            "source": "default"
+          }
+        ],
+        "incoming_references": [],
+        "limitations": [
+          "Operand components are Ghidra Listing decoder tokens; effective memory base/index/displacement roles and per-instruction context mode are unavailable. The mode field is the program language variant."
+        ]
+      }
+    },
+    {
+      "key": "s62-handler-andaction",
+      "evidence_id": "ev_fcd4b1ce10380398720b5188feadc71d87cb6059aab9c3fcc52fc19f9f6f0a0e",
+      "operation": "batch_decompile",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e",
+      "locations": [
+        {
+          "kind": "address",
+          "address": "0x4f2cd0"
+        },
+        {
+          "kind": "address",
+          "address": "0x408740"
+        }
+      ],
+      "result": [
+        {
+          "address": "0x4f2cd0",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4f2cd0",
+            "name": "FUN_004f2cd0"
+          },
+          "pseudocode": "\r\n/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */\r\n\r\nundefined4 FUN_004f2cd0(int param_1)\r\n\r\n{\r\n  long lVar1;\r\n  int iVar2;\r\n  int iVar3;\r\n  int iVar4;\r\n  undefined4 *puVar5;\r\n  wchar_t *_Source;\r\n  undefined4 *puVar6;\r\n  undefined4 auStack_638 [113];\r\n  undefined4 uStack_474;\r\n  uint uStack_470;\r\n  uint uStack_46c;\r\n  uint uStack_468;\r\n  uint uStack_464;\r\n  uint uStack_460;\r\n  int iStack_45c;\r\n  int iStack_458;\r\n  int iStack_454;\r\n  uint uStack_450;\r\n  uint uStack_44c;\r\n  uint uStack_448;\r\n  uint uStack_444;\r\n  uint uStack_440;\r\n  wchar_t *pwStack_43c;\r\n  int local_420;\r\n  uint local_41c;\r\n  uint local_418;\r\n  uint local_414;\r\n  wchar_t local_410 [256];\r\n  wchar_t local_210 [256];\r\n  undefined4 local_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005dbfee;\r\n  local_c = ExceptionList;\r\n  local_10 = DAT_0066c19c;\r\n  puVar5 = (undefined4 *)(param_1 + 0x630);\r\n  puVar6 = auStack_638;\r\n  for (iVar3 = 0x80; iVar3 != 0; iVar3 = iVar3 + -1) {\r\n    *puVar6 = *puVar5;\r\n    puVar5 = puVar5 + 1;\r\n    puVar6 = puVar6 + 1;\r\n  }\r\n  local_418 = local_418 & 0xffffff00;\r\n  local_41c = local_41c & 0xffffff00;\r\n  local_414 = local_414 & 0xffffff00;\r\n  ExceptionList = &local_c;\r\n  FUN_004ceea0(L\"HelpString\");\r\n  iVar3 = FUN_005b4acd();\r\n  iVar4 = 0;\r\n  if (iVar3 != 0) {\r\n    _Source = local_210;\r\n    local_420 = iVar3;\r\n    do {\r\n      _Source = _Source + 1;\r\n      if (_Source[-1] == L':') {\r\n        switch(iVar4) {\r\n        case 0:\r\n          lVar1 = __wtol(_Source);\r\n          local_41c = CONCAT31(local_41c._1_3_,(char)lVar1);\r\n          break;\r\n        case 1:\r\n          lVar1 = __wtol(_Source);\r\n          local_414 = CONCAT31(local_414._1_3_,(char)lVar1);\r\n          break;\r\n        case 2:\r\n          lVar1 = __wtol(_Source);\r\n          local_418 = CONCAT31(local_418._1_3_,(char)lVar1);\r\n          break;\r\n        case 7:\r\n          iVar2 = FUN_005b4acd();\r\n          if (iVar2 == 0) {\r\n            local_410[0] = L'\\0';\r\n          }\r\n          else {\r\n            pwStack_43c = L\"쒃䌈䒋ဤ욃䠂䒉ဤ轵ﾅݵ읦⑄ 樀棌ֆ\";\r\n            _wcscpy(local_410,_Source);\r\n          }\r\n        }\r\n        iVar4 = iVar4 + 1;\r\n      }\r\n      local_420 = local_420 + -1;\r\n    } while (local_420 != 0);\r\n  }\r\n  if (iVar3 == 0) {\r\n    local_410[0] = L'\\0';\r\n  }\r\n  pwStack_43c = L\".\\\\PacketHandler.cpp\";\r\n  uStack_440 = 0;\r\n  uStack_444 = 0x814;\r\n  uStack_448 = 0x4f2e04;\r\n  iVar3 = FUN_004dc720();\r\n  local_4 = 0;\r\n  if (iVar3 != 0) {\r\n    pwStack_43c = local_410;\r\n    uStack_440 = (uint)*(ushort *)(param_1 + 0x2c);\r\n    uStack_444 = local_414;\r\n    uStack_448 = local_41c;\r\n    uStack_44c = local_418;\r\n    uStack_450 = (uint)*(byte *)(param_1 + 0x62e);\r\n    iStack_454 = param_1 + 0x42e;\r\n    iStack_458 = param_1 + 0x22e;\r\n    uStack_460 = (uint)*(byte *)(param_1 + 0x2a);\r\n    iStack_45c = param_1 + 0x2e;\r\n    uStack_464 = (uint)*(byte *)(param_1 + 0x29);\r\n    uStack_468 = (uint)*(byte *)(param_1 + 0x28);\r\n    uStack_46c = (uint)*(byte *)(param_1 + 0x24);\r\n    uStack_470 = (uint)*(ushort *)(param_1 + 0x26);\r\n    uStack_474 = 0x4f2e88;\r\n    FUN_004017d0();\r\n  }\r\n  local_4 = 0xffffffff;\r\n  pwStack_43c = (wchar_t *)(uint)*(byte *)(param_1 + 0x24);\r\n  if (*(byte *)(param_1 + 0x24) < 2) {\r\n    uStack_440 = 0x4f2eb4;\r\n    FUN_004019b0();\r\n    pwStack_43c = L\"貋␤\\x04搀ඉ\";\r\n    FUN_00539490();\r\n  }\r\n  ExceptionList = local_c;\r\n  return 1;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x408740",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x408740",
+            "name": "FUN_00408740"
+          },
+          "pseudocode": "\r\nundefined4 FUN_00408740(char param_1,undefined1 *param_2)\r\n\r\n{\r\n  int in_ECX;\r\n  uint uVar1;\r\n  \r\n  for (uVar1 = 0;\r\n      (*(int *)(in_ECX + 0x10) != 0 &&\r\n      (uVar1 < (uint)(*(int *)(in_ECX + 0x14) - *(int *)(in_ECX + 0x10) >> 3))); uVar1 = uVar1 + 1)\r\n  {\r\n    if (*(char *)(*(int *)(in_ECX + 0x10) + uVar1 * 8) == param_1) {\r\n      if (param_2 != (undefined1 *)0x0) {\r\n        *param_2 = (char)uVar1;\r\n      }\r\n      return *(undefined4 *)(*(int *)(in_ECX + 0x10) + uVar1 * 8 + 4);\r\n    }\r\n  }\r\n  return 0;\r\n}\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "key": "action-definition",
+      "evidence_id": "ev_6d78bf87e6f316502e960a35958bf4c6e9ece7cf26c4a39bafed5d5d24beef72",
+      "operation": "batch_decompile",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e",
+      "locations": [
+        {
+          "kind": "address",
+          "address": "0x4017d0"
+        },
+        {
+          "kind": "address",
+          "address": "0x4019b0"
+        },
+        {
+          "kind": "address",
+          "address": "0x401df0"
+        },
+        {
+          "kind": "address",
+          "address": "0x401ed0"
+        },
+        {
+          "kind": "address",
+          "address": "0x4084a0"
+        }
+      ],
+      "result": [
+        {
+          "address": "0x4017d0",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4017d0",
+            "name": "FUN_004017d0"
+          },
+          "pseudocode": "\r\nvoid FUN_004017d0(undefined2 param_1,undefined1 param_2,undefined1 param_3,undefined1 param_4,\r\n                 undefined1 param_5,wchar_t *param_6,wchar_t *param_7,wchar_t *param_8,\r\n                 undefined1 param_9,undefined1 param_10,undefined1 param_11,undefined1 param_12,\r\n                 undefined2 param_13,wchar_t *param_14,undefined1 param_15,undefined1 param_16)\r\n\r\n{\r\n  undefined4 *in_ECX;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005c8608;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_004a66d0();\r\n  local_4 = 0;\r\n  *(undefined1 *)((int)in_ECX + 6) = param_2;\r\n  *(undefined1 *)((int)in_ECX + 7) = param_3;\r\n  *(undefined1 *)(in_ECX + 2) = param_4;\r\n  *(undefined2 *)(in_ECX + 1) = param_1;\r\n  *in_ECX = &PTR_FUN_005f19b0;\r\n  *(undefined1 *)((int)in_ECX + 9) = param_5;\r\n  _wcsncpy((wchar_t *)((int)in_ECX + 10),param_6,0xff);\r\n  *(undefined2 *)(in_ECX + 0x82) = 0;\r\n  _wcsncpy((wchar_t *)((int)in_ECX + 0x20a),param_7,0xff);\r\n  *(undefined2 *)(in_ECX + 0x102) = 0;\r\n  _wcsncpy((wchar_t *)((int)in_ECX + 0x40a),param_8,0xff);\r\n  *(undefined1 *)((int)in_ECX + 0x80a) = param_9;\r\n  *(undefined1 *)(in_ECX + 0x203) = param_11;\r\n  *(undefined1 *)((int)in_ECX + 0x80d) = param_12;\r\n  *(undefined1 *)((int)in_ECX + 0x80b) = param_10;\r\n  *(undefined2 *)(in_ECX + 0x182) = 0;\r\n  *(undefined2 *)((int)in_ECX + 0x80e) = param_13;\r\n  _wcsncpy((wchar_t *)((int)in_ECX + 0x60a),param_14,0xff);\r\n  *(undefined2 *)(in_ECX + 0x202) = 0;\r\n  *(undefined1 *)(in_ECX + 0x204) = param_15;\r\n  *(undefined1 *)((int)in_ECX + 0x811) = param_16;\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4019b0",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4019b0",
+            "name": "FUN_004019b0"
+          },
+          "pseudocode": "\r\nint FUN_004019b0(int param_1,byte param_2)\r\n\r\n{\r\n  return param_1 * 0x50 + (uint)param_2;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x401e30",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x401df0",
+            "name": "FUN_00401df0"
+          },
+          "pseudocode": "\r\nvoid FUN_00401df0(undefined4 param_1)\r\n\r\n{\r\n  int iVar1;\r\n  int iVar2;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005c86eb;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  iVar1 = FUN_00538970(param_1);\r\n  if ((iVar1 != 0) && ((*(byte *)(iVar1 + 8) & 1) == 0)) {\r\n    iVar2 = FUN_004dc720(0x228,0,L\".\\\\actioninventory.cpp\",0x162,0xffffffcc);\r\n    local_4 = 0;\r\n    if (iVar2 == 0) {\r\n      iVar2 = 0;\r\n    }\r\n    else {\r\n      iVar2 = FUN_00574fc0();\r\n    }\r\n    local_4 = 0xffffffff;\r\n    *(undefined1 *)(iVar2 + 0x24) = 2;\r\n    _wcsncpy((wchar_t *)(iVar2 + 0x26),(wchar_t *)(iVar1 + 0x20a),0xff);\r\n    *(undefined2 *)(iVar2 + 0x224) = 0;\r\n    FUN_005788a0();\r\n  }\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x401f10",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x401ed0",
+            "name": "FUN_00401ed0"
+          },
+          "pseudocode": "\r\nvoid FUN_00401ed0(undefined4 *param_1)\r\n\r\n{\r\n  int iVar1;\r\n  int iVar2;\r\n  int in_ECX;\r\n  uint local_34 [9];\r\n  void *pvStack_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005c871b;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_00479ea0(local_34);\r\n  if ((*(char *)((int)param_1 + 0x26) == '\\x02') && (iVar1 = FUN_004ba410(param_1[10]), iVar1 != 0))\r\n  {\r\n    ExceptionList = local_c;\r\n    return;\r\n  }\r\n  if ((local_34[0] & 0x1000) != 0) {\r\n    FUN_00556430(0);\r\n    ExceptionList = local_c;\r\n    return;\r\n  }\r\n  iVar1 = FUN_0046ce20();\r\n  if (iVar1 != 0) {\r\n    if (*(int *)(in_ECX + 0x24) != 0) {\r\n      (**(code **)*param_1)(1);\r\n      ExceptionList = pvStack_10;\r\n      return;\r\n    }\r\n    iVar1 = FUN_00538970(CONCAT11((char)((ushort)(*(char *)(param_1 + 9) * 0x50) >> 8),\r\n                                  (char)(*(char *)(param_1 + 9) * 0x50) +\r\n                                  *(char *)((int)param_1 + 0x25)));\r\n    if (iVar1 == 0) {\r\n      (**(code **)*param_1)(1);\r\n      ExceptionList = pvStack_10;\r\n      return;\r\n    }\r\n    if (*(short *)(iVar1 + 0x80e) == 0) {\r\n      FUN_0046dd90();\r\n      FUN_00401df0(CONCAT11((char)((ushort)(*(char *)(param_1 + 9) * 0x50) >> 8),\r\n                            (char)(*(char *)(param_1 + 9) * 0x50) + *(char *)((int)param_1 + 0x25)))\r\n      ;\r\n      FUN_005788a0();\r\n      ExceptionList = local_c;\r\n      return;\r\n    }\r\n    FUN_0046dd90();\r\n    *(undefined4 *)(in_ECX + 0x28) = 1;\r\n    iVar2 = FUN_004dc720(0x28,0,L\".\\\\actioninventory.cpp\",0x11f,0xffffffcc);\r\n    local_4 = 0;\r\n    if (iVar2 == 0) {\r\n      iVar2 = 0;\r\n    }\r\n    else {\r\n      iVar2 = FUN_00575510();\r\n    }\r\n    local_4 = 0xffffffff;\r\n    *(undefined2 *)(iVar2 + 0x24) = *(undefined2 *)(iVar1 + 0x80e);\r\n    FUN_005788a0();\r\n    FUN_004fd1d0(in_ECX,0x53507573,*(undefined2 *)(iVar1 + 0x80e),0,0);\r\n    *(undefined4 **)(in_ECX + 0x24) = param_1;\r\n  }\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4084b0",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4084a0",
+            "name": "FUN_004084a0"
+          },
+          "pseudocode": "\r\nvoid FUN_004084a0(int param_1,int param_2,undefined4 *param_3)\r\n\r\n{\r\n  for (; param_1 != param_2; param_2 = param_2 + -8) {\r\n    param_3[-2] = *(undefined4 *)(param_2 + -8);\r\n    param_3[-1] = *(undefined4 *)(param_2 + -4);\r\n    param_3 = param_3 + -2;\r\n  }\r\n  return;\r\n}\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "key": "attack-input-path-1",
+      "evidence_id": "ev_b78ffc17f38ac979cc5bec6d7dfa1a199106306897a25c17854b42d7ab2fa405",
+      "operation": "batch_decompile",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e",
+      "locations": [
+        {
+          "kind": "address",
+          "address": "0x497230"
+        },
+        {
+          "kind": "address",
+          "address": "0x4b74d0"
+        }
+      ],
+      "result": [
+        {
+          "address": "0x497230",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x497230",
+            "name": "FUN_00497230"
+          },
+          "pseudocode": "\r\n/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */\r\n\r\nundefined4 FUN_00497230(undefined4 param_1)\r\n\r\n{\r\n  bool bVar1;\r\n  int iVar2;\r\n  undefined4 uVar3;\r\n  undefined4 uVar4;\r\n  int iVar5;\r\n  int *piVar6;\r\n  int *piVar7;\r\n  int iVar8;\r\n  uint uVar9;\r\n  int in_ECX;\r\n  undefined8 uVar10;\r\n  undefined4 uVar11;\r\n  undefined4 uVar12;\r\n  undefined4 uVar13;\r\n  int local_228;\r\n  undefined1 local_221;\r\n  int local_220;\r\n  int local_21c;\r\n  int local_218;\r\n  int local_214;\r\n  wchar_t local_210 [256];\r\n  undefined4 local_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d47c0;\r\n  local_c = ExceptionList;\r\n  local_10 = DAT_0066c19c;\r\n  ExceptionList = &local_c;\r\n  local_220 = in_ECX;\r\n  if ((DAT_0066d0d4 != 0) && (ExceptionList = &local_c, iVar2 = FUN_00555f20(), iVar2 != 0)) {\r\n    iVar2 = FUN_0055a250(*(undefined4 *)(DAT_0066d0c8 + 0x4c),param_1);\r\n    if (iVar2 != 0x51) {\r\n      ExceptionList = local_c;\r\n      return 0;\r\n    }\r\n    local_220 = FUN_004dc720(0x18,0,L\".\\\\keybindingpane.cpp\",0x162,0xffffffcc);\r\n    local_4 = 0;\r\n    if (local_220 == 0) {\r\n      uVar3 = 0;\r\n    }\r\n    else {\r\n      uVar3 = FUN_00496e20(&LAB_00496fb0,0,in_ECX + -4);\r\n    }\r\n    local_4 = 0xffffffff;\r\n    local_220 = FUN_004dc720(0x5c,0,L\".\\\\keybindingpane.cpp\",0x163,0xffffffcc);\r\n    local_4 = 1;\r\n    if (local_220 != 0) {\r\n      uVar13 = 1;\r\n      uVar12 = 0;\r\n      uVar11 = 0;\r\n      uVar4 = FUN_00498010(0x51);\r\n      FUN_00442570(uVar4,uVar11,uVar12,uVar13,uVar3);\r\n    }\r\n    ExceptionList = local_c;\r\n    return 1;\r\n  }\r\n  iVar2 = DAT_0066d0c8;\r\n  if (*(int *)(in_ECX + 0x30) == 0) {\r\n    ExceptionList = local_c;\r\n    return 0;\r\n  }\r\n  iVar5 = FUN_0055a250(*(undefined4 *)(DAT_0066d0c8 + 0x4c),param_1);\r\n  iVar8 = DAT_0066d0c8;\r\n  if (iVar5 == -1) {\r\n    ExceptionList = local_c;\r\n    return 0;\r\n  }\r\n  if (iVar5 == 0) {\r\n    piVar6 = (int *)FUN_00535590(9);\r\n    uVar3 = FUN_00533cc0();\r\n    piVar7 = (int *)FUN_00441070(uVar3);\r\n    FUN_00535590(8);\r\n    iVar2 = *piVar7;\r\n    iVar8 = FUN_00433f30();\r\n    (**(code **)(iVar2 + 0x14))(iVar8 == 0);\r\n    iVar2 = *piVar6;\r\n    uVar3 = FUN_00533cc0(0);\r\n    (**(code **)(iVar2 + 8))(uVar3);\r\nLAB_004973c8:\r\n    FUN_0053d250(0x7de,0x3f800000);\r\n    ExceptionList = local_c;\r\n    return 1;\r\n  }\r\n  if (iVar5 == 1) {\r\n    piVar6 = (int *)FUN_00535590(10);\r\n    iVar2 = FUN_00441070(4);\r\n    if (*(int *)(iVar2 + 0x4c) != 0) {\r\n      (**(code **)(*piVar6 + 8))(4,0);\r\n    }\r\n    goto LAB_004973c8;\r\n  }\r\n  if (iVar5 == 2) {\r\n    if (DAT_0066d0d4 == 0) {\r\n      ExceptionList = local_c;\r\n      return 1;\r\n    }\r\n    FUN_0046e3f0(&local_220);\r\n    uVar3 = FUN_004a4630();\r\n    uVar10 = FUN_004430c0(uVar3);\r\n    local_218 = (int)uVar10 + local_220;\r\n    local_214 = (int)((ulonglong)uVar10 >> 0x20) + local_21c;\r\n    iVar2 = FUN_004ea900(&local_218,&local_228);\r\n    if (iVar2 != 0) {\r\n      uVar3 = FUN_0046e2e0();\r\n      FUN_004b8be0(uVar3);\r\n      FUN_005578d0(uVar3);\r\n      ExceptionList = local_c;\r\n      return 1;\r\n    }\r\n    FUN_005578d0(0);\r\n    ExceptionList = local_c;\r\n    return 1;\r\n  }\r\n  if ((iVar5 == 0x13) || (iVar5 == 0x18)) {\r\n    piVar6 = (int *)FUN_00535590(2);\r\n    FUN_0053d250(0x7de,0x3f800000);\r\n    uVar3 = 2;\r\n  }\r\n  else {\r\n    if ((iVar5 == 0x14) || (iVar5 == 0x19)) {\r\n      piVar6 = (int *)FUN_00535590(2);\r\n      FUN_0053d250(0x7de,0x3f800000);\r\n      (**(code **)(*piVar6 + 8))(3,0);\r\n      ExceptionList = local_c;\r\n      return 1;\r\n    }\r\n    if ((iVar5 == 0x15) || (iVar5 == 0x1a)) {\r\n      piVar6 = (int *)FUN_00535590(2);\r\n      FUN_0053d250(0x7de,0x3f800000);\r\n      uVar3 = 4;\r\n    }\r\n    else {\r\n      if ((iVar5 == 0x16) || (iVar5 == 0x1b)) {\r\n        piVar6 = (int *)FUN_00535590(2);\r\n        FUN_0053d250(0x7de,0x3f800000);\r\n        (**(code **)(*piVar6 + 8))(5,0);\r\n        ExceptionList = local_c;\r\n        return 1;\r\n      }\r\n      if ((iVar5 != 0x17) && (iVar5 != 0x1c)) {\r\n        if ((iVar5 != 0x50) && (iVar5 != 0x51)) {\r\n          if ((0x1c < iVar5) && (iVar5 < 0x27)) {\r\n            *(int *)(iVar2 + 0x20) = iVar5 + -0x1d;\r\n            FUN_0046d2c0(*(undefined4 *)(iVar2 + 0x1c),iVar5 + -0x1d);\r\n            ExceptionList = local_c;\r\n            return 1;\r\n          }\r\n          if (((iVar5 != 0x27) && (iVar5 != 0x28)) && (iVar5 != 0x29)) {\r\n            if ((0x2e < iVar5) && (iVar5 < 0x34)) {\r\n              if (DAT_0066d0d4 == 0) {\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              uVar3 = FUN_00555bd0();\r\n              FUN_005570f0((char)iVar5 + -0x2f,uVar3);\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            if ((0x38 < iVar5) && (iVar5 < 0x44)) {\r\n              if (DAT_0066d0d4 == 0) {\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              FUN_00556530((char)iVar5 + -0x39);\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            if ((0x43 < iVar5) && (iVar5 < 0x50)) {\r\n              switch(iVar5) {\r\n              case 0x44:\r\n                local_220 = FUN_004dc720(0x54,0,L\".\\\\keybindingpane.cpp\",0x226,0xffffffcc);\r\n                local_4 = 4;\r\n                if (local_220 == 0) {\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                FUN_00473420(0,1);\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              case 0x45:\r\n                local_220 = FUN_004dc720(0x54,0,L\".\\\\keybindingpane.cpp\",0x229,0xffffffcc);\r\n                local_4 = 5;\r\n                if (local_220 == 0) {\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                FUN_0041bbb0();\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              default:\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              case 0x48:\r\n                goto switchD_004975d7_caseD_48;\r\n              case 0x4f:\r\n                FUN_00514520();\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n            }\r\n            if (iVar5 != 0xb) {\r\n              if (iVar5 == 0xd) {\r\n                if (DAT_0066e474 == 0) {\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                FUN_00558b70();\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              if (iVar5 != 0xc) {\r\n                if (iVar5 == 0xe) {\r\n                  piVar6 = (int *)FUN_00535590(2);\r\n                  FUN_0053d250(0x7de,0x3f800000);\r\n                  (**(code **)(*piVar6 + 8))(6,0);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if ((iVar5 == 0xf) || (iVar5 == 0x10)) {\r\n                  FUN_00564e20();\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if ((iVar5 == 0x11) || (iVar5 == 0x12)) {\r\n                  if (DAT_0066d0d8 == 0) {\r\n                    ExceptionList = local_c;\r\n                    return 1;\r\n                  }\r\n                  iVar2 = FUN_004b4860();\r\n                  if (iVar2 != 0) {\r\n                    ExceptionList = local_c;\r\n                    return 1;\r\n                  }\r\n                  FUN_004b4d90();\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if ((iVar5 < 0x2a) || (0x2e < iVar5)) {\r\n                  if (iVar5 == 0x52) {\r\n                    *(uint *)(DAT_0066d0c8 + 0x80) = (uint)(*(int *)(DAT_0066d0c8 + 0x80) == 0);\r\n                    FUN_004c9170(3,&local_228);\r\n                    uVar4 = FUN_00498010(0x25);\r\n                    uVar3 = FUN_00498010(0x24);\r\n                    if (*(int *)(iVar8 + 0x80) != 0) {\r\n                      uVar3 = uVar4;\r\n                    }\r\n                    uVar4 = FUN_00498010(0x20c);\r\n                    _swprintf(local_210,L\"%s : %s\",uVar4,uVar3);\r\n                    FUN_00430390(local_210,&local_228);\r\n                    ExceptionList = local_c;\r\n                    return 1;\r\n                  }\r\n                  if (iVar5 != 0x53) {\r\n                    ExceptionList = local_c;\r\n                    return 1;\r\n                  }\r\n                  *(uint *)(DAT_0066d0c8 + 0x7c) = (uint)(*(int *)(DAT_0066d0c8 + 0x7c) == 0);\r\n                  local_220 = FUN_004dc720(0x38,0,L\".\\\\keybindingpane.cpp\",0x2b0,0xffffffcc);\r\n                  local_4 = 7;\r\n                  if (local_220 == 0) {\r\n                    iVar2 = 0;\r\n                  }\r\n                  else {\r\n                    iVar2 = FUN_00575bb0();\r\n                  }\r\n                  local_4 = 0xffffffff;\r\n                  local_221 = 0x14;\r\n                  FUN_00449960(&local_221);\r\n                  *(undefined1 *)(iVar2 + 0x25) = 1;\r\n                  FUN_005788a0();\r\n                  FUN_004c9170(3,&local_228);\r\n                  uVar4 = FUN_00498010(0x25);\r\n                  uVar3 = FUN_00498010(0x24);\r\n                  if (*(int *)(iVar8 + 0x7c) != 0) {\r\n                    uVar3 = uVar4;\r\n                  }\r\n                  uVar4 = FUN_00498010(0x20b);\r\n                  _swprintf(local_210,L\"%s : %s\",uVar4,uVar3);\r\n                  FUN_00430390(local_210,&local_228);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                piVar6 = (int *)FUN_00535590(8);\r\n                FUN_00535590(9);\r\n                FUN_0053d250(0x7da,0x3f800000);\r\n                if (iVar5 == 0x2a) {\r\n                  FUN_0042df30();\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if (iVar5 == 0x2c) {\r\n                  piVar7 = (int *)FUN_00441070(2);\r\n                  (**(code **)(*piVar7 + 0x14))(0);\r\n                  iVar2 = FUN_0042ccb0();\r\n                  FUN_00533830((-(uint)(iVar2 != 0) & 0xfffffffd) + 5);\r\n                  (**(code **)(*piVar6 + 8))(2,1);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if (iVar5 == 0x2b) {\r\n                  piVar7 = (int *)FUN_00441070(2);\r\n                  (**(code **)(*piVar7 + 0x14))(3);\r\n                  iVar2 = FUN_0042ccb0();\r\n                  FUN_00533830((-(uint)(iVar2 != 0) & 0xfffffffc) + 6);\r\n                  (**(code **)(*piVar6 + 8))(2,4);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if (iVar5 == 0x2d) {\r\n                  piVar7 = (int *)FUN_00441070(2);\r\n                  (**(code **)(*piVar7 + 0x14))(1);\r\n                  iVar2 = FUN_0042ccb0();\r\n                  FUN_00533830(3 - (uint)(iVar2 != 0));\r\n                  (**(code **)(*piVar6 + 8))(2,2);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if (iVar5 != 0x2e) {\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                piVar7 = (int *)FUN_00441070(2);\r\n                (**(code **)(*piVar7 + 0x14))(2);\r\n                iVar2 = FUN_0042ccb0();\r\n                FUN_00533830((-(uint)(iVar2 != 0) & 0xfffffffe) + 4);\r\n                (**(code **)(*piVar6 + 8))(2,3);\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              piVar6 = (int *)FUN_00535590(9);\r\n              iVar2 = *piVar6;\r\n              uVar3 = 10;\r\n              goto LAB_00497dce;\r\n            }\r\n            piVar6 = (int *)FUN_00535590(0xf);\r\n            FUN_0053d250(0x7de,0x3f800000);\r\n            uVar3 = 1;\r\n            goto LAB_00497dca;\r\n          }\r\n          if (iVar5 == 0x27) {\r\nLAB_00497ad7:\r\n            if (*(byte *)(iVar2 + 0x18) - 1 == *(int *)(iVar2 + 0x1c)) {\r\n              *(undefined4 *)(iVar2 + 0x1c) = 0;\r\n              goto LAB_00497afa;\r\n            }\r\n            iVar8 = *(int *)(iVar2 + 0x1c) + 1;\r\n          }\r\n          else {\r\n            if (iVar5 != 0x28) {\r\n              if (iVar5 != 0x29) goto LAB_00497afa;\r\n              goto LAB_00497ad7;\r\n            }\r\n            uVar9 = *(uint *)(iVar2 + 0x1c);\r\n            if (uVar9 == 0) {\r\n              uVar9 = (uint)*(byte *)(iVar2 + 0x18);\r\n            }\r\n            iVar8 = uVar9 - 1;\r\n          }\r\n          *(int *)(iVar2 + 0x1c) = iVar8;\r\nLAB_00497afa:\r\n          FUN_00535590(9);\r\n          FUN_00533d40();\r\n          ExceptionList = local_c;\r\n          return 1;\r\n        }\r\n        piVar6 = (int *)FUN_00535590(2);\r\n        bVar1 = true;\r\n        local_228 = DAT_0066d148;\r\n        FUN_0053d250(0x7df,0x3f800000);\r\n        iVar2 = FUN_005355a0(0x14);\r\n        if (iVar2 == 0) {\r\n          iVar2 = FUN_005355a0(0x10);\r\n          if (iVar2 != 0) {\r\n            uVar3 = 0x10;\r\n            goto LAB_00497b6e;\r\n          }\r\n        }\r\n        else {\r\n          uVar3 = 0x14;\r\nLAB_00497b6e:\r\n          FUN_00535bd0(uVar3,3,0,3);\r\n          bVar1 = false;\r\n        }\r\n        iVar2 = FUN_005355a0(4);\r\n        if (iVar2 == 0) {\r\n          iVar2 = FUN_005355a0(3);\r\n          if (iVar2 != 0) {\r\n            (**(code **)(*piVar6 + 8))(2,0);\r\n            ExceptionList = local_c;\r\n            return 1;\r\n          }\r\n          iVar2 = FUN_005355a0(5);\r\n          if (iVar2 == 0) {\r\n            iVar2 = FUN_005355a0(0x1a);\r\n            if (iVar2 != 0) {\r\n              FUN_00535590(0x1a);\r\n              iVar2 = FUN_004308c0();\r\n              if (iVar2 == 0) {\r\n                FUN_00535af0(0x1a,0);\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              FUN_00535af0(0x1a,1);\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            iVar2 = FUN_005355a0(0x26);\r\n            if (iVar2 != 0) {\r\n              (**(code **)(*piVar6 + 8))(7,0);\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            if (!bVar1) {\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            if (iVar5 != 0x51) {\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            FUN_0053d250(0x7de,0x3f800000);\r\n            local_228 = FUN_004dc720(0x18,0,L\".\\\\keybindingpane.cpp\",0x1fb,0xffffffcc);\r\n            local_4 = 2;\r\n            if (local_228 == 0) {\r\n              uVar3 = 0;\r\n            }\r\n            else {\r\n              uVar3 = FUN_00496e20(&LAB_00496fb0,0,local_220 + -4);\r\n            }\r\n            local_4 = 0xffffffff;\r\n            local_220 = FUN_004dc720(0x5c,0,L\".\\\\keybindingpane.cpp\",0x1fc,0xffffffcc);\r\n            local_4 = 3;\r\n            if (local_220 == 0) {\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            uVar13 = 1;\r\n            uVar12 = 0;\r\n            uVar11 = 0;\r\n            uVar4 = FUN_00498010(0x51);\r\n            FUN_00442570(uVar4,uVar11,uVar12,uVar13,uVar3);\r\n            ExceptionList = local_c;\r\n            return 1;\r\n          }\r\n          iVar2 = *piVar6;\r\n          uVar3 = 4;\r\n        }\r\n        else {\r\n          iVar2 = *piVar6;\r\n          uVar3 = 3;\r\n        }\r\n        goto LAB_00497dce;\r\n      }\r\n      piVar6 = (int *)FUN_00535590(2);\r\n      FUN_0053d250(0x7de,0x3f800000);\r\n      uVar3 = 7;\r\n    }\r\n  }\r\nLAB_00497dca:\r\n  iVar2 = *piVar6;\r\nLAB_00497dce:\r\n  (**(code **)(iVar2 + 8))(uVar3,0);\r\n  ExceptionList = local_c;\r\n  return 1;\r\nswitchD_004975d7_caseD_48:\r\n  if (DAT_0066d0d4 != 0) {\r\n    FUN_00556340(0);\r\n  }\r\n  if (DAT_0066d0d8 != 0) {\r\n    FUN_004b7850();\r\n  }\r\n  local_220 = FUN_004dc720(0x24,0,L\".\\\\keybindingpane.cpp\",0x237,0xffffffcc);\r\n  local_4 = 6;\r\n  if (local_220 != 0) {\r\n    FUN_00574d00();\r\n    local_4 = 0xffffffff;\r\n    FUN_005788a0();\r\n    ExceptionList = local_c;\r\n    return 1;\r\n  }\r\n  local_4 = 0xffffffff;\r\n  FUN_005788a0();\r\n  ExceptionList = local_c;\r\n  return 1;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x497420",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x497230",
+            "name": "FUN_00497230"
+          },
+          "pseudocode": "\r\n/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */\r\n\r\nundefined4 FUN_00497230(undefined4 param_1)\r\n\r\n{\r\n  bool bVar1;\r\n  int iVar2;\r\n  undefined4 uVar3;\r\n  undefined4 uVar4;\r\n  int iVar5;\r\n  int *piVar6;\r\n  int *piVar7;\r\n  int iVar8;\r\n  uint uVar9;\r\n  int in_ECX;\r\n  undefined8 uVar10;\r\n  undefined4 uVar11;\r\n  undefined4 uVar12;\r\n  undefined4 uVar13;\r\n  int local_228;\r\n  undefined1 local_221;\r\n  int local_220;\r\n  int local_21c;\r\n  int local_218;\r\n  int local_214;\r\n  wchar_t local_210 [256];\r\n  undefined4 local_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d47c0;\r\n  local_c = ExceptionList;\r\n  local_10 = DAT_0066c19c;\r\n  ExceptionList = &local_c;\r\n  local_220 = in_ECX;\r\n  if ((DAT_0066d0d4 != 0) && (ExceptionList = &local_c, iVar2 = FUN_00555f20(), iVar2 != 0)) {\r\n    iVar2 = FUN_0055a250(*(undefined4 *)(DAT_0066d0c8 + 0x4c),param_1);\r\n    if (iVar2 != 0x51) {\r\n      ExceptionList = local_c;\r\n      return 0;\r\n    }\r\n    local_220 = FUN_004dc720(0x18,0,L\".\\\\keybindingpane.cpp\",0x162,0xffffffcc);\r\n    local_4 = 0;\r\n    if (local_220 == 0) {\r\n      uVar3 = 0;\r\n    }\r\n    else {\r\n      uVar3 = FUN_00496e20(&LAB_00496fb0,0,in_ECX + -4);\r\n    }\r\n    local_4 = 0xffffffff;\r\n    local_220 = FUN_004dc720(0x5c,0,L\".\\\\keybindingpane.cpp\",0x163,0xffffffcc);\r\n    local_4 = 1;\r\n    if (local_220 != 0) {\r\n      uVar13 = 1;\r\n      uVar12 = 0;\r\n      uVar11 = 0;\r\n      uVar4 = FUN_00498010(0x51);\r\n      FUN_00442570(uVar4,uVar11,uVar12,uVar13,uVar3);\r\n    }\r\n    ExceptionList = local_c;\r\n    return 1;\r\n  }\r\n  iVar2 = DAT_0066d0c8;\r\n  if (*(int *)(in_ECX + 0x30) == 0) {\r\n    ExceptionList = local_c;\r\n    return 0;\r\n  }\r\n  iVar5 = FUN_0055a250(*(undefined4 *)(DAT_0066d0c8 + 0x4c),param_1);\r\n  iVar8 = DAT_0066d0c8;\r\n  if (iVar5 == -1) {\r\n    ExceptionList = local_c;\r\n    return 0;\r\n  }\r\n  if (iVar5 == 0) {\r\n    piVar6 = (int *)FUN_00535590(9);\r\n    uVar3 = FUN_00533cc0();\r\n    piVar7 = (int *)FUN_00441070(uVar3);\r\n    FUN_00535590(8);\r\n    iVar2 = *piVar7;\r\n    iVar8 = FUN_00433f30();\r\n    (**(code **)(iVar2 + 0x14))(iVar8 == 0);\r\n    iVar2 = *piVar6;\r\n    uVar3 = FUN_00533cc0(0);\r\n    (**(code **)(iVar2 + 8))(uVar3);\r\nLAB_004973c8:\r\n    FUN_0053d250(0x7de,0x3f800000);\r\n    ExceptionList = local_c;\r\n    return 1;\r\n  }\r\n  if (iVar5 == 1) {\r\n    piVar6 = (int *)FUN_00535590(10);\r\n    iVar2 = FUN_00441070(4);\r\n    if (*(int *)(iVar2 + 0x4c) != 0) {\r\n      (**(code **)(*piVar6 + 8))(4,0);\r\n    }\r\n    goto LAB_004973c8;\r\n  }\r\n  if (iVar5 == 2) {\r\n    if (DAT_0066d0d4 == 0) {\r\n      ExceptionList = local_c;\r\n      return 1;\r\n    }\r\n    FUN_0046e3f0(&local_220);\r\n    uVar3 = FUN_004a4630();\r\n    uVar10 = FUN_004430c0(uVar3);\r\n    local_218 = (int)uVar10 + local_220;\r\n    local_214 = (int)((ulonglong)uVar10 >> 0x20) + local_21c;\r\n    iVar2 = FUN_004ea900(&local_218,&local_228);\r\n    if (iVar2 != 0) {\r\n      uVar3 = FUN_0046e2e0();\r\n      FUN_004b8be0(uVar3);\r\n      FUN_005578d0(uVar3);\r\n      ExceptionList = local_c;\r\n      return 1;\r\n    }\r\n    FUN_005578d0(0);\r\n    ExceptionList = local_c;\r\n    return 1;\r\n  }\r\n  if ((iVar5 == 0x13) || (iVar5 == 0x18)) {\r\n    piVar6 = (int *)FUN_00535590(2);\r\n    FUN_0053d250(0x7de,0x3f800000);\r\n    uVar3 = 2;\r\n  }\r\n  else {\r\n    if ((iVar5 == 0x14) || (iVar5 == 0x19)) {\r\n      piVar6 = (int *)FUN_00535590(2);\r\n      FUN_0053d250(0x7de,0x3f800000);\r\n      (**(code **)(*piVar6 + 8))(3,0);\r\n      ExceptionList = local_c;\r\n      return 1;\r\n    }\r\n    if ((iVar5 == 0x15) || (iVar5 == 0x1a)) {\r\n      piVar6 = (int *)FUN_00535590(2);\r\n      FUN_0053d250(0x7de,0x3f800000);\r\n      uVar3 = 4;\r\n    }\r\n    else {\r\n      if ((iVar5 == 0x16) || (iVar5 == 0x1b)) {\r\n        piVar6 = (int *)FUN_00535590(2);\r\n        FUN_0053d250(0x7de,0x3f800000);\r\n        (**(code **)(*piVar6 + 8))(5,0);\r\n        ExceptionList = local_c;\r\n        return 1;\r\n      }\r\n      if ((iVar5 != 0x17) && (iVar5 != 0x1c)) {\r\n        if ((iVar5 != 0x50) && (iVar5 != 0x51)) {\r\n          if ((0x1c < iVar5) && (iVar5 < 0x27)) {\r\n            *(int *)(iVar2 + 0x20) = iVar5 + -0x1d;\r\n            FUN_0046d2c0(*(undefined4 *)(iVar2 + 0x1c),iVar5 + -0x1d);\r\n            ExceptionList = local_c;\r\n            return 1;\r\n          }\r\n          if (((iVar5 != 0x27) && (iVar5 != 0x28)) && (iVar5 != 0x29)) {\r\n            if ((0x2e < iVar5) && (iVar5 < 0x34)) {\r\n              if (DAT_0066d0d4 == 0) {\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              uVar3 = FUN_00555bd0();\r\n              FUN_005570f0((char)iVar5 + -0x2f,uVar3);\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            if ((0x38 < iVar5) && (iVar5 < 0x44)) {\r\n              if (DAT_0066d0d4 == 0) {\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              FUN_00556530((char)iVar5 + -0x39);\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            if ((0x43 < iVar5) && (iVar5 < 0x50)) {\r\n              switch(iVar5) {\r\n              case 0x44:\r\n                local_220 = FUN_004dc720(0x54,0,L\".\\\\keybindingpane.cpp\",0x226,0xffffffcc);\r\n                local_4 = 4;\r\n                if (local_220 == 0) {\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                FUN_00473420(0,1);\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              case 0x45:\r\n                local_220 = FUN_004dc720(0x54,0,L\".\\\\keybindingpane.cpp\",0x229,0xffffffcc);\r\n                local_4 = 5;\r\n                if (local_220 == 0) {\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                FUN_0041bbb0();\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              default:\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              case 0x48:\r\n                goto switchD_004975d7_caseD_48;\r\n              case 0x4f:\r\n                FUN_00514520();\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n            }\r\n            if (iVar5 != 0xb) {\r\n              if (iVar5 == 0xd) {\r\n                if (DAT_0066e474 == 0) {\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                FUN_00558b70();\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              if (iVar5 != 0xc) {\r\n                if (iVar5 == 0xe) {\r\n                  piVar6 = (int *)FUN_00535590(2);\r\n                  FUN_0053d250(0x7de,0x3f800000);\r\n                  (**(code **)(*piVar6 + 8))(6,0);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if ((iVar5 == 0xf) || (iVar5 == 0x10)) {\r\n                  FUN_00564e20();\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if ((iVar5 == 0x11) || (iVar5 == 0x12)) {\r\n                  if (DAT_0066d0d8 == 0) {\r\n                    ExceptionList = local_c;\r\n                    return 1;\r\n                  }\r\n                  iVar2 = FUN_004b4860();\r\n                  if (iVar2 != 0) {\r\n                    ExceptionList = local_c;\r\n                    return 1;\r\n                  }\r\n                  FUN_004b4d90();\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if ((iVar5 < 0x2a) || (0x2e < iVar5)) {\r\n                  if (iVar5 == 0x52) {\r\n                    *(uint *)(DAT_0066d0c8 + 0x80) = (uint)(*(int *)(DAT_0066d0c8 + 0x80) == 0);\r\n                    FUN_004c9170(3,&local_228);\r\n                    uVar4 = FUN_00498010(0x25);\r\n                    uVar3 = FUN_00498010(0x24);\r\n                    if (*(int *)(iVar8 + 0x80) != 0) {\r\n                      uVar3 = uVar4;\r\n                    }\r\n                    uVar4 = FUN_00498010(0x20c);\r\n                    _swprintf(local_210,L\"%s : %s\",uVar4,uVar3);\r\n                    FUN_00430390(local_210,&local_228);\r\n                    ExceptionList = local_c;\r\n                    return 1;\r\n                  }\r\n                  if (iVar5 != 0x53) {\r\n                    ExceptionList = local_c;\r\n                    return 1;\r\n                  }\r\n                  *(uint *)(DAT_0066d0c8 + 0x7c) = (uint)(*(int *)(DAT_0066d0c8 + 0x7c) == 0);\r\n                  local_220 = FUN_004dc720(0x38,0,L\".\\\\keybindingpane.cpp\",0x2b0,0xffffffcc);\r\n                  local_4 = 7;\r\n                  if (local_220 == 0) {\r\n                    iVar2 = 0;\r\n                  }\r\n                  else {\r\n                    iVar2 = FUN_00575bb0();\r\n                  }\r\n                  local_4 = 0xffffffff;\r\n                  local_221 = 0x14;\r\n                  FUN_00449960(&local_221);\r\n                  *(undefined1 *)(iVar2 + 0x25) = 1;\r\n                  FUN_005788a0();\r\n                  FUN_004c9170(3,&local_228);\r\n                  uVar4 = FUN_00498010(0x25);\r\n                  uVar3 = FUN_00498010(0x24);\r\n                  if (*(int *)(iVar8 + 0x7c) != 0) {\r\n                    uVar3 = uVar4;\r\n                  }\r\n                  uVar4 = FUN_00498010(0x20b);\r\n                  _swprintf(local_210,L\"%s : %s\",uVar4,uVar3);\r\n                  FUN_00430390(local_210,&local_228);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                piVar6 = (int *)FUN_00535590(8);\r\n                FUN_00535590(9);\r\n                FUN_0053d250(0x7da,0x3f800000);\r\n                if (iVar5 == 0x2a) {\r\n                  FUN_0042df30();\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if (iVar5 == 0x2c) {\r\n                  piVar7 = (int *)FUN_00441070(2);\r\n                  (**(code **)(*piVar7 + 0x14))(0);\r\n                  iVar2 = FUN_0042ccb0();\r\n                  FUN_00533830((-(uint)(iVar2 != 0) & 0xfffffffd) + 5);\r\n                  (**(code **)(*piVar6 + 8))(2,1);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if (iVar5 == 0x2b) {\r\n                  piVar7 = (int *)FUN_00441070(2);\r\n                  (**(code **)(*piVar7 + 0x14))(3);\r\n                  iVar2 = FUN_0042ccb0();\r\n                  FUN_00533830((-(uint)(iVar2 != 0) & 0xfffffffc) + 6);\r\n                  (**(code **)(*piVar6 + 8))(2,4);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if (iVar5 == 0x2d) {\r\n                  piVar7 = (int *)FUN_00441070(2);\r\n                  (**(code **)(*piVar7 + 0x14))(1);\r\n                  iVar2 = FUN_0042ccb0();\r\n                  FUN_00533830(3 - (uint)(iVar2 != 0));\r\n                  (**(code **)(*piVar6 + 8))(2,2);\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                if (iVar5 != 0x2e) {\r\n                  ExceptionList = local_c;\r\n                  return 1;\r\n                }\r\n                piVar7 = (int *)FUN_00441070(2);\r\n                (**(code **)(*piVar7 + 0x14))(2);\r\n                iVar2 = FUN_0042ccb0();\r\n                FUN_00533830((-(uint)(iVar2 != 0) & 0xfffffffe) + 4);\r\n                (**(code **)(*piVar6 + 8))(2,3);\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              piVar6 = (int *)FUN_00535590(9);\r\n              iVar2 = *piVar6;\r\n              uVar3 = 10;\r\n              goto LAB_00497dce;\r\n            }\r\n            piVar6 = (int *)FUN_00535590(0xf);\r\n            FUN_0053d250(0x7de,0x3f800000);\r\n            uVar3 = 1;\r\n            goto LAB_00497dca;\r\n          }\r\n          if (iVar5 == 0x27) {\r\nLAB_00497ad7:\r\n            if (*(byte *)(iVar2 + 0x18) - 1 == *(int *)(iVar2 + 0x1c)) {\r\n              *(undefined4 *)(iVar2 + 0x1c) = 0;\r\n              goto LAB_00497afa;\r\n            }\r\n            iVar8 = *(int *)(iVar2 + 0x1c) + 1;\r\n          }\r\n          else {\r\n            if (iVar5 != 0x28) {\r\n              if (iVar5 != 0x29) goto LAB_00497afa;\r\n              goto LAB_00497ad7;\r\n            }\r\n            uVar9 = *(uint *)(iVar2 + 0x1c);\r\n            if (uVar9 == 0) {\r\n              uVar9 = (uint)*(byte *)(iVar2 + 0x18);\r\n            }\r\n            iVar8 = uVar9 - 1;\r\n          }\r\n          *(int *)(iVar2 + 0x1c) = iVar8;\r\nLAB_00497afa:\r\n          FUN_00535590(9);\r\n          FUN_00533d40();\r\n          ExceptionList = local_c;\r\n          return 1;\r\n        }\r\n        piVar6 = (int *)FUN_00535590(2);\r\n        bVar1 = true;\r\n        local_228 = DAT_0066d148;\r\n        FUN_0053d250(0x7df,0x3f800000);\r\n        iVar2 = FUN_005355a0(0x14);\r\n        if (iVar2 == 0) {\r\n          iVar2 = FUN_005355a0(0x10);\r\n          if (iVar2 != 0) {\r\n            uVar3 = 0x10;\r\n            goto LAB_00497b6e;\r\n          }\r\n        }\r\n        else {\r\n          uVar3 = 0x14;\r\nLAB_00497b6e:\r\n          FUN_00535bd0(uVar3,3,0,3);\r\n          bVar1 = false;\r\n        }\r\n        iVar2 = FUN_005355a0(4);\r\n        if (iVar2 == 0) {\r\n          iVar2 = FUN_005355a0(3);\r\n          if (iVar2 != 0) {\r\n            (**(code **)(*piVar6 + 8))(2,0);\r\n            ExceptionList = local_c;\r\n            return 1;\r\n          }\r\n          iVar2 = FUN_005355a0(5);\r\n          if (iVar2 == 0) {\r\n            iVar2 = FUN_005355a0(0x1a);\r\n            if (iVar2 != 0) {\r\n              FUN_00535590(0x1a);\r\n              iVar2 = FUN_004308c0();\r\n              if (iVar2 == 0) {\r\n                FUN_00535af0(0x1a,0);\r\n                ExceptionList = local_c;\r\n                return 1;\r\n              }\r\n              FUN_00535af0(0x1a,1);\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            iVar2 = FUN_005355a0(0x26);\r\n            if (iVar2 != 0) {\r\n              (**(code **)(*piVar6 + 8))(7,0);\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            if (!bVar1) {\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            if (iVar5 != 0x51) {\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            FUN_0053d250(0x7de,0x3f800000);\r\n            local_228 = FUN_004dc720(0x18,0,L\".\\\\keybindingpane.cpp\",0x1fb,0xffffffcc);\r\n            local_4 = 2;\r\n            if (local_228 == 0) {\r\n              uVar3 = 0;\r\n            }\r\n            else {\r\n              uVar3 = FUN_00496e20(&LAB_00496fb0,0,local_220 + -4);\r\n            }\r\n            local_4 = 0xffffffff;\r\n            local_220 = FUN_004dc720(0x5c,0,L\".\\\\keybindingpane.cpp\",0x1fc,0xffffffcc);\r\n            local_4 = 3;\r\n            if (local_220 == 0) {\r\n              ExceptionList = local_c;\r\n              return 1;\r\n            }\r\n            uVar13 = 1;\r\n            uVar12 = 0;\r\n            uVar11 = 0;\r\n            uVar4 = FUN_00498010(0x51);\r\n            FUN_00442570(uVar4,uVar11,uVar12,uVar13,uVar3);\r\n            ExceptionList = local_c;\r\n            return 1;\r\n          }\r\n          iVar2 = *piVar6;\r\n          uVar3 = 4;\r\n        }\r\n        else {\r\n          iVar2 = *piVar6;\r\n          uVar3 = 3;\r\n        }\r\n        goto LAB_00497dce;\r\n      }\r\n      piVar6 = (int *)FUN_00535590(2);\r\n      FUN_0053d250(0x7de,0x3f800000);\r\n      uVar3 = 7;\r\n    }\r\n  }\r\nLAB_00497dca:\r\n  iVar2 = *piVar6;\r\nLAB_00497dce:\r\n  (**(code **)(iVar2 + 8))(uVar3,0);\r\n  ExceptionList = local_c;\r\n  return 1;\r\nswitchD_004975d7_caseD_48:\r\n  if (DAT_0066d0d4 != 0) {\r\n    FUN_00556340(0);\r\n  }\r\n  if (DAT_0066d0d8 != 0) {\r\n    FUN_004b7850();\r\n  }\r\n  local_220 = FUN_004dc720(0x24,0,L\".\\\\keybindingpane.cpp\",0x237,0xffffffcc);\r\n  local_4 = 6;\r\n  if (local_220 != 0) {\r\n    FUN_00574d00();\r\n    local_4 = 0xffffffff;\r\n    FUN_005788a0();\r\n    ExceptionList = local_c;\r\n    return 1;\r\n  }\r\n  local_4 = 0xffffffff;\r\n  FUN_005788a0();\r\n  ExceptionList = local_c;\r\n  return 1;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4b7550",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4b74d0",
+            "name": "FUN_004b74d0"
+          },
+          "pseudocode": "\r\nvoid FUN_004b74d0(void)\r\n\r\n{\r\n  int iVar1;\r\n  undefined4 uVar2;\r\n  int in_ECX;\r\n  void *unaff_EBX;\r\n  int iVar3;\r\n  int unaff_retaddr;\r\n  void *pvStack_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d7a9b;\r\n  pvStack_c = ExceptionList;\r\n  iVar3 = 0;\r\n  ExceptionList = &pvStack_c;\r\n  iVar1 = FUN_004dc720(0x28,0,L\".\\\\mappane.cpp\",0x1761,0xffffffcc);\r\n  local_4 = 0;\r\n  if (iVar1 == 0) {\r\n    uVar2 = 0;\r\n  }\r\n  else {\r\n    uVar2 = FUN_004b5ff0();\r\n  }\r\n  local_4 = 0xffffffff;\r\n  *(undefined4 *)(in_ECX + 0xe8) = uVar2;\r\n  (**(code **)(*(int *)(DAT_0066d15c + 4) + 8))(0);\r\n  uVar2 = FUN_00514510();\r\n  FUN_00514500(1);\r\n  if (unaff_retaddr == 0) {\r\n    iVar1 = 0xf;\r\n    do {\r\n      *(char *)(*(int *)(in_ECX + 0xe8) + 0x24) = (char)iVar1;\r\n      FUN_004f9d50();\r\n      iVar1 = iVar1 + -4;\r\n    } while (-1 < iVar1);\r\n  }\r\n  else {\r\n    do {\r\n      *(char *)(*(int *)(in_ECX + 0xe8) + 0x24) = (char)iVar3;\r\n      FUN_004f9d50();\r\n      iVar3 = iVar3 + 4;\r\n    } while (iVar3 < 0x10);\r\n  }\r\n  FUN_00514500(uVar2);\r\n  (**(code **)(*(int *)(DAT_0066d15c + 4) + 8))(1);\r\n  if (unaff_retaddr != 0) {\r\n    if (*(undefined4 **)(in_ECX + 0xe8) != (undefined4 *)0x0) {\r\n      (**(code **)**(undefined4 **)(in_ECX + 0xe8))(1);\r\n    }\r\n    *(undefined4 *)(in_ECX + 0xe8) = 0;\r\n  }\r\n  ExceptionList = unaff_EBX;\r\n  return;\r\n}\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "key": "hit-number-ctor-ins",
+      "evidence_id": "ev_7743139332d18683b671bb37186f35e462bfc43372cb3c0b8fe5a6e17319fbed",
+      "operation": "read_function_instructions",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "locations": [],
+      "result": {
+        "procedure": {
+          "address": "0x474390",
+          "name": "FUN_00474390",
+          "classification": {
+            "external": false,
+            "thunk": false,
+            "thunk_target": null,
+            "provenance": "ghidra-function-manager"
+          },
+          "body": {
+            "available": true,
+            "provenance": "ghidra-function-body-address-set",
+            "ranges": [
+              {
+                "start": "0x474390",
+                "end": "0x474494"
+              }
+            ],
+            "total_bytes": 261,
+            "span_bytes": 261,
+            "non_contiguous": false,
+            "contains_entry": true
+          }
+        },
+        "instructions": [
+          "0x474390: PUSH -0x1",
+          "0x474392: PUSH 0x5d13a3",
+          "0x474397: MOV EAX, FS:[0x0]",
+          "0x47439d: PUSH EAX",
+          "0x47439e: MOV dword ptr FS:[0x0], ESP",
+          "0x4743a5: PUSH ECX",
+          "0x4743a6: PUSH EBP",
+          "0x4743a7: PUSH ESI",
+          "0x4743a8: MOV ESI, ECX",
+          "0x4743aa: PUSH EDI",
+          "0x4743ab: MOV dword ptr [ESP + 0xc], ESI",
+          "0x4743af: CALL 0x0054d010",
+          "0x4743b4: MOV dword ptr [ESP + 0x18], 0x0",
+          "0x4743bc: PUSH 0x0",
+          "0x4743be: LEA EDI, [ESI + 0x8]",
+          "0x4743c1: PUSH 0x0",
+          "0x4743c3: MOV ECX, EDI",
+          "0x4743c5: CALL 0x0046df00",
+          "0x4743ca: MOV byte ptr [ESP + 0x18], 0x1",
+          "0x4743cf: MOV EBP, dword ptr [ESP + 0x20]",
+          "0x4743d3: LEA ECX, [ESI + 0x18]",
+          "0x4743d6: MOV dword ptr [ESI], 0x606dec",
+          "0x4743dc: MOV dword ptr [EDI], 0x606db4",
+          "0x4743e2: MOV dword ptr [ESI + 0x10], 0x606da8",
+          "0x4743e9: MOV dword ptr [ESI + 0x14], 0x2",
+          "0x4743f0: MOV EAX, dword ptr [EBP]",
+          "0x4743f3: PUSH ECX",
+          "0x4743f4: MOV ECX, EBP",
+          "0x4743f6: CALL dword ptr [EAX + 0x38]",
+          "0x4743f9: MOV EAX, dword ptr [ESI + 0x1c]",
+          "0x4743fc: PUSH 0x0",
+          "0x4743fe: PUSH 0x1",
+          "0x474400: PUSH 0x4947726d",
+          "0x474405: ADD EAX, -0x5",
+          "0x474408: PUSH EDI",
+          "0x474409: MOV ECX, EBP",
+          "0x47440b: MOV dword ptr [ESI + 0x1c], EAX",
+          "0x47440e: CALL 0x00541250",
+          "0x474413: PUSH 0x0",
+          "0x474415: PUSH 0x1",
+          "0x474417: PUSH 0x4c4f7063",
+          "0x47441c: PUSH EDI",
+          "0x47441d: MOV ECX, EBP",
+          "0x47441f: CALL 0x00541250",
+          "0x474424: PUSH 0x0",
+          "0x474426: PUSH 0x1",
+          "0x474428: PUSH 0x4c506869",
+          "0x47442d: PUSH EDI",
+          "0x47442e: MOV ECX, EBP",
+          "0x474430: CALL 0x00541250",
+          "0x474435: MOV EAX, dword ptr [ESP + 0x28]",
+          "0x474439: PUSH EAX",
+          "0x47443a: MOV dword ptr [ESI + 0x28], EBP",
+          "0x47443d: MOV byte ptr [ESI + 0x30], 0x0",
+          "0x474441: MOV dword ptr [ESI + 0x2c], EAX",
+          "0x474444: CALL 0x00473790",
+          "0x474449: MOV DL, byte ptr [ESP + 0x28]",
+          "0x47444d: ADD ESP, 0x4",
+          "0x474450: MOV ECX, ESI",
+          "0x474452: MOV byte ptr [ESI + 0x31], AL",
+          "0x474455: MOV byte ptr [ESI + 0x44], DL",
+          "0x474458: CALL 0x00474100",
+          "0x47445d: MOV ECX, dword ptr [0x0066d0c4]",
+          "0x474463: PUSH 0x0",
+          "0x474465: PUSH 0x0",
+          "0x474467: PUSH 0xcd",
+          "0x47446c: PUSH 0x66733132",
+          "0x474471: PUSH ESI",
+          "0x474472: CALL 0x004fd1d0",
+          "0x474477: MOV dword ptr [ESP + 0x18], 0xffffffff",
+          "0x47447f: MOV ECX, dword ptr [ESP + 0x10]",
+          "0x474483: POP EDI",
+          "0x474484: MOV EAX, ESI",
+          "0x474486: POP ESI",
+          "0x474487: POP EBP",
+          "0x474488: MOV dword ptr FS:[0x0], ECX",
+          "0x47448f: ADD ESP, 0x10",
+          "0x474492: RET 0xc"
+        ],
+        "limitations": [
+          "Instruction text and ordering are Ghidra-specific representations.",
+          "The fast path does not invoke the decompiler or scan whole-program names and strings."
+        ]
+      }
+    },
+    {
+      "key": "damage-queue-applier",
+      "evidence_id": "ev_6993d9f95a33bcae1d9d579625f366ce7b5cea1a949bc82da01da81cbd33aeba",
+      "operation": "batch_decompile",
+      "subject_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "analysis_profile_digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e",
+      "locations": [
+        {
+          "kind": "address",
+          "address": "0x4a4b00"
+        },
+        {
+          "kind": "address",
+          "address": "0x4a4cd0"
+        },
+        {
+          "kind": "address",
+          "address": "0x4736d0"
+        }
+      ],
+      "result": [
+        {
+          "address": "0x4a4b60",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4a4b00",
+            "name": "FUN_004a4b00"
+          },
+          "pseudocode": "\r\nvoid FUN_004a4b00(int param_1)\r\n\r\n{\r\n  undefined4 in_ECX;\r\n  \r\n  if ((*(byte *)(param_1 + 0x3e) & 1) != 0) {\r\n    FUN_004b6850(in_ECX,*(undefined4 *)(param_1 + 0x24),1,*(undefined1 *)(param_1 + 0x42),\r\n                 *(undefined2 *)(param_1 + 0x44),1,*(undefined4 *)(param_1 + 0x4c),\r\n                 *(undefined2 *)(param_1 + 0x48),*(undefined2 *)(param_1 + 0x46));\r\n    return;\r\n  }\r\n  FUN_004b6850(in_ECX,*(undefined4 *)(param_1 + 0x24),0,0,0,1,0,0,0);\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4a4cd0",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4a4cd0",
+            "name": "FUN_004a4cd0"
+          },
+          "pseudocode": "\r\nvoid FUN_004a4cd0(void)\r\n\r\n{\r\n  undefined4 uVar1;\r\n  int iVar2;\r\n  int in_ECX;\r\n  \r\n  if (*(int *)(in_ECX + 0x240) != 0) {\r\n    if ((*(char *)(in_ECX + 0x244) == '\\0') && (*(int *)(in_ECX + 0x25c) != 0)) {\r\n      uVar1 = FUN_004b77a0(*(int *)(in_ECX + 0x25c),0,&IDGameObject::RTTI_Type_Descriptor,\r\n                           &LivingObject::RTTI_Type_Descriptor,0);\r\n      iVar2 = FUN_005b51db(uVar1);\r\n      if (iVar2 != 0) {\r\n        FUN_00541290(in_ECX,0,1);\r\n      }\r\n    }\r\n    *(undefined4 *)(in_ECX + 0x240) = 0;\r\n  }\r\n  return;\r\n}\r\n\r\n"
+        },
+        {
+          "address": "0x4736d0",
+          "procedure": {
+            "status": "resolved",
+            "address": "0x4736d0",
+            "name": "FUN_004736d0"
+          },
+          "pseudocode": "\r\nuint FUN_004736d0(byte param_1,uint param_2)\r\n\r\n{\r\n  int iVar1;\r\n  \r\n  if (param_1 == 1) {\r\n    return param_2 % 10;\r\n  }\r\n  if (param_1 == 2) {\r\n    return (uint)(((ulonglong)param_2 % 100) / 10);\r\n  }\r\n  if (param_1 == 3) {\r\n    return (uint)(((ulonglong)param_2 % 1000) / 100);\r\n  }\r\n  if (param_1 == 4) {\r\n    return (uint)(((ulonglong)param_2 % 10000) / 1000);\r\n  }\r\n  if (param_1 == 5) {\r\n    return (uint)(((ulonglong)param_2 % 100000) / 10000);\r\n  }\r\n  if (param_1 == 6) {\r\n    iVar1 = (int)(((ulonglong)param_2 % 1000000) * 0x4f8b588f >> 0x20);\r\n    return ((uint)((int)((ulonglong)param_2 % 1000000) - iVar1) >> 1) + iVar1 >> 0x10;\r\n  }\r\n  return (uint)param_1;\r\n}\r\n\r\n"
+        }
+      ]
+    }
+  ]
+}

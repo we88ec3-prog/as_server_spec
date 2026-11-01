@@ -1,0 +1,29 @@
+{
+  "scope": "Source identities for local historical help leads; no map IDs or spawn table established",
+  "files": [
+    {
+      "relative_path": "HELP/_Q_newsteach1_As.htm",
+      "bytes": 6361,
+      "sha256": "021ce70429b28058b20735e43d43bb87a5db05313f28a051e60d0a6908182792",
+      "declared_charset": "big5",
+      "strict_decoding": "cp950",
+      "version_identity": "user-provided-local-file; historical guide, exact Client release match not established"
+    },
+    {
+      "relative_path": "HELP/_Q_newsteach3_As.htm",
+      "bytes": 7010,
+      "sha256": "a38e99a534d06a8ec3cb3908dc0dbe6b6f3338e861c6c8a9ce3a12b6f0dd0083",
+      "declared_charset": "big5",
+      "strict_decoding": "cp950",
+      "version_identity": "user-provided-local-file; historical guide, exact Client release match not established"
+    },
+    {
+      "relative_path": "HELP/_Q_newsteach5_As.htm",
+      "bytes": 6308,
+      "sha256": "8b60f00abea08562478ac08aaa4bc19ae9b0a99b6cd5d524ee45d78ac1209b57",
+      "declared_charset": "big5",
+      "strict_decoding": "cp950",
+      "version_identity": "user-provided-local-file; historical guide, exact Client release match not established"
+    }
+  ]
+}
