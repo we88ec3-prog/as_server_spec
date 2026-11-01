@@ -445,7 +445,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "cb12133908ce8e09268f606add629266dbc1ee5dbec19824dbd9ebaa576d1020"
+      "sha256": "77e7b4b6d3452f2b5ab575fd75897281ca31ad7d71e3f00fb060d31e11a49365"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -464,20 +464,120 @@
       "sha256": "98f20709503daaa4cfe8e660ca4eaf266da4b8ef772bd934743f774ecd9f41d4"
     },
     {
+      "path": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+      "sha256": "605b155b10deab854edf1a984c89f984e6ef276ed0345ba2f0b2c2279e1e8809"
+    },
+    {
       "path": "03-analysis-requests/web-skill-review/PROMPT.md",
-      "sha256": "31f3159de860fda0d65ea9b8eb3e1df6c0a086a779bcb03cd974b7e78428771b"
+      "sha256": "7a3680db151d531bf5afde96ffbcc98a5e8e2dc5ebafc647b9ca9c0d0981d2c8"
     },
     {
       "path": "03-analysis-requests/web-skill-review/README.md",
-      "sha256": "a770a25eadb1ed924ea6a5b6827e9d63df3f588321d066412b2c5739da4a10b6"
+      "sha256": "5dc7d44ec5aeb2ad8f679ad36328898194a2c2f343e38dea2c35d66a928e2a02"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/RESOURCE-INPUTS.md",
+      "sha256": "464b510356e855179b4bea5864a4086bb3d070371074ed65b6c169a1c8002304"
     },
     {
       "path": "03-analysis-requests/web-skill-review/RESULT-CONTRACT.md",
       "sha256": "39c4123e4aba6a3514d0e0c1efc98e195ffa79f47f6ea49de4e3a3f8251a51c9"
     },
     {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-attack-action.json",
+      "sha256": "b7dac5a7d807cde07d089187756892aa95f9616c31fbf1437c599309785534c4"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-attack-update.json",
+      "sha256": "4f16a2a23b0da363e248268482ce20864a28849d4f992a20b85e611be8de8bf5"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-c13-callers.json",
+      "sha256": "30e75bb75f87cce80791a563bf42f21dbf6fb53ae1b902969b7dd8b94cb59d6f"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-c4d-callers.json",
+      "sha256": "7975d2aa6390c9d66151352b0cc7e8769b7f8e81de8248d89dbfff401793c875"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-c4d-producer.json",
+      "sha256": "c0f529018fa141dc2af27edf8858a8cf64643d442c072d25b562f8b86581eb69"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-c56-callers.json",
+      "sha256": "edbdb217cdc9a37883db6f53ba7b123d9dde53600b97c4958e49aad020fc0798"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-c56-factory-entry.json",
+      "sha256": "7ec304afe7e2feaf7ad4e952da9e739795f6d832e331f2066ed51ca32c65534c"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-c56-factory.json",
+      "sha256": "4d056731213b4521a374b823196536f7b17d7c7aa4db7142415aad55a3751a4a"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-c56-writer-bytes.json",
+      "sha256": "a7385416cff6aa63a1548c93dcc46dbdf1a97dc626502ebabec2bc0d4755e175"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-lasting-add-reader.json",
+      "sha256": "e354f09ccaa5f1a0055bffe477799ef21fe8516b520ea42d51595ae470d9e5db"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-lasting-remove-reader.json",
+      "sha256": "e001fd338e0e629ef3672ba4f01c06fdfc1f22f2eb5e114e9be4ac1770971c38"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-s48-reader.json",
+      "sha256": "bb6a28ecf3ab3701c384037d120d1afd3d553c4ce69ed934d6f6c1effb801d43"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/rea-s52-reader.json",
+      "sha256": "73bd470f98a901a98a7e65a01f6ce431de522ecd7131ec8d189bd7bd35ff29c7"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/inputs/resource-war-teaching.json",
+      "sha256": "031eda6d6c3e70efa1bb092309dd815ec01166ca8ddf4126c89b823f5fe3b667"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/jobs/A009-D01.md",
+      "sha256": "d7671890a2f04f44669de8a2950eb8d28180793cd08ca40003a84b8413a997d9"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/jobs/A010-D01.md",
+      "sha256": "01f4ab69dce0d0783a593ae9bb37124fbf1b8829d513af712ed8165912ff68d4"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/jobs/A010-D02.md",
+      "sha256": "b3b265c9d89c7fb6ab077e97016e82404cbe26cf732125c3980be90dcd042f1d"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/jobs/A010-D03.md",
+      "sha256": "f50a691ad6ad1ddb580092cd2f0bf7d56870e8a6ed686e4314d380cb3642ba57"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/jobs/A010-D04.md",
+      "sha256": "59a744e058ae742e81dcc7e7822523ee995f27716fef5a72251e48f329b0f1e0"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/jobs/A010-D05.md",
+      "sha256": "82cc8b2d2943dee8371cb53626ff2c2c1cb3dbf75258aa30699271315c77332b"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/jobs/A010-D06.md",
+      "sha256": "611bb7dd92c6babe9ba80da57ad3a3b679fed0f98e47fe1a8c7cbe228367e8ac"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/jobs/A025-D01.md",
+      "sha256": "e8a173e52e9ec541751a710ffc694c45dea3204921de0898b5b02705b6ebd39b"
+    },
+    {
+      "path": "03-analysis-requests/web-skill-review/resource-index.json",
+      "sha256": "781fb90f9baefe014a59ec850182d5cd72c7b7ee57ff24b84313c3f772b6a4b2"
+    },
+    {
       "path": "03-analysis-requests/web-skill-review/tasks.json",
-      "sha256": "c217b17799379f5386f760760af38c22239547fb4fe00db501ce717ba052036b"
+      "sha256": "61e90b938f5e284f4d09c45f7c19352dfbe602231c0b7de3cd38feeb2fe34e25"
     },
     {
       "path": "04-analysis-integration/20261101-c44-play-disconnect.md",

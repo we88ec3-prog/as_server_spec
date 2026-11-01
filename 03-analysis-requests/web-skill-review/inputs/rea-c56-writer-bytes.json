@@ -1,0 +1,24 @@
+{
+  "artifact_id": "rea-c56-writer-bytes",
+  "source_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "evidence_id": "ev_3a7680b8cef20a0f1039015490f16a831f3f5f4bb18443a13ed3da5265b5ad17",
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "operation": "read_bytes",
+  "query": {
+    "address": "0x571800",
+    "length": 11
+  },
+  "authority": "shipped-artifact-static",
+  "relationship_coverage": null,
+  "scope_note": "Selected analyzed Client view, not original source or full program coverage. Direct callers omit unresolved indirect uses. Full provider record retained locally.",
+  "result": {
+    "address": "0x571800",
+    "requested_bytes": 11,
+    "returned_bytes": 11,
+    "bytes_hex": "0fb6411850e8f692eeffc3",
+    "complete": true
+  }
+}

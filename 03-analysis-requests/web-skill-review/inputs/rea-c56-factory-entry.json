@@ -1,0 +1,77 @@
+{
+  "artifact_id": "rea-c56-factory-entry",
+  "source_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "evidence_id": "ev_625ed7996daa7f6a74da053b09f98ab340520a045723faef08932b032e29f9a6",
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "operation": "inspect_native_instruction",
+  "query": {
+    "address": "0x571820"
+  },
+  "authority": "shipped-artifact-static",
+  "relationship_coverage": null,
+  "scope_note": "Selected analyzed Client view, not original source or full program coverage. Direct callers omit unresolved indirect uses. Full provider record retained locally.",
+  "result": {
+    "address": "0x571820",
+    "status": "decoded",
+    "procedure": "0x571820",
+    "architecture": "x86:LE:32:default",
+    "mode": "default",
+    "bytes": "6aff",
+    "length": 2,
+    "mnemonic": "PUSH",
+    "raw_disassembly": "PUSH -0x1",
+    "operands": [
+      {
+        "index": 0,
+        "raw": "-0x1",
+        "provider_type": 16384,
+        "components": [
+          {
+            "kind": "immediate",
+            "text": "-0x1",
+            "value": "0xffffffff",
+            "bit_width": 32
+          }
+        ],
+        "memory_addressing": "unavailable"
+      }
+    ],
+    "flow": {
+      "kind": "fallthrough",
+      "conditional": false,
+      "computed": false,
+      "direct_destinations": [],
+      "classification_evidence": [
+        {
+          "source": "ghidra-listing-flow-type",
+          "value": "FALL_THROUGH"
+        }
+      ]
+    },
+    "references": [],
+    "incoming_references": [
+      {
+        "target_address": "0x571820",
+        "type": "DATA",
+        "call": false,
+        "jump": false,
+        "indirect": false,
+        "computed": false,
+        "operand_index": 0,
+        "source_address": "0x5eee85",
+        "data": true,
+        "read": false,
+        "write": false,
+        "primary": true,
+        "provenance": "ghidra-reference-manager",
+        "source": "analysis"
+      }
+    ],
+    "limitations": [
+      "Operand components are Ghidra Listing decoder tokens; effective memory base/index/displacement roles and per-instruction context mode are unavailable. The mode field is the program language variant."
+    ]
+  }
+}

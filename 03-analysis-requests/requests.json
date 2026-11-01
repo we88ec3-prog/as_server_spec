@@ -512,7 +512,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -596,7 +599,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -687,7 +693,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -801,7 +810,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -1221,7 +1233,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -1274,7 +1289,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -1727,7 +1745,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -1895,7 +1916,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -1972,7 +1996,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -2048,7 +2075,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     },
     {
@@ -2645,7 +2675,10 @@
         ],
         "status": "requested-not-completed",
         "source": "direct-user-request",
-        "native_validation_unchanged": true
+        "native_validation_unchanged": true,
+        "delivery": "public-git-self-contained-jobs",
+        "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
+        "local_attachment_required": false
       }
     }
   ]

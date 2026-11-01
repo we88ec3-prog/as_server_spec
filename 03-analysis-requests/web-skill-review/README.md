@@ -25,6 +25,17 @@ x86／ImageBase0x400000。不要把診斷副本或新Server程式當原服實作
 
 ## 工作順序與分工
 
+直接交辦連結：
+
+- [A010-D01：技能清單／ID／快捷列](jobs/A010-D01.md)
+- [A010-D02：施法／確認／取消時序](jobs/A010-D02.md)
+- [A009-D01：普通攻擊／受擊／死亡](jobs/A009-D01.md)
+- [A010-D03：BUFF identity與計時](jobs/A010-D03.md)
+- [A010-D04：各類技能效果](jobs/A010-D04.md)
+- [A025-D01：教學戰鬥與完成條件](jobs/A025-D01.md)
+- [A010-D05：技能切圖](jobs/A010-D05.md)
+- [A010-D06：技能資源定義來源](jobs/A010-D06.md)
+
 用tasks.json的深挖子任務，不新增正式A編號。先A009-D01普通攻擊閉環，
 技能先A010-D01清單／選取值，再A010-D02施法／取消，再BUFF與其他類型。
 ChatGPT與Claude可各領不同task；若獨立覆核同task，保留兩個reviewer結果
@@ -36,10 +47,14 @@ ChatGPT與Claude可各領不同task；若獨立覆核同task，保留兩個revie
 
 ## 網頁模型的能力與資料邊界
 
-公開spec是任務與基線；精確偽碼／xref／指令由本地REA另行匯出至私有分析包，
-不提交原EXE/DAT、原始腳本、執行期資料或私有Server程式。網頁模型不能直接
-存取使用者E槽或本地REA。只有上傳／連接且實際讀到的資料才可列reviewed；
-GitHub連結、檔名或manifest存在均不等於已讀完證據。
+使用者指定**透過as_server_spec的Git交辦**。各題[jobs](jobs)已內嵌所需初輪
+基線與精選Client分析視圖；[INPUT_INDEX.json](INPUT_INDEX.json)列公開來源及SHA，
+[inputs](inputs)保存經整理的偽碼／xref／指令與資源摘要。直接提供工作頁連結，
+不要求使用者另外上傳anal-roy-temp的TXT或ZIP。
+
+完整REA原始匯出仍只留本地。此庫不提交原EXE/DAT、完整原始腳本、執行期
+資料或私有Server程式。網頁模型不能直接存取使用者E槽或本地REA。只有
+實際讀到的資料才可列reviewed；GitHub連結或manifest存在不等於讀完證據。
 
 每回合只處理一個task，先讀小型輸入索引及其required資料。資料缺少時輸出
 needs_evidence及精確address／function／resource selector／需要的xref方向；
@@ -47,8 +62,8 @@ needs_evidence及精確address／function／resource selector／需要的xref方
 factory時，不能推論UI不會使用；需追函式指標註冊及間接建立路徑。
 
 可重用提示詞見[PROMPT.md](PROMPT.md)，結果契約見[RESULT-CONTRACT.md](RESULT-CONTRACT.md)。
-本地匯出工具另外產生每個task一份`UPLOAD-<task_id>.txt`，包含該任務、基線、
-精選REA證據、manifest身份與結果契約，可直接貼上或交給網頁版讀取；不必
-依賴網頁平台能解ZIP。完整ZIP保留供本地核對，模型不需一次讀全部八項。
+需要哪些資源、何時才補檔，見[RESOURCE-INPUTS.md](RESOURCE-INPUTS.md)及
+[已核對資源索引](resource-index.json)。先以Git工作頁分析；缺件時由本地補成
+可公開的下一批分析視圖。先前本地TXT／ZIP只是可選離線備份，不是主要交接。
 輸出是候選分析，須由本地以原件／REA及必要實機驗證後才整合進正式封包表。
 Server仍由本地直接開發；Web分析不接觸私有roy，也不阻塞已證部分的開發。

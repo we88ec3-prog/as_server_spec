@@ -1,0 +1,17 @@
+{
+  "artifact_id": "rea-lasting-remove-reader",
+  "source_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "evidence_id": "ev_a6d997b8c17c79811bc82670e4ffdccf15696ca31cc3feff9797664de81700ae",
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "operation": "procedure_pseudo_code",
+  "query": {
+    "procedure": "0x585db0"
+  },
+  "authority": "shipped-artifact-static",
+  "relationship_coverage": null,
+  "scope_note": "Selected analyzed Client view, not original source or full program coverage. Direct callers omit unresolved indirect uses. Full provider record retained locally.",
+  "result": "\r\nvoid FUN_00585db0(void)\r\n\r\n{\r\n  undefined4 uVar1;\r\n  int in_ECX;\r\n  \r\n  uVar1 = FUN_0045aeb0();\r\n  *(undefined4 *)(in_ECX + 0x18) = uVar1;\r\n  return;\r\n}\r\n\r\n"
+}

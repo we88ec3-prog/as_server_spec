@@ -1,0 +1,42 @@
+{
+  "artifact_id": "resource-war-teaching",
+  "resource": "Script/nNewWar01.dat",
+  "resource_sha256": "3d3590a7f4a346cafa538d8216091a6f6073c6aab146d696d0fb2736100f2453",
+  "kind": "reviewed-local-resource-summary",
+  "selected_functions": [
+    {
+      "name": "MerchantTalk",
+      "contains_SendReply": false
+    },
+    {
+      "name": "WarMessage02Proc",
+      "contains_SendReply": false
+    },
+    {
+      "name": "WarMessage03",
+      "contains_SendReply": false
+    },
+    {
+      "name": "WarMessage04",
+      "contains_SendReply": false
+    },
+    {
+      "name": "WarMessage05",
+      "contains_SendReply": false
+    },
+    {
+      "name": "WarMessage05Proc",
+      "contains_SendReply": false
+    }
+  ],
+  "observations": [
+    "WarMessage02Proc selection0 explains mouse/space normal attack and ALT+mouse forced attack.",
+    "selection1 explains CTRL+D skill/spell window and dragging icons to hotbar1..0.",
+    "WarMessage03..05 provide advice and direct the player to select a profession and proceed to town."
+  ],
+  "limits": [
+    "No full script text/binary published. This summary is not a complete tutorial event graph.",
+    "No mandatory kill count, monster binding or Server combat formula established by these selected functions.",
+    "Wrapper UI may send its own TALK metadata; absence in one resource is not whole-program absence."
+  ]
+}

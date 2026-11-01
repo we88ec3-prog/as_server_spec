@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "export_id": "asgard-git-skill-review-20261101-v1",
+  "baseline_commit": "74f0e79f1c1eb6a5c768c6828a7c098ae99d4a1a",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "source_scope": "Reviewed public analysis views. No original binaries or private implementation.",
+  "artifacts": [
+    {
+      "artifact_id": "report-a009",
+      "repo_path": "task_a/roy2/A-009-analysis.md",
+      "sha256": "af21be101aa75502f752fad4260d59f3852857ae29666683c8ac80b58c99e267",
+      "bytes": 12360,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "report-a010",
+      "repo_path": "task_a/roy2/A-010-analysis.md",
+      "sha256": "c71804734b49be690fd8fe7b9f4b42d585fa0eba833dbc6b3e87db511e097c03",
+      "bytes": 12248,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "report-a007",
+      "repo_path": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "sha256": "1d0b5e26b1bef6c967b529a2aa76e4c814abd309a1d27c86ea66b4c6eed18786",
+      "bytes": 9142,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "report-a008",
+      "repo_path": "task_a/roy2/A-008-analysis.md",
+      "sha256": "4fa497f8c35d67583eab83592190988de365bae9f61e67baea7bcb781aaa7371",
+      "bytes": 10363,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "report-a024",
+      "repo_path": "task_a/roy2/A-024-analysis.md",
+      "sha256": "5243cfde31b407c58668d7385e2fd4bd0aa7ea269539504f6dda854df41e7e7b",
+      "bytes": 21442,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "report-a025",
+      "repo_path": "04-analysis-integration/A-025-tutorial-combat-contract.md",
+      "sha256": "d2d8bef187c04a6319348ac63802e470dcfe7e74eca0bdacf900a0fa8e06c345",
+      "bytes": 3565,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "report-tutorial-route",
+      "repo_path": "04-analysis-integration/20261101-tutorial-resource-route.md",
+      "sha256": "bf9e296243922cebb3f537b516b9489f37b4cce170bd17420d521f0027f6d909",
+      "bytes": 4384,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "report-transfer",
+      "repo_path": "04-analysis-integration/20261101-world-transfer-transaction.md",
+      "sha256": "54da88978ae9d0bfb32180fe2942b0f8c1c5b9bb898e4e1026b056a8d7fff3c3",
+      "bytes": 2874,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "report-map-content",
+      "repo_path": "04-analysis-integration/20261101-native-map-content-and-school-transfer.md",
+      "sha256": "0533f97ba4fd03d8577bf202f04c1eb9ad47e3b9c435f2c2f8518f7f9ff3f71f",
+      "bytes": 2927,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "report-resource-catalog",
+      "repo_path": "04-analysis-integration/content-resource-catalog.json",
+      "sha256": "1b18f69ba4700b8ae0884f08d5af11751e0361699285b657301938127c2debad",
+      "bytes": 8629,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "resource-index-skill-icons",
+      "repo_path": "03-analysis-requests/web-skill-review/resource-index.json",
+      "sha256": "781fb90f9baefe014a59ec850182d5cd72c7b7ee57ff24b84313c3f772b6a4b2",
+      "bytes": 1836,
+      "kind": "existing-reviewed-analysis",
+      "evidence_id": null
+    },
+    {
+      "artifact_id": "rea-c56-callers",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-c56-callers.json",
+      "sha256": "edbdb217cdc9a37883db6f53ba7b123d9dde53600b97c4958e49aad020fc0798",
+      "bytes": 892,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_8ce3093b016c9124690a32f4df30341e5a82246b716059889ac1d1186b7da7e6"
+    },
+    {
+      "artifact_id": "rea-c4d-callers",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-c4d-callers.json",
+      "sha256": "7975d2aa6390c9d66151352b0cc7e8769b7f8e81de8248d89dbfff401793c875",
+      "bytes": 908,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_284d528ba16a5b960c5adbadeefb73eee8ac4f302d4ce6b5e2da96a3e39e012d"
+    },
+    {
+      "artifact_id": "rea-c13-callers",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-c13-callers.json",
+      "sha256": "30e75bb75f87cce80791a563bf42f21dbf6fb53ae1b902969b7dd8b94cb59d6f",
+      "bytes": 924,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_1369a44c97176dee7d23935c9d7fd33e8526b679e348d631351434a1f29220d8"
+    },
+    {
+      "artifact_id": "rea-s52-reader",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-s52-reader.json",
+      "sha256": "73bd470f98a901a98a7e65a01f6ce431de522ecd7131ec8d189bd7bd35ff29c7",
+      "bytes": 924,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_8bd21ef0d51a08c95967fbd9eb43ac9f93b8aa413afbeb133018689f16645d6d"
+    },
+    {
+      "artifact_id": "rea-s48-reader",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-s48-reader.json",
+      "sha256": "bb6a28ecf3ab3701c384037d120d1afd3d553c4ce69ed934d6f6c1effb801d43",
+      "bytes": 827,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_e7f2c34888329e3e5b50c272e67aac92aa251371764afebed9cb025112e17075"
+    },
+    {
+      "artifact_id": "rea-lasting-add-reader",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-lasting-add-reader.json",
+      "sha256": "e354f09ccaa5f1a0055bffe477799ef21fe8516b520ea42d51595ae470d9e5db",
+      "bytes": 1369,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_c693056b811cdd8fc17360d278388dcfcf9a063c1c84e8660620ab8c26fa9e3b"
+    },
+    {
+      "artifact_id": "rea-lasting-remove-reader",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-lasting-remove-reader.json",
+      "sha256": "e001fd338e0e629ef3672ba4f01c06fdfc1f22f2eb5e114e9be4ac1770971c38",
+      "bytes": 838,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_a6d997b8c17c79811bc82670e4ffdccf15696ca31cc3feff9797664de81700ae"
+    },
+    {
+      "artifact_id": "rea-c56-factory",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-c56-factory.json",
+      "sha256": "4d056731213b4521a374b823196536f7b17d7c7aa4db7142415aad55a3751a4a",
+      "bytes": 1195,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_d6e10a4e0846281f124cc03416bfd1a2645b961c11ab6ae98f72133ae7ba38ab"
+    },
+    {
+      "artifact_id": "rea-c4d-producer",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-c4d-producer.json",
+      "sha256": "c0f529018fa141dc2af27edf8858a8cf64643d442c072d25b562f8b86581eb69",
+      "bytes": 2807,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_c300a257270e151f05189c7c721294da546db077f9b2d4256db9899c47998261"
+    },
+    {
+      "artifact_id": "rea-attack-update",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-attack-update.json",
+      "sha256": "4f16a2a23b0da363e248268482ce20864a28849d4f992a20b85e611be8de8bf5",
+      "bytes": 2407,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_4f8a1ad2fe7298387e30abeddd9b50291dc92d937070b375e5430f59ed5b75ad"
+    },
+    {
+      "artifact_id": "rea-attack-action",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-attack-action.json",
+      "sha256": "b7dac5a7d807cde07d089187756892aa95f9616c31fbf1437c599309785534c4",
+      "bytes": 2983,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_7389c036d25ed6d6f173e6309aaf74a54ac1f3ed128b93e31e99def1c0a2b089"
+    },
+    {
+      "artifact_id": "rea-c56-writer-bytes",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-c56-writer-bytes.json",
+      "sha256": "a7385416cff6aa63a1548c93dcc46dbdf1a97dc626502ebabec2bc0d4755e175",
+      "bytes": 803,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_3a7680b8cef20a0f1039015490f16a831f3f5f4bb18443a13ed3da5265b5ad17"
+    },
+    {
+      "artifact_id": "rea-c56-factory-entry",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/rea-c56-factory-entry.json",
+      "sha256": "7ec304afe7e2feaf7ad4e952da9e739795f6d832e331f2066ed51ca32c65534c",
+      "bytes": 2233,
+      "kind": "reviewed-client-static-view",
+      "evidence_id": "ev_625ed7996daa7f6a74da053b09f98ab340520a045723faef08932b032e29f9a6"
+    },
+    {
+      "artifact_id": "resource-war-teaching",
+      "repo_path": "03-analysis-requests/web-skill-review/inputs/resource-war-teaching.json",
+      "sha256": "031eda6d6c3e70efa1bb092309dd815ec01166ca8ddf4126c89b823f5fe3b667",
+      "bytes": 1366,
+      "kind": "reviewed-resource-summary",
+      "evidence_id": null
+    }
+  ]
+}

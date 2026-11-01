@@ -1,0 +1,17 @@
+{
+  "artifact_id": "rea-c4d-producer",
+  "source_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "evidence_id": "ev_c300a257270e151f05189c7c721294da546db077f9b2d4256db9899c47998261",
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "operation": "procedure_pseudo_code",
+  "query": {
+    "procedure": "0x401ed0"
+  },
+  "authority": "shipped-artifact-static",
+  "relationship_coverage": null,
+  "scope_note": "Selected analyzed Client view, not original source or full program coverage. Direct callers omit unresolved indirect uses. Full provider record retained locally.",
+  "result": "\r\nvoid FUN_00401ed0(undefined4 *param_1)\r\n\r\n{\r\n  int iVar1;\r\n  int iVar2;\r\n  int in_ECX;\r\n  uint local_34 [9];\r\n  void *pvStack_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005c871b;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_00479ea0(local_34);\r\n  if ((*(char *)((int)param_1 + 0x26) == '\\x02') && (iVar1 = FUN_004ba410(param_1[10]), iVar1 != 0))\r\n  {\r\n    ExceptionList = local_c;\r\n    return;\r\n  }\r\n  if ((local_34[0] & 0x1000) != 0) {\r\n    FUN_00556430(0);\r\n    ExceptionList = local_c;\r\n    return;\r\n  }\r\n  iVar1 = FUN_0046ce20();\r\n  if (iVar1 != 0) {\r\n    if (*(int *)(in_ECX + 0x24) != 0) {\r\n      (**(code **)*param_1)(1);\r\n      ExceptionList = pvStack_10;\r\n      return;\r\n    }\r\n    iVar1 = FUN_00538970(CONCAT11((char)((ushort)(*(char *)(param_1 + 9) * 0x50) >> 8),\r\n                                  (char)(*(char *)(param_1 + 9) * 0x50) +\r\n                                  *(char *)((int)param_1 + 0x25)));\r\n    if (iVar1 == 0) {\r\n      (**(code **)*param_1)(1);\r\n      ExceptionList = pvStack_10;\r\n      return;\r\n    }\r\n    if (*(short *)(iVar1 + 0x80e) == 0) {\r\n      FUN_0046dd90();\r\n      FUN_00401df0(CONCAT11((char)((ushort)(*(char *)(param_1 + 9) * 0x50) >> 8),\r\n                            (char)(*(char *)(param_1 + 9) * 0x50) + *(char *)((int)param_1 + 0x25)))\r\n      ;\r\n      FUN_005788a0();\r\n      ExceptionList = local_c;\r\n      return;\r\n    }\r\n    FUN_0046dd90();\r\n    *(undefined4 *)(in_ECX + 0x28) = 1;\r\n    iVar2 = FUN_004dc720(0x28,0,L\".\\\\actioninventory.cpp\",0x11f,0xffffffcc);\r\n    local_4 = 0;\r\n    if (iVar2 == 0) {\r\n      iVar2 = 0;\r\n    }\r\n    else {\r\n      iVar2 = FUN_00575510();\r\n    }\r\n    local_4 = 0xffffffff;\r\n    *(undefined2 *)(iVar2 + 0x24) = *(undefined2 *)(iVar1 + 0x80e);\r\n    FUN_005788a0();\r\n    FUN_004fd1d0(in_ECX,0x53507573,*(undefined2 *)(iVar1 + 0x80e),0,0);\r\n    *(undefined4 **)(in_ECX + 0x24) = param_1;\r\n  }\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+}

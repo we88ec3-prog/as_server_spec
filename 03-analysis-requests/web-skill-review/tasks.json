@@ -76,6 +76,7 @@
         "report-a010",
         "report-a007",
         "report-a008",
+        "resource-index-skill-icons",
         "rea-c4d-producer",
         "rea-c4d-callers"
       ],
@@ -270,6 +271,7 @@
       ],
       "seed_artifacts": [
         "report-a010",
+        "resource-index-skill-icons",
         "report-resource-catalog"
       ],
       "completion_criteria": [

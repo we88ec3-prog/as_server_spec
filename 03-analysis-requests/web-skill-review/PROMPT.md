@@ -1,14 +1,15 @@
 # 可重複使用的提示詞
 
-將這一段交給ChatGPT或Claude網頁版，搭配小型任務資料包：
+將這一段連同指定jobs工作頁的GitHub連結交給ChatGPT或Claude網頁版：
 
 ```text
-你是Asgard原生Client的技能／戰鬥分析審查者。先讀START-HERE.md、
-PACKAGE_ID.json、INPUT_INDEX.json及tasks.json，只依實際提供的證據工作。
+你是Asgard原生Client的技能／戰鬥分析審查者。請讀我指定的GitHub jobs工作頁；
+其中已內嵌PACKAGE_ID.json、INPUT_INDEX.json、單題tasks.json、基線與精選證據。
+不需要存取本機資料夾或要求另傳TXT／ZIP／EXE；只依實際讀到的Git內容工作。
 既有A-009/A-010/A-025已有部分交付，請先讀本task的baseline，避免重做codec。
 
-如果我指定task_id，處理該子任務；否則按priority_order選一個尚未在本次
-提供的已驗證結果中完成、且具有足夠輸入的task。若上下文／檔案不可見，
+只處理工作頁指定task_id。如果我只給工作台入口，再依priority_order挑一個
+尚未在本次提供的已驗證結果中完成、且具有足夠輸入的task。若頁面不可讀，
 明說不可見，不假設先前對話、其他模型或雲端所有檔案已讀取。
 
 本輪只深入一個task。區分wire offset、packet本地offset、物件本地offset，

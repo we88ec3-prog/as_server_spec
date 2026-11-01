@@ -1,0 +1,17 @@
+{
+  "artifact_id": "rea-attack-update",
+  "source_client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "evidence_id": "ev_4f8a1ad2fe7298387e30abeddd9b50291dc92d937070b375e5430f59ed5b75ad",
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "operation": "procedure_pseudo_code",
+  "query": {
+    "procedure": "0x556f80"
+  },
+  "authority": "shipped-artifact-static",
+  "relationship_coverage": null,
+  "scope_note": "Selected analyzed Client view, not original source or full program coverage. Direct callers omit unresolved indirect uses. Full provider record retained locally.",
+  "result": "\r\n/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */\r\n\r\nvoid FUN_00556f80(undefined4 param_1,undefined4 param_2)\r\n\r\n{\r\n  int iVar1;\r\n  uint uVar2;\r\n  int in_ECX;\r\n  wchar_t *pwVar3;\r\n  int *piVar4;\r\n  int local_214;\r\n  wchar_t local_210 [256];\r\n  undefined4 local_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005e304e;\r\n  local_c = ExceptionList;\r\n  local_10 = DAT_0066c19c;\r\n  if (((DAT_0066d0d4 == 0) || ((*(byte *)(*(int *)(DAT_0066d0d4 + 0x544) + 0xd) & 0x1e) == 0)) &&\r\n     (ExceptionList = &local_c, iVar1 = FUN_004ba410(param_2), iVar1 == 0)) {\r\n    if ((*(uint *)(in_ECX + 0x288) & 0x1000) == 0) {\r\n      uVar2 = FUN_00402c30();\r\n      if ((*(int *)(in_ECX + 0x544) != 0) &&\r\n         ((uint)*(ushort *)(*(int *)(in_ECX + 0x544) + 0x15) + *(int *)(in_ECX + 0x528) <= uVar2)) {\r\n        *(uint *)(in_ECX + 0x528) = uVar2;\r\n        local_214 = FUN_004dc720(0x28,0,L\".\\\\userobject.cpp\",0x330,0xffffffcc);\r\n        local_4 = 0;\r\n        if (local_214 == 0) {\r\n          iVar1 = 0;\r\n        }\r\n        else {\r\n          iVar1 = FUN_00570a10();\r\n        }\r\n        local_4 = 0xffffffff;\r\n        *(undefined4 *)(iVar1 + 0x24) = param_2;\r\n        FUN_005788a0();\r\n      }\r\n    }\r\n    else {\r\n      FUN_004fdb10(0xff,0xe4,0xe1,0);\r\n      _wcscpy(local_210,L\"\");\r\n      iVar1 = FUN_005b4acd(local_210);\r\n      if (iVar1 != 0) {\r\n        piVar4 = &local_214;\r\n        pwVar3 = local_210;\r\n        FUN_00535590(8);\r\n        FUN_00430390(pwVar3,piVar4);\r\n      }\r\n    }\r\n  }\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+}

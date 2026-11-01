@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "source": "local original DAT index inspection; strict36-byte entries and EOF sentinel",
+  "raw_assets_in_git": false,
+  "files": [
+    {
+      "file": "Icon.dat",
+      "file_sha256": "b80cfdd28b4331bf4012210756bf46196c37d43de1240d70df3cb6480e920dee",
+      "file_bytes": 8589627,
+      "member_count": 7,
+      "selected_members": [
+        {
+          "name": "skill.ypf",
+          "offset": 7241725,
+          "size": 625904,
+          "sha256": "b320a8b61258a464216a75b0e5fa58560a5abff0f17c2d7227cf66d8991ddc58",
+          "meaning": "member name/presence only; UI runtime reference and skill-definition semantics unproven"
+        },
+        {
+          "name": "spell.ypf",
+          "offset": 7867629,
+          "size": 721998,
+          "sha256": "20fbe76bfe39fb1070dee22bb5994227767aeab71a4b420839e75a4b6be83dac",
+          "meaning": "member name/presence only; UI runtime reference and skill-definition semantics unproven"
+        }
+      ]
+    },
+    {
+      "file": "Basic.dat",
+      "file_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+      "file_bytes": 5282488,
+      "member_count": 38,
+      "selected_members": [
+        {
+          "name": "BasicString.txt",
+          "offset": 190844,
+          "size": 14810,
+          "sha256": "fa92f7a3cf544ff9e141d98620943b362e2d3dcc6e327878a818ebaa6ac3123b",
+          "meaning": "member name/presence only; UI runtime reference and skill-definition semantics unproven"
+        },
+        {
+          "name": "ProtectorSkill.ypf",
+          "offset": 3817077,
+          "size": 66424,
+          "sha256": "379d1725f1498075d61d407ee568db2e252c663eed4d04650cc2ffddda457067",
+          "meaning": "member name/presence only; UI runtime reference and skill-definition semantics unproven"
+        }
+      ]
+    }
+  ]
+}
