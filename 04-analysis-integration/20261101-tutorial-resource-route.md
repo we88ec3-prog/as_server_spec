@@ -2,6 +2,7 @@
 
 > 後續增量：招募員顯示／動畫／頭像已由使用者確認；[在線切圖Host](20261101-world-transfer-transaction.md)
 > 及[選職指導員／持久選擇](20261101-tutorial-career-advisor.md)已有Server實作。
+> [分職業傳送師及完成交易](20261101-tutorial-town-departure.md)亦已接線，真實教學事件仍待接齊。
 > 下文「尚未接線」屬當時範圍，原版地圖綁定及完整教學驗收仍未完成。
 
 ## 使用者優先序
