@@ -23,6 +23,9 @@ SHA已鎖定的`nNewLife01.dat`（7caa5c656c7ab50b9701506e0d137f7fb1550f6eb6fd7c
 湖泊／海岸／冰原描述與傳送點回覆界線，保留包裝有效但文字異常及XML失敗。
 這些是候選城鎮交叉核對條件，尚未升級任何map_ref綁定。
 
+[地圖標題來源追查](20261101-map-title-provenance.md)已確認S15文字可投影到
+MapData與名稱視窗；復原Server自行提供的標題不是原版城市身份的獨立證據。
+
 ## 原件REA新增線索
 
 EXE SHA db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145，

@@ -1,0 +1,2163 @@
+{
+  "scope": "Selected original Client static views; excludes private Server implementation, no native execution observed",
+  "target_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "views": [
+    {
+      "evidence_id": "ev_b59329b3579a3d327647ad2aafeb5f44a68a4a120bdbc4e1d9a5a07304338889",
+      "operation": "batch_decompile",
+      "parameters": {
+        "addresses": [
+          "0x57ff30"
+        ]
+      },
+      "provider": {
+        "id": "rea-workflow",
+        "name": "REA composed investigation workflow",
+        "version": "1"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "rea-workflow",
+          "name": "REA composed investigation workflow",
+          "version": "1"
+        },
+        "parameters": {
+          "upstream_analysis_profile": {
+            "provider": {
+              "id": "ghidra",
+              "name": "Ghidra",
+              "version": "12.1.4"
+            },
+            "parameters": {
+              "target_kind": "executable",
+              "target_format": "pe",
+              "executable_role": "application",
+              "managed": false,
+              "native_aot_metadata": {
+                "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+                "source_bytes": 134217728,
+                "work_units": 67108864,
+                "working_memory_bytes": 67108864,
+                "report_bytes": 4194304
+              },
+              "architecture": "x86",
+              "available_architectures": [
+                "x86"
+              ],
+              "import_mode": "ephemeral-source-immutable",
+              "pdb_observations": "program-info-v1",
+              "annotation_policy": "atomic-function-entry-metadata-v1",
+              "load_image_observations": "source-mappings-entry-context-v2",
+              "function_body_evidence": "complete-inclusive-ranges-v1",
+              "function_references": "complete-body-and-entry-reference-manager-v2",
+              "call_relationship_coverage": "function-body-call-coverage-v5",
+              "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+              "string_inventory_evidence": "defined-data-coverage-v1",
+              "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+              "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+              "instruction_flow_evidence": "decoded-return-pcode-v1",
+              "instruction_references": "exact-address-incoming-v1",
+              "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+              "no_return_repair": "disabled-windows-p0",
+              "process_launch": "official-headless-script-v1",
+              "jump_table_evidence": "typed-case-default-blocks-v1",
+              "decompiler_jump_loads": true,
+              "loader": "auto-from-header",
+              "language_id": "auto-from-header",
+              "compiler_spec_id": "auto-default",
+              "analyzer_preset": "ghidra-default"
+            },
+            "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+          },
+          "workflow_revision": 2
+        },
+        "digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e"
+      },
+      "limitations": [
+        "Derived by an REA composed workflow.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "External functions and local thunks are distinct; procedure metadata identifies both and preserves a thunk target when Ghidra resolves one.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically."
+      ],
+      "normalized_result": {
+        "items": [
+          {
+            "address": "0x57ff30",
+            "procedure": {
+              "status": "resolved",
+              "address": "0x57ff30",
+              "name": "FUN_0057ff30"
+            },
+            "status": "ok",
+            "pseudocode": "\r\nvoid FUN_0057ff30(void)\r\n\r\n{\r\n  byte bVar1;\r\n  undefined1 uVar2;\r\n  undefined2 uVar3;\r\n  int in_ECX;\r\n  \r\n  uVar3 = FUN_0045ade0();\r\n  *(undefined2 *)(in_ECX + 0x18) = uVar3;\r\n  FUN_0045ade0();\r\n  FUN_0045ade0();\r\n  bVar1 = FUN_0045adb0();\r\n  uVar2 = FUN_0045adb0();\r\n  *(undefined1 *)(in_ECX + 0x2c) = uVar2;\r\n  FUN_0045b7a0(in_ECX + 0x2e,0xff,0);\r\n  *(uint *)(in_ECX + 0x1c) = ~(uint)bVar1 & 1;\r\n  *(uint *)(in_ECX + 0x20) = bVar1 >> 1 & 1;\r\n  *(uint *)(in_ECX + 0x24) = bVar1 >> 5 & 1;\r\n  *(uint *)(in_ECX + 0x28) = bVar1 >> 6 & 1;\r\n  return;\r\n}\r\n\r\n"
+          }
+        ],
+        "total": 1,
+        "succeeded": 1,
+        "failed": 0
+      }
+    },
+    {
+      "evidence_id": "ev_aa370ad5a14bbecf7250c46192c0fa73f984fd3a07e1b7542b37b90543ee5979",
+      "operation": "batch_decompile",
+      "parameters": {
+        "addresses": [
+          "0x4b33a0"
+        ]
+      },
+      "provider": {
+        "id": "rea-workflow",
+        "name": "REA composed investigation workflow",
+        "version": "1"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "rea-workflow",
+          "name": "REA composed investigation workflow",
+          "version": "1"
+        },
+        "parameters": {
+          "upstream_analysis_profile": {
+            "provider": {
+              "id": "ghidra",
+              "name": "Ghidra",
+              "version": "12.1.4"
+            },
+            "parameters": {
+              "target_kind": "executable",
+              "target_format": "pe",
+              "executable_role": "application",
+              "managed": false,
+              "native_aot_metadata": {
+                "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+                "source_bytes": 134217728,
+                "work_units": 67108864,
+                "working_memory_bytes": 67108864,
+                "report_bytes": 4194304
+              },
+              "architecture": "x86",
+              "available_architectures": [
+                "x86"
+              ],
+              "import_mode": "ephemeral-source-immutable",
+              "pdb_observations": "program-info-v1",
+              "annotation_policy": "atomic-function-entry-metadata-v1",
+              "load_image_observations": "source-mappings-entry-context-v2",
+              "function_body_evidence": "complete-inclusive-ranges-v1",
+              "function_references": "complete-body-and-entry-reference-manager-v2",
+              "call_relationship_coverage": "function-body-call-coverage-v5",
+              "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+              "string_inventory_evidence": "defined-data-coverage-v1",
+              "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+              "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+              "instruction_flow_evidence": "decoded-return-pcode-v1",
+              "instruction_references": "exact-address-incoming-v1",
+              "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+              "no_return_repair": "disabled-windows-p0",
+              "process_launch": "official-headless-script-v1",
+              "jump_table_evidence": "typed-case-default-blocks-v1",
+              "decompiler_jump_loads": true,
+              "loader": "auto-from-header",
+              "language_id": "auto-from-header",
+              "compiler_spec_id": "auto-default",
+              "analyzer_preset": "ghidra-default"
+            },
+            "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+          },
+          "workflow_revision": 2
+        },
+        "digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e"
+      },
+      "limitations": [
+        "Derived by an REA composed workflow.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "External functions and local thunks are distinct; procedure metadata identifies both and preserves a thunk target when Ghidra resolves one.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically."
+      ],
+      "normalized_result": {
+        "items": [
+          {
+            "address": "0x4b33a0",
+            "procedure": {
+              "status": "resolved",
+              "address": "0x4b33a0",
+              "name": "FUN_004b33a0"
+            },
+            "status": "ok",
+            "pseudocode": "\r\n/* WARNING: Function: __security_check_cookie replaced with injection: security_check_cookie */\r\n\r\nvoid FUN_004b33a0(ushort param_1,wchar_t *param_2)\r\n\r\n{\r\n  ushort *puVar1;\r\n  int iVar2;\r\n  undefined4 uVar3;\r\n  undefined2 *puVar4;\r\n  undefined4 *in_ECX;\r\n  uint uVar5;\r\n  int iVar6;\r\n  undefined4 *puVar7;\r\n  int *piVar8;\r\n  wchar_t local_110 [128];\r\n  undefined4 local_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d746c;\r\n  local_c = ExceptionList;\r\n  local_10 = DAT_0066c19c;\r\n  ExceptionList = &local_c;\r\n  FUN_004a66d0();\r\n  local_4 = 0;\r\n  *in_ECX = &PTR_FUN_0060a2d8;\r\n  FUN_0043ec40();\r\n  local_4 = CONCAT31(local_4._1_3_,1);\r\n  *(ushort *)(in_ECX + 1) = param_1;\r\n  _wcsncpy((wchar_t *)((int)in_ECX + 6),param_2,0xff);\r\n  *(undefined2 *)(in_ECX + 0x81) = 0;\r\n  _swprintf(local_110,L\"%05d.map\",(uint)param_1);\r\n  FUN_0043f0b0(param_1 / 10000 + 9,local_110);\r\n  puVar1 = (ushort *)FUN_0043eee0();\r\n  in_ECX[0x8c] = puVar1;\r\n  in_ECX[0x8d] = (uint)*puVar1;\r\n  in_ECX[0x8e] = (uint)puVar1[1];\r\n  in_ECX[0x8f] = (uint)puVar1[2];\r\n  uVar5 = (uint)(byte)puVar1[3];\r\n  in_ECX[0x90] = uVar5;\r\n  in_ECX[0x91] = (uint)*(byte *)((int)puVar1 + 7);\r\n  iVar6 = (int)(uVar5 - 1) / 2 + 1;\r\n  iVar2 = in_ECX[0x91] + -1;\r\n  iVar2 = ((int)(iVar2 + (iVar2 >> 0x1f & 3U)) >> 2) + 1;\r\n  in_ECX[0x93] = iVar2;\r\n  in_ECX[0x92] = iVar6;\r\n  in_ECX[0x94] = in_ECX[0x8c] + 8;\r\n  piVar8 = (int *)(in_ECX[0x8c] + 8 + iVar2 * iVar6 * 2);\r\n  uVar3 = FUN_004dc720(in_ECX[0x91] * uVar5 * 0x11,0,L\".\\\\MapData.cpp\",0x6f,0xffffffcc);\r\n  in_ECX[0x95] = uVar3;\r\n  iVar6 = 0;\r\n  if (0 < (int)in_ECX[0x91]) {\r\n    do {\r\n      iVar2 = 0;\r\n      if (0 < (int)in_ECX[0x90]) {\r\n        do {\r\n          puVar4 = (undefined2 *)((in_ECX[0x90] * iVar6 + iVar2) * 0x11 + in_ECX[0x95]);\r\n          *puVar4 = (short)*piVar8;\r\n          puVar4[1] = *(undefined2 *)((int)piVar8 + 2);\r\n          puVar7 = (undefined4 *)((int)piVar8 + 6);\r\n          puVar4[2] = (short)piVar8[1];\r\n          piVar8 = (int *)((int)piVar8 + 10);\r\n          *(undefined4 *)(puVar4 + 3) = *puVar7;\r\n          iVar2 = iVar2 + 1;\r\n        } while (iVar2 < (int)in_ECX[0x90]);\r\n      }\r\n      iVar6 = iVar6 + 1;\r\n    } while (iVar6 < (int)in_ECX[0x91]);\r\n  }\r\n  iVar6 = *piVar8;\r\n  in_ECX[0x98] = piVar8 + 1;\r\n  piVar8 = (int *)((int)(piVar8 + 1) + iVar6 * 7);\r\n  in_ECX[0x97] = iVar6;\r\n  iVar6 = *piVar8;\r\n  in_ECX[0x99] = iVar6;\r\n  piVar8 = piVar8 + 1;\r\n  in_ECX[0x9a] = piVar8;\r\n  in_ECX[0x9b] = 0;\r\n  iVar2 = piVar8[iVar6 * 2];\r\n  in_ECX[0x9c] = piVar8 + iVar6 * 2 + 1;\r\n  in_ECX[0x9b] = iVar2;\r\n  in_ECX[0x9d] = 0xffffffff;\r\n  uVar3 = FUN_004dc720(in_ECX[0x91] * in_ECX[0x90] * 4,0,L\".\\\\MapData.cpp\",0xaa,0);\r\n  in_ECX[0x96] = uVar3;\r\n  FUN_004b3250();\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+          }
+        ],
+        "total": 1,
+        "succeeded": 1,
+        "failed": 0
+      }
+    },
+    {
+      "evidence_id": "ev_9106f9d4342fa6cc8801822092929e636bfcf0645b8b11588d612f92b2484709",
+      "operation": "batch_decompile",
+      "parameters": {
+        "addresses": [
+          "0x4bd750",
+          "0x4c0920"
+        ]
+      },
+      "provider": {
+        "id": "rea-workflow",
+        "name": "REA composed investigation workflow",
+        "version": "1"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "rea-workflow",
+          "name": "REA composed investigation workflow",
+          "version": "1"
+        },
+        "parameters": {
+          "upstream_analysis_profile": {
+            "provider": {
+              "id": "ghidra",
+              "name": "Ghidra",
+              "version": "12.1.4"
+            },
+            "parameters": {
+              "target_kind": "executable",
+              "target_format": "pe",
+              "executable_role": "application",
+              "managed": false,
+              "native_aot_metadata": {
+                "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+                "source_bytes": 134217728,
+                "work_units": 67108864,
+                "working_memory_bytes": 67108864,
+                "report_bytes": 4194304
+              },
+              "architecture": "x86",
+              "available_architectures": [
+                "x86"
+              ],
+              "import_mode": "ephemeral-source-immutable",
+              "pdb_observations": "program-info-v1",
+              "annotation_policy": "atomic-function-entry-metadata-v1",
+              "load_image_observations": "source-mappings-entry-context-v2",
+              "function_body_evidence": "complete-inclusive-ranges-v1",
+              "function_references": "complete-body-and-entry-reference-manager-v2",
+              "call_relationship_coverage": "function-body-call-coverage-v5",
+              "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+              "string_inventory_evidence": "defined-data-coverage-v1",
+              "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+              "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+              "instruction_flow_evidence": "decoded-return-pcode-v1",
+              "instruction_references": "exact-address-incoming-v1",
+              "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+              "no_return_repair": "disabled-windows-p0",
+              "process_launch": "official-headless-script-v1",
+              "jump_table_evidence": "typed-case-default-blocks-v1",
+              "decompiler_jump_loads": true,
+              "loader": "auto-from-header",
+              "language_id": "auto-from-header",
+              "compiler_spec_id": "auto-default",
+              "analyzer_preset": "ghidra-default"
+            },
+            "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+          },
+          "workflow_revision": 2
+        },
+        "digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e"
+      },
+      "limitations": [
+        "Derived by an REA composed workflow.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "External functions and local thunks are distinct; procedure metadata identifies both and preserves a thunk target when Ghidra resolves one.",
+        "Ghidra Listing reports a terminal call at 0x4bd9a6 to 0x4dc760 FUN_004dc760 (external=false, thunk=false, hasNoReturn=true); fallthrough is excluded by Ghidra's flow model. This records Ghidra's FunctionManager flag, not an independent verification that the callee cannot return.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically."
+      ],
+      "normalized_result": {
+        "items": [
+          {
+            "address": "0x4bd750",
+            "procedure": {
+              "status": "resolved",
+              "address": "0x4bd750",
+              "name": "FUN_004bd750"
+            },
+            "status": "ok",
+            "pseudocode": "\r\nundefined4 FUN_004bd750(int param_1)\r\n\r\n{\r\n  undefined1 uVar1;\r\n  int iVar2;\r\n  undefined4 uVar3;\r\n  int in_ECX;\r\n  short sVar4;\r\n  int iVar5;\r\n  undefined4 local_4c;\r\n  undefined4 local_48;\r\n  undefined4 local_44;\r\n  undefined4 local_40;\r\n  void *pvStack_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 uStack_4;\r\n  \r\n  uStack_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d832f;\r\n  pvStack_c = ExceptionList;\r\n  iVar5 = 0;\r\n  local_4c = 0;\r\n  local_48 = 0;\r\n  local_44 = 0;\r\n  local_40 = 0;\r\n  ExceptionList = &pvStack_c;\r\n  FUN_005562f0();\r\n  FUN_00555a10();\r\n  if (*(int *)(in_ECX + 0xb4) == 0) {\r\n    sVar4 = -1;\r\n  }\r\n  else {\r\n    sVar4 = *(short *)(*(int *)(in_ECX + 0xb4) + 4);\r\n  }\r\n  if (*(int *)(in_ECX + 0x80) == 0) {\r\n    FUN_004b74d0(0,1);\r\n  }\r\n  *(undefined4 *)(in_ECX + 0xac) = *(undefined4 *)(param_1 + 0x28);\r\n  *(undefined4 *)(in_ECX + 0xb0) = *(undefined4 *)(param_1 + 0x34);\r\n  if (sVar4 != *(short *)(param_1 + 0x24)) {\r\n    *(undefined4 *)(in_ECX + 0x84) = 0xffff8ad0;\r\n    *(undefined4 *)(in_ECX + 0x88) = 0xffff8ad0;\r\n  }\r\n  FUN_0046e500(in_ECX + 0x94,0,0);\r\n  FUN_0046e500(in_ECX + 0xa4,0,0);\r\n  *(undefined4 *)(in_ECX + 0x80) = 1;\r\n  *(undefined4 *)(in_ECX + 0x5c) = *(undefined4 *)(param_1 + 0x30);\r\n  FUN_004bd4c0(&local_4c,0);\r\n  if (sVar4 != *(short *)(param_1 + 0x24)) {\r\n    if (*(undefined4 **)(in_ECX + 0xb8) != (undefined4 *)0x0) {\r\n      (**(code **)**(undefined4 **)(in_ECX + 0xb8))(1);\r\n    }\r\n    if (*(undefined4 **)(in_ECX + 0xb4) != (undefined4 *)0x0) {\r\n      (**(code **)**(undefined4 **)(in_ECX + 0xb4))(1);\r\n    }\r\n    if (*(undefined4 **)(in_ECX + 0xbc) != (undefined4 *)0x0) {\r\n      (**(code **)**(undefined4 **)(in_ECX + 0xbc))(1);\r\n    }\r\n    iVar2 = FUN_004dc720(0x27c,0,L\".\\\\mappane.cpp\",0x19cb,0xffffffcc);\r\n    uStack_4 = 0;\r\n    if (iVar2 == 0) {\r\n      uVar3 = 0;\r\n    }\r\n    else {\r\n      uVar3 = FUN_004b33a0(*(undefined2 *)(param_1 + 0x24),param_1 + 0x3a);\r\n    }\r\n    uStack_4 = 0xffffffff;\r\n    *(undefined4 *)(in_ECX + 0xb4) = uVar3;\r\n    FUN_004b3650();\r\n    FUN_004bbe70();\r\n    iVar2 = FUN_004dc720(0x54,0,L\".\\\\mappane.cpp\",0x19d1,0xffffffcc);\r\n    uStack_4 = 1;\r\n    if (iVar2 == 0) {\r\n      uVar3 = 0;\r\n    }\r\n    else {\r\n      uVar3 = FUN_004c1ef0(0x13,0x15,*(undefined4 *)(in_ECX + 0xb4));\r\n    }\r\n    uStack_4 = 0xffffffff;\r\n    *(undefined4 *)(in_ECX + 0xb8) = uVar3;\r\n    iVar2 = FUN_004dc720(0x1c,0,L\".\\\\mappane.cpp\",0x19d2,0xffffffcc);\r\n    uStack_4 = 2;\r\n    if (iVar2 == 0) {\r\n      uVar3 = 0;\r\n    }\r\n    else {\r\n      uVar3 = FUN_004c17a0(0x13,0x15,*(undefined4 *)(in_ECX + 0xb4));\r\n    }\r\n    uStack_4 = 0xffffffff;\r\n    *(undefined4 *)(in_ECX + 0xbc) = uVar3;\r\n    if (*(undefined4 **)(in_ECX + 0x114) != (undefined4 *)0x0) {\r\n      (**(code **)**(undefined4 **)(in_ECX + 0x114))(1);\r\n    }\r\n    iVar2 = FUN_004dc720(0x90,0,L\".\\\\mappane.cpp\",0x19d9,0xffffffcc);\r\n    uStack_4 = 3;\r\n    if (iVar2 == 0) {\r\n      uVar3 = 0;\r\n    }\r\n    else {\r\n      uVar3 = FUN_004d1580(*(undefined4 *)(in_ECX + 0xb4));\r\n    }\r\n    uStack_4 = 0xffffffff;\r\n    *(undefined4 *)(in_ECX + 0x114) = uVar3;\r\n    if (*(int *)(in_ECX + 0x11c) != 0) {\r\n                    /* WARNING: Subroutine does not return */\r\n      FUN_004dc760(*(int *)(in_ECX + 0x11c));\r\n    }\r\n    *(undefined4 *)(in_ECX + 0x11c) = 0;\r\n    *(undefined4 *)(in_ECX + 0x120) = 0;\r\n    *(undefined4 *)(in_ECX + 0x124) = 0;\r\n    if (*(undefined4 **)(in_ECX + 0xf8) != (undefined4 *)0x0) {\r\n      (**(code **)**(undefined4 **)(in_ECX + 0xf8))(1);\r\n    }\r\n    iVar2 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0x19e1,0xffffffcc);\r\n    uStack_4 = 4;\r\n    if (iVar2 != 0) {\r\n      FUN_004b3e50(param_1 + 0x3a,0xffffffff);\r\n    }\r\n    uStack_4 = 0xffffffff;\r\n  }\r\n  do {\r\n    uVar1 = FUN_004b2c10(iVar5);\r\n    FUN_0054ced0(iVar5,uVar1);\r\n    iVar5 = iVar5 + 1;\r\n  } while (iVar5 < 3);\r\n  uVar3 = FUN_004c6e90(0x4d506d63);\r\n  uStack_4 = 5;\r\n  FUN_005412b0(uVar3);\r\n  uStack_4 = 0xffffffff;\r\n  FUN_004c6d60();\r\n  FUN_004b7850();\r\n  ExceptionList = pvStack_c;\r\n  return 1;\r\n}\r\n\r\n"
+          }
+        ],
+        "total": 2,
+        "succeeded": 2,
+        "failed": 0
+      }
+    },
+    {
+      "evidence_id": "ev_56f6a10f0445d8b32ee9e11162f3d7ce9c907e1727b62ed0b4a8ac423cece669",
+      "operation": "batch_decompile",
+      "parameters": {
+        "addresses": [
+          "0x4b3e50",
+          "0x4b4de0"
+        ]
+      },
+      "provider": {
+        "id": "rea-workflow",
+        "name": "REA composed investigation workflow",
+        "version": "1"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "rea-workflow",
+          "name": "REA composed investigation workflow",
+          "version": "1"
+        },
+        "parameters": {
+          "upstream_analysis_profile": {
+            "provider": {
+              "id": "ghidra",
+              "name": "Ghidra",
+              "version": "12.1.4"
+            },
+            "parameters": {
+              "target_kind": "executable",
+              "target_format": "pe",
+              "executable_role": "application",
+              "managed": false,
+              "native_aot_metadata": {
+                "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+                "source_bytes": 134217728,
+                "work_units": 67108864,
+                "working_memory_bytes": 67108864,
+                "report_bytes": 4194304
+              },
+              "architecture": "x86",
+              "available_architectures": [
+                "x86"
+              ],
+              "import_mode": "ephemeral-source-immutable",
+              "pdb_observations": "program-info-v1",
+              "annotation_policy": "atomic-function-entry-metadata-v1",
+              "load_image_observations": "source-mappings-entry-context-v2",
+              "function_body_evidence": "complete-inclusive-ranges-v1",
+              "function_references": "complete-body-and-entry-reference-manager-v2",
+              "call_relationship_coverage": "function-body-call-coverage-v5",
+              "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+              "string_inventory_evidence": "defined-data-coverage-v1",
+              "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+              "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+              "instruction_flow_evidence": "decoded-return-pcode-v1",
+              "instruction_references": "exact-address-incoming-v1",
+              "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+              "no_return_repair": "disabled-windows-p0",
+              "process_launch": "official-headless-script-v1",
+              "jump_table_evidence": "typed-case-default-blocks-v1",
+              "decompiler_jump_loads": true,
+              "loader": "auto-from-header",
+              "language_id": "auto-from-header",
+              "compiler_spec_id": "auto-default",
+              "analyzer_preset": "ghidra-default"
+            },
+            "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+          },
+          "workflow_revision": 2
+        },
+        "digest": "d4471786e332c0336f066a85a651a368051028dfaa0c1d7a5ac78db2f422f47e"
+      },
+      "limitations": [
+        "Derived by an REA composed workflow.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "External functions and local thunks are distinct; procedure metadata identifies both and preserves a thunk target when Ghidra resolves one.",
+        "Ghidra Listing reports a terminal call at 0x4b4de6 to 0x4b2be0 FUN_004b2be0 (external=false, thunk=false, hasNoReturn=false); fallthrough is excluded by Ghidra's flow model. The reason for the terminal flow is not established by this observation.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically."
+      ],
+      "normalized_result": {
+        "items": [
+          {
+            "address": "0x4b3e50",
+            "procedure": {
+              "status": "resolved",
+              "address": "0x4b3e50",
+              "name": "FUN_004b3e50"
+            },
+            "status": "ok",
+            "pseudocode": "\r\nvoid FUN_004b3e50(undefined4 param_1,short param_2)\r\n\r\n{\r\n  int iVar1;\r\n  undefined4 *in_ECX;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d74b8;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_004423c0();\r\n  local_4 = 0;\r\n  *in_ECX = &PTR_FUN_0060a374;\r\n  in_ECX[2] = &PTR_LAB_0060a324;\r\n  in_ECX[4] = &PTR_LAB_0060a314;\r\n  FUN_005367d0(0x19,in_ECX,0,0,0);\r\n  FUN_004b4df0(in_ECX);\r\n  iVar1 = FUN_00441070(0);\r\n  *(undefined4 *)(iVar1 + 0x46c) = 0;\r\n  FUN_00435d80(param_1,&DAT_005f38a8);\r\n  FUN_004f4ee0(1);\r\n  if (param_2 == -1) {\r\n    iVar1 = 4000;\r\n  }\r\n  else {\r\n    iVar1 = (int)param_2;\r\n  }\r\n  FUN_004fd1d0(in_ECX + 2,0x4d446874,iVar1,0,0);\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+          }
+        ],
+        "total": 2,
+        "succeeded": 2,
+        "failed": 0
+      }
+    },
+    {
+      "evidence_id": "ev_b326646a108eafa4a2c015a8150645536dce6d83c1be279c6850dd38ebbdb054",
+      "operation": "xrefs",
+      "parameters": {
+        "address": "0x4b3e50"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "The direct address list projects exact Ghidra references to one address but does not expose their kinds; procedure_references and analyze_function preserve available kind metadata.",
+        "Synthetic Ghidra entry-point references without actionable memory sources are omitted.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": [
+        "0x4bd9fe",
+        "0x4c0b8c",
+        "0x526dfe"
+      ]
+    },
+    {
+      "evidence_id": "ev_ec9212fdeba7eaac468d6091a5516659a6a1da81e09c896b90d5b1448e532879",
+      "operation": "xrefs",
+      "parameters": {
+        "address": "0x4bd750"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "The direct address list projects exact Ghidra references to one address but does not expose their kinds; procedure_references and analyze_function preserve available kind metadata.",
+        "Synthetic Ghidra entry-point references without actionable memory sources are omitted.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": [
+        "0x4f48d4"
+      ]
+    },
+    {
+      "evidence_id": "ev_f2b4d99b55d34685e41992b32f6a953c7e622bca5babe9a74b8207f505a48abd",
+      "operation": "inspect_native_instruction",
+      "parameters": {
+        "address": "0x4f48d4"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f48d4",
+        "status": "decoded",
+        "procedure": null,
+        "architecture": "x86:LE:32:default",
+        "mode": "default",
+        "bytes": "e9778efcff",
+        "length": 5,
+        "mnemonic": "JMP",
+        "raw_disassembly": "JMP 0x004bd750",
+        "operands": [
+          {
+            "index": 0,
+            "raw": "0x004bd750",
+            "provider_type": 8256,
+            "components": [
+              {
+                "kind": "address",
+                "text": "004bd750",
+                "value": "0x4bd750",
+                "bit_width": null
+              }
+            ],
+            "memory_addressing": "unavailable"
+          }
+        ],
+        "flow": {
+          "kind": "call",
+          "conditional": false,
+          "computed": false,
+          "direct_destinations": [
+            "0x4bd750"
+          ],
+          "classification_evidence": [
+            {
+              "source": "ghidra-listing-flow-type",
+              "value": "CALL_TERMINATOR"
+            }
+          ]
+        },
+        "references": [
+          {
+            "target_address": "0x4bd750",
+            "type": "UNCONDITIONAL_CALL",
+            "call": true,
+            "jump": false,
+            "indirect": false,
+            "computed": false,
+            "operand_index": 0,
+            "source_address": "0x4f48d4",
+            "data": false,
+            "read": false,
+            "write": false,
+            "primary": true,
+            "provenance": "ghidra-reference-manager",
+            "source": "default"
+          }
+        ],
+        "incoming_references": [],
+        "limitations": [
+          "Operand components are Ghidra Listing decoder tokens; effective memory base/index/displacement roles and per-instruction context mode are unavailable. The mode field is the program language variant."
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev_9529d353d3f0ffe353d9e8200e66f80607bef7779076378b3059704796db405f",
+      "operation": "read_function_instructions",
+      "parameters": {
+        "procedure": "0x57ff30"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "This fast path reads only the requested function and does not invoke the decompiler or whole-program string/name inventories.",
+        "Instruction text is Ghidra-specific and does not claim textual equivalence with Hopper output.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "procedure": {
+          "address": "0x57ff30",
+          "name": "FUN_0057ff30",
+          "classification": {
+            "external": false,
+            "thunk": false,
+            "thunk_target": null,
+            "provenance": "ghidra-function-manager"
+          },
+          "body": {
+            "available": true,
+            "provenance": "ghidra-function-body-address-set",
+            "ranges": [
+              {
+                "start": "0x57ff30",
+                "end": "0x57ff9d"
+              }
+            ],
+            "total_bytes": 110,
+            "span_bytes": 110,
+            "non_contiguous": false,
+            "contains_entry": true
+          }
+        },
+        "instructions": [
+          "0x57ff30: PUSH EBX",
+          "0x57ff31: PUSH ESI",
+          "0x57ff32: MOV ESI, ECX",
+          "0x57ff34: CALL 0x0045ade0",
+          "0x57ff39: MOV ECX, ESI",
+          "0x57ff3b: MOV word ptr [ESI + 0x18], AX",
+          "0x57ff3f: CALL 0x0045ade0",
+          "0x57ff44: MOV ECX, ESI",
+          "0x57ff46: CALL 0x0045ade0",
+          "0x57ff4b: MOV ECX, ESI",
+          "0x57ff4d: CALL 0x0045adb0",
+          "0x57ff52: MOV ECX, ESI",
+          "0x57ff54: MOV BL, AL",
+          "0x57ff56: CALL 0x0045adb0",
+          "0x57ff5b: PUSH 0x0",
+          "0x57ff5d: MOV byte ptr [ESI + 0x2c], AL",
+          "0x57ff60: PUSH 0xff",
+          "0x57ff65: LEA EAX, [ESI + 0x2e]",
+          "0x57ff68: PUSH EAX",
+          "0x57ff69: MOV ECX, ESI",
+          "0x57ff6b: CALL 0x0045b7a0",
+          "0x57ff70: MOVZX EAX, BL",
+          "0x57ff73: MOV ECX, EAX",
+          "0x57ff75: NOT ECX",
+          "0x57ff77: AND ECX, 0x1",
+          "0x57ff7a: MOV dword ptr [ESI + 0x1c], ECX",
+          "0x57ff7d: MOV EDX, EAX",
+          "0x57ff7f: MOV ECX, EAX",
+          "0x57ff81: SHR EDX, 0x1",
+          "0x57ff83: SHR ECX, 0x5",
+          "0x57ff86: SHR EAX, 0x6",
+          "0x57ff89: AND EDX, 0x1",
+          "0x57ff8c: AND ECX, 0x1",
+          "0x57ff8f: AND EAX, 0x1",
+          "0x57ff92: MOV dword ptr [ESI + 0x20], EDX",
+          "0x57ff95: MOV dword ptr [ESI + 0x24], ECX",
+          "0x57ff98: MOV dword ptr [ESI + 0x28], EAX",
+          "0x57ff9b: POP ESI",
+          "0x57ff9c: POP EBX",
+          "0x57ff9d: RET"
+        ],
+        "limitations": [
+          "Instruction text and ordering are Ghidra-specific representations.",
+          "The fast path does not invoke the decompiler or scan whole-program names and strings."
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev_4d96a7eb63f8847a28bb657f6174da27d7671a175808fa51c5cea6c13b38ce4f",
+      "operation": "read_function_instructions",
+      "parameters": {
+        "procedure": "0x4b33a0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "This fast path reads only the requested function and does not invoke the decompiler or whole-program string/name inventories.",
+        "Instruction text is Ghidra-specific and does not claim textual equivalence with Hopper output.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "procedure": {
+          "address": "0x4b33a0",
+          "name": "FUN_004b33a0",
+          "classification": {
+            "external": false,
+            "thunk": false,
+            "thunk_target": null,
+            "provenance": "ghidra-function-manager"
+          },
+          "body": {
+            "available": true,
+            "provenance": "ghidra-function-body-address-set",
+            "ranges": [
+              {
+                "start": "0x4b33a0",
+                "end": "0x4b3509"
+              },
+              {
+                "start": "0x4b3510",
+                "end": "0x4b362a"
+              }
+            ],
+            "total_bytes": 645,
+            "span_bytes": 651,
+            "non_contiguous": true,
+            "contains_entry": true
+          }
+        },
+        "instructions": [
+          "0x4b33a0: PUSH -0x1",
+          "0x4b33a2: PUSH 0x5d746c",
+          "0x4b33a7: MOV EAX, FS:[0x0]",
+          "0x4b33ad: PUSH EAX",
+          "0x4b33ae: MOV dword ptr FS:[0x0], ESP",
+          "0x4b33b5: SUB ESP, 0x108",
+          "0x4b33bb: MOV EAX, [0x0066c19c]",
+          "0x4b33c0: PUSH EBX",
+          "0x4b33c1: PUSH EBP",
+          "0x4b33c2: PUSH ESI",
+          "0x4b33c3: MOV ESI, ECX",
+          "0x4b33c5: PUSH EDI",
+          "0x4b33c6: MOV dword ptr [ESP + 0x114], EAX",
+          "0x4b33cd: MOV dword ptr [ESP + 0x10], ESI",
+          "0x4b33d1: CALL 0x004a66d0",
+          "0x4b33d6: XOR EBP, EBP",
+          "0x4b33d8: MOV dword ptr [ESP + 0x120], EBP",
+          "0x4b33df: LEA EDI, [ESI + 0x208]",
+          "0x4b33e5: MOV ECX, EDI",
+          "0x4b33e7: MOV dword ptr [ESI], 0x60a2d8",
+          "0x4b33ed: CALL 0x0043ec40",
+          "0x4b33f2: MOV byte ptr [ESP + 0x120], 0x1",
+          "0x4b33fa: MOV EAX, dword ptr [ESP + 0x12c]",
+          "0x4b3401: MOV BX, word ptr [ESP + 0x128]",
+          "0x4b3409: PUSH 0xff",
+          "0x4b340e: PUSH EAX",
+          "0x4b340f: LEA ECX, [ESI + 0x6]",
+          "0x4b3412: PUSH ECX",
+          "0x4b3413: MOV word ptr [ESI + 0x4], BX",
+          "0x4b3417: CALL 0x005b364d",
+          "0x4b341c: MOVZX EBX, BX",
+          "0x4b341f: PUSH EBX",
+          "0x4b3420: LEA EDX, [ESP + 0x24]",
+          "0x4b3424: PUSH 0x60a2fc",
+          "0x4b3429: PUSH EDX",
+          "0x4b342a: MOV word ptr [ESI + 0x204], BP",
+          "0x4b3431: CALL 0x005b3761",
+          "0x4b3436: ADD ESP, 0x18",
+          "0x4b3439: LEA EAX, [ESP + 0x14]",
+          "0x4b343d: PUSH EAX",
+          "0x4b343e: MOV EAX, 0x68db8bad",
+          "0x4b3443: IMUL EBX",
+          "0x4b3445: SAR EDX, 0xc",
+          "0x4b3448: MOV ECX, EDX",
+          "0x4b344a: SHR ECX, 0x1f",
+          "0x4b344d: LEA EDX, [EDX + ECX*0x1 + 0x9]",
+          "0x4b3451: PUSH EDX",
+          "0x4b3452: MOV ECX, EDI",
+          "0x4b3454: CALL 0x0043f0b0",
+          "0x4b3459: MOV ECX, EDI",
+          "0x4b345b: CALL 0x0043eee0",
+          "0x4b3460: MOV dword ptr [ESI + 0x230], EAX",
+          "0x4b3466: MOVZX ECX, word ptr [EAX]",
+          "0x4b3469: MOV dword ptr [ESI + 0x234], ECX",
+          "0x4b346f: MOVZX EDX, word ptr [EAX + 0x2]",
+          "0x4b3473: MOV dword ptr [ESI + 0x238], EDX",
+          "0x4b3479: MOVZX ECX, word ptr [EAX + 0x4]",
+          "0x4b347d: MOV dword ptr [ESI + 0x23c], ECX",
+          "0x4b3483: MOVZX EDX, byte ptr [EAX + 0x6]",
+          "0x4b3487: MOV ECX, dword ptr [ESI + 0x230]",
+          "0x4b348d: MOV dword ptr [ESI + 0x240], EDX",
+          "0x4b3493: MOVZX EAX, byte ptr [EAX + 0x7]",
+          "0x4b3497: MOV dword ptr [ESI + 0x244], EAX",
+          "0x4b349d: MOV EBX, dword ptr [ESI + 0x244]",
+          "0x4b34a3: MOV EBP, EDX",
+          "0x4b34a5: LEA EAX, [EBP + -0x1]",
+          "0x4b34a8: CDQ",
+          "0x4b34a9: SUB EAX, EDX",
+          "0x4b34ab: SAR EAX, 0x1",
+          "0x4b34ad: LEA EDI, [EAX + 0x1]",
+          "0x4b34b0: LEA EAX, [EBX + -0x1]",
+          "0x4b34b3: CDQ",
+          "0x4b34b4: AND EDX, 0x3",
+          "0x4b34b7: ADD EAX, EDX",
+          "0x4b34b9: ADD ECX, 0x8",
+          "0x4b34bc: SAR EAX, 0x2",
+          "0x4b34bf: INC EAX",
+          "0x4b34c0: MOV dword ptr [ESI + 0x24c], EAX",
+          "0x4b34c6: IMUL EAX, EDI",
+          "0x4b34c9: PUSH -0x34",
+          "0x4b34cb: PUSH 0x6f",
+          "0x4b34cd: MOV dword ptr [ESI + 0x248], EDI",
+          "0x4b34d3: MOV dword ptr [ESI + 0x250], ECX",
+          "0x4b34d9: LEA EDI, [ECX + EAX*0x2]",
+          "0x4b34dc: PUSH 0x60a2e0",
+          "0x4b34e1: IMUL EBX, EBP",
+          "0x4b34e4: MOV ECX, EBX",
+          "0x4b34e6: SHL ECX, 0x4",
+          "0x4b34e9: ADD ECX, EBX",
+          "0x4b34eb: PUSH 0x0",
+          "0x4b34ed: PUSH ECX",
+          "0x4b34ee: CALL 0x004dc720",
+          "0x4b34f3: MOV dword ptr [ESI + 0x254], EAX",
+          "0x4b34f9: MOV EAX, dword ptr [ESI + 0x244]",
+          "0x4b34ff: ADD ESP, 0x14",
+          "0x4b3502: XOR EBX, EBX",
+          "0x4b3504: TEST EAX, EAX",
+          "0x4b3506: JLE 0x004b3575",
+          "0x4b3508: JMP 0x004b3510",
+          "0x4b3510: MOV EAX, dword ptr [ESI + 0x240]",
+          "0x4b3516: XOR EDX, EDX",
+          "0x4b3518: TEST EAX, EAX",
+          "0x4b351a: JLE 0x004b356a",
+          "0x4b351c: LEA ESP, [ESP]",
+          "0x4b3520: MOV ECX, dword ptr [ESI + 0x240]",
+          "0x4b3526: MOV EBP, dword ptr [ESI + 0x254]",
+          "0x4b352c: IMUL ECX, EBX",
+          "0x4b352f: ADD ECX, EDX",
+          "0x4b3531: MOV EAX, ECX",
+          "0x4b3533: SHL EAX, 0x4",
+          "0x4b3536: ADD EAX, ECX",
+          "0x4b3538: MOV CX, word ptr [EDI]",
+          "0x4b353b: ADD EAX, EBP",
+          "0x4b353d: ADD EDI, 0x2",
+          "0x4b3540: MOV word ptr [EAX], CX",
+          "0x4b3543: MOV CX, word ptr [EDI]",
+          "0x4b3546: ADD EDI, 0x2",
+          "0x4b3549: MOV word ptr [EAX + 0x2], CX",
+          "0x4b354d: MOV CX, word ptr [EDI]",
+          "0x4b3550: ADD EDI, 0x2",
+          "0x4b3553: MOV word ptr [EAX + 0x4], CX",
+          "0x4b3557: MOV ECX, dword ptr [EDI]",
+          "0x4b3559: ADD EDI, 0x4",
+          "0x4b355c: MOV dword ptr [EAX + 0x6], ECX",
+          "0x4b355f: MOV EAX, dword ptr [ESI + 0x240]",
+          "0x4b3565: INC EDX",
+          "0x4b3566: CMP EDX, EAX",
+          "0x4b3568: JL 0x004b3520",
+          "0x4b356a: MOV EAX, dword ptr [ESI + 0x244]",
+          "0x4b3570: INC EBX",
+          "0x4b3571: CMP EBX, EAX",
+          "0x4b3573: JL 0x004b3510",
+          "0x4b3575: MOV EDX, dword ptr [EDI]",
+          "0x4b3577: MOV EAX, EDX",
+          "0x4b3579: IMUL EAX, EAX, 0x7",
+          "0x4b357c: ADD EDI, 0x4",
+          "0x4b357f: MOV dword ptr [ESI + 0x260], EDI",
+          "0x4b3585: ADD EDI, EAX",
+          "0x4b3587: MOV dword ptr [ESI + 0x25c], EDX",
+          "0x4b358d: MOV ECX, dword ptr [EDI]",
+          "0x4b358f: MOV dword ptr [ESI + 0x264], ECX",
+          "0x4b3595: MOV EDX, ECX",
+          "0x4b3597: MOV ECX, dword ptr [ESI + 0x244]",
+          "0x4b359d: IMUL ECX, dword ptr [ESI + 0x240]",
+          "0x4b35a4: ADD EDI, 0x4",
+          "0x4b35a7: MOV dword ptr [ESI + 0x268], EDI",
+          "0x4b35ad: PUSH 0x0",
+          "0x4b35af: LEA EDI, [EDI + EDX*0x8]",
+          "0x4b35b2: MOV dword ptr [ESI + 0x26c], 0x0",
+          "0x4b35bc: MOV EAX, dword ptr [EDI]",
+          "0x4b35be: PUSH 0xaa",
+          "0x4b35c3: ADD EDI, 0x4",
+          "0x4b35c6: PUSH 0x60a2e0",
+          "0x4b35cb: MOV dword ptr [ESI + 0x270], EDI",
+          "0x4b35d1: SHL ECX, 0x2",
+          "0x4b35d4: PUSH 0x0",
+          "0x4b35d6: OR EDI, 0xffffffff",
+          "0x4b35d9: PUSH ECX",
+          "0x4b35da: MOV dword ptr [ESI + 0x26c], EAX",
+          "0x4b35e0: MOV dword ptr [ESI + 0x274], EDI",
+          "0x4b35e6: CALL 0x004dc720",
+          "0x4b35eb: ADD ESP, 0x14",
+          "0x4b35ee: MOV ECX, ESI",
+          "0x4b35f0: MOV dword ptr [ESI + 0x258], EAX",
+          "0x4b35f6: CALL 0x004b3250",
+          "0x4b35fb: MOV dword ptr [ESP + 0x120], EDI",
+          "0x4b3602: MOV ECX, dword ptr [ESP + 0x118]",
+          "0x4b3609: POP EDI",
+          "0x4b360a: MOV EAX, ESI",
+          "0x4b360c: POP ESI",
+          "0x4b360d: POP EBP",
+          "0x4b360e: MOV dword ptr FS:[0x0], ECX",
+          "0x4b3615: MOV ECX, dword ptr [ESP + 0x108]",
+          "0x4b361c: POP EBX",
+          "0x4b361d: CALL 0x005b363f",
+          "0x4b3622: ADD ESP, 0x114",
+          "0x4b3628: RET 0x8"
+        ],
+        "limitations": [
+          "Instruction text and ordering are Ghidra-specific representations.",
+          "The fast path does not invoke the decompiler or scan whole-program names and strings."
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev_81a49ffe2f51e459324509b7c9786afc4dfb708e9514368d00693c2e1df24f8b",
+      "operation": "read_bytes",
+      "parameters": {
+        "address": "0x4f4b30",
+        "length": 19
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Bytes reflect Ghidra's initialized memory, including loader fixups. Reads stop at an unmapped or uninitialized byte and report completeness explicitly.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f4b30",
+        "requested_bytes": 19,
+        "returned_bytes": 19,
+        "bytes_hex": "0001020304052d060708090a0b0c0d0e0f1011",
+        "complete": true
+      }
+    },
+    {
+      "evidence_id": "ev_3ac906f5bd7f781baeee126ec6d1f689ac1b8346cd7b593f819c4c77f7deb9a2",
+      "operation": "read_bytes",
+      "parameters": {
+        "address": "0x4f4abc",
+        "length": 4
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Bytes reflect Ghidra's initialized memory, including loader fixups. Reads stop at an unmapped or uninitialized byte and report completeness explicitly.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f4abc",
+        "requested_bytes": 4,
+        "returned_bytes": 4,
+        "bytes_hex": "ca484f00",
+        "complete": true
+      }
+    },
+    {
+      "evidence_id": "ev_584aa46bfbade922647f81196e7c5f95ae79e225aacb5d5bc2ad827a1d64d1b9",
+      "operation": "inspect_native_instruction",
+      "parameters": {
+        "address": "0x4f48a0"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f48a0",
+        "status": "decoded",
+        "procedure": null,
+        "architecture": "x86:LE:32:default",
+        "mode": "default",
+        "bytes": "8b442404",
+        "length": 4,
+        "mnemonic": "MOV",
+        "raw_disassembly": "MOV EAX,dword ptr [ESP + 0x4]",
+        "operands": [
+          {
+            "index": 0,
+            "raw": "EAX",
+            "provider_type": 512,
+            "components": [
+              {
+                "kind": "register",
+                "text": "EAX",
+                "value": "EAX",
+                "bit_width": 32
+              }
+            ],
+            "memory_addressing": "unavailable"
+          },
+          {
+            "index": 1,
+            "raw": "dword ptr [ESP + 0x4]",
+            "provider_type": 4194304,
+            "components": [
+              {
+                "kind": "register",
+                "text": "ESP",
+                "value": "ESP",
+                "bit_width": 32
+              },
+              {
+                "kind": "immediate",
+                "text": "0x4",
+                "value": "0x4",
+                "bit_width": 32
+              }
+            ],
+            "memory_addressing": "unavailable"
+          }
+        ],
+        "flow": {
+          "kind": "fallthrough",
+          "conditional": false,
+          "computed": false,
+          "direct_destinations": [],
+          "classification_evidence": [
+            {
+              "source": "ghidra-listing-flow-type",
+              "value": "FALL_THROUGH"
+            }
+          ]
+        },
+        "references": [],
+        "incoming_references": [
+          {
+            "target_address": "0x4f48a0",
+            "type": "UNCONDITIONAL_JUMP",
+            "call": false,
+            "jump": true,
+            "indirect": false,
+            "computed": false,
+            "operand_index": 0,
+            "source_address": "0x4b49b1",
+            "data": false,
+            "read": false,
+            "write": false,
+            "primary": true,
+            "provenance": "ghidra-reference-manager",
+            "source": "default"
+          }
+        ],
+        "limitations": [
+          "Operand components are Ghidra Listing decoder tokens; effective memory base/index/displacement roles and per-instruction context mode are unavailable. The mode field is the program language variant."
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev_c867ab71e0a8cce3fc3977a82a8154ebd7f234a17c036a711c8a511f3081be87",
+      "operation": "inspect_native_instruction",
+      "parameters": {
+        "address": "0x4f48a4"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f48a4",
+        "status": "decoded",
+        "procedure": null,
+        "architecture": "x86:LE:32:default",
+        "mode": "default",
+        "bytes": "8b5008",
+        "length": 3,
+        "mnemonic": "MOV",
+        "raw_disassembly": "MOV EDX,dword ptr [EAX + 0x8]",
+        "operands": [
+          {
+            "index": 0,
+            "raw": "EDX",
+            "provider_type": 512,
+            "components": [
+              {
+                "kind": "register",
+                "text": "EDX",
+                "value": "EDX",
+                "bit_width": 32
+              }
+            ],
+            "memory_addressing": "unavailable"
+          },
+          {
+            "index": 1,
+            "raw": "dword ptr [EAX + 0x8]",
+            "provider_type": 4194304,
+            "components": [
+              {
+                "kind": "register",
+                "text": "EAX",
+                "value": "EAX",
+                "bit_width": 32
+              },
+              {
+                "kind": "immediate",
+                "text": "0x8",
+                "value": "0x8",
+                "bit_width": 32
+              }
+            ],
+            "memory_addressing": "unavailable"
+          }
+        ],
+        "flow": {
+          "kind": "fallthrough",
+          "conditional": false,
+          "computed": false,
+          "direct_destinations": [],
+          "classification_evidence": [
+            {
+              "source": "ghidra-listing-flow-type",
+              "value": "FALL_THROUGH"
+            }
+          ]
+        },
+        "references": [],
+        "incoming_references": [],
+        "limitations": [
+          "Operand components are Ghidra Listing decoder tokens; effective memory base/index/displacement roles and per-instruction context mode are unavailable. The mode field is the program language variant."
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev_5222d74280a5c0d55ff5f079eb088e1f98d2669eb5b8777b4d593ee35333e58f",
+      "operation": "inspect_native_instruction",
+      "parameters": {
+        "address": "0x4f48a7"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f48a7",
+        "status": "decoded",
+        "procedure": null,
+        "architecture": "x86:LE:32:default",
+        "mode": "default",
+        "bytes": "83c2fd",
+        "length": 3,
+        "mnemonic": "ADD",
+        "raw_disassembly": "ADD EDX,-0x3",
+        "operands": [
+          {
+            "index": 0,
+            "raw": "EDX",
+            "provider_type": 512,
+            "components": [
+              {
+                "kind": "register",
+                "text": "EDX",
+                "value": "EDX",
+                "bit_width": 32
+              }
+            ],
+            "memory_addressing": "unavailable"
+          },
+          {
+            "index": 1,
+            "raw": "-0x3",
+            "provider_type": 16384,
+            "components": [
+              {
+                "kind": "immediate",
+                "text": "-0x3",
+                "value": "0xfffffffd",
+                "bit_width": 32
+              }
+            ],
+            "memory_addressing": "unavailable"
+          }
+        ],
+        "flow": {
+          "kind": "fallthrough",
+          "conditional": false,
+          "computed": false,
+          "direct_destinations": [],
+          "classification_evidence": [
+            {
+              "source": "ghidra-listing-flow-type",
+              "value": "FALL_THROUGH"
+            }
+          ]
+        },
+        "references": [],
+        "incoming_references": [],
+        "limitations": [
+          "Operand components are Ghidra Listing decoder tokens; effective memory base/index/displacement roles and per-instruction context mode are unavailable. The mode field is the program language variant."
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev_93a7401972f26aa8b408efbf8907c8fdd64ad891a509984d891decbaad81fff4",
+      "operation": "read_bytes",
+      "parameters": {
+        "address": "0x4f4870",
+        "length": 64
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Bytes reflect Ghidra's initialized memory, including loader fixups. Reads stop at an unmapped or uninitialized byte and report completeness explicitly.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f4870",
+        "requested_bytes": 64,
+        "returned_bytes": 64,
+        "bytes_hex": "02000064890d000000008b8c2410020000b801000000e8b4ed0b005f5e5d81c414020000c20400cccccccccccccccccc8b4424048b500883c2fd83fa6e0f87bd",
+        "complete": true
+      }
+    },
+    {
+      "evidence_id": "ev_651045e7bd46c08432293931edb81a0e5829bec8ed8411584ce3be454cea5762",
+      "operation": "read_bytes",
+      "parameters": {
+        "address": "0x4f48b0",
+        "length": 48
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Bytes reflect Ghidra's initialized memory, including loader fixups. Reads stop at an unmapped or uninitialized byte and report completeness explicitly.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f48b0",
+        "requested_bytes": 48,
+        "returned_bytes": 48,
+        "bytes_hex": "0100000fb692304b4f00ff2495784a4f0089442404e9d6cbffff894424048b0dd8d06600e9778efcff894424048b0dd8",
+        "complete": true
+      }
+    },
+    {
+      "evidence_id": "ev_8d5af0718f0a3ab72098cbbb40ff40f36153ab600ae6c8e6301714783112f661",
+      "operation": "inspect_native_instruction",
+      "parameters": {
+        "address": "0x4f48ca"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f48ca",
+        "status": "decoded",
+        "procedure": null,
+        "architecture": "x86:LE:32:default",
+        "mode": "default",
+        "bytes": "89442404",
+        "length": 4,
+        "mnemonic": "MOV",
+        "raw_disassembly": "MOV dword ptr [ESP + 0x4],EAX",
+        "operands": [
+          {
+            "index": 0,
+            "raw": "dword ptr [ESP + 0x4]",
+            "provider_type": 4194304,
+            "components": [
+              {
+                "kind": "register",
+                "text": "ESP",
+                "value": "ESP",
+                "bit_width": 32
+              },
+              {
+                "kind": "immediate",
+                "text": "0x4",
+                "value": "0x4",
+                "bit_width": 32
+              }
+            ],
+            "memory_addressing": "unavailable"
+          },
+          {
+            "index": 1,
+            "raw": "EAX",
+            "provider_type": 512,
+            "components": [
+              {
+                "kind": "register",
+                "text": "EAX",
+                "value": "EAX",
+                "bit_width": 32
+              }
+            ],
+            "memory_addressing": "unavailable"
+          }
+        ],
+        "flow": {
+          "kind": "fallthrough",
+          "conditional": false,
+          "computed": false,
+          "direct_destinations": [],
+          "classification_evidence": [
+            {
+              "source": "ghidra-listing-flow-type",
+              "value": "FALL_THROUGH"
+            }
+          ]
+        },
+        "references": [],
+        "incoming_references": [
+          {
+            "target_address": "0x4f48ca",
+            "type": "COMPUTED_JUMP",
+            "call": false,
+            "jump": true,
+            "indirect": false,
+            "computed": true,
+            "operand_index": -1,
+            "source_address": "0x4f48ba",
+            "data": false,
+            "read": false,
+            "write": false,
+            "primary": false,
+            "provenance": "ghidra-reference-manager",
+            "source": "analysis"
+          },
+          {
+            "target_address": "0x4f48ca",
+            "type": "DATA",
+            "call": false,
+            "jump": false,
+            "indirect": false,
+            "computed": false,
+            "operand_index": 0,
+            "source_address": "0x4f4abc",
+            "data": true,
+            "read": false,
+            "write": false,
+            "primary": true,
+            "provenance": "ghidra-reference-manager",
+            "source": "default"
+          }
+        ],
+        "limitations": [
+          "Operand components are Ghidra Listing decoder tokens; effective memory base/index/displacement roles and per-instruction context mode are unavailable. The mode field is the program language variant."
+        ]
+      }
+    },
+    {
+      "evidence_id": "ev_e16d05a013d465c6b54de7f168a893c4a56256be0be3b80959817d2423c1aae2",
+      "operation": "inspect_native_instruction",
+      "parameters": {
+        "address": "0x4f48ce"
+      },
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile": {
+        "provider": {
+          "id": "ghidra",
+          "name": "Ghidra",
+          "version": "12.1.4"
+        },
+        "parameters": {
+          "target_kind": "executable",
+          "target_format": "pe",
+          "executable_role": "application",
+          "managed": false,
+          "native_aot_metadata": {
+            "contract_revision": "rtr-9.1-x64-pe-read-only-v3",
+            "source_bytes": 134217728,
+            "work_units": 67108864,
+            "working_memory_bytes": 67108864,
+            "report_bytes": 4194304
+          },
+          "architecture": "x86",
+          "available_architectures": [
+            "x86"
+          ],
+          "import_mode": "ephemeral-source-immutable",
+          "pdb_observations": "program-info-v1",
+          "annotation_policy": "atomic-function-entry-metadata-v1",
+          "load_image_observations": "source-mappings-entry-context-v2",
+          "function_body_evidence": "complete-inclusive-ranges-v1",
+          "function_references": "complete-body-and-entry-reference-manager-v2",
+          "call_relationship_coverage": "function-body-call-coverage-v5",
+          "function_dossier_coverage": "observed-facets-and-call-relationships-v1",
+          "string_inventory_evidence": "defined-data-coverage-v1",
+          "location_resolution": "explicit-address-exact-entry-symbol-first-v3",
+          "procedure_file_offset_resolution": "address-first-unique-target-source-mapping-v2",
+          "instruction_flow_evidence": "decoded-return-pcode-v1",
+          "instruction_references": "exact-address-incoming-v1",
+          "function_boundary_observations": "ghidra-function-boundary-limitations-v3",
+          "no_return_repair": "disabled-windows-p0",
+          "process_launch": "official-headless-script-v1",
+          "jump_table_evidence": "typed-case-default-blocks-v1",
+          "decompiler_jump_loads": true,
+          "loader": "auto-from-header",
+          "language_id": "auto-from-header",
+          "compiler_spec_id": "auto-default",
+          "analyzer_preset": "ghidra-default"
+        },
+        "digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece"
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ],
+      "normalized_result": {
+        "address": "0x4f48ce",
+        "status": "decoded",
+        "procedure": null,
+        "architecture": "x86:LE:32:default",
+        "mode": "default",
+        "bytes": "8b0dd8d06600",
+        "length": 6,
+        "mnemonic": "MOV",
+        "raw_disassembly": "MOV ECX,dword ptr [0x0066d0d8]",
+        "operands": [
+          {
+            "index": 0,
+            "raw": "ECX",
+            "provider_type": 512,
+            "components": [
+              {
+                "kind": "register",
+                "text": "ECX",
+                "value": "ECX",
+                "bit_width": 32
+              }
+            ],
+            "memory_addressing": "unavailable"
+          },
+          {
+            "index": 1,
+            "raw": "dword ptr [0x0066d0d8]",
+            "provider_type": 8320,
+            "components": [
+              {
+                "kind": "address",
+                "text": "0066d0d8",
+                "value": "0x66d0d8",
+                "bit_width": null
+              }
+            ],
+            "memory_addressing": "unavailable"
+          }
+        ],
+        "flow": {
+          "kind": "fallthrough",
+          "conditional": false,
+          "computed": false,
+          "direct_destinations": [],
+          "classification_evidence": [
+            {
+              "source": "ghidra-listing-flow-type",
+              "value": "FALL_THROUGH"
+            }
+          ]
+        },
+        "references": [
+          {
+            "target_address": "0x66d0d8",
+            "type": "READ",
+            "call": false,
+            "jump": false,
+            "indirect": false,
+            "computed": false,
+            "operand_index": 1,
+            "source_address": "0x4f48ce",
+            "data": true,
+            "read": true,
+            "write": false,
+            "primary": true,
+            "provenance": "ghidra-reference-manager",
+            "source": "default"
+          }
+        ],
+        "incoming_references": [],
+        "limitations": [
+          "Operand components are Ghidra Listing decoder tokens; effective memory base/index/displacement roles and per-instruction context mode are unavailable. The mode field is the program language variant."
+        ]
+      }
+    }
+  ]
+}
