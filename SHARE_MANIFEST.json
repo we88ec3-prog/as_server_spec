@@ -585,7 +585,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-basic-attack-motion-action-and-death.md",
-      "sha256": "d3180de7b28101cbbf53de1ba64477b8e1a9e21ddb06f288d1d53726f86d8a09"
+      "sha256": "9ce74f9494c55b50578331b55158e306d2d6684aa5fbc22c1b3ce8927438c9ba"
     },
     {
       "path": "04-analysis-integration/20261101-c44-play-disconnect.md",
@@ -714,6 +714,10 @@
     {
       "path": "04-analysis-integration/20261101-world-transfer-transaction.md",
       "sha256": "6c4e71dbc81f4a74ec4a2b5c49e3c5440a21a0ac05b8e44a08be09297b28c406"
+    },
+    {
+      "path": "04-analysis-integration/20261102-client-feedback-guardian-shortcut-audio.md",
+      "sha256": "e6de147cf4d03dcdfadecdc30ea3ae122c1fe216e6e9fc8efab6badb4763466d"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -870,6 +874,14 @@
     {
       "path": "04-analysis-integration/evidence-index.json",
       "sha256": "a5b1747b66d29a88ddf8b05c99c6daff44558773a2908c342aae2b29bac07d97"
+    },
+    {
+      "path": "04-analysis-integration/feedback-native-20261102.json",
+      "sha256": "e96731fc5fd06c07bdf74c83846f3774beab80e8857e0599fc0e7269416fbe60"
+    },
+    {
+      "path": "04-analysis-integration/feedback-server-validation-20261102.json",
+      "sha256": "c5dc595d3f68f6669b0c1412524ff5c45f07465f4b197d4c8885b4ab17dc5d72"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -1033,7 +1045,7 @@
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "661d4bbd29de335310c6bbb9a6bd1ba70a95a32d8bfcb070743f0ef27c937210"
+      "sha256": "e1832948290b80bde48dfcde3738f543a0f4e21557439287760c33fa52c39619"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",

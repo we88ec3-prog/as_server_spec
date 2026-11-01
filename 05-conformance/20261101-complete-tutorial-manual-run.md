@@ -92,3 +92,7 @@ S15標題由Server提供，不能只憑顯示名稱把候選城鎮標記為原�
 NPC邊緣觀察另依[原生窗格修正](../04-analysis-integration/20261101-native-pane-visibility-correction.md)：
 向四個方向走動時，確認NPC仍在畫面可見處不會提早消失，返回時能在畫面邊緣
 正常出現；不只檢查有沒有重新生成。此項回報後的GUI復驗尚未通過。
+
+最新[實機回報修正](../04-analysis-integration/20261102-client-feedback-guardian-shortcut-audio.md)
+需集中確認：南側向北返回NPC、普攻拖入快捷列後數字鍵空揮／命中、空白鍵空揮、
+命中與摩斯死亡音效、誤點守護鈴保持連線。守護鈴功能本身與NPC miss尚未完成。
