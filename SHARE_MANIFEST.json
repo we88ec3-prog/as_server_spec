@@ -624,8 +624,12 @@
       "sha256": "afde27df14703fbdd46b98bc0201dce19804e19458637d5c47badbf5186b6280"
     },
     {
+      "path": "04-analysis-integration/20261101-tutorial-career-advisor.md",
+      "sha256": "91f2933756ca0c76863dabfb4ddf58eb09152e3e3c6fbab73c834c76f63ebff1"
+    },
+    {
       "path": "04-analysis-integration/20261101-tutorial-resource-route.md",
-      "sha256": "bf9e296243922cebb3f537b516b9489f37b4cce170bd17420d521f0027f6d909"
+      "sha256": "706ce1f2f05ce28ca8bf0440c649bec0f9cd1427aef50b9d90d146111e67382b"
     },
     {
       "path": "04-analysis-integration/20261101-world-transfer-transaction.md",
@@ -866,6 +870,10 @@
     {
       "path": "04-analysis-integration/tutorial-born-resource.json",
       "sha256": "5b09bd847fa7998fecc0a408f71a76a1e507d640a5672a3c67491b1ebfb72de0"
+    },
+    {
+      "path": "04-analysis-integration/tutorial-career-script-interface-20261101.json",
+      "sha256": "210cc3228dd9aae736b3b19464087f9311d9a7407c7db4e0017293f8aa88e2ba"
     },
     {
       "path": "04-analysis-integration/tutorial-resource-route-20261101.json",

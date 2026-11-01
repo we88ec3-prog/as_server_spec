@@ -1,0 +1,263 @@
+{
+  "scope": "Static original Script metadata; no native execution or original Server binding established",
+  "limits": "Literal index after removing full-line // comments; not a complete Script-language parser, dynamic flow proof or runtime trace",
+  "method": "bounded zlib; BE version/u32 UTF16 length; strict UTF16/CP950; source SHA pinned; text CRC compared with prior resource index where available (MerchantDialog SHA pin from recruiter analysis)",
+  "scripts": [
+    {
+      "name": "Merchant",
+      "raw_sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+      "text_cp950_crc32": "e9b389cf",
+      "functions": [
+        {
+          "name": "Main",
+          "body_utf8_sha256": "ad047498ce1d722edd1e56f710bd1ff68133c9c0be1271307717e98152cb1b0d",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        }
+      ]
+    },
+    {
+      "name": "MerchantDialog",
+      "raw_sha256": "ed194a77a669cbd8f83fbbd01bb08ed0f800b122695cc204a3a12f002f945095",
+      "text_cp950_crc32": "9267d99d",
+      "functions": [
+        {
+          "name": "MerchantDialogProc",
+          "body_utf8_sha256": "58641e2e514f0f2814d00d78f97389777a9257424524782f4b0fdd94e7067c83",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "TYPE",
+              "BUY"
+            ],
+            [
+              "TYPE",
+              "SELL"
+            ],
+            [
+              "TYPE",
+              "REPAIR"
+            ],
+            [
+              "TYPE",
+              "BANK"
+            ],
+            [
+              "TYPE",
+              "IDENTIFY"
+            ],
+            [
+              "TYPE",
+              "TALK"
+            ],
+            [
+              "TYPE",
+              "ABORT"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ]
+    },
+    {
+      "name": "nNewJob01",
+      "raw_sha256": "df01c69fe36eb0ab60d03d5da7bf56c52b5c520ca81c5ae07ef1b0ba9b70d9cc",
+      "text_cp950_crc32": "360c6da8",
+      "functions": [
+        {
+          "name": "MerchantTalk",
+          "body_utf8_sha256": "39af4a8f82c8c0ac2d8f8bd2308198c3f5080cb63714515deb5901cf850de17d",
+          "server_parameter_reads": [
+            "JOBALD"
+          ],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "JobMessage01Proc",
+          "body_utf8_sha256": "e409b84688987ccca914912a683b168f5f714a4c0e30708b74ff94a757c99546",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "JobMessage02Proc",
+          "body_utf8_sha256": "11fa1460ded0e21082d550d867b960e9f7b06280e81258dfa80add4a8019b0e6",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "JobMessage03Proc",
+          "body_utf8_sha256": "34d7a4c3a934895774545658bd4012a382b3734b38093421b576e2da6631b8d2",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "JobMessage04Proc",
+          "body_utf8_sha256": "43aa22fc5e7111a3950849ab7d3811c90b10cc627f6a85acf21ebf7fa8ac4595",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [
+            "盜賊",
+            "戰士",
+            "武道家",
+            "魔法師",
+            "聖職者"
+          ],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "JobMessage05Proc",
+          "body_utf8_sha256": "d80270c6ba4ab8c6fa18d3b30a76f65e8bb52ef62b9dd0ee342063c5b11dff32",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "OK"
+            ]
+          ],
+          "sends_job_variable": true,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "MerchantDirectTalk",
+          "body_utf8_sha256": "f3b0c6f127b9a2759e0694fb2bc24d991a4e7641af200ce07ec2044ede83afad",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "JobMessage06",
+          "body_utf8_sha256": "e7f61a4a3f1491ace67d4479ddd0f892c7d33a6215addfa5da083fc2f059c2e0",
+          "server_parameter_reads": [
+            "JOBRET"
+          ],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "JobMessage07Proc",
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ]
+    },
+    {
+      "name": "nNewTeleport01",
+      "raw_sha256": "092f168d5de1a25b09b080065419c62279a696fa7798cf7aa98dc82b26f90c06",
+      "text_cp950_crc32": "4e711abf",
+      "functions": [
+        {
+          "name": "MerchantTalk",
+          "body_utf8_sha256": "94efc472d80a68974d9597934186756d7b45f8b51f404a140b226fac0faca2a4",
+          "server_parameter_reads": [
+            "JOBRET"
+          ],
+          "literal_reply_pairs": [],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": false,
+          "disposes_runner": false
+        },
+        {
+          "name": "TeleportMessage01Proc",
+          "body_utf8_sha256": "e26a1bb4fe4ff3d07f0698c58bd6a70c8448cfe22c8b48ae929dd94ac7e6d6c4",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "OK"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        },
+        {
+          "name": "TeleportMessage02Proc",
+          "body_utf8_sha256": "b8743ef72afb09eeac1cbecd5b2aa3fcf33272bd123c8998a3bce153d247bbd4",
+          "server_parameter_reads": [],
+          "literal_reply_pairs": [
+            [
+              "STATE",
+              "CANCEL"
+            ]
+          ],
+          "sends_job_variable": false,
+          "literal_job_choices": [],
+          "sends_reply": true,
+          "disposes_runner": true
+        }
+      ]
+    },
+    {
+      "name": "QuestSelDialog",
+      "raw_sha256": "06868b472cf874e08077ef29ee42edd9c0d4aa1cef304699658b091a4b1c8366",
+      "text_cp950_crc32": "c64e29a3",
+      "functions": []
+    },
+    {
+      "name": "MultiHelpDialog",
+      "raw_sha256": "9cf1725574ae4157767fcdb179e06f1241aa5a45f5dd38f73ab7a7c570b1ce8c",
+      "text_cp950_crc32": "ed556a37",
+      "functions": []
+    }
+  ]
+}
