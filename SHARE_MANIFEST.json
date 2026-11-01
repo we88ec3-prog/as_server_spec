@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "462934a92d12af9e71af616916fc1b17b3ba3131b93b4629eab765a19f798141"
+      "sha256": "efc760c9aaffe50c262d2d6b264daa03aed213eae5434c7ef577726bde1c512c"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -728,6 +728,10 @@
       "sha256": "5cf39dbf689eb6bd9836645e2ecc913cc49e82710204852143597474c3c9fefa"
     },
     {
+      "path": "04-analysis-integration/20261102-personal-account-admin-and-status-window.md",
+      "sha256": "0fc008fc2c97c409ef9a6c35ff60a1d33abec2fb587aa331e80f889db19212bd"
+    },
+    {
       "path": "04-analysis-integration/20261102-school-room-and-exit-scope.md",
       "sha256": "59ac3d6d07b4c18c1bc45a7fd386fdeb027111523364779b3485391f062a629a"
     },
@@ -845,7 +849,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "a420f7f52189a335ff2457442a0f1b8066ba6c799efe9862258c7ca9f7dcdc0d"
+      "sha256": "ee019df1c1c5cf0cc2e93044206451a1011d98b68ed1669c5e5e03e1414c9d46"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
