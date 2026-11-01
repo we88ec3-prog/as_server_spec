@@ -400,7 +400,7 @@
       "id": "RI-013",
       "title": "招募員物件生成後不可見：空白動作與方向",
       "priority": "P1",
-      "status": "motion-and-direction-fix-awaiting-diagnostic-gui",
+      "status": "visible-diagnostic-confirmed-speed-and-portrait-fix-awaiting-gui",
       "source": "User report, passive diagnostic runtime, original EXE and verified resource metadata",
       "evidence_classification": [
         "user-reported",
@@ -409,19 +409,21 @@
         "server-policy-design"
       ],
       "current_facts": [
-        "User saw only the Player at31,29 in recruiter trial36c71fd.",
-        "Passive relogin observation confirms S07 decode, handler, object construction and registration; sprite action8 has zero frames.",
-        "Source helper actions32/33 reference only empty frame bounds; action34 references13 nonempty frames.",
-        "Server now uses direction2 and follows S07 with S1A state0/parameter1000/tail0; parameter unit remains unknown.",
-        "279 tests and isolated real TCP pass; diagnostic GUI retest pending."
+        "User confirms corrected fourth wire byte makes NPC visible and retained after30seconds; click/Talk/accept work.",
+        "Earlier fifth-byte interpretation and attributing runtime direction0 to an old version were analyst mistakes; exact reader stores byte4 atrow18 and byte5 atrow220.",
+        "Old trial DB contains one durable admission event. School transfer and stage-dependent dialogue remain unimplemented, not lost acceptance.",
+        "User reports initial slow motion and blank dialog portrait; there is no30-second speed timer.",
+        "Native animation scales parameter by0.01;1000 is10x time. New code uses100 in S07/S1A.",
+        "Original MerchantDialog portrait formula resolves TILE16439 to Portrait.dat/information05.ypf/object5/frame0; asset exists and is hash-pinned. PriorTILE0 omitted portrait.",
+        "282 tests and native TCP pass; speed/portrait GUI pending; no original EXE acceptance claim."
       ],
       "report": "04-analysis-integration/20261101-recruiter-invisible-motion.md",
       "native_client_validation": "not-run",
-      "next_action": "Human test visibility, Talk, refusal and acceptance; continue school/job/town implementation after this gate."
+      "next_action": "Combined100% animation/portrait GUI test using persistent dev entry; continue school/job/town transition implementation."
     }
   ],
   "latest_direct_increment": {
-    "commit": "0e1ca28",
+    "commit": "5acdf65",
     "report": "04-analysis-integration/20261101-recruiter-invisible-motion.md",
     "test_queue": "02-server-planning/next-increments-and-test-queue-20261101.md",
     "tutorial_progress": "02-server-planning/tutorial-delivery-progress-20261101.json"

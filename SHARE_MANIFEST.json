@@ -216,6 +216,10 @@
       "sha256": "a078c15a96a7669cdc7633635f3353196ee6b80cf586bfafa7317576588599f5"
     },
     {
+      "path": "02-server-planning/persistent-local-development-20261101.md",
+      "sha256": "f9494741a7895cc64900265be940824ffdaec6e948e33370051c5c1c1d714dd6"
+    },
+    {
       "path": "02-server-planning/post-create-direct-world-decision-20261101.md",
       "sha256": "79277fae3a303c7c240a1b66c24b6df6808f1dc08401cf262f97ff1e704091b4"
     },
@@ -289,7 +293,7 @@
     },
     {
       "path": "02-server-planning/tutorial-delivery-progress-20261101.json",
-      "sha256": "27762f01ab8ed8b042296381631adc719412d1e90574fedc98405dc22f24ef7e"
+      "sha256": "733032044a69f12796476d89cebabeb01dc28edf0e0e87412137781b9152a0bc"
     },
     {
       "path": "02-server-planning/tutorial-runtime-plan.md",
@@ -449,7 +453,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "27f259ceaf6f4a7f8dcc5df507f147ee322c21a0eb7f05fa7055a8e19a6ba962"
+      "sha256": "695337b7ee2506632a8d511b81307aa6822487e47678dd418aa817302621ec41"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -466,6 +470,10 @@
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
       "sha256": "f88f79dc14a17ac5d55c294a483a9de2bccc951692ed1018e055b10857a4ba9c"
+    },
+    {
+      "path": "04-analysis-integration/20261101-native-map-content-and-school-transfer.md",
+      "sha256": "0533f97ba4fd03d8577bf202f04c1eb9ad47e3b9c435f2c2f8518f7f9ff3f71f"
     },
     {
       "path": "04-analysis-integration/20261101-native-map-music-increment.md",
@@ -485,7 +493,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-recruiter-invisible-motion.md",
-      "sha256": "275170de1f5f2b95758fa02d8e9139ff3146bdb1a852d69573ca059a5149e729"
+      "sha256": "2b1b53a2bc7d299f575cc6873a156f5bc5805c27e4eb54f567481ed4e2914c79"
     },
     {
       "path": "04-analysis-integration/20261101-same-client-relogin.md",
@@ -666,6 +674,10 @@
     {
       "path": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
       "sha256": "8736e8982b6bd0ee0ec85bbbef5d39b2d4d1251905a0a9f26079bc7437b2b99d"
+    },
+    {
+      "path": "04-analysis-integration/native-map-catalog-20261101.json",
+      "sha256": "9929d5b87c89c859888232bea2ad51717b3e9e34af3feb1b8e20f64c03d1b19f"
     },
     {
       "path": "04-analysis-integration/new-asset-samples-20261031.md",
@@ -981,7 +993,7 @@
     },
     {
       "path": "task_a/roy2/A-024-analysis.md",
-      "sha256": "1d74de571bd7da0682127bdd256f4bc1ed724f9bc59a0e1be4d4610a7acbb726"
+      "sha256": "5243cfde31b407c58668d7385e2fd4bd0aa7ea269539504f6dda854df41e7e7b"
     },
     {
       "path": "task_a/roy2/A-028-postcreate-ui-native-followup.md",

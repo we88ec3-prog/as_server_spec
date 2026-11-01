@@ -2,7 +2,7 @@
   "objective": "New Character completes tutorial and enters the appropriate profession town",
   "source": "direct-user-goal and latest priority instruction",
   "goal_achieved": false,
-  "private_implementation_commit": "0e1ca28",
+  "private_implementation_commit": "5acdf65",
   "original_native_client_validation": "not-run",
   "diagnostic_client_sha256": "874c83db4840af6db584c1814fdda107e02713f0bb26204a3c6decec9b0fc3ef",
   "steps": [
@@ -13,7 +13,7 @@
     },
     {
       "id": "TUT-RECRUIT",
-      "state": "invisible-gui-reported-motion-fix-awaiting-retest",
+      "state": "visible-and-interaction-user-confirmed-speed-portrait-retest-pending",
       "report": "04-analysis-integration/20261101-recruiter-interaction.md",
       "scope": "candidate native NPC, C43, original Merchant/Join UI, durable acceptance; not graduation",
       "latest_report": "04-analysis-integration/20261101-recruiter-invisible-motion.md"
@@ -24,7 +24,8 @@
       "needs": [
         "school map/spawn binding",
         "dialogue progression/reconnect"
-      ]
+      ],
+      "content_ready": "Reusable reader verified494 MAP/checksums; school role and transition integration pending"
     },
     {
       "id": "TUT-PROFESSION",
@@ -56,5 +57,5 @@
     }
   ],
   "during_human_tests": "Continue independent job/transition analysis and wardrobe/tint development; do not restart the active test Server",
-  "validation": "279 Server tests and direction2/S1A loopback TCP pass; prior GUI NPC invisibility reported, corrected GUI pending"
+  "validation": "282 tests;494 MAP comparisons match A032; user confirms NPC visible30seconds/Talk/accept;100% timing/portrait GUI pending; persistent launcher restart/rotation TCP passes"
 }

@@ -114,7 +114,7 @@ BE u32 opaque_object_key; BE u16 field_c;
 |**13**|0x57E57E|string8|12＋文字 bytes|
 |**14**|0x57E592|2×u8＋BE u16|15|
 
-**逐欄對應**：kind1/2/4 的 5×u8 到 native row +0x14..0x18（+0x17 另以 0xFF 本地預設值寫入）、u16 到 +0x222、flags 到 +0x10；bit0 的3個 byte 到 +0x21A..+0x21C、bit1 到 +0x224、bit4 的 u16 到 +0x21E（未設 bit4 則填0）、字串放 +0x1A。kind3 五 byte 到 +0x11..+0x14 及字串 +0x16；kind13 只有 +0x10 的字串；kind14 的2 byte及 u16 放 +0x10,+0x11,+0x12。**這些都是 local object offset，不是 wire offset**。
+**逐欄對應**：kind1/2/4 的 5×u8 依序到 native row +0x14、+0x15、+0x16、+0x18、+0x220（+0x17 以 0xFF 本地預設值寫入；第4個wire byte才是建構子動作參數）、u16 到 +0x222、flags 到 +0x10；bit0 的3個 byte 到 +0x21A..+0x21C、bit1 到 +0x224、bit4 的 u16 到 +0x21E（未設 bit4 則填0）、字串放 +0x1A。kind3 五 byte 到 +0x11..+0x14 及字串 +0x16；kind13 只有 +0x10 的字串；kind14 的2 byte及 u16 放 +0x10,+0x11,+0x12。**這些都是 local object offset，不是 wire offset**。
 
 **實務重點**：kind 5–12 不需要一張圖就發一個固定 0x228 大小的 blob；那是 Client 在記憶體使用的 stride。可依 above schema 生成真正的 decoded S07 多筆資料，但 type→NPC/Monster 分類、sprite 載入、地圖與 id 綁定尚未證明，故不能隨意把 type1 聲稱是怪物。原版對 kind 在 1..14 外落 default，不額外讀欄位；安全 codec 對此類型採 **designed fail closed**，避免未定位類別誤顯示。
 
