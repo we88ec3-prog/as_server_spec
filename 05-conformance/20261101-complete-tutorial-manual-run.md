@@ -91,8 +91,15 @@ S15標題由Server提供，不能只憑顯示名稱把候選城鎮標記為原�
 
 NPC邊緣觀察另依[原生窗格修正](../04-analysis-integration/20261101-native-pane-visibility-correction.md)：
 向四個方向走動時，確認NPC仍在畫面可見處不會提早消失，返回時能在畫面邊緣
-正常出現；不只檢查有沒有重新生成。此項回報後的GUI復驗尚未通過。
+正常出現；不只檢查有沒有重新生成。使用者後續確認南往北返回正常；其他方向與怪物未全部驗收。
 
 最新[實機回報修正](../04-analysis-integration/20261102-client-feedback-guardian-shortcut-audio.md)
 需集中確認：南側向北返回NPC、普攻拖入快捷列後數字鍵空揮／命中、空白鍵空揮、
-命中與摩斯死亡音效、誤點守護鈴保持連線。守護鈴功能本身與NPC miss尚未完成。
+命中與摩斯死亡音效、誤點守護鈴保持連線。守護鈴完整功能仍未完成。
+
+後續[快捷鍵C65與NPC MISS](../04-analysis-integration/20261102-native-shortcut-followup-and-npc-miss.md)：
+使用者確認南往北NPC正常，回報空白鍵空揮無效、快捷列1空揮斷線。C0E之後的C65
+已加入issued-row驗證且不重複攻擊；教學NPC近身MISS有原生素材及renderer支持。
+下輪只需集中確認：快捷列1空揮後仍能走動／再攻擊摩斯、鄰近NPC普攻是否MISS且
+不增加打怪進度、命中與死亡音效。空白鍵若仍無效，保留Client／Server給被動讀取；
+不能只憑C65修復而把空白鍵列為成功。不必重創、重設金鑰或再重複NPC南往北案例。

@@ -1,0 +1,4633 @@
+{
+  "schema_version": 1,
+  "scope": "Original Client static C65 non-cast mode5 and native MISS rendering; no original Server traffic or current Space key runtime proof",
+  "source_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "evidence": [
+    {
+      "evidence_id": "ev_c89b6040be0744da69bc13edaf0a0b303238dfe641ff3a329652f7b954e72a33",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x4739c0"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_004739c0(uint param_1,int param_2)\r\n\r\n{\r\n  uint uVar1;\r\n  undefined1 uVar2;\r\n  int *piVar3;\r\n  undefined4 uVar4;\r\n  undefined4 uVar5;\r\n  int iVar6;\r\n  int in_ECX;\r\n  byte bVar7;\r\n  undefined3 uVar8;\r\n  int local_2c;\r\n  int local_24;\r\n  int local_18;\r\n  int local_14;\r\n  undefined8 local_10;\r\n  double local_8;\r\n  \r\n  piVar3 = (int *)FUN_00422190();\r\n  FUN_0046e020(&local_18);\r\n  local_18 = local_18 + param_1;\r\n  local_14 = local_14 + -0xf + param_2;\r\n  uVar4 = FUN_004223f0();\r\n  FUN_004223e0(0);\r\n  FUN_004223b0(0);\r\n  uVar1 = *(uint *)(in_ECX + 0x2c);\r\n  local_10 = (double)CONCAT44(local_14 + (uint)*(byte *)(in_ECX + 0x28) * -10,(int)local_10);\r\n  uVar8 = (undefined3)((uint)*(undefined4 *)(in_ECX + 0x30) >> 8);\r\n  switch(*(undefined1 *)(in_ECX + 0x34)) {\r\n  case 0:\r\n    bVar7 = *(byte *)(in_ECX + 0x29);\r\n    iVar6 = FUN_005b59e0();\r\n    local_10 = (double)CONCAT44(local_10._4_4_,iVar6);\r\n    param_1 = 0;\r\n    if (bVar7 != 0) {\r\n      local_8 = (double)iVar6;\r\n      do {\r\n        local_18 = FUN_005b59e0();\r\n        local_14 = local_10._4_4_;\r\n        iVar6 = *piVar3;\r\n        uVar2 = FUN_004736d0(CONCAT31(uVar8,bVar7 - (char)param_1),*(undefined4 *)(in_ECX + 0x24),\r\n                             local_18,local_10._4_4_);\r\n        uVar5 = FUN_004738e0(uVar2);\r\n        (**(code **)(iVar6 + 0x1c))(uVar5);\r\n        bVar7 = *(byte *)(in_ECX + 0x29);\r\n        param_1 = param_1 + 1;\r\n      } while (param_1 < bVar7);\r\n    }\r\n    break;\r\n  case 3:\r\n    uVar5 = FUN_005b59e0();\r\n    local_10 = (double)CONCAT44(local_10._4_4_,uVar5);\r\n    iVar6 = FUN_005b59e0();\r\n    bVar7 = *(byte *)(in_ECX + 0x29);\r\n    local_10 = (double)CONCAT44(iVar6,(int)local_10);\r\n    param_1 = 0;\r\n    if (bVar7 != 0) {\r\n      local_8 = (double)(int)local_10;\r\n      local_2c = 0;\r\n      local_10 = (double)iVar6;\r\n      do {\r\n        local_18 = FUN_005b59e0();\r\n        local_14 = FUN_005b59e0();\r\n        iVar6 = *piVar3;\r\n        uVar2 = FUN_004736d0(CONCAT31(uVar8,bVar7 - (char)param_1),*(undefined4 *)(in_ECX + 0x24),\r\n                             local_18,local_14);\r\n        uVar5 = FUN_004738e0(uVar2);\r\n        (**(code **)(iVar6 + 0x1c))(uVar5);\r\n        local_2c = local_2c + uVar1;\r\n        bVar7 = *(byte *)(in_ECX + 0x29);\r\n        uVar8 = (undefined3)((uint)local_2c >> 8);\r\n        param_1 = param_1 + 1;\r\n      } while (param_1 < bVar7);\r\n    }\r\n    break;\r\n  case 4:\r\n    bVar7 = *(byte *)(in_ECX + 0x29);\r\n    iVar6 = FUN_005b59e0();\r\n    local_10 = (double)CONCAT44(local_10._4_4_,iVar6);\r\n    param_1 = 0;\r\n    if (bVar7 != 0) {\r\n      local_8 = (double)iVar6;\r\n      do {\r\n        local_18 = FUN_005b59e0();\r\n        local_14 = local_10._4_4_;\r\n        iVar6 = *piVar3;\r\n        uVar2 = FUN_004736d0(CONCAT31(uVar8,bVar7 - (char)param_1),*(undefined4 *)(in_ECX + 0x24),\r\n                             local_18,local_10._4_4_);\r\n        uVar5 = FUN_004738e0(uVar2);\r\n        (**(code **)(iVar6 + 0x1c))(uVar5);\r\n        bVar7 = *(byte *)(in_ECX + 0x29);\r\n        param_1 = param_1 + 1;\r\n      } while (param_1 < bVar7);\r\n    }\r\n    break;\r\n  case 5:\r\n    uVar5 = FUN_005b59e0();\r\n    local_10 = (double)CONCAT44(local_10._4_4_,uVar5);\r\n    iVar6 = FUN_005b59e0();\r\n    bVar7 = *(byte *)(in_ECX + 0x29);\r\n    local_10 = (double)CONCAT44(iVar6,(int)local_10);\r\n    param_1 = 0;\r\n    if (bVar7 != 0) {\r\n      local_8 = (double)(int)local_10;\r\n      local_24 = 0;\r\n      local_10 = (double)iVar6;\r\n      do {\r\n        local_18 = FUN_005b59e0();\r\n        local_14 = FUN_005b59e0();\r\n        iVar6 = *piVar3;\r\n        uVar2 = FUN_004736d0(CONCAT31(uVar8,bVar7 - (char)param_1),*(undefined4 *)(in_ECX + 0x24),\r\n                             local_18,local_14);\r\n        uVar5 = FUN_004738e0(uVar2);\r\n        (**(code **)(iVar6 + 0x1c))(uVar5);\r\n        local_24 = local_24 + uVar1;\r\n        bVar7 = *(byte *)(in_ECX + 0x29);\r\n        uVar8 = (undefined3)((uint)local_24 >> 8);\r\n        param_1 = param_1 + 1;\r\n      } while (param_1 < bVar7);\r\n    }\r\n    break;\r\n  case 6:\r\n    bVar7 = *(byte *)(in_ECX + 0x29);\r\n    local_18 = local_18 - (uVar1 >> 1);\r\n    iVar6 = FUN_005b59e0();\r\n    local_10 = (double)CONCAT44(iVar6,(int)local_10);\r\n    param_1 = 0;\r\n    if (bVar7 != 0) {\r\n      local_10 = (double)iVar6;\r\n      do {\r\n        local_14 = FUN_005b59e0();\r\n        iVar6 = *piVar3;\r\n        uVar2 = FUN_004736d0(CONCAT31(uVar8,bVar7 - (char)param_1),*(undefined4 *)(in_ECX + 0x24),\r\n                             local_18,local_14);\r\n        uVar5 = FUN_004738e0(uVar2);\r\n        (**(code **)(iVar6 + 0x1c))(uVar5);\r\n        bVar7 = *(byte *)(in_ECX + 0x29);\r\n        param_1 = param_1 + 1;\r\n      } while (param_1 < bVar7);\r\n    }\r\n    break;\r\n  case 7:\r\n    uVar5 = FUN_005b59e0();\r\n    local_10 = (double)CONCAT44(local_10._4_4_,uVar5);\r\n    iVar6 = FUN_005b59e0();\r\n    bVar7 = *(byte *)(in_ECX + 0x29);\r\n    local_10 = (double)CONCAT44(iVar6,(int)local_10);\r\n    param_1 = 0;\r\n    if (bVar7 != 0) {\r\n      local_8 = (double)(int)local_10;\r\n      local_24 = 0;\r\n      local_10 = (double)iVar6;\r\n      do {\r\n        local_18 = FUN_005b59e0();\r\n        local_14 = FUN_005b59e0();\r\n        iVar6 = *piVar3;\r\n        uVar2 = FUN_004736d0(CONCAT31(uVar8,bVar7 - (char)param_1),*(undefined4 *)(in_ECX + 0x24),\r\n                             local_18,local_14);\r\n        uVar5 = FUN_004738e0(uVar2);\r\n        (**(code **)(iVar6 + 0x1c))(uVar5);\r\n        local_24 = local_24 + uVar1;\r\n        bVar7 = *(byte *)(in_ECX + 0x29);\r\n        uVar8 = (undefined3)((uint)local_24 >> 8);\r\n        param_1 = param_1 + 1;\r\n      } while (param_1 < bVar7);\r\n    }\r\n  }\r\n  FUN_004223e0(uVar4);\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_c868cbba6785df350b1c2c4ec45d6ff8f346a8acc4a4390dcd876100acebfcb0",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x4738e0"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nundefined4 FUN_004738e0(undefined4 param_1)\r\n\r\n{\r\n  char cVar1;\r\n  undefined4 uVar2;\r\n  int in_ECX;\r\n  undefined1 local_1c [4];\r\n  undefined4 local_18;\r\n  undefined4 local_14;\r\n  ushort local_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d1378;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_0047ec50();\r\n  local_4 = 0;\r\n  cVar1 = *(char *)(in_ECX + 0x44);\r\n  local_18 = 0;\r\n  local_14 = 0xd;\r\n  if (cVar1 == '\\0') {\r\n    local_10 = (ushort)*(byte *)(in_ECX + 0x30);\r\n  }\r\n  else if (cVar1 == '\\x01') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 6;\r\n  }\r\n  else if (cVar1 == '\\x02') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 0xc;\r\n  }\r\n  else if (cVar1 == '\\x03') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 0x12;\r\n  }\r\n  else if (cVar1 == '\\x04') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 0x18;\r\n  }\r\n  else if (cVar1 == '\\x05') {\r\n    local_10 = *(byte *)(in_ECX + 0x30) + 0x1e;\r\n  }\r\n  uVar2 = FUN_004838b0(local_1c,param_1);\r\n  local_4 = 0xffffffff;\r\n  FUN_0047ed10();\r\n  ExceptionList = local_c;\r\n  return uVar2;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_4890a6788184d99944d6635446dbbcc8e38b949074046127efa61525a3808fde",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x4b6850"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_004b6850(int *param_1,int param_2,int param_3,undefined4 param_4,short param_5,int param_6,\r\n                 undefined4 param_7,short param_8,undefined4 param_9)\r\n\r\n{\r\n  int iVar1;\r\n  undefined4 uVar2;\r\n  int iVar3;\r\n  int *piVar4;\r\n  undefined4 in_ECX;\r\n  int local_48;\r\n  undefined4 uStack_44;\r\n  undefined4 uStack_40;\r\n  void *pvStack_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 uStack_4;\r\n  \r\n  uStack_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d7a2c;\r\n  pvStack_c = ExceptionList;\r\n  local_48 = 0;\r\n  ExceptionList = &pvStack_c;\r\n  if ((short)param_4 != 0) {\r\n    ExceptionList = &pvStack_c;\r\n    (**(code **)(*param_1 + 0x44))(param_4,param_9);\r\n  }\r\n  if (param_5 != 0) {\r\n    iVar1 = FUN_004dc720(0x84,0,L\".\\\\mappane.cpp\",0xed1,0xffffffcc);\r\n    uStack_4 = 0;\r\n    if (iVar1 == 0) {\r\n      local_48 = 0;\r\n    }\r\n    else {\r\n      local_48 = FUN_00458bc0(param_1,0,param_5,0);\r\n    }\r\n    uStack_4 = 0xffffffff;\r\n  }\r\n  if (param_6 == 0) goto LAB_004b6c45;\r\n  FUN_00535590(0x20);\r\n  iVar1 = FUN_0050d290();\r\n  uVar2 = FUN_004c6e90(0x4c506869);\r\n  uStack_4 = 1;\r\n  FUN_005412b0(uVar2);\r\n  uStack_4 = 0xffffffff;\r\n  FUN_004c6d60();\r\n  if (param_3 == 0) {\r\n    iVar3 = FUN_0046e2e0();\r\n    if (param_2 == iVar3) {\r\n      iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf02,0xffffffcc);\r\n      uStack_4 = 7;\r\n      if (iVar1 == 0) {\r\nLAB_004b6be2:\r\n        iVar1 = 0;\r\n      }\r\n      else {\r\n        iVar1 = FUN_00474390(param_1,3,param_7);\r\n      }\r\n    }\r\n    else {\r\n      if (DAT_0066d0d4 == 0) {\r\n        piVar4 = (int *)0x0;\r\n      }\r\n      else {\r\n        piVar4 = (int *)(DAT_0066d0d4 + 0xc);\r\n      }\r\n      if (param_1 == piVar4) {\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf08,0xffffffcc);\r\n        uStack_4 = 8;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,4,param_7);\r\n      }\r\n      else if (iVar1 == 0) {\r\nLAB_004b6bf1:\r\n        iVar1 = FUN_004a6700(&DAT_009200e8);\r\n        if (iVar1 == 0) goto LAB_004b6c45;\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf1a,0xffffffcc);\r\n        uStack_4 = 0xb;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,5,param_7);\r\n      }\r\n      else if (param_2 == iVar1) {\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf0e,0xffffffcc);\r\n        uStack_4 = 9;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,3,param_7);\r\n      }\r\n      else {\r\n        iVar3 = FUN_0046e2e0();\r\n        if (iVar3 != iVar1) goto LAB_004b6bf1;\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xf14,0xffffffcc);\r\n        uStack_4 = 10;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,4,param_7);\r\n      }\r\n    }\r\n  }\r\n  else {\r\n    iVar3 = FUN_0046e2e0();\r\n    if (param_2 == iVar3) {\r\n      iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xee1,0xffffffcc);\r\n      uStack_4 = 2;\r\nLAB_004b6977:\r\n      if (iVar1 == 0) goto LAB_004b6be2;\r\n      iVar1 = FUN_00474390(param_1,0,param_7);\r\n    }\r\n    else {\r\n      if (DAT_0066d0d4 == 0) {\r\n        piVar4 = (int *)0x0;\r\n      }\r\n      else {\r\n        piVar4 = (int *)(DAT_0066d0d4 + 0xc);\r\n      }\r\n      if (param_1 == piVar4) {\r\n        iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xee7,0xffffffcc);\r\n        uStack_4 = 3;\r\n        if (iVar1 == 0) goto LAB_004b6be2;\r\n        iVar1 = FUN_00474390(param_1,1,param_7);\r\n        goto LAB_004b6be4;\r\n      }\r\n      if (iVar1 != 0) {\r\n        if (param_2 == iVar1) {\r\n          iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xeed,0xffffffcc);\r\n          uStack_4 = 4;\r\n          goto LAB_004b6977;\r\n        }\r\n        iVar3 = FUN_0046e2e0();\r\n        if (iVar3 == iVar1) {\r\n          iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xef3,0xffffffcc);\r\n          uStack_4 = 5;\r\n          if (iVar1 == 0) goto LAB_004b6be2;\r\n          iVar1 = FUN_00474390(param_1,1,param_7);\r\n          goto LAB_004b6be4;\r\n        }\r\n      }\r\n      iVar1 = FUN_004a6700(&DAT_009200e8);\r\n      if (iVar1 == 0) goto LAB_004b6c45;\r\n      iVar1 = FUN_004dc720(0x48,0,L\".\\\\mappane.cpp\",0xef9,0xffffffcc);\r\n      uStack_4 = 6;\r\n      if (iVar1 == 0) goto LAB_004b6be2;\r\n      iVar1 = FUN_00474390(param_1,2,param_7);\r\n    }\r\n  }\r\nLAB_004b6be4:\r\n  uStack_4 = 0xffffffff;\r\n  if (iVar1 == 0) {\r\n    iVar1 = 0;\r\n  }\r\n  else {\r\n    iVar1 = iVar1 + 8;\r\n  }\r\n  FUN_004b6450(iVar1);\r\nLAB_004b6c45:\r\n  if (param_8 != 0) {\r\n    FUN_0046e020(&uStack_44);\r\n    iVar1 = FUN_004dc720(0x24,0,L\".\\\\mappane.cpp\",0xf26,0xffffffcc);\r\n    uStack_4 = 0xc;\r\n    if (iVar1 == 0) {\r\n      uVar2 = 0;\r\n    }\r\n    else {\r\n      uVar2 = FUN_0053d420(param_8,0,uStack_44,uStack_40);\r\n    }\r\n    uStack_4 = 0xffffffff;\r\n    FUN_004b6450(uVar2);\r\n  }\r\n  uVar2 = FUN_0046e2e0();\r\n  iVar1 = FUN_004ea240(uVar2);\r\n  if ((iVar1 != 0) && (local_48 != 0)) {\r\n    FUN_00541250(in_ECX,0x45527772,1,0);\r\n  }\r\n  ExceptionList = pvStack_c;\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_ed76bd282fc26f8ebeac099a289b93982c783becf9535068c0df19f164f995a9",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x474390"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_00474390(int *param_1,undefined4 param_2)\r\n\r\n{\r\n  undefined4 *puVar1;\r\n  undefined1 uVar2;\r\n  undefined4 *in_ECX;\r\n  void *pvStack_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d13a3;\r\n  pvStack_c = ExceptionList;\r\n  ExceptionList = &pvStack_c;\r\n  FUN_0054d010();\r\n  local_4 = 0;\r\n  puVar1 = in_ECX + 2;\r\n  FUN_0046df00(0,0);\r\n  local_4 = CONCAT31(local_4._1_3_,1);\r\n  *in_ECX = &PTR_FUN_00606dec;\r\n  *puVar1 = &PTR_LAB_00606db4;\r\n  in_ECX[4] = &PTR_LAB_00606da8;\r\n  in_ECX[5] = 2;\r\n  (**(code **)(*param_1 + 0x38))(in_ECX + 6);\r\n  in_ECX[7] = in_ECX[7] + -5;\r\n  FUN_00541250(puVar1,0x4947726d,1,0);\r\n  FUN_00541250(puVar1,0x4c4f7063,1,0);\r\n  FUN_00541250(puVar1,0x4c506869,1,0);\r\n  in_ECX[10] = param_1;\r\n  *(undefined1 *)(in_ECX + 0xc) = 0;\r\n  in_ECX[0xb] = param_2;\r\n  uVar2 = FUN_00473790(param_2);\r\n  *(undefined1 *)((int)in_ECX + 0x31) = uVar2;\r\n  *(undefined1 *)(in_ECX + 0x11) = param_1._0_1_;\r\n  FUN_00474100();\r\n  FUN_004fd1d0(in_ECX,0x66733132,0xcd,0,0);\r\n  ExceptionList = in_ECX;\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_207a77ba42d4ee01ec9d15d912748e3e3c88de225126f96730b669e599dfeeea",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x473790"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nundefined4 FUN_00473790(uint param_1)\r\n\r\n{\r\n  if (param_1 / 100000 != 0) {\r\n    return CONCAT31((uint3)(byte)(param_1 / 25600000),6);\r\n  }\r\n  if (param_1 / 10000 != 0) {\r\n    return CONCAT31((int3)((ulonglong)param_1 * 0xd1b71759 >> 8),5);\r\n  }\r\n  if (param_1 / 1000 != 0) {\r\n    return CONCAT31((int3)((ulonglong)param_1 * 0x10624dd3 >> 8),4);\r\n  }\r\n  if (param_1 / 100 != 0) {\r\n    return CONCAT31((int3)((ulonglong)param_1 * 0x51eb851f >> 8),3);\r\n  }\r\n  return CONCAT31((int3)((ulonglong)param_1 * 0xcccccccd >> 8),(param_1 / 10 != 0) + '\\x01');\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_b6aed24efd85fe33b02d3357ba1bbc6b698b28f0de2bc9e59b824f0b227712c4",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x4a4b00"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_004a4b00(int param_1)\r\n\r\n{\r\n  undefined4 in_ECX;\r\n  \r\n  if ((*(byte *)(param_1 + 0x3e) & 1) != 0) {\r\n    FUN_004b6850(in_ECX,*(undefined4 *)(param_1 + 0x24),1,*(undefined1 *)(param_1 + 0x42),\r\n                 *(undefined2 *)(param_1 + 0x44),1,*(undefined4 *)(param_1 + 0x4c),\r\n                 *(undefined2 *)(param_1 + 0x48),*(undefined2 *)(param_1 + 0x46));\r\n    return;\r\n  }\r\n  FUN_004b6850(in_ECX,*(undefined4 *)(param_1 + 0x24),0,0,0,1,0,0,0);\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_7e742df5f7fd97fc7b41c4ccf594181738af1fbeef53e976d8451fff2b252fa1",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x5779f0"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_005779f0(void)\r\n\r\n{\r\n  undefined4 *in_ECX;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005e6508;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_00578600(0x65);\r\n  *in_ECX = &PTR_FUN_00614460;\r\n  in_ECX[3] = &PTR_LAB_00614454;\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_c300a257270e151f05189c7c721294da546db077f9b2d4256db9899c47998261",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x401ed0"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_00401ed0(undefined4 *param_1)\r\n\r\n{\r\n  int iVar1;\r\n  int iVar2;\r\n  int in_ECX;\r\n  uint local_34 [9];\r\n  void *pvStack_10;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005c871b;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_00479ea0(local_34);\r\n  if ((*(char *)((int)param_1 + 0x26) == '\\x02') && (iVar1 = FUN_004ba410(param_1[10]), iVar1 != 0))\r\n  {\r\n    ExceptionList = local_c;\r\n    return;\r\n  }\r\n  if ((local_34[0] & 0x1000) != 0) {\r\n    FUN_00556430(0);\r\n    ExceptionList = local_c;\r\n    return;\r\n  }\r\n  iVar1 = FUN_0046ce20();\r\n  if (iVar1 != 0) {\r\n    if (*(int *)(in_ECX + 0x24) != 0) {\r\n      (**(code **)*param_1)(1);\r\n      ExceptionList = pvStack_10;\r\n      return;\r\n    }\r\n    iVar1 = FUN_00538970(CONCAT11((char)((ushort)(*(char *)(param_1 + 9) * 0x50) >> 8),\r\n                                  (char)(*(char *)(param_1 + 9) * 0x50) +\r\n                                  *(char *)((int)param_1 + 0x25)));\r\n    if (iVar1 == 0) {\r\n      (**(code **)*param_1)(1);\r\n      ExceptionList = pvStack_10;\r\n      return;\r\n    }\r\n    if (*(short *)(iVar1 + 0x80e) == 0) {\r\n      FUN_0046dd90();\r\n      FUN_00401df0(CONCAT11((char)((ushort)(*(char *)(param_1 + 9) * 0x50) >> 8),\r\n                            (char)(*(char *)(param_1 + 9) * 0x50) + *(char *)((int)param_1 + 0x25)))\r\n      ;\r\n      FUN_005788a0();\r\n      ExceptionList = local_c;\r\n      return;\r\n    }\r\n    FUN_0046dd90();\r\n    *(undefined4 *)(in_ECX + 0x28) = 1;\r\n    iVar2 = FUN_004dc720(0x28,0,L\".\\\\actioninventory.cpp\",0x11f,0xffffffcc);\r\n    local_4 = 0;\r\n    if (iVar2 == 0) {\r\n      iVar2 = 0;\r\n    }\r\n    else {\r\n      iVar2 = FUN_00575510();\r\n    }\r\n    local_4 = 0xffffffff;\r\n    *(undefined2 *)(iVar2 + 0x24) = *(undefined2 *)(iVar1 + 0x80e);\r\n    FUN_005788a0();\r\n    FUN_004fd1d0(in_ECX,0x53507573,*(undefined2 *)(iVar1 + 0x80e),0,0);\r\n    *(undefined4 **)(in_ECX + 0x24) = param_1;\r\n  }\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_0ad6648f602a8af3d16ea499cae28ce6517ed27ba2910d77d470c3042a960605",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x401df0"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_00401df0(undefined4 param_1)\r\n\r\n{\r\n  int iVar1;\r\n  int iVar2;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005c86eb;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  iVar1 = FUN_00538970(param_1);\r\n  if ((iVar1 != 0) && ((*(byte *)(iVar1 + 8) & 1) == 0)) {\r\n    iVar2 = FUN_004dc720(0x228,0,L\".\\\\actioninventory.cpp\",0x162,0xffffffcc);\r\n    local_4 = 0;\r\n    if (iVar2 == 0) {\r\n      iVar2 = 0;\r\n    }\r\n    else {\r\n      iVar2 = FUN_00574fc0();\r\n    }\r\n    local_4 = 0xffffffff;\r\n    *(undefined1 *)(iVar2 + 0x24) = 2;\r\n    _wcsncpy((wchar_t *)(iVar2 + 0x26),(wchar_t *)(iVar1 + 0x20a),0xff);\r\n    *(undefined2 *)(iVar2 + 0x224) = 0;\r\n    FUN_005788a0();\r\n  }\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_5728ff1d22afac982a854eafa1340d12dd1e9ee11d198146a1ccf5bbb8f7433b",
+      "operation": "read_function_instructions",
+      "parameters": {
+        "procedure": "0x577aa0"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "procedure": {
+          "address": "0x577aa0",
+          "name": "FUN_00577aa0",
+          "classification": {
+            "external": false,
+            "thunk": false,
+            "thunk_target": null,
+            "provenance": "ghidra-function-manager"
+          },
+          "body": {
+            "available": true,
+            "provenance": "ghidra-function-body-address-set",
+            "ranges": [
+              {
+                "start": "0x577aa0",
+                "end": "0x577ba7"
+              }
+            ],
+            "total_bytes": 264,
+            "span_bytes": 264,
+            "non_contiguous": false,
+            "contains_entry": true
+          }
+        },
+        "instructions": [
+          "0x577aa0: PUSH ESI",
+          "0x577aa1: MOV ESI, ECX",
+          "0x577aa3: MOVZX EAX, byte ptr [ESI + 0x18]",
+          "0x577aa7: PUSH EAX",
+          "0x577aa8: CALL 0x0045ab00",
+          "0x577aad: MOVZX ECX, byte ptr [ESI + 0x19]",
+          "0x577ab1: PUSH ECX",
+          "0x577ab2: MOV ECX, ESI",
+          "0x577ab4: CALL 0x0045ab00",
+          "0x577ab9: MOVZX EAX, byte ptr [ESI + 0x1a]",
+          "0x577abd: DEC EAX",
+          "0x577abe: CMP EAX, 0x8",
+          "0x577ac1: JA 0x00577ba6",
+          "0x577ac7: JMP dword ptr [EAX*0x4 + 0x577ba8]",
+          "0x577ace: PUSH EDI",
+          "0x577acf: LEA EDI, [ESI + 0x1c]",
+          "0x577ad2: PUSH EDI",
+          "0x577ad3: CALL 0x005b4acd",
+          "0x577ad8: ADD ESP, 0x4",
+          "0x577adb: PUSH EAX",
+          "0x577adc: PUSH EDI",
+          "0x577add: MOV ECX, ESI",
+          "0x577adf: CALL 0x0045b1b0",
+          "0x577ae4: POP EDI",
+          "0x577ae5: POP ESI",
+          "0x577ae6: RET",
+          "0x577ae7: MOV EDX, dword ptr [ESI + 0x1c]",
+          "0x577aea: PUSH EDX",
+          "0x577aeb: MOV ECX, ESI",
+          "0x577aed: CALL 0x0045ac40",
+          "0x577af2: POP ESI",
+          "0x577af3: RET",
+          "0x577af4: MOVZX EAX, word ptr [ESI + 0x1c]",
+          "0x577af8: PUSH EAX",
+          "0x577af9: MOV ECX, ESI",
+          "0x577afb: CALL 0x0045ab40",
+          "0x577b00: MOVZX ECX, word ptr [ESI + 0x1e]",
+          "0x577b04: PUSH ECX",
+          "0x577b05: MOV ECX, ESI",
+          "0x577b07: CALL 0x0045ab40",
+          "0x577b0c: MOVZX EDX, word ptr [ESI + 0x20]",
+          "0x577b10: PUSH EDX",
+          "0x577b11: MOV ECX, ESI",
+          "0x577b13: CALL 0x0045ab40",
+          "0x577b18: MOVZX EAX, word ptr [ESI + 0x22]",
+          "0x577b1c: PUSH EAX",
+          "0x577b1d: MOV ECX, ESI",
+          "0x577b1f: CALL 0x0045ab40",
+          "0x577b24: POP ESI",
+          "0x577b25: RET",
+          "0x577b26: MOVZX ECX, word ptr [ESI + 0x1c]",
+          "0x577b2a: PUSH ECX",
+          "0x577b2b: MOV ECX, ESI",
+          "0x577b2d: CALL 0x0045ab40",
+          "0x577b32: MOVZX EDX, word ptr [ESI + 0x1e]",
+          "0x577b36: PUSH EDX",
+          "0x577b37: MOV ECX, ESI",
+          "0x577b39: CALL 0x0045ab40",
+          "0x577b3e: MOVZX EAX, word ptr [ESI + 0x20]",
+          "0x577b42: PUSH EAX",
+          "0x577b43: MOV ECX, ESI",
+          "0x577b45: CALL 0x0045ab40",
+          "0x577b4a: POP ESI",
+          "0x577b4b: RET",
+          "0x577b4c: MOVZX ECX, word ptr [ESI + 0x1c]",
+          "0x577b50: PUSH ECX",
+          "0x577b51: MOV ECX, ESI",
+          "0x577b53: CALL 0x0045ab40",
+          "0x577b58: MOVZX EDX, word ptr [ESI + 0x1e]",
+          "0x577b5c: PUSH EDX",
+          "0x577b5d: MOV ECX, ESI",
+          "0x577b5f: CALL 0x0045ab40",
+          "0x577b64: POP ESI",
+          "0x577b65: RET",
+          "0x577b66: MOVZX EAX, word ptr [ESI + 0x1c]",
+          "0x577b6a: PUSH EAX",
+          "0x577b6b: MOV ECX, ESI",
+          "0x577b6d: CALL 0x0045ab40",
+          "0x577b72: POP ESI",
+          "0x577b73: RET",
+          "0x577b74: MOVZX ECX, byte ptr [ESI + 0x1c]",
+          "0x577b78: PUSH ECX",
+          "0x577b79: MOV ECX, ESI",
+          "0x577b7b: CALL 0x0045ab00",
+          "0x577b80: MOVZX EDX, byte ptr [ESI + 0x1d]",
+          "0x577b84: PUSH EDX",
+          "0x577b85: MOV ECX, ESI",
+          "0x577b87: CALL 0x0045ab00",
+          "0x577b8c: POP ESI",
+          "0x577b8d: RET",
+          "0x577b8e: MOVZX EAX, word ptr [ESI + 0x1c]",
+          "0x577b92: PUSH EAX",
+          "0x577b93: MOV ECX, ESI",
+          "0x577b95: CALL 0x0045ab40",
+          "0x577b9a: MOVZX ECX, word ptr [ESI + 0x1e]",
+          "0x577b9e: PUSH ECX",
+          "0x577b9f: MOV ECX, ESI",
+          "0x577ba1: CALL 0x0045ab40",
+          "0x577ba6: POP ESI",
+          "0x577ba7: RET"
+        ],
+        "limitations": [
+          "Instruction text and ordering are Ghidra-specific representations.",
+          "The fast path does not invoke the decompiler or scan whole-program names and strings."
+        ]
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "This fast path reads only the requested function and does not invoke the decompiler or whole-program string/name inventories.",
+        "Instruction text is Ghidra-specific and does not claim textual equivalence with Hopper output.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_4de1037dc6d45a9685e9fd6bd608315a386306156050f556b9c444cb4dda543e",
+      "operation": "read_function_instructions",
+      "parameters": {
+        "procedure": "0x401ed0"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "procedure": {
+          "address": "0x401ed0",
+          "name": "FUN_00401ed0",
+          "classification": {
+            "external": false,
+            "thunk": false,
+            "thunk_target": null,
+            "provenance": "ghidra-function-manager"
+          },
+          "body": {
+            "available": true,
+            "provenance": "ghidra-function-body-address-set",
+            "ranges": [
+              {
+                "start": "0x401ed0",
+                "end": "0x40208a"
+              }
+            ],
+            "total_bytes": 443,
+            "span_bytes": 443,
+            "non_contiguous": false,
+            "contains_entry": true
+          }
+        },
+        "instructions": [
+          "0x401ed0: MOV EAX, FS:[0x0]",
+          "0x401ed6: PUSH -0x1",
+          "0x401ed8: PUSH 0x5c871b",
+          "0x401edd: PUSH EAX",
+          "0x401ede: MOV dword ptr FS:[0x0], ESP",
+          "0x401ee5: SUB ESP, 0x28",
+          "0x401ee8: PUSH ESI",
+          "0x401ee9: PUSH EDI",
+          "0x401eea: MOV EDI, ECX",
+          "0x401eec: MOV ECX, dword ptr [0x0066d0d4]",
+          "0x401ef2: LEA EAX, [ESP + 0x8]",
+          "0x401ef6: PUSH EAX",
+          "0x401ef7: ADD ECX, 0x4",
+          "0x401efa: CALL 0x00479ea0",
+          "0x401eff: MOV ESI, dword ptr [ESP + 0x40]",
+          "0x401f03: CMP byte ptr [ESI + 0x26], 0x2",
+          "0x401f07: JNZ 0x00401f20",
+          "0x401f09: MOV ECX, dword ptr [ESI + 0x28]",
+          "0x401f0c: PUSH ECX",
+          "0x401f0d: MOV ECX, dword ptr [0x0066d0d8]",
+          "0x401f13: CALL 0x004ba410",
+          "0x401f18: TEST EAX, EAX",
+          "0x401f1a: JNZ 0x00402078",
+          "0x401f20: MOV EAX, dword ptr [ESP + 0x8]",
+          "0x401f24: TEST AH, 0x10",
+          "0x401f27: JZ 0x00401f49",
+          "0x401f29: MOV ECX, dword ptr [0x0066d0d4]",
+          "0x401f2f: PUSH 0x0",
+          "0x401f31: CALL 0x00556430",
+          "0x401f36: POP EDI",
+          "0x401f37: POP ESI",
+          "0x401f38: MOV ECX, dword ptr [ESP + 0x28]",
+          "0x401f3c: MOV dword ptr FS:[0x0], ECX",
+          "0x401f43: ADD ESP, 0x34",
+          "0x401f46: RET 0x4",
+          "0x401f49: MOV ECX, dword ptr [0x0066d0cc]",
+          "0x401f4f: CALL 0x0046ce20",
+          "0x401f54: TEST EAX, EAX",
+          "0x401f56: JZ 0x00402078",
+          "0x401f5c: MOV EAX, dword ptr [EDI + 0x24]",
+          "0x401f5f: TEST EAX, EAX",
+          "0x401f61: JZ 0x00401f7e",
+          "0x401f63: MOV EDX, dword ptr [ESI]",
+          "0x401f65: PUSH 0x1",
+          "0x401f67: MOV ECX, ESI",
+          "0x401f69: CALL dword ptr [EDX]",
+          "0x401f6b: POP EDI",
+          "0x401f6c: POP ESI",
+          "0x401f6d: MOV ECX, dword ptr [ESP + 0x28]",
+          "0x401f71: MOV dword ptr FS:[0x0], ECX",
+          "0x401f78: ADD ESP, 0x34",
+          "0x401f7b: RET 0x4",
+          "0x401f7e: MOV DL, byte ptr [ESI + 0x25]",
+          "0x401f81: XOR EAX, EAX",
+          "0x401f83: MOV AL, byte ptr [ESI + 0x24]",
+          "0x401f86: MOV CL, 0x50",
+          "0x401f88: IMUL CL",
+          "0x401f8a: ADD AL, DL",
+          "0x401f8c: PUSH EBX",
+          "0x401f8d: LEA ECX, [EDI + 0xc]",
+          "0x401f90: PUSH EAX",
+          "0x401f91: CALL 0x00538970",
+          "0x401f96: MOV EBX, EAX",
+          "0x401f98: TEST EBX, EBX",
+          "0x401f9a: JNZ 0x00401fb8",
+          "0x401f9c: MOV EDX, dword ptr [ESI]",
+          "0x401f9e: PUSH 0x1",
+          "0x401fa0: MOV ECX, ESI",
+          "0x401fa2: CALL dword ptr [EDX]",
+          "0x401fa4: POP EBX",
+          "0x401fa5: POP EDI",
+          "0x401fa6: POP ESI",
+          "0x401fa7: MOV ECX, dword ptr [ESP + 0x28]",
+          "0x401fab: MOV dword ptr FS:[0x0], ECX",
+          "0x401fb2: ADD ESP, 0x34",
+          "0x401fb5: RET 0x4",
+          "0x401fb8: CMP word ptr [EBX + 0x80e], 0x0",
+          "0x401fc0: MOV ECX, dword ptr [0x0066d0cc]",
+          "0x401fc6: JNZ 0x00401ffe",
+          "0x401fc8: CALL 0x0046dd90",
+          "0x401fcd: MOV DL, byte ptr [ESI + 0x25]",
+          "0x401fd0: XOR EAX, EAX",
+          "0x401fd2: MOV AL, byte ptr [ESI + 0x24]",
+          "0x401fd5: MOV CL, 0x50",
+          "0x401fd7: IMUL CL",
+          "0x401fd9: ADD AL, DL",
+          "0x401fdb: MOV ECX, EDI",
+          "0x401fdd: PUSH EAX",
+          "0x401fde: CALL 0x00401df0",
+          "0x401fe3: MOV ECX, ESI",
+          "0x401fe5: CALL 0x005788a0",
+          "0x401fea: POP EBX",
+          "0x401feb: POP EDI",
+          "0x401fec: POP ESI",
+          "0x401fed: MOV ECX, dword ptr [ESP + 0x28]",
+          "0x401ff1: MOV dword ptr FS:[0x0], ECX",
+          "0x401ff8: ADD ESP, 0x34",
+          "0x401ffb: RET 0x4",
+          "0x401ffe: CALL 0x0046dd90",
+          "0x402003: PUSH -0x34",
+          "0x402005: PUSH 0x11f",
+          "0x40200a: PUSH 0x5f1a94",
+          "0x40200f: PUSH 0x0",
+          "0x402011: PUSH 0x28",
+          "0x402013: MOV dword ptr [EDI + 0x28], 0x1",
+          "0x40201a: CALL 0x004dc720",
+          "0x40201f: ADD ESP, 0x14",
+          "0x402022: MOV dword ptr [ESP + 0x44], EAX",
+          "0x402026: MOV dword ptr [ESP + 0x3c], 0x0",
+          "0x40202e: TEST EAX, EAX",
+          "0x402030: JZ 0x0040203b",
+          "0x402032: MOV ECX, EAX",
+          "0x402034: CALL 0x00575510",
+          "0x402039: JMP 0x0040203d",
+          "0x40203b: XOR EAX, EAX",
+          "0x40203d: MOV dword ptr [ESP + 0x3c], 0xffffffff",
+          "0x402045: MOV DX, word ptr [EBX + 0x80e]",
+          "0x40204c: MOV ECX, EAX",
+          "0x40204e: MOV word ptr [EAX + 0x24], DX",
+          "0x402052: CALL 0x005788a0",
+          "0x402057: MOVZX EAX, word ptr [EBX + 0x80e]",
+          "0x40205e: MOV ECX, dword ptr [0x0066d0c4]",
+          "0x402064: PUSH 0x0",
+          "0x402066: PUSH 0x0",
+          "0x402068: PUSH EAX",
+          "0x402069: PUSH 0x53507573",
+          "0x40206e: PUSH EDI",
+          "0x40206f: CALL 0x004fd1d0",
+          "0x402074: MOV dword ptr [EDI + 0x24], ESI",
+          "0x402077: POP EBX",
+          "0x402078: MOV ECX, dword ptr [ESP + 0x30]",
+          "0x40207c: POP EDI",
+          "0x40207d: POP ESI",
+          "0x40207e: MOV dword ptr FS:[0x0], ECX",
+          "0x402085: ADD ESP, 0x34",
+          "0x402088: RET 0x4"
+        ],
+        "limitations": [
+          "Instruction text and ordering are Ghidra-specific representations.",
+          "The fast path does not invoke the decompiler or scan whole-program names and strings."
+        ]
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "This fast path reads only the requested function and does not invoke the decompiler or whole-program string/name inventories.",
+        "Instruction text is Ghidra-specific and does not claim textual equivalence with Hopper output.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_e34fa577ead15129151c53ca9fe7334fca779e26eafebf518050320e14d353b7",
+      "operation": "read_function_instructions",
+      "parameters": {
+        "procedure": "0x5578d0"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "procedure": {
+          "address": "0x5578d0",
+          "name": "FUN_005578d0",
+          "classification": {
+            "external": false,
+            "thunk": false,
+            "thunk_target": null,
+            "provenance": "ghidra-function-manager"
+          },
+          "body": {
+            "available": true,
+            "provenance": "ghidra-function-body-address-set",
+            "ranges": [
+              {
+                "start": "0x5578d0",
+                "end": "0x557aa2"
+              }
+            ],
+            "total_bytes": 467,
+            "span_bytes": 467,
+            "non_contiguous": false,
+            "contains_entry": true
+          }
+        },
+        "instructions": [
+          "0x5578d0: PUSH -0x1",
+          "0x5578d2: PUSH 0x5e310c",
+          "0x5578d7: MOV EAX, FS:[0x0]",
+          "0x5578dd: PUSH EAX",
+          "0x5578de: MOV dword ptr FS:[0x0], ESP",
+          "0x5578e5: SUB ESP, 0x208",
+          "0x5578eb: MOV EAX, [0x0066c19c]",
+          "0x5578f0: PUSH ESI",
+          "0x5578f1: MOV dword ptr [ESP + 0x208], EAX",
+          "0x5578f8: MOV EAX, [0x0066d0d4]",
+          "0x5578fd: PUSH EDI",
+          "0x5578fe: XOR EDI, EDI",
+          "0x557900: CMP EAX, EDI",
+          "0x557902: MOV ESI, ECX",
+          "0x557904: JZ 0x00557916",
+          "0x557906: MOV EAX, dword ptr [EAX + 0x544]",
+          "0x55790c: TEST byte ptr [EAX + 0xd], 0x1e",
+          "0x557910: JNZ 0x00557a7e",
+          "0x557916: MOV ECX, dword ptr [0x0066d0d8]",
+          "0x55791c: PUSH EBX",
+          "0x55791d: MOV EBX, dword ptr [ESP + 0x224]",
+          "0x557924: PUSH EBX",
+          "0x557925: CALL 0x004ba410",
+          "0x55792a: TEST EAX, EAX",
+          "0x55792c: JNZ 0x00557a7d",
+          "0x557932: MOV EAX, dword ptr [ESI + 0x288]",
+          "0x557938: TEST AH, 0x10",
+          "0x55793b: JZ 0x0055799d",
+          "0x55793d: PUSH EDI",
+          "0x55793e: PUSH 0xe1",
+          "0x557943: PUSH 0xe4",
+          "0x557948: PUSH 0xff",
+          "0x55794d: LEA ECX, [ESP + 0x1c]",
+          "0x557951: CALL 0x004fdb10",
+          "0x557956: LEA ECX, [ESP + 0x10]",
+          "0x55795a: PUSH 0x5f1958",
+          "0x55795f: PUSH ECX",
+          "0x557960: CALL 0x005b35f2",
+          "0x557965: LEA EDX, [ESP + 0x18]",
+          "0x557969: PUSH EDX",
+          "0x55796a: CALL 0x005b4acd",
+          "0x55796f: ADD ESP, 0xc",
+          "0x557972: TEST EAX, EAX",
+          "0x557974: JBE 0x00557a7d",
+          "0x55797a: LEA EAX, [ESP + 0xc]",
+          "0x55797e: PUSH EAX",
+          "0x55797f: LEA ECX, [ESP + 0x14]",
+          "0x557983: PUSH ECX",
+          "0x557984: MOV ECX, dword ptr [0x0066d140]",
+          "0x55798a: PUSH 0x8",
+          "0x55798c: CALL 0x00535590",
+          "0x557991: MOV ECX, EAX",
+          "0x557993: CALL 0x00430390",
+          "0x557998: JMP 0x00557a7d",
+          "0x55799d: MOV ECX, dword ptr [0x0066d0d8]",
+          "0x5579a3: CMP ECX, EDI",
+          "0x5579a5: JZ 0x005579ac",
+          "0x5579a7: CALL 0x004b7850",
+          "0x5579ac: MOV EDX, dword ptr [ESI + 0x514]",
+          "0x5579b2: CMP dword ptr [EDX*0x4 + 0x60f9c4], EDI",
+          "0x5579b9: JZ 0x00557a0a",
+          "0x5579bb: PUSH -0x34",
+          "0x5579bd: PUSH 0x305",
+          "0x5579c2: PUSH 0x60f9d8",
+          "0x5579c7: PUSH EDI",
+          "0x5579c8: PUSH 0x18",
+          "0x5579ca: CALL 0x004dc720",
+          "0x5579cf: ADD ESP, 0x14",
+          "0x5579d2: MOV dword ptr [ESP + 0xc], EAX",
+          "0x5579d6: MOV dword ptr [ESP + 0x21c], EDI",
+          "0x5579dd: CMP EAX, EDI",
+          "0x5579df: JZ 0x005579f3",
+          "0x5579e1: PUSH EBX",
+          "0x5579e2: PUSH ESI",
+          "0x5579e3: MOV EDX, 0x556f80",
+          "0x5579e8: PUSH EDI",
+          "0x5579e9: PUSH EDX",
+          "0x5579ea: MOV ECX, EAX",
+          "0x5579ec: CALL 0x00555fd0",
+          "0x5579f1: JMP 0x005579f5",
+          "0x5579f3: XOR EAX, EAX",
+          "0x5579f5: MOV dword ptr [ESP + 0x21c], 0xffffffff",
+          "0x557a00: PUSH EAX",
+          "0x557a01: MOV ECX, ESI",
+          "0x557a03: CALL 0x00556340",
+          "0x557a08: JMP 0x00557a7d",
+          "0x557a0a: MOV ECX, dword ptr [0x0066d100]",
+          "0x557a10: CALL 0x00402c30",
+          "0x557a15: MOV ECX, dword ptr [ESI + 0x544]",
+          "0x557a1b: CMP ECX, EDI",
+          "0x557a1d: JZ 0x00557a7d",
+          "0x557a1f: MOVZX ECX, word ptr [ECX + 0x15]",
+          "0x557a23: ADD ECX, dword ptr [ESI + 0x528]",
+          "0x557a29: CMP ECX, EAX",
+          "0x557a2b: JA 0x00557a7d",
+          "0x557a2d: PUSH -0x34",
+          "0x557a2f: PUSH 0x30f",
+          "0x557a34: PUSH 0x60f9d8",
+          "0x557a39: PUSH EDI",
+          "0x557a3a: PUSH 0x28",
+          "0x557a3c: MOV dword ptr [ESI + 0x528], EAX",
+          "0x557a42: CALL 0x004dc720",
+          "0x557a47: ADD ESP, 0x14",
+          "0x557a4a: MOV dword ptr [ESP + 0xc], EAX",
+          "0x557a4e: MOV dword ptr [ESP + 0x21c], 0x1",
+          "0x557a59: CMP EAX, EDI",
+          "0x557a5b: JZ 0x00557a66",
+          "0x557a5d: MOV ECX, EAX",
+          "0x557a5f: CALL 0x00570a10",
+          "0x557a64: JMP 0x00557a68",
+          "0x557a66: XOR EAX, EAX",
+          "0x557a68: MOV dword ptr [ESP + 0x21c], 0xffffffff",
+          "0x557a73: MOV ECX, EAX",
+          "0x557a75: MOV dword ptr [EAX + 0x24], EBX",
+          "0x557a78: CALL 0x005788a0",
+          "0x557a7d: POP EBX",
+          "0x557a7e: MOV ECX, dword ptr [ESP + 0x210]",
+          "0x557a85: POP EDI",
+          "0x557a86: MOV dword ptr FS:[0x0], ECX",
+          "0x557a8d: MOV ECX, dword ptr [ESP + 0x208]",
+          "0x557a94: POP ESI",
+          "0x557a95: CALL 0x005b363f",
+          "0x557a9a: ADD ESP, 0x214",
+          "0x557aa0: RET 0x4"
+        ],
+        "limitations": [
+          "Instruction text and ordering are Ghidra-specific representations.",
+          "The fast path does not invoke the decompiler or scan whole-program names and strings."
+        ]
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "This fast path reads only the requested function and does not invoke the decompiler or whole-program string/name inventories.",
+        "Instruction text is Ghidra-specific and does not claim textual equivalence with Hopper output.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_95042a38804992962dceff7ad52a68faab2d95367d3be2f3e8970a7180f3b7bb",
+      "operation": "read_function_instructions",
+      "parameters": {
+        "procedure": "0x4ba410"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "procedure": {
+          "address": "0x4ba410",
+          "name": "FUN_004ba410",
+          "classification": {
+            "external": false,
+            "thunk": false,
+            "thunk_target": null,
+            "provenance": "ghidra-function-manager"
+          },
+          "body": {
+            "available": true,
+            "provenance": "ghidra-function-body-address-set",
+            "ranges": [
+              {
+                "start": "0x4ba410",
+                "end": "0x4ba440"
+              }
+            ],
+            "total_bytes": 49,
+            "span_bytes": 49,
+            "non_contiguous": false,
+            "contains_entry": true
+          }
+        },
+        "instructions": [
+          "0x4ba410: PUSH ESI",
+          "0x4ba411: PUSH EDI",
+          "0x4ba412: MOV EDI, dword ptr [ESP + 0xc]",
+          "0x4ba416: MOV ESI, ECX",
+          "0x4ba418: MOV ECX, dword ptr [0x0066e3a4]",
+          "0x4ba41e: PUSH EDI",
+          "0x4ba41f: CALL 0x004ea240",
+          "0x4ba424: TEST EAX, EAX",
+          "0x4ba426: JZ 0x004ba43a",
+          "0x4ba428: PUSH EDI",
+          "0x4ba429: MOV ECX, ESI",
+          "0x4ba42b: CALL 0x004ba310",
+          "0x4ba430: POP EDI",
+          "0x4ba431: MOV EAX, 0x1",
+          "0x4ba436: POP ESI",
+          "0x4ba437: RET 0x4",
+          "0x4ba43a: POP EDI",
+          "0x4ba43b: XOR EAX, EAX",
+          "0x4ba43d: POP ESI",
+          "0x4ba43e: RET 0x4"
+        ],
+        "limitations": [
+          "Instruction text and ordering are Ghidra-specific representations.",
+          "The fast path does not invoke the decompiler or scan whole-program names and strings."
+        ]
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "This fast path reads only the requested function and does not invoke the decompiler or whole-program string/name inventories.",
+        "Instruction text is Ghidra-specific and does not claim textual equivalence with Hopper output.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_f9dc962201766ddc826359e0a789543ac75d7070367290cc156ae2f3812548d5",
+      "operation": "read_bytes",
+      "parameters": {
+        "address": "0x577ba8",
+        "length": 36
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x577ba8",
+        "requested_bytes": 36,
+        "returned_bytes": 36,
+        "bytes_hex": "ce7a5700e77a5700f47a5700267b5700a67b57004c7b5700667b5700747b57008e7b5700",
+        "complete": true
+      },
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Bytes reflect Ghidra's initialized memory, including loader fixups. Reads stop at an unmapped or uninitialized byte and report completeness explicitly.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_4fab3f0d5272ed772ebe190ee6897c1ec23f2c18854fdb89fe85b4f89814972f",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x55a250"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nint FUN_0055a250(undefined4 param_1,int param_2)\r\n\r\n{\r\n  int iVar1;\r\n  int iVar2;\r\n  \r\n  if (*(char *)(param_2 + 4) == '\\f') {\r\n    iVar2 = 0;\r\n    do {\r\n      iVar1 = FUN_00559350(param_1,iVar2,param_2);\r\n      if (iVar1 != 0) {\r\n        return iVar2;\r\n      }\r\n      iVar2 = iVar2 + 1;\r\n    } while (iVar2 < 0x54);\r\n  }\r\n  return -1;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    },
+    {
+      "evidence_id": "ev_26d49a922cb24502b836da0a70cb2cb54c162e8c1297b2e7fb1c6ca8e675014d",
+      "operation": "procedure_pseudo_code",
+      "parameters": {
+        "procedure": "0x559350"
+      },
+      "authority": "shipped-artifact",
+      "confidence": "observed",
+      "provider": {
+        "id": "ghidra",
+        "name": "Ghidra",
+        "version": "12.1.4"
+      },
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nundefined4 FUN_00559350(int param_1,int param_2,int param_3)\r\n\r\n{\r\n  int iVar1;\r\n  char cVar2;\r\n  int in_ECX;\r\n  \r\n  cVar2 = *(char *)(*(byte *)(param_3 + 8) + 0x68c8 + in_ECX);\r\n  if (param_1 == 0) {\r\n    if (*(char *)(*(byte *)(in_ECX + 0x69c8 + param_2 * 4) + 0x68c8 + in_ECX) != cVar2) {\r\n      return 0;\r\n    }\r\n    cVar2 = *(char *)(in_ECX + 0x69c9 + param_2 * 4);\r\n  }\r\n  else {\r\n    if (*(char *)(*(byte *)(in_ECX + 0x69ca + param_2 * 4) + 0x68c8 + in_ECX) != cVar2) {\r\n      return 0;\r\n    }\r\n    cVar2 = *(char *)(in_ECX + 0x69cb + param_2 * 4);\r\n  }\r\n  if ((cVar2 == *(char *)(param_3 + 0x210)) &&\r\n     ((iVar1 = FUN_00496de0(param_2), iVar1 != 0 || (*(int *)(param_3 + 0x20c) == 0)))) {\r\n    return 1;\r\n  }\r\n  return 0;\r\n}\r\n\r\n",
+      "limitations": [
+        "The session serves operations only after Ghidra reports default auto-analysis complete; incomplete analysis does not expose partial results.",
+        "The imported Program and temporary project are ephemeral and deleted on close. Annotation operations edit session database metadata; original executable bytes are never written.",
+        "Cancelling an active Ghidra request terminates its ephemeral database and discards session annotations. The selected target remains open; the next provider query imports the original artifact again.",
+        "Default-space addresses use lowercase 0x-prefixed hexadecimal; other address spaces use <percent-encoded-space>:0x<hex>.",
+        "Pseudocode is Ghidra decompiler output, not original source and not text-equivalent to Hopper output.",
+        "External functions and functions without an analyzable body return null; other decompiler failures remain explicit.",
+        "Windows Ghidra P0 accepts native x86 and x86-64 PE applications and DLLs, and explicitly selected raw 6502 images; managed, hostile, sensitive, and mutable-path targets are unsupported.",
+        "The Windows bridge uses authenticated IPv4 loopback because Node path-based IPC does not expose Java AF_UNIX sockets; the endpoint file contains no bearer token.",
+        "Windows sessions require the matching packaged Windows x64 native addon, local NTFS targets and runtimes, and Windows 10 or later. Native handles enforce path admission, private DACLs, and Job Object ownership automatically.",
+        "The target references PDB Asgard.pdb (GUID c1db16fc-a0a6-4b89-821c-a329bdf89eb0, age (hex) 4, signature unknown, version RSDS); Ghidra reports load state unknown. Original names and types may be missing; an empty name search does not prove a procedure is absent. Use list_procedures and address-based analysis to inspect recovered functions. REA does not admit a caller-selected PDB companion."
+      ]
+    }
+  ],
+  "asset_metadata": {
+    "source": {
+      "archive_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+      "slot": 13,
+      "name_bytes_hex": "4869744e756d6265722e797066",
+      "offset": 1365116,
+      "bytes": 155600,
+      "member_sha256": "fe490176519bf79096eeb8c4fe82f4b2d0a5d31d8d7a0258d64f329abeb84502"
+    },
+    "base": 6788,
+    "metadata_end": 6788,
+    "objects": [
+      {
+        "object": 0,
+        "frames": [
+          [
+            [
+              1,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              394,
+              0
+            ],
+            [
+              394,
+              642
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              26,
+              16
+            ],
+            4,
+            [
+              370,
+              1036
+            ],
+            [
+              1406,
+              472
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              390,
+              1878
+            ],
+            [
+              2268,
+              620
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              392,
+              2888
+            ],
+            [
+              3280,
+              586
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              27,
+              17
+            ],
+            4,
+            [
+              384,
+              3866
+            ],
+            [
+              4250,
+              614
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              376,
+              4864
+            ],
+            [
+              5240,
+              586
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              404,
+              5826
+            ],
+            [
+              6230,
+              592
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              27,
+              17
+            ],
+            4,
+            [
+              396,
+              6822
+            ],
+            [
+              7218,
+              494
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              376,
+              7712
+            ],
+            [
+              8088,
+              656
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              27,
+              17
+            ],
+            4,
+            [
+              386,
+              8744
+            ],
+            [
+              9130,
+              574
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 1,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              19,
+              16
+            ],
+            4,
+            [
+              306,
+              9704
+            ],
+            [
+              10010,
+              442
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              18,
+              15
+            ],
+            4,
+            [
+              234,
+              10452
+            ],
+            [
+              10686,
+              314
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              294,
+              11000
+            ],
+            [
+              11294,
+              426
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              280,
+              11720
+            ],
+            [
+              12000,
+              398
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              18,
+              17
+            ],
+            4,
+            [
+              264,
+              12398
+            ],
+            [
+              12662,
+              426
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              280,
+              13088
+            ],
+            [
+              13368,
+              404
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              16
+            ],
+            4,
+            [
+              258,
+              13772
+            ],
+            [
+              14030,
+              386
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              266,
+              14416
+            ],
+            [
+              14682,
+              340
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              16
+            ],
+            4,
+            [
+              264,
+              15022
+            ],
+            [
+              15286,
+              428
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              19,
+              16
+            ],
+            4,
+            [
+              266,
+              15714
+            ],
+            [
+              15980,
+              386
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 2,
+        "frames": [
+          [
+            [
+              1,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              192,
+              16366
+            ],
+            [
+              16558,
+              328
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              12,
+              18
+            ],
+            4,
+            [
+              182,
+              16886
+            ],
+            [
+              17068,
+              260
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              230,
+              17328
+            ],
+            [
+              17558,
+              338
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              212,
+              17896
+            ],
+            [
+              18108,
+              316
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              194,
+              18424
+            ],
+            [
+              18618,
+              328
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              228,
+              18946
+            ],
+            [
+              19174,
+              322
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              206,
+              19496
+            ],
+            [
+              19702,
+              310
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              200,
+              20012
+            ],
+            [
+              20212,
+              270
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              202,
+              20482
+            ],
+            [
+              20684,
+              336
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              216,
+              21020
+            ],
+            [
+              21236,
+              318
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 3,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              16,
+              15
+            ],
+            4,
+            [
+              236,
+              21554
+            ],
+            [
+              21790,
+              334
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              15,
+              15
+            ],
+            4,
+            [
+              226,
+              22124
+            ],
+            [
+              22350,
+              264
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              246,
+              22614
+            ],
+            [
+              22860,
+              332
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              234,
+              23192
+            ],
+            [
+              23426,
+              322
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              16,
+              15
+            ],
+            4,
+            [
+              240,
+              23748
+            ],
+            [
+              23988,
+              324
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              250,
+              24312
+            ],
+            [
+              24562,
+              320
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              15,
+              15
+            ],
+            4,
+            [
+              216,
+              24882
+            ],
+            [
+              25098,
+              304
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              16,
+              14
+            ],
+            4,
+            [
+              222,
+              25402
+            ],
+            [
+              25624,
+              262
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              232,
+              25886
+            ],
+            [
+              26118,
+              340
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              15
+            ],
+            4,
+            [
+              232,
+              26458
+            ],
+            [
+              26690,
+              304
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 4,
+        "frames": [
+          [
+            [
+              0,
+              1,
+              17,
+              13
+            ],
+            4,
+            [
+              228,
+              26994
+            ],
+            [
+              27222,
+              328
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              17,
+              12
+            ],
+            4,
+            [
+              216,
+              27550
+            ],
+            [
+              27766,
+              248
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              14
+            ],
+            4,
+            [
+              262,
+              28014
+            ],
+            [
+              28276,
+              330
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              244,
+              28606
+            ],
+            [
+              28850,
+              310
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              14
+            ],
+            4,
+            [
+              244,
+              29160
+            ],
+            [
+              29404,
+              322
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              14
+            ],
+            4,
+            [
+              254,
+              29726
+            ],
+            [
+              29980,
+              316
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              238,
+              30296
+            ],
+            [
+              30534,
+              306
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              220,
+              30840
+            ],
+            [
+              31060,
+              276
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              238,
+              31336
+            ],
+            [
+              31574,
+              328
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              17,
+              12
+            ],
+            4,
+            [
+              210,
+              31902
+            ],
+            [
+              32112,
+              286
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 5,
+        "frames": [
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              206,
+              32398
+            ],
+            [
+              32604,
+              334
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              13,
+              17
+            ],
+            4,
+            [
+              208,
+              32938
+            ],
+            [
+              33146,
+              256
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              14,
+              17
+            ],
+            4,
+            [
+              234,
+              33402
+            ],
+            [
+              33636,
+              326
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              210,
+              33962
+            ],
+            [
+              34172,
+              304
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              194,
+              34476
+            ],
+            [
+              34670,
+              326
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              208,
+              34996
+            ],
+            [
+              35204,
+              308
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              14,
+              17
+            ],
+            4,
+            [
+              206,
+              35512
+            ],
+            [
+              35718,
+              306
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              198,
+              36024
+            ],
+            [
+              36222,
+              268
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              180,
+              36490
+            ],
+            [
+              36670,
+              318
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              210,
+              36988
+            ],
+            [
+              37198,
+              306
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 6,
+        "frames": [
+          [
+            [
+              1,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              394,
+              37504
+            ],
+            [
+              37898,
+              642
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              26,
+              16
+            ],
+            4,
+            [
+              370,
+              38540
+            ],
+            [
+              38910,
+              472
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              390,
+              39382
+            ],
+            [
+              39772,
+              620
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              392,
+              40392
+            ],
+            [
+              40784,
+              586
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              27,
+              17
+            ],
+            4,
+            [
+              384,
+              41370
+            ],
+            [
+              41754,
+              614
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              376,
+              42368
+            ],
+            [
+              42744,
+              586
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              404,
+              43330
+            ],
+            [
+              43734,
+              592
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              27,
+              17
+            ],
+            4,
+            [
+              396,
+              44326
+            ],
+            [
+              44722,
+              494
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              376,
+              45216
+            ],
+            [
+              45592,
+              656
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              27,
+              17
+            ],
+            4,
+            [
+              386,
+              46248
+            ],
+            [
+              46634,
+              574
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 7,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              19,
+              16
+            ],
+            4,
+            [
+              306,
+              47208
+            ],
+            [
+              47514,
+              442
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              18,
+              15
+            ],
+            4,
+            [
+              234,
+              47956
+            ],
+            [
+              48190,
+              314
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              294,
+              48504
+            ],
+            [
+              48798,
+              426
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              280,
+              49224
+            ],
+            [
+              49504,
+              398
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              18,
+              17
+            ],
+            4,
+            [
+              264,
+              49902
+            ],
+            [
+              50166,
+              426
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              280,
+              50592
+            ],
+            [
+              50872,
+              404
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              16
+            ],
+            4,
+            [
+              258,
+              51276
+            ],
+            [
+              51534,
+              386
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              266,
+              51920
+            ],
+            [
+              52186,
+              340
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              16
+            ],
+            4,
+            [
+              264,
+              52526
+            ],
+            [
+              52790,
+              428
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              19,
+              16
+            ],
+            4,
+            [
+              266,
+              53218
+            ],
+            [
+              53484,
+              386
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 8,
+        "frames": [
+          [
+            [
+              1,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              192,
+              53870
+            ],
+            [
+              54062,
+              328
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              12,
+              18
+            ],
+            4,
+            [
+              182,
+              54390
+            ],
+            [
+              54572,
+              260
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              230,
+              54832
+            ],
+            [
+              55062,
+              338
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              212,
+              55400
+            ],
+            [
+              55612,
+              316
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              194,
+              55928
+            ],
+            [
+              56122,
+              328
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              228,
+              56450
+            ],
+            [
+              56678,
+              322
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              206,
+              57000
+            ],
+            [
+              57206,
+              310
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              200,
+              57516
+            ],
+            [
+              57716,
+              270
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              202,
+              57986
+            ],
+            [
+              58188,
+              336
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              216,
+              58524
+            ],
+            [
+              58740,
+              318
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 9,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              16,
+              15
+            ],
+            4,
+            [
+              236,
+              59058
+            ],
+            [
+              59294,
+              334
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              15,
+              15
+            ],
+            4,
+            [
+              226,
+              59628
+            ],
+            [
+              59854,
+              264
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              246,
+              60118
+            ],
+            [
+              60364,
+              332
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              234,
+              60696
+            ],
+            [
+              60930,
+              322
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              16,
+              15
+            ],
+            4,
+            [
+              240,
+              61252
+            ],
+            [
+              61492,
+              324
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              250,
+              61816
+            ],
+            [
+              62066,
+              320
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              15,
+              15
+            ],
+            4,
+            [
+              216,
+              62386
+            ],
+            [
+              62602,
+              304
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              16,
+              14
+            ],
+            4,
+            [
+              222,
+              62906
+            ],
+            [
+              63128,
+              262
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              232,
+              63390
+            ],
+            [
+              63622,
+              340
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              15
+            ],
+            4,
+            [
+              232,
+              63962
+            ],
+            [
+              64194,
+              304
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 10,
+        "frames": [
+          [
+            [
+              0,
+              1,
+              17,
+              13
+            ],
+            4,
+            [
+              228,
+              64498
+            ],
+            [
+              64726,
+              328
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              17,
+              12
+            ],
+            4,
+            [
+              216,
+              65054
+            ],
+            [
+              65270,
+              248
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              14
+            ],
+            4,
+            [
+              262,
+              65518
+            ],
+            [
+              65780,
+              330
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              244,
+              66110
+            ],
+            [
+              66354,
+              310
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              14
+            ],
+            4,
+            [
+              244,
+              66664
+            ],
+            [
+              66908,
+              322
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              14
+            ],
+            4,
+            [
+              254,
+              67230
+            ],
+            [
+              67484,
+              316
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              238,
+              67800
+            ],
+            [
+              68038,
+              306
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              220,
+              68344
+            ],
+            [
+              68564,
+              276
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              238,
+              68840
+            ],
+            [
+              69078,
+              328
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              17,
+              12
+            ],
+            4,
+            [
+              210,
+              69406
+            ],
+            [
+              69616,
+              286
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 11,
+        "frames": [
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              206,
+              69902
+            ],
+            [
+              70108,
+              334
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              13,
+              17
+            ],
+            4,
+            [
+              208,
+              70442
+            ],
+            [
+              70650,
+              256
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              14,
+              17
+            ],
+            4,
+            [
+              234,
+              70906
+            ],
+            [
+              71140,
+              326
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              210,
+              71466
+            ],
+            [
+              71676,
+              304
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              194,
+              71980
+            ],
+            [
+              72174,
+              326
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              208,
+              72500
+            ],
+            [
+              72708,
+              308
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              14,
+              17
+            ],
+            4,
+            [
+              206,
+              73016
+            ],
+            [
+              73222,
+              306
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              198,
+              73528
+            ],
+            [
+              73726,
+              268
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              180,
+              73994
+            ],
+            [
+              74174,
+              318
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              210,
+              74492
+            ],
+            [
+              74702,
+              306
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 12,
+        "frames": [
+          [
+            [
+              1,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              394,
+              75008
+            ],
+            [
+              75402,
+              642
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              26,
+              16
+            ],
+            4,
+            [
+              370,
+              76044
+            ],
+            [
+              76414,
+              472
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              390,
+              76886
+            ],
+            [
+              77276,
+              620
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              392,
+              77896
+            ],
+            [
+              78288,
+              586
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              27,
+              17
+            ],
+            4,
+            [
+              384,
+              78874
+            ],
+            [
+              79258,
+              614
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              376,
+              79872
+            ],
+            [
+              80248,
+              586
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              404,
+              80834
+            ],
+            [
+              81238,
+              592
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              27,
+              17
+            ],
+            4,
+            [
+              396,
+              81830
+            ],
+            [
+              82226,
+              494
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              26,
+              17
+            ],
+            4,
+            [
+              376,
+              82720
+            ],
+            [
+              83096,
+              656
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              27,
+              17
+            ],
+            4,
+            [
+              386,
+              83752
+            ],
+            [
+              84138,
+              574
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 13,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              19,
+              16
+            ],
+            4,
+            [
+              306,
+              84712
+            ],
+            [
+              85018,
+              442
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              18,
+              15
+            ],
+            4,
+            [
+              234,
+              85460
+            ],
+            [
+              85694,
+              314
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              294,
+              86008
+            ],
+            [
+              86302,
+              426
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              280,
+              86728
+            ],
+            [
+              87008,
+              398
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              18,
+              17
+            ],
+            4,
+            [
+              264,
+              87406
+            ],
+            [
+              87670,
+              426
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              280,
+              88096
+            ],
+            [
+              88376,
+              404
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              16
+            ],
+            4,
+            [
+              258,
+              88780
+            ],
+            [
+              89038,
+              386
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              19,
+              17
+            ],
+            4,
+            [
+              266,
+              89424
+            ],
+            [
+              89690,
+              340
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              19,
+              16
+            ],
+            4,
+            [
+              264,
+              90030
+            ],
+            [
+              90294,
+              428
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              19,
+              16
+            ],
+            4,
+            [
+              266,
+              90722
+            ],
+            [
+              90988,
+              386
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 14,
+        "frames": [
+          [
+            [
+              1,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              192,
+              91374
+            ],
+            [
+              91566,
+              328
+            ]
+          ],
+          [
+            [
+              1,
+              1,
+              12,
+              18
+            ],
+            4,
+            [
+              182,
+              91894
+            ],
+            [
+              92076,
+              260
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              230,
+              92336
+            ],
+            [
+              92566,
+              338
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              212,
+              92904
+            ],
+            [
+              93116,
+              316
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              194,
+              93432
+            ],
+            [
+              93626,
+              328
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              228,
+              93954
+            ],
+            [
+              94182,
+              322
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              206,
+              94504
+            ],
+            [
+              94710,
+              310
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              200,
+              95020
+            ],
+            [
+              95220,
+              270
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              17
+            ],
+            4,
+            [
+              202,
+              95490
+            ],
+            [
+              95692,
+              336
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              216,
+              96028
+            ],
+            [
+              96244,
+              318
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 15,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              16,
+              15
+            ],
+            4,
+            [
+              236,
+              96562
+            ],
+            [
+              96798,
+              334
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              15,
+              15
+            ],
+            4,
+            [
+              226,
+              97132
+            ],
+            [
+              97358,
+              264
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              246,
+              97622
+            ],
+            [
+              97868,
+              332
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              234,
+              98200
+            ],
+            [
+              98434,
+              322
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              16,
+              15
+            ],
+            4,
+            [
+              240,
+              98756
+            ],
+            [
+              98996,
+              324
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              250,
+              99320
+            ],
+            [
+              99570,
+              320
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              15,
+              15
+            ],
+            4,
+            [
+              216,
+              99890
+            ],
+            [
+              100106,
+              304
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              16,
+              14
+            ],
+            4,
+            [
+              222,
+              100410
+            ],
+            [
+              100632,
+              262
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              16
+            ],
+            4,
+            [
+              232,
+              100894
+            ],
+            [
+              101126,
+              340
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              16,
+              15
+            ],
+            4,
+            [
+              232,
+              101466
+            ],
+            [
+              101698,
+              304
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 16,
+        "frames": [
+          [
+            [
+              0,
+              1,
+              17,
+              13
+            ],
+            4,
+            [
+              228,
+              102002
+            ],
+            [
+              102230,
+              328
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              17,
+              12
+            ],
+            4,
+            [
+              216,
+              102558
+            ],
+            [
+              102774,
+              248
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              14
+            ],
+            4,
+            [
+              262,
+              103022
+            ],
+            [
+              103284,
+              330
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              244,
+              103614
+            ],
+            [
+              103858,
+              310
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              14
+            ],
+            4,
+            [
+              244,
+              104168
+            ],
+            [
+              104412,
+              322
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              14
+            ],
+            4,
+            [
+              254,
+              104734
+            ],
+            [
+              104988,
+              316
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              238,
+              105304
+            ],
+            [
+              105542,
+              306
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              220,
+              105848
+            ],
+            [
+              106068,
+              276
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              17,
+              13
+            ],
+            4,
+            [
+              238,
+              106344
+            ],
+            [
+              106582,
+              328
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              17,
+              12
+            ],
+            4,
+            [
+              210,
+              106910
+            ],
+            [
+              107120,
+              286
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 17,
+        "frames": [
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              206,
+              107406
+            ],
+            [
+              107612,
+              334
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              13,
+              17
+            ],
+            4,
+            [
+              208,
+              107946
+            ],
+            [
+              108154,
+              256
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              14,
+              17
+            ],
+            4,
+            [
+              234,
+              108410
+            ],
+            [
+              108644,
+              326
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              210,
+              108970
+            ],
+            [
+              109180,
+              304
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              194,
+              109484
+            ],
+            [
+              109678,
+              326
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              208,
+              110004
+            ],
+            [
+              110212,
+              308
+            ]
+          ],
+          [
+            [
+              0,
+              0,
+              14,
+              17
+            ],
+            4,
+            [
+              206,
+              110520
+            ],
+            [
+              110726,
+              306
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              13,
+              18
+            ],
+            4,
+            [
+              198,
+              111032
+            ],
+            [
+              111230,
+              268
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              180,
+              111498
+            ],
+            [
+              111678,
+              318
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              14,
+              17
+            ],
+            4,
+            [
+              210,
+              111996
+            ],
+            [
+              112206,
+              306
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 18,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              27,
+              54
+            ],
+            4,
+            [
+              1076,
+              112512
+            ],
+            [
+              113588,
+              2212
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 19,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              41,
+              38
+            ],
+            4,
+            [
+              810,
+              115800
+            ],
+            [
+              116610,
+              1452
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 20,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              36,
+              20
+            ],
+            4,
+            [
+              606,
+              118062
+            ],
+            [
+              118668,
+              1066
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 21,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              28,
+              37
+            ],
+            4,
+            [
+              528,
+              119734
+            ],
+            [
+              120262,
+              1074
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 22,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              29,
+              34
+            ],
+            4,
+            [
+              574,
+              121336
+            ],
+            [
+              121910,
+              1066
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 23,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              37,
+              25
+            ],
+            4,
+            [
+              584,
+              122976
+            ],
+            [
+              123560,
+              1052
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 24,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              27,
+              54
+            ],
+            4,
+            [
+              1076,
+              124612
+            ],
+            [
+              125688,
+              2212
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 25,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              41,
+              38
+            ],
+            4,
+            [
+              810,
+              127900
+            ],
+            [
+              128710,
+              1452
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 26,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              36,
+              20
+            ],
+            4,
+            [
+              606,
+              130162
+            ],
+            [
+              130768,
+              1066
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 27,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              28,
+              37
+            ],
+            4,
+            [
+              528,
+              131834
+            ],
+            [
+              132362,
+              1074
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 28,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              29,
+              34
+            ],
+            4,
+            [
+              574,
+              133436
+            ],
+            [
+              134010,
+              1066
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 29,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              37,
+              25
+            ],
+            4,
+            [
+              584,
+              135076
+            ],
+            [
+              135660,
+              1052
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 30,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              27,
+              54
+            ],
+            4,
+            [
+              1076,
+              136712
+            ],
+            [
+              137788,
+              2212
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 31,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              41,
+              38
+            ],
+            4,
+            [
+              810,
+              140000
+            ],
+            [
+              140810,
+              1452
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 32,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              36,
+              20
+            ],
+            4,
+            [
+              606,
+              142262
+            ],
+            [
+              142868,
+              1066
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 33,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              28,
+              37
+            ],
+            4,
+            [
+              528,
+              143934
+            ],
+            [
+              144462,
+              1074
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 34,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              29,
+              34
+            ],
+            4,
+            [
+              574,
+              145536
+            ],
+            [
+              146110,
+              1066
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      },
+      {
+        "object": 35,
+        "frames": [
+          [
+            [
+              0,
+              0,
+              37,
+              25
+            ],
+            4,
+            [
+              584,
+              147176
+            ],
+            [
+              147760,
+              1052
+            ]
+          ]
+        ],
+        "actions": 0,
+        "states": 0,
+        "links": 0
+      }
+    ]
+  }
+}

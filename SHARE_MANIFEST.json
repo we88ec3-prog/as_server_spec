@@ -720,6 +720,10 @@
       "sha256": "e6de147cf4d03dcdfadecdc30ea3ae122c1fe216e6e9fc8efab6badb4763466d"
     },
     {
+      "path": "04-analysis-integration/20261102-native-shortcut-followup-and-npc-miss.md",
+      "sha256": "797c6412fe1bd64d294c29994dfdb071abb34ed9b2865129b3d219cc9aacc3bf"
+    },
+    {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
       "sha256": "1cf33e6c48bffa7bdff9d748ca2060a7bf866d19c0fcaf8112187ffdc03e6942"
     },
@@ -908,6 +912,10 @@
       "sha256": "8736e8982b6bd0ee0ec85bbbef5d39b2d4d1251905a0a9f26079bc7437b2b99d"
     },
     {
+      "path": "04-analysis-integration/miss-c65-validation-20261102.json",
+      "sha256": "2b6a56a4317173802bf27a6abc176bf5738d4712bd8f27f04fddd8bfed8bcb2b"
+    },
+    {
       "path": "04-analysis-integration/native-basic-attack-motion-and-corpse-20261101.json",
       "sha256": "3b4ef1ac07078c12aa2e29bb322d3d2aac9f91703ed914ab2b4b19aa8e395660"
     },
@@ -930,6 +938,10 @@
     {
       "path": "04-analysis-integration/native-map-title-provenance-20261101.json",
       "sha256": "f8b3021bf680a12f91bdf6912b94b48192f4b9d0db6ab6304d19555febaf81e4"
+    },
+    {
+      "path": "04-analysis-integration/native-miss-c65-20261102.json",
+      "sha256": "350c0d4a848c817bda4454d49a2e32f30b51e6a16c65c7c293fa84dd213e41c3"
     },
     {
       "path": "04-analysis-integration/native-pane-visibility-20261101.json",
@@ -1045,7 +1057,7 @@
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "e1832948290b80bde48dfcde3738f543a0f4e21557439287760c33fa52c39619"
+      "sha256": "bcad898dbdee358bec962567dffcfe12d66e70d51997abe7eaf55de61c13d9bc"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
