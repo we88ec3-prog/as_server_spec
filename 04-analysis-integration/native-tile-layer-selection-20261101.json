@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "scope": "Static map tile layer dispatch; no native frame or town identity proof",
+  "instructions": {
+    "evidence_id": "ev_8fc6943a630dabaac5bb32e8ff7516942752daabf625b8b653648d120a27aa44",
+    "procedure": "0x4bce70",
+    "rows": [
+      "0x4bd000: XOR EAX, EAX",
+      "0x4bd002: MOV AX, word ptr [EDI + ESI*0x2]",
+      "0x4bd006: TEST AX, AX",
+      "0x4bd009: JZ 0x004bd020",
+      "0x4bd00b: MOV ECX, dword ptr [ESP + 0x18]",
+      "0x4bd00f: MOV EDX, dword ptr [ESP + 0x14]",
+      "0x4bd013: PUSH ECX",
+      "0x4bd014: MOV ECX, dword ptr [ESP + 0x54]",
+      "0x4bd018: PUSH EDX",
+      "0x4bd019: PUSH EAX",
+      "0x4bd01a: PUSH ESI",
+      "0x4bd01b: CALL 0x0054cf10",
+      "0x4bd020: INC ESI",
+      "0x4bd021: CMP ESI, 0x3",
+      "0x4bd024: JL 0x004bd000",
+      "0x4bd026: ADD dword ptr [ESP + 0x14], 0x30"
+    ]
+  },
+  "selector": {
+    "evidence_id": "ev_b76d55eaa43c7c8eeee645b05e22b5ef3e0c407e651dcdb5e8956051e59c5466",
+    "procedure": "0x54cf10",
+    "pseudocode_excerpt": [
+      "void FUN_0054cf10(int param_1,int param_2,int param_3,int param_4)\r",
+      "  if ((short)param_2 == 0) {\r",
+      "  FUN_00483c50(param_1 * 0x10 + 0x14 + in_ECX,param_2 + -1,param_3,param_4);\r"
+    ]
+  },
+  "observations": [
+    "MapData loader0x4b33a0 retains three raw tile words; no index subtraction there.",
+    "0x4bce70 loops layers0..2, skips zero, and passes the word to0x54cf10.",
+    "0x54cf10 selects per-layer storage and passes param_2-1 to0x483c50.",
+    "Ground-only views omit two tile layers and can conceal substantial terrain, such as the platform over water in Map4001."
+  ],
+  "limits": [
+    "Header word0/1/2 bank selection and RGB565 palette interpretation need remaining loader/render crosscheck.",
+    "Static/animated world objects, shadows, actors and UI are absent.",
+    "These previews do not establish town names, school role, NPC binding or authoritative walkability."
+  ]
+}

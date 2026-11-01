@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "dfba41c09c58a698e02422be5262e16c02c071e553ac1cbd5edd98714a454b69"
+      "sha256": "5c567dc48f9c67d77be7ff67af2b5ba1c4fd436667c9e4f802c520c0b40ab364"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -608,6 +608,10 @@
       "sha256": "7fef8f09a6cd736d35636babd5d652ffbcc2e1ba7007ae98b0eef89609c10010"
     },
     {
+      "path": "04-analysis-integration/20261101-native-tile-preview-and-geography.md",
+      "sha256": "a323903ef14388898f709e8d9013bcb0e848dd23305c26bf81fc6e7ce299a9c1"
+    },
+    {
       "path": "04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md",
       "sha256": "f17d182c55e61616ed19a92c336d5765f8f6ec33c42d68a1b8c6703c3f18f960"
     },
@@ -848,6 +852,10 @@
       "sha256": "9929d5b87c89c859888232bea2ad51717b3e9e34af3feb1b8e20f64c03d1b19f"
     },
     {
+      "path": "04-analysis-integration/native-tile-layer-selection-20261101.json",
+      "sha256": "d74399296395190db0f821b486a5aee1a9261fc627a2aa452c099899b2950403"
+    },
+    {
       "path": "04-analysis-integration/new-asset-samples-20261031.md",
       "sha256": "0a50673de8989e3be1cdf348c41146b4958cb8ce13e0ec0bc85fe5949833047e"
     },
@@ -926,6 +934,10 @@
     {
       "path": "04-analysis-integration/tutorial-resource-route-20261101.json",
       "sha256": "154e14ac75036cc359926bfa0a17bff97c1255fe14dea966eb31633b2abd016f"
+    },
+    {
+      "path": "04-analysis-integration/tutorial-tile-preview-metadata-20261101.json",
+      "sha256": "9a216065f6cf4c39825fda04e230716baa3c02bd88bbe431b4468e17a0c1bd65"
     },
     {
       "path": "04-analysis-integration/world-ui-prelude-c43-20261101.md",

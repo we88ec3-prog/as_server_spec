@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 三層圖塊與候選地理離線核對
+
+REA確認非零tile word減1才送影格索引，0略過，並依序畫三層；新增有界YPF圖塊預覽，八張圖引用全部可解碼。公開素材／預覽hash、精選指令與界限，不公開原圖或把地形當原版城鎮身份；待測profile與使用者進度未變。見[分析結果](../04-analysis-integration/20261101-native-tile-preview-and-geography.md)。
+
 ## 2026-11-01 完整教學固定環境與集中實機入口
 
 提供與舊招募員測試分開的完整路線持久入口，保留profile／帳號／金鑰／進度，Server就緒後自開診斷Client。準備模式及重複準備驗證通過，尚未建立使用者DB或密碼。新增一次涵蓋創角、入學、講師、攻擊、選職、出圖與重登的[人工驗證清單](../05-conformance/20261101-complete-tutorial-manual-run.md)；實機結果pending，不升級Native CT。

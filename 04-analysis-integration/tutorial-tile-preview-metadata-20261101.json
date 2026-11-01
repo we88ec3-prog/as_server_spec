@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "scope": "Static tile-layer preview metadata, no game assets or images committed; bank and palette interpretation remain bounded hypotheses.",
+  "tool_sha256": "d45a84c0babeeb0acec73a38ffaa7f8a4c17e38c9091d9fc276628d517dea350",
+  "libraries": [
+    {
+      "archive": "World01.dat",
+      "archive_sha256": "517a635f465d6336b8db15147de87d560615bdab87038f39fd1da551c965106f",
+      "member": "TS_001_Tile.ypf",
+      "member_sha256": "b555221031ea675e42b0014cbb7d58ab3a70c86389feb1d5010ccdb4359f7844"
+    },
+    {
+      "archive": "World04.dat",
+      "archive_sha256": "82053a932f3be969244f080f36bf9cb3c5551f89494a20d0ba8b46e662466cc2",
+      "member": "TS_004_Tile.ypf",
+      "member_sha256": "25ded595ee0300d82751217d684226eb3c9fdb39ae962921f1aa76d4f8260985"
+    },
+    {
+      "archive": "World00.dat",
+      "archive_sha256": "01b1afc14daf4ca030004f825d8af39ff6667d184431a5aa9aa9b67a81160ef3",
+      "member": "TS_000_Tile.ypf",
+      "member_sha256": "51148ec2aba6b0937deff0215caa3ffbfaf164d1aeb1da225346f5fd61972790"
+    },
+    {
+      "archive": "World02.dat",
+      "archive_sha256": "8ef8eab936ae25de98471798e8fdb1baeb9f292550b40a689d51f3aaf1b17d45",
+      "member": "TS_002_Tile.ypf",
+      "member_sha256": "b86f404eeffb45fbd18744eb1c48ceba42beccea0234d3048232873dec38c711"
+    },
+    {
+      "archive": "World03.dat",
+      "archive_sha256": "788b566365d3492ef5db20aed92c362f8d3613dc6c22eaebad25e9f7bb0c6c6f",
+      "member": "TS_003_Tile.ypf",
+      "member_sha256": "32acd023a8d709efe07ba39eb1f866f0eef1961f8c800a19639ef51ad51772e0"
+    }
+  ],
+  "maps": [
+    {
+      "map_ref": 6,
+      "member_sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760",
+      "header_words": [
+        1,
+        1,
+        4
+      ],
+      "dimensions": [
+        60,
+        60
+      ],
+      "unsupported_tile_references": 0,
+      "preview_sha256": "765c4805464aa62c84dd77bb3982617937557f99a0a419dff6b342ec7aa164b5"
+    },
+    {
+      "map_ref": 7,
+      "member_sha256": "947984db169c84df1766babc52b0b2d581b6384d6eb4e1013d367530eaaa3f76",
+      "header_words": [
+        0,
+        0,
+        0
+      ],
+      "dimensions": [
+        60,
+        70
+      ],
+      "unsupported_tile_references": 0,
+      "preview_sha256": "53d49f73091f5eb792ace5dcfdd224b9c091f0c9da357f369780e21ad423a7fa"
+    },
+    {
+      "map_ref": 39,
+      "member_sha256": "ff4f67167ab3872de0708715656a4ea5855f32185acc41de7126387274fb60dc",
+      "header_words": [
+        0,
+        0,
+        0
+      ],
+      "dimensions": [
+        35,
+        40
+      ],
+      "unsupported_tile_references": 0,
+      "preview_sha256": "173d39f554f1d870e83c7442d8ab9c33d3ab567c5345ec587395623bd78e4cbc"
+    },
+    {
+      "map_ref": 1,
+      "member_sha256": "e2c329ad88a9b44c2760d5a996f187e68b7a5b90419f087a2471fabc03490f00",
+      "header_words": [
+        0,
+        0,
+        0
+      ],
+      "dimensions": [
+        124,
+        185
+      ],
+      "unsupported_tile_references": 0,
+      "preview_sha256": "31a36b04dabca6edaf9916b67594b1e62b239f34c317b830e23da684275f377a"
+    },
+    {
+      "map_ref": 1001,
+      "member_sha256": "07868f8a56189ca275b55ee2739623ffab5fc4981296526d85307b188336600a",
+      "header_words": [
+        1,
+        1,
+        1
+      ],
+      "dimensions": [
+        200,
+        200
+      ],
+      "unsupported_tile_references": 0,
+      "preview_sha256": "f843a367313c356563d60edf38f760763b0b21da11188659385fd2c390692c96"
+    },
+    {
+      "map_ref": 2001,
+      "member_sha256": "bc220a638c7e710016af65acc83de2f6255e1b690bfb9ef477871589b56c865f",
+      "header_words": [
+        2,
+        2,
+        2
+      ],
+      "dimensions": [
+        200,
+        200
+      ],
+      "unsupported_tile_references": 0,
+      "preview_sha256": "f2afb6250c27ce616c76b62c61c8fd9995c1e4180442cf9403d48cca5b3bb30c"
+    },
+    {
+      "map_ref": 3001,
+      "member_sha256": "2578a7b3c0fbda5ba757c19212e92a4579c58e751a07600fcd245ea659d5eccd",
+      "header_words": [
+        3,
+        3,
+        3
+      ],
+      "dimensions": [
+        200,
+        200
+      ],
+      "unsupported_tile_references": 0,
+      "preview_sha256": "6787ec4819898daf865b1bcd4d26cd5d6abfa0e5147ddb5ea904337ea0eca2cd"
+    },
+    {
+      "map_ref": 4001,
+      "member_sha256": "3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "header_words": [
+        4,
+        4,
+        4
+      ],
+      "dimensions": [
+        200,
+        200
+      ],
+      "unsupported_tile_references": 0,
+      "preview_sha256": "b17d3b8c3d4ed405eed99ddba4990e666823da772d0b7d5b65614c2d1b8e8ba1"
+    }
+  ],
+  "limits": "Native0x4bce70 skips tile word0;0x54cf10 passes word-1 to image drawing. Header words0/1/2->banks and RGB565 palette interpretation still need complete loader/render crosscheck. Magenta marks unsupported frames. No static objects, shadows, actors or native UI. Never use previews as standability or original town-role proof."
+}
