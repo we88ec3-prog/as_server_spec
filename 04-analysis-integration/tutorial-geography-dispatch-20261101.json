@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "world_map_dispatch": {
+    "entry": "0x564e20",
+    "evidence_id": "ev_6124261da5dd7573fe50a97a762f728e234c52ea113f8faa607b2b73612ad26a",
+    "instructions": [
+      "0x564e53: MOV ECX, dword ptr [0x0066d0d8]",
+      "0x564e59: CALL 0x004b4850",
+      "0x564e5e: MOVZX EBP, AX",
+      "0x564e86: PUSH EBP",
+      "0x564e87: LEA EAX, [ESP + 0x20]",
+      "0x564e8b: PUSH 0x609b3c",
+      "0x564e90: PUSH EAX",
+      "0x564e91: CALL 0x005b3761",
+      "0x564e96: ADD ESP, 0xc",
+      "0x564eb9: MOV ECX, dword ptr [0x0066d168]",
+      "0x564ebf: PUSH 0x61343c",
+      "0x564ec4: CALL 0x004ceea0",
+      "0x564ec9: LEA EDX, [ESP + 0x10]",
+      "0x564ecd: PUSH EDX",
+      "0x564ece: LEA EAX, [ESP + 0x220]",
+      "0x564ed5: PUSH EAX",
+      "0x564ed6: MOV ECX, EBX",
+      "0x564ed8: CALL 0x00564ad0",
+      "0x564edd: TEST EAX, EAX",
+      "0x564edf: JZ 0x00564f19",
+      "0x564ee1: MOV EAX, dword ptr [ESP + 0x10]",
+      "0x564ee5: TEST EAX, EAX",
+      "0x564ee7: JZ 0x00564f08",
+      "0x564ee9: PUSH EBP",
+      "0x564eea: MOV ECX, EBX",
+      "0x564eec: CALL 0x005645f0"
+    ],
+    "notes": [
+      "FUN_004b4850 result AX zero-extended into EBP; getter reads MapData object +4, not raw MAP header+4.",
+      "Six-digit key formatted from map ref, looked up in WorldMap metadata using FUN_004ceea0; FUN_00564ad0 parses returned values.",
+      "Truthy first parsed value selects HTML path and pushes EBP to FUN_005645f0. Otherwise remaining parsed fields select built-in map rendering.",
+      "Missing original Server metadata means local World filenames alone do not prove every map's selection or role."
+    ]
+  },
+  "related_evidence": [
+    {
+      "evidence_id": "ev_01c2543ffb5cb204bdfae78fe1608945444847270af0a96bffd7b9229b466078",
+      "functions": [
+        "0x5645f0"
+      ]
+    },
+    {
+      "evidence_id": "ev_e47f8718576013a086ce5f176894ad00ae121a40ec5cb8f15a7301077bb1a915",
+      "functions": [
+        "0x564ad0"
+      ]
+    },
+    {
+      "evidence_id": "ev_47c3591c2379e55c40c4662c2b987ff1266343b83cadae04528df2a563784e46",
+      "functions": [
+        "0x4ceea0"
+      ]
+    },
+    {
+      "evidence_id": "ev_b118117203086dd4d55a256b9bf2dd864ec6b3be54c9050cb056332767be44dd",
+      "functions": [
+        "0x4ced90"
+      ]
+    },
+    {
+      "evidence_id": "ev_f9f2d8e3068c925687632acd4699994b957a22b88537738db68e2e61ee717634",
+      "functions": [
+        "0x4cebc0"
+      ]
+    },
+    {
+      "evidence_id": "ev_1213d8406c97212171d813ac1074affcf02a8cb5053f62f940be1e7afa096bc7",
+      "functions": [
+        "0x4b4850"
+      ]
+    }
+  ],
+  "limits": [
+    "Static decompiler/decoded instructions; no native execution of this path in this increment.",
+    "Local World HTML already contains localization/pin modifications even in supplied archive; it is a historical/local reference, not pristine original Server content.",
+    "WorldMap metadata records and town map assignment remain unproven; no numeric career mapping proved."
+  ]
+}

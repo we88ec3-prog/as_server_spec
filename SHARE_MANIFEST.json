@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "4913b39b91f0974c7ebec71a8fa4616a1e50ca9993d4b6f1ee3b99b7d0f1428f"
+      "sha256": "04855b443f1f25582fbdcd901692bd5d0bbe3c19c182bdbfccd1a678362bf5c0"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
-      "sha256": "0211422a2d0b37c05f9d91b69978ce4a8b1a611c73ae9aee4a5225a8453b342c"
+      "sha256": "beb46b6890250dec9e6e88c69aea67d87166538a7eb5e89f8cd9103b341bad4d"
     },
     {
       "path": "03-analysis-requests/web-skill-review/AUDIT.md",
@@ -638,6 +638,10 @@
     {
       "path": "04-analysis-integration/20261101-tutorial-career-advisor.md",
       "sha256": "4243db3a76f89cc499cc1b3afd4d3a9dec97eab29283ebf7ccab01c31c755b91"
+    },
+    {
+      "path": "04-analysis-integration/20261101-tutorial-geography-and-content-profile.md",
+      "sha256": "5188c66e845b882806531f78d81705e0cfb6649472049c3255a42bd2d161d96e"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-lesson-npcs.md",
@@ -898,6 +902,10 @@
     {
       "path": "04-analysis-integration/tutorial-career-script-interface-20261101.json",
       "sha256": "210cc3228dd9aae736b3b19464087f9311d9a7407c7db4e0017293f8aa88e2ba"
+    },
+    {
+      "path": "04-analysis-integration/tutorial-geography-dispatch-20261101.json",
+      "sha256": "03c1f61fb28e966303cb794520125330a71a90f524c1eca8a0aa3f0d71a2b8c6"
     },
     {
       "path": "04-analysis-integration/tutorial-lesson-script-interface-20261101.json",

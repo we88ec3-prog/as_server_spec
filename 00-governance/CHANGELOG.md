@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 教學地理線索與完整候選內容入口
+
+核對生活講義的五職業城鎮名稱，REA追出WorldMap依runtime metadata選HTML或內建圖像；提供的HTML／7z已有本地修改，不能當官方綁定。私有工具新增明示候選profile，含六張真實MAP、教學NPC／戰鬥／選職／五條目的地，獨立Host整體載入及seed0 greeting通過；城鎮身份與完整GUI仍未驗，正常開發入口未變。見[分析與候選契約](../04-analysis-integration/20261101-tutorial-geography-and-content-profile.md)。
+
 ## 2026-11-01 教學戰鬥啟動設定與TCP背景投影
 
 啟動流程傳遞明示戰鬥profile，新增固定producer的傳送條件selector；每連線串行poll共享死亡／重生，保持單一socket read、ordinal與寫入順序，背景輸出不延長Client期限。新增loopback TCP與啟動拒絕測試；既有啟動器與使用者Server未變動，完整教學及原生戰鬥GUI仍未完成。見[TCP與設定契約](../04-analysis-integration/20261101-training-combat-transport.md)。
