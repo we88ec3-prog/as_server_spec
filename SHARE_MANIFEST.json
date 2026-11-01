@@ -628,6 +628,10 @@
       "sha256": "7fef8f09a6cd736d35636babd5d652ffbcc2e1ba7007ae98b0eef89609c10010"
     },
     {
+      "path": "04-analysis-integration/20261101-native-pane-visibility-correction.md",
+      "sha256": "067d61bb078620ae4556e547c79a843a1fa63c8e787425451decded59326eca8"
+    },
+    {
       "path": "04-analysis-integration/20261101-native-tile-preview-and-geography.md",
       "sha256": "a323903ef14388898f709e8d9013bcb0e848dd23305c26bf81fc6e7ce299a9c1"
     },
@@ -701,7 +705,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-visibility-and-basic-attack-followup.md",
-      "sha256": "c27f0a2772b195869dbd81159712c82d11187bddcd28d153936e458b7e3fba0b"
+      "sha256": "e1aea8e2dd26bdeb33f1568e202e48ee3ad9acac955880f9e6fd5bbe6dd9f437"
     },
     {
       "path": "04-analysis-integration/20261101-world-transfer-transaction.md",
@@ -912,6 +916,10 @@
       "sha256": "f8b3021bf680a12f91bdf6912b94b48192f4b9d0db6ab6304d19555febaf81e4"
     },
     {
+      "path": "04-analysis-integration/native-pane-visibility-20261101.json",
+      "sha256": "41a1b16624134b350f79c113aedafb42426c374dbc1f346137dc9e7b15893a6c"
+    },
+    {
       "path": "04-analysis-integration/native-static-map-render-20261101.json",
       "sha256": "780df78babde8e911b99757a0c4896ae29cf828a78980061354c09b952889f8b"
     },
@@ -1017,7 +1025,7 @@
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "ece1faf00bce631f3a23fe7750bfbd18c5e89714867d7889a97a73a0d25fee99"
+      "sha256": "337b3a9e07c4866d54bbb57bf7a6efb2cc2b667592fe7dcfdccbdb080de308a4"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
