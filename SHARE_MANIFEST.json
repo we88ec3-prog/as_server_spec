@@ -672,6 +672,10 @@
       "sha256": "452ba15c3311154d33c655d42aae76da6308b1b383bb2c8b32766f565f279f44"
     },
     {
+      "path": "04-analysis-integration/20261101-tutorial-visibility-and-basic-attack-followup.md",
+      "sha256": "c27f0a2772b195869dbd81159712c82d11187bddcd28d153936e458b7e3fba0b"
+    },
+    {
       "path": "04-analysis-integration/20261101-world-transfer-transaction.md",
       "sha256": "6c4e71dbc81f4a74ec4a2b5c49e3c5440a21a0ac05b8e44a08be09297b28c406"
     },
@@ -949,7 +953,7 @@
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "8b4126da905656f9a1302309bd66e3f006ce2a8b8e05cefc7459bae3b7de493e"
+      "sha256": "e0a30f80e09addf1e0c993b0e19def2d846920cf6f75fa4011b9feeb1237c294"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
