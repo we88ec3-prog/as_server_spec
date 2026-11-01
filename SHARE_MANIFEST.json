@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "47e99be31604f6f417daee93f26a0b894594ecf64d727a50cf0a5049d83749bc"
+      "sha256": "26053ce2fc87353fa0dc9bec47d21e2eefe1fb421810431484257c3f10cadca6"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -77,7 +77,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "38fcbf8b981ae59099f8c09eab84612a50bad78e3e1c4f138ca6ac1d731a0726"
+      "sha256": "2db7c7e18b186816de6b6adcfde8ff9092aca847146e731cdc12af3fdd0afb2f"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -94,6 +94,10 @@
     {
       "path": "02-server-planning/architecture.md",
       "sha256": "95f687a4e7eec4b4a1a43d465d06e6d489c4d164d6d7b0ce3fa3907b88f53ec8"
+    },
+    {
+      "path": "02-server-planning/born-intro-implementation-20261101.md",
+      "sha256": "c7b5a267dcade8255c7a2c2205f59dc1dfdfca72ea2ccc1f521aecdbd1366e30"
     },
     {
       "path": "02-server-planning/c35-typed-diagnostic-contract.md",
@@ -285,7 +289,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "b1c859a2595c55ff90924d7b0cc202de8e81c0456009fa94b1d95bc47ef86e05"
+      "sha256": "84700295302f55a67b94b2b7b17ce4503d32aa3e9633db2d6103106a5336d5ba"
     },
     {
       "path": "02-server-planning/world-ui-prelude-increment-20261101.md",
@@ -437,7 +441,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "e3a99beae81ee5db6d862f53de3d2a546c4cfb7a9a8bbed47c69a8647db289ef"
+      "sha256": "f10e4c2bd3d0e1a0906b3697148168305f2b75cb7bb4db04980d986e6d94a4ef"
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
@@ -629,7 +633,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "0b56b8f16101b5201dcb9ca1d1f4ca417583c7ca48042a2fc5aaf44dcb2089e3"
+      "sha256": "9b6c54616bb78e07958eeb564cd4e634e14b6460fb049f1ab029e6bc8c4a2d9b"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -849,7 +853,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "e16bcbaa27ac7df81c9945a86814aca936f91b8387890f430f127ba9da8a40f3"
+      "sha256": "8341f6366537745edea86c27260082e15236c9a94e0053bda227607962d29eb6"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

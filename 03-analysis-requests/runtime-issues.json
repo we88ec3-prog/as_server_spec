@@ -248,7 +248,7 @@
         "Exact Client UI timeout timing after C25, and native-first-create versus existing-character route",
         "Whether unmodified original Client reproduces same UI state in a fully configured native Server"
       ],
-      "next_action": "User corrected-ID NewUser retry, then verify automatic World callback, movement and relogin. Map6 original tutorial identity and Born/NPC remain open.",
+      "next_action": "User correct-account NewUser GUI retry: verify automatic World, Born paper close, movement, relogin position and no duplicate intro. Original tutorial map identity and recruiter binding remain unverified.",
       "native_client_validation": "not-run",
       "github_issues": [
         "https://github.com/we88ec3-prog/as_server_spec/issues/8"
@@ -258,7 +258,8 @@
       "diagnostic_client_validation": "map and character displayed; then Server closed C54 body11 as unknown opcode; persistent play not yet passed",
       "correction_document": "04-analysis-integration/c35-map-reference-correction-20261101.md",
       "c54_report": "04-analysis-integration/c54-native-path-intent-20261101.md",
-      "movement_creation_report": "02-server-planning/native-new-character-movement-increment-20261101.md"
+      "movement_creation_report": "02-server-planning/native-new-character-movement-increment-20261101.md",
+      "born_intro_report": "02-server-planning/born-intro-implementation-20261101.md"
     }
   ]
 }

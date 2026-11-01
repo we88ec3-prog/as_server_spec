@@ -238,3 +238,5 @@ Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研�
 - 2026-11-01：REA勘誤 C35 第一欄為 MapData map_ref，更新 active lookup／離線分析工具與跨地圖 fixture；map6=00060F90。Server 248項回歸與本機TCP通過，GUI待測。使用者要求啟動預填ID另列為測試便利性需求。
 
 - 2026-11-01：私有roy399f09e實作創角後試驗自動S03交接、靜態地圖權威移動、v6目前位置保存及SQLite升級備份；公開規格區分使用者目標、靜態Client證據與Server政策。255項測試／真TCP回歸通過，Native GUI需修正ID後重驗，新手地圖身份尚未證實。
+
+- 2026-11-01：私有roy5da03dd接入已驗雜湊與CP950文字CRC的Born/PaperDialog，S44(1,0)後以C6C4→2確認；與教學完成／獎勵分離，無新schema或Client資源修改。260項測試／本機TCP通過，原版教學場景身份及GUI仍未驗收。

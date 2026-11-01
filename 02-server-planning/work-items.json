@@ -367,6 +367,14 @@
         "diagnostic_client_validation": "NewUser first GUI attempt credential-rejected at C02, no C04; corrected-ID retry pending",
         "original_client_validation": "not-run",
         "tutorial_map_identity": "unverified: map6 remains a trial"
+      },
+      "born_intro_increment": {
+        "report": "02-server-planning/born-intro-implementation-20261101.md",
+        "implementation_commit": "5da03dd",
+        "automated_validation": "260 tests; real HTTP/TCP script start/lifecycle/movement/relogin passed",
+        "native_client_validation": "not-run",
+        "tutorial_map_identity": "map6 unverified",
+        "quest_completion": "not implied by intro close"
       }
     },
     {
