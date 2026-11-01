@@ -62,6 +62,15 @@
         "analysis_scope": "C02/C04／原生合法值由分析",
         "design_scope": "交易／半成品清理由設計",
         "attribution_confidence": "direct-user-message"
+      },
+      "current_character_name_policy": {
+        "minimum_cp950_bytes": 1,
+        "maximum_cp950_bytes": 24,
+        "nonempty_no_whitespace_or_control": true,
+        "origin": "Server design changed in response to user runtime feedback; NOT a reverse-engineered original minimum",
+        "report": "04-analysis-integration/20261101-short-name-creation-rejection.md",
+        "implementation_commit": "067d129",
+        "native_client_validation": "not-run"
       }
     },
     {

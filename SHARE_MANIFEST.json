@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "72ce9a85bf134afdbf58d6e1bccd57b57c859ed4aaf1cafdf8aafbd123ebc361"
+      "sha256": "57ba640bf0a7aae830d8080e7a9d2addc244ef21df4056ad590d27f992a9ef71"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -77,7 +77,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "2db7c7e18b186816de6b6adcfde8ff9092aca847146e731cdc12af3fdd0afb2f"
+      "sha256": "a17852807e6ac92f48d1f6b5c7e534ac4b706c0b858ef8c3b1be16c6e104511d"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -441,7 +441,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "1f51f0de883fedee706fdd3bb0fbd354d95b1b03a66c94a85e314e114fd80110"
+      "sha256": "2202611a4dc29f6b7aa6e076b668b5671d30b2fad757b60fbe18aee7b3939d26"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -458,6 +458,10 @@
     {
       "path": "04-analysis-integration/20261101-preview-exe-crash-debug-diff.md",
       "sha256": "0991691ca9ea120e0b81ffeb01a26ebbcc9a08f587fb1d858d90c2af418d3c4a"
+    },
+    {
+      "path": "04-analysis-integration/20261101-short-name-creation-rejection.md",
+      "sha256": "afde27df14703fbdd46b98bc0201dce19804e19458637d5c47badbf5186b6280"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -637,7 +641,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "a5b657626fa3cde036efc282acda0cb48c4c814aef7e45605713b0cb6b25d2f8"
+      "sha256": "bd1451c392848f6d2174f13342c576375aaa30bbf48fec230ee45da17f45b246"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",

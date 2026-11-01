@@ -166,6 +166,11 @@
         "authority": "BasicString.txt keys73/75 + native confirmation xref 0x49/0x4B + C02 writer",
         "region0_1": "different shape, not generalized",
         "ui_runtime": "not-run"
+      },
+      "name_rejection_increment": {
+        "report": "04-analysis-integration/20261101-short-name-creation-rejection.md",
+        "meaning": "F3 NAME is separate from Account ID; minimum1 maximum24 CP950 bytes is Server policy. Invalid input emits CHAR_INVALID_NAME; experimental S02/C15 retry reauthenticates.",
+        "native_ui_retest": "pending"
       }
     },
     {

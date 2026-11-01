@@ -242,3 +242,5 @@ Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研�
 - 2026-11-01：私有roy5da03dd接入已驗雜湊與CP950文字CRC的Born/PaperDialog，S44(1,0)後以C6C4→2確認；與教學完成／獎勵分離，無新schema或Client資源修改。260項測試／本機TCP通過，原版教學場景身份及GUI仍未驗收。
 
 - 2026-11-01：補證LoginDialog條件式自動C03與S03無prior-C03分派guard；仍不宣稱原生創角轉場已通過。使用者不記得草地圖身份，外部資料未與本地版本／Map6綁定；新增身份待查範圍記錄。無Server／Client行為變更。
+
+- 2026-11-01：修正短角色名的自訂3-byte下限造成創角C02斷線；現行1～24 CP950 bytes屬Server政策。加入精確名稱拒絕診斷及實驗S02/C15重試，261項回歸／完整短名TCP通過，使用者GUI待重驗。
