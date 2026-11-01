@@ -1,0 +1,609 @@
+{
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "authority": "shipped-artifact-static",
+  "scope": "Reviewed instruction and metadata subset. Missing Ghidra procedure entries were inspected by exact instruction addresses. No native GUI or original Server traffic.",
+  "limits": [
+    "Dispatch values are derived from opcode-minus-three, a byte map and a u32 thunk table; thunks13/5F checked by exact JMP instructions.",
+    "Reference roles and type labels remain analyst interpretations beyond the observed accesses.",
+    "No combat formula, HP update or attack-result timing is established by these views."
+  ],
+  "raw_dispatch_tables": [
+    {
+      "evidence_id": "ev_6e0665d5c29c269496ce81c461e722c53ae3a249535415b2db126351221fba1b",
+      "operation": "read_bytes",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f4b30",
+        "requested_bytes": 111,
+        "returned_bytes": 111,
+        "bytes_hex": "0001020304052d060708090a0b0c0d0e0f10112d2d1213142d2d2d152d162d2d2d2d2d2d2d2d172d2d2d2d162d2d2d2d182d2d2d191a2d1b1c2d1d2d2d2d2d1e2d1f2d2d2d202d2d2d2d2d2d2d2d212d2d2d2d2d2d2d2d2d2d2d2d2d222d2d2324252d2627282d292d2a2d2b2d2d2c",
+        "complete": true
+      }
+    },
+    {
+      "evidence_id": "ev_b3da25c5568b9870807470a867ab4946d2752b3c9f37566cd1010d84c43c3545",
+      "operation": "read_bytes",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f4a78",
+        "requested_bytes": 184,
+        "returned_bytes": 184,
+        "bytes_hex": "c1484f00d9484f00e8484f001b494f002d494f005a494f007e494f00fa484f0012494f0051494f003f494f006c494f0075494f0009494f000d4a4f0090494f0063494f00ca484f00f2494f0087494f0036494f005e4a4f00ab494f0048494f00f1484f00c5494f00ce494f00314a4f00bc494f00674a4f00404a4f00704a4f0099494f00a2494f00b3494f00d7494f00e0494f0024494f00e9494f00fb494f00044a4f00164a4f004f4a4f001f4a4f00284a4f00704a4f00",
+        "complete": true
+      }
+    },
+    {
+      "evidence_id": "ev_0e7941ebe7e55461fcd8aa8229c6138656d7d4c010efc01980eabeb2c5c821d9",
+      "operation": "read_bytes",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f4880",
+        "requested_bytes": 64,
+        "returned_bytes": 64,
+        "bytes_hex": "00b801000000e8b4ed0b005f5e5d81c414020000c20400cccccccccccccccccc8b4424048b500883c2fd83fa6e0f87bd0100000fb692304b4f00ff2495784a4f",
+        "complete": true
+      }
+    }
+  ],
+  "derived_dispatch": [
+    {
+      "opcode": 7,
+      "mapped_slot": 4,
+      "thunk": "0x4f492d"
+    },
+    {
+      "opcode": 8,
+      "mapped_slot": 5,
+      "thunk": "0x4f495a"
+    },
+    {
+      "opcode": 19,
+      "mapped_slot": 15,
+      "thunk": "0x4f4990"
+    },
+    {
+      "opcode": 26,
+      "mapped_slot": 20,
+      "thunk": "0x4f4936"
+    },
+    {
+      "opcode": 95,
+      "mapped_slot": 34,
+      "thunk": "0x4f49b3"
+    }
+  ],
+  "reviewed_instructions": [
+    {
+      "evidence_id": "ev_c867ab71e0a8cce3fc3977a82a8154ebd7f234a17c036a711c8a511f3081be87",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f48a4",
+        "bytes": "8b5008",
+        "length": 3,
+        "raw_disassembly": "MOV EDX,dword ptr [EAX + 0x8]"
+      }
+    },
+    {
+      "evidence_id": "ev_5222d74280a5c0d55ff5f079eb088e1f98d2669eb5b8777b4d593ee35333e58f",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f48a7",
+        "bytes": "83c2fd",
+        "length": 3,
+        "raw_disassembly": "ADD EDX,-0x3"
+      }
+    },
+    {
+      "evidence_id": "ev_579ba2b28c397ecdd0f9cb71d760af82204a8be44b10de6b6f01cc93df066793",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f48aa",
+        "bytes": "83fa6e",
+        "length": 3,
+        "raw_disassembly": "CMP EDX,0x6e"
+      }
+    },
+    {
+      "evidence_id": "ev_4c3165892c98541e1f53f9293bfd3f23fbd9d2e0195d7f5338d775e10b24cb21",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f48b3",
+        "bytes": "0fb692304b4f00",
+        "length": 7,
+        "raw_disassembly": "MOVZX EDX,byte ptr [EDX + 0x4f4b30]"
+      }
+    },
+    {
+      "evidence_id": "ev_7a58f227e6d6f8d30ca372f2c61824c3e092af1bfc11ac055023506ce7b64375",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f48ba",
+        "bytes": "ff2495784a4f00",
+        "length": 7,
+        "raw_disassembly": "JMP dword ptr [EDX*0x4 + 0x4f4a78]"
+      }
+    },
+    {
+      "evidence_id": "ev_00b4ff12935c543fd97580a3f9bd1195b4e63551934a1c66bf1b000421efcb16",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f4994",
+        "bytes": "e987dcffff",
+        "length": 5,
+        "raw_disassembly": "JMP 0x004f2620"
+      }
+    },
+    {
+      "evidence_id": "ev_85bd5fd52bc716ebc215d5ac163b9c86c1be9aeea979794f6707d6de1bf3c1d6",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f49b7",
+        "bytes": "e9f4e1ffff",
+        "length": 5,
+        "raw_disassembly": "JMP 0x004f2bb0"
+      }
+    },
+    {
+      "evidence_id": "ev_624f4e7f422c3342d35f7b4fb0960cdfae68bd4320d6aaeb098ec9e23913446e",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f2642",
+        "bytes": "8b4628",
+        "length": 3,
+        "raw_disassembly": "MOV EAX,dword ptr [ESI + 0x28]"
+      }
+    },
+    {
+      "evidence_id": "ev_82048abb4cb7325f6f1144741e5a3f990451af7d21a053a7dfab039dd2ea8eb4",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f2677",
+        "bytes": "8b5624",
+        "length": 3,
+        "raw_disassembly": "MOV EDX,dword ptr [ESI + 0x24]"
+      }
+    },
+    {
+      "evidence_id": "ev_54dbf677c40d3195d4e858afadc0d64013ebdc49f939237bc6ce43a61510880b",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f26a9",
+        "bytes": "8bf8",
+        "length": 2,
+        "raw_disassembly": "MOV EDI,EAX"
+      }
+    },
+    {
+      "evidence_id": "ev_0fe85fae4db4d3ace997f759e4c8d745b15290ccb068ed6954764e8c9eb300f7",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f26b0",
+        "bytes": "394624",
+        "length": 3,
+        "raw_disassembly": "CMP dword ptr [ESI + 0x24],EAX"
+      }
+    },
+    {
+      "evidence_id": "ev_1b8d80d32c096901389287273a25fbdd4abc863a0c6c31a2289c3cdab7f91136",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f288f",
+        "bytes": "668b563c",
+        "length": 4,
+        "raw_disassembly": "MOV DX,word ptr [ESI + 0x3c]"
+      }
+    },
+    {
+      "evidence_id": "ev_950fde252a6f72a4447158d1ecaf8a2256f99f2922c125e6ef0f77300452acbb",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f2893",
+        "bytes": "6a01",
+        "length": 2,
+        "raw_disassembly": "PUSH 0x1"
+      }
+    },
+    {
+      "evidence_id": "ev_0b975d6470811b722374518a8442a7d19b9d4c693386a5129ee6300deb7ae99d",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f289e",
+        "bytes": "668b5640",
+        "length": 4,
+        "raw_disassembly": "MOV DX,word ptr [ESI + 0x40]"
+      }
+    },
+    {
+      "evidence_id": "ev_5988bdadb3388c2d623d8bd2b8a90da1d7c9d5f77abb00bfe84fe56432059f4e",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f28a5",
+        "bytes": "8a563f",
+        "length": 3,
+        "raw_disassembly": "MOV DL,byte ptr [ESI + 0x3f]"
+      }
+    },
+    {
+      "evidence_id": "ev_866d752e5bd7a0a3c7b5bfa28591afa13b652da4deaf13db85acced9bde93067",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f28ab",
+        "bytes": "8a563e",
+        "length": 3,
+        "raw_disassembly": "MOV DL,byte ptr [ESI + 0x3e]"
+      }
+    },
+    {
+      "evidence_id": "ev_723cabc9009d2c79aa1f6a94a4537d24615a41427018593a85c927b32bc937ad",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f28af",
+        "bytes": "53",
+        "length": 1,
+        "raw_disassembly": "PUSH EBX"
+      }
+    },
+    {
+      "evidence_id": "ev_de804543884bccc2261d4ccfcba511d30e0358d234d38da6beee492f937defbd",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f28b0",
+        "bytes": "ff5008",
+        "length": 3,
+        "raw_disassembly": "CALL dword ptr [EAX + 0x8]"
+      }
+    },
+    {
+      "evidence_id": "ev_5fe06e72bb51ca2433e0d6d00fdacffe81cf709908b4b95bde9ad7a896867f58",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f29fc",
+        "bytes": "56",
+        "length": 1,
+        "raw_disassembly": "PUSH ESI"
+      }
+    },
+    {
+      "evidence_id": "ev_a5f51db276c3d86103e9db0d502822e4e0e1106add58fdbd7e947d0ad1858de8",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f29fd",
+        "bytes": "8bcb",
+        "length": 2,
+        "raw_disassembly": "MOV ECX,EBX"
+      }
+    },
+    {
+      "evidence_id": "ev_42481ae2940afd4fe919fcef7705373a17b486dcf002bc14f8ce29d7d45a529c",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f29ff",
+        "bytes": "e8fc20fbff",
+        "length": 5,
+        "raw_disassembly": "CALL 0x004a4b00"
+      }
+    },
+    {
+      "evidence_id": "ev_09141df671c858d405633380fa6561f14758b1005fbceedaedff9aae52abc88a",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f2bbb",
+        "bytes": "8b4324",
+        "length": 3,
+        "raw_disassembly": "MOV EAX,dword ptr [EBX + 0x24]"
+      }
+    },
+    {
+      "evidence_id": "ev_31105687499205009b35bbe548af5c4b384bed8633ad1036e2a4c98dd8929627",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f2bc0",
+        "bytes": "e86b80ffff",
+        "length": 5,
+        "raw_disassembly": "CALL 0x004eac30"
+      }
+    },
+    {
+      "evidence_id": "ev_e760fd78552078ad2a24330d53d54f51673b86a3375525d6b3d51bf304db7244",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f2bf7",
+        "bytes": "8b4b24",
+        "length": 3,
+        "raw_disassembly": "MOV ECX,dword ptr [EBX + 0x24]"
+      }
+    },
+    {
+      "evidence_id": "ev_f492978c5d021b81649f50909f6b62f3d392b4338d3946a6ada277ee4f0971bd",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4f2c01",
+        "bytes": "e80a77fcff",
+        "length": 5,
+        "raw_disassembly": "CALL 0x004ba310"
+      }
+    },
+    {
+      "evidence_id": "ev_23e137481b48d2d07b460d7d633dcae97a34101fed4fa3154e715de383ebe538",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4d6c76",
+        "bytes": "8b5c241c",
+        "length": 4,
+        "raw_disassembly": "MOV EBX,dword ptr [ESP + 0x1c]"
+      }
+    },
+    {
+      "evidence_id": "ev_d479e0d036bc6bb5ed8d10fc507c8f78aa763cd1a76e3ec5f24ec6eb3d59ba24",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4d6c7e",
+        "bytes": "84db",
+        "length": 2,
+        "raw_disassembly": "TEST BL,BL"
+      }
+    },
+    {
+      "evidence_id": "ev_116a548bd3639d4a9cb5ddcfaad76902ad5e3dd8c814aa201540cdb54fb5ad90",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4d6cb5",
+        "bytes": "8b442430",
+        "length": 4,
+        "raw_disassembly": "MOV EAX,dword ptr [ESP + 0x30]"
+      }
+    },
+    {
+      "evidence_id": "ev_63be2a876cc3049feaf9fb5d928f954849bbeb5de2074d5da1c04a33596a3c85",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4d6cbf",
+        "bytes": "50",
+        "length": 1,
+        "raw_disassembly": "PUSH EAX"
+      }
+    },
+    {
+      "evidence_id": "ev_964d7ba6ea053964116961cbdf24cc4776a7d29bdaccbc5e508a6ab9c6c19eeb",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4d6cc0",
+        "bytes": "53",
+        "length": 1,
+        "raw_disassembly": "PUSH EBX"
+      }
+    },
+    {
+      "evidence_id": "ev_b78818589e39f3549491074c65c071ee40aad6e5b385495dfaee5ef07ba45f0d",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4d6cc1",
+        "bytes": "ff5244",
+        "length": 3,
+        "raw_disassembly": "CALL dword ptr [EDX + 0x44]"
+      }
+    },
+    {
+      "evidence_id": "ev_55b3dfb4f3d01adc63c3ecf54b65a950dd916c92f8fa6b3f671c5ed57e176511",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x47bc36",
+        "bytes": "8b5c241c",
+        "length": 4,
+        "raw_disassembly": "MOV EBX,dword ptr [ESP + 0x1c]"
+      }
+    },
+    {
+      "evidence_id": "ev_5e0fffd87eacbec6a99f15007a3a2f1ff9f982d9ede9105d9c8c13b079308cb9",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x47bc75",
+        "bytes": "8b442430",
+        "length": 4,
+        "raw_disassembly": "MOV EAX,dword ptr [ESP + 0x30]"
+      }
+    },
+    {
+      "evidence_id": "ev_1b74eb9687e4294c2872e957493c64f286c0c784321fb9fb071aae947c1e9cff",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x47bc7f",
+        "bytes": "50",
+        "length": 1,
+        "raw_disassembly": "PUSH EAX"
+      }
+    },
+    {
+      "evidence_id": "ev_b86a66303175d7e687038e6bc025f2deb6023c819633789d266aa28d3a7ff25d",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x47bc80",
+        "bytes": "53",
+        "length": 1,
+        "raw_disassembly": "PUSH EBX"
+      }
+    },
+    {
+      "evidence_id": "ev_f7b5d2725215321e147e5db4a217b417e7eb8bffe9b4cdaa866913b905bf5240",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x47bc81",
+        "bytes": "ff5244",
+        "length": 3,
+        "raw_disassembly": "CALL dword ptr [EDX + 0x44]"
+      }
+    },
+    {
+      "evidence_id": "ev_4288ac5c434d120932e05aefa10eac5111fe50f8b41330f7ad10a60c0bb322a7",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b7351",
+        "bytes": "e8faec0100",
+        "length": 5,
+        "raw_disassembly": "CALL 0x004d6050"
+      }
+    },
+    {
+      "evidence_id": "ev_7b5ecaf9e9bf197df2e021d4e45058d5e19371d685aa52de95c05ad695ebc408",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b7356",
+        "bytes": "48",
+        "length": 1,
+        "raw_disassembly": "DEC EAX"
+      }
+    },
+    {
+      "evidence_id": "ev_4c579208e9884d610d24132a1a89a0ea16b1a1f300c7f44c0d91e0aeed9dcd9a",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b7357",
+        "bytes": "7468",
+        "length": 2,
+        "raw_disassembly": "JZ 0x004b73c1"
+      }
+    },
+    {
+      "evidence_id": "ev_ef3c54648455192728c1a85563607e8c2236bdc9f53a61717074588df923cead",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b7359",
+        "bytes": "48",
+        "length": 1,
+        "raw_disassembly": "DEC EAX"
+      }
+    },
+    {
+      "evidence_id": "ev_b382a1065d4788e0dbe4d8bfc0affd1f546aaf710bed0182fdafbf00ef598d82",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b735a",
+        "bytes": "7406",
+        "length": 2,
+        "raw_disassembly": "JZ 0x004b7362"
+      }
+    },
+    {
+      "evidence_id": "ev_8436adc2fe7a1d964838cb49208b71475cf46111539003e405ba98ec887b2249",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b735c",
+        "bytes": "48",
+        "length": 1,
+        "raw_disassembly": "DEC EAX"
+      }
+    },
+    {
+      "evidence_id": "ev_7a146c94b5511a1be3010deac1148e52417e5f09704689dc35f6517b8c36c7a7",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b735d",
+        "bytes": "e9bd000000",
+        "length": 5,
+        "raw_disassembly": "JMP 0x004b741f"
+      }
+    },
+    {
+      "evidence_id": "ev_19ff8ab9dcaa56f27b4258605012d5ba63b80fea646af479761ceecbc34a72a6",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b73c3",
+        "bytes": "b802000000",
+        "length": 5,
+        "raw_disassembly": "MOV EAX,0x2"
+      }
+    },
+    {
+      "evidence_id": "ev_3b3825e34ae145dfad8f335ebfc8f052de1b427dd6033bea80dcf45fd4c46f20",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b740d",
+        "bytes": "b801000000",
+        "length": 5,
+        "raw_disassembly": "MOV EAX,0x1"
+      }
+    },
+    {
+      "evidence_id": "ev_718a8739c1ae24eb31c15a18a27a054c508d942a665d71d59054b476c34f9cae",
+      "operation": "inspect_native_instruction",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": {
+        "address": "0x4b741f",
+        "bytes": "75ea",
+        "length": 2,
+        "raw_disassembly": "JNZ 0x004b740b"
+      }
+    }
+  ],
+  "reviewed_procedure_views": [
+    {
+      "evidence_id": "ev_d4756836df8963a7637013895d82dd6b8195d173743f2eec6c56c7dcbda68be0",
+      "operation": "procedure_pseudo_code",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_00578550(undefined4 param_1)\r\n\r\n{\r\n  undefined4 *in_ECX;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005e6818;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_004a66d0();\r\n  *in_ECX = &PTR_FUN_00614660;\r\n  in_ECX[1] = 1;\r\n  in_ECX[2] = param_1;\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+    },
+    {
+      "evidence_id": "ev_fbb9df8437759784bbba9cb12df20efc84ba32109886b556ba7815a95ddb153c",
+      "operation": "procedure_pseudo_code",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nundefined4 FUN_004d6050(void)\r\n\r\n{\r\n  int in_ECX;\r\n  \r\n  return *(undefined4 *)(in_ECX + 0x284);\r\n}\r\n\r\n"
+    },
+    {
+      "evidence_id": "ev_01f58130c8e7d33878dd109b3c3ec95e07c087224ac0b02d1af193d2ea9baf89",
+      "operation": "procedure_pseudo_code",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "\r\nvoid FUN_004d6fa0(undefined4 param_1,undefined1 param_2,undefined4 *param_3,undefined4 param_4,\r\n                 undefined4 param_5,undefined4 param_6,undefined4 param_7,undefined4 param_8,\r\n                 ushort param_9)\r\n\r\n{\r\n  int iVar1;\r\n  undefined4 uVar2;\r\n  undefined4 *in_ECX;\r\n  void *local_c;\r\n  undefined1 *puStack_8;\r\n  undefined4 local_4;\r\n  \r\n  local_4 = 0xffffffff;\r\n  puStack_8 = &LAB_005d9e1e;\r\n  local_c = ExceptionList;\r\n  ExceptionList = &local_c;\r\n  FUN_0054d010();\r\n  local_4 = 0;\r\n  FUN_004a5f00(param_4,param_5,param_6,param_7,param_8);\r\n  local_4._0_1_ = 1;\r\n  in_ECX[0xa1] = param_1;\r\n  *(undefined1 *)(in_ECX + 0xa2) = param_2;\r\n  *in_ECX = &PTR_FUN_0060ad00;\r\n  in_ECX[2] = &PTR_LAB_0060ac9c;\r\n  in_ECX[4] = &PTR_LAB_0060ac8c;\r\n  in_ECX[0xa3] = *param_3;\r\n  in_ECX[0xa4] = param_3[1];\r\n  in_ECX[0xa5] = param_3[2];\r\n  in_ECX[0xa6] = param_3[3];\r\n  in_ECX[0xa7] = param_3[4];\r\n  in_ECX[0x9f] = (float)param_9;\r\n  in_ECX[5] = 0;\r\n  iVar1 = FUN_004dc720(0x18,0,L\".\\\\monsterobject.cpp\",0xc0,0xffffffcc);\r\n  local_4._0_1_ = 2;\r\n  if (iVar1 == 0) {\r\n    uVar2 = 0;\r\n  }\r\n  else {\r\n    uVar2 = FUN_004d6160(&LAB_004d6a40,0,in_ECX);\r\n  }\r\n  local_4 = CONCAT31(local_4._1_3_,1);\r\n  uVar2 = FUN_004d2340(param_3,param_4,uVar2);\r\n  in_ECX[9] = uVar2;\r\n  FUN_0046e0d0();\r\n  FUN_004a46c0();\r\n  FUN_00570490(*(short *)(in_ECX + 0x9c) + 8,0);\r\n  if ((*(byte *)(in_ECX + 0xa4) & 0x10) != 0) {\r\n    FUN_004fd1d0(in_ECX,0x4d4f6165,0,0,0);\r\n  }\r\n  *(undefined1 *)(in_ECX + 0xa9) = 10;\r\n  if ((((*(byte *)(in_ECX + 0xa4) & 2) != 0) && ((*(byte *)((int)in_ECX + 0x29e) & 1) == 0)) &&\r\n     ((*(byte *)((int)in_ECX + 0x29e) & 4) != 0)) {\r\n    FUN_004fd1d0(in_ECX,0x4d4f7468,0x28,0,0);\r\n  }\r\n  ExceptionList = local_c;\r\n  return;\r\n}\r\n\r\n"
+    },
+    {
+      "evidence_id": "ev_fd9bd5f54809f5c17e8c3af6855458d94052a8fc7f15863e95ca8bcb301c9ce1",
+      "operation": "procedure_assembly",
+      "analysis_profile_digest": "3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece",
+      "result": "0x4ea240: PUSH ECX\n0x4ea241: PUSH ESI\n0x4ea242: MOV ESI, ECX\n0x4ea244: LEA EAX, [ESP + 0xc]\n0x4ea248: PUSH EAX\n0x4ea249: LEA ECX, [ESP + 0x8]\n0x4ea24d: PUSH ECX\n0x4ea24e: LEA ECX, [ESI + 0x120]\n0x4ea254: CALL 0x004e98e0\n0x4ea259: MOV EDX, dword ptr [EAX]\n0x4ea25b: MOV ECX, dword ptr [ESI + 0x124]\n0x4ea261: XOR EAX, EAX\n0x4ea263: CMP EDX, ECX\n0x4ea265: SETNZ AL\n0x4ea268: POP ESI\n0x4ea269: POP ECX\n0x4ea26a: RET 0x4"
+    }
+  ]
+}

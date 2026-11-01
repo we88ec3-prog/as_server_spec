@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 普通攻擊目標與S13／S5F接收入口補證
+
+REA確認鍵盤攻擊producer可收到0，補兩階opcode派送表到S13／S5F handler及動畫參數流；新增嚴格14/31-byte S13 codec，333項Server測試通過。公開精選原件指令與identity，沒有啟用Host扣血或攻擊完成事件；普通攻擊仍待可信怪物／距離／頻率結算及GUI驗證。見[分析與契約](../04-analysis-integration/20261101-native-combat-target-and-effect.md)。
+
 ## 2026-11-01 生活與戰鬥教學NPC
 
 接上原始nNewLife01／nNewWar01的Merchant對話與固定版本觀察事件；原件初頁取消與最後關閉都可能只Dispose，因此只據實記TALK後關閉，不宣稱讀完／戰鬥通過。329項Server測試涵蓋取消、偽造完成、對話互斥與五職業傳送流程經真實Host處理產生兩項教學事件；攻擊仍是明示合成注入，未啟用未知學校地圖或宣稱完整GUI驗收。見[教學NPC契約](../04-analysis-integration/20261101-tutorial-lesson-npcs.md)。

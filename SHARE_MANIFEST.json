@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "7e44e6a8f0c2412c484e48c831fb52c36f213ff0348671af590add3a42af5aea"
+      "sha256": "c0fb96588b12a4cde81e1ede70fd485c9e09d8c592cb0efa38ab65eef9b4c49a"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -592,6 +592,10 @@
       "sha256": "f88f79dc14a17ac5d55c294a483a9de2bccc951692ed1018e055b10857a4ba9c"
     },
     {
+      "path": "04-analysis-integration/20261101-native-combat-target-and-effect.md",
+      "sha256": "4eee17064c393bf005f3dea57628e4385141d39891cbef6e3891be30cda13fe3"
+    },
+    {
       "path": "04-analysis-integration/20261101-native-map-content-and-school-transfer.md",
       "sha256": "0533f97ba4fd03d8577bf202f04c1eb9ad47e3b9c435f2c2f8518f7f9ff3f71f"
     },
@@ -782,6 +786,10 @@
     {
       "path": "04-analysis-integration/client-compatibility.md",
       "sha256": "e65a68f3c83c98f6fadee693c7fd72bfa385988c3989b2dc1ef28b6dfcd70149"
+    },
+    {
+      "path": "04-analysis-integration/combat-target-dispatch-20261101.json",
+      "sha256": "782f0f812340bc540184a022fce4724d1d6a482617a14d7a961b8b5621400ea5"
     },
     {
       "path": "04-analysis-integration/content-resource-catalog.json",
