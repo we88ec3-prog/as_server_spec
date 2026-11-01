@@ -8,6 +8,10 @@
       "sha256": "b8eac2827364979ffbe53e41964df7e06880501dd8ec286b96bec8d01b17a23b"
     },
     {
+      "path": "00-governance/CHANGELOG.md",
+      "sha256": "c2e816f4acca85ec21855b5110dde31a43b8605d1edbf11d997a7d9396f083bd"
+    },
+    {
       "path": "00-governance/ai-analysis-handoff.md",
       "sha256": "a90bf038477f227bd1a3d4173716f3387fd4051967f049a3874432abf49a7d0c"
     },
@@ -16,8 +20,8 @@
       "sha256": "52515e853566242c6b41f9e5bc96da7fe3118646696d990854987fa10ad388db"
     },
     {
-      "path": "00-governance/CHANGELOG.md",
-      "sha256": "56bb6a0f3ba4912318aae7c9592a53dc947835486c577491320b5869a96dae9a"
+      "path": "00-governance/direct-development-workflow-20261101.md",
+      "sha256": "1815d7d17137df4df2493c8510e93a9961e1536b6f13eb9b26b63e6c9d2b9a20"
     },
     {
       "path": "00-governance/explicit-implementation-confirmation.md",
@@ -34,6 +38,14 @@
     {
       "path": "00-governance/record-contracts.md",
       "sha256": "476d44b7e34398f075d16f746ab966ca1cf9ce7db2cab34b3ba8a9a4f1651bb9"
+    },
+    {
+      "path": "00-governance/requirement-origin-policy.md",
+      "sha256": "dc8fbdfca021e65d75ecc8742cd7c2072c1cca159d6a6f56d73433dc40c45bb2"
+    },
+    {
+      "path": "00-governance/requirement-origins.json",
+      "sha256": "5ac1297f750c93094a962b4d9d5b368975aee27408528452aac406e50d1d59e7"
     },
     {
       "path": "00-governance/runtime-feedback-workflow.md",
@@ -56,16 +68,16 @@
       "sha256": "d40371667ed606b993a5c0c337a89abdd63508e4b59378725d7c306d8549224a"
     },
     {
-      "path": "01-server-requirements/first-login-onboarding.md",
-      "sha256": "c3ef1c501a1e4c0f085ae690c4148b9dd04231315ee59f420d2522003561925e"
-    },
-    {
       "path": "01-server-requirements/README.md",
       "sha256": "92bd8c904155aff6c84e6592427f96489bb3f781b423fa0cfe6f8ec7f9901cf7"
     },
     {
+      "path": "01-server-requirements/first-login-onboarding.md",
+      "sha256": "c3ef1c501a1e4c0f085ae690c4148b9dd04231315ee59f420d2522003561925e"
+    },
+    {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "57e732f79934eee137f112ad0981d10f19d4276a0c41b92683e15ddc1612187a"
+      "sha256": "c52a91f7c3dfba19ebcc9ac3cf5612a2286ecc23d0f146db8459245d91519e6d"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -84,6 +96,10 @@
       "sha256": "95f687a4e7eec4b4a1a43d465d06e6d489c4d164d6d7b0ce3fa3907b88f53ec8"
     },
     {
+      "path": "02-server-planning/c35-typed-diagnostic-contract.md",
+      "sha256": "bf235454839efd646d0d34b88e092a085f1f747202f83f2aa0d2aef7bde18f54"
+    },
+    {
       "path": "02-server-planning/character-account-match-policy.md",
       "sha256": "360043ce03d3aa92fab4427d38f681160cf119e33de4b86266704b473f091c9f"
     },
@@ -93,7 +109,11 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "3b1bde2270d27a63d3d8242b01d88f90a7fd96b491a7051606734e5ffaca9103"
+      "sha256": "6b447ee550f450ad89e87af84ebb6a3e1ad1729fef8725e52d07dfe813e97d94"
+    },
+    {
+      "path": "02-server-planning/client-monitor-tool-contract.md",
+      "sha256": "ac0e26b35344300be833ecd87c44356d2904127f060182af431400da9561a24c"
     },
     {
       "path": "02-server-planning/client-server-responsibility.md",
@@ -109,11 +129,11 @@
     },
     {
       "path": "02-server-planning/first-login-onboarding.md",
-      "sha256": "ef9092db03274c1560c9d78abd6de9a2ef181c12bf3eaec98440054bbd475f0e"
+      "sha256": "851ebe58f40b2091d97a9a78d7f5bd21e77ad2e474fc17da22b7aaf33c953e4a"
     },
     {
       "path": "02-server-planning/game-packet-log-contract-and-backfill-20261101.md",
-      "sha256": "e8338f4631dc4e9ec07f7dcb74f503e54bb148b3a71d602dbe24ae350cbd8be0"
+      "sha256": "fadd65d6d778ead1636c79d0fc3eba255e1a87c93b8e5d5dd8d2c226a14b2b45"
     },
     {
       "path": "02-server-planning/idle-disconnect-observability.md",
@@ -157,7 +177,7 @@
     },
     {
       "path": "02-server-planning/native-playable-entry-roadmap-20261101.md",
-      "sha256": "7a637ca10a585284bbd6a8fd6c437f6b93c72491b98691f04c00025eb80df81f"
+      "sha256": "7d36802cd3a8350a3b18d5d07b84548686d8ad5c45b76347dec492d3d01611e9"
     },
     {
       "path": "02-server-planning/new-quest-skill-dev-iteration-20261031.md",
@@ -177,11 +197,11 @@
     },
     {
       "path": "02-server-planning/onboarding-delivery-board.md",
-      "sha256": "5a91697fee3985cdd534e80ee8865f203832246762450b6bd198760f3052ef99"
+      "sha256": "0602b7a896de180918f488132d3c0c79d621c60febfb67b14257cb807ce90ff9"
     },
     {
       "path": "02-server-planning/onboarding-readiness-gates.json",
-      "sha256": "54df4bb75f6254b56917fb013dc43174780ecba40e8ce8bd69a7e4b2d7205fbc"
+      "sha256": "a078c15a96a7669cdc7633635f3353196ee6b80cf586bfafa7317576588599f5"
     },
     {
       "path": "02-server-planning/post-create-direct-world-decision-20261101.md",
@@ -190,6 +210,14 @@
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
       "sha256": "32d895aa7b008b7625137cae1209c4bfdc2727f7eb34bd7f922266c52362968b"
+    },
+    {
+      "path": "02-server-planning/prototype-parity-backlog.json",
+      "sha256": "d6dd604ec7dd5d181aa48ef80ce3ab55bd4d9a7096d3cab57747c0a469c19999"
+    },
+    {
+      "path": "02-server-planning/prototype-parity-delivery-plan-20261101.md",
+      "sha256": "8b576ec0d033e67ffa79824c4dc7cc16234e723281d3e2d4838520a8def35a79"
     },
     {
       "path": "02-server-planning/roadmap.md",
@@ -201,7 +229,7 @@
     },
     {
       "path": "02-server-planning/roy123-playable-world-implementation-20261101.md",
-      "sha256": "02e8ce97aa22d9a07888af8d5e7ad11e603f838e287505ecafbb7f57ffa67ad8"
+      "sha256": "ac21f377d04cf78addf4993b36a78dffdb8883e25b91ab0e11ece36c9c132711"
     },
     {
       "path": "02-server-planning/runtime-feedback-handoff.md",
@@ -232,6 +260,10 @@
       "sha256": "83415792e197b1f508054df26eabd2c6de4e3cc9e90144a2d936b7d96bcc8009"
     },
     {
+      "path": "02-server-planning/test-client-id-prefill-20261101.md",
+      "sha256": "d720683e03cb7fda91afd9677246b672e1de3fc95b3140ee6d9418f0889a2421"
+    },
+    {
       "path": "02-server-planning/three-native-account-entry-policy.md",
       "sha256": "d09418927dcf52ab23957ca890ea49965e62880fd8fcfe3e82a33c5ff19966de"
     },
@@ -249,7 +281,11 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "ba1f3d52eb362e68f2b94663494aca251a524ca45fd82e22630daeb5e72fa0f0"
+      "sha256": "df0f8d4e0ee0669e3f950b5055283a6716fd0556662fc6f1b2fa2363aecb2d25"
+    },
+    {
+      "path": "02-server-planning/world-ui-prelude-increment-20261101.md",
+      "sha256": "86d795072325a685664fe3c403e24e6114cf07f8216ff7580f648e19454e027e"
     },
     {
       "path": "03-analysis-requests/A-001-roy1-seed-and-version.md",
@@ -356,6 +392,10 @@
       "sha256": "a451cb2d9f0bae72a7cfe3b42059080ccf93c96651dd4070ca9d7940af61e556"
     },
     {
+      "path": "03-analysis-requests/README.md",
+      "sha256": "72258c834d88cdee77c652bfe3ef5bf2e19f72bd1864ac5727194381b606e3e5"
+    },
+    {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
       "sha256": "8e3af1c4e2791bbeb72b01d806c2bff50b86d25d752dcc7d639bf32a72e4fdab"
     },
@@ -365,7 +405,7 @@
     },
     {
       "path": "03-analysis-requests/native-playable-entry-analysis-queue-20261101.md",
-      "sha256": "5a365bb6931fcf37dc2d1e893021e6021d48328bcf1eaa2ca750f0561677e224"
+      "sha256": "0c61d4b6d3aebbc56eb34d81582231d3a13fad31d23997fdb92c389482dc9a69"
     },
     {
       "path": "03-analysis-requests/next-client-io-evidence.md",
@@ -380,24 +420,20 @@
       "sha256": "d4ff30e93310ff7bf27e7afa6e158004b466d160230c117948da584c54b7a696"
     },
     {
-      "path": "03-analysis-requests/README.md",
-      "sha256": "72258c834d88cdee77c652bfe3ef5bf2e19f72bd1864ac5727194381b606e3e5"
-    },
-    {
       "path": "03-analysis-requests/request-template.md",
       "sha256": "783a530d608ad0626be2e0f4683681bd1f9973deec1c136708989c3d81a20506"
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "474e3eae0dd19bb78e3980f982d44540978c31d40c9223fed1cc43e8576c379f"
+      "sha256": "40e2672053d595a968ca517ecfe7043bc2650cf4f622fadd0c3c2bc19d0d7d57"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
-      "sha256": "cd77b12f4b55170e9bdbac9b5f5f7ce48fa795ad0f6249db4f726dc1f21bfb03"
+      "sha256": "53823abd14e4551fd7f8f23ad74d7ccbeecb9a2d31a35d3f8bbe8b0d1e11061a"
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "f5af08baf7a8e5981757a8efa6abb324e56a05c05dbd1092d2671cf1c84c9d01"
+      "sha256": "7ba61508377807709b9db9f8f0969e9842f7cbe1b6700c8355da77e098269805"
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
@@ -485,7 +521,7 @@
     },
     {
       "path": "04-analysis-integration/A-022-map-loading-crc.md",
-      "sha256": "2fae4f8a2c84ebd7065b2308e2b4d502a6f02aba883098c204a80939163f2d2c"
+      "sha256": "d95a9d511a1da8fc31f48ce22e2ab047de7e639ad64498eb23661b5cc97a87a3"
     },
     {
       "path": "04-analysis-integration/A-025-tutorial-combat-contract.md",
@@ -513,11 +549,15 @@
     },
     {
       "path": "04-analysis-integration/A-032-structured-c35-contract.md",
-      "sha256": "7081a0db4376d5fffe32f39e34f727eafedd09b3efaba76cbea8db0843ab47af"
+      "sha256": "fee1e87f25545e0ef80e137a69c2f404bea57e0c8f65e700551bdacc19390968"
     },
     {
       "path": "04-analysis-integration/A015-A016-A027-A028-validation.md",
       "sha256": "058e3997cfcb8c457bc9f9cf99eb87e8253ed87cee2ded50a6ea785847ef949c"
+    },
+    {
+      "path": "04-analysis-integration/README.md",
+      "sha256": "a420f7f52189a335ff2457442a0f1b8066ba6c799efe9862258c7ca9f7dcdc0d"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -536,6 +576,14 @@
       "sha256": "91aeaab9303e5d73067ec10cdac9b617f2a515884c1ef5ea8959f547e0afbd36"
     },
     {
+      "path": "04-analysis-integration/c35-map-reference-correction-20261101.md",
+      "sha256": "1581de0e9c5d15939e51bb1afd786b117766d39b8f8126adf139163db3941b8b"
+    },
+    {
+      "path": "04-analysis-integration/c54-native-path-intent-20261101.md",
+      "sha256": "5d01212a159c1d7b4569463ce5d882e26395110d71ff45a48f87c14795c9ce1b"
+    },
+    {
       "path": "04-analysis-integration/client-compatibility.md",
       "sha256": "e65a68f3c83c98f6fadee693c7fd72bfa385988c3989b2dc1ef28b6dfcd70149"
     },
@@ -545,7 +593,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "28f364dcdad43cb9d40e0c2c578fcadf71f799addf02ced77a52a9e0f51ed920"
+      "sha256": "e10fc80ec6a411fcc0dcfae3988805e28f5bcb9fe955b5e0bae56b1367267489"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -577,19 +625,19 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "166b5f794e1957b28cb10ed430fc01a209d3ebf8fc305911dc472ecbc5188893"
+      "sha256": "0b56b8f16101b5201dcb9ca1d1f4ca417583c7ca48042a2fc5aaf44dcb2089e3"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
       "sha256": "425bb8567a267cb5d9cc866da376ca762b32fc54cb6b67560cb46f5f24af3cc5"
     },
     {
-      "path": "04-analysis-integration/README.md",
-      "sha256": "a420f7f52189a335ff2457442a0f1b8066ba6c799efe9862258c7ca9f7dcdc0d"
+      "path": "04-analysis-integration/prototype-parity-audit-20261101.md",
+      "sha256": "d41974002859b49c19d9d57fb45e90a17aea19e8c7bcfe88b971ec40a662665d"
     },
     {
       "path": "04-analysis-integration/resource-formats.md",
-      "sha256": "5e0afd7c2d5a64d2fd25871d755e713182b4338b425843d61ff9597c3539ed2d"
+      "sha256": "0fffee8a0a385b4b4138cd87bd780b35164b887d6294b14fa69d65822d901c68"
     },
     {
       "path": "04-analysis-integration/roy-branch-web-admin-sync-20261031.md",
@@ -605,7 +653,7 @@
     },
     {
       "path": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
-      "sha256": "cf0209ceee4dee5a39608a09f11b07e42c706abb10b98b61f121bba32f269469"
+      "sha256": "ff0d6b0316618ce7b2c360ca5d0ac484ca98b218aca62160c5473976969abf51"
     },
     {
       "path": "04-analysis-integration/scenarios.json",
@@ -613,7 +661,7 @@
     },
     {
       "path": "04-analysis-integration/scenarios.md",
-      "sha256": "39f7f080e2510105c99bc3ad461b5373f53172f255a810e3fb8f46b4f6c872d3"
+      "sha256": "22ec8f4d4eba2caab2f312c0ad19ab2ff42c62682326fa9cf1a9fcaf21034740"
     },
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
@@ -626,6 +674,10 @@
     {
       "path": "04-analysis-integration/tutorial-born-resource.json",
       "sha256": "5b09bd847fa7998fecc0a408f71a76a1e507d640a5672a3c67491b1ebfb72de0"
+    },
+    {
+      "path": "04-analysis-integration/world-ui-prelude-c43-20261101.md",
+      "sha256": "9df802a284ddb2d248a77038b0c56629faea0732b2328984630b6e970aca261a"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
@@ -745,7 +797,7 @@
     },
     {
       "path": "05-conformance/native-playable-entry-acceptance-20261101.md",
-      "sha256": "c24cc98a03faf55c19e3e27411ba570c209d9bdf30c6bada56632fa4ecfb4bf3"
+      "sha256": "ef4b12d959bbaba209c78db71c777257c37b0a27dcc02e9ae7e31dae475ce4c3"
     },
     {
       "path": "05-conformance/new-asset-validation-plan.md",
@@ -764,8 +816,16 @@
       "sha256": "f8335efcefc7b44f5ad1f9a636d7c8ef4085f6d6377d80ec3784022b53c6d8ae"
     },
     {
+      "path": "05-conformance/prototype-parity-regression-20261101.md",
+      "sha256": "c815ba67d41b0106212a6f81c49b849d02e0b332d1784893eadad4fbf4d87463"
+    },
+    {
       "path": "05-conformance/shared-map-multiplayer-test-plan.md",
       "sha256": "261184f674c96885f086cfb80e0c18dc1a84f4aa764f05e3c9fae0f77be0fd63"
+    },
+    {
+      "path": "05-conformance/time-check-parity-test-plan.md",
+      "sha256": "d0c2c1d8c9890f1be65f4a6c73333d66604a0285a9fc0d3860d2f70a789fe5df"
     },
     {
       "path": "05-conformance/tutorial-refuse-reask-test-plan.md",
@@ -777,11 +837,15 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "a87e03b9d929a14d7989f39b731a96e3560c2ec4d5b26830f054b42955658bdb"
+      "sha256": "6686d34e4bd9becc2b141255a136ffcb18eb9d096c54d30b53dca42f6b4cabe1"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "551f564c10ed951742b7db4f1c8339ec17be1cd20f50508d5b5788aa6cbde6c2"
     },
     {
       "path": "README.md",
-      "sha256": "fb0f91ce1040658c829460465115793bb35c89b49fc9feb0e5121912791478d0"
+      "sha256": "bffbbb2c36c08cc84ea93a37f6d51bbf085ed9fb6f460af8a5e9df522a0a564e"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -841,7 +905,7 @@
     },
     {
       "path": "task_a/roy2/A-015-field-audit.md",
-      "sha256": "90d7ec265d023157cac9ba9597ab8b1fd262bc090f509976a44e42dae2e29bed"
+      "sha256": "7b8c055abb3b3eaf1df7395ff3cf9f457d4bf1871058600ff2af17a0ce0ebaef"
     },
     {
       "path": "task_a/roy2/A-015-map-coordinate-collision.md",
@@ -1061,7 +1125,7 @@
     },
     {
       "path": "task_a/roy3/A-032-roy3-native-map-c35.md",
-      "sha256": "6f8b098e31cc60890636be8f279b091b4c40624bf01a2c199ab1939b5cf355c8"
+      "sha256": "c58d35245a8740200aa45d58e048c60411b287c949996ae20927c33093908dc3"
     },
     {
       "path": "task_a/roy3/a005_native_move_chain.py",
@@ -1077,11 +1141,11 @@
     },
     {
       "path": "task_a/roy3/a032_c35_fixture.json",
-      "sha256": "7ac53060ec0eac10966e2b56a1a555a0055419557496b707c89b867066eb0b24"
+      "sha256": "fecf2b6c634efb5343a33cceeddd7c55fb57344ef02d75a941fce146c5c7014f"
     },
     {
       "path": "task_a/roy3/a032_c35_probe.py",
-      "sha256": "bed26b4f312ffc5179c1cc9acf6d26cdbea84b9be32fd07b171a949fc1d35dcd"
+      "sha256": "84036c76cb0cd4cc9639785bc724f32e689b9663d98a6fbe79e024153263dc68"
     },
     {
       "path": "task_a/roy3/test_a005_native_move_chain.py",
@@ -1093,7 +1157,7 @@
     },
     {
       "path": "task_a/roy3/test_a032_c35_probe.py",
-      "sha256": "f2db6c7a841689036b87065daa9adfc0f95c4482bfe080d732b75337351064b4"
+      "sha256": "079d70e4eaee2930340a9a24ad97822808cdd921c1bc11c79ce848795f6164b2"
     },
     {
       "path": "tools/a001_codec_vectors.py",
@@ -1194,46 +1258,6 @@
     {
       "path": "tools/validate-phase-gates.py",
       "sha256": "74be584ced556a544b84a50da19496686bb8b43f326cb01c5ec17201b7f46ff5"
-    },
-    {
-      "path": "04-analysis-integration/prototype-parity-audit-20261101.md",
-      "sha256": "d41974002859b49c19d9d57fb45e90a17aea19e8c7bcfe88b971ec40a662665d"
-    },
-    {
-      "path": "02-server-planning/prototype-parity-delivery-plan-20261101.md",
-      "sha256": "8b576ec0d033e67ffa79824c4dc7cc16234e723281d3e2d4838520a8def35a79"
-    },
-    {
-      "path": "02-server-planning/prototype-parity-backlog.json",
-      "sha256": "c745f68b95377f27df7f9c1595f7a100c73b20abe5e98810c6f3cba6f480af6a"
-    },
-    {
-      "path": "05-conformance/prototype-parity-regression-20261101.md",
-      "sha256": "c815ba67d41b0106212a6f81c49b849d02e0b332d1784893eadad4fbf4d87463"
-    },
-    {
-      "path": "05-conformance/time-check-parity-test-plan.md",
-      "sha256": "d0c2c1d8c9890f1be65f4a6c73333d66604a0285a9fc0d3860d2f70a789fe5df"
-    },
-    {
-      "path": "00-governance/requirement-origin-policy.md",
-      "sha256": "dc8fbdfca021e65d75ecc8742cd7c2072c1cca159d6a6f56d73433dc40c45bb2"
-    },
-    {
-      "path": "00-governance/requirement-origins.json",
-      "sha256": "c62c752f4967d81b7a2353561ede23ad826a9428b4ed68ad16f3161f4f0aebb4"
-    },
-    {
-      "path": "AGENTS.md",
-      "sha256": "551f564c10ed951742b7db4f1c8339ec17be1cd20f50508d5b5788aa6cbde6c2"
-    },
-    {
-      "path": "00-governance/direct-development-workflow-20261101.md",
-      "sha256": "1815d7d17137df4df2493c8510e93a9961e1536b6f13eb9b26b63e6c9d2b9a20"
-    },
-    {
-      "path": "02-server-planning/client-monitor-tool-contract.md",
-      "sha256": "ac0e26b35344300be833ecd87c44356d2904127f060182af431400da9561a24c"
     }
   ]
 }

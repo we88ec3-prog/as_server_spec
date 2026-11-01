@@ -218,7 +218,7 @@
         "合法出生點、碰撞與 C35 配對需要對具體選定地圖完成測試",
         "Map tile in-bounds != actual player-passable/spawn-safe; selected original map and native pixel-foot mapping unknown",
         "A-031 proves C10 then region3 BillingInfo C25 queue; does not prove first S2C, map loading packet order, or native successful World GUI. CT-108 still not-run",
-        "Offline map6 C35 00040F90 not yet captured from unmodified Client, runtime map state/spawn and native loader timing pending CT-108."
+        "Offline map6 C35 00060F90 not yet captured from unmodified Client, runtime map state/spawn and native loader timing pending CT-108."
       ],
       "native_client_validation": "not-run",
       "work_items": [

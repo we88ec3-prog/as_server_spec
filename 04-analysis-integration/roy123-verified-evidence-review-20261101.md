@@ -1,5 +1,8 @@
 # 2026-11-01 Roy1 / Roy2 / Roy3 增量分析核對、證據分級與整合報告
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
 ## 基準與合併形式
 - 共同祖先 `as_server_spec/main@d68dc28eb02bd3c514d531caded16aa07603b0d8`；合併來源 `task_a/roy1`、`task_a/roy2`、`task_a/roy3`，保留各分支原 commits 作 merge parent；遇到共同 `requests.json`／`evidence-index.json`／`packets.json`／`vectors.json` 的變更按 ID 與欄位合併，不能用最後一個 branch 整檔覆蓋其他研究。
 - 原件 `Asgard.exe` SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`、`Basic.dat` `0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96`、`Locale.dat` `813f2800696555f16ec6c4bfc5975b649332340b5a6975d7aeba4c4e77380161`；原始 `Map0.dat` `dcaf8ab5...`、`Map1.dat` `8681dc75...`、`Map2.dat` `5320a095...`。已對本輪可存取的七份原件執行 SHA256 比對，均與分析報告一致。

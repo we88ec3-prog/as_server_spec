@@ -90,7 +90,6 @@ def checksum(raw,table):
     if at!=len(m):raise FormatError("trailing MAP bytes")
     return {"header_le_u16":[h0,h1,h2],"width_tiles":w,"height_tiles":ht,
             "header_word":h2,"checksum":crc,
-            "c35_be_u16_pair_hex":struct.pack(">HH",h2,crc).hex().upper(),
             "tile_start_offset":tile_start,"tail_record_counts":counts}
 
 def report(exe_path,archive_path,map_ref,candidate_path=()):
@@ -107,7 +106,9 @@ def report(exe_path,archive_path,map_ref,candidate_path=()):
     payload=next((m for n,m in members(data) if n==name),None)
     if payload is None:raise FormatError("map_ref does not exist")
     result=checksum(payload,table)
-    result.update(map_ref=map_ref,archive=archive_name,archive_sha256=sha,
+    result.update(map_ref=map_ref,c35_map_ref=map_ref,
+                  c35_be_u16_pair_hex=struct.pack(">HH",map_ref,result["checksum"]).hex().upper(),
+                  archive=archive_name,archive_sha256=sha,
                   map_name=name,map_payload_sha256=hashlib.sha256(payload).hexdigest(),
                   source_grade="original-static-resource-reconstruction",
                   native_c35_captured=False,native_walkability_verified=False)

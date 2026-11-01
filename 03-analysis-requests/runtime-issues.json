@@ -211,7 +211,7 @@
       "id": "RI-007",
       "title": "登入成功 C03/S03/C10/Region3 C25 後停留 WorldGranted 且無後續 S2C",
       "priority": "P0",
-      "status": "analysis-dispatched-to-A-and-DEV-gap",
+      "status": "map-displayed-c54-handler-implemented-client-retest-pending",
       "runtime_scope": "2026-11-01 03:47:31~33 UTC+8, Server build e93c9a1748fbca539106cba5e75458757c8e490d; current test Client native identity unverified/possibly modified preview",
       "source": "User-uploaded game-packets-20261031(2).jsonl, game-tcp-20261031(2).jsonl and read-only as_server_roy LoginWireSession.case 0x25@e93c9a17",
       "analysis_requests": [
@@ -232,19 +232,30 @@
         "C03 authenticated and S03 normal transfer close; new socket C10 accepted -> WorldGranted; C25 body_len16 accepted.",
         "No World S05/S15/S14 output or client C35 within captured log window; World TCP has no close summary in supplied files.",
         "When _worldFixture is null and Region3 C25 arrives, source marks billingSeen and returns Continue() with zero S2C frames.",
-        "Synthetic fixture C25 body 01 is not the real native Region3 C25 format and cannot be used to mark native completed."
+        "Synthetic fixture C25 body 01 is not the real native Region3 C25 format and cannot be used to mark native completed.",
+        "Subsequent opt-in map trial now has S02 UI initialization before S05/S15/S14 and a strict bounded C43 loading deferral, referencing historical prototype observations. 248 synthetic tests and isolated HTTP/TCP smoke passed; real visible Client map remains pending user retest.",
+        "User diagnostic-copy trial reached visible game UI/title and sent C43 then C35, but C35 handling closed with no received values in the old generic summary. ed4adb5 adds typed safe C35 diagnostics; second isolated user run requested without loosening checks.",
+        "Second diagnostic Client run: C35 map_ref=6/checksum=3984; old Server expected 4/3984 and closed native-map-c35-mismatch.",
+        "REA original MapData constructor 0x4B33A0 stores map_ref at object+4; 0x4B4850 reads object+4, not raw file+4. Correct map6 wire pair 00060F90; strict raw MAP header4 verification stays.",
+        "Corrected implementation: 248 Server tests and isolated HTTP/TCP smoke passed; wrong checksum and old header4 pair rejected without entry commit.",
+        "Next diagnostic run: C35 accepted6/3984; map and character visible by user screenshot; C11 handled; C54(body11) closed unknown-opcode within one second of WorldReady.",
+        "C54 shape and stop producer verified by original EXE REA; native-trial WorldReady handler now parses intent without changing authoritative position. 251 tests and isolated TCP smoke passed."
       ],
       "unknowns": [
         "First original-client expected World S2C order, region-specific map/spawn/viewport and real C35 runtime",
         "Exact Client UI timeout timing after C25, and native-first-create versus existing-character route",
         "Whether unmodified original Client reproduces same UI state in a fully configured native Server"
       ],
-      "next_action": "Roy2 A-031 issue #8 Client receive/order analysis; DEV-ENTRY-04 owner implements native World path separately; do not change Server from analysis role.",
+      "next_action": "User batch retest idle60s, tooltip hover and nearby map click; C33 still stop/rebase. Continue authoritative movement and new-character automatic entry; official tutorial map identity remains open.",
       "native_client_validation": "not-run",
       "github_issues": [
         "https://github.com/we88ec3-prog/as_server_spec/issues/8"
       ],
-      "handoff_document": "03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md"
+      "handoff_document": "03-analysis-requests/dispatch-20261101-preview-crash-and-world-entry.md",
+      "direct_development_report": "04-analysis-integration/world-ui-prelude-c43-20261101.md",
+      "diagnostic_client_validation": "map and character displayed; then Server closed C54 body11 as unknown opcode; persistent play not yet passed",
+      "correction_document": "04-analysis-integration/c35-map-reference-correction-20261101.md",
+      "c54_report": "04-analysis-integration/c54-native-path-intent-20261101.md"
     }
   ]
 }

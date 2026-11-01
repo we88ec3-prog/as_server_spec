@@ -245,7 +245,7 @@
       "tests": [
         "CT-108"
       ],
-      "rule": "A-032 original MAP0/00006.map map_ref=6 full offline structured C35 body 00040F90 (also 0=000063A9,10000=00040F90,18001=0012F892,20001=0016E9B9) now static-proven with archive SHA; native Client C35, valid spawn/viewport/facing and tutorial map identity remain not-run. Check both u16 and map content revision, no raw CRC/guess."
+      "rule": "A-032 original MAP0/00006.map map_ref=6 full offline structured C35 body 00060F90 (also 0=000063A9,10000=27100F90,18001=4651F892,20001=4E21E9B9) now static-proven with archive SHA; native Client C35, valid spawn/viewport/facing and tutorial map identity remain not-run. Check both u16 and map content revision, no raw CRC/guess."
     },
     {
       "id": "ENTRY-04",
@@ -304,7 +304,7 @@
       "A030_region2_4_name_email": "proven-resource+original-EXE",
       "A028_region3_postcreate_success_ui": "proven-static-LoginDialogPane-constructor-not-auto-login",
       "A031_region3_c10_c25": "proven-static-CBillingInfoPacket-3string8-no-interposed-S02",
-      "A032_map6_structured_c35": "offline-original-asset-00040F90-not-network",
+      "A032_map6_structured_c35": "offline-original-asset-00060F90-not-network",
       "A005_s0b_seq7_bit7": "proven-static-current-sequence-ack-correction",
       "A005_native_path_predicate": "verified-original-static-read-side-dest-bit0-src-bit3-direction-mask-dynamic-overlay-and-object-lookup;native-GUI-not-run"
     },

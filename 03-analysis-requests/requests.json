@@ -1532,7 +1532,7 @@
       "static_scope_completed": [
         "S14 control1/2/3",
         "S15 3xu16+2xu8+string8",
-        "C35 MAP header+4 and structured checksum",
+        "C35 MapData map_ref and structured checksum",
         "S04 4xu16",
         "MAP record 16-byte tail",
         "structured CRC inner primitive",
@@ -2467,7 +2467,7 @@
         "A-005"
       ],
       "remaining_unknowns": [
-        "Actual original Client C35 packet capture to compare expected 00040F90 for 00006.map",
+        "Actual original Client C35 packet capture to compare expected 00060F90 for 00006.map",
         "Native GUI displayed map and safe spawn: x/y, S04 viewport pair, facing/S33, input units",
         "Native C33/C11 walking and wall rollback/S0B; tile flags=0 only geometric path, not passability",
         "Identifying native tutorial map; map_ref=6 is interim candidate only"
@@ -2521,7 +2521,7 @@
         "client_reaction": "Native MAP loader and CRC call flow static verified; chosen map spawn/facing/viewport and actual GUI movement not-run",
         "evidence": "task_a/roy3/A-032-roy3-native-map-c35.md",
         "unknowns": [
-          "Original Client C35 emission on map_ref=6 versus predicted 00040F90",
+          "Original Client C35 emission on map_ref=6 versus predicted 00060F90",
           "Observed legal spawn S04 four u16/viewport/facing/S33 and displayed map",
           "Native walkable tile/path/collision correction, including C33/C11/S0B",
           "Is map_ref=6 tutorial? (No evidence; selected interim only)"

@@ -1,4 +1,7 @@
 # Roy1/Roy2/Roy3 整合後 Server 可執行開發規劃：創角成功直接進圖並移動
+
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](../04-analysis-integration/c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
 2026-11-01 · 以 [ADR-008](post-create-direct-world-decision-20261101.md)、[原始證據整合](../04-analysis-integration/roy123-verified-evidence-review-20261101.md) 為規範來源。
 
 ## 目標定義與兩段出場

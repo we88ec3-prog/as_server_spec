@@ -867,7 +867,7 @@
         "kind": "native-client-data-required",
         "reference": "05-conformance/A-015-content-test-plan.md"
       },
-      "expected": "Map hash/real map_id/spawn, header(+4) and structured C35, actual Born trigger and recruiter verified; reject missing/mismatched source; no guesswork for (31,29)",
+      "expected": "Map hash/real map_id/spawn, map_ref and structured C35, actual Born trigger and recruiter verified; reject missing/mismatched source; no guesswork for (31,29)",
       "evidence_kind": "designed",
       "native_client_validation": "not-run",
       "analysis_request": "A-015"
@@ -3126,7 +3126,7 @@
       "roy123_reference_fixture": {
         "source": "task_a/roy3/a032_c35_fixture.json",
         "map_ref": 6,
-        "static_c35_be_hex": "00040F90",
+        "static_c35_be_hex": "00060F90",
         "verified_offline_original_assets": true,
         "original_client_c35_capture": "not-run",
         "safe_spawn": "unknown",

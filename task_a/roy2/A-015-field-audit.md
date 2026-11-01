@@ -1,5 +1,8 @@
 # A-015／roy2：原始三庫 MAP 欄位級驗證與語意假說
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](../../04-analysis-integration/c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
 - 2026-10-31；工作目錄與分支：`task_a/roy2/` / `task_a/roy2`。本輪**沒有建立新分支**。
 - 原 Client `Asgard.exe` SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，原始地圖 Map0/1/2 SHA 見 [A-015 主報告](A-015-analysis.md)；遊戲原件不放入共享 Git。
 - 證據類別：函式 accessor 為 **observed-static**，494 張 MAP 的值域/數量是 **observed-static-resource**；符合 48×32 影像座標的 interpretation 為 **inferred**；沒有原生 Client E2E。

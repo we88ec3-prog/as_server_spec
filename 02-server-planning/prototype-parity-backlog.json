@@ -223,12 +223,24 @@
         "kind": "user-request",
         "source_ids": [
           "USR-001",
-          "REC-005"
+          "REC-005",
+          "USR-018",
+          "USR-019"
         ],
         "user_scope": "進圖、既有決策指定建角後直接World",
         "analysis_scope": "入口／首個S2C／C35由分析",
         "design_scope": "MapCatalog／spawn／epoch由設計",
         "attribution_confidence": "direct-user-message+recorded-spec-decision"
+      },
+      "direct_development_increment": {
+        "contract": "02-server-planning/world-ui-prelude-increment-20261101.md",
+        "analysis": "04-analysis-integration/world-ui-prelude-c43-20261101.md",
+        "status": "source-implemented; 248 synthetic tests and isolated HTTP/TCP smoke passed; user GUI test requested",
+        "native_client_validation": "not-run",
+        "scope": "Region3 returning-character trial; S02 UI prelude plus bounded six-byte C43 deferral, strict C35 unchanged; no post-create World grant or real walking",
+        "implementation_commit": "ed4adb5e5877192fbe6da3693573976049260831",
+        "diagnostic_client_validation": "failed: UI and map title appeared, then close after C35 processing; typed values pending second run",
+        "c35_diagnostics": "02-server-planning/c35-typed-diagnostic-contract.md"
       }
     },
     {

@@ -1,8 +1,11 @@
 # A-022 Map/CRC 整合：可開發子集
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
 來源：[BIN-first 研究](../03-analysis-requests/A-022-roy1-bin-analysis.md)，證據 `ev_a022_20261031_asgard_map_static`；Client SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`。
 
-**observed-static**：S14 `0x57FDD0` body u8：1 請求本地 C35；2 loading callback；3 延時 3000ms 的異常分支。S15 `0x57FF30` body 3×BE u16 + flags u8 + other u8 + string8。第一個 u16 map_ref，flags bit0 invert/bit1/bit5/bit6 被拆出。S04 `0x589990` 連續 4×BE u16。C35 `0x573490` 兩個 BE u16，**第一個來自本地 MAP header file offset+4**（`0x4B4850`），**第二個來自 MapData structured checksum**（`0x4B4890→0x4B3650→0x4B2EC0`）；不能拿 map_id 或檔案 raw CRC 代替。CRC update primitive `0x43E0A0` 查表 `0x664720`；synthetic `01 02 03→0x1222`、`ABC→0x1AA6`，不代表真 MAP 的 C35 值。MapData 末段 record 是 16bytes。**A-002 勘誤：`0x4A8370` 實為 S03 交接 handler（region3/4）、不是 C25 入口**；C25 region/body 仍 partial，須另尋原生 serializer 證據。
+**observed-static**：S14 `0x57FDD0` body u8：1 請求本地 C35；2 loading callback；3 延時 3000ms 的異常分支。S15 `0x57FF30` body 3×BE u16 + flags u8 + other u8 + string8。第一個 u16 map_ref，flags bit0 invert/bit1/bit5/bit6 被拆出。S04 `0x589990` 連續 4×BE u16。C35 `0x573490` 兩個 BE u16，**第一個來自 MapData 物件+4 的 map_ref**（`0x4B4850`），**第二個來自 MapData structured checksum**（`0x4B4890→0x4B3650→0x4B2EC0`）；不能拿 MAP 檔頭+4 或檔案 raw CRC 代替。CRC update primitive `0x43E0A0` 查表 `0x664720`；synthetic `01 02 03→0x1222`、`ABC→0x1AA6`，不代表真 MAP 的 C35 值。MapData 末段 record 是 16bytes。**A-002 勘誤：`0x4A8370` 實為 S03 交接 handler（region3/4）、不是 C25 入口**；C25 region/body 仍 partial，須另尋原生 serializer 證據。
 
 **designed**：Server 必須先確定 map/ref/resource_version/epoch，再送 S15/S14(1)，驗證同 epoch、同版本 C35 後送 S04/S33/背包/S14(2) 才 InWorld；超時／錯圖／舊 CRC／斷線進 Reconcile；入圖 committed 與教程 completed 分離，重連不重領資產。
 
@@ -10,4 +13,4 @@
 
 ## A-016：載圖與恢復之身份/epoch 限制（2026-10-31）
 
-[A-016 BIN-first 報告](../03-analysis-requests/A-016-roy1-replay-recovery.md) / [安全恢復契約](A-016-idempotency-recovery.md)：C35 `0x573490` 只輸出 2×BE u16，**沒有 map_id/epoch/request ID**。Server 內部 loading_epoch 可隔離連線/重登狀態，但同 TCP 若舊 epoch C35 與新 epoch 期待相同 checksum pair，**單靠 C35 body 無法辨別**；須單一 pending loading、控制 in-flight/complete 邊界，無法安全判定時 fail closed 並重建連線。S14 control2 `0x4F23B5` 是 Client local loading callback，**不是**已持久化入圖/教程完成的 Server ACK。按最近 durable map/pos 恢復，CT-043/044 planned，Client E2E not-run。
+[A-016 BIN-first 報告](../03-analysis-requests/A-016-roy1-replay-recovery.md) / [安全恢復契約](A-016-idempotency-recovery.md)：C35 `0x573490` 只輸出 2×BE u16，**包含 map_ref，沒有 epoch/request ID**。Server 內部 loading_epoch 可隔離連線/重登狀態，但同 TCP 若舊 epoch C35 與新 epoch 期待相同 checksum pair，**單靠 C35 body 無法辨別**；須單一 pending loading、控制 in-flight/complete 邊界，無法安全判定時 fail closed 並重建連線。S14 control2 `0x4F23B5` 是 Client local loading callback，**不是**已持久化入圖/教程完成的 Server ACK。按最近 durable map/pos 恢復，CT-043/044 planned，Client E2E not-run。

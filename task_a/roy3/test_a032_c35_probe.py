@@ -52,7 +52,8 @@ class CheckC35(unittest.TestCase):
         rec16=bytes(range(16))
         value=checksum(self.make_map(rec7,rec8,rec16),self.table)
         self.assertEqual(value["tail_record_counts"],{"7":1,"8":1,"16":1})
-        self.assertEqual(len(value["c35_be_u16_pair_hex"]),8)
+        self.assertEqual(value["header_word"],4)
+        self.assertNotIn("c35_be_u16_pair_hex",value) # No map_ref supplied to checksum().
 
 if __name__=="__main__":
     unittest.main()

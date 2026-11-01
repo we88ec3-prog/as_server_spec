@@ -1,5 +1,7 @@
 # R-037：Server 封包收發、預期外封包與去敏診斷 — 過往越界實作補登／正式規劃
 
+直接開發增量補充：C35拒絕可記錄 [型別化MapCheck](c35-typed-diagnostic-contract.md) 的四個非敏感u16與接受狀態，保留授權／phase與trace關聯；不擴大為一般body dump或秘密欄位紀錄。最新工作分工依直接開發流程，以下越界／只規劃敘述保留歷史範圍。
+
 2026-11-01。**角色分工：此文件是 `as_server_spec` 的分析／規劃回補；並非本次 Server 開發指令已完成、也不是原版 Client 實測。**
 
 ## 0. 來源與已存在的 Server 實作（read-only source audit）

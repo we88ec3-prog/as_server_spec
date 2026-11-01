@@ -1,5 +1,8 @@
 # 原版 Asgard.exe 從創角到可操作進入遊戲：Server 實作路線（2026-11-01）
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](../04-analysis-integration/c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
 ## A-031 原版 World 入口 C25 BIN-first 修正（2026-11-01；DEV-ENTRY-03 立即採用）
 
 **原生靜態分析已完成，原版 GUI E2E 尚未執行。** [A-031 原始 Client 證據](../task_a/roy2/A-031-analysis.md) 證實本版 opcode `0x25` 是 **`CBillingInfoPacket`**（ctor `0x5712E0`、writer `0x571420`、native RTTI），**不是通用 WorldEntryMetadata**，也不含 map_id 或已證 credential。Region3 native writer 寫 **3×string8**（各 `u8 encodedByteLength + raw bytes`，三組本地欄位源 `[0x66D100]+0x0C/+0x20C/+0x40E`），decoded body 長度 `3+L0+L1+L2`（3..768）。非3 Region 的 writer 若被調用不寫欄位，但已辨識的四條 native C25 直接送包路徑**均僅在 region3**；不能要求其他 Region 送出 C25。

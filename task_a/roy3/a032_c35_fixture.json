@@ -22,7 +22,8 @@
       "checksum": 25513,
       "c35_be_hex": "000063A9",
       "tail16": 4,
-      "payload_sha256": "c922fe4dd88e1849f23a29675a703db21ec0ade5a5d9b119735ac063251b5c64"
+      "payload_sha256": "c922fe4dd88e1849f23a29675a703db21ec0ade5a5d9b119735ac063251b5c64",
+      "c35_map_ref": 0
     },
     {
       "map_ref": 6,
@@ -32,8 +33,9 @@
       "height": 60,
       "header_word": 4,
       "checksum": 3984,
-      "c35_be_hex": "00040F90",
-      "payload_sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760"
+      "c35_be_hex": "00060F90",
+      "payload_sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760",
+      "c35_map_ref": 6
     },
     {
       "map_ref": 10000,
@@ -43,8 +45,9 @@
       "height": 60,
       "header_word": 4,
       "checksum": 3984,
-      "c35_be_hex": "00040F90",
-      "payload_sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760"
+      "c35_be_hex": "27100F90",
+      "payload_sha256": "bd92c86632a7d23894d21f97571e2829428c608a8647f95211df27e578ce1760",
+      "c35_map_ref": 10000
     },
     {
       "map_ref": 18001,
@@ -54,11 +57,12 @@
       "height": 150,
       "header_word": 18,
       "checksum": 63634,
-      "c35_be_hex": "0012F892",
+      "c35_be_hex": "4651F892",
       "tail7": 555,
       "tail8": 5,
       "tail16": 41,
-      "payload_sha256": "faaa79663eff4479071c61850643b9d4baf428bbc43af682f82b8758b9d461d6"
+      "payload_sha256": "faaa79663eff4479071c61850643b9d4baf428bbc43af682f82b8758b9d461d6",
+      "c35_map_ref": 18001
     },
     {
       "map_ref": 20001,
@@ -68,9 +72,10 @@
       "height": 60,
       "header_word": 22,
       "checksum": 59833,
-      "c35_be_hex": "0016E9B9",
+      "c35_be_hex": "4E21E9B9",
       "tail8": 14,
-      "payload_sha256": "e48303c5662d960fdc6f47e2412200522773cd5c4272c09bc06e32ed3184bf51"
+      "payload_sha256": "e48303c5662d960fdc6f47e2412200522773cd5c4272c09bc06e32ed3184bf51",
+      "c35_map_ref": 20001
     }
   ],
   "interim_map_ref": 6,
@@ -101,5 +106,6 @@
   "position_units": "unverified",
   "facing": "unverified",
   "viewport": "unverified",
-  "tutorial_map_identification": "unknown"
+  "tutorial_map_identification": "unknown",
+  "first_word_correction": "04-analysis-integration/c35-map-reference-correction-20261101.md"
 }

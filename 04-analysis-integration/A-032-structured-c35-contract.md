@@ -1,12 +1,15 @@
 # A-032：真 MAP 的 C35 靜態雙值整合契約
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
 來源：task_a/roy3/A-032-roy3-native-map-c35.md、task_a/roy3/a032_c35_fixture.json、task_a/roy3/a032_c35_probe.py；原始樣本 SHA256 與算法定位見 A032-E01～E05。這是 Client 靜態證據的**部分整合**，不是原始 Client GUI 驗收。
 
 ## 可直接給 DEV 的已證範圍
 
 - S15 第一個 BEu16 為 map_ref；以 map_ref / 10000 + 9 的 library 查找 Map0/1/2.dat 中格式 %05d.map。採用 SHA256 綁定整庫及 member bytes，拒絕其他版本與不存在的 map_ref。
-- Client 在 S14(1) 的本地 MAP checksum 由 0x4B2EC0、CRC 單 byte 原語 0x43E0A0 計算；C35 為兩個 BEu16：MAP file header offset+4 LEu16（wire BE）與 structured checksum。不是 .map raw CRC；詳細 7/8/16B normalization 以 A32 報告與離線程式為準。
-- 目前候選 map_ref=6 是 Map0.dat 的 00006.map，60×60，header=0x0004，初始靜態 CRC=0x0F90；C35 初始理論 body=00040F90。與 Map1.dat 的 10000.map payload 完全相同，仍是兩個不同 map_ref。
+- Client 在 S14(1) 的本地 MAP checksum 由 0x4B2EC0、CRC 單 byte 原語 0x43E0A0 計算；C35 為兩個 BEu16：MapData 物件+4 的 map_ref（wire BE）與 structured checksum。不是 .map raw CRC；詳細 7/8/16B normalization 以 A32 報告與離線程式為準。
+- 目前候選 map_ref=6 是 Map0.dat 的 00006.map，60×60，header=0x0004，初始靜態 CRC=0x0F90；C35 初始理論 body=00060F90。與 Map1.dat 的 10000.map payload 完全相同，仍是兩個不同 map_ref。
 - 離線候選 tile path: (30,30)→(30,31)→(30,32)→(31,32)→(32,32)。每格都 in-bounds、raw flags=0；這**不能**提供原生 walkability、spawn/facing/viewport 成功保證。
 
 ## DEV 安全條件
@@ -18,7 +21,7 @@
 
 ## 待測實驗
 
-開通原生 World 首包（A-031/DEV-ENTRY-03）後，載入 map_ref=6：記 S15、S14(1)、原 Client C35 十六進位（遮罩帳號令牌）；成功後記 S04 四欄座標／S33 面向、可視地圖及玩家五步路徑的 C33/C11/S0B，再做 blocked tile 回滾。若 C35 與 00040F90 不同，先查是否 MapData 已被動態改動或版本不一致，**不要修改 Server 為任意 CRC 放行**。
+開通原生 World 首包（A-031/DEV-ENTRY-03）後，載入 map_ref=6：記 S15、S14(1)、原 Client C35 十六進位（遮罩帳號令牌）；成功後記 S04 四欄座標／S33 面向、可視地圖及玩家五步路徑的 C33/C11/S0B，再做 blocked tile 回滾。若 C35 與 00060F90 不同，先查是否 MapData 已被動態改動或版本不一致，**不要修改 Server 為任意 CRC 放行**。
 
 ### 現況
 

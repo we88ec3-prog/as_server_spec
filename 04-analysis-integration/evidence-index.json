@@ -4491,6 +4491,69 @@
       "synthetic_test": "task_a/roy3/test_a005_roy3_collision_recovery.py",
       "native_client_validation": "not-run",
       "raw_assets_shared": false
+    },
+    {
+      "evidence_id": "ev_b6714755ba8c37baca9d9a28f65cc50b0f4e28585ad81ccffe034089df40ca28",
+      "record_scope": "original-native-static; portable reconstruction locators only; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x4b4850"
+      },
+      "integration_document": "04-analysis-integration/c35-map-reference-correction-20261101.md"
+    },
+    {
+      "evidence_id": "ev_1ce701c694a9511f23343cdf343041fd6186040798538a2903084c83cc6be74d",
+      "record_scope": "original-native-static; portable reconstruction locators only; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x4b33a0"
+      },
+      "integration_document": "04-analysis-integration/c35-map-reference-correction-20261101.md"
+    },
+    {
+      "evidence_id": "ev_2a12713a6fdce38c06de8739176f6df71fb7be9d6375eab8a7f5efe3dee70cdd",
+      "record_scope": "original-native-static; portable reconstruction locators only; raw evidence retained locally",
+      "operation": "inspect_native_instruction",
+      "locator": {
+        "address": "0x4f240e"
+      },
+      "integration_document": "04-analysis-integration/c35-map-reference-correction-20261101.md"
+    },
+    {
+      "evidence_id": "ev_169a4788a62002452f81d1786eb8933c96053c76ea57ae97a5b7e3a313d51118",
+      "record_scope": "original-native-static; portable reconstruction locators only; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x555be0"
+      },
+      "integration_document": "04-analysis-integration/c54-native-path-intent-20261101.md"
+    },
+    {
+      "evidence_id": "ev_1ecb4c5042a8e2298dfcd174f9e9f323767531ba0c647ec97acfc7298f85448e",
+      "record_scope": "original-native-static; portable reconstruction locators only; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x555e30"
+      },
+      "integration_document": "04-analysis-integration/c54-native-path-intent-20261101.md"
+    },
+    {
+      "evidence_id": "ev_ec43273d80da6564e6df069b34d61388307bbb2837a740787b4ce5eeac811e61",
+      "record_scope": "original-native-static; portable reconstruction locators only; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x573cc0"
+      },
+      "integration_document": "04-analysis-integration/c54-native-path-intent-20261101.md"
+    },
+    {
+      "evidence_id": "ev_df104fd250b2b1da0d4e0eb1b74cc018722262c9a97830791f89675403c6af74",
+      "record_scope": "original-native-static; portable reconstruction locators only; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x573d70"
+      },
+      "integration_document": "04-analysis-integration/c54-native-path-intent-20261101.md"
     }
   ]
 }

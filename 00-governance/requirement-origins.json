@@ -190,6 +190,27 @@
       "location": "current conversation history",
       "quote": "更正，是as_server_roy不想給別人看，as_server_spec是公開",
       "note": "Latest user instruction; implementation in private roy, public portable specification only."
+    },
+    {
+      "id": "USR-018",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "請直接開始開發，需要測試時要求我操作",
+      "note": "Direct development and user-operated Client testing; implementation and logs remain private."
+    },
+    {
+      "id": "USR-019",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "請參考之前本地開發的Server，但要將對應的分析與規劃回寫as_server_spec",
+      "note": "Direct development and user-operated Client testing; implementation and logs remain private."
+    },
+    {
+      "id": "USR-020",
+      "source_type": "direct-user-message",
+      "location": "current conversation history",
+      "quote": "能讓client打開時直接輸入完ID嗎",
+      "note": "Test Client convenience request, not reverse-engineered game requirement; see 02-server-planning/test-client-id-prefill-20261101.md."
     }
   ]
 }

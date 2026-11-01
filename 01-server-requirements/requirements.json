@@ -575,7 +575,7 @@
       "post_create_world_decision_source": "02-server-planning/post-create-direct-world-decision-20261101.md",
       "roy123_implementation_evidence": {
         "source": "04-analysis-integration/roy123-verified-evidence-review-20261101.md",
-        "map6_static_c35": "00040F90",
+        "map6_static_c35": "00060F90",
         "native_c35": "not-run",
         "safe_spawn": "unknown",
         "walkability": "unknown",

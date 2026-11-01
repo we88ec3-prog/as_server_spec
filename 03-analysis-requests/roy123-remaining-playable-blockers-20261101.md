@@ -1,5 +1,8 @@
 # Roy1/2/3 合併後 P0 分析／原版動態驗收缺口（2026-11-01）
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](../04-analysis-integration/c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
 ## 已有原件，不應再重複要求
 `Asgard.exe`、`Basic.dat`、`Locale.dat`、`Map0.dat`、`Map1.dat`、`Map2.dat`、`Born.dat` 均已提供且 SHA256 已核對。創角 NAME/EMAIL 原版資源 label 映射 **Region2..4 已解**；真 MAP 靜態 C35 pair **已解**；Region3 一般轉服 C25 是 `CBillingInfoPacket 3×string8` **已解**。不要再把它們列「完全未知」或要求重分析。
 

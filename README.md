@@ -14,6 +14,8 @@
 
 ## 從這裡開始
 
+直接開發首個World增量：[參考原型的S02／C43分析整合](04-analysis-integration/world-ui-prelude-c43-20261101.md)／[Server交付與使用者測試範圍](02-server-planning/world-ui-prelude-increment-20261101.md)。合成回歸與HTTP/TCP已通過，原生畫面另待使用者操作。
+
 **2026-11-01 工作方式更新**：[直接開發、同步分析與規格](00-governance/direct-development-workflow-20261101.md)。本對話現在可在私有roy直接實作，不受下方歷史僅分析分工限制；spec仍公開且不收私有實作。使用的正式本地spec路徑為 `E:\Asgard\asgard_server\as_server_spec`。
 
 需求來源請見 [使用者需求／程式分析／Server設計的歸因規範](00-governance/requirement-origin-policy.md)。R與PAR逐項附來源，保留使用者提出的功能目的；封包證據與實作建議另列，不把兩者混為需求起源。

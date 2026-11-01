@@ -348,6 +348,16 @@
         ],
         "source": "02-server-planning/prototype-parity-backlog.json",
         "native_client_validation": "not-run"
+      },
+      "direct_development_increment": {
+        "contract": "02-server-planning/world-ui-prelude-increment-20261101.md",
+        "analysis": "04-analysis-integration/world-ui-prelude-c43-20261101.md",
+        "status": "source-implemented; 248 synthetic tests and isolated HTTP/TCP smoke passed; user GUI test requested",
+        "native_client_validation": "not-run",
+        "scope": "Region3 returning-character trial; S02 UI prelude plus bounded six-byte C43 deferral, strict C35 unchanged; no post-create World grant or real walking",
+        "implementation_commit": "ed4adb5e5877192fbe6da3693573976049260831",
+        "diagnostic_client_validation": "failed: UI and map title appeared, then close after C35 processing; typed values pending second run",
+        "c35_diagnostics": "02-server-planning/c35-typed-diagnostic-contract.md"
       }
     },
     {

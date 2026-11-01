@@ -541,7 +541,7 @@
       "name": "MapCRC",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u16 local MAP header word at file offset+4, BE u16 structured MapData checksum; not map id or raw-file CRC",
+      "layout": "BE u16 MapData map_ref (object+4, NOT file+4), BE u16 structured MapData checksum; not raw-file CRC",
       "client_entry": "0x573490",
       "state_precondition": "收到S14(1)後",
       "related_packets": [
@@ -565,7 +565,7 @@
       ],
       "analysis_document": "04-analysis-integration/A-022-map-loading-crc.md",
       "a016_analysis": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "a016_recovery_note": "C35 two BE u16 only; no map_id/map_epoch/request_id; same revision map checksum pair is wire-identical across loads, Server epoch cannot distinguish late identical C35.",
+      "a016_recovery_note": "C35 two BE u16 only; map_ref present; no map_epoch/request_id; same revision map checksum pair is wire-identical across loads, Server epoch cannot distinguish late identical C35.",
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
       "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
       "a032_static_original_map_fixtures": {
@@ -578,19 +578,19 @@
           },
           {
             "map_ref": 6,
-            "c35_be_hex": "00040F90"
+            "c35_be_hex": "00060F90"
           },
           {
             "map_ref": 10000,
-            "c35_be_hex": "00040F90"
+            "c35_be_hex": "27100F90"
           },
           {
             "map_ref": 18001,
-            "c35_be_hex": "0012F892"
+            "c35_be_hex": "4651F892"
           },
           {
             "map_ref": 20001,
-            "c35_be_hex": "0016E9B9"
+            "c35_be_hex": "4E21E9B9"
           }
         ],
         "grade": "original-asset-offline-recomputed",
@@ -3145,6 +3145,39 @@
       "analysis_report": "03-analysis-requests/A-029-roy1-native-password-change.md",
       "native_client_validation": "not-run",
       "security_note": "Do not log raw strings. Old/new are transmitted in native packet body; protect transport, never treat local confirmation as auth, do not invent response status."
+    },
+    {
+      "id": "PKT-C54",
+      "direction": "C2S",
+      "opcode": "0x54",
+      "name": "MovePathIntent",
+      "system": "SYS-WORLD",
+      "profile": "TW-seed0-local-v0.1",
+      "layout": "BEu16 startX/startY; u8 direction; u8 count<=11; count packed run bytes; BEu16 destinationX/destinationY; u8 finalDirection. Exact 11+count bytes; count0 valid stop.",
+      "client_entry": "0x573CC0 ctor; 0x573D70 writer; 0x555BE0 path producer; 0x555E30 stop producer",
+      "state_precondition": "WorldReady with owner and active committed map",
+      "related_packets": [
+        "PKT-C33",
+        "PKT-C11",
+        "PKT-S0B"
+      ],
+      "layout_status": "partial",
+      "evidence_kinds": [
+        "observed-static-original",
+        "diagnostic-client-runtime-metadata"
+      ],
+      "evidence_ids": [
+        "ev_ec43273d80da6564e6df069b34d61388307bbb2837a740787b4ce5eeac811e61",
+        "ev_df104fd250b2b1da0d4e0eb1b74cc018722262c9a97830791f89675403c6af74",
+        "ev_169a4788a62002452f81d1786eb8933c96053c76ea57ae97a5b7e3a313d51118",
+        "ev_1ecb4c5042a8e2298dfcd174f9e9f323767531ba0c647ec97acfc7298f85448e"
+      ],
+      "requirements": [
+        "R-004",
+        "R-005"
+      ],
+      "analysis_document": "04-analysis-integration/c54-native-path-intent-20261101.md",
+      "manual_validation": "Diagnostic copy sent body11 after entry; corrected handler GUI retest pending. Original Client E2E not-run."
     }
   ]
 }

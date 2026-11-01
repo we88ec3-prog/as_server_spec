@@ -1,5 +1,8 @@
 # P0 原版創角登入入圖分析派工清單（2026-11-01）
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](../04-analysis-integration/c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
 本文件只分配 **Client 可觀察操作／封包／地圖原件證據**，不要求分析者替新 Server 決定帳密策略、官方出生點、資料庫 schema 或原服第一次派任務時機。A 的靜態/實際執行成果與 Server DEV／Client E2E 分離。使用者目前已提供 `Asgard.exe`、`Map0.dat`、`Map1.dat`、`Map2.dat`、`Born.dat`；**不需重新上傳這五個檔案**。原件 SHA、版本和 raw sample 不上傳 Git。
 
 ## P0-A：A-030（已有 integrated/partial，需原版 UI 動態補證）

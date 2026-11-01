@@ -1,5 +1,12 @@
 # 變更紀錄
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](../04-analysis-integration/c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
+## 2026-11-01 直接開發：本地原型UI前置／C43回補
+
+依使用者最新要求，參考Python原型的已觀察一般登入入圖順序，在roy的native-map trial補S02 UI初始化與loading C43精確六bytes的有界延後處理；公開新增證據／Server合約與測試入口用途，不含私有實作。248項合成回歸及真loopback HTTP/TCP smoke通過，已準備獨立DB／埠由使用者操作。原版GUI、正式走路與ADR-008創角後World仍未宣稱完成。
+
 ## 2026-11-01 改為直接開發與同步規格；自行監測工具
 
 依最新使用者指示，實作直接放私有roy，分析／規劃放公開spec；更新根AGENTS、工作流程與歷史限制的覆蓋關係，使用指定的asgard_server兩個repo路徑。延續使用者自行使用監聽工具的需求，roy新增程序／TCP採樣入口與可選的Client socket metadata探針；公開spec只收行為與驗收合約，不收實作或runtime原件。舊分析／原版CT結果不因此升級。
@@ -227,3 +234,5 @@ Roy1 A-029 C26 三字串與 A-030 C02 地區 control ordinals、S02 UI/C15 研�
 ## 2026-11-01 A-030 原版 Basic.dat 語系資源交叉驗證（取代先前 label unknown）
 
 已核對使用者新提供 `Basic.dat`、`Locale.dat` 原件 SHA；Basic.dat 的 UTF-16LE archive resources BasicString[73]=NAME、[75]=E-MAIL，SkinString[2153]=名字、[2154]=E-Mail；原始 Asgard.exe confirmation lookup 0x49(F3)/0x4B(F4) 和 C02 UI+writer 相對偏移交叉證實 Region2..4 NAME 第三字串、E-MAIL 第四字串。更正舊 A30 只推論 label 或要求從 Locale.dat 找 label 的陳述。提交 Python 資源解析+三原件 SHA/26 x86 anchors 測試，本機 7 PASS；S02 非零原生對話／C15(empty) 靜態路徑已核對，原版 GUI/TCP native E2E not-run，A30 `integrated/partial`。不修改 Asgard.exe/Server/DB，沿用 `task_a/roy1`。
+
+- 2026-11-01：REA勘誤 C35 第一欄為 MapData map_ref，更新 active lookup／離線分析工具與跨地圖 fixture；map6=00060F90。Server 248項回歸與本機TCP通過，GUI待測。使用者要求啟動預填ID另列為測試便利性需求。

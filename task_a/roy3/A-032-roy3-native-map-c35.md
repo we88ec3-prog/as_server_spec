@@ -1,5 +1,8 @@
 # A-032 / roy3：原始 MAP 的 C35 雙值與出生、路徑證據邊界（2026-11-01）
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](../../04-analysis-integration/c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
 分支 task_a/roy3；依 main 的 A-032 P0。此交付為原件靜態重算與可重現離線工具，**不是**原版 Client GUI/封包實測，**不得**宣稱 A-032 所有驗收門檻已完成。Server 原始 Client 相容進度 native_client_validation=not-run。
 
 ## 1. 原件與方法（A032-E01）

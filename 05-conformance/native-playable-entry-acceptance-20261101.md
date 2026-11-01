@@ -1,5 +1,8 @@
 # 原版創角→登入→進圖→可操作：CT-107/108/109
 
+> 2026-11-01 勘誤：C35 第一欄為 MapData 的 map_ref，不是 MAP 檔頭+4；地圖6為 00060F90。以下舊值／推論由[第一欄勘誤](../04-analysis-integration/c35-map-reference-correction-20261101.md)取代，其他證據限制仍適用。
+
+
 **全部 `planned`、`native_client_validation=not-run`。** 原 Client SHA `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`；測試需記本次 Server/main commit、DB provider、selected region/seed、MAP SHA/版本及去敏 trace。不得修改 EXE，不接受合成 C25=01/任意 C35/測試 World fixture 當 native PASS。
 
 ## CT-107：第一次建立角色並成功拿到登入 grant
