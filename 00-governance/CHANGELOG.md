@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 完整教學固定環境與集中實機入口
+
+提供與舊招募員測試分開的完整路線持久入口，保留profile／帳號／金鑰／進度，Server就緒後自開診斷Client。準備模式及重複準備驗證通過，尚未建立使用者DB或密碼。新增一次涵蓋創角、入學、講師、攻擊、選職、出圖與重登的[人工驗證清單](../05-conformance/20261101-complete-tutorial-manual-run.md)；實機結果pending，不升級Native CT。
+
 ## 2026-11-01 原生職業欄位與持久選職投影
 
 REA追出StatusDialog由HumanInfo+5及BasicString455+code顯示職業，確認S05 body5／S33 body10與五職業明示數字映射。Server選職結果發保留pose的S33再發S44，切圖／重登讀保存職業；避免中途S05重建自身物件。353項測試通過，原生GUI及地圖身份仍未驗。見[證據與契約](../04-analysis-integration/20261101-native-career-appearance-projection.md)。

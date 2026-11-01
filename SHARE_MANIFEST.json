@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "428aa008f0927855b5e61954c5a5611797c63ebbfe5b5a7f9e1a4b3f69d0882a"
+      "sha256": "dfba41c09c58a698e02422be5262e16c02c071e553ac1cbd5edd98714a454b69"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -930,6 +930,10 @@
     {
       "path": "04-analysis-integration/world-ui-prelude-c43-20261101.md",
       "sha256": "9df802a284ddb2d248a77038b0c56629faea0732b2328984630b6e970aca261a"
+    },
+    {
+      "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
+      "sha256": "24581e3b6dc989d32258568132f05e1ed29b396a14e4b2081fcecb1e487b9a73"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
