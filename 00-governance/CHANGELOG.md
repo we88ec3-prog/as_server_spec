@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 重登驗收、背景音樂接線與後續待測
+
+使用者確認同Client連續兩輪離開重登、位置與最後關閉正常。royfdb4d81補S19音樂分支、單圖版本綁定本地選曲及播放／停止／停用設定；270項測試與三模式TCP通過，聽覺仍待驗。規格補下一批換衣／獨立衣色、在線兩圖、Web工作台的交付順序與集中待測表；不把舊原型或副本結果升級原始CT。詳見[下一批佇列](../02-server-planning/next-increments-and-test-queue-20261101.md)。
+
 ## 2026-11-01 同Client離開後重登修正
 
 使用者確認完成提示與首次退出不再當機、重啟登入位置正確；另明確回報回登入頁後同Client登入卡住。修正先前C0B一律關TCP的策略：撤銷精確世界lease、清世界權限、保留同TCP回LoginReady，後續C03重新驗證。roy7c35793的265項測試與同socket重登入場TCP通過，GUI待驗；原始Client CT不升級。詳見[同Client重登合約](../04-analysis-integration/20261101-same-client-relogin.md)。

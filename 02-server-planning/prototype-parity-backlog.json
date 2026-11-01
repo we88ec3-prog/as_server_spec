@@ -679,5 +679,28 @@
   ],
   "dependency_policy": "Dependencies gate the corresponding mutation/acceptance; read-only queries or independently ready components may be delivered first.",
   "origin_policy": "00-governance/requirement-origin-policy.md",
-  "origin_registry": "00-governance/requirement-origins.json"
+  "origin_registry": "00-governance/requirement-origins.json",
+  "current_increment_overlay": {
+    "as_of": "2026-11-01",
+    "server_commit": "fdb4d81",
+    "plan": "02-server-planning/next-increments-and-test-queue-20261101.md",
+    "note": "Original item snapshots remain historical. This overlay records current incremental delivery and separate diagnostic acceptance.",
+    "native_entry_and_movement": "diagnostic-user-confirmed including two same-Client leave/login cycles; original CT not-run",
+    "PAR-008": {
+      "status": "music-branch-single-map-local-policy-implemented-audibility-pending",
+      "report": "04-analysis-integration/20261101-native-map-music-increment.md",
+      "remaining": [
+        "official map-track table",
+        "audibility in new Host",
+        "online change and management UI",
+        "multi-map cue validation"
+      ]
+    },
+    "next": [
+      "PAR-005 wardrobe minimal path",
+      "PAR-006 independent clothing tint",
+      "PAR-007 two-map online transfer",
+      "PAR-009/010 management and test workspace"
+    ]
+  }
 }

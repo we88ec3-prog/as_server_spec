@@ -16,4 +16,9 @@ World 選定合法 map/ref/revision → S15/S14/C35 的內部 epoch 驗證 → �
 
 ### 交付/門檻
 
-**A-019 status integrated / handoff partial / implementation_ready=true（限 S19 codec、來源驗證型 catalog、轉圖安全 cue）**。正式 Native map→track ready **false**；原原服完整切圖→音樂政策、music asset 是否存在及實機驗收未證。SCN-006 保持 manual-pass-subset；CT-005/006 合成不變、新增 CT-060/061/062 planned。需要原版 map+S19 trace、原服 map music table 或證實內容來源才可加入真正官方 track row。缺少的合成播放示例檔名 `Music/00018.mp3`，其存在與否不能證明地圖關聯。
+**A-019 status integrated / handoff partial / implementation_ready=true（限 S19 codec、來源驗證型 catalog、轉圖安全 cue）**。正式 Native map→track ready **false**；原原服完整切圖→音樂政策、music asset 是否存在及實機驗收未證。SCN-006 保持 manual-pass-subset；CT-005/006 合成不變、新增 CT-067/068/069 planned（主線合併後ID，舊分支60/61/62僅legacy）。需要原版 map+S19 trace、原服 map music table 或證實內容來源才可加入真正官方 track row。缺少的合成播放示例檔名 `Music/00018.mp3`，其存在與否不能證明地圖關聯。
+
+
+### 2026-11-01實作增量
+
+新版已接入音樂分支與明示單圖local-policy cue；270項測試及播放／停止／停用cue的真TCP通過，聽覺仍待驗。詳見[音樂增量](20261101-native-map-music-increment.md)。原服對照表維持unknown，未完成範圍不升級。

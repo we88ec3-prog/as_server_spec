@@ -376,7 +376,7 @@
       "id": "RI-012",
       "title": "離開遊戲回登入頁後，同一Client再次登入卡住",
       "priority": "P0",
-      "status": "same-tcp-return-to-login-implemented-gui-pending",
+      "status": "same-client-relogin-confirmed-diagnostic-client",
       "source": "User follow-up plus redacted local close metadata, original-Client static paths and Server source",
       "evidence_classification": [
         "user-reported",
@@ -388,15 +388,18 @@
         "Earlier fresh-process relogin passed; user now explicitly reports same-process LoginDialog submit hangs.",
         "Serverfd3ffeb closes TCP on C0B/body0; native local teardown rebuilds LoginDialog and its C03 producer does not reconnect.",
         "Roy7c35793 retains the TCP and ordinal stream, revokes only exact World lease, clears World authority and returns to LoginReady; subsequent C03 must authenticate afresh.",
-        "265 tests and real loopback C0B->same-socket C03->new transfer->saved-position entry pass. GUI same-process login awaits user test."
+        "265 tests and real loopback C0B->same-socket C03->new transfer->saved-position entry pass. GUI same-process login awaits user test.",
+        "User completed the requested two same-Client cycles and confirms success; this supersedes the GUI-pending statement for that diagnostic scope."
       ],
       "report": "04-analysis-integration/20261101-same-client-relogin.md",
       "native_client_validation": "not-run",
-      "next_action": "Without closing Client, perform two Leave Game -> Login -> World cycles; confirm saved position; then close window."
+      "next_action": "Retain transport/lease fix; keep original unmodified Client CT separate; proceed with audio and wardrobe work.",
+      "diagnostic_client_validation": "User confirms two same-Client leave/login cycles, correct saved position and normal final close on Server7c35793/profile-safe Client874c83db."
     }
   ],
   "latest_direct_increment": {
-    "commit": "7c35793",
-    "report": "04-analysis-integration/20261101-same-client-relogin.md"
+    "commit": "fdb4d81",
+    "report": "04-analysis-integration/20261101-native-map-music-increment.md",
+    "test_queue": "02-server-planning/next-increments-and-test-queue-20261101.md"
   }
 }

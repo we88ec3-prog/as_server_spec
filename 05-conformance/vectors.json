@@ -1722,7 +1722,14 @@
       "expected": "Original S19 music/sound wire branches and music filename scheme validated offline; native Client sound/track success pending; no claim map→track provenance",
       "evidence_kind": "observed-static-plus-synthetic",
       "legacy_source_ct_id": "CT-060",
-      "merge_source_branch": "task_a/roy1"
+      "merge_source_branch": "task_a/roy1",
+      "implementation_increment": {
+        "commit": "fdb4d81",
+        "report": "04-analysis-integration/20261101-native-map-music-increment.md",
+        "server_validation": "270 tests; real TCP play1, stop0, disabled cue plus creation/movement/relogin pass",
+        "scope": "S19 music branch and explicit single-map Development policy; not all sound kinds, online admin, official binding or native audibility acceptance",
+        "diagnostic_client_validation": "pending-audibility"
+      }
     },
     {
       "id": "CT-068",
@@ -1783,7 +1790,14 @@
       "expected": "Fail-closed provenance-gated music cue, epoch fenced/duplicate suppressed; synthetic fixtures not official mapping, original Client multi-map E2E pending",
       "evidence_kind": "designed",
       "legacy_source_ct_id": "CT-062",
-      "merge_source_branch": "task_a/roy1"
+      "merge_source_branch": "task_a/roy1",
+      "implementation_increment": {
+        "commit": "fdb4d81",
+        "report": "04-analysis-integration/20261101-native-map-music-increment.md",
+        "server_validation": "270 tests; real TCP play1, stop0, disabled cue plus creation/movement/relogin pass",
+        "scope": "S19 music branch and explicit single-map Development policy; not all sound kinds, online admin, official binding or native audibility acceptance",
+        "diagnostic_client_validation": "pending-audibility"
+      }
     },
     {
       "id": "CT-070",
@@ -2974,8 +2988,8 @@
       "diagnostic_runtime_increment": {
         "report": "04-analysis-integration/20261101-same-client-relogin.md",
         "client_sha256": "874c83db4840af6db584c1814fdda107e02713f0bb26204a3c6decec9b0fc3ef",
-        "observed": "User confirms creation notice, leave without crash and fresh-client relogin position. Same-process LoginDialog relogin hangs; separate transport-continuation fix passed TCP tests and awaits GUI.",
-        "scope": "Diagnostic-copy feedback only; original full CT and same-process GUI relogin are not yet passed."
+        "observed": "User confirms creation, movement, notices, saved position, two same-Client leave/login cycles and normal final close on7c35793/profile-safe copy.",
+        "scope": "User-observed diagnostic-copy subset; original full CT, fixed-route/wall and multi-map checks remain separate."
       }
     },
     {
@@ -3145,8 +3159,8 @@
       "diagnostic_runtime_increment": {
         "report": "04-analysis-integration/20261101-same-client-relogin.md",
         "client_sha256": "874c83db4840af6db584c1814fdda107e02713f0bb26204a3c6decec9b0fc3ef",
-        "observed": "User confirms creation notice, leave without crash and fresh-client relogin position. Same-process LoginDialog relogin hangs; separate transport-continuation fix passed TCP tests and awaits GUI.",
-        "scope": "Diagnostic-copy feedback only; original full CT and same-process GUI relogin are not yet passed."
+        "observed": "User confirms creation, movement, notices, saved position, two same-Client leave/login cycles and normal final close on7c35793/profile-safe copy.",
+        "scope": "User-observed diagnostic-copy subset; original full CT, fixed-route/wall and multi-map checks remain separate."
       }
     },
     {
@@ -3214,8 +3228,8 @@
       "diagnostic_runtime_increment": {
         "report": "04-analysis-integration/20261101-same-client-relogin.md",
         "client_sha256": "874c83db4840af6db584c1814fdda107e02713f0bb26204a3c6decec9b0fc3ef",
-        "observed": "User confirms creation notice, leave without crash and fresh-client relogin position. Same-process LoginDialog relogin hangs; separate transport-continuation fix passed TCP tests and awaits GUI.",
-        "scope": "Diagnostic-copy feedback only; original full CT and same-process GUI relogin are not yet passed."
+        "observed": "User confirms creation, movement, notices, saved position, two same-Client leave/login cycles and normal final close on7c35793/profile-safe copy.",
+        "scope": "User-observed diagnostic-copy subset; original full CT, fixed-route/wall and multi-map checks remain separate."
       }
     },
     {

@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "e0989ec598a50950519f03836d339d24409ce8dc23313d44f5aa16f53ff48b0c"
+      "sha256": "632aafb58e44e1d7d15990789e6a4591cc5461cc71ee4e9e2b48cc7560dcf9be"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -196,6 +196,10 @@
       "sha256": "7b395cabff190fb841a5de20db7d7fd09a3cd3376887ad8b2d93b6db4fa48522"
     },
     {
+      "path": "02-server-planning/next-increments-and-test-queue-20261101.md",
+      "sha256": "a715615ae5a233027e0c3c96023f0ce7959786afda3df66e8d4b399fad5db9a3"
+    },
+    {
       "path": "02-server-planning/novice-school-admission-flow.md",
       "sha256": "45bf409bd4efb19f3aa22bab51326d50dc0d00e0580c2f9347ce718eec1da4e0"
     },
@@ -221,7 +225,7 @@
     },
     {
       "path": "02-server-planning/prototype-parity-backlog.json",
-      "sha256": "0007039ed13b52e5e3a635d30d12e314865272cf8ba30ee7abfeec5325dfc12f"
+      "sha256": "99d95d64265a1b32897c0c51cf22a03f2b14f654848c28e40d95df0ba2992685"
     },
     {
       "path": "02-server-planning/prototype-parity-delivery-plan-20261101.md",
@@ -441,7 +445,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "f0c8c2c46230b592f7fffe3f92abe8705a9f2ef8fa54f447b85d985ae0c79ce6"
+      "sha256": "2882be3479d1c61e968e0710bd990a56a2b2e5d40d89b4be8a5b2cfea85927cf"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -460,6 +464,10 @@
       "sha256": "f88f79dc14a17ac5d55c294a483a9de2bccc951692ed1018e055b10857a4ba9c"
     },
     {
+      "path": "04-analysis-integration/20261101-native-map-music-increment.md",
+      "sha256": "7fef8f09a6cd736d35636babd5d652ffbcc2e1ba7007ae98b0eef89609c10010"
+    },
+    {
       "path": "04-analysis-integration/20261101-postcreate-c42-exception-report-evidence.md",
       "sha256": "f17d182c55e61616ed19a92c336d5765f8f6ec33c42d68a1b8c6703c3f18f960"
     },
@@ -469,7 +477,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-same-client-relogin.md",
-      "sha256": "794bb36a37545f3eb8c8240550679f71d46d8d6330c948718f3c1693bd34774c"
+      "sha256": "332d8b78b382e349721f82978b692d2b4921ab0ad590ea172b3c5ebf48bf4031"
     },
     {
       "path": "04-analysis-integration/20261101-short-name-creation-rejection.md",
@@ -525,7 +533,7 @@
     },
     {
       "path": "04-analysis-integration/A-019-map-music-contract.md",
-      "sha256": "7d58eb3ff6525e8f2ec9c172c387dd3bf63310f65620942791c5a5fc11dd4b76"
+      "sha256": "ff7f8669c3a7ff57b716b9da910e65d1fa2e2a1ab00a8c9cf4099e455511bc16"
     },
     {
       "path": "04-analysis-integration/A-020-prelogin-contract.md",
@@ -869,7 +877,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "1e96672233897de962ff915cdba786fc8eaae2aca8028891be174a9a9e27cdfb"
+      "sha256": "29358f930b79ab1ca4e7e0b535ddf58cce1c968bf9be37b3cc681a244f14aea8"
     },
     {
       "path": "AGENTS.md",
