@@ -47,5 +47,8 @@ needs_evidence及精確address／function／resource selector／需要的xref方
 factory時，不能推論UI不會使用；需追函式指標註冊及間接建立路徑。
 
 可重用提示詞見[PROMPT.md](PROMPT.md)，結果契約見[RESULT-CONTRACT.md](RESULT-CONTRACT.md)。
+本地匯出工具另外產生每個task一份`UPLOAD-<task_id>.txt`，包含該任務、基線、
+精選REA證據、manifest身份與結果契約，可直接貼上或交給網頁版讀取；不必
+依賴網頁平台能解ZIP。完整ZIP保留供本地核對，模型不需一次讀全部八項。
 輸出是候選分析，須由本地以原件／REA及必要實機驗證後才整合進正式封包表。
 Server仍由本地直接開發；Web分析不接觸私有roy，也不阻塞已證部分的開發。
