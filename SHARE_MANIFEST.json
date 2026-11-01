@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "72f4565f83ddfe9c1af913cc896f9a7d11a2f55782df88cdad36a30d235485c5"
+      "sha256": "4913b39b91f0974c7ebec71a8fa4616a1e50ca9993d4b6f1ee3b99b7d0f1428f"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -629,7 +629,11 @@
     },
     {
       "path": "04-analysis-integration/20261101-training-combat-authority.md",
-      "sha256": "ec62aa691670fe298f7c286358af64050d51d927825bf8bb8e92d0e57d4d6700"
+      "sha256": "03fafe6c6b383ad5fa23f178b349526a37c0fd0079df411433b90007e19105ed"
+    },
+    {
+      "path": "04-analysis-integration/20261101-training-combat-transport.md",
+      "sha256": "660c887b535bab8d06aae45d5cab15452ba7a508090c79d442369835b930079b"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-career-advisor.md",

@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 教學戰鬥啟動設定與TCP背景投影
+
+啟動流程傳遞明示戰鬥profile，新增固定producer的傳送條件selector；每連線串行poll共享死亡／重生，保持單一socket read、ordinal與寫入順序，背景輸出不延長Client期限。新增loopback TCP與啟動拒絕測試；既有啟動器與使用者Server未變動，完整教學及原生戰鬥GUI仍未完成。見[TCP與設定契約](../04-analysis-integration/20261101-training-combat-transport.md)。
+
 ## 2026-11-01 共享教學怪物與普通攻擊結算
 
 新增持久共享HP、攻擊冷卻、生命編號與重生，以及C13 Host結算；成功扣血才原子寫入practice事件。343項Server測試涵蓋並行單次死亡、重登、舊ref失效、回滾與五職業流程取消直接注入。Program／啟動器及TCP背景投影仍待接線，沒有宣稱原生GUI可玩或完整教學完成。見[權威結算契約](../04-analysis-integration/20261101-training-combat-authority.md)。

@@ -60,6 +60,9 @@ SQLite交易序列化寫入，PostgreSQL另設共享內容列鎖；owner鎖及ac
 
 ## Client投影與尚未啟用的部分
 
+後續接線狀態見[啟動與TCP契約](20261101-training-combat-transport.md)：下列
+「尚未傳入／poll」是本篇初版時點，已由後續增量完成，啟動器與GUI仍待驗。
+
 活目標以S07 kind2及S1A站立初始化；命中回S11自身面向與S13效果，死亡投影
 S5F。重生先S0E清舊ref，再S07／S1A發新ref。kind2及helper4037是靜態線索
 支持的候選，尚未Client GUI確認。S13不填猜測的扣血數字，HP顯示仍待確認。
