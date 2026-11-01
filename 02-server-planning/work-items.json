@@ -358,6 +358,15 @@
         "implementation_commit": "ed4adb5e5877192fbe6da3693573976049260831",
         "diagnostic_client_validation": "failed: UI and map title appeared, then close after C35 processing; typed values pending second run",
         "c35_diagnostics": "02-server-planning/c35-typed-diagnostic-contract.md"
+      },
+      "native_creation_movement_increment": {
+        "report": "02-server-planning/native-new-character-movement-increment-20261101.md",
+        "private_implementation_commit": "399f09e",
+        "scope": "Development Region3 C02/C04 durable creation -> S02/S03 -> C10/C25/C35; static-map authoritative C33/S0B; mutable position schema6 separate from first entry",
+        "automated_validation": "255 Server tests passed; real HTTP/TCP rejection-retry/create/transfer/movement/replay/relogin smoke passed",
+        "diagnostic_client_validation": "NewUser first GUI attempt credential-rejected at C02, no C04; corrected-ID retry pending",
+        "original_client_validation": "not-run",
+        "tutorial_map_identity": "unverified: map6 remains a trial"
       }
     },
     {

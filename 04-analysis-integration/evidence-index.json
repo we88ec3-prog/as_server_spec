@@ -4554,6 +4554,24 @@
         "procedure": "0x573d70"
       },
       "integration_document": "04-analysis-integration/c54-native-path-intent-20261101.md"
+    },
+    {
+      "evidence_id": "ev_5698ad70ad4097320070a2768726deb04fdbfe9f9629f1457cedf58f03e83a86",
+      "record_scope": "original-native-static; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x4431e0"
+      },
+      "integration_document": "02-server-planning/native-new-character-movement-increment-20261101.md"
+    },
+    {
+      "evidence_id": "ev_41b26568e32962cb4673e85d41803de54649858c70e0b44801e2eedcc08bbbb9",
+      "record_scope": "original-native-static; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x556e30"
+      },
+      "integration_document": "02-server-planning/native-new-character-movement-increment-20261101.md"
     }
   ]
 }

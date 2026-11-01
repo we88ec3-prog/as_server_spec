@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "c2e816f4acca85ec21855b5110dde31a43b8605d1edbf11d997a7d9396f083bd"
+      "sha256": "47e99be31604f6f417daee93f26a0b894594ecf64d727a50cf0a5049d83749bc"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -77,7 +77,7 @@
     },
     {
       "path": "01-server-requirements/requirements.json",
-      "sha256": "c52a91f7c3dfba19ebcc9ac3cf5612a2286ecc23d0f146db8459245d91519e6d"
+      "sha256": "38fcbf8b981ae59099f8c09eab84612a50bad78e3e1c4f138ca6ac1d731a0726"
     },
     {
       "path": "02-server-planning/admin-operations.json",
@@ -172,6 +172,10 @@
       "sha256": "282578be220e1bab856657cb7dcb29874fc86ae7b32a3527de179f76ca8c6b61"
     },
     {
+      "path": "02-server-planning/native-new-character-movement-increment-20261101.md",
+      "sha256": "730bdf228fec2961cb844b87fc362ed67ceabc55ef308a287089f4514848a01c"
+    },
+    {
       "path": "02-server-planning/native-newuser-disconnect-remediation-20261031.md",
       "sha256": "262d7ae0957971fec8854904110e4342e672d0a8663cc0440332fce63a84002c"
     },
@@ -205,7 +209,7 @@
     },
     {
       "path": "02-server-planning/post-create-direct-world-decision-20261101.md",
-      "sha256": "2dbb5b7bdd0a0c701db90413bb990764eaccb191db25e5e5ffcde19e8dbc85cd"
+      "sha256": "79277fae3a303c7c240a1b66c24b6df6808f1dc08401cf262f97ff1e704091b4"
     },
     {
       "path": "02-server-planning/post-roy-merge-implementation-plan.md",
@@ -213,7 +217,7 @@
     },
     {
       "path": "02-server-planning/prototype-parity-backlog.json",
-      "sha256": "d6dd604ec7dd5d181aa48ef80ce3ab55bd4d9a7096d3cab57747c0a469c19999"
+      "sha256": "0007039ed13b52e5e3a635d30d12e314865272cf8ba30ee7abfeec5325dfc12f"
     },
     {
       "path": "02-server-planning/prototype-parity-delivery-plan-20261101.md",
@@ -281,7 +285,7 @@
     },
     {
       "path": "02-server-planning/work-items.json",
-      "sha256": "df0f8d4e0ee0669e3f950b5055283a6716fd0556662fc6f1b2fa2363aecb2d25"
+      "sha256": "b1c859a2595c55ff90924d7b0cc202de8e81c0456009fa94b1d95bc47ef86e05"
     },
     {
       "path": "02-server-planning/world-ui-prelude-increment-20261101.md",
@@ -433,7 +437,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "7ba61508377807709b9db9f8f0969e9842f7cbe1b6700c8355da77e098269805"
+      "sha256": "e3a99beae81ee5db6d862f53de3d2a546c4cfb7a9a8bbed47c69a8647db289ef"
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
@@ -581,7 +585,7 @@
     },
     {
       "path": "04-analysis-integration/c54-native-path-intent-20261101.md",
-      "sha256": "5d01212a159c1d7b4569463ce5d882e26395110d71ff45a48f87c14795c9ce1b"
+      "sha256": "733a64def0a7932e26115a338b7cc6f1194a4d0c386e672791914de4328ff726"
     },
     {
       "path": "04-analysis-integration/client-compatibility.md",
@@ -593,7 +597,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "e10fc80ec6a411fcc0dcfae3988805e28f5bcb9fe955b5e0bae56b1367267489"
+      "sha256": "7606ed688658f870e996f6e12ec8f56a3a2ad93d20ea7d9ff0f8be79aeb1da4b"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -845,7 +849,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "bffbbb2c36c08cc84ea93a37f6d51bbf085ed9fb6f460af8a5e9df522a0a564e"
+      "sha256": "e16bcbaa27ac7df81c9945a86814aca936f91b8387890f430f127ba9da8a40f3"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

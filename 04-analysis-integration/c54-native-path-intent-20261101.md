@@ -42,3 +42,7 @@ C54 斷線宣稱新手教學或行走已完成。
 本次驗證：251 項 Server 回歸通過；隔離本機 HTTP/TCP smoke 涵蓋 C35通過後 C54→C33，無 C54 專屬虛構回覆。使用者畫面重驗仍待回報。
 
 實作追溯：私有 roy commit `367f442`。
+
+## 2026-11-01 後續開發
+
+已實作可驗測的 Development Region3 自動交接與獨立 Server 移動政策，255項測試／本機TCP通過；不是原服封包順序或原始GUI驗收宣告。最新狀態見[新角色與移動增量](../02-server-planning/native-new-character-movement-increment-20261101.md)。

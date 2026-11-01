@@ -84,6 +84,15 @@
         "analysis_scope": "載入封包／C35／資源限制由分析",
         "design_scope": "epoch、回滾與權威spawn由設計",
         "attribution_confidence": "direct-user-message"
+      },
+      "native_creation_movement_increment": {
+        "report": "02-server-planning/native-new-character-movement-increment-20261101.md",
+        "private_implementation_commit": "399f09e",
+        "scope": "Development Region3 C02/C04 durable creation -> S02/S03 -> C10/C25/C35; static-map authoritative C33/S0B; mutable position schema6 separate from first entry",
+        "automated_validation": "255 Server tests passed; real HTTP/TCP rejection-retry/create/transfer/movement/replay/relogin smoke passed",
+        "diagnostic_client_validation": "NewUser first GUI attempt credential-rejected at C02, no C04; corrected-ID retry pending",
+        "original_client_validation": "not-run",
+        "tutorial_map_identity": "unverified: map6 remains a trial"
       }
     },
     {
@@ -105,6 +114,15 @@
         "analysis_scope": "方向、序號、ACK及視角由分析",
         "design_scope": "權威速度／碰撞／重播政策由設計",
         "attribution_confidence": "direct-user-message"
+      },
+      "native_creation_movement_increment": {
+        "report": "02-server-planning/native-new-character-movement-increment-20261101.md",
+        "private_implementation_commit": "399f09e",
+        "scope": "Development Region3 C02/C04 durable creation -> S02/S03 -> C10/C25/C35; static-map authoritative C33/S0B; mutable position schema6 separate from first entry",
+        "automated_validation": "255 Server tests passed; real HTTP/TCP rejection-retry/create/transfer/movement/replay/relogin smoke passed",
+        "diagnostic_client_validation": "NewUser first GUI attempt credential-rejected at C02, no C04; corrected-ID retry pending",
+        "original_client_validation": "not-run",
+        "tutorial_map_identity": "unverified: map6 remains a trial"
       }
     },
     {
@@ -591,6 +609,15 @@
         "analysis_scope": "原生轉場、map／C35由分析",
         "design_scope": "合法spawn及首次入圖保存由Server選定，不冒稱原服政策",
         "attribution_confidence": "recorded-spec-decision"
+      },
+      "native_creation_movement_increment": {
+        "report": "02-server-planning/native-new-character-movement-increment-20261101.md",
+        "private_implementation_commit": "399f09e",
+        "scope": "Development Region3 C02/C04 durable creation -> S02/S03 -> C10/C25/C35; static-map authoritative C33/S0B; mutable position schema6 separate from first entry",
+        "automated_validation": "255 Server tests passed; real HTTP/TCP rejection-retry/create/transfer/movement/replay/relogin smoke passed",
+        "diagnostic_client_validation": "NewUser first GUI attempt credential-rejected at C02, no C04; corrected-ID retry pending",
+        "original_client_validation": "not-run",
+        "tutorial_map_identity": "unverified: map6 remains a trial"
       }
     },
     {

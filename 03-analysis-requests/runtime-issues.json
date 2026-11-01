@@ -211,7 +211,7 @@
       "id": "RI-007",
       "title": "登入成功 C03/S03/C10/Region3 C25 後停留 WorldGranted 且無後續 S2C",
       "priority": "P0",
-      "status": "map-displayed-c54-handler-implemented-client-retest-pending",
+      "status": "creation-movement-implemented-native-ui-retry-pending",
       "runtime_scope": "2026-11-01 03:47:31~33 UTC+8, Server build e93c9a1748fbca539106cba5e75458757c8e490d; current test Client native identity unverified/possibly modified preview",
       "source": "User-uploaded game-packets-20261031(2).jsonl, game-tcp-20261031(2).jsonl and read-only as_server_roy LoginWireSession.case 0x25@e93c9a17",
       "analysis_requests": [
@@ -239,14 +239,16 @@
         "REA original MapData constructor 0x4B33A0 stores map_ref at object+4; 0x4B4850 reads object+4, not raw file+4. Correct map6 wire pair 00060F90; strict raw MAP header4 verification stays.",
         "Corrected implementation: 248 Server tests and isolated HTTP/TCP smoke passed; wrong checksum and old header4 pair rejected without entry commit.",
         "Next diagnostic run: C35 accepted6/3984; map and character visible by user screenshot; C11 handled; C54(body11) closed unknown-opcode within one second of WorldReady.",
-        "C54 shape and stop producer verified by original EXE REA; native-trial WorldReady handler now parses intent without changing authoritative position. 251 tests and isolated TCP smoke passed."
+        "C54 shape and stop producer verified by original EXE REA; native-trial WorldReady handler now parses intent without changing authoritative position. 251 tests and isolated TCP smoke passed.",
+        "After C54 fix, diagnostic Client C54/C11 handled; no later C33 in that trace, then normal configured idle600s timeout. This is not confirmation of hover/click testing.",
+        "Roy399f09e implements opt-in post-create S02/S03, durable movement and schema6 current position. 255 tests and real TCP failure-retry/create/transfer/movement/relogin passed; native GUI first NewUser attempt rejected C02 credentials before C04."
       ],
       "unknowns": [
         "First original-client expected World S2C order, region-specific map/spawn/viewport and real C35 runtime",
         "Exact Client UI timeout timing after C25, and native-first-create versus existing-character route",
         "Whether unmodified original Client reproduces same UI state in a fully configured native Server"
       ],
-      "next_action": "User batch retest idle60s, tooltip hover and nearby map click; C33 still stop/rebase. Continue authoritative movement and new-character automatic entry; official tutorial map identity remains open.",
+      "next_action": "User corrected-ID NewUser retry, then verify automatic World callback, movement and relogin. Map6 original tutorial identity and Born/NPC remain open.",
       "native_client_validation": "not-run",
       "github_issues": [
         "https://github.com/we88ec3-prog/as_server_spec/issues/8"
@@ -255,7 +257,8 @@
       "direct_development_report": "04-analysis-integration/world-ui-prelude-c43-20261101.md",
       "diagnostic_client_validation": "map and character displayed; then Server closed C54 body11 as unknown opcode; persistent play not yet passed",
       "correction_document": "04-analysis-integration/c35-map-reference-correction-20261101.md",
-      "c54_report": "04-analysis-integration/c54-native-path-intent-20261101.md"
+      "c54_report": "04-analysis-integration/c54-native-path-intent-20261101.md",
+      "movement_creation_report": "02-server-planning/native-new-character-movement-increment-20261101.md"
     }
   ]
 }

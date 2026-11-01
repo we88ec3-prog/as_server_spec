@@ -35,3 +35,7 @@
 Server 的 PostCreateEntryContext 需保留相同 Account/Character/generation/credential version 的授權，只有實際 Client 後續合法封包出現才進行 World transition。C15 繼續只能取消尚未提交草稿；不由本地 UI slot 清理或新建 LoginDialogPane 推導 Server Account/Character 撤銷或建立新帳號。
 
 新增 CT-111 原始 PE 靜態＋合成測試，原版 Native E2E 保持 not-run。
+
+## 2026-11-01 後續開發
+
+已實作可驗測的 Development Region3 自動交接與獨立 Server 移動政策，255項測試／本機TCP通過；不是原服封包順序或原始GUI驗收宣告。最新狀態見[新角色與移動增量](native-new-character-movement-increment-20261101.md)。

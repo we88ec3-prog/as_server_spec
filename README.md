@@ -141,3 +141,5 @@ Roy1 新增 C6C(1) name/context/key-value ScriptReply 與 C6C(4/2) close/cleanup
 ## 2026-10-31 Roy1/Roy2 新增 A-029/A-030 來源證據整合
 
 已同步現有 `task_a/roy1` A-029 改密碼 C26（三個 string8）、A-030 C02 地區 widget 與 S02 非零文字/C15 靜態分析；`task_a/roy2` 原研究提交先前已在 main。保留最新私有 Server 已實作的獨立創角 Domain／RI-005 分階段 timeout/診斷，不宣稱 Native Client 創角已完成。完整 [分支整合與驗證](04-analysis-integration/roy1-roy2-password-newuser-sync-20261031.md)、[更新的 DEV 交接](02-server-planning/roy1-roy2-new-evidence-dev-plan-20261031.md)。
+
+最新開發：[新角色自動進場與權威移動](02-server-planning/native-new-character-movement-increment-20261101.md)，含位置保存、v6備份／遷移及GUI驗收界線。
