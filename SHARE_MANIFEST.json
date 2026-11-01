@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "c0fb96588b12a4cde81e1ede70fd485c9e09d8c592cb0efa38ab65eef9b4c49a"
+      "sha256": "72f4565f83ddfe9c1af913cc896f9a7d11a2f55782df88cdad36a30d235485c5"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -593,7 +593,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-native-combat-target-and-effect.md",
-      "sha256": "4eee17064c393bf005f3dea57628e4385141d39891cbef6e3891be30cda13fe3"
+      "sha256": "3cf850bbeccca668684f944c6b4d4386d0d4072a861ab7b25da56312a4242a53"
     },
     {
       "path": "04-analysis-integration/20261101-native-map-content-and-school-transfer.md",
@@ -628,12 +628,16 @@
       "sha256": "afde27df14703fbdd46b98bc0201dce19804e19458637d5c47badbf5186b6280"
     },
     {
+      "path": "04-analysis-integration/20261101-training-combat-authority.md",
+      "sha256": "ec62aa691670fe298f7c286358af64050d51d927825bf8bb8e92d0e57d4d6700"
+    },
+    {
       "path": "04-analysis-integration/20261101-tutorial-career-advisor.md",
       "sha256": "4243db3a76f89cc499cc1b3afd4d3a9dec97eab29283ebf7ccab01c31c755b91"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-lesson-npcs.md",
-      "sha256": "0219622de4ad7d40ee84f5dc4d4e58d8f02bf064f12128c64028286b819cf070"
+      "sha256": "d53591bbff88ab070a2aa8b0c95bf82cd9791e1cb3afa2f16d669fecb482f32c"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-resource-route.md",
@@ -641,7 +645,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-town-departure.md",
-      "sha256": "4c4c37da99493c65eb6e994f80f99664ff006f35da932d949b589063afe38ea8"
+      "sha256": "452ba15c3311154d33c655d42aae76da6308b1b383bb2c8b32766f565f279f44"
     },
     {
       "path": "04-analysis-integration/20261101-world-transfer-transaction.md",

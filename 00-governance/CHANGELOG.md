@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 共享教學怪物與普通攻擊結算
+
+新增持久共享HP、攻擊冷卻、生命編號與重生，以及C13 Host結算；成功扣血才原子寫入practice事件。343項Server測試涵蓋並行單次死亡、重登、舊ref失效、回滾與五職業流程取消直接注入。Program／啟動器及TCP背景投影仍待接線，沒有宣稱原生GUI可玩或完整教學完成。見[權威結算契約](../04-analysis-integration/20261101-training-combat-authority.md)。
+
 ## 2026-11-01 普通攻擊目標與S13／S5F接收入口補證
 
 REA確認鍵盤攻擊producer可收到0，補兩階opcode派送表到S13／S5F handler及動畫參數流；新增嚴格14/31-byte S13 codec，333項Server測試通過。公開精選原件指令與identity，沒有啟用Host扣血或攻擊完成事件；普通攻擊仍待可信怪物／距離／頻率結算及GUI驗證。見[分析與契約](../04-analysis-integration/20261101-native-combat-target-and-effect.md)。
