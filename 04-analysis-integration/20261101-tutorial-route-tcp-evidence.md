@@ -1,5 +1,8 @@
 # 五職業完整教學路線：真實TCP與持久進度驗證
 
+後續[原生職業投影](20261101-native-career-appearance-projection.md)已加入五職業
+結果S33、切圖及重登S05／S33的數值核對，完整TCP再次通過；GUI仍未驗。
+
 日期：2026-11-01。使用[明示候選內容profile](20261101-tutorial-geography-and-content-profile.md)，
 接續[戰鬥TCP投影](20261101-training-combat-transport.md)。本輪以自動化socket
 Client執行實際Host與SQLite交易，沒有把模擬操作等同原生GUI驗收。

@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 原生職業欄位與持久選職投影
+
+REA追出StatusDialog由HumanInfo+5及BasicString455+code顯示職業，確認S05 body5／S33 body10與五職業明示數字映射。Server選職結果發保留pose的S33再發S44，切圖／重登讀保存職業；避免中途S05重建自身物件。353項測試通過，原生GUI及地圖身份仍未驗。見[證據與契約](../04-analysis-integration/20261101-native-career-appearance-projection.md)。
+
 ## 2026-11-01 五職業真實TCP完整教學路線
 
 以真實MAP／腳本設定及獨立Host，五名角色各經C02／C04建角、加入轉學校、講師、選職、學校重登、C13扣血／死亡／靜默重生、各目的圖提交及再重登通過；唯讀核對完成時點、職業、首次checkpoint與hit audit，逐socket檢查S2C ordinal。原生嘗試因computer-use視窗核准逾時未取得畫面，沒有升級Native CT或城鎮身份。見[驗證範圍與結果](../04-analysis-integration/20261101-tutorial-route-tcp-evidence.md)。

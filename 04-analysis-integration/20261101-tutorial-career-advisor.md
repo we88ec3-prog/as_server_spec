@@ -1,5 +1,9 @@
 # 原生選職介面與持久選擇
 
+後續已確認[原生職業欄位與投影](20261101-native-career-appearance-projection.md)：
+S05 offset5／S33 offset10帶已保存職業，五職業完整TCP更新／重登通過；
+本文原先數字職業未定的限制已由該增量縮小，GUI與能力規則仍未證。
+
 > 後續增量：[傳送師與完成交易](20261101-tutorial-town-departure.md)已有Server實作；
 > 真實教學事件與場景綁定仍未接齊，本文末列待辦保留其當時範圍。
 

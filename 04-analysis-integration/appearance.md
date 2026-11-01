@@ -1,5 +1,7 @@
 # 外觀profile欄位與螢幕座標
 
+職業欄位新增證據與行為契約見[原生職業投影](20261101-native-career-appearance-projection.md)。
+
 2026-11-01開發增量：使用者要求「衣色獨立於髮色」。新 Server 已加入可選 clothing tint 的 S05/S33 編碼；未指定時維持原始色 sentinel，指定時僅改衣色及 S05 的0x1000旗標。拒絕把000000／FF00FF當可精確顯示的自訂色。4個新增測例核對髮色不變、面向／位置保留、S05與S33各自旗標及保留色拒絕；全套279項測試通過。此增量尚未接持久化、衣櫃／裝備交易與Web操作，不能宣稱新Server已可完整換衣染色；原生GUI仍待測。
 
 body offset不含opcode／ordinal／frame header。此處只規範原型已實作的選填欄子集，不能套用任意flags。
@@ -10,7 +12,8 @@ body offset不含opcode／ordinal／frame header。此處只規範原型已實�
 |---|---|---|
 |0|u32 BE|object_id|
 |4|u8|sex|
-|5,6|各u8|未知，本profile0|
+|5|u8|HumanInfo職業code；未選0，戰士1、盜賊2、魔法師3、聖職者4、武道家5|
+|6|u8|未知，本profile0|
 |7|u16 BE|clothing_id|
 |9|u8|hair_id|
 |10..12|RGB3|hair_color|
@@ -30,7 +33,8 @@ body offset不含opcode／ordinal／frame header。此處只規範原型已實�
 |4|u8|facing 0..7|
 |5..8|u32 BE|object_id|
 |9|u8|sex|
-|10,11|各u8|未知，本profile0|
+|10|u8|HumanInfo職業code，對應S05 offset5|
+|11|u8|未知，本profile0|
 |12..13|u16 BE|clothing_id|
 |14|u8|hair_id|
 |15..17|RGB3|hair_color|

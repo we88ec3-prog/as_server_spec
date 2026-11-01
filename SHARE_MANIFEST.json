@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "1fb24e9a9fc20ebf3a497be4ef5c67c068345021a3725431d6b67f6cb9a15c59"
+      "sha256": "428aa008f0927855b5e61954c5a5611797c63ebbfe5b5a7f9e1a4b3f69d0882a"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -592,6 +592,10 @@
       "sha256": "f88f79dc14a17ac5d55c294a483a9de2bccc951692ed1018e055b10857a4ba9c"
     },
     {
+      "path": "04-analysis-integration/20261101-native-career-appearance-projection.md",
+      "sha256": "16a9fddf88cbf49e5a3c050dbe1196e0e3b11304f196d4d0dba9313123bca5b5"
+    },
+    {
       "path": "04-analysis-integration/20261101-native-combat-target-and-effect.md",
       "sha256": "3cf850bbeccca668684f944c6b4d4386d0d4072a861ab7b25da56312a4242a53"
     },
@@ -637,7 +641,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-career-advisor.md",
-      "sha256": "4243db3a76f89cc499cc1b3afd4d3a9dec97eab29283ebf7ccab01c31c755b91"
+      "sha256": "2453ad68898cdf3cce8f68da53f51ff0cbbf5f0abe87b2df9bc1f2db99019fe9"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-geography-and-content-profile.md",
@@ -653,7 +657,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-route-tcp-evidence.md",
-      "sha256": "dc2025353ea1730514b38555f58cc12bd2a901395bb8831e83ed723929be1f2e"
+      "sha256": "0d83cd8fa382aed2bdf1f2fe404f318a6661480110e286decc0fd8d82f61411c"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-town-departure.md",
@@ -789,7 +793,7 @@
     },
     {
       "path": "04-analysis-integration/appearance.md",
-      "sha256": "2315618a2823ebe35bd5c14db8dc4a01ad0f800b370a694d300f1c57c329b61c"
+      "sha256": "661b4b8b508832e063472a56b357a8511d5447d166fe108a2f70e3322d47ece8"
     },
     {
       "path": "04-analysis-integration/c35-map-reference-correction-20261101.md",
@@ -834,6 +838,10 @@
     {
       "path": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
       "sha256": "8736e8982b6bd0ee0ec85bbbef5d39b2d4d1251905a0a9f26079bc7437b2b99d"
+    },
+    {
+      "path": "04-analysis-integration/native-career-appearance-20261101.json",
+      "sha256": "050184b078f0bf37b18f41cc6ec750fbe390abf9cb6b36475502276882921104"
     },
     {
       "path": "04-analysis-integration/native-map-catalog-20261101.json",

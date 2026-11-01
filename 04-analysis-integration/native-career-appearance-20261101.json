@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "provider": {
+    "name": "Ghidra",
+    "version": "12.1.4"
+  },
+  "scope": "Native career label and S05/S33 HumanInfo class-byte mapping; no GUI or original Server policy",
+  "basic_string": {
+    "archive": "Basic.dat",
+    "archive_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+    "member": "BasicString.txt",
+    "member_sha256": "fa92f7a3cf544ff9e141d98620943b362e2d3dcc6e327878a818ebaa6ac3123b",
+    "offset": 190844,
+    "length": 14810,
+    "encoding": "UTF-16LE BOM",
+    "labels": [
+      {
+        "name": "平民",
+        "string_id": 455,
+        "class_byte": 0
+      },
+      {
+        "name": "戰士",
+        "string_id": 456,
+        "class_byte": 1
+      },
+      {
+        "name": "盜賊",
+        "string_id": 457,
+        "class_byte": 2
+      },
+      {
+        "name": "魔法師",
+        "string_id": 458,
+        "class_byte": 3
+      },
+      {
+        "name": "聖職者",
+        "string_id": 459,
+        "class_byte": 4
+      },
+      {
+        "name": "武道家",
+        "string_id": 460,
+        "class_byte": 5
+      },
+      {
+        "name": "吟遊詩人",
+        "string_id": 461,
+        "class_byte": 6
+      },
+      {
+        "name": "騎士",
+        "string_id": 462,
+        "class_byte": 7
+      }
+    ]
+  },
+  "ui": {
+    "evidence_id": "ev_1eadd9808d66c7fea131ccaf02aa2fe46d80780f45b64a93d2061438c5123f0f",
+    "procedure": "0x540050",
+    "control_id": 25,
+    "instructions": [
+      "0x5400c7: PUSH 0x19",
+      "0x5400c9: MOV ECX, EDI",
+      "0x5400cb: CALL 0x00441070",
+      "0x5400d0: MOV EBX, EAX",
+      "0x5400d2: PUSH 0x2",
+      "0x5400d4: MOV ECX, EBX",
+      "0x5400d6: CALL 0x004352a0",
+      "0x5400db: MOV ECX, dword ptr [0x0066d0d4]",
+      "0x5400e1: LEA EDX, [ESP + 0x28]",
+      "0x5400e5: PUSH EDX",
+      "0x5400e6: ADD ECX, 0x4",
+      "0x5400e9: CALL 0x00479ea0",
+      "0x5400ee: MOVZX EAX, byte ptr [ESP + 0x2d]",
+      "0x5400f3: MOV ECX, dword ptr [0x0066d0d0]",
+      "0x5400f9: ADD EAX, 0x1c7",
+      "0x5400fe: PUSH EAX",
+      "0x5400ff: CALL 0x00498010",
+      "0x540104: PUSH EAX",
+      "0x540105: MOV ECX, EBX",
+      "0x540107: CALL 0x00434da0"
+    ],
+    "derivation": "HumanInfo copied into stack+0x28; byte at stack+0x2d is profile+5. Add0x1c7(455) then BasicString lookup."
+  },
+  "wire": {
+    "S05": {
+      "body_offset": 5,
+      "parser": "0x5895a0",
+      "parser_this_offset": "0x1d",
+      "handler": "0x4f3830",
+      "handler_packet_offset": "0x29",
+      "profile_byte": 5
+    },
+    "S33": {
+      "body_offset": 10,
+      "parser": "0x585570",
+      "parser_this_offset": "0x25",
+      "handler": "0x4f31a0",
+      "handler_packet_offset": "0x31",
+      "profile_byte": 5
+    }
+  },
+  "s05_instructions": [
+    {
+      "evidence_id": "ev_00988dfca06fcfa34d064bd2876b125452a00d0081f72d4b6a15567981e2d2b6",
+      "address": "0x4f38b8",
+      "bytes": "8b742470",
+      "asm": "MOV ESI,dword ptr [ESP + 0x70]"
+    },
+    {
+      "evidence_id": "ev_c7fe042afaeb21b4e00fe690f0032811e56df38b32a02a5c73f0a37f5e10d479",
+      "address": "0x4f38bc",
+      "bytes": "8a4628",
+      "asm": "MOV AL,byte ptr [ESI + 0x28]"
+    },
+    {
+      "evidence_id": "ev_315d2b46cad0c6553de81937f1e12197fac1ed42d914d2bcf10f3bf2b6421166",
+      "address": "0x4f38bf",
+      "bytes": "8a562a",
+      "asm": "MOV DL,byte ptr [ESI + 0x2a]"
+    },
+    {
+      "evidence_id": "ev_5200713be3e3312f6787a24fb7e7a0c689e3c9845c6619c7ba85ef19b2c61689",
+      "address": "0x4f38c2",
+      "bytes": "8a4e29",
+      "asm": "MOV CL,byte ptr [ESI + 0x29]"
+    },
+    {
+      "evidence_id": "ev_d599b479fe50cc4326d58af885fdd72c03ba0f29414703909e6539155234788d",
+      "address": "0x4f38c5",
+      "bytes": "8844240c",
+      "asm": "MOV byte ptr [ESP + 0xc],AL"
+    },
+    {
+      "evidence_id": "ev_f284def747767185e322d6427cf9f323636a3089fc9631068625435aacac2c0a",
+      "address": "0x4f38c9",
+      "bytes": "668b462c",
+      "asm": "MOV AX,word ptr [ESI + 0x2c]"
+    },
+    {
+      "evidence_id": "ev_c2a1f2bf529858349a7a7325f1cd1ab49901bb77e33c72898bdc70f0a8c63c6c",
+      "address": "0x4f38cd",
+      "bytes": "884c240d",
+      "asm": "MOV byte ptr [ESP + 0xd],CL"
+    },
+    {
+      "evidence_id": "ev_17cd11e8b7ba1e9bcd2d7d4eec7a1bdfd660ee89d521a3fee41ed07e0638aa29",
+      "address": "0x4f38d1",
+      "bytes": "8a4e2e",
+      "asm": "MOV CL,byte ptr [ESI + 0x2e]"
+    },
+    {
+      "evidence_id": "ev_3ec9f6902bf43601a7571e70ca9ba54893aec033c84a82100dc6d1d0b53c8f2b",
+      "address": "0x4f38d4",
+      "bytes": "8854240e",
+      "asm": "MOV byte ptr [ESP + 0xe],DL"
+    },
+    {
+      "evidence_id": "ev_52ac2c5b76a16c6b9919a852a461fd8208772d00da1853bbe4bc889f88f890e4",
+      "address": "0x4f38d8",
+      "bytes": "8a5632",
+      "asm": "MOV DL,byte ptr [ESI + 0x32]"
+    },
+    {
+      "evidence_id": "ev_54f77ba8a75bae82941d55f0587d28d0310262ae834c6133f3f00d3d5f282b2f",
+      "address": "0x4f38db",
+      "bytes": "6689442410",
+      "asm": "MOV word ptr [ESP + 0x10],AX"
+    },
+    {
+      "evidence_id": "ev_ea79ff06c161a84ccb8805f5841af7f3a814f20c2ba2e8a42bf307373f6da8f5",
+      "address": "0x4f39f2",
+      "bytes": "8b4e24",
+      "asm": "MOV ECX,dword ptr [ESI + 0x24]"
+    },
+    {
+      "evidence_id": "ev_247cd0cee9ae262e54ca88dae99de4864265a972b16936579a4e91496b2930b3",
+      "address": "0x4f39f5",
+      "bytes": "0fb65634",
+      "asm": "MOVZX EDX,byte ptr [ESI + 0x34]"
+    },
+    {
+      "evidence_id": "ev_80181695ead9bceff4285dc2fdb4115c6753763ba099a0714ffa87f46a974140",
+      "address": "0x4f39f9",
+      "bytes": "51",
+      "asm": "PUSH ECX"
+    },
+    {
+      "evidence_id": "ev_12b4d093de79305dc138927cc99c34efa964d348ec37613b05662c6364ab3bb4",
+      "address": "0x4f39fa",
+      "bytes": "52",
+      "asm": "PUSH EDX"
+    },
+    {
+      "evidence_id": "ev_d4ae207474cc143cf898dba9007bfc286dae4c47789a357078cf323f887268bb",
+      "address": "0x4f39fb",
+      "bytes": "8d4c2410",
+      "asm": "LEA ECX,[ESP + 0x10]"
+    },
+    {
+      "evidence_id": "ev_6d32f2c43e68c7fb36e45e389a49507f37efbbd25e381ee42173d2ac9a75abb7",
+      "address": "0x4f39ff",
+      "bytes": "51",
+      "asm": "PUSH ECX"
+    },
+    {
+      "evidence_id": "ev_3ebedb33a1df1e9222a056e2dff11f129aef48f9636b7eacbb8f32455e2fd135",
+      "address": "0x4f3a00",
+      "bytes": "8bc8",
+      "asm": "MOV ECX,EAX"
+    },
+    {
+      "evidence_id": "ev_6567bd5996d5bdcd714448c7af27782c9c2f2f3318aebc69bee6b8e3f813a1f5",
+      "address": "0x4f3a02",
+      "bytes": "e829340600",
+      "asm": "CALL 0x00556e30"
+    }
+  ],
+  "dispatch": [
+    {
+      "evidence_id": "ev_19033af7bfa215bc37cc4820d6aa1f26f966b44fd80e265a69030492be2fa5ea",
+      "address": "0x4f48ec",
+      "bytes": "e93fefffff",
+      "asm": "JMP 0x004f3830"
+    },
+    {
+      "evidence_id": "ev_5065535967a03f1a3b2ad661031cfeec11274c7355f25d5c4139609772aa37ba",
+      "address": "0x4f48f5",
+      "bytes": "e9a6e8ffff",
+      "asm": "JMP 0x004f31a0"
+    }
+  ],
+  "related": [
+    {
+      "evidence_id": "ev_27a6e7f7c73909ce4b5a6220819404ba2da6e2b25412b71c253ead546a9e2861",
+      "address": "0x5895a0",
+      "scope": "static-decompiler; pointer adjustments require decoded-instruction crosscheck"
+    },
+    {
+      "evidence_id": "ev_27a6e7f7c73909ce4b5a6220819404ba2da6e2b25412b71c253ead546a9e2861",
+      "address": "0x585570",
+      "scope": "static-decompiler; pointer adjustments require decoded-instruction crosscheck"
+    },
+    {
+      "evidence_id": "ev_50ede7f42f60302662258f19ebbf5a1578ee06e8cdb55dc6cf256b44afb3cf53",
+      "address": "0x4f31a0",
+      "scope": "static-decompiler; pointer adjustments require decoded-instruction crosscheck"
+    },
+    {
+      "evidence_id": "ev_1a385b03aa52c7d891ac2043b1929724b0b72e9591705ffe42526d626b7a6d94",
+      "address": "0x47ab70",
+      "scope": "static-decompiler; pointer adjustments require decoded-instruction crosscheck"
+    },
+    {
+      "evidence_id": "ev_2ec17e60a207f5ac6f1e8cc5a8df946c14d3057abaa4acbc0e635ce7876d8599",
+      "address": "0x479ea0",
+      "scope": "static-decompiler; pointer adjustments require decoded-instruction crosscheck"
+    },
+    {
+      "evidence_id": "ev_2ec17e60a207f5ac6f1e8cc5a8df946c14d3057abaa4acbc0e635ce7876d8599",
+      "address": "0x53f7b0",
+      "scope": "static-decompiler; pointer adjustments require decoded-instruction crosscheck"
+    },
+    {
+      "evidence_id": "ev_2ec17e60a207f5ac6f1e8cc5a8df946c14d3057abaa4acbc0e635ce7876d8599",
+      "address": "0x47d090",
+      "scope": "static-decompiler; pointer adjustments require decoded-instruction crosscheck"
+    },
+    {
+      "evidence_id": "ev_efb31e64ba3c7eed1929154c212cc374806f6433ebf8441d99020b6a19192f2e",
+      "address": "0x47cf60",
+      "scope": "static-decompiler; pointer adjustments require decoded-instruction crosscheck"
+    },
+    {
+      "evidence_id": "ev_efb31e64ba3c7eed1929154c212cc374806f6433ebf8441d99020b6a19192f2e",
+      "address": "0x556e30",
+      "scope": "static-decompiler; pointer adjustments require decoded-instruction crosscheck"
+    }
+  ],
+  "limits": [
+    "S05 handler has no Ghidra function entry; exact decoded instructions were used rather than inventing a decompilation.",
+    "S05 recreates own HumanObject; S33 same-object branch copies the profile via0x47ab70 and refreshes StatusDialog via0x540050.",
+    "0x47cf60 is an equality/change comparison including profile+5, not a career permission validator.",
+    "Numeric label identity does not establish career abilities, stats, equipment permissions or original selection policy.",
+    "Codes6/7 labels are observed, but tutorial Server exposes only the five saved symbolic careers.",
+    "Candidate geography and full native Client GUI remain unverified."
+  ]
+}
