@@ -1,5 +1,7 @@
 # A-008／SYS-STATS 原 Client 對接與離線驗收
 
+2026-11-02 已補 [S08 全量初始化及可見欄位映射](../04-analysis-integration/20261102-native-status-initialization.md)：384項Server測試、五職業TCP與固定環境啟停測試通過。CT-062 的 GUI、hover、加點及原服公式均不能據此升級；人工先覆蓋既有Mage角色的能力窗／滑過／同Client重登／退出與新帳號隔離。
+
 原件 Asgard.exe SHA256 db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145；Client profile TW-seed0-local-v0.1。研究報告：task_a/roy2/A-008-analysis.md。
 
 ## CT-061：離線 Binary-first 契約（此研究已執行）

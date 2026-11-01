@@ -1,5 +1,7 @@
 # A-008／roy2 — 數值／狀態面板：原生 Client BIN-first 完整靜態 I/O 契約
 
+**2026-11-02 補充**：[狀態初始化與可見欄位映射](../../04-analysis-integration/20261102-native-status-initialization.md)已追至 StatusDialog 的 HP/MP/SP/BP、五能力與聲望欄位，Server 已接持久狀態及 flags0078 全量投影。下文保留原研究時點；其「畫面標籤未知」已由補充表部分解決，原版數學與 hover 當機驗收仍未完成。
+
 日期 2026-10-31；唯一工作分支 task_a/roy2；SYS-STATS / R-009 / A-008。原始 Asgard.exe SHA256 db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145，PE32、ImageBase 0x400000。**本報告根據實際原件指令與 RTTI，不是依據 Server 期望猜 opcode。**所有地址皆為 VA。遊戲素材及原始 EXE 不提交。
 
 ## 1. 已證 Native 入口／封包

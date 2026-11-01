@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "efc760c9aaffe50c262d2d6b264daa03aed213eae5434c7ef577726bde1c512c"
+      "sha256": "c03093facb6b92b70a47012d87a831bc8760f1248fbb36568c73af3fa0b88804"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -113,7 +113,7 @@
     },
     {
       "path": "02-server-planning/client-io-flow-matrix.json",
-      "sha256": "6b447ee550f450ad89e87af84ebb6a3e1ad1729fef8725e52d07dfe813e97d94"
+      "sha256": "600fe83da893eec67d74cde0e6bac60e1b33483acfe38f8bcb656614e2416458"
     },
     {
       "path": "02-server-planning/client-monitor-tool-contract.md",
@@ -728,8 +728,12 @@
       "sha256": "5cf39dbf689eb6bd9836645e2ecc913cc49e82710204852143597474c3c9fefa"
     },
     {
+      "path": "04-analysis-integration/20261102-native-status-initialization.md",
+      "sha256": "be95d4346c166b43f07dcf4bc4f36a3b467b04e85bfdc90361423b585d5cf055"
+    },
+    {
       "path": "04-analysis-integration/20261102-personal-account-admin-and-status-window.md",
-      "sha256": "0fc008fc2c97c409ef9a6c35ff60a1d33abec2fb587aa331e80f889db19212bd"
+      "sha256": "da59814adb2c6387c1bdff99ab5f11a589fb6708c3efc8f4a875dde7691fc116"
     },
     {
       "path": "04-analysis-integration/20261102-school-room-and-exit-scope.md",
@@ -849,7 +853,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "ee019df1c1c5cf0cc2e93044206451a1011d98b68ed1669c5e5e03e1414c9d46"
+      "sha256": "233c14a9271beeedfc5ecade426edfaa134a30fcb4546659c1120a6cdfc689d8"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -997,7 +1001,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "61f69cefe3a1cec08b0eaafbc5d808c5bc5f153503c5d4f01bf84ee6d36b73c1"
+      "sha256": "398e0098830d94298ce2cae390db2f9d5c2e747cefdc8af4968d18d47873b22a"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1129,7 +1133,7 @@
     },
     {
       "path": "05-conformance/A-008-stats-test-plan.md",
-      "sha256": "f0ecc562adde80f7e8535f526cbfea529bca231967d67fd348e7b5dcbf5a2160"
+      "sha256": "ad7b36ee3b137602b43aa89bfac2416295cdff4ef942b11047bbb6a34d49cd76"
     },
     {
       "path": "05-conformance/A-009-combat-test-plan.md",
@@ -1297,7 +1301,7 @@
     },
     {
       "path": "task_a/roy2/A-008-analysis.md",
-      "sha256": "4fa497f8c35d67583eab83592190988de365bae9f61e67baea7bcb781aaa7371"
+      "sha256": "09322f39d6b1e262c9e569f7b38effc3fa739235fb46a58b7755681261292b06"
     },
     {
       "path": "task_a/roy2/A-009-analysis.md",

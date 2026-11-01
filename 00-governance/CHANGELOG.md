@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-02 原生角色能力初始化與持久數值
+
+依能力窗異常追至StatusDialog欄位，補上旗標0078的S08完整初始化，每次地圖提交後以持久狀態投影，既有角色與新角色首次缺值才建基線，重登不重置。舊SQLite缺表先一致性備份，帳號／位置／職業／金鑰保留。384項.NET、五職業完整TCP與固定環境啟停測試通過；出生數值明示為Server設計，不宣稱原版公式或hover當機已修復。見[契約與待測](../04-analysis-integration/20261102-native-status-initialization.md)。
+
 ## 2026-11-02 個人帳號及既有 Web 管理金鑰入口
 
 依使用者需求補本機個人帳號與既有金鑰開啟管理頁捷徑，沿用 Server／資料庫，不重產金鑰或改 worlddemo。授權只讀 HTTP 200，捷徑模式／轉義及 PowerShell 語法檢查通過。另記錄完成候選教學到城鎮後的能力窗當機，確認未接 S08 初始化與職業／稱號欄位來源分離；尚未把症狀當成已證當機原因，見[契約與待修項目](../04-analysis-integration/20261102-personal-account-admin-and-status-window.md)。

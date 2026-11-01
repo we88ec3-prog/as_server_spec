@@ -524,7 +524,7 @@
       "server_to_client": [
         "PKT-S08"
       ],
-      "client_reaction": "0x53FD60 事件 ID 0x13..0x17 產生 C47 一個 u8 1/2/4/8/16；S08 0x586D40 依旗標解析，0x53F8A0 更新 Status 與四組 bounded resource，0x540660 接收 opcode8 令 StatusDialog 刷新；S08 非固定長度、原版公式與 resource 顯示標籤仍未知",
+      "client_reaction": "0x53FD60 事件 ID 0x13..0x17 產生 C47 一個 u8 1/2/4/8/16；S08 0x586D40 依旗標解析，0x53F8A0 更新 Status 與四組 bounded resource，0x540660 接收 opcode8 令 StatusDialog 刷新；S08 非固定長度、HP/MP/SP/BP及五能力顯示映射見20261102-native-status-initialization.md，原版公式仍未知",
       "evidence": [
         "A-008",
         "A-007",

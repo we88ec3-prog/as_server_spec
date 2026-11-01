@@ -1,5 +1,7 @@
 # 分析結果整合
 
+[2026-11-02 原生能力初始化](20261102-native-status-initialization.md)：S08可見欄位與body offset、持久出生基線、進圖／重登順序與備份政策；384項Server與五職業TCP通過，hover仍待GUI。
+
 [2026-11-02 個人帳號與能力窗問題](20261102-personal-account-admin-and-status-window.md)：既有金鑰取得、獨立帳號流程，以及 S08 初始化／職業與稱號欄位的已證映射；當機原因與修正驗收仍待完成。
 
 [2026-11-01 原型／新版Server差距稽核](prototype-parity-audit-20261101.md)：逐項整理既有實機範圍、新版接線狀態、不能沿用的簡化，並連到Server補齊與批次回歸。

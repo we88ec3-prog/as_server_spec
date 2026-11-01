@@ -2587,7 +2587,7 @@
       "name": "Status",
       "system": "SYS-STATS",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u16 flags; if 0x40: skip u8,u8,4xBE u32,2xBE u16,2xu8,2xBE u16,6xu8,BE u32,u8,BE u32,u8,2xBE u32,3xu8,BE u16,4xu8 (61 B); if 0x20: 4xBE u32 (16 B); if 0x10: BE u32,4xBE u16,BE u32 (16 B); if 0x08: 5xu8,string8 bytes; if 0x0200: u8 count + count xu8; bits 0/1/7/8 are boolean only. Groups are in 0x40,0x20,0x10,0x08,0x200 order. Client status resource names/units and formulas not certified.",
+      "layout": "BE u16 flags; if 0x40: skip u8,u8,4xBE u32,2xBE u16,2xu8,2xBE u16,6xu8,BE u32,u8,BE u32,u8,2xBE u32,3xu8,BE u16,4xu8 (61 B); if 0x20: 4xBE u32 (16 B); if 0x10: BE u32,4xBE u16,BE u32 (16 B); if 0x08: 5xu8,string8 bytes; if 0x0200: u8 count + count xu8; bits 0/1/7/8 are boolean only. Groups are in 0x40,0x20,0x10,0x08,0x200 order. Visible HP/MP/SP/BP, five ability and reputation mapping recovered in the 20261102 supplement; original numeric formulas remain unknown.",
       "client_entry": "0x586CD0 SStatusPacket ctor (push8); 0x586D40 parser; 0x53F8A0 status receiver; 0x540660 UI event opcode8",
       "state_precondition": "Valid authenticated World status receiver; exact original Server dispatch timing unknown",
       "related_packets": [
@@ -2618,10 +2618,11 @@
       "native_probe": "task_a/roy2/a008_native_probe.py",
       "synthetic_test": "task_a/roy2/test_a008_status.py",
       "unknowns": [
-        "Original HP/MP and other numeric labels/units not fully mapped to UI assets",
         "Original Server numeric formulas and death/revive decision unknown",
         "Client actual GUI and first-login full/partial packet ordering not runtime tested"
-      ]
+      ],
+      "status_initialization_contract": "04-analysis-integration/20261102-native-status-initialization.md",
+      "server_validation": "Persistent baseline, 384 .NET tests, five-career actual-content TCP; native hover GUI pending."
     },
     {
       "id": "PKT-C47",
