@@ -2135,6 +2135,13 @@
         "native_client_validation": "not-run",
         "no_new_branch": true,
         "analyze_only_no_server_implementation": true
+      },
+      "conditional_auto_login_audit": {
+        "report": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
+        "client_condition": "LoginDialog ctor: cached ID+password nonempty and Ctrl not pressed -> event4 -> C03 sender; NOT unconditional post-create login",
+        "s03_dispatch": "selector3 -> 0x4A8370 without prior-C03 guard in bounded dispatcher",
+        "remaining": "actual post-C04 cache presence, queue/socket timing and native GUI E2E remain unverified",
+        "native_client_validation": "not-run"
       }
     },
     {

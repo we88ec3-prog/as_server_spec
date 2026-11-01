@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "26053ce2fc87353fa0dc9bec47d21e2eefe1fb421810431484257c3f10cadca6"
+      "sha256": "72ce9a85bf134afdbf58d6e1bccd57b57c859ed4aaf1cafdf8aafbd123ebc361"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -433,7 +433,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "40e2672053d595a968ca517ecfe7043bc2650cf4f622fadd0c3c2bc19d0d7d57"
+      "sha256": "bda82de8ffa3482404bc3c044ba5276078ce998391bbfa2aaf0f64487b56b588"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -441,7 +441,11 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "f10e4c2bd3d0e1a0906b3697148168305f2b75cb7bb4db04980d986e6d94a4ef"
+      "sha256": "1f51f0de883fedee706fdd3bb0fbd354d95b1b03a66c94a85e314e114fd80110"
+    },
+    {
+      "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
+      "sha256": "0211422a2d0b37c05f9d91b69978ce4a8b1a611c73ae9aee4a5225a8453b342c"
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
@@ -601,7 +605,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "7606ed688658f870e996f6e12ec8f56a3a2ad93d20ea7d9ff0f8be79aeb1da4b"
+      "sha256": "63d7eea1b69fb171bbed6912f01fdc4c7f1b46a48205eee719f5cb3258859d3b"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -633,7 +637,11 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "9b6c54616bb78e07958eeb564cd4e634e14b6460fb049f1ab029e6bc8c4a2d9b"
+      "sha256": "a5b657626fa3cde036efc282acda0cb48c4c814aef7e45605713b0cb6b25d2f8"
+    },
+    {
+      "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
+      "sha256": "66ea842406ca39a99e26f2e6541dcaf2c6ea3bbedf11e946e670ec45166d51a6"
     },
     {
       "path": "04-analysis-integration/profile-login.md",
@@ -933,7 +941,7 @@
     },
     {
       "path": "task_a/roy2/A-028-postcreate-ui-native-followup.md",
-      "sha256": "d425264a49034c074d11ecb45b2789153b4f12e01d300184ab0c954f5b43f296"
+      "sha256": "811946124a5c3ced7cf361134ff7723762aa75c21fdcd31f5803273e36a5214b"
     },
     {
       "path": "task_a/roy2/A-031-analysis.md",

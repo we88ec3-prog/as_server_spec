@@ -4572,6 +4572,25 @@
         "procedure": "0x556e30"
       },
       "integration_document": "02-server-planning/native-new-character-movement-increment-20261101.md"
+    },
+    {
+      "evidence_id": "ev_3e331042d2818fa5bb76a1addb34bead6f4973d72907b6405d685b5071dbe4be",
+      "record_scope": "original-native-static; raw evidence retained locally",
+      "operation": "procedure_pseudo_code",
+      "locator": {
+        "procedure": "0x4a9380"
+      },
+      "integration_document": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md"
+    },
+    {
+      "evidence_id": "ev_c16bc554a6f6b5c07996c5919e174a854659abc76b0b6639ef6568603936b8cf",
+      "record_scope": "original-native-static; raw evidence retained locally",
+      "operation": "read_bytes",
+      "locator": {
+        "address": "0x4a9670",
+        "length": 112
+      },
+      "integration_document": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md"
     }
   ]
 }

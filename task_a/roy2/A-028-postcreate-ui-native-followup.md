@@ -75,3 +75,7 @@ objdump -D -M intel --start-address=0x4a8890 --stop-address=0x4a88ad Asgard.exe
 **狀態**：原始 Client 的 `C02→C04→S02 success/failure→UI cleanup/Region3 LoginDialogPane` 已有**可交付靜態子集**；A-028 `integrated/partial`，不能把未證的成功**直接 World 網路動作**標 complete。首次 post-create 真正 first C2S/S2C、異常返回/UI、C15 native E2E 需 CT-105/107/108 的原版擷包，無法僅靠離線 EXE 假裝成功。
 
 **缺少具名原件檔：無。** 已提供 `Asgard.exe`、`Born.dat`、`Map0/1/2.dat`；要解決最後阻塞需去敏的原版 Client **C02→S02→C04→S02 後至少 10 秒內 UI + C2S/S2C opcode/time/region/seed/連線 ID**。遮蔽 ID/PASSWORD/NAME/E-MAIL/token/raw decoded body；不可在 GitHub 公開原始私人資料。
+
+## 後續條件式自動登入補證
+
+最新REA已接通constructor內的快取／鍵盤條件→event4→C03 sender，並核對S03分派沒有prior-C03 guard。這不代表每次創角必然自動C03，Runtime仍待驗，詳見[補證](../../04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md)。

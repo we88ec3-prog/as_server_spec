@@ -241,7 +241,8 @@
         "Next diagnostic run: C35 accepted6/3984; map and character visible by user screenshot; C11 handled; C54(body11) closed unknown-opcode within one second of WorldReady.",
         "C54 shape and stop producer verified by original EXE REA; native-trial WorldReady handler now parses intent without changing authoritative position. 251 tests and isolated TCP smoke passed.",
         "After C54 fix, diagnostic Client C54/C11 handled; no later C33 in that trace, then normal configured idle600s timeout. This is not confirmation of hover/click testing.",
-        "Roy399f09e implements opt-in post-create S02/S03, durable movement and schema6 current position. 255 tests and real TCP failure-retry/create/transfer/movement/relogin passed; native GUI first NewUser attempt rejected C02 credentials before C04."
+        "Roy399f09e implements opt-in post-create S02/S03, durable movement and schema6 current position. 255 tests and real TCP failure-retry/create/transfer/movement/relogin passed; native GUI first NewUser attempt rejected C02 credentials before C04.",
+        "User does not remember whether the displayed grass map is original tutorial; map6 identity remains unconfirmed. No new native test Client/process or post-C04 trace in this audit."
       ],
       "unknowns": [
         "First original-client expected World S2C order, region-specific map/spawn/viewport and real C35 runtime",
@@ -259,7 +260,9 @@
       "correction_document": "04-analysis-integration/c35-map-reference-correction-20261101.md",
       "c54_report": "04-analysis-integration/c54-native-path-intent-20261101.md",
       "movement_creation_report": "02-server-planning/native-new-character-movement-increment-20261101.md",
-      "born_intro_report": "02-server-planning/born-intro-implementation-20261101.md"
+      "born_intro_report": "02-server-planning/born-intro-implementation-20261101.md",
+      "postcreate_dispatch_audit": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
+      "tutorial_map_identity_report": "03-analysis-requests/tutorial-map-identification-status-20261101.md"
     }
   ]
 }

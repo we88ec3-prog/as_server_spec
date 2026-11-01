@@ -194,7 +194,12 @@
       "evidence_ids": [
         "ev_a002_20261031_asgard_login_transfer_static"
       ],
-      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md"
+      "a002_analysis": "03-analysis-requests/A-002-roy1-login-transfer.md",
+      "postcreate_conditional_producer": {
+        "report": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
+        "chain": "0x4A9380 conditional -> 0x4A8950(event4) -> 0x4A7D10",
+        "scope": "static-conditional-only; post-create runtime cache/socket unverified"
+      }
     },
     {
       "id": "PKT-C04",
