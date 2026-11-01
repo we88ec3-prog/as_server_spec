@@ -19,6 +19,10 @@ SHA已鎖定的`nNewLife01.dat`（7caa5c656c7ab50b9701506e0d137f7fb1550f6eb6fd7c
 這能支持職業／城鎮名稱，沒有提供map_ref、出生點或原服傳送設定。
 不能僅依數字順序宣稱1001／3001分別是哪座城市。
 
+後續[全目錄腳本掃描](20261101-town-script-geography-followup.md)補出首都／森林／
+湖泊／海岸／冰原描述與傳送點回覆界線，保留包裝有效但文字異常及XML失敗。
+這些是候選城鎮交叉核對條件，尚未升級任何map_ref綁定。
+
 ## 原件REA新增線索
 
 EXE SHA db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145，

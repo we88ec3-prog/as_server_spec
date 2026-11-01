@@ -329,7 +329,7 @@
     },
     {
       "path": "03-analysis-requests/A-011-map-monster-placement-followup.md",
-      "sha256": "057f5e5d97c3bd94b67d66adf213323e2b7c080b388775825dc0f5471cd1ec64"
+      "sha256": "3334832d00fa17cd091d73cdbd473138093a2c5e23c002c9a6b8180ac4551d78"
     },
     {
       "path": "03-analysis-requests/A-011-roy1-npc-monster-resources.md",
@@ -648,6 +648,10 @@
       "sha256": "afde27df14703fbdd46b98bc0201dce19804e19458637d5c47badbf5186b6280"
     },
     {
+      "path": "04-analysis-integration/20261101-town-script-geography-followup.md",
+      "sha256": "abb5519fb366b53c3298ea72f98deb8d5e3499008b304204261f5d3ea8e7d7ea"
+    },
+    {
       "path": "04-analysis-integration/20261101-training-combat-authority.md",
       "sha256": "03fafe6c6b383ad5fa23f178b349526a37c0fd0079df411433b90007e19105ed"
     },
@@ -665,7 +669,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-geography-and-content-profile.md",
-      "sha256": "a9c985a71b71626bd7a4d44e54b0733fcc78fcbd51c78f702970ce13900d4e5d"
+      "sha256": "12c57f2d09f115b21ad6844fedb966140fd1df357620c74aa35be54978b5508d"
     },
     {
       "path": "04-analysis-integration/20261101-tutorial-lesson-npcs.md",
@@ -946,6 +950,10 @@
     {
       "path": "04-analysis-integration/script-and-tutorial-entry.md",
       "sha256": "7dd39e00b86f7908d08f9938f13ba272b4d5695e6abddd84a8c6baf1aedc3a48"
+    },
+    {
+      "path": "04-analysis-integration/script-geography-literals-20261101.json",
+      "sha256": "11e8b04817f6534695b18687e5aa61b1bff447220a3105ce96582f2f258e0a89"
     },
     {
       "path": "04-analysis-integration/transport.md",
