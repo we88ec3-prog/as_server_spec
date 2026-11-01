@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "5c567dc48f9c67d77be7ff67af2b5ba1c4fd436667c9e4f802c520c0b40ab364"
+      "sha256": "462934a92d12af9e71af616916fc1b17b3ba3131b93b4629eab765a19f798141"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -644,6 +644,10 @@
       "sha256": "660c887b535bab8d06aae45d5cab15452ba7a508090c79d442369835b930079b"
     },
     {
+      "path": "04-analysis-integration/20261101-tutorial-camera-offset-correction.md",
+      "sha256": "0cc145d19e32ed4b1f272ece57f073b9948f201ab463f401060ca7d3d985659e"
+    },
+    {
       "path": "04-analysis-integration/20261101-tutorial-career-advisor.md",
       "sha256": "2453ad68898cdf3cce8f68da53f51ff0cbbf5f0abe87b2df9bc1f2db99019fe9"
     },
@@ -797,7 +801,7 @@
     },
     {
       "path": "04-analysis-integration/appearance.md",
-      "sha256": "661b4b8b508832e063472a56b357a8511d5447d166fe108a2f70e3322d47ece8"
+      "sha256": "aa9f45419ea7150af633717cb5f0b23d0e5db3aa66610c1d115e9a390b2c9e72"
     },
     {
       "path": "04-analysis-integration/c35-map-reference-correction-20261101.md",
@@ -945,7 +949,7 @@
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "24581e3b6dc989d32258568132f05e1ed29b396a14e4b2081fcecb1e487b9a73"
+      "sha256": "8b4126da905656f9a1302309bd66e3f006ce2a8b8e05cefc7459bae3b7de493e"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",

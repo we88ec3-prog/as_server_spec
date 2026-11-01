@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 實機學校畫面錯位修正
+
+使用者回報Map7座標30,34但場景偏右下；確認是候選產生器把S04相機偏移誤當絕對座標，22,28改回8,9。精確比對generated v1後先備份再原子更新v2，不改DB／角色／金鑰；四項遷移測試、舊設定負向與修正後五職業TCP通過，補上先前未檢查的相機公式。需原角色重登復驗GUI，見[原因與修正契約](../04-analysis-integration/20261101-tutorial-camera-offset-correction.md)。
+
 ## 2026-11-01 三層圖塊與候選地理離線核對
 
 REA確認非零tile word減1才送影格索引，0略過，並依序畫三層；新增有界YPF圖塊預覽，八張圖引用全部可解碼。公開素材／預覽hash、精選指令與界限，不公開原圖或把地形當原版城鎮身份；待測profile與使用者進度未變。見[分析結果](../04-analysis-integration/20261101-native-tile-preview-and-geography.md)。

@@ -44,7 +44,12 @@ diagnostic-copy，不自動升級原始未修改Client CT。候選學校／城�
 
 ## 目前狀態與成功門檻
 
-此清單pending，尚無本輪人工結果。先前computer-use視窗存取核准逾時，
+使用者已回報入學後到Map7、座標30,34時畫面偏到右下且大部分黑色。
+本地校驗與持久位置正常；[S04偏移修正](../04-analysis-integration/20261101-tutorial-camera-offset-correction.md)
+已備份更新generated v1→v2，需重啟同一測試環境並以原角色從學校接續。
+這項GUI失敗保持待復驗，不把前段傳輸成功當作整段人工通過。
+
+清單其餘項目尚待完整人工結果。先前computer-use視窗存取核准逾時，
 只證Client握手到LoginReady，沒有任何本清單的GUI成功證據。
 完整測試需逐階段記錄實際通過／失敗，尤其學校切圖、kind2目標攻擊／死亡、
 職業名稱與目的場景。TCP成功不能填補缺少的GUI欄位。

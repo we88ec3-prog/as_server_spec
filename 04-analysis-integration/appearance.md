@@ -52,6 +52,9 @@ body offset不含opcode／ordinal／frame header。此處只規範原型已實�
 
 ## S04鏡頭與world座標必須分開
 
+實機教學已攔到把此偏移誤算成絕對viewport origin的錯誤；修正與回歸範圍見
+[2026-11-01相機偏移修正](20261101-tutorial-camera-offset-correction.md)。
+
 S04四個u16為x,y,viewport_x,viewport_y。原版此畫面viewport912×672、pane偏移(-56,-36)、tile48×32。格中心=(x*48+24,y*32+16)，鏡頭origin=((x-vx-1)*48,(y-vy-1)*32)。vx=8,vy=9使站立錨點與行走強制中點皆為(400,300)；舊9,9站立為(448,300)。改鏡頭參數不修改world x/y。此推導已服務測試，最後原生畫面驗收仍待A-006。
 
 Evidence：S04 ev_08f45301d5c17fcf09333f54c049442dd32a4a6f551c4eba162e87fdd9ea893a；行走中點ev_7ef42381f981f43d0445908032c8e49e53fae75cac4328784b83661e4bcb97a7；S33 parser ev_b87944056795dfae54db7b4dbb56b24f2d5ddaf2fe93da340822ca1a2a1c257b；S05 parser ev_2e40660b7657ca90cb324c25e7c8a1bb095e3c1395b6335e1109c17f4740bcb0；renderer ev_26329f59fb408885c1bf63d2650f557748afd1ca6df71c02cb9298596e9e2864。
