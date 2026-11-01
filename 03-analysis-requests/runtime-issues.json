@@ -328,7 +328,7 @@
       "id": "RI-010",
       "title": "Born歡迎紙張後出現空白創角完成提示",
       "priority": "P1",
-      "status": "implemented-diagnostic-gui-retest-pending",
+      "status": "fix-confirmed-diagnostic-client",
       "source": "User feedback plus original-EXE REA evidence and local diagnostic runtime correlation",
       "evidence_classification": [
         "user-reported",
@@ -339,17 +339,19 @@
       "current_facts": [
         "User screenshots show a welcome paper then a small blank OK dialog.",
         "Original MakeInfo state1E Region3 unconditionally displays final S02.message; empty success message explains blank dialog.",
-        "Royfd3ffeb keeps initial C02 S02 empty, sends nonempty CP950 creation completion text only after committed C04;265 tests and real TCP smoke pass."
+        "Royfd3ffeb keeps initial C02 S02 empty, sends nonempty CP950 creation completion text only after committed C04;265 tests and real TCP smoke pass.",
+        "2026-11-01 user retest confirms notice and leaving without crash on profile-safe Client874c83db; raw trial metadata identifies Serverfd3ffeb."
       ],
       "report": "04-analysis-integration/20261101-creation-notice-and-quit.md",
       "native_client_validation": "not-run",
-      "next_action": "One user test: create, close both notices, walk, exit, relogin with saved position, exit again."
+      "next_action": "Keep creation-message and diagnostic shortcut-default fixes; handle same-process login separately in RI-012.",
+      "diagnostic_client_validation": "User confirms visible creation notice, no crash on leaving either session, and correct position on fresh-client relogin; later same-process LoginDialog login hang is RI-012."
     },
     {
       "id": "RI-011",
       "title": "新角色首次退出在個人設定快捷列序列化當機",
       "priority": "P0",
-      "status": "implemented-diagnostic-gui-retest-pending",
+      "status": "fix-confirmed-diagnostic-client",
       "source": "User feedback plus original-EXE REA evidence and local diagnostic runtime correlation",
       "evidence_classification": [
         "user-reported",
@@ -361,16 +363,40 @@
         "User reports new-character close hangs but returning login closes normally.",
         "Windows Application Error16:39:49 identifies diagnostic Client C0000005 at RVA15BC85; original VA55BC85 reads a shortcut-slot DWORD during profile save.",
         "Default profile initialization leaves shortcut-row count byte18 unset; save loops using it without capacity guard; valid profile reader sets a bounded value.",
-        "This supports an uninitialized-count diagnosis; crash registers were not captured. A separate diagnostic copy initializes one row; actual GUI retest is pending.",
-        "C0B/body0 occurs on both creation and returning exits. Royfd3ffeb classifies authorized WorldReady empty C0B as normal close without invented S2C ACK; not itself proof of Client crash repair."
+        "This supports an uninitialized-count diagnosis; crash registers were not captured. A separate diagnostic copy initializes one row; user confirms leaving no longer crashes; this is diagnostic-copy evidence, not captured fault-register proof.",
+        "C0B/body0 occurs on both creation and returning exits. Royfd3ffeb classifies authorized WorldReady empty C0B as normal close without invented S2C ACK; not itself proof of Client crash repair.",
+        "2026-11-01 user retest confirms notice and leaving without crash on profile-safe Client874c83db; raw trial metadata identifies Serverfd3ffeb."
       ],
       "report": "04-analysis-integration/20261101-creation-notice-and-quit.md",
       "native_client_validation": "not-run",
-      "next_action": "One user test: create, close both notices, walk, exit, relogin with saved position, exit again."
+      "next_action": "Keep creation-message and diagnostic shortcut-default fixes; handle same-process login separately in RI-012.",
+      "diagnostic_client_validation": "User confirms visible creation notice, no crash on leaving either session, and correct position on fresh-client relogin; later same-process LoginDialog login hang is RI-012."
+    },
+    {
+      "id": "RI-012",
+      "title": "離開遊戲回登入頁後，同一Client再次登入卡住",
+      "priority": "P0",
+      "status": "same-tcp-return-to-login-implemented-gui-pending",
+      "source": "User follow-up plus redacted local close metadata, original-Client static paths and Server source",
+      "evidence_classification": [
+        "user-reported",
+        "diagnostic-client-runtime",
+        "shipped-artifact-static",
+        "server-policy-design"
+      ],
+      "current_facts": [
+        "Earlier fresh-process relogin passed; user now explicitly reports same-process LoginDialog submit hangs.",
+        "Serverfd3ffeb closes TCP on C0B/body0; native local teardown rebuilds LoginDialog and its C03 producer does not reconnect.",
+        "Roy7c35793 retains the TCP and ordinal stream, revokes only exact World lease, clears World authority and returns to LoginReady; subsequent C03 must authenticate afresh.",
+        "265 tests and real loopback C0B->same-socket C03->new transfer->saved-position entry pass. GUI same-process login awaits user test."
+      ],
+      "report": "04-analysis-integration/20261101-same-client-relogin.md",
+      "native_client_validation": "not-run",
+      "next_action": "Without closing Client, perform two Leave Game -> Login -> World cycles; confirm saved position; then close window."
     }
   ],
   "latest_direct_increment": {
-    "commit": "fd3ffeb",
-    "report": "04-analysis-integration/20261101-creation-notice-and-quit.md"
+    "commit": "7c35793",
+    "report": "04-analysis-integration/20261101-same-client-relogin.md"
   }
 }

@@ -9,7 +9,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "0194d1ba42fb0e999815208bed1f5f805db2e0c56473afef089d8c91646a095e"
+      "sha256": "e0989ec598a50950519f03836d339d24409ce8dc23313d44f5aa16f53ff48b0c"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -441,7 +441,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "d7004afa209173758eeb35bbf029c6d3740927bcf3cf63c2a6b45d27af258b7f"
+      "sha256": "f0c8c2c46230b592f7fffe3f92abe8705a9f2ef8fa54f447b85d985ae0c79ce6"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -453,7 +453,7 @@
     },
     {
       "path": "04-analysis-integration/20261101-creation-notice-and-quit.md",
-      "sha256": "0330549fe9bfb5abe335cdaf03bd0c78974a423a5a8f72ab2363134a29f2034d"
+      "sha256": "c38f266d73daf69f369f73e7fea34b38fe6dce2a85be20de98e01bfde09d98fa"
     },
     {
       "path": "04-analysis-integration/20261101-native-c25-wait-and-preview-app-error.md",
@@ -466,6 +466,10 @@
     {
       "path": "04-analysis-integration/20261101-preview-exe-crash-debug-diff.md",
       "sha256": "0991691ca9ea120e0b81ffeb01a26ebbcc9a08f587fb1d858d90c2af418d3c4a"
+    },
+    {
+      "path": "04-analysis-integration/20261101-same-client-relogin.md",
+      "sha256": "794bb36a37545f3eb8c8240550679f71d46d8d6330c948718f3c1693bd34774c"
     },
     {
       "path": "04-analysis-integration/20261101-short-name-creation-rejection.md",
@@ -865,7 +869,7 @@
     },
     {
       "path": "05-conformance/vectors.json",
-      "sha256": "6eeb38b0ca674957b54b19d69056f252138c64e12bfc585b6233d0f0a46b87d9"
+      "sha256": "1e96672233897de962ff915cdba786fc8eaae2aca8028891be174a9a9e27cdfb"
     },
     {
       "path": "AGENTS.md",

@@ -1,5 +1,9 @@
 # 變更紀錄
 
+## 2026-11-01 同Client離開後重登修正
+
+使用者確認完成提示與首次退出不再當機、重啟登入位置正確；另明確回報回登入頁後同Client登入卡住。修正先前C0B一律關TCP的策略：撤銷精確世界lease、清世界權限、保留同TCP回LoginReady，後續C03重新驗證。roy7c35793的265項測試與同socket重登入場TCP通過，GUI待驗；原始Client CT不升級。詳見[同Client重登合約](../04-analysis-integration/20261101-same-client-relogin.md)。
+
 ## 2026-11-01 創角完成提示與首次退出例外
 
 使用者確認C44修正後持續在線、重登位置正確；另回報Born後空白框與新角色退出卡住。補最終S02原生MessageDialog作用、C0B正常退出合約，以及Windows當機與快捷列數未初始化證據。royfd3ffeb提供非空提示、正常退出分類及獨立Client相容副本；265項測試與本機TCP通過，副本GUI重測待完成。原始Client正式CT不升級。詳見[分析與合約](../04-analysis-integration/20261101-creation-notice-and-quit.md)。

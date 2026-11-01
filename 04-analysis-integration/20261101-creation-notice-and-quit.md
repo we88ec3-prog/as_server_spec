@@ -1,5 +1,7 @@
 # 創角後空白提示與首次退出當機
 
+> 後續：使用者已確認提示正常、退出不再當機、重新啟動重登位置正確；另發現同一Client回登入頁再登入卡住。本文fd3ffeb的C0B關閉TCP策略已撤回，由[同Client重登合約](20261101-same-client-relogin.md)取代。
+
 ## 使用者回報及驗收範圍
 
 2026-11-01，使用者確認上一版診斷副本可持續在線、重登位置正確。
@@ -38,7 +40,7 @@ Server設計：初次C02成功S02維持status0、空訊息；持久提交C04後�
 的C0B/body0。舊Server誤記unknown-opcode並關閉；這一點不足以解釋
 只有第一次退出出錯，不可把日誌分類修正當成Client當機已解決。
 
-Server設計：僅已授權WorldReady、現行owner有效、native trial啟用且
+歷史fd3ffeb設計（關閉TCP部分已由後續合約修正）：僅已授權WorldReady、現行owner有效、native trial啟用且
 encrypted body恰0bytes時，正常關閉TCP，分類expected-client-quit，
 不發猜測的S2C ACK。錯階段／畸形body照常拒絕。位置在移動ACK前已
 持久提交，退出不可覆寫成首次進場位置。C2S C0B與S2C S0B移動ACK
@@ -78,6 +80,6 @@ Server封包規則。這是Client相容性修正，不是所有Server必須修�
 去重、重登位置及C0B正常EOF。副本建置檢查固定來源SHA、PE結構、
 原始指令及兩條跳轉目的地；不等於實際執行驗收。
 
-待使用者一次確認：歡迎紙張→有文字的創角完成框→移動→關閉是否
-退出；同一Server重新登入、確認位置並再次關閉。原始未修改Client的
+使用者已確認：歡迎紙張後的完成框文字正常、移動後退出不再當機，
+重新啟動登入位置正確。同一Client回登入頁再次登入改追RI-012。原始未修改Client的
 正式CT仍維持not-run，不能以診斷副本結果升級。

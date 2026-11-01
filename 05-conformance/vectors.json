@@ -2972,10 +2972,10 @@
       "roy123_source_grade": "native-resource/static-verified Region2..4 C02 F3 NAME F4 E-MAIL, but S02 error UI and success seamless World GUI not-run",
       "implementation_status": "native-trial-implemented-original-e2e-pending",
       "diagnostic_runtime_increment": {
-        "report": "04-analysis-integration/20261101-creation-notice-and-quit.md",
-        "client_sha256": "e5f7b1ac742afdda9c6ec30a8934267dfac10221e115f74c2acd6449a4832dba",
-        "observed": "User confirms short-name creation, automatic World entry/Born, sustained play and saved-position relogin after C44 fix. Creation notice and first-session exit remain separate pending fixes.",
-        "scope": "Diagnostic-copy evidence; original full CT and wall/fixed-route checks remain unverified."
+        "report": "04-analysis-integration/20261101-same-client-relogin.md",
+        "client_sha256": "874c83db4840af6db584c1814fdda107e02713f0bb26204a3c6decec9b0fc3ef",
+        "observed": "User confirms creation notice, leave without crash and fresh-client relogin position. Same-process LoginDialog relogin hangs; separate transport-continuation fix passed TCP tests and awaits GUI.",
+        "scope": "Diagnostic-copy feedback only; original full CT and same-process GUI relogin are not yet passed."
       }
     },
     {
@@ -3143,10 +3143,10 @@
         "non3_c25": "not mandatory"
       },
       "diagnostic_runtime_increment": {
-        "report": "04-analysis-integration/20261101-creation-notice-and-quit.md",
-        "client_sha256": "e5f7b1ac742afdda9c6ec30a8934267dfac10221e115f74c2acd6449a4832dba",
-        "observed": "User confirms short-name creation, automatic World entry/Born, sustained play and saved-position relogin after C44 fix. Creation notice and first-session exit remain separate pending fixes.",
-        "scope": "Diagnostic-copy evidence; original full CT and wall/fixed-route checks remain unverified."
+        "report": "04-analysis-integration/20261101-same-client-relogin.md",
+        "client_sha256": "874c83db4840af6db584c1814fdda107e02713f0bb26204a3c6decec9b0fc3ef",
+        "observed": "User confirms creation notice, leave without crash and fresh-client relogin position. Same-process LoginDialog relogin hangs; separate transport-continuation fix passed TCP tests and awaits GUI.",
+        "scope": "Diagnostic-copy feedback only; original full CT and same-process GUI relogin are not yet passed."
       }
     },
     {
@@ -3212,10 +3212,10 @@
         ]
       },
       "diagnostic_runtime_increment": {
-        "report": "04-analysis-integration/20261101-creation-notice-and-quit.md",
-        "client_sha256": "e5f7b1ac742afdda9c6ec30a8934267dfac10221e115f74c2acd6449a4832dba",
-        "observed": "User confirms short-name creation, automatic World entry/Born, sustained play and saved-position relogin after C44 fix. Creation notice and first-session exit remain separate pending fixes.",
-        "scope": "Diagnostic-copy evidence; original full CT and wall/fixed-route checks remain unverified."
+        "report": "04-analysis-integration/20261101-same-client-relogin.md",
+        "client_sha256": "874c83db4840af6db584c1814fdda107e02713f0bb26204a3c6decec9b0fc3ef",
+        "observed": "User confirms creation notice, leave without crash and fresh-client relogin position. Same-process LoginDialog relogin hangs; separate transport-continuation fix passed TCP tests and awaits GUI.",
+        "scope": "Diagnostic-copy feedback only; original full CT and same-process GUI relogin are not yet passed."
       }
     },
     {
