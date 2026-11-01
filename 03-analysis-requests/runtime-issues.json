@@ -400,7 +400,7 @@
       "id": "RI-013",
       "title": "招募員物件生成後不可見：空白動作與方向",
       "priority": "P1",
-      "status": "visible-diagnostic-confirmed-speed-and-portrait-fix-awaiting-gui",
+      "status": "visible-animation-portrait-and-interaction-user-confirmed",
       "source": "User report, passive diagnostic runtime, original EXE and verified resource metadata",
       "evidence_classification": [
         "user-reported",
@@ -415,16 +415,17 @@
         "User reports initial slow motion and blank dialog portrait; there is no30-second speed timer.",
         "Native animation scales parameter by0.01;1000 is10x time. New code uses100 in S07/S1A.",
         "Original MerchantDialog portrait formula resolves TILE16439 to Portrait.dat/information05.ypf/object5/frame0; asset exists and is hash-pinned. PriorTILE0 omitted portrait.",
-        "282 tests and native TCP pass; speed/portrait GUI pending; no original EXE acceptance claim."
+        "282 tests and native TCP pass; speed/portrait GUI pending; no original EXE acceptance claim.",
+        "User confirms animation from start and dialog portrait are normal on persistent Development entry; no further isolated GUI test needed."
       ],
       "report": "04-analysis-integration/20261101-recruiter-invisible-motion.md",
       "native_client_validation": "not-run",
-      "next_action": "Combined100% animation/portrait GUI test using persistent dev entry; continue school/job/town transition implementation."
+      "next_action": "Complete school/job/town chain before requesting the next human test."
     }
   ],
   "latest_direct_increment": {
-    "commit": "5acdf65",
-    "report": "04-analysis-integration/20261101-recruiter-invisible-motion.md",
+    "commit": "0eedb6b",
+    "report": "04-analysis-integration/20261101-world-transfer-transaction.md",
     "test_queue": "02-server-planning/next-increments-and-test-queue-20261101.md",
     "tutorial_progress": "02-server-planning/tutorial-delivery-progress-20261101.json"
   }

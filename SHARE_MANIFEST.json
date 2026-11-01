@@ -197,7 +197,7 @@
     },
     {
       "path": "02-server-planning/next-increments-and-test-queue-20261101.md",
-      "sha256": "7f4f40547a7c939b7e309a28ff7c49cb0a92af8f144e23d9777ee84a9f22d1eb"
+      "sha256": "f52d0177751faae80285200fe2de75e4c66604201bfb07bbe529ce0a779265d2"
     },
     {
       "path": "02-server-planning/novice-school-admission-flow.md",
@@ -293,7 +293,7 @@
     },
     {
       "path": "02-server-planning/tutorial-delivery-progress-20261101.json",
-      "sha256": "733032044a69f12796476d89cebabeb01dc28edf0e0e87412137781b9152a0bc"
+      "sha256": "c696241e71862d7c1796791d9e36bac978234ce59bb36164679c5901a8c96d23"
     },
     {
       "path": "02-server-planning/tutorial-runtime-plan.md",
@@ -453,7 +453,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "695337b7ee2506632a8d511b81307aa6822487e47678dd418aa817302621ec41"
+      "sha256": "acf8664ba517336bea9cb7d3ba24f304eab79bb7ec6b9cb45950d36a4b052dba"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -506,6 +506,10 @@
     {
       "path": "04-analysis-integration/20261101-tutorial-resource-route.md",
       "sha256": "bf9e296243922cebb3f537b516b9489f37b4cce170bd17420d521f0027f6d909"
+    },
+    {
+      "path": "04-analysis-integration/20261101-world-transfer-transaction.md",
+      "sha256": "54da88978ae9d0bfb32180fe2942b0f8c1c5b9bb898e4e1026b056a8d7fff3c3"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
