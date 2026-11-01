@@ -1,5 +1,7 @@
 # 招募員：原生物件點選到加入對話
 
+> 後續實機回報 NPC 不可見；已確認 S07 建構／登錄，補方向2及 S1A 站立初始化。279項測試與隔離TCP通過，GUI重測中；詳[不可見問題修正](20261101-recruiter-invisible-motion.md)。舊「GUI待驗」不代表已通過。
+
 ## 本輪解開的Client路徑
 
 原始EXE SHA沿用`db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，

@@ -1,5 +1,7 @@
 # A-011 — NPC / Monster asset identity, interaction, animation handoff
 
+> 後續實機回報 NPC 不可見；已確認 S07 建構／登錄，補方向2及 S1A 站立初始化。279項測試與隔離TCP通過，GUI重測中；詳[不可見問題修正](20261101-recruiter-invisible-motion.md)。舊「GUI待驗」不代表已通過。
+
 > 2026-11-01後續：已追S07 kind1→mode1→MapPane點選C43(1,target,0)，並追descriptor首u16到圖像library/slot。獨立招募員及原有Merchant／Join接線已實作、275項Server測試通過，GUI待驗；不升級官方NPC綁定／教學完成。詳[本輪結果](../04-analysis-integration/20261101-recruiter-interaction.md)。
 
 

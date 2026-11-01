@@ -1,5 +1,7 @@
 # 外觀profile欄位與螢幕座標
 
+2026-11-01開發增量：使用者要求「衣色獨立於髮色」。新 Server 已加入可選 clothing tint 的 S05/S33 編碼；未指定時維持原始色 sentinel，指定時僅改衣色及 S05 的0x1000旗標。拒絕把000000／FF00FF當可精確顯示的自訂色。4個新增測例核對髮色不變、面向／位置保留、S05與S33各自旗標及保留色拒絕；全套279項測試通過。此增量尚未接持久化、衣櫃／裝備交易與Web操作，不能宣稱新Server已可完整換衣染色；原生GUI仍待測。
+
 body offset不含opcode／ordinal／frame header。此處只規範原型已實作的選填欄子集，不能套用任意flags。
 
 ## S05 body，29 bytes，本profile flags=0或0x1000

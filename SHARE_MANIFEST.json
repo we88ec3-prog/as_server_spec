@@ -197,7 +197,7 @@
     },
     {
       "path": "02-server-planning/next-increments-and-test-queue-20261101.md",
-      "sha256": "011eb798a4f2ee8448fd7c70669af4d98fca3abc4abfcd0333c817d2c779068c"
+      "sha256": "7f4f40547a7c939b7e309a28ff7c49cb0a92af8f144e23d9777ee84a9f22d1eb"
     },
     {
       "path": "02-server-planning/novice-school-admission-flow.md",
@@ -289,7 +289,7 @@
     },
     {
       "path": "02-server-planning/tutorial-delivery-progress-20261101.json",
-      "sha256": "d6a0f11b92c210278382d4437e192f411d70d9b76c5acb23d154afdc9a74536b"
+      "sha256": "27762f01ab8ed8b042296381631adc719412d1e90574fedc98405dc22f24ef7e"
     },
     {
       "path": "02-server-planning/tutorial-runtime-plan.md",
@@ -449,7 +449,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "bd90d97ccb2f04e69ae2f541afd9b1c291f5725d17e0aad2acf4ee66dcdfbef5"
+      "sha256": "27f259ceaf6f4a7f8dcc5df507f147ee322c21a0eb7f05fa7055a8e19a6ba962"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -481,7 +481,11 @@
     },
     {
       "path": "04-analysis-integration/20261101-recruiter-interaction.md",
-      "sha256": "ca04415e1d9fb5fa8a2191338ab6d4e9d9d8343be72291034e636844b433196e"
+      "sha256": "8cd26aec0bf0b47428f64645ec1e90aa11b69cb1ba96f1ad040033ff3c32c18f"
+    },
+    {
+      "path": "04-analysis-integration/20261101-recruiter-invisible-motion.md",
+      "sha256": "275170de1f5f2b95758fa02d8e9139ff3146bdb1a852d69573ca059a5149e729"
     },
     {
       "path": "04-analysis-integration/20261101-same-client-relogin.md",
@@ -525,7 +529,7 @@
     },
     {
       "path": "04-analysis-integration/A-011-npc-monster-resource-contract.md",
-      "sha256": "662edd180a8cd565f46c5b2399f6888d197c07ad8b13e115dd29c5b13d167b6d"
+      "sha256": "c3e533bac9032c2d8578241be5e967f78c050718f0c28a4cbf1ad61bc0a858c4"
     },
     {
       "path": "04-analysis-integration/A-012-quest-dialog-contract.md",
@@ -621,7 +625,7 @@
     },
     {
       "path": "04-analysis-integration/appearance.md",
-      "sha256": "91aeaab9303e5d73067ec10cdac9b617f2a515884c1ef5ea8959f547e0afbd36"
+      "sha256": "2315618a2823ebe35bd5c14db8dc4a01ad0f800b370a694d300f1c57c329b61c"
     },
     {
       "path": "04-analysis-integration/c35-map-reference-correction-20261101.md",
@@ -977,7 +981,7 @@
     },
     {
       "path": "task_a/roy2/A-024-analysis.md",
-      "sha256": "84189d50d0a8dbbe13fc34ce4671b9e48450725be20e2070834411462e1ceca9"
+      "sha256": "1d74de571bd7da0682127bdd256f4bc1ed724f9bc59a0e1be4d4610a7acbb726"
     },
     {
       "path": "task_a/roy2/A-028-postcreate-ui-native-followup.md",

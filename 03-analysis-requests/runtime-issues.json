@@ -395,11 +395,34 @@
       "native_client_validation": "not-run",
       "next_action": "Retain transport/lease fix; keep original unmodified Client CT separate; proceed with audio and wardrobe work.",
       "diagnostic_client_validation": "User confirms two same-Client leave/login cycles, correct saved position and normal final close on Server7c35793/profile-safe Client874c83db."
+    },
+    {
+      "id": "RI-013",
+      "title": "招募員物件生成後不可見：空白動作與方向",
+      "priority": "P1",
+      "status": "motion-and-direction-fix-awaiting-diagnostic-gui",
+      "source": "User report, passive diagnostic runtime, original EXE and verified resource metadata",
+      "evidence_classification": [
+        "user-reported",
+        "diagnostic-client-runtime",
+        "shipped-artifact-static",
+        "server-policy-design"
+      ],
+      "current_facts": [
+        "User saw only the Player at31,29 in recruiter trial36c71fd.",
+        "Passive relogin observation confirms S07 decode, handler, object construction and registration; sprite action8 has zero frames.",
+        "Source helper actions32/33 reference only empty frame bounds; action34 references13 nonempty frames.",
+        "Server now uses direction2 and follows S07 with S1A state0/parameter1000/tail0; parameter unit remains unknown.",
+        "279 tests and isolated real TCP pass; diagnostic GUI retest pending."
+      ],
+      "report": "04-analysis-integration/20261101-recruiter-invisible-motion.md",
+      "native_client_validation": "not-run",
+      "next_action": "Human test visibility, Talk, refusal and acceptance; continue school/job/town implementation after this gate."
     }
   ],
   "latest_direct_increment": {
-    "commit": "36c71fd",
-    "report": "04-analysis-integration/20261101-recruiter-interaction.md",
+    "commit": "0e1ca28",
+    "report": "04-analysis-integration/20261101-recruiter-invisible-motion.md",
     "test_queue": "02-server-planning/next-increments-and-test-queue-20261101.md",
     "tutorial_progress": "02-server-planning/tutorial-delivery-progress-20261101.json"
   }
