@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "export_id": "asgard-git-skill-review-20261101-v1",
+  "baseline_commit": "74f0e79f1c1eb6a5c768c6828a7c098ae99d4a1a",
+  "input_manifest_sha256": "e4109c5f201d468168f096571714f8bedd098c46a4946a4c9b23aca057950aab",
+  "task_id": "A010-D01",
+  "reviewer": "chatgpt",
+  "status": "partial",
+  "inspected_artifacts": [
+    "report-a010",
+    "resource-index-skill-icons",
+    "rea-c4d-producer",
+    "rea-c4d-callers"
+  ],
+  "unreviewed": [
+    {
+      "artifact_id": "report-a007",
+      "reason": "Not independently re-reviewed end to end; inventory slot semantics remain separate."
+    },
+    {
+      "artifact_id": "report-a008",
+      "reason": "Not independently re-reviewed end to end; status math and effect timing not asserted."
+    }
+  ],
+  "findings": [
+    {
+      "id": "A010-D01/chatgpt/F001",
+      "classification": "observed_static",
+      "statement": "Native S62 reader opcode0x62 0x579020 parses two u8, BEu16, three u8, four string8, u8, BEu16, u8; native S63 opcode0x63 reader0x585950 parses two u8. Consumers 0x4F2CD0 and 0x4F2F10 add/remove ActionEntry and clear shortcuts.",
+      "evidence": [
+        {
+          "artifact_id": "original-Asgard-exe-static",
+          "native_va": "0x579020",
+          "locator": "0x578F89 ctor; 0x579020..0x5790DC reader; 0x4F2CD0 ActionEntry call; 0x5858B9 ctor; 0x585950 S63 reader; 0x4F2F10 consumer"
+        }
+      ],
+      "limitations": [
+        "No original Server snapshot order or learned-skill names established."
+      ]
+    },
+    {
+      "id": "A010-D01/chatgpt/F002",
+      "classification": "observed_static",
+      "statement": "ActionInventory key is kind*80+slot, not cast_value. S62 first BEu16 stores ActionEntry+0x04. Another BEu16 after four strings stores ActionEntry+0x80E and becomes C4D wire BEu16 when nonzero.",
+      "evidence": [
+        {
+          "artifact_id": "original-Asgard-exe-static",
+          "native_va": "0x4019B0",
+          "locator": "0x4019B0 key; 0x4017D0 entry constructor; 0x4018B6 cast_value; 0x401FB8/0x402045 C4D"
+        },
+        {
+          "artifact_id": "rea-c4d-producer",
+          "native_va": "0x401ED0",
+          "locator": "value-zero vs nonzero C4D path"
+        }
+      ],
+      "limitations": [
+        "Official stable skill ID and presentation-word semantics remain unknown."
+      ]
+    },
+    {
+      "id": "A010-D01/chatgpt/F003",
+      "classification": "observed_static",
+      "statement": "Native shortcut per-row has 10 cells, stride12, valid DWORD/type DWORD/slot byte. It reads and writes Shortcut.row.cell.IsValid/Type/Slot settings; raw shortcut Type0..3 is translated before ActionInventory lookup.",
+      "evidence": [
+        {
+          "artifact_id": "original-Asgard-exe-static",
+          "native_va": "0x559470",
+          "locator": "0x559470,0x55BC48/74/9E,0x55EBD9/0x55EC2F/0x55EC8F,0x489E60"
+        }
+      ],
+      "limitations": [
+        "Actual settings path, account isolation and cross-device sync unknown; Shortcut.Type not directly equal S62.kind."
+      ]
+    },
+    {
+      "id": "A010-D01/chatgpt/F004",
+      "classification": "needs_evidence",
+      "statement": "Entry+4 has a UI consumer at 0x444AFB and resource index lists Icon.dat skill.ypf and spell.ypf, but precise official icon frame/skill_id mapping is unproven; original Icon.dat not uploaded.",
+      "evidence": [
+        {
+          "artifact_id": "resource-index-skill-icons",
+          "native_va": null,
+          "locator": "Icon.dat selected members skill.ypf/spell.ypf"
+        },
+        {
+          "artifact_id": "original-Asgard-exe-static",
+          "native_va": "0x444AFB",
+          "locator": "0x4019A0 entry+4 accessor and 0x444AFB UI combination"
+        }
+      ],
+      "limitations": [
+        "No known Skill*.dat / Spell*.dat official definition selector."
+      ]
+    },
+    {
+      "id": "A010-D01/chatgpt/F005",
+      "classification": "server_design",
+      "statement": "After authorized character selection/World entry, Server should publish character-owned S62 snapshot before shortcut use; preserve kind/slot across logins; S62 update/S63 removal only after authoritative learned-action state change; C4D must be validated against learned catalog, not trusted.",
+      "evidence": [
+        {
+          "artifact_id": "original-Asgard-exe-static",
+          "native_va": "0x4F2CD0",
+          "locator": "S62 creates row, S63 removes row; C4D from ActionEntry+0x80E"
+        },
+        {
+          "artifact_id": "rea-c4d-producer",
+          "native_va": "0x401ED0",
+          "locator": "C4D selected action"
+        }
+      ],
+      "limitations": [
+        "Original login packet order, learn action opcode and Server cooldown/MP/range are unproven."
+      ]
+    },
+    {
+      "id": "A010-D01/chatgpt/F006",
+      "classification": "observed_static",
+      "statement": "Original Asgard.exe SHA matched; 33/33 native byte windows and three shortcut config strings passed; 15/15 offline tests passed, including bad S62/S63 payload and unresolved shortcut.",
+      "evidence": [
+        {
+          "artifact_id": "original-Asgard-exe-static",
+          "native_va": "0x579020",
+          "locator": "tools/a010d01_shortcut_probe.py; tools/test_a010d01_shortcut_probe.py"
+        }
+      ],
+      "limitations": [
+        "Not a native GUI or live original Server test."
+      ]
+    }
+  ],
+  "packet_changes": [
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "kind",
+      "type": "u8",
+      "wire_offset": 0,
+      "local_offset": "+0x18",
+      "meaning": "Action kind",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "slot",
+      "type": "u8",
+      "wire_offset": 1,
+      "local_offset": "+0x19",
+      "meaning": "ActionInventory slot, not shortcut cell",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "presentation_word",
+      "type": "BEu16",
+      "wire_offset": 2,
+      "local_offset": "+0x1A",
+      "meaning": "Entry+4, icon/display candidate",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F002"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "use_mode",
+      "type": "u8",
+      "wire_offset": 4,
+      "local_offset": "+0x1C",
+      "meaning": "Entry+7 shortcut use mode",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "use_flags",
+      "type": "u8",
+      "wire_offset": 5,
+      "local_offset": "+0x1D",
+      "meaning": "Entry+8 flags",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "opaque6",
+      "type": "u8",
+      "wire_offset": 6,
+      "local_offset": "+0x1E",
+      "meaning": "Entry+9, unknown",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "four_texts",
+      "type": "4xstring8",
+      "wire_offset": 7,
+      "local_offset": "+0x22,+0x222,+0x422,+0x624",
+      "meaning": "Variable encoded strings, UI labels not fully mapped",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "opaque_after_texts",
+      "type": "u8",
+      "wire_offset": null,
+      "local_offset": "+0x824",
+      "meaning": "unknown",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "cast_value",
+      "type": "BEu16",
+      "wire_offset": null,
+      "local_offset": "+0x20",
+      "meaning": "After variable strings; Entry+0x80E, C4D value",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F002"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x62",
+      "field": "opaque_tail",
+      "type": "u8",
+      "wire_offset": null,
+      "local_offset": "+0x825",
+      "meaning": "unknown",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x63",
+      "field": "kind",
+      "type": "u8",
+      "wire_offset": 0,
+      "local_offset": "+0x18",
+      "meaning": "Action kind to remove",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "S2C",
+      "opcode": "0x63",
+      "field": "slot",
+      "type": "u8",
+      "wire_offset": 1,
+      "local_offset": "+0x19",
+      "meaning": "Action slot to remove",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F001"
+      ],
+      "confidence": "observed_static"
+    },
+    {
+      "direction": "C2S",
+      "opcode": "0x4D",
+      "field": "cast_value",
+      "type": "BEu16",
+      "wire_offset": 0,
+      "local_offset": "packet+0x24 / ActionEntry+0x80E",
+      "meaning": "Client selected opaque value not shortcut slot",
+      "evidence_ids": [
+        "A010-D01/chatgpt/F002"
+      ],
+      "confidence": "observed_static"
+    }
+  ],
+  "evidence_requests": [
+    {
+      "id": "A010-D01/ER01",
+      "target": "Original Icon.dat skill.ypf/spell.ypf and 0x444AFB UI consumer",
+      "kind": "resource_selector",
+      "why": "Official presentation_word to icon atlas/frame not proven",
+      "expected_question": "Which member and frame does each original entry display?"
+    },
+    {
+      "id": "A010-D01/ER02",
+      "target": "SkillSpellDialog / ActionListPane callbacks with 0x538970/0x539490/0x538F20",
+      "kind": "incoming_data_refs",
+      "why": "S62 exact label, tooltip, drag behavior unknown",
+      "expected_question": "Which string8 becomes skill name and how is drag-and-drop shortcut written?"
+    },
+    {
+      "id": "A010-D01/ER03",
+      "target": "0x489E60→0x489A30, 0x55BC40/0x55EBD7 config users",
+      "kind": "procedure",
+      "why": "Shortcut.Type conversion and setting scope incomplete",
+      "expected_question": "How are Shortcut.Type0..3 mapped to ActionEntry kind and where is config stored?"
+    },
+    {
+      "id": "A010-D01/ER04",
+      "target": "Learn/upgrade skill Client producer plus initial World S62 sequence",
+      "kind": "handler_dispatch",
+      "why": "Missing real skill learning wire and first-load ordering",
+      "expected_question": "What Client C2S learns and which rows/opcodes appear after login?"
+    },
+    {
+      "id": "A010-D01/ER05",
+      "target": "Native GUI + sanitized S62/S63→shortcut→C4D trace and relog",
+      "kind": "runtime_observation",
+      "why": "No original completed GUI validation",
+      "expected_question": "Do learned skills and shortcuts work and persist across role changes and computers?"
+    }
+  ],
+  "unknowns": [
+    "Official skill ID catalogue and equality to cast_value not proven; do not invent Skill*.dat/Spell*.dat.",
+    "Icon.dat original absent; icon/frame selector for skill.ypf and spell.ypf unverified.",
+    "Four S62 string8 fields, extra byte flags and presentation_word meaning incomplete.",
+    "Shortcut Type→kind mapping, settings path, account/PC portability unknown.",
+    "Original skill learning/upgrade packet, first snapshot order vs S15/C35/S04 unverified.",
+    "C56 complete UI sender, success enum, cooldown/resource/effect/damage and original Server policy unknown."
+  ]
+}
