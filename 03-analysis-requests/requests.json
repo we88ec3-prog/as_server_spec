@@ -673,7 +673,8 @@
         "A010-E07",
         "A010-E08",
         "A010-E09",
-        "A010-E10"
+        "A010-E10",
+        "ev_a010d01_20261102_s62_shortcut_original"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -734,9 +735,12 @@
         "C56 real UI producer and exact C4D→C56→S52/S48 protocol ordering and response enum unknown",
         "Native S2C/S2D lasting spell inventory UI add/update/expire callback and identity mapping unknown",
         "No verified original official skills definition filename/skill IDs, individual spell categories, range, MP cost, cooldown, effect duration, stacking, summoned owner/AI",
-        "Native original Client GUI/world combat casts and effect expiry trace not-run; CT-096 planned"
+        "Native original Client GUI/world combat casts and effect expiry trace not-run; CT-096 planned",
+        "A010-D01 complete original learned skill ID list and presentation_word→Icon.dat skill.ypf/spell.ypf frame mapping unknown",
+        "A010-D01 native Server S62 initial snapshot order and original skill-learn/upgrade packets unknown",
+        "A010-D01 shortcut settings location, Shortcut.Type→S62.kind mapping and GUI relog/cross-PC persistence not yet verified"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-02",
       "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
       "native_static_result": "Roy2 reported original Asgard.exe SHA and 25 native PE anchors + six RTTI PASS",
       "offline_test_result": "Roy2 GitHub Actions run 41193941400: 19 synthetic A010 tests PASS; GUI E2E not-run",
@@ -748,7 +752,23 @@
           "CT-096"
         ],
         "native_client_validation": "not-run"
-      }
+      },
+      "d01_report": "03-analysis-requests/A-010-D01-roy1-action-shortcut-20261102.md",
+      "d01_review": "03-analysis-requests/web-skill-review/results/review.A010-D01.chatgpt.json",
+      "d01_probe": "tools/a010d01_shortcut_probe.py",
+      "d01_test": "tools/test_a010d01_shortcut_probe.py",
+      "d01_conformance": "05-conformance/A-010-D01-action-shortcut-test-plan.md",
+      "d01_status": "partial",
+      "d01_scope": "S62 action list decoded fields and add handler; S63 remove handler; per-entry display_word vs opaque cast_value; action key kind*80+slot vs local shortcut row*10+cell with Type translation; original client GUI and skill catalogue unknown",
+      "d01_static_validation": {
+        "exe_native_anchors": 33,
+        "shortcut_utf16_keys": 3,
+        "new_unit_tests_passed": 15,
+        "exe_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+        "original_gui_e2e": "not-run"
+      },
+      "d01_server_login_handoff": "Under authorized WorldReady character, issue complete allowed per-character S62 ActionInventory rows before shortcut use; maintain stable kind/slot and cast-value identity; S62/S63 subsequent authorized changes; do NOT invent original Server hotbar layout packet or official skill IDs.",
+      "d01_missing_named_original": "Icon.dat (member skill.ypf and spell.ypf) for icon mapping only; native UI/packet trace for learn/upgrade and login S62 ordering also needed"
     },
     {
       "id": "A-011",

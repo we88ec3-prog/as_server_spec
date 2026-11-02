@@ -29,3 +29,8 @@ python -m unittest discover -s task_a/roy2 -p 'test_a010_skill_codec.py' -v
 7. 交付原始輸入畫面、去識別 decoded packet + time order、資源檔 SHA（若取得）、相關 EXE VA，驗證成功/失敗/取消/逾時/重連每類情境。不能把僅合成範例標 native PASS。
 
 **結案界線**：CT-095 native-static/offline subset 可用，CT-096 **planned/not-run**。原版 skill taxonomy/cooldown/MP/stack/expire 仍 unknown，A-010 靜態研究交付 `integrated/partial`。
+
+
+## A010-D01（2026-11-02）：已學技能清單與快捷列
+
+新增 [完整分析](../03-analysis-requests/A-010-D01-roy1-action-shortcut-20261102.md)、[審查 JSON](../03-analysis-requests/web-skill-review/results/review.A010-D01.chatgpt.json) 及 [增量驗收](A-010-D01-action-shortcut-test-plan.md)：原件 S62(0x62) kind/slot + BEu16 display + mode/flags + 4×string8 + cast BEu16 等欄位，native handler 0x4F2CD0 建 ActionEntry；S63(0x63) kind/slot 移除。清單位置 `kind*80+slot`；快捷列本地 `(row*10+cell)*12` 和 Shortcut.IsValid/Type/Slot 設定；C4D 來源是 ActionEntry+0x80E，而非直接快捷欄位置。33 個 native PE windows、3 個 UTF16 config key、15 個新測試原件/離線 PASS。登入後按授權角色逐筆 S62 重建清單是 **Server designed handoff**，未驗原服首次發包先後。沒有原版 Client GUI/TCP驗收、未解官方 skill id/icon、技能學習包。CT-095/096 原正式 `planned/not-run` 不變；**欠具名圖示資源 Icon.dat（skill.ypf、spell.ypf）**。

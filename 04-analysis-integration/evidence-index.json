@@ -4697,6 +4697,36 @@
         "complex S3D vector types not safe to emit",
         "all original GUI/TCP tests not-run"
       ]
+    },
+    {
+      "evidence_id": "ev_a010d01_20261102_s62_shortcut_original",
+      "date": "2026-11-02",
+      "source_branch": "task_a/roy1",
+      "profile": "TW-seed0-local-v0.1",
+      "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+      "evidence_kind": "observed-original-client-PE-static-plus-synthetic-offline-codec; designed-server-login-handoff-separately",
+      "locator": "S62 ctor0x578F70/reader0x579020/handler0x4F2CD0, S63 ctor0x5858A0/reader0x585950/handler0x4F2F10, ActionEntry0x4017D0 cast+0x80E, 0x401ED0 C4D, 0x559470 shortcut array, 0x55BC48/74/9E save and 0x55EBD9/0x55EC2F/0x55EC8F load",
+      "report_path": "03-analysis-requests/A-010-D01-roy1-action-shortcut-20261102.md",
+      "review_path": "03-analysis-requests/web-skill-review/results/review.A010-D01.chatgpt.json",
+      "offline_probe": "tools/a010d01_shortcut_probe.py",
+      "test_path": "tools/test_a010d01_shortcut_probe.py",
+      "conformance": "05-conformance/A-010-D01-action-shortcut-test-plan.md",
+      "original_exe_windows_passed": 33,
+      "shortcut_config_keys_passed": 3,
+      "offline_unittest_passed": 15,
+      "action_key": "kind*80+slot",
+      "shortcut_index": "(row*10+cell)*12",
+      "cast_source": "S62 BEu16 after four string8 -> ActionEntry+0x80E -> C4D BEu16",
+      "missing_named_resource": "Icon.dat (skill.ypf; spell.ypf)",
+      "workcard_status": "partial",
+      "native_client_validation": "not-run",
+      "raw_game_assets_committed": false,
+      "limits": [
+        "official learned skill IDs and S62 display icon mapping unverified",
+        "original initial S62 timing and learn/upgrade C2S unknown",
+        "Shortcut.Type enum and config persistence scope not fully verified",
+        "no native GUI E2E"
+      ]
     }
   ]
 }
