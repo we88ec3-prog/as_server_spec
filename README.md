@@ -1,6 +1,6 @@
 # Asgard Server Specification
 
-2026-11-07：[點選身上裝備斷線與原生卸裝修正](04-analysis-integration/20261107-equipped-click-and-native-takeoff.md)：C3A 與 C1F 分流、原子卸回背包及持久保存；479 項回歸與戰士 TCP 通過，原生操作待複測。[泳裝／禮服攻擊動畫證據](04-analysis-integration/20261107-clothing-attack-action-presence.md)保留原版戰鬥政策未知。
+2026-11-07：[點選身上裝備斷線與原生卸裝修正](04-analysis-integration/20261107-equipped-click-and-native-takeoff.md)：C3A 與 C1F 分流、原子卸回背包及持久保存；479 項回歸與戰士 TCP 通過；使用者確認點選、卸裝、重新穿戴及重登保存正常（診斷Client環境）。[泳裝／禮服攻擊動畫證據](04-analysis-integration/20261107-clothing-attack-action-presence.md)保留原版戰鬥政策未知。
 
 [Server開發追蹤 Excel](06-development-tracking/README.md)：功能總表及33份功能明細，按分析、實作、自動測試與遊戲實測分欄。2026-11-07新手流程暫緩。
 

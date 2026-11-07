@@ -461,7 +461,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "4f9f784276f5f67b814de70902da341d98fae10e4297d4dbcd0f0e73a0f48e4a"
+      "sha256": "72b6f4dabbc1f0736b62065d2c10e27aaed6a7e41ded2d8341ceda3a76d92bb8"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -777,7 +777,7 @@
     },
     {
       "path": "04-analysis-integration/20261107-equipped-click-and-native-takeoff.md",
-      "sha256": "f9895ff9e7445356f7f30e7a28c03cd5943c77dac3c186cc13a0342c74df56d1"
+      "sha256": "466df79f1353bd9058feaa2c7232ce1f8b7b020dcc5937e285ffa02cb6be98f9"
     },
     {
       "path": "04-analysis-integration/20261107-equipped-click-incident.md",
@@ -1377,7 +1377,7 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "63751ddbb9d80c576d9fd48c891548b08a9f801e5988d89d29e2737d3cb20d5c"
+      "sha256": "1142238b1da94c1716ce3db0342a9fd6f9d321e0f498b96b37d62cda446d0c60"
     },
     {
       "path": "06-development-tracking/README.md",
@@ -1433,7 +1433,7 @@
     },
     {
       "path": "06-development-tracking/details/F13_背包裝備與獨立衣色.xlsx",
-      "sha256": "bd12aa24be083d8509a1b24cd112352d54619b934a21861a585c8ba935a2624a"
+      "sha256": "e3409a0d965b48dcb37fa62cb85de92711fc0422c0e725ff6a6df96381a3f3c6"
     },
     {
       "path": "06-development-tracking/details/F14_銀行與倉庫.xlsx",
@@ -1509,7 +1509,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "3950dc99428bbeac3f63813be21348fcddc88c07a4004ea2fa6f171e1bc79e1d"
+      "sha256": "4f4552312359f541023ad919742b4ddbd497e00c9205724394a6c0d2aee29b3c"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

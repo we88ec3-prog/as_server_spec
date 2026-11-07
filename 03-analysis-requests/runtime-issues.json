@@ -426,7 +426,7 @@
       "id": "RI-014",
       "title": "點選身上裝備斷線；要求原生卸裝並釐清泳裝／禮服缺攻擊動作",
       "priority": "P1",
-      "status": "implemented-awaiting-native-retest",
+      "status": "verified-user-scope",
       "source": "2026-11-07 user report; user requirement and observed failure are separate from native static evidence and Server policy.",
       "analysis_requests": [
         "A-007"
@@ -436,11 +436,12 @@
         "REA proves C3A CUpdatePartPacket and C1F CTakeOffPacket are separate; player C1F subset is slot,0,0,0.",
         "C3A now keeps the valid World connection without mutating inventory; C1F atomically moves owned equipment back to a free bag slot.",
         "479 regression tests and isolated Warrior HTTP/TCP passed; native GUI gestures/presentation pending.",
-        "Both sexes clothing1/2 first-object actions24..31 and56..63 are empty; original combat restriction remains unknown."
+        "Both sexes clothing1/2 first-object actions24..31 and56..63 are empty; original combat restriction remains unknown.",
+        "User reports all requested equipment operations normal: click, takeoff, rewear and relogin persistence. This is the current diagnostic Client environment, not immutable-original acceptance. Exact gesture, full-bag GUI and special-clothing attack were not separately reported."
       ],
       "report": "04-analysis-integration/20261107-equipped-click-and-native-takeoff.md",
-      "native_client_validation": "pending",
-      "next_action": "Native retest equipped click, takeoff, rewear and relogin; preserve Client/Server on failure."
+      "native_client_validation": "passed",
+      "next_action": "Expand remaining equipment slots; retain special-clothing original combat policy and exact gesture as unknown."
     }
   ],
   "latest_direct_increment": {
