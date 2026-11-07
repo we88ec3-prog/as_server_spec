@@ -1,5 +1,7 @@
 # Client / Server雙向處理矩陣
 
+2026-11-08：[MailBox外部SDK界線](20261108-native-mail.md)：C12 00 01／00 02是地址簿，遊戲Server保持連線並提示未接通，沒有S58假郵件回覆。[S2C opcode2C／S2D opcode2D持續效果](20261108-native-lasting-effects.md)補證相對秒數、同ID忽略、refresh需remove/add與最後十秒不自刪；Server權威buff仍待實作。
+
 2026-11-08：[玩家交換原生C4A／S42](20261108-native-player-exchange.md)補完整操作與結果。C4A0請求、1／2道具／數量、3絕對Gold、4取消、5確認；S422只追加9格，S425只設ready，沒有已證unready。Server依[交易權威契約](20261108-player-exchange-authority.md)做單調利益改善、首次盲確認核對與原子結算；C17／S6E不混入此流程。
 
 2026-11-08：[多人Human原件補證](20261108-native-remote-player-lifecycle.md)確認S33非self會建立／重建Human，S64才建立移動路徑，S06只確認已有節點。Server依[共享玩家契約](20261108-shared-player-visibility-and-motion.md)使用真實提交歷史、S11與S0E；組隊引用沿同一角色ID。後續[旁觀戰鬥事件](20261108-committed-combat-observation.md)已接逐次攻擊／技能；原生多Client GUI仍未驗收。

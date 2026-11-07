@@ -71,8 +71,8 @@
     "C56": "Original byte writer remains known; full trigger/phase not completed here.",
     "S52": "BEu32,u8 reader proven; not handled by examined World dispatch table, complete receiver/handshake remains unknown.",
     "S48": "World table slot32 ->0x4f4999/0x4f499d ->0x4f2a70: registry actor virtual+0x48, or missing-object fallback. Does not by itself prove pending SkillSpellDialog cleanup.",
-    "S2C": "opcode0x2c add lasting effect wire is BEu32,u8,BEu16,u8,string8,u8,BEu32,BEu32. UI identity/timer/stack semantics still partial.",
-    "S2D": "opcode0x2d remove lasting effect is BEu32; full lasting UI match/expiry callback remains unverified."
+    "S2C": "opcode0x2c add lasting effect: BEu32 identity,u8 iconFamily,BEu16 iconFrame,u8 opaqueA,string8 name,u8 opaqueB,BEu32 remainingSeconds,BEu32 totalSeconds. Updated native identity/timer/icon evidence: 20261108-native-lasting-effects.json; original skill/buff policy remains unknown.",
+    "S2D": "opcode0x2d BEu32 identity; 20261108-native-lasting-effects.json proves matching removal. Client final 10s blink does not auto-remove in observed timer; Server must send remove. GUI pending."
   },
   "S13_first_hit_review": {
     "native_paths": [

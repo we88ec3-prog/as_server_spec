@@ -1,0 +1,207 @@
+{
+  "revision": "20261108-native-mail-v1",
+  "artifact": {
+    "name": "Asgard.exe",
+    "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+    "provider": "Ghidra 12.1.4"
+  },
+  "companion": {
+    "name": "nmco3.dll",
+    "size": 430080,
+    "sha256": "bd1184bd16daef225a58734da950685ecae3c2563f7e922bc871927434d6f579",
+    "analysis": "file_identity_only"
+  },
+  "result": {
+    "transport": "external_nmco3_note_sdk",
+    "game_mail_opcode": null,
+    "native_gui_test": "not_run",
+    "sdk_network_test": "not_run",
+    "client_modified": false
+  },
+  "limits": {
+    "recipient": 30,
+    "title": 28,
+    "body": 350,
+    "unit": "native_text_control_limit_not_proven_encoded_byte_cap"
+  },
+  "sdkAbi": {
+    "send": "NMCOSendNoteMsg",
+    "sendEntry": "0x4ddd20",
+    "rowSize": 3032,
+    "addressOffset": 124,
+    "textOffset": 1476,
+    "titleBodySeparator": "#aS!!",
+    "addressTemplate": "%s@asgard.%s",
+    "list": [
+      {
+        "entry": "0x4df6f0",
+        "box": 0,
+        "count": 100
+      },
+      {
+        "entry": "0x4df7c0",
+        "box": 1,
+        "count": 100
+      }
+    ],
+    "process": [
+      {
+        "entry": "0x4ddf50",
+        "operation": 2
+      },
+      {
+        "entry": "0x4ddf70",
+        "operation": 1
+      },
+      {
+        "entry": "0x4ddf90",
+        "operation": 3
+      }
+    ],
+    "processSemantics": "not_fully_proven",
+    "initEntry": "0x4de250",
+    "windowMessage": 1029,
+    "notificationEntry": "0x4df890",
+    "notNetworkSerialization": true
+  },
+  "gameAddressList": {
+    "sender": "0x4abd90",
+    "constructor": "0x573550",
+    "writer": "0x573600",
+    "requests": [
+      "00 01",
+      "00 02"
+    ],
+    "notMailBody": true
+  },
+  "unknowns": [
+    "NMCO network serialization, endpoint and authentication",
+    "box formal labels, server ordering and pagination",
+    "SDK id scope and operation code complete semantics",
+    "attachments/currency collect-return flow",
+    "encoded byte caps versus native UI text limits",
+    "MAPISendMail alternate path"
+  ],
+  "reconstructionPolicy": {
+    "textMailAlternateUi": "proposed_not_native_mailbox_compatibility",
+    "identicalTextSeparateNewMail": true,
+    "attachments": "not_implemented_by_this_contract"
+  },
+  "evidence": [
+    {
+      "label": "mail_first",
+      "id": "ev_92c3a10215010f0dacba5bd9023480b5c0326e3895f2bce6f9c5d9fb2578fed4",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_ui",
+      "id": "ev_274c4f6aa9a479d9609f2092728513133fec2bcf282d8a1eedd755e925551ba2",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_modes",
+      "id": "ev_60cc077922e2b1110077b842d0fefb6b9972c6f713b747b8bebf4dad32f73840",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_delivery_helpers",
+      "id": "ev_27ef028039775bfcf9ebd741e334b57591e5c16a8c0ea2b281e9d546f6625da2",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_network",
+      "id": "ev_dd5dd76cc5d7082075a148b13a582d5767c9416ddcfb04057cbacc1ad25c506c",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_transport",
+      "id": "ev_49b6cc3c251baa8c6a490ab553722612721c6de20551897e3f73041efaf4b7ae",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_sdk_strings",
+      "id": "ev_edb5cbb0564a7a8146eb847e0fbbf526dbabc56bc7edcd30c317a7d74a417f7a",
+      "operation": "search_strings"
+    },
+    {
+      "label": "mail_more",
+      "id": "ev_874287f32be2f0c54ce9baab3c05d8532942f5cb12f4c0bace25041e365ab513",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_sdk_procedures",
+      "id": "ev_9d2e7cf1d8023b03a855449999f768b33ac33ae32924e3ffb57c001a00f8f375",
+      "operation": "search_procedures"
+    },
+    {
+      "label": "mail_sdk_refs",
+      "id": "ev_5e4b5c58def6d7e91fa6bfc4e7b77ce34b11eac19f725e25ed9ee499b7502764",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "mail_sdk_refs",
+      "id": "ev_d50dc3032e876ac9a4373d193af74b514865f359c36a0cadc7103900e91706ec",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "mail_sdk_refs",
+      "id": "ev_bf98b67411cdac5644fc313e51f0b6dd210d20ccac009d7874603bee9a3829f3",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "mail_sdk_refs",
+      "id": "ev_2480ec15d0fb441acbcdf5c33a6367ecea3b914a5c56dafe1547c5023cba035c",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "mail_sdk_refs",
+      "id": "ev_0395469b08e62371a39cc62846f36239e6593c817be4a167a4fc3ddaf4f0c8a9",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "mail_sdk_refs",
+      "id": "ev_4bd4481c40371eed6675ec44c47a474d1bca758b0c1531f451128d5d2db07479",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "mail_sdk_flow",
+      "id": "ev_80834c901cd4679deae8de8dedc4c8bdef88eb07a0d72558f840e26b22c14600",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_inbox",
+      "id": "ev_1f1ae252759c7bfc8ba7a2e46f4a6a1425f198811cf2c1c09f38c9b43ff669ff",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_process_refs",
+      "id": "ev_7359eca417c6211c47eaf660c1503c2b397d2f0f4881514bc92340b9c9da9f19",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "mail_process_refs",
+      "id": "ev_0743caa9215ec2f80507df3f52df580573704a266a8c7a49e3b29865ab347386",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "mail_process_refs",
+      "id": "ev_d22a178953cd51a2f9cbcb93144a00717d2aada2cac766e1c889109e8fb1f33d",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "mail_read_schema",
+      "id": "ev_89ba840f36e44ceea723f133694df07729f93ba6b67da6fbfdf58f417a1b7f6e",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_process_ui",
+      "id": "ev_d551a960feab82efe96fa6675ca8373f3d390ea782a72ccaab82e60e8d95e0d5",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "mail_read_more",
+      "id": "ev_b5bb9df52397e8a74f7fbac2bb969387fbe74852e55fa8097b04fedde34be32e",
+      "operation": "batch_decompile"
+    }
+  ]
+}

@@ -1644,7 +1644,9 @@
         "guild membership/permissions and original error behavior",
         "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
-      "related_packets": []
+      "related_packets": [],
+      "a014_mail_dependency": "04-analysis-integration/20261108-native-mail.md",
+      "mail_boundary": "Mail composition contacts only. Actual MailBox send/list/process use external NMCO3 Note APIs; do not reinterpret C12/S58 as mail payload."
     },
     {
       "id": "PKT-S0D",
@@ -1704,7 +1706,9 @@
         "guild membership/permissions and original error behavior",
         "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
-      "related_packets": []
+      "related_packets": [],
+      "a014_mail_dependency": "04-analysis-integration/20261108-native-mail.md",
+      "mail_boundary": "Mail composition contacts only. Actual MailBox send/list/process use external NMCO3 Note APIs; do not reinterpret C12/S58 as mail payload."
     },
     {
       "id": "PKT-S3A",
@@ -3169,18 +3173,24 @@
       "direction": "S2C",
       "opcode": "0x2c",
       "name": "AddLastingSpell",
-      "layout": "BE u32, u8, BE u16, u8, string8 encoded-byte length N plus N raw CP950 bytes, u8, BE u32, BE u32 (18+N bytes). Local UTF16 buffer 0x200 size is NOT wire. Opaque field meanings.",
-      "client_entry": "0x57A8D0 constructor push0x2C; 0x57A980 native reader and 0x45B7A0 string8 local wide conversion",
+      "layout": "BEu32 nonzero lasting identity,u8 iconFamily,BEu16 physical iconFrame,u8 opaqueA,string8 name,u8 opaqueB,BEu32 remainingSeconds,BEu32 totalSeconds (18+encoded-name bytes); relative seconds, not UTC/stack.",
+      "client_entry": "0x57A8D0 constructor push0x2C; 0x57A980 native reader and 0x45B7A0 string8 local wide conversion; dispatcher0x49C050 ->handler0x49BAE0; identity map0x49D340; local timer0x49B500",
       "evidence_ids": [
         "A010-E06",
-        "A010-E07"
+        "A010-E07",
+        "ev_9bef2d3de5c0688c3fc529646610697f1e587675d4f428c55553448ce9bc5acc",
+        "ev_e7d4f18a14d738febe76be049aebe3b216b82564eb1760486d6b618db254f412",
+        "ev_c3cd535ba2335299e752995e5aaa5a6ad0c9cd24237619ceb1580e99c2d91cbf",
+        "ev_6267b36cd8d4ff7069121d1f262efef08c5c12b7b6f3e23ddab51c2b5ca392c3"
       ],
       "related_packets": [
         "PKT-S2D",
         "PKT-S48",
         "PKT-S52"
       ],
-      "a010_boundary": "No confirmed original duration/stack/refresh, u32 values opaque and removal cross-ID unproven"
+      "a010_boundary": "No confirmed original duration/stack/refresh, u32 values opaque and removal cross-ID unproven",
+      "lasting_contract": "04-analysis-integration/20261108-native-lasting-effects.md",
+      "receiver_limits": "24 icon cells; duplicate identity ignored; use remove/add to refresh. Last10seconds blink stops decrement and does not self-remove; Server-authoritative expiry sendsS2D. family0 frames0..318; family1 frames0..370; opaque bytes remain0 in reviewed subset."
     },
     {
       "system": "SYS-SKILL",
@@ -3195,15 +3205,19 @@
       "direction": "S2C",
       "opcode": "0x2d",
       "name": "RemoveLastingSpell",
-      "layout": "BE u32 opaque_reference (4-byte decoded body), not object remove/death",
-      "client_entry": "0x585D00 constructor push0x2D; 0x585DB0 BEu32 reader",
+      "layout": "BEu32 lasting identity (4-byte body); remove the same lasting inventory key, icon, blink and current tooltip; not world object death/remove.",
+      "client_entry": "0x585D00 constructor push0x2D; 0x585DB0 BEu32 reader; dispatcher0x49C050 ->handler0x49BCD0 ->remove0x49D530",
       "evidence_ids": [
-        "A010-E08"
+        "A010-E08",
+        "ev_9bef2d3de5c0688c3fc529646610697f1e587675d4f428c55553448ce9bc5acc",
+        "ev_e7d4f18a14d738febe76be049aebe3b216b82564eb1760486d6b618db254f412",
+        "ev_c3cd535ba2335299e752995e5aaa5a6ad0c9cd24237619ceb1580e99c2d91cbf"
       ],
       "related_packets": [
         "PKT-S2C"
       ],
-      "a010_boundary": "UI callback and correspondence to S2C ID not completely proven"
+      "a010_boundary": "UI callback and correspondence to S2C ID not completely proven",
+      "lasting_contract": "04-analysis-integration/20261108-native-lasting-effects.md"
     },
     {
       "id": "PKT-C26",

@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[原生郵件依賴NMCO3](04-analysis-integration/20261108-native-mail.md)、[未接線的文字郵件內核](04-analysis-integration/20261108-player-mail-authority.md)。C12只是地址簿，不是假郵件協定；資料層15項及地址簿邊界通過，全回歸818項。原生／替代寄件入口均尚未接線，附件未證。同輪補[持續效果圖示／秒數／移除](04-analysis-integration/20261108-native-lasting-effects.md)，實際buff遊戲功能仍待開發，總表／F18／F07保留未完成狀態。
+
 2026-11-08：[玩家交易與原子資產交換](04-analysis-integration/20261108-player-exchange-authority.md)、[REA原生C4A／S42](04-analysis-integration/20261108-native-player-exchange.md)。邀請、9格道具／部分堆疊、雙向Gold、確認與取消已接線；滿背包對換與生命／租約／版本衝突由同交易保護。原生append-only／沒有accept ack／金額只在OK送出的限制已納規劃；郵件及雙Client GUI仍待完成。
 
 2026-11-08：[已提交戰鬥事件與多人旁觀投遞](04-analysis-integration/20261108-committed-combat-observation.md)及[REA旁觀數字／動作／有限特效](04-analysis-integration/20261108-native-observed-combat.md)。普攻、範圍技能、空揮、NPC MISS、恢復與怪物受擊接共同交易呈現；15秒／2048筆有界游標與生命代次防止復活後套用舊死亡。S13入口更正為4F2620；第三人攻擊Human的數字受原生gate限制。雙Client GUI仍待驗收，私有實作不收進本庫。

@@ -1,5 +1,7 @@
 # 分析結果整合
 
+最新郵件研究：[原生MailBox是外部NMCO3 SDK](20261108-native-mail.md)，不能把C12地址簿或本地Note ABI當遊戲郵件wire。[獨立文字內核](20261108-player-mail-authority.md)已備妥資料與權限，但沒有寄件入口，原生仍未相容。另補[lasting效果的秒數、刷新及主動移除](20261108-native-lasting-effects.md)，這是原件契約，尚未代表buff數值／持久化已實作。
+
 最新經濟增量：[玩家交易權威契約](20261108-player-exchange-authority.md)與[原生交換操作／九格限制](20261108-native-player-exchange.md)。C4A／S42與C17／S6E分流，雙方資產原子交換；既有視窗不能假作可重置ready／覆寫道具列。原生GUI與郵件分開追蹤。
 
 最新戰鬥增量：[共同交易、游標與生命代次契約](20261108-committed-combat-observation.md)、[原生S13旁觀顯示限制](20261108-native-observed-combat.md)。補齊上輪多人互見之後的逐次戰鬥呈現；保留原生GUI與PvP等未完成範圍。

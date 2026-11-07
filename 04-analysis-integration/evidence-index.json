@@ -4653,6 +4653,48 @@
       "evidence_id": "ev_8b20c98de5e6c79619b119a3c3d2c41e1da524e2a88084b1d8154955e3aad1f9",
       "record_scope": "original-native-static identity index; raw records retained locally; reproduce using linked report and artifact hash",
       "integration_document": "04-analysis-integration/20261108-native-player-exchange.md"
+    },
+    {
+      "evidence_id": "ev_49b6cc3c251baa8c6a490ab553722612721c6de20551897e3f73041efaf4b7ae",
+      "record_scope": "original-native-static identity index; raw retained locally; reproduce using linked artifact hash and report",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-mail.md"
+    },
+    {
+      "evidence_id": "ev_80834c901cd4679deae8de8dedc4c8bdef88eb07a0d72558f840e26b22c14600",
+      "record_scope": "original-native-static identity index; raw retained locally; reproduce using linked artifact hash and report",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-mail.md"
+    },
+    {
+      "evidence_id": "ev_27ef028039775bfcf9ebd741e334b57591e5c16a8c0ea2b281e9d546f6625da2",
+      "record_scope": "original-native-static identity index; raw retained locally; reproduce using linked artifact hash and report",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-mail.md"
+    },
+    {
+      "evidence_id": "ev_9bef2d3de5c0688c3fc529646610697f1e587675d4f428c55553448ce9bc5acc",
+      "record_scope": "original-native-static identity index; raw retained locally; reproduce using linked artifact hash and report",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-lasting-effects.md"
+    },
+    {
+      "evidence_id": "ev_e7d4f18a14d738febe76be049aebe3b216b82564eb1760486d6b618db254f412",
+      "record_scope": "original-native-static identity index; raw retained locally; reproduce using linked artifact hash and report",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-lasting-effects.md"
+    },
+    {
+      "evidence_id": "ev_c3cd535ba2335299e752995e5aaa5a6ad0c9cd24237619ceb1580e99c2d91cbf",
+      "record_scope": "original-native-static identity index; raw retained locally; reproduce using linked artifact hash and report",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-lasting-effects.md"
+    },
+    {
+      "evidence_id": "ev_6267b36cd8d4ff7069121d1f262efef08c5c12b7b6f3e23ddab51c2b5ca392c3",
+      "record_scope": "original-native-static identity index; raw retained locally; reproduce using linked artifact hash and report",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-lasting-effects.md"
     }
   ]
 }

@@ -1,0 +1,1829 @@
+{
+  "revision": "20261108-native-lasting-effects-v1",
+  "artifact": {
+    "name": "Asgard.exe",
+    "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+  },
+  "status": "observed-static-native-gui-not-run",
+  "wire": {
+    "add": {
+      "opcode": 44,
+      "reader": "0x57a980",
+      "dispatcher": "0x49c050",
+      "handler": "0x49bae0",
+      "fields": [
+        "BEu32 identity",
+        "u8 iconFamily",
+        "BEu16 iconFrame",
+        "u8 opaqueA",
+        "string8 encodedName",
+        "u8 opaqueB",
+        "BEu32 remainingSeconds",
+        "BEu32 totalSeconds"
+      ],
+      "length": "18 + encodedNameBytes"
+    },
+    "remove": {
+      "opcode": 45,
+      "reader": "0x585db0",
+      "handler": "0x49bcd0",
+      "fields": [
+        "BEu32 identity"
+      ],
+      "length": 4
+    }
+  },
+  "identity": {
+    "nonzero": true,
+    "duplicateAdd": "ignored_not_refresh",
+    "lookup": "0x49d340",
+    "remove": "0x49d530",
+    "refreshPolicy": "S2D_then_S2C",
+    "displayCapacity": 24
+  },
+  "timer": {
+    "wireUnit": "relative_seconds",
+    "nativeStorage": "64bit_milliseconds_after_32bit_seconds_times1000",
+    "remainingOffset": 520,
+    "totalOffset": 528,
+    "callback": "0x49b500",
+    "decrementHelper": "0x49cb20",
+    "periodMs": 1000,
+    "blinkThresholdSeconds": 10,
+    "blinkPeriodMs": 500,
+    "blinkExcludedFromFurtherDecrement": true,
+    "autoRemoveInObservedCallback": false,
+    "c2sExpiryInObservedCallback": false,
+    "requiresServerRemoval": true
+  },
+  "icons": {
+    "archive": "Icon.dat",
+    "sha256": "b80cfdd28b4331bf4012210756bf46196c37d43de1240d70df3cb6480e920dee",
+    "library": 2,
+    "kind": "single_object_physical_frame",
+    "families": [
+      {
+        "family": 0,
+        "memberIndex": 5,
+        "member": "skill.ypf",
+        "sha256": "b320a8b61258a464216a75b0e5fa58560a5abff0f17c2d7227cf66d8991ddc58",
+        "offset": 7241725,
+        "size": 625904,
+        "frameCount": 319,
+        "metadataEnd": 7936
+      },
+      {
+        "family": 1,
+        "memberIndex": 6,
+        "member": "spell.ypf",
+        "sha256": "20fbe76bfe39fb1070dee22bb5994227767aeab71a4b420839e75a4b6be83dac",
+        "offset": 7867629,
+        "size": 721998,
+        "frameCount": 371,
+        "metadataEnd": 8936
+      }
+    ],
+    "candidate": {
+      "family": 1,
+      "frame": 1,
+      "bounds": [
+        0,
+        0,
+        31,
+        31
+      ],
+      "originalSpellBinding": "unknown"
+    },
+    "tooltip": {
+      "sender": "0x49b2f0",
+      "constructor": "0x4990a0",
+      "usesHelpString": false,
+      "guiSafety": "pending"
+    }
+  },
+  "unknown": [
+    "opaqueA semantics",
+    "opaqueB semantics",
+    "original spell-stat-buff mappings",
+    "original duration/stack/dispel policy"
+  ],
+  "designedPolicy": {
+    "maxConcurrent": 24,
+    "remainingSeconds": "1..total",
+    "totalSecondsMax": 4294967,
+    "expiration": "Server authority sends S2D",
+    "numericEffects": "Server growth/status ledger, never inferred from icon"
+  },
+  "evidence": [
+    {
+      "label": "lasting_strings",
+      "id": "ev_b8cdabf0812f07b934a05cf986db16e6e3f3e809877e4e7df404a75100e54789",
+      "operation": "search_strings"
+    },
+    {
+      "label": "lasting_procs",
+      "id": "ev_e119f7d18c6603c453bd41f5acad95734ac29032162873c8469478a1b864676c",
+      "operation": "search_procedures"
+    },
+    {
+      "label": "lasting_reader_refs",
+      "id": "ev_5c461798cebf205354c84fe0d513c8f2da6beaa4497d642a23704e5d29b71747",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "lasting_reader_refs",
+      "id": "ev_b53e560eca57e224d8e0eaa15190eacffa36743d5992dd101956937432cc4e53",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "lasting_ctor_refs",
+      "id": "ev_eac72dd85885bfb14607b524cf3306246480af01c80256cd58b5838c9e78f030",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "lasting_class_xrefs",
+      "id": "ev_3d4b19bef42dc3419d7331f2f0e0c4c72e59f7ea9c9d4c129458b6f78a36f59d",
+      "operation": "xrefs"
+    },
+    {
+      "label": "lasting_class_xrefs",
+      "id": "ev_569129751487fc63be4ce24321f44ea68175f214e257f6aac57a562b766f6f0e",
+      "operation": "xrefs"
+    },
+    {
+      "label": "lasting_class_xrefs",
+      "id": "ev_096a803a93d7696b476068c4550cae975f15aee65866305a110b7dc24614327e",
+      "operation": "xrefs"
+    },
+    {
+      "label": "lasting_ui_batch",
+      "id": "ev_27a0c8667860bec93ccad66e74fdec8b500c07d7d0beaf1eea80771e49701f13",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_inventory",
+      "id": "ev_71350284b2918411a5e572bafa7e8abb00debd2dca815bdd6a62b54e59c09024",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_methods",
+      "id": "ev_8b31b5b7f34869997f6d160c95f82f0df36c5df599f63e813746d7a2ffc95dc3",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_core",
+      "id": "ev_9bef2d3de5c0688c3fc529646610697f1e587675d4f428c55553448ce9bc5acc",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_state",
+      "id": "ev_e7d4f18a14d738febe76be049aebe3b216b82564eb1760486d6b618db254f412",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_handler_refs",
+      "id": "ev_bc73b03c43c934a6bc5a5bcb6bfefacdbcbd32a27a6551894099054cb61213cb",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "lasting_handler_refs",
+      "id": "ev_f707ea7b6864d5598620e927a5322d72520c7f5d1067e80c6d0cea23ef44063a",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "lasting_vtable",
+      "id": "ev_695036fde8eed226722bd1db94317244667e539d63a555fe1a90d9bbecffd380",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "lasting_timers",
+      "id": "ev_4894c63a7e40b10033bd5cd858b47928a6b166a6601e525c1563c6a1ad22b270",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_exact_entries",
+      "id": "ev_6109100bdf729984b5e8ddc4a1d4e6d108025e7bbe1c26c4103e9247c0f51a4f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_exact_entries",
+      "id": "ev_9b87d8f819cf4524fe7e69a92b4c0eb91784ab5c3da3b4cfcc65cac77a4876fa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_exact_entries",
+      "id": "ev_8d7d09f89a5c6949b0bda00b95c120ae967ab338b0ba07607247d97e8ea764e1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_exact_entries",
+      "id": "ev_48cea4e0985c72b47e0996dc7c7975f3dcf4b80fd02897aa4d319e7d7dfc2e72",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_core",
+      "id": "ev_f2c4cfc6e2e8982882be7f61e61edfa919e343bb5d105415c2f6b15fc073b602",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_vtables2",
+      "id": "ev_856fe038d1b5500ce087297ff377b62ca6e79367c599eb606437922363fefe03",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "lasting_missing",
+      "id": "ev_425eddbe6c7f94bfcfc3094c6a9e29341162740f349852f9be7497a0bf3f9e13",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_23bbfb88cb98c8b453945ce399ad229ad3cd2d399a000af5168dc1594e64b666",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_1774ac2c2f23db18c0d05de0fe1ae3928c1e7a64731920670a6e9e14d2608050",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_31a53a9aa23deee2ff9f7889307a1613f5664ad6b23e39f7f9f49bf3e881512c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c40ffc2043e8235013866fabb49a87cd75153f5bd823b1c7765e403b4840384d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_3ab82aefa5196a9866936e7f1c97a74f5331ac69e56d63edf144039a95a947b8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_4e918e8e7c42a73b92d1ca460d8949297006e53cb1a419a177968f93aedd8eac",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_d6087abe1ccfd7a47397839f4780c71bcf8c9a7b3b18c09894cb2e0d5eca201e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_dee8be7c8544d728c2607c76af0914d8c6411b4bca0b5f5b14f93b59d854e9fa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_8abba72ba089cb7947bd0516289c99d42e62ef5f1787bdb820ce2e88c05f26a3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_f99a9919ad6e9ece3e0141c3855898eacbcabb3748bc299b1dbd05dc86321e7e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_134c943eaf896fc6c6112677c3b4272c88081ba51904ab47bd7929ba5d1d5b3d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c134989d7d25a76db9f029e734c4ad65bbecd3295d14c8be66ad1fb9ea57302a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_7b4e4d123f5c0152d6af6122ee039541cb29fe31dd087aead140230ce7162c7d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a170496c86c1904351df5bc44091f0565e4cceaea56cf629c628fb13c7b65c21",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_7ca82d79a29f160f7473395b9e5770c2005c2a5a134dcb26444cd4d7b0346cb6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_da4646a5b68dbaf935e2c40744cbc5a757930ddd2ef48db755cb3fe5892bdf37",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_889c2238c093492b5095de78f6f1dd28e6ef4cc2a0e77e12714d1e2e4c8a84ca",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_bf9b93630b338a402cff0c835201af8e651023bd187ad1ea352bac05475bd214",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_4f7753789b8ad46648cd92f8c7752a70c93b327e428722a907025b7eb65443a5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_559f8f795811c8861ee8cb0d1862667b00bf7a321b4a8f93359c8a1db3f595fa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_5fb0848a5c59e673302d41581260f522cd2d56ee810804f1137b517357924dd5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_6a8d9cfb26affb8d735b4eda93b1e9c5c8b77c7f0c51c77b78dfc0894e7e287b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_509e227410b75338da82cf175cfb0487c6bc0c49faef53f740976b8b2060e900",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_82c125a52162842abe247c5215db02dd25f30dec3df19598c554452f3b9bca90",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_40978ed5130c23bb459be10aba8144d235be9a68e68b33ca706f54f99b0de7bd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_765645343a9a864dd26ec95561df712dd3f0c98c547ab9754b285164f6666405",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_0ddd73ff365ee2de7e81b1a4eebab4dd5438ae6c54a42cc3ac659f4426a3bd9d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_496baabf2beaac8afa79e3bde4a5590cb80f69653a16258dbfc8a77dcf8e5a46",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c7c3037f5021173b93d06314a346a70e68fcf6af7afdc17e382ed480a84d2285",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_2335ca613b63c1e315f77045129d9c2f2f03c9e53c133e9dd0b5ed09cfb64923",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_6a3fa2fa80814283c7f533d0823ae6d6eadea8bdf59a6a0b97bb52610453709a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_355573248974d824a818564b6bf7340e6b8e585579d0256f723d88b336c2d47d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_1e62bc26233dcfe2ae6c0fd0ea415cf33a0866312392a6434b9af08d096fe6a6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_e8db66c63478c06fd889f7636c398da9e1d2661231cba232fd051d746d26ad39",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_6b570fc7b84037cffafa24582971bec1f467ba509af2d82034dd61c8b3241194",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_e5d7b0212943fef1a7c5d6a8de6b8ed1d0044c11924bb9e1ebfd77f6d13dd545",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b0cdf5ad90dd9b5d57081b3a97dbf29ca02d0dcb61c868b41508e6826d1429dd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_9c49e7429c695c06c925be0ba3e8dc81cc734c0bddd9c305b4e977d32b0bb116",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_abe19f4f67295b1b0d0e6a07826f50614ceb844bb5b4f7dade263643ffed1dc7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_e017d28b4fd5bb6b188fddf0f6e750d1f0ed56ebc85412f8529d4f1a2e69d276",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_929842b993fe5b79acb6378cae5876a55373ccbcd0d719ea159d5168ea7c4d95",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_5137b5ba2887cce49151f7e60a2b5793de283a7a98b3472dcd0e9582dd0f70b6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_8aed658e614c6b0f96b5366ec2df9fdb6586c2519124dcef6df738d6c4e5e53b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a0a10752b274bf7d4d292fd95fbd6c94b5c675f84ae01416e4b26694792d99e6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_36d90448ce5b9738083b36d7f33164c63600c806178e06839a8025da62edba5d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_08f2ac8fda45933af05a6e4abde9fd71dbc5021e75001c8c5df0ebe7e198dd9b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_9bbb41ac9dee17c01550d60922dea007786cfb20dacd35d88c313184bf727b01",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_38ce656f4d1a4822f7497f4c5756e03fe9555ce3da698c328a85d69b2c2e047b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_acdd101344b34a5b95492d0523970693c7be1fc5f2049af808c067968c13638c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c4220d0c26ebb1b083ebc677bf9505df60c53f62fe0870686df2a84fe8c0b3b4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_baf9071eecedc0fb42f0e11a9893272e48a9d8f5d71fc2051d898d6ccd3a621c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_46379c6cd0414fdfc930419314e1a74fcd99fafa7cfc0c12856bb64baa01ad8d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_3af8f5275c687133231b563032665f91da580558d4227d27ef46c0beebcca831",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_9e08bc79a71f8b4873621edcb87aba185875843bc4c8979e5b05e9a58edf11be",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_ad38ecb814d18774a086ecba07188798b5a5e38b5d1a8802394f2bbc5a375c54",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_3ac9386054e653c11a31ebc1375b0266a202f09a297c9f0550558998361d57d4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_0723c27965771439f5b74d50e1094035023e64638e3086cfe10dc4819d411a5d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a142ec7486f0025e5b9792e257e94dcbc879c4958968fc28259cd53299c34108",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_2ae6d912ed179e5d404c6d2d3dc236d88c81e3131127cdaf34871c46c07cb371",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_f63451d89bf3801fbd2c85e57bbf6d897bc081db36072bc78f210c9c568cf5fa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_6d3df8792d52bc419fb8eb13d307675af9451eba259bcd9852141361fc435368",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_281d7d36604f5ddad61a51f764a6ccd6f40f189060789e5d77a1a98edc959088",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_774047aff7f04838aeff2a82517926d363c443a2b6b90419ba8b2b24be4592eb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_fbed5c94c3c9b6eb292f5d736bfa319f22a5c96ef58d55777d0525e762553884",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_4731123da16e5887b93d752f2c3b3543b7907ca975b00ac681d736a88c0de9f6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_25d5f31ac2410d260d4bec78e55b25029b780207e2c3589e6b7684729366c97b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_f1a4fc52cfa6a3d97a6268587b64be3933baa7a58fecb43cf4f0748ed8811d07",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_715d9d182eae0f1d655d187344f3106ce7d656086007219496ba43708e058146",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_712a69d40f0033e9b72d0495066ef9ef755a875396703b5de2f60b3f8c264b41",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_4f30319ce6895c6dec1e5761f043910ae5ed67e777ba3e51f235b6eed37a64bc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_1680ff2c30bb238725bd8f458fa144e45ccb7346b64250220fe261b3a70b8bb5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_fc13fb3fe6ca99cc4728f758778d577ab92d0198373f3ae1d3dd71e860bd1fcc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_1d6270c39a1d3bd9c374dc8d6714afec7aed5811778ac431b69d654e7b964780",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_cc05d224744b957551e3f52e097763b36543588c215d16331d462a6c17e9f063",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_0881989de3009b50c53e078b6f18976eed664b0874be8a71096a73e47856cac9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c740958ae4a28db04bd6bc635ce635490ece7606aafede979793bd6bb98d88bc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_27efb87841b63e6ffb8321036d45b71798cb5b79888a15dc4a0c911e8dd28455",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_e810edd5eed8e5a2eb99c805bb1a7fb0d030e443603639f13c6d5bb813bd8a68",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_82d01399ae63cda62a8fe14a87ce830e121a3d95e43a59f05771615b8bb26f04",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_96140dabe2a52c97c43844fda23802f06a8241cb7a0b6acf2670d2a8c8c0498b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_cf1db90585e22c4b5a7d234c6b15bf2ae7436e7084627bdf43278e72e9827231",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_bdd2f3a3c5ae34aebc620e4e1321601bcbc1e2a37cf9d5e75392abe45eb1e2e6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a67068b2b2b30397c260c177c3c10d241107ff08ebca5f21868c5f7523ca20c1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c2809dd357b21de9635fbaedcf74629a5126f620f090a7441c60400654976f5a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_bbb657720a20868f95bd9cc5fc28f757c43b372894425e5d0208ce287fe40385",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_322c02ffff1a3c8843d80d73cfa5d0d19b1025a24ec61609a6c3469df297ff73",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_492ad9e13da3f5c887d429b55672249f593fc757a674cdf5568d63b9b14c4be7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_17464a95c67b482bba598e32aeff1bd9d11adb39dcf834f97f2008f5f931db1c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_f82e3ed5bcded7fbedb5849dd87f3c983c2369e32d22666f60cebbc37172eaae",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_2d3eccc49e409b48a1a1401eec0d28f56d4ceb9f1535a0f8f8fa00e8f13d7e04",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a6b972af1e445068f95341463486f7d253469c83a2dc1e5e9510183e7a9bcfa7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_955941f1e31ff11fccac1468c7cfc0e78bb7f1831258b43404f2907007289e36",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_7696fae08213cddf965a282cef8395812236d9509da8b3e1dc080e576250188b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b1a4967505aafbbeda87c2fa7c53efec975c9ed1ad7402041b6a226b65321c3d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_29ddb82700af6227f4b2b8c2fcdcf2d0f11705953275808aae853c1671adf556",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_3f9423a8a5252b816a45a70e773258610ea6de12f04e64e2defa6d7dc3bcafec",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_5552283c730891663043731c2ae9afcd78ca0f871a6f820581f19b8411ea5659",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b27d3262e2e846e24bed3d36753d79f1effa64548e6be830577fb6a6ad3cbd13",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b1cc7181617ff86c866dfb3e89e1bcf1a40463e37aad1ce14f4a64de9014513f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_3c278944183bd9060f8d9f9c196da5818e2efec969eeb87f13cfedb804b15655",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_36470001a528d8191afe44936532f516e2fe501a6a123a6e0aed29c5457b65e5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_ca97d9bfa477ccc69d25f2fb6dd67281241c5fec2123a9b635627a6e4559daf9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_79d2e98eff14d6ec3bfa224a221c966f0caa8096b5a88dc59e8877e03782fb1f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_e41c5801d25c74d45e3b7d9700623f3cb0677fe0ff356599bb375de8531ca9bf",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_9bb9f97cf6f50081f31b209757ced4231efafc9895be21d288edfa3f158b3a9f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a2dedf87bf4065e229f82ef0828d53779c4785764d3ce31659783b4638068361",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b20162a3bbd607a75ed63b45766b7539343f7713ce147c71e2003cdb865aa2b4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_111f47ca4cb444b7ec0c00107a14b2e7e1a3f1d4c69f49dbfbe64906d57ec72f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_d6a21f0e22c3ee015b11279ecb77a31bb5f488a9859d280abd069f8cd7390869",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_031399be9aef6fb922ef568f99972bf2a89b40a1363aa750269b29e49dd90ab1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_d54e662d315be7af606c27424e44cacf6689fdb6986c7de9fa2456dc1adf1f46",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_503e899af17add367e4ae45eed29bff131a4dd1d3dd2f9ac12d5d958eb9f226c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_942c9dcca2d9bbef8ef2da441465aec2dc5672dd221da210aac2090ff89c23d9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_dd4ecb5f316cf2299c6762a0e81bce943a355f08e55c8be89a4efdcf3f113078",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_54686c62252b157573259d3c5892a2a5a79012131653d4688de7df5de87cf9ca",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_5c3c03761cc506fed36205caf4c4a52c6019512e74a4b225150e58cf7ef6eb8e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_5752f6eb83589670b6eb3ceff9eee6a610dd9650e7a088e1c0942ca331dbd657",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_923436780485f18deb4c6639006e8fcf1697bd5b4a0081889b595fdb75e9e988",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b08dae2c376220cddea5218db40e1e24b569c62150940d1f71e0f7c943e31b62",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_71ca2246ee703a4379939b2996adb2af5c0cb8b6061dc3a1fdf6cee3fd2769bc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_d3baff4b6744f7d61239c68452b93720f4469ed063f7ff178fb6a975ab221858",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_1acabb1996a25994c1ca23dfc21c25004b98f2b018f9f3b639a0c342114c42ac",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_77756664c87a845374eeede59cf5860d516a214f0968ed708fb979c78821b72c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a13ecc10ad095a51c5fdc8c90be072e762400677125d240b6d4294518cf5b3ca",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_4f6b4c0415399e19de8ed2ca7246c23f7706e1cf9ce514c5c377b12f5f6ac5c8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_fb1c3b9261e8bda0a339b8625b15a7cdd431e5ff9983fde9904dcac68bdd2efe",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c5c169660099fe0d3c926128015643668a4a18b480bdd838b026f596cd1f92b3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_fdd6fd88fc1df8b3d43bfb3699ab28f19ef90250d8a0f27f7fac1f15df698299",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_99d67aed20a9e441c97723b79f2e472b5510ffa908fc4a9f09f89fbae1e4f4d4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_121c1862db119eaf793a97135335eaebbceb7bccc24d14c374034f64cf8489e6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_597844a014cd5d7c3e13b383ccc3ca184a87e92494cd355d76c5f4890ae13c78",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_57fb2f225172a9ea78f0597a5fc6c2b417189d32d012aeefb7cb2f810c78fc79",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_ab85bc7b45256d83622efb926fb77f1f9d825b8abea34df20de5571b03eaa845",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_6a718549ae71e04a0b2990cf46f8d1658ea2f385f9b82ed44380a31ae85b08fb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_7299bec473cd8a8620ec418a73de8b042a3f1691a30cff8325e1492c1462cb6a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_fd62d913c36b415a7f3fbad60d12df56372e815229b516766be540b66dc88271",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_1bdcfccdbf17dc12c8cc579c663aa628a81c819854dee859c6039f8736842c54",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_4fca5abb4591b8260dfcf7ea215e2a0e0521281aaab2eb9442d4adddbfcad2a8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_dfad6b677bb35bbcf6b6fcde159b965f57c30e3bf4dfd3b4d3da0cf4733dbcf0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_52c46ecb2c01cdce7ac690e5cdb7cd13a59b5df439fcd068ba2a359755c5db32",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_828694e1e88546fbd346bfcf313765d1c834b6b15433eea73073250a49ae3327",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_52c1d3f65b3cca9464fd0face282e60d67fc1b6b3ddf15a9b40d3e0070a6ab7c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_90759035d0071e3bf37dcc8d3f0ac6305982915d150e65726eed321b6548cd4b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_40edac3a12a3222cae296ab655df7cd5971ef1a0e0ac68703051916c518b4c61",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_ec339a19b9f4eace59fb8405626616a42279fcab12f1b1789a2528bee9f83120",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_17b06228d3b919ea74078b517d5bcce7856577746596edee220ba8d6c3efeed7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_caa3a2eb83f20e1684ea4c8cb18557bbbbc27cb762f5a73762000dbde593ed70",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c1500e29db39987839a83a8aff4d5c1af1bf05a3b31f24b7ea4ac486227b020e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_45382ac8ed444fa95d00711be30ffd5f02ea694d508c918f229f3a7d89ffc449",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_21837d7d8d3f4cd34731113466f69ff2374035fa91f52d9e39a95b97e944309c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b1ecaeb723f67dbf7c446ff8b5c769b9080fecfb5a10b4013e5160082d12ed29",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c2d3799ff460388736b10fc76bd035b9b0331fec225ff2e6de419ae4dbd1d5e5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_7cd3710ef3b354958598650557094ab2cc522857758d72fc891b1bd4c959a29b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_22950b1fcf6604eccbd4e4ce24b19843aaecc04adb126b01da583cc983c40037",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_fba59d0f9709d2e12b671e284c1d54aba86cdd0a6cb25fbd48139362cb3b151b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_dfc5fb170e5630482cdbe56b1a695dcb728edffc6e3fa0639cafa3553abf2b13",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_730c266230009ef8c80721da3bb2f39c8fc6b5cc0601e3eb10ba760ac3ca1e84",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_9a8d12e350cdeb525f451b8acfb7d6b0241ef6e3183bd6cb7d204c4e11d57bde",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a55ba809cc6cd8418713b70a93bfe5bf09b942fe285f1fb27b09041151c0f697",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_dbe029782fd78abcd5c0d0000e4aea556bf803207393341d023f5209d9bce71b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_c5ad69c6395c5ebcb419a313528852d4cb57118d11604ecd0d15ab87810a2530",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_cfff6fa64f33cff9f98f5d707a89e8fda0f779d0ddab06141eca38e6c7c1f4f6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_31e72d4c82e9aa458b15975c12a3b185a3ddf9c2c2a7182952937a887da39195",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b8ac8b521c8542bfee7442ae17908c31acab37649139958f1ebf0cf93091e2f2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_9b097b9ed9478ae3475424e1579812bdf6eab651d5923e065cab692347947f5c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_5610c7ec58232b6530072b6f7df3a1eee91e9bda81ee4cba426e3a5ae4d92d93",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_056c03fac6589db359921561cac5b909506ec8a32a62da16b3fa3421c65f9300",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_736d5c9f39b6e0a55d03c973d473a039f87afa446f6b8180e6917ea5a99dee5a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_1ceec3a4cc6666097a0995dd2a3c02aa6951a15ad8d089e0ed116ecca6fda3af",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_3c4afb226d21c0de43d0c96c40e618a0f6a1201a38fc417ce41437bcafbb6b0e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_76901adc39d9ea4d722eee2c825328cee8454eb4339db1c73ce21b5b62fb6c79",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b913c6e13fcc5565b15cc2f011f6e1143a7d816dee2a2db5fd7350fbc62ecace",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_34e1400e3049c00172c58d6f1475756e3c85efc586c7fa2c6c91d4aa2b091746",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_176d24115cf75893a38748c35d4d2c04b59faf4d27c2e36cc709d4e8c663276c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_fcd6a75b966204f39670a11927b6dab673d9044108d55d5d281f8a9530014515",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_16fcce3cd48858b0805b2b7958dff492ccdf79823208f0116457c47db59965d4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b3485e0c0b1857f1c229b14bb0b4bc45507a75e27c28cfca9ba31acd16cc5b19",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_14fb7c035493eb8d1538f8eedce3c64c0e5f29cf36d0cc095e24c10d40ed81de",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_87ed39782200a980c4d7b0a171040eea055a93c2ac65484d4b4b9752971b01f7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_f636d3d507c5da6c6e5e7f63d6bfa2aed8635b1fa129849ea797f7085fc118e6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_0fcceaf33d060c80afecd600a04c8b04537f95d6b38297d7068b7a7cca466990",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_42fa64badc2aefae4a1afd5cee360516118d5aa32588022738542d21c986d875",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b3ae848257718382ea848bb71f351b1ce0dcb9020e5ad4b5c1c60f4e0d96aaf6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_2434f965a411b379e565890aa2123a4f6add7f94c607eb107c36e5efe83821cf",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_4991a4e12e5fa56ecb174246e9462988d2aec9f35eec26020232fef8b590ca93",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a9cabca2507fe3f702402e5767d341d9da90ff9dc048565837197c1a29bce46b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_ca907053d472ffcba3bf7220f9e8e5c7db8b48c6f03868b7267489909a2844bd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_15a8b36370d36527b5d4836321b4c1b8f9cf922b056c9b7bcb34c65e5dd93ab7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a986ab3fece4ef2c10e1473de02d0f057a1db79b163e6292d328638e6563c3b1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_527152ef481a564ad068c1713f3c9e21c8a622f8dd2632b11fd0157d0c68d279",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_5ddacd9dbd8291a2ffcd3f64e8a0772a37301739f31a8235bcfbff9a56b0bf8b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_32e420a72bf323fa90ec4e50277ea5535e3c0140568f1daee1a44dba5b9060da",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_7ec32d8ecb262a160fdfc908d8c397b26c4b41e6e6b9053a6ac18b86d43a3932",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_9c6dddc14bf03fe331070c83488a13036bff984d21eb0d23f758b1e7bbe2f4a8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_2c9958cce61f07f9c3e4f8ad08447b7ff908f140691144e9a27742af0fa5b9d0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_817e6ae3e1d3403d0e0b2d485891cdd20d331ea6567ae282369d1a3bc4d880e5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_3d143aaf85e7f934a8fe41dffd134cd5f6a11e45e5e42da16c9f4001fcc91559",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_cdd52b25b1bea9e5fefdc3bbcd57257da2802b6765944b00c730e29d4ac3a93f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a26b70c86dbd9cb5ba861ad4f1ee3041f48d6a34266b8c86e2ce0e1246fe920c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a55052e74e57f38375a749af49554ecb4694e8673a395a18a2a942efdb36afa3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b22115e0e747061fddded9b8addb74a591fc2530d015a42f935119f6edbe8812",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_5456a913bdd0c1776af77330c1d3d40fc9f0f452c60e81d20e7c23abca169c72",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a703a20b1f7dcd993a33eb56a628d83065a030a0dcea81d52cd28e0c80b9972d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_3873a36b094f9cf98f8feb5e49bb2230521ee2ba7589db51214a979832266a66",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_9f3da0f25ef2740cebbf746aa6054ea991d182c201b87ae3a3fb627a11ba356f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_309ddd731b6ffb72ae266f7b3d28085709a51e1fdec4a8e809da3b7d79fb35dd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_e3689e961d6c857219eb59210d571cb594528ee1ca72ec9b8ddbfe7f0e3f78ea",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_7468a3bf0f4a768ff06e7951ff83ac1bfaee55095f48491c3a9871eb5a7983aa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_b76e7d7c11b1dab373193f44ae04679a0f1005c6c5bcf7ebef44c82a4b13908d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a9f44d79a5d6ccf3714f0661ddefe94612763e22e84aa7f860e8740af518230b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_8b0c312fe1c0062ead0b38347786dd88eb5265f1b6a894f9c330d1148bf4ce5c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_a78919fde402fc31a6251bd9f78dda4522164710356e80953d30cafad3dfe311",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_380796e9b02184fea754cb91296749d3ffeba2326cf7e78bcb0b2bf8f450bd02",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_0b735a7453ccfbc2d6905e540b8c91569e17b78c897cd584b35214ce61cf8eb3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_instructions",
+      "id": "ev_ff3864c25091728d30aceb754a6ac772a7c097ba10e61f8150044a089ec4a906",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_timer_helpers",
+      "id": "ev_c3cd535ba2335299e752995e5aaa5a6ad0c9cd24237619ceb1580e99c2d91cbf",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_ddeea5ab0e64daac99c625588a87eda54ce48920a950221a6ec4ad99c502ff52",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_5256a94374ba9f6eacd90ed331dd5b0dcee8d854a08eb626e8af3f9866241706",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_0399dbb085bd8e6d5441a8c57543a85bf4341a9ad029150560cb0e9ede386161",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_f40beacb068e9675805b436cff27f72ec831b36e1a9e43116e8b420f580dd5fe",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_36fb2b49cf7791189d97f40c77f2e0f3fbaf43edc670647ce1b28d374cc638bc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_870a8aa0fbe957e13af9ab9b104d642d7731de848ab9cbe0ac0019c65a70d580",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_7e66d36df01f135abe1031d9cab77e9a946a1a1617be57b0106d411d6f9a9a3b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_b8d69570984065e2ac75d3b3685a386cf57990429fc357722a4326fdf8437aa2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_73163c233c78a407d2ebf8ecc4707bc875d7880f250c2a5ab5173bf46d18c450",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_1ec3afd8c71a141a3361fccc53b2a5f0690db85ed5efb61a12bd8ff7856a2c18",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_b1c74dfb5a271d7c2c920f03135b1d44a77b6809e3bc6d40d9689f6fa920281e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_bdf6c42bc284a9d559c1cffc45e5498305b549ad3b3afa2e85a339337acf0383",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_11cf596c8cbaa8cf0136fe3daeefd40f496683a32a0060a917849e5fa601eab8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_e68e2873c54c3117ce5e4161b98d00b29c431dda13846043cca990ad1185c5ed",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_b1f7d2790ed39d2cdf0c1e1800855f27d6a5843d221bf1b90721dc63739354e4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_5bd9a5840041e5344d8dc9c3638a78a20e3aa109ab7b8cbcc0c5f3716e437c4c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_eac1ca56a9240e1a147c6b380decbc0c1e618198edd0ffdadf5a5cee8dfec714",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_878e3fdb1f9db972a3d2c1954df2ebd90d16daa0a579f9621dbbdde592fb05f3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_5b68e3fefebdaeac8672ab7955b2f98033d7134ba7f1e32ded000a689ef0c91d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_14ac7b4888bac7e51d1eb9f149b88d30a7b0888e16634ec4e3a1c6e386ef52d1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_dispatch_instructions",
+      "id": "ev_493fa901c8d5c9b43c13991d0246326622292a22e5a2f6b85f1ca0bb3762aca5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_clear_icons",
+      "id": "ev_d551c84e9c4692331f646bb9cf89d43e6110374f0b7877b5b5b060a117f2bfa2",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_8a747fa5db6b4f800a4b99a2b9b82989c3f8844a17cccd9a63ccdc1fd989d3ae",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_d8c39bcd2cc509c737725b540145a894060bc46470da2fa79ffed99b414acaf0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_ec17c4244a5c8e9d455bdf6fb6872db0c941625817da172ec5cf5f1e7feada41",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_68b8f798344cc5a03aa93fb3e06df8511a254f2e0d901b735c1a8b0043e9260a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_ef1b35408fbf6969e4090fcb46decbdbdbcd24ace5b5e6b82a611337b0e9c159",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_4594059cad35a860f5f2dac3445d3d6c2f2004f3ee5b3c8a13f8cd3002246087",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_d0f59f39d288ca09bb68b5d142eb0104855ae1c64b7bfd6a60fc028554737001",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_d47acbfe506fe51282a69bcd86a5d3c01cb32272145339a333ff0dc0899ac90f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_bbb1d97a45282086730a92ed3b96f1050ea67916f72bfb206d19032eda0758dd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_287b8964fe8d7ad6e5149cfa35146cc3f04ab2f8dab68e4875f300b4183ae306",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_3a087b79ebb62bf47b95890227e124b993396bb267aa852d41fd2847397d40f4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_91d563d1db5cd97f1f90331356e3773ec6ad425336568f813ec2d3b20acc5d4e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_6115c9d285e725aa7f9f55e09cf7cf174a143f9bc5a1e2ba44aeb05b6d60cbe4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_0251862712abbdf4785a6462ea13a730fba298d1b1b58d33b1e270b002c40645",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_23972f771ffdd9f9ac6f22c870eee4a713670bfdf3fbe9319c328d8dcda35c1a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_b92e9ce79536248d4f74d86505a3d700d147d7abd82e31242c654853386af9a1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_33e99be083eeadcc7c81b810b391d5e38eb6d4f0691d75da52a4b00756685f4c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_17802931482b75f32caa4d202dd1e0ede8640d41191e244c9f07c9596846eb9a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_3174540c17dd1d922e39d52fd2fd99d54362068afb408380f32f65f972f1d932",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_2c8f64d3b869c3a1a84695d7e3606d8c24a8d576b3c976bb7df71d0013430dc3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_26d51c937921be565f906fce413e32495fbfddf032a73293d3684169f14d3704",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_312469d08b7810f3c6940339b582717799bcfa228140eb3155d96301ef0ff807",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_417445e9fcf1bc9e828db56f5e9728a93781b1e8c97e78a82d2272cef219730f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_421a1238b871e43171235d57fe9205272f7f2ed2b5fa2a6de20079790e1ad017",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_b518f50751d43f83a75c349d140663b1464321a2a4590ff44f1feeaf45e387d9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_7e0c1d326d490d5cc20a57747903a08ff068ba38b5f66b0918ee3c52c04d9c18",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_682c09491b3a41eb88fb6bac7f912000f4df6b60248068a040a2beedc58390a2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_5ed53569995fce5aaed0d74071d494d6e8f7524e51f697d65fcd5dada46aa3c1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_67c7c4a26492013011c78a333dc0ed7cea869e469b20d047877ec220cbc4cfef",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_8fe162dd026541c03c943981c8fdd1b36fde9fce8ec85812b45d5da8714e3b20",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_e62b69a0d465c62b025fe8568a4c1fb473cedb3214bc36dd6b7fec64ba64b806",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_f4d8ce120b23bbe377c2e1f349db64c220d0122336934a4ea27983d768a525af",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_0c6a2bb49374dc73a4eb66a735edc8d9847e499effac1cb2850956e769aa65da",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_833beb0d30c5028514b030eb27b6e96da1b3833d430c9909116bb935fdd3aa32",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_330e085ffb4db4227eeb624e707d6685998cabf10ce39463a94ea0ce7da81567",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_7083b16bb19ca74220fc16c4cfb0853eb7fc1626e925de4229b5f2edb7334f6a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_0ee65ebb34b35caffb1f314dd2353b72eb4f56388b157a968df42759182c2e64",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_2a205afd6a4d8f7a7475af3c215fc387be221af5e0f5ac6751e546ecdf5520d8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_bbd13d0f76cfa513437f484113f2768b378ca43fcc26776e79a5399a363457c9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_39cc57c85a55f794a043dce53c3fa930282b3d160ac801988071f89437ef344a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_ece7868f33f15a048af59f3a9703e486d826df61f36bf5de953f116ff1597ae0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_22262c223f8ce27f5a3076ca509b0711d2159ecf52ac423d75d5e69dc50c9eca",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_3f5d7669cd303cec7d00cd4cc811333d41be096c6c81e2bc0983aa3f8599f0c9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_f9358e42b566ffeb9ae26335f17bdf413f6ed2c91a6beee970b0b80781534f34",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_bb96224f4cde00dc0b23ebac4f639a42dd53b8ed79022ab027a1d2fdd15b5320",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_8dbec3600101e65e424bbffae017f8f6d210cbc33d46b4496ee9498614d8cb70",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_470f8832922a0d0bd7cfc4bb04987e4637d706fe48d0d5ca9973b932ec4471b9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_676c16c84cd741e5b598874e932ca024a55c8b3e71ef5e6fa84ea219587dc9b0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_56ad3634355c02714de9a0649c095bccd0f6ae1ceac911dff83687ad0b2964aa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_f77c76392dea57459a84e3a981352abf246eb9e22ad2d636991bed763bd5afa4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_6204846d74b61ec9ca1e6af2860d68e4a31e976e010d3c865a39039058bff4b8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_4a51daec2f91c5e31cf668319d5f2c19067fbb6954a62ab74df40d27979b35b2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_109b738aec728f3fc2f1ef5c946868d498399213dee4c666a0be54a94453e80c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_5ef5ad34a0f3482b6c39751cdb88c1f2f0f463e2741d4761477d171392064aa9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_e3a1cff453e89fb2896025c5ccee0e68aca7c92f32091759163dc51bea9a29c9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_e83ba97876460a865cb895e013f75f6db1cdb208f29f2b9776a9da73a30d88fc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_98061d0b228608dcd7d9c8b4d1b358020088fc5bbec7c501591328493d632cda",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_f5cf3151eac0bd9f27dad373f4ac0b60f462469b6aea7e18322c7ea43eb55e42",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_ae67dd9322b69b18581035442a557759dd112eb21fb5541f512c68fd1a5f5c06",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_061f53488315fdb8918ec26764a79400714f5d2179e7a93ce7babf1e342c781c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_45c6e9054a5b84cc42eb6a15c44afb25b44929b8548c7bf47fd1c164178b57bf",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_1e4e6049f7e51335e42e9aab9e36e2b015914ed1375b5c6932ef728f429fb04f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_c4fcc1d81d1389419d240614428eb54626f4ed3a191a12a761c43ae1c7191711",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_aec5cd8aa6b4ef2da3b6f264063c478c860efbc9e8bfc0e71728f44e17642c93",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_0409cf0026f64f8a866263ab209027819d1ffbf7e369db383faf417a29de88a6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_3c1622b26f8c2f75bbc4d8d508ca4a5da1bd6500f964259c84e68b8b98d6a0d4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_53c87000d9f956a6fa2fc89052a80b7085d4b615ca732b7218b45695dff6bddd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_37f9c896bad290d36c32b8951100448f6ff612fe4fcf507b8d51b2bf67fec3e0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_6911f66b91770b09d8b8cdc69af3a6fcab835c46694012dfceed17e111b37efa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_114104e27faca07f0c8f4c2c606d3faf9be44bbd522326f2d9b808e1c93dbaaa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_8715a019afb5b0893395a390676c39553694d7cb2d6562f0c0cf8f17b3e48e5d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_5c14c761323c556bc1a68691c26c974103729491d4a0a5846bf49c5f983fdeb2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_3939e6e75cd30ae584d60f7b0599609431730f4ddab8592e4ff6c59c4f61e989",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_6b16ebee1bf101c99383851d360e584b42c141808c0bff6f4f9cabf979f642cb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_e095e302149b1c66099e0541a2d92e96e9b664872f33dbed9caffd775af5af3b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_40171fa44522e88899c8c003418db520da7880a408012f8caf43836f7389a9fa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_4fa4ca889660e45d074785583976de9dbcfdffef3e50e80490f40d349dc9fcb7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_25b8faab7432c0a7115236e90e7f6a9ed59b164c94b958ce6138dd1da645724a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_hover_instructions",
+      "id": "ev_0984296dfe4247388566c388274434fbccdc09d0840825f1d850b297a913f4e5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "lasting_wire_icon",
+      "id": "ev_6267b36cd8d4ff7069121d1f262efef08c5c12b7b6f3e23ddab51c2b5ca392c3",
+      "operation": "batch_decompile"
+    }
+  ]
+}

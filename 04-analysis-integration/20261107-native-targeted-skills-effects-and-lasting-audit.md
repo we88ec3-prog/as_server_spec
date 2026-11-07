@@ -59,8 +59,8 @@ Client 的 `ActionEntry+0x80a` 確實用於 `abs(dx)<=range && abs(dy)<=range`�
 |C56|已知u8 writer|何時發出及與target／phase的完整對應|
 |S52|BEu32＋u8 reader|u8是成功枚舉、或收到後必送C56；本輪World派送表落default，另層handler未接通|
 |S48|World派送slot32→0x4f2a70；存在ref呼叫actor virtual+0x48，否則走缺物件fallback|SkillSpellDialog pending清除／詠唱退費已完成|
-|S2C opcode0x2C|持續效果新增wire `BEu32,u8,BEu16,u8,string8,u8,BEu32,BEu32`|尾u32是duration、stack／refresh／重登倒數規則已證|
-|S2D opcode0x2D|移除wire BEu32|完整LastingSpellInventory identity匹配及自然到期callback已證|
+|S2C opcode0x2C|新增wire已證；2026-11-08補證尾u32為remainingSeconds／totalSeconds，duplicate identity不刷新，見[持續效果](20261108-native-lasting-effects.md)|原版buff數值、stack／重登政策仍未知，原生GUI待測|
+|S2D opcode0x2D|BEu32 identity匹配移除已於2026-11-08補證；最後10秒閃爍不自刪，Server需發S2D|原版驅散政策未知，GUI待測|
 
 因此 **可指定遠方物件** 與 **可播放原版遠程投射物** 是兩個完成條件。mode2 Cast0提供前者；某個原版法術的投射物、詠唱、音效、buff持續圖示與數值仍需各自閉環。類別名、RTTI存在與reader可讀，都不取代實際dispatcher／handler／資源／GUI驗收。
 

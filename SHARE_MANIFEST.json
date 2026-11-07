@@ -277,7 +277,7 @@
     },
     {
       "path": "02-server-planning/social-contract.md",
-      "sha256": "50f9ddd1fae8c2181ad7d0151342b0cada8bc6d3692178d57b3d7343b1cfd88f"
+      "sha256": "9755f5cbf1ae8f7ccac1485339ccb4f84a7f6ade11dd5d11fa1bf07183b93673"
     },
     {
       "path": "02-server-planning/systems.json",
@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "624345f2450dd24301b1fd3a5627184c37c55d83a4c4fe9a4a5bf23546847576"
+      "sha256": "053d46b6e3aefff2f448137514d61b1c981f9e764f6cd31b0c038af78735f45f"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -485,7 +485,7 @@
     },
     {
       "path": "03-analysis-requests/web-skill-review/README.md",
-      "sha256": "5dc7d44ec5aeb2ad8f679ad36328898194a2c2f343e38dea2c35d66a928e2a02"
+      "sha256": "19d1df845139f42964372f4ae2fde62dd46be7a3ebcd6608ea2df9fb916f2bc4"
     },
     {
       "path": "03-analysis-requests/web-skill-review/RESOURCE-INPUTS.md",
@@ -565,7 +565,7 @@
     },
     {
       "path": "03-analysis-requests/web-skill-review/jobs/A010-D03.md",
-      "sha256": "f50a691ad6ad1ddb580092cd2f0bf7d56870e8a6ed686e4314d380cb3642ba57"
+      "sha256": "0e9cf93fba0467477513a14524d7d93c15506d57e3701c955719bc856ae10e32"
     },
     {
       "path": "03-analysis-requests/web-skill-review/jobs/A010-D04.md",
@@ -801,11 +801,11 @@
     },
     {
       "path": "04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.json",
-      "sha256": "c1431e140d1b85976adc909394f0a43cf6b64c6b9dc3da6f82c7f5ffa6f649e4"
+      "sha256": "94a0bc39b2421f0a322c4b6cb4e0defce8f12566804cf4b4d03fc4563a22a25e"
     },
     {
       "path": "04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.md",
-      "sha256": "cf62a0f3ae56b7b7d45e4a049ad866f50e387bfb16c5ac444139da32432dd044"
+      "sha256": "0d048985911a4ef194a38b680528c038209d19cf913d673cadc35d7aa9272fb8"
     },
     {
       "path": "04-analysis-integration/20261107-owned-inventory-equipment.md",
@@ -924,6 +924,22 @@
       "sha256": "926b15d373742a2a8f63c41194561bab515c9991d69c6250e14e76631ec29fa8"
     },
     {
+      "path": "04-analysis-integration/20261108-native-lasting-effects.json",
+      "sha256": "450dc814f9eb257614c660d8b0d963dca41273d4a01bc03ec8be17058e0ae45a"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-lasting-effects.md",
+      "sha256": "c2362d04398f80900ac860a3160cfb8a2f07f32a301b0e5c23fb7bb887f78b20"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-mail.json",
+      "sha256": "155bd474c5b88eca0cf73ced71941d6f8c4a9c9d6aa4cfa246cc0189bf7bc6d1"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-mail.md",
+      "sha256": "cf93cfa6425a0544af8a596111d559fc9a3ccee11f30da7fdff90145d31a925a"
+    },
+    {
       "path": "04-analysis-integration/20261108-native-monster-steps-player-death-and-respawn.json",
       "sha256": "9f3e92735f619e2d58e41773d4d152c8b180d62680d8d25b4da54ccd553d145d"
     },
@@ -990,6 +1006,10 @@
     {
       "path": "04-analysis-integration/20261108-player-exchange-authority.md",
       "sha256": "b6e1cb11d5d26b2c10c929a08a434f668ccef6b4ff8b15c3b5290dd40d729154"
+    },
+    {
+      "path": "04-analysis-integration/20261108-player-mail-authority.md",
+      "sha256": "d9da8362502819ae7d0b56c88efc980edc02823d1f883371d3e56bb2c0101cbd"
     },
     {
       "path": "04-analysis-integration/20261108-shared-player-visibility-and-motion.md",
@@ -1133,7 +1153,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "63544643c246364a631ed98cb6365fbc19523bbcc8514b3e60fb7db8195269e2"
+      "sha256": "5b1b7d2f33300f9413931a325a6252d85a774e096ed19b9caacd0e06233def09"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -1181,7 +1201,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "a8e54319454ccdc6e5e174863395eb81ed3705ed260c1ea1101081c51ca3cee2"
+      "sha256": "3db2f15ad6daddcf759d0bb1705e12d4af5b88289e6c0f0648340f51cf88a83b"
     },
     {
       "path": "04-analysis-integration/feedback-native-20261102.json",
@@ -1297,11 +1317,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "e075bf81572ce338fb72b7c28a2bdf2c4b6d062d9678a387b36e674485a62dcb"
+      "sha256": "fb85f6bddb165b8786567f47d12875bd9102216cb1aba6650285176e40af1f3a"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "570bfa522bb8e9c047e3af8c1fc5c5597575b260f7eba613aaaafe8650f9a47a"
+      "sha256": "e04fdaf7fc404b8db213cc47d2c5f661324c5473fe6f02a35da7290c8e4fca9e"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1593,11 +1613,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "773bbc8d6f9a33ab2f475590048f94c2eb624d2544c246896d30b4ceed4d6263"
+      "sha256": "5ea1af7f1979a07e355fb7987efd5e85edbc3cdb72a9b11102f2700087045462"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "2906b2721acef6176fb9a2ad6fe422a734959550786322c5dc8032946ba81030"
+      "sha256": "2108fd3a7bf258c6ec92955e26f2476bff5f0524a6b3142b39dfdbe4c6ce9d6d"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1625,7 +1645,7 @@
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
-      "sha256": "ba873eb70c0536d6382d364e50dd3871c1a528425642e3bf8dfa07a61e800d61"
+      "sha256": "34df0a68b2b4243cfaa7240a6f69f0fce8bce304b681cc7b9e60cc42c96adb33"
     },
     {
       "path": "06-development-tracking/details/F08_戰士技能.xlsx",
@@ -1669,7 +1689,7 @@
     },
     {
       "path": "06-development-tracking/details/F18_玩家交易與郵件.xlsx",
-      "sha256": "cf3ba37af1c8bb9decc8af2534d8fcc312a7ca9a0a83ff9a55c09dda3063f6ca"
+      "sha256": "3bc48b4c735dc22b013b471095e0b10198f7e959afc3d333cb6e717dbfd636c6"
     },
     {
       "path": "06-development-tracking/details/F19_掉落製作與物品來源.xlsx",
@@ -1741,7 +1761,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "d46270b25e624359e3df8f06df8b114f08076cf5270ef126c34f294848f4e7ac"
+      "sha256": "8fb16f66b74bba22262c3b070e20c2bba61b17d9ff7fe6c62b9c0cd446349df7"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

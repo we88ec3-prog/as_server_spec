@@ -754,7 +754,11 @@
         "A010-E07",
         "A010-E08",
         "A010-E09",
-        "A010-E10"
+        "A010-E10",
+        "ev_9bef2d3de5c0688c3fc529646610697f1e587675d4f428c55553448ce9bc5acc",
+        "ev_e7d4f18a14d738febe76be049aebe3b216b82564eb1760486d6b618db254f412",
+        "ev_c3cd535ba2335299e752995e5aaa5a6ad0c9cd24237619ceb1580e99c2d91cbf",
+        "ev_6267b36cd8d4ff7069121d1f262efef08c5c12b7b6f3e23ddab51c2b5ca392c3"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -782,7 +786,7 @@
         "CT-096"
       ],
       "implementation_ready": true,
-      "implementation_ready_scope": "Six original native-static skill packet decoded bodies: C4D BEu16, C56 u8, S52 BEu32+u8, S48 BEu32, S2C BEu32+u8+BEu16+u8+string8+u8+BEu32+BEu32, S2D BEu32. Actual C4D producer [ebx+0x80E] identified. Does NOT include original skill types, MP costs, cooldowns, native spell UI, durations, AOE/heal/summon mapping.",
+      "implementation_ready_scope": "Six original native-static skill packet decoded bodies: C4D BEu16, C56 u8, S52 BEu32+u8, S48 BEu32, S2C BEu32+u8+BEu16+u8+string8+u8+BEu32+BEu32, S2D BEu32. Actual C4D producer [ebx+0x80E] identified. Does NOT include original skill types, MP costs, cooldowns, native spell UI, durations, AOE/heal/summon mapping. Native lasting increment now establishes relative seconds, identity/refresh/remove, icon libraries and client blink; original spell mechanics and GUI remain separate.",
       "native_spell_taxonomy_ready": false,
       "native_lasting_spell_ui_ready": false,
       "native_skill_duration_and_cooldown_ready": false,
@@ -813,7 +817,6 @@
       },
       "remaining_unknowns": [
         "C56 real UI producer and exact C4D→C56→S52/S48 protocol ordering and response enum unknown",
-        "Native S2C/S2D lasting spell inventory UI add/update/expire callback and identity mapping unknown",
         "No verified original official skills definition filename/skill IDs, individual spell categories, range, MP cost, cooldown, effect duration, stacking, summoned owner/AI",
         "Native original Client GUI/world combat casts and effect expiry trace not-run; CT-096 planned"
       ],
@@ -869,6 +872,18 @@
           "lasting buff UI/timing",
           "original per-spell content mapping"
         ]
+      },
+      "lasting_increment": {
+        "date": "2026-11-08",
+        "report": "04-analysis-integration/20261108-native-lasting-effects.md",
+        "status": "native-static-contract-ready; gameplay implementation pending; GUI not-run",
+        "seconds_fields": [
+          "remainingSeconds",
+          "totalSeconds"
+        ],
+        "identity": "nonzero key; duplicate add ignored; refresh remove then add",
+        "expiry": "last10seconds blink does not remove; Server must sendS2D",
+        "icons": "family0 skill319frames; family1 spell371frames; physical frame1 generic candidate, no original spell binding"
       }
     },
     {
@@ -1196,7 +1211,10 @@
       "status": "integrated",
       "assignee": "roy2",
       "evidence_ids": [
-        "ev_a014_20261031_asgard_social_static"
+        "ev_a014_20261031_asgard_social_static",
+        "ev_49b6cc3c251baa8c6a490ab553722612721c6de20551897e3f73041efaf4b7ae",
+        "ev_80834c901cd4679deae8de8dedc4c8bdef88eb07a0d72558f840e26b22c14600",
+        "ev_27ef028039775bfcf9ebd741e334b57591e5c16a8c0ea2b281e9d546f6625da2"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -1244,6 +1262,21 @@
         "scope": "C0E kind0; C19 kind0 whisper and !! party; native guild !1..3 identified but not authorized; S0A18 actor-free plain history",
         "original_client_gui": "not-run",
         "remaining": "blocked-name synchronization, friends, mail, guild permissions/chat, other native channels and remote avatars"
+      },
+      "native_mail_increment": {
+        "date": "2026-11-08",
+        "report": "04-analysis-integration/20261108-native-mail.md",
+        "server_core_contract": "04-analysis-integration/20261108-player-mail-authority.md",
+        "native_route": "NMCO3 SDK, not game TCP mail opcode",
+        "game_contact_queries": "C12 00 01/00 02 are composition address-book requests only",
+        "server_core": "independent text storage only; no chat/Web/native mail adapter exposed",
+        "native_ui": "not-run",
+        "remaining": [
+          "NMCO transport/authentication/callback compatibility",
+          "recipient-address identity mapping",
+          "attachment/fee capability not established",
+          "architecture scope decision before user-facing mail entry"
+        ]
       }
     },
     {
