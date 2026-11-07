@@ -1,0 +1,688 @@
+{
+  "schema": "asgard.native-targeted-effects-audit.v1",
+  "date": "2026-11-07",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "scope": "Shipped immutable native static analysis and source-bound archive metadata; no Client execution or original Server traffic.",
+  "targeted_noncast": {
+    "native_entry_mode": 2,
+    "cast_value": 0,
+    "input_chain": [
+      "0x46d2c0 or 0x445200 activates mode2",
+      "0x46d130: targeting state1",
+      "0x46d970: selected registry object, position/range/line gate, builds CUseAction",
+      "0x4b8d70 and callback0x4b76d0: direction then0x401ed0",
+      "0x401ed0: C0E kind2 text then original C65",
+      "0x577aa0 mode2: u8 kind,u8 slot,BEu32 target"
+    ],
+    "decoded_C65_bytes": 6,
+    "mode_is_on_wire": false,
+    "mode_source": "Server-issued S62 row, preserved locally in ActionEntry+7; do not infer it from arbitrary body length.",
+    "range_source": "0x579020 initializes packet-local+0x622 to100, not from wire. Full packet+0x62e ->0x4f2cd0 ->0x4017d0 parameter9 ->ActionEntry+0x80a.",
+    "client_gate": "abs(dx)<=entry+0x80a and abs(dy)<=entry+0x80a;0x4b4bb0 checks traversed tile byte+6 bit0x10. Extra player/PvP gate exists for entry+9==1; not a complete Server eligibility rule.",
+    "server_design": "C0E cannot resolve the targeted attack because it lacks target. Wait for C65 matching issued mode2 slot and validate current actor/map/visible life/ref/range/cost/cooldown atomically. Client line/range gates are not authorization."
+  },
+  "direction_delta": {
+    "native_function": "0x4430c0",
+    "pair_constructor": "0x46e500",
+    "values": [
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        1,
+        -1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        -1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "note": "Existing Server cardinal/diagonal table matches; heading2 is positiveY, not east."
+  },
+  "cast_and_state_limits": {
+    "S62": "Adds action rows, including target-use mode and CastValue; not an effect execution packet.",
+    "C4D": "When ActionEntry+0x80e!=0,0x401ed0 sends BEu16 value and retains pending original use packet.",
+    "S4D": "No supported S4D skill meaning established in this audit; do not substitute S4D for C4D.",
+    "C56": "Original byte writer remains known; full trigger/phase not completed here.",
+    "S52": "BEu32,u8 reader proven; not handled by examined World dispatch table, complete receiver/handshake remains unknown.",
+    "S48": "World table slot32 ->0x4f4999/0x4f499d ->0x4f2a70: registry actor virtual+0x48, or missing-object fallback. Does not by itself prove pending SkillSpellDialog cleanup.",
+    "S2C": "opcode0x2c add lasting effect wire is BEu32,u8,BEu16,u8,string8,u8,BEu32,BEu32. UI identity/timer/stack semantics still partial.",
+    "S2D": "opcode0x2d remove lasting effect is BEu32; full lasting UI match/expiry callback remains unverified."
+  },
+  "S13_first_hit_review": {
+    "native_paths": [
+      "0x4f2620 registry lookup/source-local comparison and monster selection",
+      "0x47bc20 Human motion virtual+0x44",
+      "0x4a4b00 ->0x4b6850 source-local hit number creation"
+    ],
+    "finding": "Examined paths contain no required prior C13/first basic attack. S13 itself selects eligible local-source monster target. Human animation has separate flags/motion and effect conditions; no effect selector is needed for the motion setter.",
+    "limits": "Linear exact-instruction evidence was used where Ghidra has no procedure; not a complete proof about every local state or unobserved runtime branch."
+  },
+  "effect_resource_mapping": {
+    "runner": "0x458030:bank=id/1000 must0..4; library=15+bank,member=id%1000+1; internal stream endian0 is little endian via0x45ada0/0x45ade0.",
+    "library_registration": "0x404082..0x4040ad:library15..19 -> Effect%01d.dat,bank=library-15.",
+    "image": "Node type2 imageKey at+4 ->0x459680 ->0x44ffb0 ->0x44cc60/0x44eec0: library=15+imageKey/1000,member0,object=imageKey%1000.",
+    "namespace_rule": "EffectSelector, nested imageKey, YPF object, action and physical frame are distinct; a skill icon is not an effect selector."
+  },
+  "finite_candidates": [
+    {
+      "selector": 1001,
+      "library": 16,
+      "archive": "Effect1.dat",
+      "archive_sha256": "4c813c35b752a8fbbcfd4cb6adb6fa1f16220f0a879e764302ffb71a2c023bc4",
+      "slot": 2,
+      "member_name": "Effect01001.eff",
+      "offset": 21223040,
+      "bytes": 7913,
+      "member_sha256": "d2137fec31284f8a2aa07a5555647c88c1bdb1a5844a33625fb928e9165db961",
+      "decoded": {
+        "version": 9,
+        "flags_raw": 0,
+        "nodes": [
+          {
+            "type": 0,
+            "offset": 6,
+            "references": [],
+            "control_byte": 0,
+            "raw_selectors": [
+              1,
+              1
+            ],
+            "raw_short40": 0,
+            "raw_bytes44_4c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short50": 0,
+            "raw_bytes54_5c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short60": 1,
+            "bytes": 56
+          },
+          {
+            "type": 2,
+            "offset": 62,
+            "raw_fields": [
+              1001,
+              0,
+              600,
+              0
+            ],
+            "references": [
+              [
+                4,
+                0
+              ],
+              [
+                9,
+                0
+              ]
+            ],
+            "bytes": 1920
+          },
+          {
+            "type": 0,
+            "offset": 1982,
+            "references": [
+              [
+                8,
+                100
+              ]
+            ],
+            "control_byte": 0,
+            "raw_selectors": [
+              1,
+              1
+            ],
+            "raw_short40": 0,
+            "raw_bytes44_4c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short50": 0,
+            "raw_bytes54_5c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short60": 3,
+            "bytes": 59
+          },
+          {
+            "type": 2,
+            "offset": 2041,
+            "raw_fields": [
+              1002,
+              0,
+              640,
+              0
+            ],
+            "references": [],
+            "bytes": 1914
+          },
+          {
+            "type": 0,
+            "offset": 3955,
+            "references": [],
+            "control_byte": 0,
+            "raw_selectors": [
+              1,
+              1
+            ],
+            "raw_short40": 0,
+            "raw_bytes44_4c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short50": 0,
+            "raw_bytes54_5c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short60": 5,
+            "bytes": 56
+          },
+          {
+            "type": 2,
+            "offset": 4011,
+            "raw_fields": [
+              1003,
+              0,
+              640,
+              0
+            ],
+            "references": [
+              [
+                2,
+                20
+              ]
+            ],
+            "bytes": 1917
+          },
+          {
+            "type": 0,
+            "offset": 5928,
+            "references": [],
+            "control_byte": 0,
+            "raw_selectors": [
+              1,
+              1
+            ],
+            "raw_short40": 0,
+            "raw_bytes44_4c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short50": 0,
+            "raw_bytes54_5c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short60": 7,
+            "bytes": 56
+          },
+          {
+            "type": 2,
+            "offset": 5984,
+            "raw_fields": [
+              1024,
+              0,
+              960,
+              0
+            ],
+            "references": [],
+            "bytes": 1914
+          },
+          {
+            "type": 1,
+            "offset": 7898,
+            "references": [
+              [
+                6,
+                100
+              ]
+            ],
+            "raw_shorts": [
+              300,
+              300
+            ],
+            "bytes": 10
+          },
+          {
+            "type": 7,
+            "offset": 7908,
+            "references": [],
+            "raw_short": 1016,
+            "bytes": 5
+          }
+        ],
+        "exact_end": 7913
+      },
+      "status": "structural-candidate-additional-audio-dependency-unverified",
+      "image_dependencies": [
+        {
+          "bank": 1,
+          "archive": "Effect1.dat",
+          "archive_sha256": "4c813c35b752a8fbbcfd4cb6adb6fa1f16220f0a879e764302ffb71a2c023bc4",
+          "member_slot": 0,
+          "member_name": "effect01.ypf",
+          "member_sha256": "d545b2ba9f6ea0226e2ad6480b39b732d5ca95ed9ae3ee06eb7965c40cdba034",
+          "member_offset": 4216,
+          "member_bytes": 21218813,
+          "data_base": 55004,
+          "metadata_end": 55004,
+          "objects": 122,
+          "needed_objects": [
+            {
+              "object": 1,
+              "frames": 6,
+              "flags_set": [
+                5
+              ],
+              "actions": 1,
+              "states": 1,
+              "links": 0
+            },
+            {
+              "object": 2,
+              "frames": 8,
+              "flags_set": [
+                5
+              ],
+              "actions": 1,
+              "states": 1,
+              "links": 0
+            },
+            {
+              "object": 3,
+              "frames": 8,
+              "flags_set": [
+                5
+              ],
+              "actions": 1,
+              "states": 1,
+              "links": 0
+            },
+            {
+              "object": 24,
+              "frames": 12,
+              "flags_set": [
+                5
+              ],
+              "actions": 1,
+              "states": 1,
+              "links": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": 2001,
+      "library": 17,
+      "archive": "Effect2.dat",
+      "archive_sha256": "e26ee9bfd3827d707ce94ee2734f48f2eca759ac55ff78aab977b5d629778fd9",
+      "slot": 2,
+      "member_name": "Effect02001.eff",
+      "offset": 25952045,
+      "bytes": 1984,
+      "member_sha256": "98892527fc1fb17e24747808692692f9a1e73d4c4d53b014b4693625e51dd64a",
+      "decoded": {
+        "version": 9,
+        "flags_raw": 0,
+        "nodes": [
+          {
+            "type": 0,
+            "offset": 6,
+            "references": [
+              [
+                2,
+                100
+              ]
+            ],
+            "control_byte": 0,
+            "raw_selectors": [
+              1,
+              1
+            ],
+            "raw_short40": 0,
+            "raw_bytes44_4c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short50": 0,
+            "raw_bytes54_5c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short60": 1,
+            "bytes": 59
+          },
+          {
+            "type": 2,
+            "offset": 65,
+            "raw_fields": [
+              2001,
+              0,
+              430,
+              0
+            ],
+            "references": [],
+            "bytes": 1914
+          },
+          {
+            "type": 7,
+            "offset": 1979,
+            "references": [],
+            "raw_short": 1133,
+            "bytes": 5
+          }
+        ],
+        "exact_end": 1984
+      },
+      "status": "structural-candidate-additional-audio-dependency-unverified",
+      "image_dependencies": [
+        {
+          "bank": 2,
+          "archive": "Effect2.dat",
+          "archive_sha256": "e26ee9bfd3827d707ce94ee2734f48f2eca759ac55ff78aab977b5d629778fd9",
+          "member_slot": 0,
+          "member_name": "effect02.ypf",
+          "member_sha256": "d2ab964c6b8141c5297c3204942255cdd605e66f72f437956bf29c8bf4923997",
+          "member_offset": 6628,
+          "member_bytes": 25945406,
+          "data_base": 91655,
+          "metadata_end": 91655,
+          "objects": 168,
+          "needed_objects": [
+            {
+              "object": 1,
+              "frames": 7,
+              "flags_set": [
+                5
+              ],
+              "actions": 1,
+              "states": 1,
+              "links": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": 3000,
+      "library": 18,
+      "archive": "Effect3.dat",
+      "archive_sha256": "e9cc725ab9fe701b54970805901397623bd151de5b4732be4dd32846d3f2fcdd",
+      "slot": 1,
+      "member_name": "Effect03000.eff",
+      "offset": 90443851,
+      "bytes": 1984,
+      "member_sha256": "16108a87867209a16694331393c9b86e3591356f72354e571f08027b1773210e",
+      "decoded": {
+        "version": 9,
+        "flags_raw": 0,
+        "nodes": [
+          {
+            "type": 0,
+            "offset": 6,
+            "references": [
+              [
+                2,
+                100
+              ]
+            ],
+            "control_byte": 0,
+            "raw_selectors": [
+              1,
+              1
+            ],
+            "raw_short40": 0,
+            "raw_bytes44_4c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short50": 0,
+            "raw_bytes54_5c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short60": 1,
+            "bytes": 59
+          },
+          {
+            "type": 2,
+            "offset": 65,
+            "raw_fields": [
+              3000,
+              0,
+              800,
+              0
+            ],
+            "references": [],
+            "bytes": 1914
+          },
+          {
+            "type": 7,
+            "offset": 1979,
+            "references": [],
+            "raw_short": 2056,
+            "bytes": 5
+          }
+        ],
+        "exact_end": 1984
+      },
+      "status": "structural-candidate-additional-audio-dependency-unverified",
+      "image_dependencies": [
+        {
+          "bank": 3,
+          "archive": "Effect3.dat",
+          "archive_sha256": "e9cc725ab9fe701b54970805901397623bd151de5b4732be4dd32846d3f2fcdd",
+          "member_slot": 0,
+          "member_name": "effect03.ypf",
+          "member_sha256": "d3d0d1fdf7afdcd54819f88c4bb10455d6b79b4859bfab3a460f9933866aba45",
+          "member_offset": 8644,
+          "member_bytes": 90435207,
+          "data_base": 145772,
+          "metadata_end": 145772,
+          "objects": 209,
+          "needed_objects": [
+            {
+              "object": 0,
+              "frames": 8,
+              "flags_set": [
+                5
+              ],
+              "actions": 1,
+              "states": 1,
+              "links": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": 4000,
+      "library": 19,
+      "archive": "Effect4.dat",
+      "archive_sha256": "5cac55442e8504786bf9e8b7be73eed2a1cd05a65970739e1fdf24df0f7e58dc",
+      "slot": 1,
+      "member_name": "Effect04000.eff",
+      "offset": 11707188,
+      "bytes": 1979,
+      "member_sha256": "85f197f104e3716fff798aaa4205d193a977963d194f48a0af57d2aa2edc9bac",
+      "decoded": {
+        "version": 9,
+        "flags_raw": 0,
+        "nodes": [
+          {
+            "type": 0,
+            "offset": 6,
+            "references": [],
+            "control_byte": 0,
+            "raw_selectors": [
+              1,
+              1
+            ],
+            "raw_short40": 0,
+            "raw_bytes44_4c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short50": 0,
+            "raw_bytes54_5c": [
+              0,
+              0,
+              0
+            ],
+            "raw_short60": 1,
+            "bytes": 56
+          },
+          {
+            "type": 2,
+            "offset": 62,
+            "raw_fields": [
+              4000,
+              0,
+              1920,
+              0
+            ],
+            "references": [
+              [
+                0,
+                100
+              ]
+            ],
+            "bytes": 1917
+          }
+        ],
+        "exact_end": 1979
+      },
+      "status": "source-bound-static-candidate-no-GUI-acceptance",
+      "image_dependencies": [
+        {
+          "bank": 4,
+          "archive": "Effect4.dat",
+          "archive_sha256": "5cac55442e8504786bf9e8b7be73eed2a1cd05a65970739e1fdf24df0f7e58dc",
+          "member_slot": 0,
+          "member_name": "effect04.ypf",
+          "member_sha256": "e5c9d3990b9b40012812eb466ee630da58473db9ff44700d754fd1ed9aa4c867",
+          "member_offset": 4216,
+          "member_bytes": 11702972,
+          "data_base": 35618,
+          "metadata_end": 35618,
+          "objects": 52,
+          "needed_objects": [
+            {
+              "object": 0,
+              "frames": 12,
+              "flags_set": [
+                5
+              ],
+              "actions": 1,
+              "states": 1,
+              "links": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rejected_shortcut": {
+    "selector": 1,
+    "reason": "Candidate .eff is version7, outside this bounded version9 reader; not advertised as validated by this parser."
+  },
+  "minimal_static_closed_candidate": {
+    "selector": 4000,
+    "effect_member": "Effect4.dat/Effect04000.eff",
+    "image_member": "Effect4.dat/effect04.ypf",
+    "image_object": 0,
+    "physical_frames": 12,
+    "sound_node_present": false,
+    "meaning": "Generic development visual candidate only; no original spell name/heal/projectile meaning assigned.",
+    "projection": "S13 source EffectSelector can enter native runner; receiver-side extension is a separate lane and requires separate acceptance.",
+    "unverified": [
+      "Native visible appearance and timing",
+      "Whether suitable as a projectile versus self/attached effect",
+      "Original spell-to-effect relation",
+      "Gameplay heal/buff meaning"
+    ]
+  },
+  "evidence": [
+    {
+      "local_record_name": "target-mode2-range-and-gate.json",
+      "evidence_id": "ev_b2a95b5421b0277228d8807b74d712007ac2de6e310d5c4f780b08b73ebf7063",
+      "sha256": "13a7564b4ee69bef819953c0b009340fed64e2dde149fd811e30737817681d90"
+    },
+    {
+      "local_record_name": "effects-cast-probe2.json",
+      "evidence_id": "ev_4b0a0e26e7777a3896d6816ac8ed6586947972aa22813a06432c5f3f3279769f",
+      "sha256": "14997a122d9cba22fc4f51bfb70bc9604737cfc6c1462799d996547f9ee6b72c"
+    },
+    {
+      "local_record_name": "effects-cast-probe6.json",
+      "evidence_id": "ev_4446b7f598c5b3339cd0248761de49df712c44eddc8c6a31e842506877211b1d",
+      "sha256": "db40ba450c38fd73f5d63f681ac8e54a0ca275e881e9382d3594092922845042"
+    },
+    {
+      "local_record_name": "effect-image-library.json",
+      "evidence_id": "ev_fa018531e8e0a5d335165ae7e0b364c700a11816b3835cc6ef17b5cfe213289a",
+      "sha256": "dec17b1df4de7c50dd777252bf9562409abbdd2bb71ee28a5954f0150d9fe387"
+    },
+    {
+      "local_record_name": "effect-node2-image-link.json",
+      "evidence_id": "ev_a21fff50efde8d285fbadd5c243e2b7a1a9478445b7ee7eb96fdef8ed8b10171",
+      "sha256": "45843f9af859fb2a00818026eeffec4d6f893eb60ab4fe408062cf090e62d09c"
+    },
+    {
+      "local_record_name": "effect-stream-order-and-start.json",
+      "evidence_id": "ev_9defb8a6207b061890a262ea9d03d16dc6b4f556c5038230042e390a8e36f143",
+      "sha256": "cd8a80592a398f9854bb1867ba30d174bb3a4275e043b589922863fb3baeba66"
+    },
+    {
+      "local_record_name": "ypf-reader-raw.json",
+      "evidence_id": "ev_6bcc7eec9ebf82fab8eb792a2578a208cd89cd5a369894ef7977b7a23e0af629",
+      "sha256": "a2d8d286888500010b7d076325cdfde1520c6fcb2f76477802e939423a8d52bc"
+    }
+  ],
+  "not_implemented": "No skill/store/Host/Client changes or GUI success claimed by this audit."
+}

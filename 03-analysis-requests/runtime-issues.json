@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-07",
+  "updated_on": "2026-11-08",
   "purpose": "Sanitized local feedback; status is scoped to the recorded runtime, not a declaration that every server version has the same defect.",
   "spec_baseline_before_integration": "6b935906dbfa8db118aa058c73e880d6409bbf90",
   "implementation_review": {
@@ -442,6 +442,27 @@
       "report": "04-analysis-integration/20261107-equipped-click-and-native-takeoff.md",
       "native_client_validation": "passed",
       "next_action": "Expand remaining equipment slots; retain special-clothing original combat policy and exact gesture as unknown."
+    },
+    {
+      "id": "RI-015",
+      "title": "Adjacent shortcut first-hit report and requested ranged magic/effects",
+      "priority": "P1",
+      "status": "awaiting-native-retest",
+      "source": "User reports adjacent skill damage only after basic attack; later suggests MP/SP shortage is possible. Ranged magic is a new request, not a report about an already available spell.",
+      "analysis_requests": [
+        "A-009",
+        "A-010"
+      ],
+      "current_facts": [
+        "Recorded Mage skill damage precedes recorded basic attack; this disproves a universal basic-attack unlock but does not resolve every reported adjacent GUI case.",
+        "Some recorded actions were Air;24 later Mage attempts had MP2 and insufficient resources.",
+        "Mode2 six-byte C65 target intent is independently proven; Mage single/area ranged reconstruction and reviewed generic effect4000 implemented.",
+        "496 full regression checks passed. Isolated Mage TCP also verified four-tile skill, exact target, effect4000 and admin resource refill projected via S08.",
+        "Five towns now contain33 guide-supported NPC roles, with original bindings and reconstruction provenance distinguished; original full roster and transaction services remain incomplete."
+      ],
+      "report": "04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md",
+      "native_client_validation": "pending",
+      "next_action": "Concentrated GUI retest with enough MP/SP; separately record adjacent first hit, mode2 remote selection, effect visibility and resource refill. Continue remaining NPC services and skill systems without claiming completion."
     }
   ],
   "latest_direct_increment": {

@@ -1,0 +1,607 @@
+{
+  "schema_version": 1,
+  "record_id": "FIVE-TOWN-NPC-SUBSETS-20261107",
+  "user_request": "Develop all towns while user tests skills.",
+  "scope": "Guide-labelled role subsets with reconstructed outdoor positions; not recovered complete original rosters.",
+  "static_policy": "flags & 9 == 0, four-neighbor floodfill from configured destination spawn; nearest reachable unused tile, ties y then x.",
+  "native_gui": "not-run",
+  "original_services": "not-implemented",
+  "towns": [
+    {
+      "map_ref": 1,
+      "town": "米魯里斯",
+      "map_sha256": "e2c329ad88a9b44c2760d5a996f187e68b7a5b90419f087a2471fabc03490f00",
+      "guide_path": "World/img/00001.jpg",
+      "guide_sha256": "cff7a943dc2278af0da8da0de8babfbd4498e888c3c223a254d128062a96d535",
+      "spawn": [
+        62,
+        92
+      ],
+      "component_cells": 7477,
+      "placements": [
+        {
+          "key": "miles.item",
+          "role_label": "道具商人",
+          "guide_anchor": [
+            36,
+            43
+          ],
+          "reconstruction_anchor": [
+            36,
+            43
+          ],
+          "position": [
+            36,
+            43
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 327937,
+          "image_id": 16439,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        },
+        {
+          "key": "miles.smith",
+          "role_label": "武器商人",
+          "guide_anchor": [
+            26,
+            63
+          ],
+          "reconstruction_anchor": [
+            26,
+            63
+          ],
+          "position": [
+            26,
+            63
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 327938,
+          "image_id": 16428,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "miles.potion",
+          "role_label": "藥水商人",
+          "guide_anchor": [
+            85,
+            36
+          ],
+          "reconstruction_anchor": [
+            85,
+            36
+          ],
+          "position": [
+            85,
+            36
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 327939,
+          "image_id": 16431,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "miles.inn",
+          "role_label": "旅館主人",
+          "guide_anchor": [
+            90,
+            80
+          ],
+          "reconstruction_anchor": [
+            90,
+            80
+          ],
+          "position": [
+            90,
+            80
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 327940,
+          "image_id": 16432,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "miles.bank",
+          "role_label": "銀行員",
+          "guide_anchor": null,
+          "reconstruction_anchor": [
+            65,
+            95
+          ],
+          "position": [
+            65,
+            95
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 327941,
+          "image_id": 16427,
+          "placement_origin": "Guide-labelled role without printed coordinates; explicit spawn-area outdoor reconstruction, original position unknown.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "miles.priest",
+          "role_label": "神官",
+          "guide_anchor": null,
+          "reconstruction_anchor": [
+            59,
+            98
+          ],
+          "position": [
+            59,
+            98
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 327942,
+          "image_id": 16439,
+          "placement_origin": "Guide-labelled role without printed coordinates; explicit spawn-area outdoor reconstruction, original position unknown.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        },
+        {
+          "key": "miles.chat",
+          "role_label": "聊天達人",
+          "guide_anchor": null,
+          "reconstruction_anchor": [
+            62,
+            98
+          ],
+          "position": [
+            62,
+            98
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 327943,
+          "image_id": 16439,
+          "placement_origin": "Guide-labelled role without printed coordinates; explicit spawn-area outdoor reconstruction, original position unknown.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        }
+      ]
+    },
+    {
+      "map_ref": 2001,
+      "town": "路爾斯",
+      "map_sha256": "bc220a638c7e710016af65acc83de2f6255e1b690bfb9ef477871589b56c865f",
+      "guide_path": "World/img/02001.jpg",
+      "guide_sha256": "18144de758cca0abedcf778986448d71c5ce88f76aeecf3b112a7e816f0d9261",
+      "spawn": [
+        100,
+        100
+      ],
+      "component_cells": 11064,
+      "placements": [
+        {
+          "key": "luars.item",
+          "role_label": "道具商人",
+          "guide_anchor": [
+            115,
+            94
+          ],
+          "reconstruction_anchor": [
+            115,
+            94
+          ],
+          "position": [
+            114,
+            96
+          ],
+          "anchor_distance_squared": 5,
+          "wire_ref": 328193,
+          "image_id": 16439,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        },
+        {
+          "key": "luars.smith",
+          "role_label": "武器商人",
+          "guide_anchor": [
+            95,
+            135
+          ],
+          "reconstruction_anchor": [
+            95,
+            135
+          ],
+          "position": [
+            95,
+            135
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328194,
+          "image_id": 16428,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "luars.potion",
+          "role_label": "藥水商人",
+          "guide_anchor": [
+            56,
+            109
+          ],
+          "reconstruction_anchor": [
+            56,
+            109
+          ],
+          "position": [
+            56,
+            109
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328195,
+          "image_id": 16431,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "luars.inn",
+          "role_label": "旅館主人",
+          "guide_anchor": [
+            86,
+            78
+          ],
+          "reconstruction_anchor": [
+            86,
+            78
+          ],
+          "position": [
+            86,
+            78
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328196,
+          "image_id": 16432,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "luars.bank",
+          "role_label": "銀行員",
+          "guide_anchor": null,
+          "reconstruction_anchor": [
+            103,
+            103
+          ],
+          "position": [
+            103,
+            103
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328197,
+          "image_id": 16427,
+          "placement_origin": "Guide-labelled role without printed coordinates; explicit spawn-area outdoor reconstruction, original position unknown.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "luars.priest",
+          "role_label": "神官",
+          "guide_anchor": null,
+          "reconstruction_anchor": [
+            97,
+            106
+          ],
+          "position": [
+            97,
+            106
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328198,
+          "image_id": 16439,
+          "placement_origin": "Guide-labelled role without printed coordinates; explicit spawn-area outdoor reconstruction, original position unknown.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        },
+        {
+          "key": "luars.chat",
+          "role_label": "聊天達人",
+          "guide_anchor": null,
+          "reconstruction_anchor": [
+            100,
+            106
+          ],
+          "position": [
+            100,
+            106
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328199,
+          "image_id": 16439,
+          "placement_origin": "Guide-labelled role without printed coordinates; explicit spawn-area outdoor reconstruction, original position unknown.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        },
+        {
+          "key": "luars.mayor",
+          "role_label": "市長",
+          "guide_anchor": null,
+          "reconstruction_anchor": [
+            103,
+            106
+          ],
+          "position": [
+            103,
+            106
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328200,
+          "image_id": 16439,
+          "placement_origin": "Guide-labelled role without printed coordinates; explicit spawn-area outdoor reconstruction, original position unknown.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        }
+      ]
+    },
+    {
+      "map_ref": 6001,
+      "town": "魔界村",
+      "map_sha256": "d17336536d711135260990cea39dfedb7d6fea63189aa04e9f752b1cd71a309d",
+      "guide_path": "World/img/06001.jpg",
+      "guide_sha256": "2d19a8ffac021d0d1d5afd5455bf70260fc3f9f2fbb732b25fa721d3940a1030",
+      "spawn": [
+        100,
+        100
+      ],
+      "component_cells": 18262,
+      "placements": [
+        {
+          "key": "dark.item",
+          "role_label": "道具商人",
+          "guide_anchor": [
+            103,
+            92
+          ],
+          "reconstruction_anchor": [
+            103,
+            92
+          ],
+          "position": [
+            103,
+            92
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328449,
+          "image_id": 16439,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        },
+        {
+          "key": "dark.smith",
+          "role_label": "武器商人",
+          "guide_anchor": [
+            78,
+            132
+          ],
+          "reconstruction_anchor": [
+            78,
+            132
+          ],
+          "position": [
+            78,
+            132
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328450,
+          "image_id": 16428,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "dark.potion",
+          "role_label": "藥水商人",
+          "guide_anchor": [
+            124,
+            123
+          ],
+          "reconstruction_anchor": [
+            124,
+            123
+          ],
+          "position": [
+            124,
+            123
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328451,
+          "image_id": 16431,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "dark.inn",
+          "role_label": "旅館主人",
+          "guide_anchor": [
+            68,
+            111
+          ],
+          "reconstruction_anchor": [
+            68,
+            111
+          ],
+          "position": [
+            68,
+            111
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328452,
+          "image_id": 16432,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "dark.bank",
+          "role_label": "銀行員",
+          "guide_anchor": null,
+          "reconstruction_anchor": [
+            103,
+            103
+          ],
+          "position": [
+            103,
+            103
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328453,
+          "image_id": 16427,
+          "placement_origin": "Guide-labelled role without printed coordinates; explicit spawn-area outdoor reconstruction, original position unknown.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "dark.chat",
+          "role_label": "聊天達人",
+          "guide_anchor": null,
+          "reconstruction_anchor": [
+            97,
+            106
+          ],
+          "position": [
+            97,
+            106
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328454,
+          "image_id": 16439,
+          "placement_origin": "Guide-labelled role without printed coordinates; explicit spawn-area outdoor reconstruction, original position unknown.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        }
+      ]
+    },
+    {
+      "map_ref": 7001,
+      "town": "海賊村",
+      "map_sha256": "ac30779fac09dd3de4f9ddd5c1321737cf23b7e219280ab634fe52c196c45c3a",
+      "guide_path": "World/img/07001.jpg",
+      "guide_sha256": "5385266d914a12595ea93c257fb8b9c2223b97a309661e08ce63e52a206b16c8",
+      "spawn": [
+        104,
+        102
+      ],
+      "component_cells": 14229,
+      "placements": [
+        {
+          "key": "pirate.item",
+          "role_label": "道具商人",
+          "guide_anchor": [
+            102,
+            69
+          ],
+          "reconstruction_anchor": [
+            102,
+            69
+          ],
+          "position": [
+            102,
+            69
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328705,
+          "image_id": 16439,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        },
+        {
+          "key": "pirate.smith",
+          "role_label": "武器商人",
+          "guide_anchor": [
+            78,
+            86
+          ],
+          "reconstruction_anchor": [
+            78,
+            86
+          ],
+          "position": [
+            78,
+            86
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328706,
+          "image_id": 16428,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "pirate.potion",
+          "role_label": "藥水商人",
+          "guide_anchor": [
+            129,
+            83
+          ],
+          "reconstruction_anchor": [
+            129,
+            83
+          ],
+          "position": [
+            129,
+            83
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328707,
+          "image_id": 16431,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "pirate.inn",
+          "role_label": "旅館主人",
+          "guide_anchor": [
+            116,
+            113
+          ],
+          "reconstruction_anchor": [
+            116,
+            113
+          ],
+          "position": [
+            116,
+            113
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328708,
+          "image_id": 16432,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "pirate.bank",
+          "role_label": "銀行員",
+          "guide_anchor": [
+            101,
+            86
+          ],
+          "reconstruction_anchor": [
+            101,
+            86
+          ],
+          "position": [
+            101,
+            86
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328709,
+          "image_id": 16427,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original generic role resource reused; original town/person binding unverified."
+        },
+        {
+          "key": "pirate.priest",
+          "role_label": "神官",
+          "guide_anchor": [
+            120,
+            68
+          ],
+          "reconstruction_anchor": [
+            120,
+            68
+          ],
+          "position": [
+            120,
+            68
+          ],
+          "anchor_distance_squared": 0,
+          "wire_ref": 328710,
+          "image_id": 16439,
+          "placement_origin": "Printed guide service/building anchor; nearest reachable outdoor reconstruction, not original NPC feet.",
+          "appearance_origin": "Original helper sprite placeholder; original NPC appearance unknown."
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 # Asgard Server Specification
 
+2026-11-07：[指定目標遠程法術與技能拒絕診斷](04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md)、[原生target／Effect4000證據](04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.md)、[Web測試資源補滿](04-analysis-integration/20261107-development-resource-refill.md)。相鄰格首擊回報仍待GUI複驗，不將新增遠程功能冒稱原問題已解。
+
+2026-11-07：[五城33個導覽來源NPC配置](04-analysis-integration/20261107-five-town-npc-subsets.md)。新增四城27角色TCP走訪1010步通過；完整原服名單、精確位置外觀、交易服務與GUI另列待辦。
+
 2026-11-07：[點選身上裝備斷線與原生卸裝修正](04-analysis-integration/20261107-equipped-click-and-native-takeoff.md)：C3A 與 C1F 分流、原子卸回背包及持久保存；479 項回歸與戰士 TCP 通過；使用者確認點選、卸裝、重新穿戴及重登保存正常（診斷Client環境）。[泳裝／禮服攻擊動畫證據](04-analysis-integration/20261107-clothing-attack-action-presence.md)保留原版戰鬥政策未知。
 
 [Server開發追蹤 Excel](06-development-tracking/README.md)：功能總表及33份功能明細，按分析、實作、自動測試與遊戲實測分欄。2026-11-07新手流程暫緩。

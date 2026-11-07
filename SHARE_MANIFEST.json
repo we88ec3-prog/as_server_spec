@@ -13,7 +13,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "d477c022f92d0f593a6dd39a31738bb3606c5d00f5bed0d9b3b00ff3c7f605b3"
+      "sha256": "e47a9e6932ab0c0f19e6faa30b0de07627b7075346ff42d779e199949da74120"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -453,7 +453,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "86e785b5f6a0263c326b688e46a30717d9f47221f582fab72f70e72b80cf12be"
+      "sha256": "e817daa4d617fc70f5c5a50e14dd48d5ff9aa80edc9dbd07787de8b11bd2b060"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -461,7 +461,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "72b6f4dabbc1f0736b62065d2c10e27aaed6a7e41ded2d8341ceda3a76d92bb8"
+      "sha256": "a2bb5e848abf636477a56cae0c79157d4f78eedf735ea6811f93cf8d3e58ba05"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -776,6 +776,10 @@
       "sha256": "1e00debb80aafad56bdbc2242daf5de2f4ae34386c6d2f0d3915f835ab1b8220"
     },
     {
+      "path": "04-analysis-integration/20261107-development-resource-refill.md",
+      "sha256": "0619f4a138b5b71305bf1692885b6fd8cdd2e7cb5de9f37879f868822db28434"
+    },
+    {
       "path": "04-analysis-integration/20261107-equipped-click-and-native-takeoff.md",
       "sha256": "466df79f1353bd9058feaa2c7232ce1f8b7b020dcc5937e285ffa02cb6be98f9"
     },
@@ -784,8 +788,20 @@
       "sha256": "b177cf6ce1da10e3ee60c3536f105205f8fc1124b6b8aa949456128f66fdbf8b"
     },
     {
+      "path": "04-analysis-integration/20261107-five-town-npc-subsets.md",
+      "sha256": "23e20cae9c659b6552d71d8de05b6f91387afb6100b8bd3b75487b9287f08501"
+    },
+    {
       "path": "04-analysis-integration/20261107-native-inventory-equipment-subset.md",
       "sha256": "3b77b4f1bec50d4a7f46927ed0ecb95595d7d7b23ae099e4097c4fe5fc75a140"
+    },
+    {
+      "path": "04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.json",
+      "sha256": "99b8aca2b6a94c860f357d7339b09c175ed885d1246efea18b1935c430e9e7e5"
+    },
+    {
+      "path": "04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.md",
+      "sha256": "5fcf24104d46d1256e2f7aa7e28a83adb4cc1b57ad5815f9642386864b8261c2"
     },
     {
       "path": "04-analysis-integration/20261107-owned-inventory-equipment.md",
@@ -794,6 +810,10 @@
     {
       "path": "04-analysis-integration/20261107-reconstructed-career-skills-v1.md",
       "sha256": "11b78d953393b3e22d427a75384a673ee497b82da3f28b2da4ff404154c47f9f"
+    },
+    {
+      "path": "04-analysis-integration/20261107-skill-first-hit-observations.md",
+      "sha256": "a23ea47dca22ad376671f521d955d0558cc9d505a9c24a33e8dcf08c74037859"
     },
     {
       "path": "04-analysis-integration/20261107-suomi-npc-configuration.md",
@@ -814,6 +834,10 @@
     {
       "path": "04-analysis-integration/20261107-suomi-script-npc-contract.md",
       "sha256": "bcffacd580ce52609afd7d9196b504c15f6fd13e77c7a8114eb3a20ae456beb3"
+    },
+    {
+      "path": "04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md",
+      "sha256": "1dcbc4f163436fe55579713cff5bfb61f34a3bb8d020c859a1eb87f6d0dae823"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -986,6 +1010,10 @@
     {
       "path": "04-analysis-integration/first-shortcut-tail-bgm-reconnect-validation-20261102.json",
       "sha256": "a55f7d350d9eff626b54ea269c80383a4e66d6e3c17bb80bf11bdafe46d11fdf"
+    },
+    {
+      "path": "04-analysis-integration/five-town-npc-catalog-v1-20261107.json",
+      "sha256": "e1c207392477f4fa9071a784142dc0e4a697c7c4cd8b89f14dbc8bc0addd66d5"
     },
     {
       "path": "04-analysis-integration/game-systems.md",
@@ -1377,7 +1405,7 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "1142238b1da94c1716ce3db0342a9fd6f9d321e0f498b96b37d62cda446d0c60"
+      "sha256": "8f83578221de755cb4646ad03e75948c06f43845a3bc182a0dbf22e75c4ec68e"
     },
     {
       "path": "06-development-tracking/README.md",
@@ -1401,7 +1429,7 @@
     },
     {
       "path": "06-development-tracking/details/F05_NPC與互動基礎.xlsx",
-      "sha256": "9977e8e28dfd6f1e8e3a6e128acdc0467dd8b6221c5f43ad95c9143c94773a9d"
+      "sha256": "9dd2ea897511c08457e0ae4ac1bf37e71ce0b7485f54f32c304e01d78cfe9335"
     },
     {
       "path": "06-development-tracking/details/F06_怪物與戰鬥.xlsx",
@@ -1409,7 +1437,7 @@
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
-      "sha256": "e9173e73de2465353834eb44be181e4471183dbf11a49e712e86395aa645e0ae"
+      "sha256": "2501143c25e98dcdd97ec56e7381cad6d30d3c737b02364b4f0d01909c7b6618"
     },
     {
       "path": "06-development-tracking/details/F08_戰士技能.xlsx",
@@ -1417,7 +1445,7 @@
     },
     {
       "path": "06-development-tracking/details/F09_魔法師技能.xlsx",
-      "sha256": "33b50a9048a062e1a654f843065ca2e3794e25669bb463e305dbd31241e2d9be"
+      "sha256": "3e97c2170b22691e28a70392a40cee27f2fe5f5fbd97f88556f6d915c4295778"
     },
     {
       "path": "06-development-tracking/details/F10_聖職者技能.xlsx",
@@ -1465,11 +1493,11 @@
     },
     {
       "path": "06-development-tracking/details/F21_米魯里斯城鎮與NPC.xlsx",
-      "sha256": "e11fb1129ef9ffd4d54c8c647f6df9387ce1b48440712c3ccd8d03bb43967bd8"
+      "sha256": "2edf3940cdf8122b4f65857484ee3d0113b3de9781e8018c785e8ff3bae30829"
     },
     {
       "path": "06-development-tracking/details/F22_路爾斯城鎮與NPC.xlsx",
-      "sha256": "29079dee7f3feee92bf1a4066ce988661edac22993383beaf0d6ae87bb0a7f94"
+      "sha256": "c8cef3dc2a52375eb01a5f78810470d6eb2ee926af673a1aa3a9eb2c66f01538"
     },
     {
       "path": "06-development-tracking/details/F23_斯歐米城鎮與NPC.xlsx",
@@ -1477,11 +1505,11 @@
     },
     {
       "path": "06-development-tracking/details/F24_魔界村城鎮與NPC.xlsx",
-      "sha256": "e994127612d8d7d6f7885e2bdd7ab5c8b1363d3f13839a43c42fd2834231f48c"
+      "sha256": "17083bb2fd7dc45d8a6029e4cd30e48f542a7b126a203764d7bb2a359d4a59fd"
     },
     {
       "path": "06-development-tracking/details/F25_海賊村城鎮與NPC.xlsx",
-      "sha256": "b2a503bbd61ed117c2e6828db7f95084f01e02344caebc9711b9bdefd7a4126e"
+      "sha256": "c6b4c2f8591c1705e85313c9e2f291e198f1509c3cd4196600b206e8968d730e"
     },
     {
       "path": "06-development-tracking/details/F26_音樂音效與Client相容.xlsx",
@@ -1489,7 +1517,7 @@
     },
     {
       "path": "06-development-tracking/details/F27_Web管理與測試回報.xlsx",
-      "sha256": "bd89e0aaa94f48934cd087d26fc40074d5542694e9abdef8a6f0dfd9b5bb5450"
+      "sha256": "22ac5a075f51a7d76efb3d2fd0abb93f6ae1f022408baa26de17c3dad88e119f"
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
@@ -1509,7 +1537,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "4f4552312359f541023ad919742b4ddbd497e00c9205724394a6c0d2aee29b3c"
+      "sha256": "ca60cb5f566ea65598d4b4f453ecb20dfe40769a95bd672fc26e5bb3a1655bd7"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

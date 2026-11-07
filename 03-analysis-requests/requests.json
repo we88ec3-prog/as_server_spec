@@ -705,6 +705,18 @@
         "delivery": "public-git-self-contained-jobs",
         "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
         "local_attachment_required": false
+      },
+      "targeted_magic_followup_20261108": {
+        "analysis": "04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.md",
+        "implementation_contract": "04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md",
+        "observations": "04-analysis-integration/20261107-skill-first-hit-observations.md",
+        "native_gui": "pending",
+        "unknowns": [
+          "adjacent shortcut report",
+          "cast handshake",
+          "lasting buff UI/timing",
+          "original per-spell content mapping"
+        ]
       }
     },
     {
@@ -832,6 +844,18 @@
         "status": "client-support-unconfirmed",
         "text_evidence": "04-analysis-integration/reviewed-career-labels-20261107.json",
         "analysis_direction": "Trace UI references, alternate career flags, S05/S33 handlers, assets and skill definitions; do not guess codes8/9 or infer absence from the reviewed1..7 subset."
+      },
+      "targeted_magic_followup_20261108": {
+        "analysis": "04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.md",
+        "implementation_contract": "04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md",
+        "observations": "04-analysis-integration/20261107-skill-first-hit-observations.md",
+        "native_gui": "pending",
+        "unknowns": [
+          "adjacent shortcut report",
+          "cast handshake",
+          "lasting buff UI/timing",
+          "original per-spell content mapping"
+        ]
       }
     },
     {
@@ -947,6 +971,12 @@
           "full banking/shop/inn/priest transactions",
           "native GUI acceptance"
         ]
+      },
+      "five_town_followup_20261108": {
+        "report": "04-analysis-integration/20261107-five-town-npc-subsets.md",
+        "catalog": "04-analysis-integration/five-town-npc-catalog-v1-20261107.json",
+        "scope": "33 guide-supported reconstructed roles; full original rosters/services not recovered",
+        "native_gui": "pending"
       }
     },
     {
