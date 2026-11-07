@@ -935,7 +935,19 @@
       "roy1_additional_analysis_test": "tools/a011_npc_asset_contract.py",
       "roy1_resource_registry": "02-server-planning/npc-monster-resource-index.json",
       "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
-      "new_resource_status": "Monster00.dat and World00.dat supplied, each 5 YPF members; specific imageID/animation/NPC mapping not proven"
+      "new_resource_status": "Monster00.dat and World00.dat supplied, each 5 YPF members; specific imageID/animation/NPC mapping not proven",
+      "suomi_configuration_followup": {
+        "origin": "direct-user-request",
+        "implemented_subset": "six guide-listed roles with attributed reconstruction positions and read-only native introductions",
+        "report": "04-analysis-integration/20261107-suomi-npc-configuration.md",
+        "catalog": "04-analysis-integration/suomi-npc-catalog-v1-20261107.json",
+        "unknowns": [
+          "original NPC coordinates/full roster/role appearance bindings",
+          "unplaced market script roles",
+          "full banking/shop/inn/priest transactions",
+          "native GUI acceptance"
+        ]
+      }
     },
     {
       "id": "A-012",

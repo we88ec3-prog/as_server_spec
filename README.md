@@ -6,6 +6,8 @@
 
 2026-11-07：[角色成長／七職業重建技能／持有裝備整合](04-analysis-integration/20261107-career-support-and-playable-integration.md)。能力窗診斷副本由使用者確認數值／懸停通過；預言者／阿修羅是職業名稱，本版Client支援待確認。
 
+2026-11-07：[斯歐米NPC第一版配置](04-analysis-integration/20261107-suomi-npc-configuration.md)：導覽六角色、原生唯讀介紹、位置來源及通行核對；完整原版名單與交易服務仍分列待辦。
+
 版本：0.1.0-draft · 日期：2026-10-30
 
 這是本作者及其他開發者共同依循的、與實作語言無關的 Server 規格專案。任何實作，包括作者的私有 Server，都應依同一版本實作與驗收。此 repository 不包含作者的 Server 原始碼、部署憑證、帳號資料庫或原始遊戲檔案。

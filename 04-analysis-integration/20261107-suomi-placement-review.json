@@ -1,0 +1,502 @@
+{
+  "schema_version": 1,
+  "record_id": "SUOMI-PLACEMENT-REVIEW-20261107",
+  "request_provenance": "User asks to reconstruct Suomi NPC configuration; positions below are proposals, not recovered original Server spawns.",
+  "map": {
+    "map_ref": 4001,
+    "archive": "Map0.dat",
+    "archive_sha256": "dcaf8ab51f138fe9f5f26fa5dbfbd11b49a23df4b15da4ae7945d21f89f77761",
+    "member_sha256": "3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+    "member_size": 413072,
+    "dimensions": [
+      200,
+      200
+    ],
+    "tile_offset": 10008,
+    "tile_end": 410008
+  },
+  "guide": {
+    "path_hint": "World/img/04001.jpg",
+    "sha256": "c7622b5d6e077b73864520058ac070e92b6eb257c91f285ec8afb3fde904322d",
+    "printed_service_coordinates": [
+      [
+        65,
+        38
+      ],
+      [
+        45,
+        60
+      ],
+      [
+        150,
+        76
+      ]
+    ],
+    "unprinted_roles": [
+      "bank",
+      "chat",
+      "priest"
+    ]
+  },
+  "modified_html": {
+    "path_hint": "World/04001.html",
+    "sha256": "9437e289f3406c78e26660ffadddd2946135f54b5d5addef03da7271f0555571",
+    "authority": "historical_local_patch_hint_only",
+    "patch_marker": "town_pins.py; patched Asgard.exe appends #x,y"
+  },
+  "map_structure": {
+    "tail_counts_7_8_16": [
+      436,
+      0,
+      0
+    ],
+    "tail7_raw_flag_counts": {
+      "0": 436
+    },
+    "exact_eof": true,
+    "npc_spawn_table_identified": false,
+    "npc_spawn_unknown_scope": "No separately identified NPC spawn table in parsed04001.map; not a claim that all local assets lack NPC data."
+  },
+  "static_policy": {
+    "occupancy": "inbounds and (tileFlags&9)==0",
+    "connectivity": "4-neighbor floodfill over static flags&9==0; seed100,100; no dynamic overlays",
+    "seed": [
+      100,
+      100
+    ],
+    "component_cells": 14013,
+    "original_dynamic_walkability": "not established"
+  },
+  "placements": [
+    {
+      "role": "potion",
+      "display_name": "藥水店",
+      "source_anchor": [
+        65,
+        38
+      ],
+      "anchor_source": "guide-printed",
+      "source_coordinate_authority": "building_or_service_guide_location_not_proven_npc_foot",
+      "anchor_tile_flags": 0,
+      "anchor_is_native_portal": false,
+      "anchor_reachable_from_static_seed": true,
+      "radius5_square": {
+        "cells": 121,
+        "policy_open": 89,
+        "policy_blocked": 32
+      },
+      "cardinal_neighbors": [
+        {
+          "xy": [
+            65,
+            37
+          ],
+          "flags": 17,
+          "static_policy_open": false
+        },
+        {
+          "xy": [
+            66,
+            38
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            65,
+            39
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            64,
+            38
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        }
+      ],
+      "reconstruction_proposal": {
+        "xy": [
+          65,
+          38
+        ],
+        "manhattan_offset_from_anchor": 0,
+        "tile_flags": 0,
+        "native_portal": false,
+        "source": "designed_placement_on_connected_static_cell",
+        "native_gui_acceptance": "not-run",
+        "original_npc_position": "unknown",
+        "error_bound_against_original_npc_position": "unknown"
+      }
+    },
+    {
+      "role": "weapon",
+      "display_name": "武器店",
+      "source_anchor": [
+        45,
+        60
+      ],
+      "anchor_source": "guide-printed",
+      "source_coordinate_authority": "building_or_service_guide_location_not_proven_npc_foot",
+      "anchor_tile_flags": 0,
+      "anchor_is_native_portal": false,
+      "anchor_reachable_from_static_seed": true,
+      "radius5_square": {
+        "cells": 121,
+        "policy_open": 94,
+        "policy_blocked": 27
+      },
+      "cardinal_neighbors": [
+        {
+          "xy": [
+            45,
+            59
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            46,
+            60
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            45,
+            61
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            44,
+            60
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        }
+      ],
+      "reconstruction_proposal": {
+        "xy": [
+          45,
+          60
+        ],
+        "manhattan_offset_from_anchor": 0,
+        "tile_flags": 0,
+        "native_portal": false,
+        "source": "designed_placement_on_connected_static_cell",
+        "native_gui_acceptance": "not-run",
+        "original_npc_position": "unknown",
+        "error_bound_against_original_npc_position": "unknown"
+      }
+    },
+    {
+      "role": "inn",
+      "display_name": "旅館",
+      "source_anchor": [
+        150,
+        76
+      ],
+      "anchor_source": "guide-printed",
+      "source_coordinate_authority": "building_or_service_guide_location_not_proven_npc_foot",
+      "anchor_tile_flags": 0,
+      "anchor_is_native_portal": false,
+      "anchor_reachable_from_static_seed": true,
+      "radius5_square": {
+        "cells": 121,
+        "policy_open": 97,
+        "policy_blocked": 24
+      },
+      "cardinal_neighbors": [
+        {
+          "xy": [
+            150,
+            75
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            151,
+            76
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            150,
+            77
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            149,
+            76
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        }
+      ],
+      "reconstruction_proposal": {
+        "xy": [
+          150,
+          76
+        ],
+        "manhattan_offset_from_anchor": 0,
+        "tile_flags": 0,
+        "native_portal": false,
+        "source": "designed_placement_on_connected_static_cell",
+        "native_gui_acceptance": "not-run",
+        "original_npc_position": "unknown",
+        "error_bound_against_original_npc_position": "unknown"
+      }
+    },
+    {
+      "role": "bank",
+      "display_name": "銀行員",
+      "source_anchor": [
+        105,
+        67
+      ],
+      "anchor_source": "modified-html-historical-only",
+      "source_coordinate_authority": "modified_html_historical_hint_not_original_authority",
+      "anchor_tile_flags": 0,
+      "anchor_is_native_portal": false,
+      "anchor_reachable_from_static_seed": true,
+      "radius5_square": {
+        "cells": 121,
+        "policy_open": 117,
+        "policy_blocked": 4
+      },
+      "cardinal_neighbors": [
+        {
+          "xy": [
+            105,
+            66
+          ],
+          "flags": 17,
+          "static_policy_open": false
+        },
+        {
+          "xy": [
+            106,
+            67
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            105,
+            68
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            104,
+            67
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        }
+      ],
+      "reconstruction_proposal": {
+        "xy": [
+          105,
+          67
+        ],
+        "manhattan_offset_from_anchor": 0,
+        "tile_flags": 0,
+        "native_portal": false,
+        "source": "designed_placement_on_connected_static_cell",
+        "native_gui_acceptance": "not-run",
+        "original_npc_position": "unknown",
+        "error_bound_against_original_npc_position": "unknown"
+      }
+    },
+    {
+      "role": "chat",
+      "display_name": "聊天達人",
+      "source_anchor": [
+        102,
+        79
+      ],
+      "anchor_source": "modified-html-historical-only",
+      "source_coordinate_authority": "modified_html_historical_hint_not_original_authority",
+      "anchor_tile_flags": 0,
+      "anchor_is_native_portal": false,
+      "anchor_reachable_from_static_seed": false,
+      "radius5_square": {
+        "cells": 121,
+        "policy_open": 95,
+        "policy_blocked": 26
+      },
+      "cardinal_neighbors": [
+        {
+          "xy": [
+            102,
+            78
+          ],
+          "flags": 1,
+          "static_policy_open": false
+        },
+        {
+          "xy": [
+            103,
+            79
+          ],
+          "flags": 1,
+          "static_policy_open": false
+        },
+        {
+          "xy": [
+            102,
+            80
+          ],
+          "flags": 1,
+          "static_policy_open": false
+        },
+        {
+          "xy": [
+            101,
+            79
+          ],
+          "flags": 1,
+          "static_policy_open": false
+        }
+      ],
+      "reconstruction_proposal": {
+        "xy": [
+          102,
+          81
+        ],
+        "manhattan_offset_from_anchor": 2,
+        "tile_flags": 0,
+        "native_portal": false,
+        "source": "designed_placement_on_connected_static_cell",
+        "native_gui_acceptance": "not-run",
+        "original_npc_position": "unknown",
+        "error_bound_against_original_npc_position": "unknown"
+      }
+    },
+    {
+      "role": "priest",
+      "display_name": "神官",
+      "source_anchor": [
+        106,
+        95
+      ],
+      "anchor_source": "modified-html-historical-only",
+      "source_coordinate_authority": "modified_html_historical_hint_not_original_authority",
+      "anchor_tile_flags": 0,
+      "anchor_is_native_portal": false,
+      "anchor_reachable_from_static_seed": true,
+      "radius5_square": {
+        "cells": 121,
+        "policy_open": 90,
+        "policy_blocked": 31
+      },
+      "cardinal_neighbors": [
+        {
+          "xy": [
+            106,
+            94
+          ],
+          "flags": 1,
+          "static_policy_open": false
+        },
+        {
+          "xy": [
+            107,
+            95
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            106,
+            96
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        },
+        {
+          "xy": [
+            105,
+            95
+          ],
+          "flags": 0,
+          "static_policy_open": true
+        }
+      ],
+      "reconstruction_proposal": {
+        "xy": [
+          106,
+          95
+        ],
+        "manhattan_offset_from_anchor": 0,
+        "tile_flags": 0,
+        "native_portal": false,
+        "source": "designed_placement_on_connected_static_cell",
+        "native_gui_acceptance": "not-run",
+        "original_npc_position": "unknown",
+        "error_bound_against_original_npc_position": "unknown"
+      }
+    }
+  ],
+  "native_portal_cells": [
+    [
+      183,
+      13
+    ],
+    [
+      183,
+      14
+    ],
+    [
+      184,
+      14
+    ],
+    [
+      184,
+      15
+    ],
+    [
+      185,
+      15
+    ]
+  ],
+  "native_portal_source": {
+    "archive": "Basic.dat",
+    "archive_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+    "member": "Portals.tbl",
+    "member_sha256": "b63c4f07765271baf83c9a5104fafe21070e2e3ca7926aec23c17eda84047d00"
+  },
+  "interior_and_routes": {
+    "shop_interior_map_ids": "unknown",
+    "portal_destination_map_and_xy": "unknown",
+    "numeric_neighbors_4002_through_4099": [],
+    "warning": "Absence of adjacent-number members does not prove shops lack interiors; numeric adjacency is not route evidence."
+  },
+  "limits": [
+    "No original Client GUI acceptance in this review.",
+    "No Host, Server configuration, original asset or existing script changed.",
+    "No original NPC names, sprite IDs, scripts or service rules inferred from map object IDs.",
+    "Candidate offsets measure distance to a supplied anchor, not accuracy versus original NPC position."
+  ]
+}

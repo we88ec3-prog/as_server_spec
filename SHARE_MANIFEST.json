@@ -13,7 +13,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "5d624113bcd6ee350b60dcd8ccf464ae476f33c0cea410b28f3d231708618457"
+      "sha256": "845f0e05a02e3a0097f5a9a62e0733f08e36db908be84606f942cecffeda80f7"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -453,7 +453,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "23a1c61c8c5c8c556f9e6454a581c5b6abec0c01c4152d312719daba79bfa5e8"
+      "sha256": "86e785b5f6a0263c326b688e46a30717d9f47221f582fab72f70e72b80cf12be"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -778,6 +778,26 @@
     {
       "path": "04-analysis-integration/20261107-reconstructed-career-skills-v1.md",
       "sha256": "11b78d953393b3e22d427a75384a673ee497b82da3f28b2da4ff404154c47f9f"
+    },
+    {
+      "path": "04-analysis-integration/20261107-suomi-npc-configuration.md",
+      "sha256": "a41998f78d5d0d93a68e29ba774196a5c00f5f5c83d59ee8ff1db2b356c81f56"
+    },
+    {
+      "path": "04-analysis-integration/20261107-suomi-placement-review.json",
+      "sha256": "8a489977b3ef5940b67a0bc4b3d225581d4c84fc5a4f78b1a799cfbfe673cf19"
+    },
+    {
+      "path": "04-analysis-integration/20261107-suomi-placement-review.md",
+      "sha256": "ddeef35089a5cd350091953bcc1a67e815b040a6843285d19499fafdd56bd7a3"
+    },
+    {
+      "path": "04-analysis-integration/20261107-suomi-script-npc-contract.json",
+      "sha256": "9a0ee1aa0a83d951a6f1b775c0f82b6aebd5da48eb5c2084aa2f994faf3d7967"
+    },
+    {
+      "path": "04-analysis-integration/20261107-suomi-script-npc-contract.md",
+      "sha256": "bcffacd580ce52609afd7d9196b504c15f6fd13e77c7a8114eb3a20ae456beb3"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -1124,6 +1144,10 @@
       "sha256": "11e8b04817f6534695b18687e5aa61b1bff447220a3105ce96582f2f258e0a89"
     },
     {
+      "path": "04-analysis-integration/suomi-npc-catalog-v1-20261107.json",
+      "sha256": "7c191bf43a9ad2189b25adb26bc6e5da4d8205e282ddbb672fd2c353ef97ee50"
+    },
+    {
       "path": "04-analysis-integration/town-guide-crosscheck-20261102.json",
       "sha256": "9c02b522303f5d504ae22e90c2e47e895ed378a688b027a62eefb251c34d5d25"
     },
@@ -1333,11 +1357,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "dd67d1c43dc587d298dedaa499ec81c6628907c21b88e27a10306e57d078b2a8"
+      "sha256": "0733783ff62a87e52842af68f647b1d9432eba6520d0dc17df19c92b7fc12d6c"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "f8e9ea1f261f49fac2bafe2e5e7bfe61294332ecafb2b9b7d77605ec772a1d50"
+      "sha256": "55b6faebfed5b6025be0ba84698001b32f791a27b96e165cdd253726330d9f50"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1429,7 +1453,7 @@
     },
     {
       "path": "06-development-tracking/details/F23_斯歐米城鎮與NPC.xlsx",
-      "sha256": "e60a77e6c87b1306ca5a52770fb03ecf12681d55ffa0d00a980618d9c0a18317"
+      "sha256": "4274478b56044c34cd7d1056bac8830e36f1064fc80ac103654a5250eb87e0c5"
     },
     {
       "path": "06-development-tracking/details/F24_魔界村城鎮與NPC.xlsx",
@@ -1465,7 +1489,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "46d09929e92d47753535477604f37aa3ae26f9237cc882ec2be948a7bd397e41"
+      "sha256": "b2ed4d545c0184137bca7e19c07004d856c8ab5e52460e66c5417392df56b43e"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

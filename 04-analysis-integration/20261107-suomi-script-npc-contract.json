@@ -1,0 +1,694 @@
+{
+  "schema": "asgard.suomi-script-npc-contract.v1",
+  "date": "2026-11-07",
+  "provenance": {
+    "kind": "shipped-script static observation plus explicitly designed safe adapter",
+    "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+    "decode": "zlib bounded to 1 MiB, EOF/no-tail checked; big-endian version u16=1 and UTF-16-unit length u32; exact UTF-16LE XML; CRC32 over strict CP950 encoding of original decoded XML, retaining original CRLF",
+    "limits": [
+      "No native GUI acceptance performed by this analysis.",
+      "No original Server NPC placements, inventory, prices, balances or quest state reconstructed from these scripts.",
+      "Null CP950 CRC means strict encoding failed; no replacement/best-fit CRC is claimed."
+    ]
+  },
+  "npc_scripts": [
+    {
+      "script": "nSuBanker01",
+      "sha256": "c6df4370e01ce826e339460870f16d9b3f799486c37137ee5a73cc5292760f1b",
+      "raw_bytes": 1234,
+      "utf16_units": 3916,
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage",
+        "MerchantTalk"
+      ],
+      "strict_cp950_crc32": "3a506b26",
+      "native_npc_name": "席茲",
+      "role": "銀行掌櫃",
+      "text_quality": "clean-literal",
+      "menu_capabilities": {
+        "DoesBuy": false,
+        "DoesSell": false,
+        "DoesRepair": false,
+        "DoesBank": true,
+        "DoesIdentify": false,
+        "DoesTalk": {
+          "when_any_parameter_present": [
+            "Quest01"
+          ]
+        }
+      },
+      "talk_parameter_keys": [
+        "Quest01"
+      ],
+      "talk_script_function_dependencies": [
+        "Quest01"
+      ],
+      "coordinates": null,
+      "coordinate_evidence": "Script suffix 01 is not interpreted as a map coordinate."
+    },
+    {
+      "script": "nSuInn01",
+      "sha256": "59fa9643abc3cea4a5ef4ad014b4fd0a0b0d229a46ef559cf87372bcef595b31",
+      "raw_bytes": 840,
+      "utf16_units": 3513,
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage",
+        "MerchantTalk"
+      ],
+      "strict_cp950_crc32": "bef22702",
+      "native_npc_name": "莉坦",
+      "role": "湖濱小屋旅館",
+      "text_quality": "clean-literal",
+      "menu_capabilities": {
+        "DoesBuy": false,
+        "DoesSell": false,
+        "DoesRepair": false,
+        "DoesBank": false,
+        "DoesIdentify": false,
+        "DoesTalk": {
+          "when_any_parameter_present": [
+            "Quest01",
+            "Quest04"
+          ]
+        }
+      },
+      "talk_parameter_keys": [
+        "Quest01"
+      ],
+      "talk_script_function_dependencies": [
+        "Quest01",
+        "Quest04"
+      ],
+      "coordinates": null,
+      "coordinate_evidence": "Script suffix 01 is not interpreted as a map coordinate."
+    },
+    {
+      "script": "nSuAllMarket01",
+      "sha256": "3d39ddc059cf56e4d26a097d91bb218acec8b658e798ae3fa6df0228465d62db",
+      "raw_bytes": 1085,
+      "utf16_units": 3486,
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage"
+      ],
+      "strict_cp950_crc32": "8126c3c3",
+      "native_npc_name": "蘇西亞",
+      "role": "露天商人",
+      "text_quality": "clean-literal",
+      "menu_capabilities": {
+        "DoesBuy": true,
+        "DoesSell": true,
+        "DoesRepair": false,
+        "DoesBank": false,
+        "DoesIdentify": false,
+        "DoesTalk": false
+      },
+      "talk_parameter_keys": [],
+      "talk_script_function_dependencies": [],
+      "coordinates": null,
+      "coordinate_evidence": "Script suffix 01 is not interpreted as a map coordinate."
+    },
+    {
+      "script": "nSuPriest01",
+      "sha256": "e6d96a2f867117133001584b1dd3ed998a9ebe38f74be9d52f4023419f505a8c",
+      "raw_bytes": 1255,
+      "utf16_units": 3667,
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage",
+        "MerchantTalk"
+      ],
+      "strict_cp950_crc32": "7fd1bf38",
+      "native_npc_name": null,
+      "role": "魔法師之神里亞的神官",
+      "text_quality": "deity-name-not-npc-name",
+      "menu_capabilities": {
+        "DoesBuy": true,
+        "DoesSell": false,
+        "DoesRepair": false,
+        "DoesBank": false,
+        "DoesIdentify": false,
+        "DoesTalk": false
+      },
+      "talk_parameter_keys": [],
+      "talk_script_function_dependencies": [
+        "Quest17"
+      ],
+      "coordinates": null,
+      "coordinate_evidence": "Script suffix 01 is not interpreted as a map coordinate."
+    },
+    {
+      "script": "nSuPotion01",
+      "sha256": "689b491a7d94a43d7237d589a7f20f3c5a8875d200a1d8a3ae62552b878299b1",
+      "raw_bytes": 1231,
+      "utf16_units": 3737,
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage",
+        "MerchantTalk"
+      ],
+      "strict_cp950_crc32": "f1c2a872",
+      "native_npc_name": null,
+      "role": "藥水商人候選",
+      "text_quality": "filename-role-candidate",
+      "menu_capabilities": {
+        "DoesBuy": true,
+        "DoesSell": true,
+        "DoesRepair": false,
+        "DoesBank": false,
+        "DoesIdentify": false,
+        "DoesTalk": {
+          "when_any_parameter_present": [
+            "Quest02",
+            "Quest16"
+          ]
+        }
+      },
+      "talk_parameter_keys": [
+        "Quest02"
+      ],
+      "talk_script_function_dependencies": [
+        "Quest02",
+        "Quest16"
+      ],
+      "coordinates": null,
+      "coordinate_evidence": "Script suffix 01 is not interpreted as a map coordinate."
+    },
+    {
+      "script": "nSuMarket01",
+      "sha256": "783fd77e8172ed0fd555b356dd9e13f14188ef4291ae5024ad67a8bc2a6e88fd",
+      "raw_bytes": 4457,
+      "utf16_units": 21484,
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage",
+        "MerchantTalk",
+        "MerchantTalkProc1",
+        "MerchantTalkProc2",
+        "Step02",
+        "Step02_Proc",
+        "WinterCap01",
+        "WinterCap01_Proc",
+        "WinterCap02_Ok",
+        "WinterCap02_Ok_Proc",
+        "WinterCap02_Not",
+        "WinterCap02_Not_Proc",
+        "MerchantDirectTalk",
+        "Quest11_Already",
+        "Quest11_AlreadyProc",
+        "Quest11Step2_Already",
+        "Quest11Step2_AlreadyProc",
+        "Quest11Step1_10",
+        "Quest11Step1_10Proc",
+        "Quest11Step2_10",
+        "Quest11Step2_10Proc",
+        "Quest11Step2_20",
+        "Quest11Step2_20Proc",
+        "Quest11Step2_30",
+        "Quest11Step2_30Proc",
+        "Quest11Step2_31",
+        "Quest11Step2_31Proc",
+        "Quest11Step2_40",
+        "Quest11Step2_40Proc",
+        "Quest11Step2_50",
+        "Quest11Step2_50Proc",
+        "Quest11Step2_51",
+        "Quest11Step2_51Proc",
+        "Quest11Step2_52",
+        "Quest11Step2_52Proc",
+        "Quest11Step2_53",
+        "Quest11Step2_53Proc",
+        "Quest11Step2_54",
+        "Quest11Step2_54Proc",
+        "Quest11Step2_55",
+        "Quest11Step2_55Proc",
+        "Quest11Step3_10",
+        "Quest11Step3_10Proc",
+        "Quest11Step3_20",
+        "Quest11Step3_20Proc",
+        "Quest11Step3_30",
+        "Quest11Step3_30Proc",
+        "Quest11Step3_40",
+        "Quest11Step3_40Proc",
+        "Quest11Step3_50",
+        "Quest11Step3_50Proc"
+      ],
+      "strict_cp950_crc32": null,
+      "cp950_error": {
+        "start": 585,
+        "codepoint": "0xf790"
+      },
+      "native_npc_name": null,
+      "role": "商人候選",
+      "text_quality": "mixed-text",
+      "menu_capabilities": {
+        "DoesBuy": true,
+        "DoesSell": true,
+        "DoesRepair": false,
+        "DoesBank": false,
+        "DoesIdentify": false,
+        "DoesTalk": false
+      },
+      "talk_parameter_keys": [
+        "WINTERCAP"
+      ],
+      "talk_script_function_dependencies": [
+        "QuestSelDialog_Create"
+      ],
+      "coordinates": null,
+      "coordinate_evidence": "Script suffix 01 is not interpreted as a map coordinate."
+    },
+    {
+      "script": "nSuProMarket01",
+      "sha256": "44235594c10c4f8353a1221b2c2ab860121fecb54876a02996a1a255ce5dad19",
+      "raw_bytes": 1374,
+      "utf16_units": 4154,
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage",
+        "MerchantTalk",
+        "ChangeName01",
+        "ChangeName01_Proc"
+      ],
+      "strict_cp950_crc32": null,
+      "cp950_error": {
+        "start": 571,
+        "codepoint": "0xf7ed"
+      },
+      "native_npc_name": null,
+      "role": "商人候選",
+      "text_quality": "mixed-text",
+      "menu_capabilities": {
+        "DoesBuy": true,
+        "DoesSell": false,
+        "DoesRepair": false,
+        "DoesBank": false,
+        "DoesIdentify": false,
+        "DoesTalk": false
+      },
+      "talk_parameter_keys": [],
+      "talk_script_function_dependencies": [
+        "ChangeName01"
+      ],
+      "coordinates": null,
+      "coordinate_evidence": "Script suffix 01 is not interpreted as a map coordinate."
+    },
+    {
+      "script": "nSuSmith01",
+      "sha256": "2a941f2a79611b19e03fb079906629902e56b128b084a662d7c2fd3093e0bc24",
+      "raw_bytes": 3264,
+      "utf16_units": 12147,
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage",
+        "MerchantTalk",
+        "Step01",
+        "Step01_Proc",
+        "Step012",
+        "Step012_Proc",
+        "Step013",
+        "Step013_Proc",
+        "Step014",
+        "Step014_Proc",
+        "Step015",
+        "Step015_Proc",
+        "Step016",
+        "Step016_Proc",
+        "Step017",
+        "Step017_Proc",
+        "Step018",
+        "Step018_Proc",
+        "Step019",
+        "Step019_Proc",
+        "Step0110",
+        "Step0110_Proc",
+        "Step0111",
+        "Step0111_Proc",
+        "Step0112",
+        "Step0112_Proc",
+        "Step0113",
+        "Step0113_Proc",
+        "Step0114",
+        "Step0114_Proc",
+        "Step0115",
+        "Step0115_Proc",
+        "Step0116",
+        "Step0116_Proc",
+        "Step0117",
+        "Step0117_Proc",
+        "Step02",
+        "Step02_Proc",
+        "Step022",
+        "Step022_Proc"
+      ],
+      "strict_cp950_crc32": null,
+      "cp950_error": {
+        "start": 706,
+        "codepoint": "0xf7ed"
+      },
+      "native_npc_name": null,
+      "role": "武器／修理商候選",
+      "text_quality": "mixed-text",
+      "menu_capabilities": {
+        "DoesBuy": true,
+        "DoesSell": true,
+        "DoesRepair": true,
+        "DoesBank": false,
+        "DoesIdentify": false,
+        "DoesTalk": {
+          "when_any_parameter_present": [
+            "Quest02",
+            "STEP"
+          ]
+        }
+      },
+      "talk_parameter_keys": [
+        "Quest02",
+        "STEP"
+      ],
+      "talk_script_function_dependencies": [
+        "Quest02",
+        "Step01",
+        "Step02"
+      ],
+      "coordinates": null,
+      "coordinate_evidence": "Script suffix 01 is not interpreted as a map coordinate."
+    },
+    {
+      "script": "nSuQuest01",
+      "sha256": "38c1de18123bce89dea13173da7780e3b9936ed7ec6255987e2b6cb0eed280fa",
+      "raw_bytes": 842,
+      "utf16_units": 3491,
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage",
+        "MerchantTalk"
+      ],
+      "strict_cp950_crc32": "a26f3db5",
+      "native_npc_name": null,
+      "role": "任務交談候選",
+      "text_quality": "mixed-text",
+      "menu_capabilities": {
+        "DoesBuy": false,
+        "DoesSell": false,
+        "DoesRepair": false,
+        "DoesBank": false,
+        "DoesIdentify": false,
+        "DoesTalk": {
+          "when_any_parameter_present": [
+            "Quest15"
+          ]
+        }
+      },
+      "talk_parameter_keys": [
+        "Quest15"
+      ],
+      "talk_script_function_dependencies": [
+        "Quest15"
+      ],
+      "coordinates": null,
+      "coordinate_evidence": "Script suffix 01 is not interpreted as a map coordinate."
+    }
+  ],
+  "read_only_introduction_adapter": {
+    "attribution": "Server reconstruction design using unchanged existing native scripts; not original per-role behavior mapping",
+    "entry_script": "Merchant",
+    "entry_function": "Main",
+    "dependency_scripts": [
+      "nSuInn01",
+      "MerchantDialog"
+    ],
+    "source_identities": [
+      {
+        "script": "Merchant",
+        "sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+        "raw_bytes": 1603,
+        "utf16_units": 3925,
+        "functions": [
+          "Main"
+        ],
+        "strict_cp950_crc32": "e9b389cf"
+      },
+      {
+        "script": "nSuInn01",
+        "sha256": "59fa9643abc3cea4a5ef4ad014b4fd0a0b0d229a46ef559cf87372bcef595b31",
+        "raw_bytes": 840,
+        "utf16_units": 3513,
+        "functions": [
+          "DoesBuy",
+          "DoesSell",
+          "DoesRepair",
+          "DoesBank",
+          "DoesIdentify",
+          "DoesTalk",
+          "BuildMuttering",
+          "LoadBuyMessage",
+          "LoadSellMessage",
+          "LoadRepairMessage",
+          "LoadDGMessage",
+          "LoadWGMessage",
+          "LoadDIMessage",
+          "LoadWIMessage",
+          "LoadIdentifyMessage",
+          "LoadTalkMessage",
+          "MerchantTalk"
+        ],
+        "strict_cp950_crc32": "bef22702"
+      },
+      {
+        "script": "MerchantDialog",
+        "sha256": "ed194a77a669cbd8f83fbbd01bb08ed0f800b122695cc204a3a12f002f945095",
+        "raw_bytes": 2455,
+        "utf16_units": 9388,
+        "functions": [
+          "MerchantDialog_Create",
+          "MerchantDialogProc"
+        ],
+        "strict_cp950_crc32": "9267d99d"
+      }
+    ],
+    "required_parameters": [
+      "TILE",
+      "MNAME",
+      "GREETING",
+      "UGOLD",
+      "UBAL",
+      "UAGOLD",
+      "UABAL",
+      "UCOLOR"
+    ],
+    "forbidden_parameters": [
+      "TYPE",
+      "Quest01",
+      "Quest04"
+    ],
+    "parameter_policy": "Use allowlist only; no arbitrary Quest/TYPE flags. Monetary parameters initialize unused ABI globals only: no balance controls are rendered and placeholders are not account state. Never expose bank/buy/repair transactions through this adapter.",
+    "reachable_script_calls": [
+      "Main -> BuildMuttering",
+      "Main -> DoesBuy/DoesSell/DoesRepair/DoesBank/DoesIdentify/DoesTalk",
+      "Main -> MerchantDialog_Create",
+      "CANCEL -> MerchantDialogProc"
+    ],
+    "capability_result": {
+      "buy": false,
+      "sell": false,
+      "repair": false,
+      "bank": false,
+      "identify": false,
+      "talk": false
+    },
+    "remaining_calls": "Only native client/control/dialog methods and builtin length; unreachable MerchantBank/Quest functions are not part of this path.",
+    "closing": "CANCEL disposes dialog, adds TYPE=ABORT to ClientReply, calls client.SendReply then client.Dispose. Wire subtype mapping is inherited from separately verified script bridge, not derived from XML alone.",
+    "state_parameter": "No STATE emitted on this read-only path.",
+    "greeting_bounds": {
+      "native_rectangle": [
+        130,
+        32,
+        310,
+        56
+      ],
+      "policy": "Short trusted CP950 description; GUI clipping/wrapping still needs acceptance."
+    },
+    "portrait": {
+      "native_condition": "0<TILE<32768",
+      "designed_condition": "16384<=TILE<32768 plus exact archive member/object verification",
+      "archive": "Portrait.dat",
+      "ypf": "information{floor((TILE-16384)/10):02}.ypf",
+      "object": "(TILE-16384)%10",
+      "frame": 0
+    },
+    "asset_dependencies": [
+      "Script.dat: MerchantFrame.ypf",
+      "Native CreateImageButton object 14",
+      "Optional verified Portrait.dat: informationNN.ypf"
+    ],
+    "quirks": [
+      "Original Main passes an extra eighth color argument to a seven-parameter MerchantDialog_Create; unchanged native behavior retained.",
+      "The actual close button is Cancel, not an OK button."
+    ],
+    "server_acceptance_rules": [
+      "Bind dialogue context to current owner/session/map/NPC and interaction range.",
+      "Accept only expected ABORT/close lifecycle; unexpected BUY/BANK/TALK is rejected without economy mutations or disconnect.",
+      "Dispose invalidates dialogue context; replayed close is idempotent.",
+      "Do not send role-native service bundles until transactional handlers and authoritative data exist."
+    ]
+  },
+  "alternative_entries_reviewed": [
+    {
+      "scripts": [
+        "Dialog",
+        "QuestDialog",
+        "PaperDialog",
+        "HelpDialog"
+      ],
+      "result": "No Main entry in these function bundles; not standalone server-parameterized entry."
+    },
+    {
+      "scripts": [
+        "useLetter",
+        "useLetter2"
+      ],
+      "result": "Main exists but selects fixed quest-letter text (QUEST02 / QUEST01); unsuitable for arbitrary town descriptions."
+    },
+    {
+      "scripts": [
+        "PaperExample"
+      ],
+      "result": "Fixed demonstration text, not a general server narrative entry."
+    },
+    {
+      "scripts": [
+        "TextInput"
+      ],
+      "result": "Main accepts Narration/TellerTile but calls legacy MerchantDialog_Prepare and Point_GetX/Y, creates an editable hello text field and submits Text. Not the required read-only introduction."
+    }
+  ]
+}

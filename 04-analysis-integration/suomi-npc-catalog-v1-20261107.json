@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "user_request": "Configure Suomi NPCs before further manual character testing.",
+  "scope": "Six guide-listed roles, reconstructed outdoor placement and read-only native introductions. Not a complete original town roster.",
+  "native_gui_validation": "not-run",
+  "map_ref": 4001,
+  "source_contracts": [
+    "20261107-suomi-placement-review.json",
+    "20261107-suomi-script-npc-contract.json"
+  ],
+  "image_mapping": "Existing reviewed S07 descriptor to MonsterImageLib library8000+floor((image-0x4000)/10),slot=(image-0x4000)%10; archive member names are asset-role leads, not original spawn bindings.",
+  "image_sources": [
+    {
+      "image_id": 16428,
+      "archive": "Monster04.dat",
+      "archive_sha256": "ea6a545d916f743c378cd22c5c9d7c7e7150205c95020a17366918ad0eab287a",
+      "member": "M_04_4_대장장이.ypf",
+      "member_sha256": "fd8538b7a6b36f2e4fa3c5cd3d68ea36480835b5629d6b97f76240e094f09bb4",
+      "slot": 4
+    },
+    {
+      "image_id": 16431,
+      "archive": "Monster04.dat",
+      "archive_sha256": "ea6a545d916f743c378cd22c5c9d7c7e7150205c95020a17366918ad0eab287a",
+      "member": "M_04_7_시약상인.ypf",
+      "member_sha256": "aac40fd0021b16903efec8fb4c2e61d054634d77c1043eaf8b1905b0b577760c",
+      "slot": 7
+    },
+    {
+      "image_id": 16432,
+      "archive": "Monster04.dat",
+      "archive_sha256": "ea6a545d916f743c378cd22c5c9d7c7e7150205c95020a17366918ad0eab287a",
+      "member": "M_04_8_여관주인아줌마.ypf",
+      "member_sha256": "31a0ced22254b55502e2bad3db69ee7636f69a6fc432041dc788ff0277c15ea0",
+      "slot": 8
+    },
+    {
+      "image_id": 16439,
+      "archive": "Monster05.dat",
+      "archive_sha256": "d002581e97450f05dca76fd4964b15886adfe3eb0e75d02ab651864750d419ec",
+      "member": "M_05_5_도우미.ypf",
+      "member_sha256": "d04eb116bcf3de4b88c87ed8c4d271023361a60f8de6e2c3b8b7dc260a3b4484",
+      "slot": 5
+    },
+    {
+      "image_id": 16442,
+      "archive": "Monster05.dat",
+      "archive_sha256": "d002581e97450f05dca76fd4964b15886adfe3eb0e75d02ab651864750d419ec",
+      "member": "M_05_8_수오미신관.ypf",
+      "member_sha256": "e8d2acac19d7f294b93bf1adfc9de4cf9554f1c90bf79b700dd8dd2ba9067022",
+      "slot": 8
+    },
+    {
+      "image_id": 16427,
+      "archive": "Monster04.dat",
+      "archive_sha256": "ea6a545d916f743c378cd22c5c9d7c7e7150205c95020a17366918ad0eab287a",
+      "member": "M_04_3_밀레스은행장.ypf",
+      "member_sha256": "7f60e5900a036923722ecfa7ca1e9587ac6cd440cb190bf41445c6b1b150a7e3",
+      "slot": 3
+    }
+  ],
+  "npcs": [
+    {
+      "Key": "suomi.potion",
+      "MapRef": 4001,
+      "MapRevision": "map-sha256-3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "X": 65,
+      "Y": 38,
+      "Facing": 2,
+      "WireRef": 262401,
+      "ImageId": 16431,
+      "Name": "斯歐米藥水商人",
+      "Role": "Potion",
+      "Introduction": "藥水商人。目前可交談，買賣準備中。",
+      "PlacementOrigin": "Guide service marker; reconstructed outdoor NPC position, not original spawn.",
+      "AppearanceOrigin": "Original generic potion merchant resource; original town binding unverified."
+    },
+    {
+      "Key": "suomi.smith",
+      "MapRef": 4001,
+      "MapRevision": "map-sha256-3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "X": 45,
+      "Y": 60,
+      "Facing": 2,
+      "WireRef": 262402,
+      "ImageId": 16428,
+      "Name": "斯歐米武器商人",
+      "Role": "Smith",
+      "Introduction": "武器商人。目前可交談，買賣準備中。",
+      "PlacementOrigin": "Guide service marker; reconstructed outdoor NPC position, not original spawn.",
+      "AppearanceOrigin": "Original generic smith resource; original town binding unverified."
+    },
+    {
+      "Key": "suomi.inn",
+      "MapRef": 4001,
+      "MapRevision": "map-sha256-3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "X": 150,
+      "Y": 76,
+      "Facing": 2,
+      "WireRef": 262403,
+      "ImageId": 16432,
+      "Name": "旅館主人莉坦",
+      "Role": "Inn",
+      "Introduction": "歡迎來到莉坦的旅館。住宿服務準備中。",
+      "PlacementOrigin": "Guide service marker; reconstructed outdoor NPC position, not original spawn.",
+      "AppearanceOrigin": "Original generic innkeeper resource; original town binding unverified."
+    },
+    {
+      "Key": "suomi.bank",
+      "MapRef": 4001,
+      "MapRevision": "map-sha256-3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "X": 105,
+      "Y": 67,
+      "Facing": 2,
+      "WireRef": 262404,
+      "ImageId": 16427,
+      "Name": "銀行掌櫃席茲",
+      "Role": "Bank",
+      "Introduction": "銀行掌櫃席茲。存提款服務準備中。",
+      "PlacementOrigin": "Unprinted guide symbol plus historical modified HTML lead; reconstruction, original coordinate unknown.",
+      "AppearanceOrigin": "Original Miles banker sprite reused for reconstruction; Suomi original appearance unknown."
+    },
+    {
+      "Key": "suomi.chat",
+      "MapRef": 4001,
+      "MapRevision": "map-sha256-3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "X": 102,
+      "Y": 81,
+      "Facing": 2,
+      "WireRef": 262405,
+      "ImageId": 16439,
+      "Name": "聊天達人",
+      "Role": "Chat",
+      "Introduction": "歡迎來到湖泊之城斯歐米。",
+      "PlacementOrigin": "Historical102,79 is isolated; explicit reachable reconstruction at102,81, original coordinate unknown.",
+      "AppearanceOrigin": "Original helper sprite reused as placeholder; original chat NPC appearance unknown."
+    },
+    {
+      "Key": "suomi.priest",
+      "MapRef": 4001,
+      "MapRevision": "map-sha256-3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "X": 106,
+      "Y": 95,
+      "Facing": 2,
+      "WireRef": 262406,
+      "ImageId": 16442,
+      "Name": "斯歐米神官",
+      "Role": "Priest",
+      "Introduction": "我是斯歐米神官。祝福服務準備中。",
+      "PlacementOrigin": "Unprinted guide symbol plus historical modified HTML lead; reconstruction, original coordinate unknown.",
+      "AppearanceOrigin": "Original resource named Suomi priest; original spawn and role binding unverified."
+    }
+  ],
+  "unplaced_script_roles": [
+    {
+      "script": "nSuAllMarket01",
+      "reason": "Role exists in supplied script; original position/appearance/number of entities not established. No invented spawn added."
+    },
+    {
+      "script": "nSuMarket01",
+      "reason": "Role exists in supplied script; original position/appearance/number of entities not established. No invented spawn added."
+    },
+    {
+      "script": "nSuProMarket01",
+      "reason": "Role exists in supplied script; original position/appearance/number of entities not established. No invented spawn added."
+    }
+  ],
+  "unimplemented_services": [
+    "bank deposit/withdrawal/item storage",
+    "shop purchase/sale/repair",
+    "inn rest/resource restoration",
+    "priest blessings/faith",
+    "original quest rewards and indoor portal routes"
+  ]
+}
