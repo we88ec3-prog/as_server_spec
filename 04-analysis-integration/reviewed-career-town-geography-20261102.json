@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-11-02",
+  "scope": "Reviewed reconstruction career destinations with cross-version official geographic corroboration, not recovered original Server spawn policy",
+  "sources": [
+    {
+      "url": "https://asgard.nexon.com/Info/VillageNPC",
+      "authority": "publisher-primary-reference",
+      "use": "official city image labels and visual landmarks; not native map IDs"
+    },
+    {
+      "url": "https://asgard.nexon.com/Info/Guide/View/47?Category=7",
+      "authority": "publisher-primary-reference",
+      "use": "page lists five job-village names; no current guild-rule claim and no historical spawn-pair proof"
+    }
+  ],
+  "reconstruction_destinations": [
+    {
+      "career": "Cleric",
+      "map_ref": 1,
+      "local_guide_title": "米魯里斯",
+      "korean_reference_name": "밀레스",
+      "map_member_sha256": "e2c329ad88a9b44c2760d5a996f187e68b7a5b90419f087a2471fabc03490f00",
+      "local_guide_sha256": "cff7a943dc2278af0da8da0de8babfbd4498e888c3c223a254d128062a96d535",
+      "official_image": {
+        "url": "https://ssl.nexon.com/s2/game/asgard/2018/content/map2.jpg",
+        "sha256": "4074b391972849b9e6fbcdc653b994a0954ee2ae010b53601e5a652f5b40bdcf",
+        "bytes": 209654
+      },
+      "matching_printed_coordinate_examples": [
+        [
+          36,
+          43
+        ],
+        [
+          26,
+          63
+        ],
+        [
+          85,
+          36
+        ],
+        [
+          90,
+          80
+        ],
+        [
+          94,
+          158
+        ]
+      ],
+      "geographic_identity": "derived-official-image-corroboration",
+      "original_career_spawn_binding": "unverified"
+    },
+    {
+      "career": "Warrior",
+      "map_ref": 2001,
+      "local_guide_title": "路爾斯",
+      "korean_reference_name": "루어스",
+      "map_member_sha256": "bc220a638c7e710016af65acc83de2f6255e1b690bfb9ef477871589b56c865f",
+      "local_guide_sha256": "18144de758cca0abedcf778986448d71c5ce88f76aeecf3b112a7e816f0d9261",
+      "official_image": {
+        "url": "https://ssl.nexon.com/s2/game/asgard/2018/content/map3.jpg",
+        "sha256": "992e80ecd5784164de5647a4dcbfca0f629cf64a7c479de32f6d4c95de508e17",
+        "bytes": 205106
+      },
+      "matching_printed_coordinate_examples": [
+        [
+          38,
+          85
+        ],
+        [
+          45,
+          150
+        ],
+        [
+          146,
+          127
+        ],
+        [
+          59,
+          89
+        ],
+        [
+          95,
+          135
+        ]
+      ],
+      "geographic_identity": "derived-official-image-corroboration",
+      "original_career_spawn_binding": "unverified"
+    },
+    {
+      "career": "Mage",
+      "map_ref": 4001,
+      "local_guide_title": "斯歐米",
+      "korean_reference_name": "수오미",
+      "map_member_sha256": "3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "local_guide_sha256": "c7622b5d6e077b73864520058ac070e92b6eb257c91f285ec8afb3fde904322d",
+      "official_image": {
+        "url": "https://ssl.nexon.com/s2/game/asgard/2018/content/map4.jpg",
+        "sha256": "998b8b76e8645f494c82d9d3b2bbdcc361528d6c2d47f154c2edf5204c2986f8",
+        "bytes": 235558
+      },
+      "matching_printed_coordinate_examples": [
+        [
+          65,
+          38
+        ],
+        [
+          45,
+          60
+        ],
+        [
+          150,
+          76
+        ],
+        [
+          105,
+          95
+        ],
+        [
+          180,
+          18
+        ]
+      ],
+      "geographic_identity": "derived-official-image-corroboration",
+      "original_career_spawn_binding": "unverified"
+    },
+    {
+      "career": "Monk",
+      "map_ref": 6001,
+      "local_guide_title": "魔界村",
+      "korean_reference_name": "사라센",
+      "map_member_sha256": "d17336536d711135260990cea39dfedb7d6fea63189aa04e9f752b1cd71a309d",
+      "local_guide_sha256": "2d19a8ffac021d0d1d5afd5455bf70260fc3f9f2fbb732b25fa721d3940a1030",
+      "official_image": {
+        "url": "https://ssl.nexon.com/s2/game/asgard/2018/content/map5.jpg",
+        "sha256": "0535a785d397373dfa2e4c2ecae85f0096d597abee0a9748c06d1bfcf40709fb",
+        "bytes": 228156
+      },
+      "matching_printed_coordinate_examples": [
+        [
+          75,
+          30
+        ],
+        [
+          68,
+          111
+        ],
+        [
+          78,
+          132
+        ],
+        [
+          103,
+          92
+        ],
+        [
+          124,
+          123
+        ],
+        [
+          184,
+          33
+        ]
+      ],
+      "geographic_identity": "derived-official-image-corroboration",
+      "original_career_spawn_binding": "unverified"
+    },
+    {
+      "career": "Thief",
+      "map_ref": 7001,
+      "local_guide_title": "海賊村",
+      "korean_reference_name": "뤼케시온",
+      "map_member_sha256": "ac30779fac09dd3de4f9ddd5c1321737cf23b7e219280ab634fe52c196c45c3a",
+      "local_guide_sha256": "5385266d914a12595ea93c257fb8b9c2223b97a309661e08ce63e52a206b16c8",
+      "official_image": {
+        "url": "https://ssl.nexon.com/s2/game/asgard/2018/content/map6.jpg",
+        "sha256": "fbc0e79753f21d9c0a8366eaa534fbca122d1074cdfc8329cf6820f0061d9387",
+        "bytes": 200594
+      },
+      "matching_printed_coordinate_examples": [
+        [
+          102,
+          69
+        ],
+        [
+          120,
+          68
+        ],
+        [
+          129,
+          83
+        ],
+        [
+          78,
+          86
+        ],
+        [
+          142,
+          23
+        ],
+        [
+          147,
+          138
+        ]
+      ],
+      "geographic_identity": "derived-official-image-corroboration",
+      "original_career_spawn_binding": "unverified"
+    }
+  ],
+  "limitations": [
+    "Coordinates are manually compared labels on official and supplied local guides; not independently surveyed live NPC positions.",
+    "The numeric map references and member digests come from local content, not the official web page.",
+    "Local HTML was previously modified; direct image/landmark/coordinate comparisons are used as corroboration.",
+    "Images stay private; original Client GUI and exact historical birth policy remain independent."
+  ]
+}

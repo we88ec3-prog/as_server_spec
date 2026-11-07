@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+[Server開發追蹤 Excel](06-development-tracking/README.md)：功能總表及29份功能明細，按分析、實作、自動測試與遊戲實測分欄。2026-11-07新手流程暫緩。
+
 技能／普通攻擊新增[Web深入分析工作台](03-analysis-requests/web-skill-review/README.md)：已先盤點A-009／010／025等既有成果，列8個子任務及ChatGPT／Claude共用提示詞、結果契約；不重複建立正式A編號。
 
 版本：0.1.0-draft · 日期：2026-10-30

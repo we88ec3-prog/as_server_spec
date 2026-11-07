@@ -1,5 +1,7 @@
 # 分析結果整合
 
+[2026-11-02 五城官方地理交叉核對](20261102-official-town-geography-corroboration.md)：五張官方村落圖與本地導覽／MAP預覽相符，新增SHA／座標佐證與獨立路線檢查；原服出生映射仍分開驗收。
+
 [2026-11-02 魔法師／預言者徽章原因](20261102-occupation-rank-badge.md)：原件signed FAME=-52選到occupation.ypf object7/frame2，並非選職碼或Title；hover卡死仍待實機。
 
 [2026-11-02 原生傳送入口與路由授權](20261102-native-portals-and-route-authority.md)：Portals.tbl全表格式與幾何驗證、游標／小地圖anchor／S07標籤分工，及未接線的Server入口路由契約。

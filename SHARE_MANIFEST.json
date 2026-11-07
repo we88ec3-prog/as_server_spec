@@ -4,12 +4,16 @@
   "purpose": "reviewed specification only; this manifest is not a content-secrecy scanner",
   "files": [
     {
+      "path": ".gitattributes",
+      "sha256": "528368082b1b1191ae6cf51caa030c8098ee48be1e049157b2e470f36c5dd597"
+    },
+    {
       "path": ".github/workflows/validate-phase-gates.yml",
       "sha256": "b8eac2827364979ffbe53e41964df7e06880501dd8ec286b96bec8d01b17a23b"
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "4d3eda21bb45bd199cd66a2c0b5ff299853a35965e4ec583d04b8a81e1d792d3"
+      "sha256": "5cffb29bbe2cab15752acfc376030e661dc38ebeba80fbc215bb619ec0b69136"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -740,6 +744,10 @@
       "sha256": "8751de1bfe29c092a3e30d65337129e53b18e99c2f00d523665fffffc77f2b2f"
     },
     {
+      "path": "04-analysis-integration/20261102-official-town-geography-corroboration.md",
+      "sha256": "6a1f1021aa966fa14e6d0fb4da6fe42f72dbc3c56a0de56ca6e08afbbd82da3e"
+    },
+    {
       "path": "04-analysis-integration/20261102-personal-account-admin-and-status-window.md",
       "sha256": "9bbdf1dbc81fb6fd1771166afa596aa463bc4d858fff5f92c547e910f2a69def"
     },
@@ -749,7 +757,7 @@
     },
     {
       "path": "04-analysis-integration/20261102-town-guide-role-conflicts-and-space-defaults.md",
-      "sha256": "df1a2d3e05f24cf972ad515e0c30981fc328b3b38d2b4eb733e53e7445e0e4a6"
+      "sha256": "a7f1516ad92b8274a1d187c5095bfb9144cdbb0165336b736331c69a059529bc"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -861,7 +869,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "b40fafbe4879be5234a900313b1df7798175d2bd84a074c43cefce342f0fd017"
+      "sha256": "763205ae858ecd79719cc3082f5bf5e7d5f4189dae6bd08c5206eebf4bc8d316"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -1040,6 +1048,10 @@
       "sha256": "bb9cf7c402c57637e00b408be69b537b1b620517a6eb5afd86387855d825b927"
     },
     {
+      "path": "04-analysis-integration/reviewed-career-town-geography-20261102.json",
+      "sha256": "0939c5fda1ca37e6c91565b58c15ca0c1f500dcabe3d3c6016389656ed1c8ec5"
+    },
+    {
       "path": "04-analysis-integration/roy-branch-web-admin-sync-20261031.md",
       "sha256": "b68055e7f9cb4832c4aac9be7cc3f3a1bfa133988fa0f61d8d4a99e94f1e6f32"
     },
@@ -1129,7 +1141,7 @@
     },
     {
       "path": "05-conformance/20261101-complete-tutorial-manual-run.md",
-      "sha256": "a10c41af365da746302c910e4da14f2b93652328fa049694d64f4c6714f76cd2"
+      "sha256": "0c06a4533c53a6d8fdee9f4756633ab9d0ee85128df839f1e80acc871f9239d8"
     },
     {
       "path": "05-conformance/A-004-visibility-test-plan.md",
@@ -1292,12 +1304,140 @@
       "sha256": "29358f930b79ab1ca4e7e0b535ddf58cce1c968bf9be37b3cc681a244f14aea8"
     },
     {
+      "path": "06-development-tracking/00_Server開發總表.xlsx",
+      "sha256": "dc551ad314b08a493bd90aeb5c783ff36bad782ee97c4d5d9cb0e4b3e6a7ce8a"
+    },
+    {
+      "path": "06-development-tracking/README.md",
+      "sha256": "05fea67ffafd05fa9370bce38c3d2a34718c7ba3d8cc0779c80e480334d9096d"
+    },
+    {
+      "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
+      "sha256": "9a8087b334baeac047719fc0ee48fd3d240b0a57b6d8566a3e9daf3a18517e01"
+    },
+    {
+      "path": "06-development-tracking/details/F02_角色能力與成長.xlsx",
+      "sha256": "404726f2822fd808e40bd3502660c3e4788149d3cb35c63dc70727483f6272ce"
+    },
+    {
+      "path": "06-development-tracking/details/F03_新手任務流程.xlsx",
+      "sha256": "77a62e669dfb304481039a101bd1a14fdaac6a72212158da1ebffb601e824c2f"
+    },
+    {
+      "path": "06-development-tracking/details/F04_世界地圖與傳送.xlsx",
+      "sha256": "77bf34bec711063cbb891a3b301f4a46bb4d3e2e84d5c548767f46f06537e747"
+    },
+    {
+      "path": "06-development-tracking/details/F05_NPC與互動基礎.xlsx",
+      "sha256": "9977e8e28dfd6f1e8e3a6e128acdc0467dd8b6221c5f43ad95c9143c94773a9d"
+    },
+    {
+      "path": "06-development-tracking/details/F06_怪物與戰鬥.xlsx",
+      "sha256": "e11c69a21fbfcff8eae0715eba46967a817244d7027f07bc8362aadee25b41c7"
+    },
+    {
+      "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
+      "sha256": "3658a0b4f25d8cef7306ab712ac12a79e7ca31a812378b4e7e545e3171cb82dd"
+    },
+    {
+      "path": "06-development-tracking/details/F08_戰士技能.xlsx",
+      "sha256": "4d12fbf27a2e0c2733df7ace92938fe6b72e0d4f5d994976756e77acde49bbfa"
+    },
+    {
+      "path": "06-development-tracking/details/F09_魔法師技能.xlsx",
+      "sha256": "f8a4c5f0572b72a96dd648ff8cbcb770a0719e73f8fcdc2252372ffd87b690e6"
+    },
+    {
+      "path": "06-development-tracking/details/F10_聖職者技能.xlsx",
+      "sha256": "e4d50dbf5e067c867b008df1f3838f5b0d59674845119aaa439f0f8b16420eab"
+    },
+    {
+      "path": "06-development-tracking/details/F11_盜賊技能.xlsx",
+      "sha256": "f14e8d0b630e38f9f30ac12dac110a69a715b0fff63f80a10d98db8fe0fc12e2"
+    },
+    {
+      "path": "06-development-tracking/details/F12_武道家技能.xlsx",
+      "sha256": "8fb95a03efb1eaf6f3ec40d50bd548572773ac655e6e4431016a5ddb8052f43b"
+    },
+    {
+      "path": "06-development-tracking/details/F13_背包裝備與獨立衣色.xlsx",
+      "sha256": "229cd859953869ab3432a2b68ad2d51e3142a2fa6c687511b7bfd7d0b57126b5"
+    },
+    {
+      "path": "06-development-tracking/details/F14_銀行與倉庫.xlsx",
+      "sha256": "7cdeba5acd9085620e6f0aff1d5161d5bec385959ff97344c5ebdaa77714ffb2"
+    },
+    {
+      "path": "06-development-tracking/details/F15_商店與貨幣.xlsx",
+      "sha256": "78c6f81c641c17901dba23cd49f4d3836b37165715bc2e8aca76855151af4955"
+    },
+    {
+      "path": "06-development-tracking/details/F16_任務與劇情系統.xlsx",
+      "sha256": "0f4e5cfbf122ea5e6021aaf4289572d9eebf0620a271433af4e8c3b2aa0bd95e"
+    },
+    {
+      "path": "06-development-tracking/details/F17_聊天好友與組隊.xlsx",
+      "sha256": "9be3683270e532236371e8c4dba27da2333f9c4ba28d3988af09c59f9f6fb27e"
+    },
+    {
+      "path": "06-development-tracking/details/F18_玩家交易與郵件.xlsx",
+      "sha256": "7a3040aff35e47dabd3ea804c7ed43aa8c9a5d31581b3bf81d8879dab0585de1"
+    },
+    {
+      "path": "06-development-tracking/details/F19_掉落製作與物品來源.xlsx",
+      "sha256": "6408945036e32f87199f9e5df5bea28e9a538aadb4c38ce26918b2a320dc1421"
+    },
+    {
+      "path": "06-development-tracking/details/F20_公會與PvP範圍.xlsx",
+      "sha256": "51b949144475f2491618d9daf81b5ee9ab5908d5f9228cba63e005ecdf5ee821"
+    },
+    {
+      "path": "06-development-tracking/details/F21_米魯里斯城鎮與NPC.xlsx",
+      "sha256": "e11fb1129ef9ffd4d54c8c647f6df9387ce1b48440712c3ccd8d03bb43967bd8"
+    },
+    {
+      "path": "06-development-tracking/details/F22_路爾斯城鎮與NPC.xlsx",
+      "sha256": "29079dee7f3feee92bf1a4066ce988661edac22993383beaf0d6ae87bb0a7f94"
+    },
+    {
+      "path": "06-development-tracking/details/F23_斯歐米城鎮與NPC.xlsx",
+      "sha256": "e60a77e6c87b1306ca5a52770fb03ecf12681d55ffa0d00a980618d9c0a18317"
+    },
+    {
+      "path": "06-development-tracking/details/F24_魔界村城鎮與NPC.xlsx",
+      "sha256": "e994127612d8d7d6f7885e2bdd7ab5c8b1363d3f13839a43c42fd2834231f48c"
+    },
+    {
+      "path": "06-development-tracking/details/F25_海賊村城鎮與NPC.xlsx",
+      "sha256": "b2a503bbd61ed117c2e6828db7f95084f01e02344caebc9711b9bdefd7a4126e"
+    },
+    {
+      "path": "06-development-tracking/details/F26_音樂音效與Client相容.xlsx",
+      "sha256": "3f6cd0655bd50a682e550249961bb577f3e3efa88411c068a38b5697276724f7"
+    },
+    {
+      "path": "06-development-tracking/details/F27_Web管理與測試回報.xlsx",
+      "sha256": "bd89e0aaa94f48934cd087d26fc40074d5542694e9abdef8a6f0dfd9b5bb5450"
+    },
+    {
+      "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
+      "sha256": "5cbbe5f7efdf5f21fec3e5700489537bb6330bc5e1d829802627c4e8f91e2b13"
+    },
+    {
+      "path": "06-development-tracking/details/F29_分析規格與驗收維護.xlsx",
+      "sha256": "0b2f700be2fcbe296dc457d435f2473d8d8d7e006b7f959263afcff254bdce35"
+    },
+    {
+      "path": "06-development-tracking/initial-source-20261107.json",
+      "sha256": "ecd6b62df0217e17155059933ef131bd78bab8ef4feb8c1684166283b916b174"
+    },
+    {
       "path": "AGENTS.md",
       "sha256": "551f564c10ed951742b7db4f1c8339ec17be1cd20f50508d5b5788aa6cbde6c2"
     },
     {
       "path": "README.md",
-      "sha256": "1e88c926db7001c2de7d6aaabce5001fc8fdc6f0d583149c0accb64ac044f1fc"
+      "sha256": "215f2b3553e360ee54c6475400cab584391ec8339e863a382576ead1268f04c3"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
