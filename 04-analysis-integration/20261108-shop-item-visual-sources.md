@@ -16,7 +16,7 @@
 - 物件580／physical frame0在兩member中皆是可辨紅色玻璃瓶外觀。
 - 物件586／physical frame0在兩member中皆是可辨藍色玻璃瓶外觀。
 - 它們可以作為**重建HP／MP消耗品的視覺候選**，顏色不證明原服效果或名稱。原服物品key、堆疊上限、使用kind、回復量、冷卻與買賣價均未知，未因此加入可消耗物品或新目錄遷移。
-- 同輪原生映射調查指出icon16bit減0x8000後是YPF物件，而非實體frame；存在item與pitem兩條member路徑。物件580／586對應的候選icon為0x8244／0x824a；兩路同樣有瓶形只消除本次候選的member歧義，仍非原服物品ID證據。完整native呼叫鏈由同輪Script／圖示分析另述。
+- 同輪原生映射調查指出icon16bit減0x8000後是YPF物件，而非實體frame。追加核對確認：**Merchant ItemsDialog表格經51e670→5193b0→4919e0→490f20，使用member1 item.tw**；獨立ScriptItemCell才經45cb00→491ba0→491330使用member3 pitem.tw。不能把兩元件路徑混用。物件580／586候選icon為0x8244／0x824a；兩路均有瓶形不代表原服物品ID。詳細COLOR文字索引與LAYER圖示染色見[染色更正](20261108-merchant-item-layer-color-correction.md)。
 
 ## 既有兩件衣服的界線
 

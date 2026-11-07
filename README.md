@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[藥水、清單色差及實機回報](04-analysis-integration/20261108-consumables-color-and-manual-acceptance.md)。新增HP／MP藥水、堆疊合併、原子使用及v1→v2保留資料升級，653項回歸及真TCP通過。使用者已確認前輪衣裝買賣／銀行／排序／施法／特效結束／MP定時恢復；新藥水與禮服清單配色另列待測。
+
 2026-11-08：[使用者指定暫行每分鐘恢復50%](04-analysis-integration/20261108-temporary-online-resource-recovery.md)，可調間隔與比例，不復活、不補BP、不累積離線回復；627項回歸通過，原生等待回復GUI待測。[特效預覽與原版對應缺口](04-analysis-integration/20261108-effect-preview-and-original-skill-binding-limits.md)另列，未將通用有限特效冒稱原版技能特效。
 
 2026-11-08：[本輪實作與實機回報](04-analysis-integration/20261108-items-shops-ordering-and-client-feedback.md)、[物品保管與商店交易](04-analysis-integration/20261108-vault-shop-authority.md)及[原生清單契約](04-analysis-integration/20261108-native-shop-and-bank-items-contract.md)。背包／保管庫持久化、同交易買賣、舊視窗防重與重啟保存已接線；商品先限兩件明示重建衣裝，原生GUI待測。 同輪補[排序持久化](04-analysis-integration/20261108-slot-order-persistence.md)，並依新回報更正[4000循環／4006有限特效](04-analysis-integration/20261108-native-effect-lifecycle-correction.md)。

@@ -26,3 +26,7 @@ Schema: `ItemTemplate(resource_release,template_id,stack_limit?,equip_slot?,flag
 失敗處理：背包滿不能卸裝、非法 slot/件數/owner/舊 generation 不更新狀態；stack split/merge 防 overflow；相同 op_id+digest 重送 return saved result，不同 digest conflict，交易和 outbox 同事務。無原生唯一 request id 時 wire-level 原始完全相同重送的歧義只能靠 state/generation/fencing 控制，不能保證任意舊包識別。
 
 可交 DEV：以上已證欄位 codecs、嚴格 bounded parser、sqlite Domain transaction tests、通用裝備/背包投影骨架。**不可**用本機服裝測試替代全部 item lifecycle；原生 item legal template、item use_kind 業務含義、真正 drop/pick/unequip UI、經濟交易及 S0F/S37 變體未完成，`native_full_item_lifecycle_ready=false`。CT-057～059 planned；A-007 integrated/handoff partial，original Client E2E not-run。
+
+## 2026-11-08 消耗品與堆疊增量
+
+本輪補核原生非指定物品使用C1C(kind1,slot,flag0,useKind5)，分開可信Server的穿戴與消耗品政策；不是將所有C1C種類開放成任意資產能力。C30 subtype8與同格S0F／耗盡S10投影已有精選來源。見[原件使用及數量投影](20261108-native-consumable-use-and-stack-projection.md)、[消耗／堆疊／升級權威](20261108-consumable-stack-and-upgrade.md)及[實作與驗收範圍](20261108-consumables-color-and-manual-acceptance.md)。原版完整道具效果、C08丟棄與C0C拾取語意仍未開放；也未把Server可部分拆到空格冒稱已有原生手勢。

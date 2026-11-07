@@ -1,5 +1,7 @@
 # 物品保管與商店買賣的原子資產契約
 
+同日後續：[消耗品與v2目錄增量](20261108-consumable-stack-and-upgrade.md)已接兩種藥水。本頁兩件衣裝價目及初版驗證保留為歷史基線；新增藥店不更改舊同版本內容。
+
 日期：2026-11-08。關聯：[正式物品與裝備](20261107-owned-inventory-equipment.md)、[錢包與銀行資金](20261108-wallet-bank-authority.md)、[A-013經濟分析](A-013-economy-contract.md)。本頁補足Server可獨立實作的資產規則，不包含私有程式或使用者資料。
 
 ## 需求來源與內容歸因

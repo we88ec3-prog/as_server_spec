@@ -26,7 +26,7 @@ S44 Main 為 `Merchant`。一般商店使用 `nSuAllMarket01` 加 `MerchantDialo
 |C|CLASS|顯示文字|
 |W|WEIGHT|字串轉整數|
 |K|HelpString metadata key|空字串仍執行查詢，不是 metadata bypass|
-|R/O/E|COLOR/LAYER/EFFECT|保留原生欄位，不能推造效果|
+|R/O/E|COLOR文字palette索引／LAYER圖示RGB／EFFECT|詳見2026-11-08染色更正；R0白字、O16777215白色圖示染層，不能全部填0|
 |U|BUNDLE|可選數量上限／持有堆疊數量|
 |V|SELL 的 VALUE|實際出售單價，總價為 V × 數量|
 |S|DEPOSIT 的背包 slot|GetDescFromInventory 依目前原生背包內容取描述|
@@ -50,7 +50,7 @@ ItemsDialog Cancel 清空 values 後送 `STATE=ABORT`；數量子窗 Cancel 只�
 
 `0x525130` 原生全域函式 dispatcher 的 `0x526c58..0x526d43` 分支把表名、key、index 交給 `0x4ceea0`；其查詢路徑會經 `0x4ced90`，未初始化時可進 `0x4cebc0` lazy load。K 空值仍走此路，不能承諾未修正 metadata 問題的原 Client 一定安全。`GetDescFromInventory` 分支 `0x52710f` 經 `0x489a30(kind=1,slot)` 與 `0x489740` 讀背包項目描述。
 
-Script item cell category0 `0x45cbf8..0x45cc1d` 經 `0x491ba0→0x491330`，使用圖庫2、member3、object=`icon-0x8000`、frame0；category1 的 `0x491d40` 路徑亦用 member3。另有 legacy `0x490f20` 使用 member1，不能混淆。Icon.dat 的 member1 為 item.tw.ypf、member3 為 pitem.tw.ypf；兩者的 object580/586 frame0 都有紅／藍瓶外觀，故可供重建商品採用的圖示候選為 **0x8244／0x824a**。這不證明原服藥水名稱、效果、item ID、堆疊上限或價格。
+**2026-11-08適用範圍更正：ItemsDialog列表經51e670→5193b0→4919e0→490f20，使用member1。** 獨立Script item cell category0 `0x45cbf8..0x45cc1d` 經 `0x491ba0→0x491330` 使用member3，category1 的 `0x491d40` 也用member3；不能把這個元件當成ItemsDialog表格。完整COLOR／LAYER差異見 [染色更正](20261108-merchant-item-layer-color-correction.md)。Icon.dat 的 member1 為 item.tw.ypf、member3 為 pitem.tw.ypf；兩者的 object580/586 frame0 都有紅／藍瓶外觀，故圖示候選 **0x8244／0x824a** 仍成立。這不證明原服藥水名稱、效果、item ID、堆疊上限或價格。
 
 資產 SHA、預覽界線與既有兩件衣服圖示實為棍／劍外觀，見 [圖示來源審核](20261108-shop-item-visual-sources.md)。目前商品子集不能稱為完整原服商店；任意新增藥水消耗效果仍須另外實作、測試及記錄重建政策。
 

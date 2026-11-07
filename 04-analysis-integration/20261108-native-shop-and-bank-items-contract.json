@@ -138,9 +138,9 @@
       "C": "class display",
       "W": "weight integer string",
       "K": "HelpString metadata key",
-      "R": "color",
-      "O": "layer",
-      "E": "effect",
+      "R": "name text palette index; reviewed index0 is white",
+      "O": "icon layer RGB encoded unsigned decimal; 16777215 is white",
+      "E": "native effect selector byte",
       "U": "bundle quantity"
     },
     "sell": {
@@ -205,5 +205,33 @@
     "bank arbitrary-quantity GUI in unchanged scripts",
     "metadata availability on uncorrected original Client",
     "native GUI acceptance for this increment"
-  ]
+  ],
+  "merchant_list_rendering": {
+    "native_chain": [
+      "0x51e670",
+      "0x5193b0",
+      "0x4919e0",
+      "0x490f20"
+    ],
+    "library": 2,
+    "base_member": 1,
+    "base_member_name": "item.tw.ypf",
+    "layer_member": 2,
+    "object": "icon-0x8000",
+    "neutral_white_parameters": {
+      "R": "0",
+      "O": "16777215",
+      "E": "0"
+    },
+    "packed_layer_white": "0xffffffff",
+    "no_layer_sentinel_script_decimal": 16711935,
+    "packed_no_layer_sentinel": "0xffff00ff",
+    "distinct_script_item_cell_chain": [
+      "0x45cb00",
+      "0x491ba0",
+      "0x491330"
+    ],
+    "distinct_script_item_cell_base_member": 3,
+    "color_gui_acceptance": "pending"
+  }
 }
