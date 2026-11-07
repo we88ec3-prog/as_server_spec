@@ -1,0 +1,185 @@
+{
+  "contract_id": "finite-effect-previews-20261108",
+  "scope": "Offline primary paletted physical frame thumbnails; no native timing, compositing, movement, blend or GUI acceptance",
+  "archive_sha256": "5cac55442e8504786bf9e8b7be73eed2a1cd05a65970739e1fdf24df0f7e58dc",
+  "image_member_sha256": "e5c9d3990b9b40012812eb466ee630da58473db9ff44700d754fd1ed9aa4c867",
+  "original_skill_effect_mapping": "unknown",
+  "server_binding_changed": false,
+  "native_gui_acceptance": "not-run",
+  "candidates": [
+    {
+      "selector": 4006,
+      "image_key": 4002,
+      "object": 2,
+      "physical_frames": 10,
+      "picked_frames": [
+        0,
+        5,
+        9
+      ],
+      "states": 1,
+      "runner_sha256": "2729bf0f3b4a5399c4bf7831329bf8126167960ab3824c088d47fce7ed842107",
+      "duration_raw": 1600,
+      "graph_edges": [
+        [
+          0,
+          1,
+          100
+        ]
+      ],
+      "cycles": false,
+      "audio_nodes": false,
+      "action_count": 1,
+      "offline_visual_observation": "dim blue narrow glow",
+      "runner_member": "Effect04006.eff",
+      "runner_slot": 7,
+      "runner_offset": 11711203,
+      "runner_bytes": 1976
+    },
+    {
+      "selector": 4007,
+      "image_key": 4003,
+      "object": 3,
+      "physical_frames": 21,
+      "picked_frames": [
+        0,
+        10,
+        20
+      ],
+      "states": 1,
+      "runner_sha256": "470dcebb782e2692557d19d6863741b153d42b79152939c872e67b69b3e3008e",
+      "duration_raw": 1800,
+      "graph_edges": [
+        [
+          0,
+          1,
+          100
+        ]
+      ],
+      "cycles": false,
+      "audio_nodes": false,
+      "action_count": 1,
+      "offline_visual_observation": "blue-purple narrow glow",
+      "runner_member": "Effect04007.eff",
+      "runner_slot": 8,
+      "runner_offset": 11713179,
+      "runner_bytes": 1976
+    },
+    {
+      "selector": 4008,
+      "image_key": 4004,
+      "object": 4,
+      "physical_frames": 10,
+      "picked_frames": [
+        0,
+        5,
+        9
+      ],
+      "states": 1,
+      "runner_sha256": "912d34691255313fb830abcdbeceba1c7e9c55dbfa849acce601a7498c5bf693",
+      "duration_raw": 1600,
+      "graph_edges": [
+        [
+          0,
+          1,
+          100
+        ]
+      ],
+      "cycles": false,
+      "audio_nodes": false,
+      "action_count": 1,
+      "offline_visual_observation": "purple vertical glow",
+      "runner_member": "Effect04008.eff",
+      "runner_slot": 9,
+      "runner_offset": 11715155,
+      "runner_bytes": 1976
+    },
+    {
+      "selector": 4009,
+      "image_key": 4005,
+      "object": 5,
+      "physical_frames": 10,
+      "picked_frames": [
+        0,
+        5,
+        9
+      ],
+      "states": 1,
+      "runner_sha256": "228a6a066f021a316ac1a6599cc5cbbcbf1b0636045ab6d6a00a4beaca0d8a9e",
+      "duration_raw": 1600,
+      "graph_edges": [
+        [
+          0,
+          1,
+          100
+        ]
+      ],
+      "cycles": false,
+      "audio_nodes": false,
+      "action_count": 1,
+      "offline_visual_observation": "blue-purple shard or drape outline",
+      "runner_member": "Effect04009.eff",
+      "runner_slot": 10,
+      "runner_offset": 11717131,
+      "runner_bytes": 1976
+    },
+    {
+      "selector": 4010,
+      "image_key": 4006,
+      "object": 6,
+      "physical_frames": 10,
+      "picked_frames": [
+        0,
+        5,
+        9
+      ],
+      "states": 1,
+      "runner_sha256": "afde64359f4a4b842fcff427702746377063a6ce61aea792bc53f76b245e4637",
+      "duration_raw": 1600,
+      "graph_edges": [
+        [
+          0,
+          1,
+          100
+        ]
+      ],
+      "cycles": false,
+      "audio_nodes": false,
+      "action_count": 1,
+      "offline_visual_observation": "alternate blue-purple shard or drape outline",
+      "runner_member": "Effect04010.eff",
+      "runner_slot": 11,
+      "runner_offset": 11719107,
+      "runner_bytes": 1976
+    },
+    {
+      "selector": 4082,
+      "image_key": 4018,
+      "object": 18,
+      "physical_frames": 48,
+      "picked_frames": [
+        0,
+        24,
+        47
+      ],
+      "states": 8,
+      "runner_sha256": "8ffdb5696c682f837628e024b775ae350d12920ffaf93817fc810d0d12cd508e",
+      "duration_raw": 300,
+      "graph_edges": [
+        [
+          0,
+          1,
+          100
+        ]
+      ],
+      "cycles": false,
+      "audio_nodes": false,
+      "action_count": 8,
+      "offline_visual_observation": "humanoid afterimage",
+      "runner_member": "Effect04082.eff",
+      "runner_slot": 83,
+      "runner_offset": 11747697,
+      "runner_bytes": 1976
+    }
+  ]
+}

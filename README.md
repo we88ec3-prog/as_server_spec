@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[使用者指定暫行每分鐘恢復50%](04-analysis-integration/20261108-temporary-online-resource-recovery.md)，可調間隔與比例，不復活、不補BP、不累積離線回復；627項回歸通過，原生等待回復GUI待測。[特效預覽與原版對應缺口](04-analysis-integration/20261108-effect-preview-and-original-skill-binding-limits.md)另列，未將通用有限特效冒稱原版技能特效。
+
 2026-11-08：[本輪實作與實機回報](04-analysis-integration/20261108-items-shops-ordering-and-client-feedback.md)、[物品保管與商店交易](04-analysis-integration/20261108-vault-shop-authority.md)及[原生清單契約](04-analysis-integration/20261108-native-shop-and-bank-items-contract.md)。背包／保管庫持久化、同交易買賣、舊視窗防重與重啟保存已接線；商品先限兩件明示重建衣裝，原生GUI待測。 同輪補[排序持久化](04-analysis-integration/20261108-slot-order-persistence.md)，並依新回報更正[4000循環／4006有限特效](04-analysis-integration/20261108-native-effect-lifecycle-correction.md)。
 
 2026-11-08：[可見NPC、Spell分類、資源HUD與銀行增量](04-analysis-integration/20261108-bank-spell-and-hud-increment.md)。S08原件補證更正為u24色彩／full60B，修正上方MP／SP假滿；五類NPC可見即可交談，銀行接貨幣存提款。該增量後的最新實作及實測範圍見上方。
