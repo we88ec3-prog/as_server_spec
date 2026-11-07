@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "analysis_id": "native-party-membership-20261108",
+  "artifact": {
+    "name": "Asgard.exe",
+    "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+  },
+  "confidence": "observed-static; GUI pending",
+  "body_excludes": [
+    "opcode",
+    "transport framing"
+  ],
+  "string_encoding": "CP950 string8, encoded byte count",
+  "native_c2s": [
+    {
+      "opcode": "0x2E",
+      "operation": "invite-by-name",
+      "fields": [
+        [
+          "operation",
+          "u8",
+          0
+        ],
+        [
+          "inviteeName",
+          "string8"
+        ]
+      ],
+      "producer": "0x479a20",
+      "writer": "0x572de0"
+    },
+    {
+      "opcode": "0x2E",
+      "operation": "answer-normal-invitation",
+      "fields": [
+        [
+          "operation",
+          "u8",
+          1
+        ],
+        [
+          "inviterName",
+          "string8"
+        ],
+        [
+          "accept",
+          "u8-bool"
+        ],
+        [
+          "alternatePrompt",
+          "u8",
+          0
+        ]
+      ],
+      "producer": "0x4b4e50",
+      "writer": "0x572de0",
+      "accept_ui": {
+        "callback": "0x4020e0",
+        "accept_control": 2,
+        "reject_control": 3
+      },
+      "timeout": {
+        "milliseconds": 10000,
+        "callback": "0x402140",
+        "result": "decline"
+      }
+    }
+  ],
+  "native_s2c": [
+    {
+      "opcode": "0x3A",
+      "type": 0,
+      "operation": "append-other-member",
+      "fields": [
+        [
+          "memberRef",
+          "BEu32"
+        ],
+        [
+          "career",
+          "u8"
+        ],
+        [
+          "hpPercent",
+          "u8"
+        ],
+        [
+          "name",
+          "string8"
+        ]
+      ],
+      "auto_inserts_self_when_empty": true,
+      "duplicate_ref_guard": false
+    },
+    {
+      "opcode": "0x3A",
+      "type": 1,
+      "operation": "remove-member-or-clear-if-self",
+      "fields": [
+        [
+          "memberRef",
+          "BEu32"
+        ]
+      ]
+    },
+    {
+      "opcode": "0x3A",
+      "type": 2,
+      "operation": "set-leader-projection",
+      "fields": [
+        [
+          "leaderRef",
+          "BEu32"
+        ]
+      ]
+    },
+    {
+      "opcode": "0x3A",
+      "type": 3,
+      "operation": "other-member-hp-percent",
+      "fields": [
+        [
+          "memberRef",
+          "BEu32"
+        ],
+        [
+          "hpPercent",
+          "u8"
+        ]
+      ]
+    },
+    {
+      "opcode": "0x3A",
+      "type": 4,
+      "operation": "show-normal-invitation",
+      "fields": [
+        [
+          "commonRef",
+          "BEu32"
+        ],
+        [
+          "inviterName",
+          "string8"
+        ]
+      ],
+      "common_ref_unused_by_invitation_pane": true
+    },
+    {
+      "opcode": "0x3A",
+      "type": 6,
+      "operation": "other-member-career",
+      "fields": [
+        [
+          "memberRef",
+          "BEu32"
+        ],
+        [
+          "career",
+          "u8"
+        ]
+      ]
+    }
+  ],
+  "reader": "0x589130",
+  "roster_receiver": "0x4717b0",
+  "roster_render": {
+    "fill": "0x46f810",
+    "draw": "0x46f5c0",
+    "row_bytes": 524,
+    "requires_world_actor_for_render": false,
+    "requires_valid_actor_for_targeted_interactions": "not proved independent; must validate world target",
+    "self_ref": 1,
+    "observed_local_max_rows": 13,
+    "original_server_party_limit": "unknown"
+  },
+  "s3a_types_5_7": {
+    "purpose": "separate FindingGroup controller, not GroupMemberDialog roster",
+    "row_fields": [
+      [
+        "name",
+        "string8"
+      ],
+      [
+        "fieldA",
+        "BEu32"
+      ],
+      [
+        "fieldB",
+        "BEu32"
+      ]
+    ],
+    "count_prefix": "BEu16",
+    "type7_extra_tail": "BEu16",
+    "controller": "0x4d1010"
+  },
+  "projection_reconstruction": {
+    "status": "derived-static; GUI pending",
+    "sequence": [
+      "S3A type1 self=1 clears current roster",
+      "S3A type0 once per other member",
+      "S3A type2 receiver-view leaderRef"
+    ],
+    "do_not_send_self_as_type0": true,
+    "do_not_repeat_type0_without_clear": true
+  },
+  "not_party_proofs": [
+    {
+      "opcode": "0x12",
+      "producers": [
+        "MailListDialog 0x4abd90",
+        "GuildListDialog 0x472380",
+        "UserListDialog 0x552790",
+        "UserListDialog 0x552850",
+        "UserListDialog 0x553580",
+        "UserListDialog 0x554210"
+      ],
+      "conclusion": "No party-management semantics established for these producers."
+    },
+    {
+      "opcode": "0x1B",
+      "constructor": "0x575bb0",
+      "producer": "0x479a20 self-selected group control",
+      "toggle_item": 2,
+      "conclusion": "Native toggle/group display option observed; leave/disband semantics unproved."
+    }
+  ],
+  "unknown": [
+    "C2S leave/kick/disband/transfer-leader producers",
+    "alternatePrompt=1 complete business semantics",
+    "original party cap and rewards policy",
+    "native by-name invite UI without selected remote actor"
+  ],
+  "evidence_ids": [
+    "ev_0844b01932963eaf327c9e6d819b3e6067c99b12b1bbfee51a18fc0997cc7822",
+    "ev_ffd1f13bb03fdbecdc2103f9b2d48dc1b7847adf67c48c82e5230307c545c62b",
+    "ev_5e5d4b0bf75c069a2f07ba8a702a6340de2f9881faf44a8f05c8e2c7b570a95b",
+    "ev_765249e8f75009e4ef65952222ed2cec9ced8bb78fc394d05755c5d60eb6c1a0",
+    "ev_824811e3e4aab48dbef84b3aa57fab0f0873b3ee159cf65d0ab94eb591995d1f",
+    "ev_d8fdb8fc56613ae540f55d0d58f12182d5049b4d4368a4303c28c605695bd257"
+  ],
+  "native_chat_command_transport": {
+    "opcode": "0x0E",
+    "fields": [
+      [
+        "kind",
+        "u8",
+        0
+      ],
+      [
+        "text",
+        "string8"
+      ]
+    ],
+    "ui": "ChatInputDialog Enter key0x0d, ordinary chatMode=-1",
+    "producer_addresses": [
+      "0x42dfd1",
+      "0x42dff9",
+      "0x42e420",
+      "0x42e04b",
+      "0x42e177",
+      "0x42e17e"
+    ],
+    "server_party_commands": "new reconstruction policy, not original commands",
+    "not_action_inventory_kind2": true
+  },
+  "bounded_entry_review": {
+    "group_constructor": "0x4715a0 no packet sends; initializes thirteen row controls",
+    "group_control_callback": "0x470520 selection/targeting, no observed membership-management producer",
+    "Game.ShowGroup": "0x55b820 and0x55e3c0 are profile persistence, not automatic network request",
+    "C2E_constructor_external_UI_callers": [
+      "0x479a20",
+      "0x4b4e50",
+      "0x4b4ef0"
+    ],
+    "scope": "recovered direct references; not proof of universal absence"
+  },
+  "native_command_feedback": {
+    "s0d": {
+      "opcode": "0x0D",
+      "fields": [
+        [
+          "type",
+          "u8",
+          0
+        ],
+        [
+          "sourceRef",
+          "BEu32",
+          1
+        ],
+        [
+          "text",
+          "string8"
+        ]
+      ],
+      "reader": "0x5861d0",
+      "dispatch": "0x4f48a0 ->0x4f4951 ->0x4f2140",
+      "presentation": "SayObject speech text attached to existing actor; persistent chat log not proved",
+      "constructor": "0x514000",
+      "requires_existing_actor": true,
+      "unknown_actor": "can trigger C0C resync; do not use ref0",
+      "limitations": [
+        "Actor status flag0x2000 can suppress display",
+        "Keep text within255 CP950 encoded bytes",
+        "Type4 has extra fields and is outside this profile"
+      ],
+      "status": "speech-bubble alternative; GUI pending"
+    },
+    "s0a": {
+      "opcode": "0x0A",
+      "fields": [
+        [
+          "type",
+          "u8",
+          17
+        ],
+        [
+          "text",
+          "string16-BEu16-length"
+        ]
+      ],
+      "reader": "0x582200",
+      "dispatch": "0x4f48a0 ->0x4f497e ->0x4f24f0",
+      "display": "0x4b7ff0",
+      "presentation": "MapPane transient message, MPah3000ms, replaces previous transient message",
+      "message_type_policy": {
+        "accessor": "0x4c9190",
+        "table": "0x60a7bc",
+        "stride": 12,
+        "selected_type17_enabled": 1
+      },
+      "requires_actor_ref": false,
+      "game_ui_reconstruction": false,
+      "limitations": [
+        "Actual GUI appearance pending manual test",
+        "Other S0A types may create a modal message; not interchangeable",
+        "May temporarily hide another existing message pane"
+      ],
+      "string16_exact": {
+        "length_prefix": "BEu16 in established TW network stream mode",
+        "length_semantics": "CP950 encoded byte count, not Unicode character count",
+        "helper": "0x45b890",
+        "helper_evidence_id": "ev_7831105879b610b5bca559b7584b0b628e667adb9d4102d6b75e20fa628861fd",
+        "read_sequence": [
+          "read first and second length byte",
+          "when stream+0x10 !=0 form(first<<8)|second; zero mode is little-endian",
+          "copy exactly length bytes; cursor advances length",
+          "MultiByteToWideChar(DAT_0066e47c,flags0,bytes,cbMultiByte,...)",
+          "append local UTF16 NUL after conversion"
+        ],
+        "wire_nul": false
+      },
+      "status": "selected result-notice transport; GUI pending"
+    }
+  }
+}

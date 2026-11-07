@@ -1,5 +1,7 @@
 # CT-101：隊伍最高有效傷害取得全額經驗＋個人掉寶
 
+2026-11-08增量：[正式組隊與權威獎勵](../04-analysis-integration/20261108-party-membership-and-authoritative-rewards.md)已有持久實作、核心與Host／TCP證據，tie／凍結／離線／跨圖政策亦已明示。下列「全部planned」保留原規劃歷史；CT-101的**原生Client畫面驗收仍未執行**，不能把自動測試標為原版E2E通過。
+
 來源 [三項新規則](../02-server-planning/three-policy-adjustments-20261031.md)，R-033、SCN-018；本版只有 Server Domain 設計，**全部 planned/not-run**。Monster life 唯一、Party DamageLedger、PartyRoster Snapshot、PerCharacterRewardLedger 都待程式實作；Native Client UI packet 仍需 A-014/A-009/A-025/A-007。
 
 |測試|輸入|預期|

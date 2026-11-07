@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[正式組隊與最高隊伍傷害獎勵](04-analysis-integration/20261108-party-membership-and-authoritative-rewards.md)，[原生邀請／名單與結果提示證據](04-analysis-integration/20261108-native-party-membership.md)。同意入隊、13人成員、隊長管理、全員完整EXP與各自獨立掉寶已接線，取代先前solo／最後一擊流程；離線與跨圖凍結成員可補領，不重抽／不重發。管理採明示`/party`Server新命令，遠端角色外觀與原生GUI仍待完成／實測；F17／F06／F19及總表已同步。
+
 2026-11-08：[地面保管、拾取競爭與私人掉落](04-analysis-integration/20261108-ground-item-custody-and-monster-loot.md)及[REA原生入口勘誤](04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.md)。C08數量來源已證，真正拾取為C07，C0C只重同步；地面與背包圖源分開。持久保管／堆疊／競爭／重啟及普攻／技能私人掉落已接線，GUI仍待測；正式隊伍歸屬與全員EXP仍未完成，F13／F06及總表已同步。
 
 2026-11-08：[怪物追擊、玩家受傷與原子復活](04-analysis-integration/20261108-monster-ai-and-atomic-character-revival.md)，以及[原生步進／墓碑證據](04-analysis-integration/20261108-native-monster-steps-player-death-and-respawn.md)。共用節拍、碰撞路徑、離線租約清理、死亡禁移動與同圖復活已接線；被動反擊、傷害與5秒復活是重建政策。原生GUI尚待驗收，F02／F06及總表已同步；完整多人引用與全地圖怪物仍未完成。

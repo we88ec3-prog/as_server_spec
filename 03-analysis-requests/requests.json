@@ -1176,9 +1176,9 @@
       "analysis_scope": "Client C0E/C19/C2E/C12, S0A/S0D/S58/S3A opcode/body subsets observed-static; group/guild action mapping and original Server routing unresolved",
       "remaining_unknowns": [
         "C0E/S0D type to channel mapping; no native channel E2E",
-        "C12/C2E op/sub semantics and complete S58/S3A group rows",
+        "C12 non-party branches, C2E beyond invite/answer, S58 and S3A finding-group variants; ordinary S3A roster recovered in the 20261108 increment",
         "original guild permissions, whisper errors and offline/blocked behavior",
-        "S0D has native string8 reader 0x45B7A0, unlike S0A string16 0x45B890; correct source report before codec implementation"
+        "S0D uses string8 at 0x45B7A0; S0A at 0x45B890 uses BEu16 CP950 byte length, not UTF16. Type17 notice is recovered; other channel/display variants still need independent validation"
       ],
       "conformance": [
         "CT-047",
@@ -1196,7 +1196,14 @@
         "unknowns"
       ],
       "client_server_boundary": "Client observable claims and original Server policy must not be conflated; unproven original Server policy is not a research blocker. Native Client CT is separate.",
-      "reward_party_client_io_focus": "Find native party membership/party roster, invites/leaves/disband C12/C2E/S58/S3A UI/packet mapping; Server's top-total-damage winner/full XP/individual loot is policy, NOT original-server proof."
+      "reward_party_client_io_focus": "Ordinary C2E invitation/answer and S3A roster are now recovered; original management-button producers and finding-group UI remain partial. R-033 allocation is user policy, not original-server proof.",
+      "party_increment_20261108": {
+        "report": "04-analysis-integration/20261108-native-party-membership.md",
+        "server_contract": "04-analysis-integration/20261108-party-membership-and-authoritative-rewards.md",
+        "scope": "C2E invite/consent; S3A roster, leader, HP, career; C0E kind0 command transport; S0A type17 CP950 BEu16 notice",
+        "original_client_gui": "not-run",
+        "remaining": "original management UI, finding-group, other chat/friend/guild routing and remote avatars"
+      }
     },
     {
       "id": "A-015",

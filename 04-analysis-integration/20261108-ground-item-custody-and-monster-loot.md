@@ -1,5 +1,7 @@
 # 地面物品、拾取競爭與怪物個人掉落
 
+後續狀態：[正式隊伍與權威獎勵](20261108-party-membership-and-authoritative-rewards.md)已取代本頁當時的 solo fallback／最後一擊 EXP；本頁保管及原生拾取契約仍適用。下文「正式隊伍待接」是這份較早增量的歷史範圍，不能當目前仍未實作的判定；原生 GUI 仍各自待測。
+
 目標來源為使用者要求直接開發完整 Server 並同步公開分析。以下交易結構、數值及圖像對照屬重建設計；原生操作及呈現依據見[REA 分析](20261108-native-ground-drop-pickup-and-object-resync.md)。原生 GUI 尚待驗收，不以合成或 TCP 測試替代。
 
 ## 原生入口

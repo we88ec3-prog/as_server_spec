@@ -293,7 +293,7 @@
     },
     {
       "path": "02-server-planning/three-policy-adjustments-20261031.md",
-      "sha256": "e0d4f57d312a74960b78c63a2224396371e602b7aa50cfc025fdc6d074ffa847"
+      "sha256": "b61ddc9e44cbb93caa5d680c41a8c62d664a07e746b2e7f3b5e7adb2d99146a5"
     },
     {
       "path": "02-server-planning/tutorial-completion-conditions.json",
@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "0bcd080817b457732601e449fdce2a4022591e46bf41c5c680c9c462b659c296"
+      "sha256": "c6287e95686e72aaa2d94aa80a625e020985d226a967771c906a1aa5b8cdc4e8"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -865,7 +865,7 @@
     },
     {
       "path": "04-analysis-integration/20261108-ground-item-custody-and-monster-loot.md",
-      "sha256": "8576963a48c2d79faaf968a11b08978a0d3a33f09630e61dfbcbafd680ae10f9"
+      "sha256": "27c10a60d7b17fa8baf7a3c61c0f687ba12a9baad22753dbb03a8985e1f72d5d"
     },
     {
       "path": "04-analysis-integration/20261108-items-shops-ordering-and-client-feedback.md",
@@ -920,6 +920,14 @@
       "sha256": "528ab2eccfd618ac8031a65b3238b07c8504f796a0c1d3824154eb2095f29aab"
     },
     {
+      "path": "04-analysis-integration/20261108-native-party-membership.json",
+      "sha256": "096483627dff149191b01d2fabae15c2bc546b806aed3a6744a0cabf898076de"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-party-membership.md",
+      "sha256": "95ce94856710eaf4e58a03825575fab30d17ae7b7d141f4201103fa8ef77e01e"
+    },
+    {
       "path": "04-analysis-integration/20261108-native-shop-and-bank-items-contract.json",
       "sha256": "be129fc32be3e807b81c8431c4c1ff5523dcec151fa18c395aeaebb70450aa2b"
     },
@@ -938,6 +946,10 @@
     {
       "path": "04-analysis-integration/20261108-native-status-u24-and-hud-correction.md",
       "sha256": "4efefe13c65180faf1d5004f003d8ff5a1efc254c1ca0a4b498488504151ddaa"
+    },
+    {
+      "path": "04-analysis-integration/20261108-party-membership-and-authoritative-rewards.md",
+      "sha256": "402b53631e353ee866aa09d5c3c99b14f6f5d720966b0b086e0b2dffdcbc08c7"
     },
     {
       "path": "04-analysis-integration/20261108-shop-item-visual-sources.md",
@@ -1073,7 +1085,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "191df9f394eb1eae55e0cb99b34b4e40f9ef10320980c50b0de286d0c2faf484"
+      "sha256": "5eab53bcf233d81b0afaeea7912961fa3855f0b4aea1baaac10d82b2333744f7"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -1237,11 +1249,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "a27b08b0a1f1e35bff95f75b268c1b3796fdc17c91c9a4f75a18ddcc8940b865"
+      "sha256": "347515cac63a66b15f5298d4d0bea0a99ee8d8a0985941f2631164310d34f37d"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "fbed340085b8e13581c3709893d01e3540c520c6229b4ccb4c4e503aff0307ef"
+      "sha256": "20731d7bd517615817b8e2debc88fcf128b9678311a8758588a79c35461e6d8e"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1505,7 +1517,7 @@
     },
     {
       "path": "05-conformance/party-monster-reward-test-plan.md",
-      "sha256": "f8335efcefc7b44f5ad1f9a636d7c8ef4085f6d6377d80ec3784022b53c6d8ae"
+      "sha256": "e6a7ce969924be09027f670af5936acd2167a38298fa003c38ef9c2a01fb6521"
     },
     {
       "path": "05-conformance/prototype-parity-regression-20261101.md",
@@ -1533,11 +1545,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "71774f6a4b3df70df45bf59bfb148fdfecdc7106634e367525cce94ff57158c4"
+      "sha256": "89948267cec19a1b5c525c857e4e27df4938ff752064065691455cc411a32a3c"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "b8b6013d34698674d9a6fa79a46c71374dcfd8fe573a34e6dea3724062fc65c9"
+      "sha256": "8dcda592e8fc7b9a00fea5fcd45f9a902143c11506e83aa7b9f6a9dc38fdd746"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1561,7 +1573,7 @@
     },
     {
       "path": "06-development-tracking/details/F06_怪物與戰鬥.xlsx",
-      "sha256": "29dd3934edacff5832d7b047c495269690dfb69086ae544c5c145237c08d4537"
+      "sha256": "31307f7f3bc802d06f3b88671ce211c62df54d2659d5cdbb169a065196a5921a"
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
@@ -1605,7 +1617,7 @@
     },
     {
       "path": "06-development-tracking/details/F17_聊天好友與組隊.xlsx",
-      "sha256": "9be3683270e532236371e8c4dba27da2333f9c4ba28d3988af09c59f9f6fb27e"
+      "sha256": "d4c5f04d37d50e45e40ac9922c28c6cabb1390ca1bc0ed46c8e520c261670939"
     },
     {
       "path": "06-development-tracking/details/F18_玩家交易與郵件.xlsx",
@@ -1613,7 +1625,7 @@
     },
     {
       "path": "06-development-tracking/details/F19_掉落製作與物品來源.xlsx",
-      "sha256": "6408945036e32f87199f9e5df5bea28e9a538aadb4c38ce26918b2a320dc1421"
+      "sha256": "e8629d96205878e7f7f008d57d7bd2a0fac3ee46f4fb6bc7db79de8a872ea912"
     },
     {
       "path": "06-development-tracking/details/F20_公會與PvP範圍.xlsx",
@@ -1681,7 +1693,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "81713a60df09b237c02a2339c2ebc658683e51719a474e61d567ee2c823d919b"
+      "sha256": "10016fef8f0cc2ab6b2e1cd11cc0b6565328ae81612ae4109f2bc720fab986a0"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

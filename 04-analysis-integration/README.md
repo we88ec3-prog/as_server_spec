@@ -24,4 +24,6 @@ packets.json以profile+direction+opcode作識別，不用opcode單獨索引。20
 
 閱讀順序：[transport](transport.md) → [最小登入profile](profile-login.md) → [雙向處理矩陣](packet-processing.md) → [appearance](appearance.md)／[items](items.md) → [情境](scenarios.md) → [系統規則](game-systems.md)。
 
+最新社交增量：[原生組隊](20261108-native-party-membership.md)、[正式R-033權威結算](20261108-party-membership-and-authoritative-rewards.md)。邀請及名單有原件證據；管理命令與快照邊界為Server設計，聊天／好友／公會其他功能不套用完成狀態。
+
 既有成果補充：[覆蓋對照](analysis-coverage.md)、[資源與地圖格式](resource-formats.md)、[Client相容性](client-compatibility.md)、[Evidence身份索引](evidence-index.json)。

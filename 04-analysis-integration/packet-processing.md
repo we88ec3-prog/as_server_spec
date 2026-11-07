@@ -1,5 +1,7 @@
 # Client / Server雙向處理矩陣
 
+2026-11-08：[組隊增量](20261108-native-party-membership.md)確認 C2E0/1邀請／同意與S3A名單；新增成員不去重、self自建，必須差分投影。普通C0E kind0承載明示Server `/party`命令，回饋S0A type17採BEu16 CP950位元組數。管理權限與[正式R-033結算](20261108-party-membership-and-authoritative-rewards.md)分別描述；不使用C12未知分支假造入隊。
+
 2026-11-08：[地面操作原生增量](20261108-native-ground-drop-pickup-and-object-resync.md)已確認 C08=`kind,slot,quantity`、C07=`BEu32 ItemObject ref`；C0C 是缺失物件重同步，不能當拾取。地面 S07 kind3／S0E、已見能力及資產 CAS 見[保管交易契約](20261108-ground-item-custody-and-monster-loot.md)，GUI 尚待驗收。
 
 C2S：Client serializer → wire → Server解碼／狀態驗證 → Domain命令 → 必要回覆。S2C：Server投影 → wire → Client parser → handler → UI／世界狀態。表中client_entry不是Server函式，不要求各Server具有同名方法。

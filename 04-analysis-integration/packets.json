@@ -1388,7 +1388,7 @@
       "name": "Message",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 status,string16 CP950 message；不能用來替代登入S02",
+      "layout": "u8 type,string16 CP950 message; TW string16 uses BEu16 encoded-byte length, no NUL. Reviewed type17 is a 3000ms MapPane notice, not Login S02.",
       "client_entry": "documented profile; exact per-branch entry pending A-020",
       "state_precondition": "see profile-login.md",
       "related_packets": [],
@@ -1407,6 +1407,8 @@
         "scope": "u8 type + string16 (A014 + prior SYS-AUTH)",
         "native_client_validation": "not-run"
       },
+      "a014_party_increment": "04-analysis-integration/20261108-native-party-membership.md",
+      "type17_gui_validation": "not-run; exact bytes and no-game-UI-rebuild handler verified-static",
       "evidence_ids": [
         "ev_a014_20261031_asgard_social_static"
       ]
@@ -1524,8 +1526,9 @@
       "name": "C0E",
       "system": "SYS-SOCIAL",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 type + string8 text",
-      "client_entry": "0x575070",
+      "layout": "u8 kind + string8 CP950 text; ordinary ChatInputDialog Enter mode-1 emits kind0. ActionInventory kind2 is separate. Other group/guild channels remain unproven.",
+      "client_entry": "0x575070 writer; ordinary chat Enter0x42dfd1/0x42e012/0x42e04b/0x42e17e",
+      "a014_party_increment": "04-analysis-integration/20261108-native-party-membership.md",
       "layout_status": "partial",
       "evidence_kinds": [
         "observed-static"
@@ -1540,10 +1543,10 @@
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
         "C0E type→group/guild mapping",
-        "C12/C2E op meanings",
-        "S58/S3A full group list row",
+        "C12 and C2E operations outside the reviewed invitation subset",
+        "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
         "native guild wire class/semantics",
-        "native S0A/S0D error subtype"
+        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
       ],
       "related_packets": []
     },
@@ -1570,10 +1573,10 @@
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
         "C0E type→group/guild mapping",
-        "C12/C2E op meanings",
-        "S58/S3A full group list row",
+        "C12 and C2E operations outside the reviewed invitation subset",
+        "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
         "native guild wire class/semantics",
-        "native S0A/S0D error subtype"
+        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
       ],
       "related_packets": []
     },
@@ -1584,8 +1587,9 @@
       "name": "C2E",
       "system": "SYS-SOCIAL",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 op, op0 string8 name, op1 string8 name + 2 u8 bool",
-      "client_entry": "0x572de0",
+      "layout": "u8 op; op0 string8 invitee name; op1 string8 inviter name,u8 accept,u8 alternatePrompt. Normal invitation answer uses alternate0. No party ID/invitation nonce in wire; other op semantics unproven.",
+      "client_entry": "0x572de0 writer; invite0x479a20; normal response0x4b4e50; alternate response0x4b4ef0",
+      "a014_party_increment": "04-analysis-integration/20261108-native-party-membership.md",
       "layout_status": "partial",
       "evidence_kinds": [
         "observed-static"
@@ -1600,10 +1604,10 @@
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
         "C0E type→group/guild mapping",
-        "C12/C2E op meanings",
-        "S58/S3A full group list row",
+        "C12 and C2E operations outside the reviewed invitation subset",
+        "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
         "native guild wire class/semantics",
-        "native S0A/S0D error subtype"
+        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
       ],
       "related_packets": []
     },
@@ -1614,7 +1618,8 @@
       "name": "C12",
       "system": "SYS-SOCIAL",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 op + op/subtype discriminated branches (see report)",
+      "layout": "u8 op + op/subtype discriminated member-list branches; observed Friend/Guild/Mail/UserList producers, not ordinary party invitation. Unreviewed branches remain partial.",
+      "a014_party_increment": "04-analysis-integration/20261108-native-party-membership.md",
       "client_entry": "0x573600",
       "layout_status": "partial",
       "evidence_kinds": [
@@ -1630,10 +1635,10 @@
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
         "C0E type→group/guild mapping",
-        "C12/C2E op meanings",
-        "S58/S3A full group list row",
+        "C12 and C2E operations outside the reviewed invitation subset",
+        "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
         "native guild wire class/semantics",
-        "native S0A/S0D error subtype"
+        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
       ],
       "related_packets": []
     },
@@ -1660,10 +1665,10 @@
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
         "C0E type→group/guild mapping",
-        "C12/C2E op meanings",
-        "S58/S3A full group list row",
+        "C12 and C2E operations outside the reviewed invitation subset",
+        "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
         "native guild wire class/semantics",
-        "native S0A/S0D error subtype"
+        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
       ],
       "related_packets": []
     },
@@ -1690,10 +1695,10 @@
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
         "C0E type→group/guild mapping",
-        "C12/C2E op meanings",
-        "S58/S3A full group list row",
+        "C12 and C2E operations outside the reviewed invitation subset",
+        "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
         "native guild wire class/semantics",
-        "native S0A/S0D error subtype"
+        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
       ],
       "related_packets": []
     },
@@ -1704,8 +1709,9 @@
       "name": "S3A",
       "system": "SYS-SOCIAL",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "subtype==5 branch, dynamic group member vector local 0x208-byte stride (NOT wire)",
-      "client_entry": "0x5887ca",
+      "layout": "u8 type;0:BEu32 memberRef,u8 career,u8 HPpercent,string8 name;1/2:BEu32 ref remove/leader;3:BEu32 ref,u8 HPpercent;4:string8 inviter;6:BEu32 ref,u8 career. Types5/7 finding-group branches partial. Type0 appends without dedup, auto-adds self, capacity13 including self. Local object stride is NOT wire length.",
+      "client_entry": "0x589130 reader;0x4717b0 roster handler;0x46f810 row data;0x46f5c0 drawing",
+      "a014_party_increment": "04-analysis-integration/20261108-native-party-membership.md",
       "layout_status": "partial",
       "evidence_kinds": [
         "observed-static"
@@ -1720,10 +1726,10 @@
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
         "C0E type→group/guild mapping",
-        "C12/C2E op meanings",
-        "S58/S3A full group list row",
+        "C12 and C2E operations outside the reviewed invitation subset",
+        "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
         "native guild wire class/semantics",
-        "native S0A/S0D error subtype"
+        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
       ],
       "related_packets": []
     },
