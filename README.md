@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[玩家交易與原子資產交換](04-analysis-integration/20261108-player-exchange-authority.md)、[REA原生C4A／S42](04-analysis-integration/20261108-native-player-exchange.md)。邀請、9格道具／部分堆疊、雙向Gold、確認與取消已接線；滿背包對換與生命／租約／版本衝突由同交易保護。原生append-only／沒有accept ack／金額只在OK送出的限制已納規劃；郵件及雙Client GUI仍待完成。
+
 2026-11-08：[已提交戰鬥事件與多人旁觀投遞](04-analysis-integration/20261108-committed-combat-observation.md)及[REA旁觀數字／動作／有限特效](04-analysis-integration/20261108-native-observed-combat.md)。普攻、範圍技能、空揮、NPC MISS、恢復與怪物受擊接共同交易呈現；15秒／2048筆有界游標與生命代次防止復活後套用舊死亡。S13入口更正為4F2620；第三人攻擊Human的數字受原生gate限制。雙Client GUI仍待驗收，私有實作不收進本庫。
 
 2026-11-08：[共享玩家互見與真實移動歷史](04-analysis-integration/20261108-shared-player-visibility-and-motion.md)及[原生Human生命週期](04-analysis-integration/20261108-native-remote-player-lifecycle.md)。同圖玩家生成／移除、S64多步移動、外觀／衣色／面向／生死狀態與新租約重建已接線；S06只確認路徑而不啟動走路。完整旁觀戰鬥事件與原生GUI仍待完成，F04／F17與總表同步。

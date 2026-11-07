@@ -1,5 +1,7 @@
 # 分析結果整合
 
+最新經濟增量：[玩家交易權威契約](20261108-player-exchange-authority.md)與[原生交換操作／九格限制](20261108-native-player-exchange.md)。C4A／S42與C17／S6E分流，雙方資產原子交換；既有視窗不能假作可重置ready／覆寫道具列。原生GUI與郵件分開追蹤。
+
 最新戰鬥增量：[共同交易、游標與生命代次契約](20261108-committed-combat-observation.md)、[原生S13旁觀顯示限制](20261108-native-observed-combat.md)。補齊上輪多人互見之後的逐次戰鬥呈現；保留原生GUI與PvP等未完成範圍。
 
 最新多人增量：[原生遠端Human](20261108-native-remote-player-lifecycle.md)與[唯讀共享玩家／移動歷史](20261108-shared-player-visibility-and-motion.md)。S33互見、S64真路徑、外觀與租約回收已接；原生GUI與完整旁觀戰鬥事件另待完成。

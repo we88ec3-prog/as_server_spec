@@ -1087,7 +1087,12 @@
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
-        "ev_a013_20261031_client_economy_wire_static"
+        "ev_a013_20261031_client_economy_wire_static",
+        "ev_41439e6c3de2f8a871c8742f413552951455538c64aa656da32c7959b95129c5",
+        "ev_63254faf36537195f9247adf0b9205696963af96c70ff26aa3d7702e694588d0",
+        "ev_893f78e53bc27588864f3723658789810c6c0ce518a62a957fe6ae0f811c354f",
+        "ev_ef71e95a2558b68d6bcaf5af320446e4d645c6908cb5572ab3147c54efd10ad1",
+        "ev_8b20c98de5e6c79619b119a3c3d2c41e1da524e2a88084b1d8154955e3aad1f9"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -1106,13 +1111,13 @@
       "evidence_kind": "observed-static-plus-designed",
       "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
       "implementation_ready": true,
-      "implementation_ready_scope": "C4A/C39/C17 and S42/S2F/S6E native codec bounded subset, Server-safe designed economy ledgers only; not original prices/warehouse/accept/cancel UI",
+      "implementation_ready_scope": "Reviewed C4A/S42 player ExchangeDialog flow, authoritative item/wallet exchange; prior shop/vault Script subsets and bounded C17/S6E codecs remain independent; original economy values and native GUI acceptance incomplete",
       "native_economy_semantics_ready": false,
       "analysis_report": "03-analysis-requests/A-013-roy1-economy-wire.md",
       "analysis_contract": "04-analysis-integration/A-013-economy-contract.md",
       "analysis_test": "tools/a013_economy_contract.py",
       "client_io_handoff": {
-        "trigger": "ExchangeDialog/Merchant/TradeDialog native packet families exist; actual user action->subtype producer mapping pending UI xrefs",
+        "trigger": "HumanInfo exchange button or drag-to-Human -> C4A0; native ExchangeDialog offers/quantity/gold/confirm/cancel now traced. Other C17/S6E modes remain partial.",
         "client_sends": [
           "PKT-C4A",
           "PKT-C39",
@@ -1123,18 +1128,16 @@
           "PKT-S2F",
           "PKT-S6E"
         ],
-        "client_reaction": "Native S42/S2F/S6E reader branch support confirmed; exact original UI response, acceptance, cancellation, close and disconnect not mapped",
-        "evidence": "03-analysis-requests/A-013-roy1-economy-wire.md",
+        "client_reaction": "S42 open/invitation, quantity prompt, append item, absolute gold, wait/cancel and per-side ready mapped. Success closes only after both flags; original GUI execution still not-run.",
+        "evidence": "04-analysis-integration/20261108-native-player-exchange.md",
         "unknowns": [
-          "ExchangeDialog is not proven to be vault/storage",
-          "No native successful purchase, refund, cancellation or trade accept UI/result mapping",
-          "Original prices, money cap, stack restrictions, fees and disconnected trade outcome unknown"
+          "Original economy values/fees and full C17/S6E meaning remain unknown",
+          "Dual native Client exchange GUI and metadata/animation behavior not-run"
         ]
       },
       "remaining_unknowns": [
-        "ExchangeDialog is not proven to be vault/storage",
-        "No native successful purchase, refund, cancellation or trade accept UI/result mapping",
-        "Original prices, money cap, stack restrictions, fees and disconnected trade outcome unknown"
+        "Original economy values/fees and full C17/S6E meaning remain unknown",
+        "Dual native Client exchange GUI and metadata/animation behavior not-run"
       ],
       "conformance": [
         "CT-087",
@@ -1152,6 +1155,30 @@
           "item storage",
           "shops",
           "original fees and limits"
+        ]
+      },
+      "player_exchange_increment": {
+        "date": "2026-11-08",
+        "native_analysis": "04-analysis-integration/20261108-native-player-exchange.md",
+        "behavior_contract": "04-analysis-integration/20261108-player-exchange-authority.md",
+        "status": "implemented-synthetic-tested; native-GUI-not-run",
+        "native_limits": [
+          "append-only9 cells",
+          "no immediate recipient accept ack",
+          "gold only sent with OK",
+          "no proven unready packet"
+        ],
+        "server_policies": [
+          "atomic no-escrow two-owner swap",
+          "exact leases/life/original-map pin",
+          "confirmed outgoing fixed; unconfirmed peer may monotonically improve incoming",
+          "first blind recipient OK loads offers and requires review before another OK"
+        ],
+        "remaining": [
+          "native dual-Client GUI",
+          "C17/S6E full semantics",
+          "original fees/prices/limits",
+          "mail and operator audit UI"
         ]
       }
     },

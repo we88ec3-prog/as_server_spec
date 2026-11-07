@@ -1,5 +1,7 @@
 # A-013 / roy1 — 商店、Exchange、玩家交易 Client I/O（BIN-first）
 
+2026-11-08後續：[原生玩家交換完整動作與receiver](../04-analysis-integration/20261108-native-player-exchange.md)、[持久資產與Native Adapter契約](../04-analysis-integration/20261108-player-exchange-authority.md)。本輪確認玩家交換是C4A／S42，補足0～5用途、9格追加、沒有接受ack、金額只在OK公布及成功／取消效果。下列2026-10-31的UI未知保留為歷史；C17／S6E用途及原服經濟數值仍未完成，不以此增量宣告整個A-013或原生GUI驗收完成。
+
 日期 2026-10-31；工作分支 \`task_a/roy1\`，已合併截至 \`8e4f42d\` 的 main；原始 \`Asgard.exe\` SHA256 \`db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145\`。R-014/R-017，SYS-ECONOMY，evidence \`ev_a013_20261031_client_economy_wire_static\`。證據級別：observed-static（Native x86 opcode/reader/writer/RTTI）、synthetic（自製有限向量）、designed（Server 安全合約）。**沒有原服網路 trace 或原 Client 點擊實測**。
 
 ## 1. Native class/opcode 對照（已證實是 3 條不同通道）

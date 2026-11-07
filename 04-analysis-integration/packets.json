@@ -2989,25 +2989,32 @@
       "name": "Exchange",
       "system": "SYS-ECONOMY",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 subtype0..5; subtype0/4/5:u32BE; subtype1:u32BE+2u8; subtype2:u32BE+3u8; subtype3:2xu32BE",
-      "client_entry": "0x572559 / 0x5725f0",
-      "state_precondition": "Original Client UI action and successful Server state not yet verified; only bounded original codec supported",
+      "layout": "u8 subtype0..5; all carry peerRef:BEu32; 0=request,1=add(kind:u8,bagSlot:u8),2=quantity(kind:u8,bagSlot:u8,qty:u8),3=absoluteGold:BEu32,4=reject/cancel,5=ready. Exact lengths5/7/8/9/5/5. Original OK sends3 then5; accepting invitation alone sends no ack.",
+      "client_entry": "ctor0x572559 /writer0x5725F0; HumanInfo0x464040; ExchangeDialog0x464FC0; quantity0x4641A0",
+      "state_precondition": "Current authenticated committed World lease, known remote Human partner, Server-issued trade and bag/prompt context; authoritative inventory/money/location/life revalidated",
       "related_packets": [
         "PKT-S42"
       ],
-      "layout_status": "partial",
+      "layout_status": "observed-static-native-reviewed-subtypes0..5",
       "evidence_kinds": [
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a013_20261031_client_economy_wire_static"
+        "ev_a013_20261031_client_economy_wire_static",
+        "ev_41439e6c3de2f8a871c8742f413552951455538c64aa656da32c7959b95129c5",
+        "ev_63254faf36537195f9247adf0b9205696963af96c70ff26aa3d7702e694588d0",
+        "ev_893f78e53bc27588864f3723658789810c6c0ce518a62a957fe6ae0f811c354f",
+        "ev_ef71e95a2558b68d6bcaf5af320446e4d645c6908cb5572ab3147c54efd10ad1",
+        "ev_8b20c98de5e6c79619b119a3c3d2c41e1da524e2a88084b1d8154955e3aad1f9"
       ],
       "requirements": [
         "R-014",
         "R-017"
       ],
       "native_client_validation": "not-run",
-      "analysis_document": "03-analysis-requests/A-013-roy1-economy-wire.md"
+      "analysis_document": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "player_exchange_native": "04-analysis-integration/20261108-native-player-exchange.md",
+      "player_exchange_contract": "04-analysis-integration/20261108-player-exchange-authority.md"
     },
     {
       "id": "PKT-S42",
@@ -3016,25 +3023,32 @@
       "name": "ExchangeReply",
       "system": "SYS-ECONOMY",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 subtype0..5, variable branches; type0:u32BE+string8+u8; type1:2u8; other types vary",
-      "client_entry": "0x57e939 / 0x57e9f0",
-      "state_precondition": "Original Client UI action and successful Server state not yet verified; only bounded original codec supported",
+      "layout": "u8 subtype0..5; 0=peerRef:BEu32,name:string8,numericBadge:u8; 1=kind:u8,bagSlot:u8; 2=side:u8,2u8,icon:BEu16,RGB:3u8,useKind:u8,qty:BEu16,name:string8,helpKey:string8,helpMode:u8,visualFlag:u8,extraCount:u8,key/value:string8 pairs; 3=side:u8,absoluteGold:BEu32; 4=status:u8,text:string8; 5=side:u8,text:string8. side0 own/1 peer. Item grid append-only9 cells; no proven unready/reset packet.",
+      "client_entry": "ctor0x57E939 /reader0x57E9F0; ExchangeDialog0x465166; itemGrid0x465520; close0x464C80",
+      "state_precondition": "Each receiver's exact partner context; no repeated item snapshots; quantity prompt only for an existing projected bag entry; closing success only after durable atomic completion",
       "related_packets": [
         "PKT-C4A"
       ],
-      "layout_status": "partial",
+      "layout_status": "observed-static-native-reviewed-subtypes0..5",
       "evidence_kinds": [
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a013_20261031_client_economy_wire_static"
+        "ev_a013_20261031_client_economy_wire_static",
+        "ev_41439e6c3de2f8a871c8742f413552951455538c64aa656da32c7959b95129c5",
+        "ev_63254faf36537195f9247adf0b9205696963af96c70ff26aa3d7702e694588d0",
+        "ev_893f78e53bc27588864f3723658789810c6c0ce518a62a957fe6ae0f811c354f",
+        "ev_ef71e95a2558b68d6bcaf5af320446e4d645c6908cb5572ab3147c54efd10ad1",
+        "ev_8b20c98de5e6c79619b119a3c3d2c41e1da524e2a88084b1d8154955e3aad1f9"
       ],
       "requirements": [
         "R-014",
         "R-017"
       ],
       "native_client_validation": "not-run",
-      "analysis_document": "03-analysis-requests/A-013-roy1-economy-wire.md"
+      "analysis_document": "03-analysis-requests/A-013-roy1-economy-wire.md",
+      "player_exchange_native": "04-analysis-integration/20261108-native-player-exchange.md",
+      "player_exchange_contract": "04-analysis-integration/20261108-player-exchange-authority.md"
     },
     {
       "id": "PKT-C17",

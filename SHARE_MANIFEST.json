@@ -349,7 +349,7 @@
     },
     {
       "path": "03-analysis-requests/A-013-roy1-economy-wire.md",
-      "sha256": "2272557b80e1d78f678eabfe76ad6aa360d7d924a80efa49b6dafd19efc3578a"
+      "sha256": "a06f50f81abbe21afbd703335214d6352cc5e74381e721df4407f3c8d103cc24"
     },
     {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "447f4afb5b14db210a14f4bdeae3d0936d01205771fa929d5dbca04602240969"
+      "sha256": "624345f2450dd24301b1fd3a5627184c37c55d83a4c4fe9a4a5bf23546847576"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -948,6 +948,14 @@
       "sha256": "95ce94856710eaf4e58a03825575fab30d17ae7b7d141f4201103fa8ef77e01e"
     },
     {
+      "path": "04-analysis-integration/20261108-native-player-exchange.json",
+      "sha256": "7233fdc38243f8d04f6511708c7216ba6436bc260173448172f4c2ddd3f0fa33"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-player-exchange.md",
+      "sha256": "56d7d554958fdc1f29bbc395c48764f7f29075311037f4adba42854c620049b4"
+    },
+    {
       "path": "04-analysis-integration/20261108-native-remote-player-lifecycle.json",
       "sha256": "764a81b955b209d99e03f74f772d7260489f3b71b1a027d4b092dab79465206b"
     },
@@ -978,6 +986,10 @@
     {
       "path": "04-analysis-integration/20261108-party-membership-and-authoritative-rewards.md",
       "sha256": "402b53631e353ee866aa09d5c3c99b14f6f5d720966b0b086e0b2dffdcbc08c7"
+    },
+    {
+      "path": "04-analysis-integration/20261108-player-exchange-authority.md",
+      "sha256": "b6e1cb11d5d26b2c10c929a08a434f668ccef6b4ff8b15c3b5290dd40d729154"
     },
     {
       "path": "04-analysis-integration/20261108-shared-player-visibility-and-motion.md",
@@ -1121,7 +1133,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "dc00512f71b9ace78ba8bd900a147d30e872448f05b75039ecb5ca5607e3d106"
+      "sha256": "63544643c246364a631ed98cb6365fbc19523bbcc8514b3e60fb7db8195269e2"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -1169,7 +1181,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "a5b1747b66d29a88ddf8b05c99c6daff44558773a2908c342aae2b29bac07d97"
+      "sha256": "a8e54319454ccdc6e5e174863395eb81ed3705ed260c1ea1101081c51ca3cee2"
     },
     {
       "path": "04-analysis-integration/feedback-native-20261102.json",
@@ -1285,11 +1297,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "342e7fd184dbc82cf9795b68a0fab1b89961d84f5ff63e2c03ef284e216209ef"
+      "sha256": "e075bf81572ce338fb72b7c28a2bdf2c4b6d062d9678a387b36e674485a62dcb"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "88fd45f1185043ab821775d35e208334114cc70c76f8ba7b59d38474a5753c3a"
+      "sha256": "570bfa522bb8e9c047e3af8c1fc5c5597575b260f7eba613aaaafe8650f9a47a"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1581,11 +1593,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "e18ffefcce5c0d2cf49ef1ac8026a51ac5cf064c10ed4282a10f5a7bb07165dc"
+      "sha256": "773bbc8d6f9a33ab2f475590048f94c2eb624d2544c246896d30b4ceed4d6263"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "e4fdebc6812d250093e12607e6d3fc1fbc8614509f071129477034e267ec66a3"
+      "sha256": "2906b2721acef6176fb9a2ad6fe422a734959550786322c5dc8032946ba81030"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1657,7 +1669,7 @@
     },
     {
       "path": "06-development-tracking/details/F18_玩家交易與郵件.xlsx",
-      "sha256": "7a3040aff35e47dabd3ea804c7ed43aa8c9a5d31581b3bf81d8879dab0585de1"
+      "sha256": "cf3ba37af1c8bb9decc8af2534d8fcc312a7ca9a0a83ff9a55c09dda3063f6ca"
     },
     {
       "path": "06-development-tracking/details/F19_掉落製作與物品來源.xlsx",
@@ -1729,7 +1741,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "c41b8d2742696d0d9c835f3beb8ce2a8f82e2a1a11b41d8900c4b9e38afb5502"
+      "sha256": "d46270b25e624359e3df8f06df8b114f08076cf5270ef126c34f294848f4e7ac"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

@@ -4628,6 +4628,31 @@
         "length": 16
       },
       "integration_document": "04-analysis-integration/20261101-c44-play-disconnect.md"
+    },
+    {
+      "evidence_id": "ev_41439e6c3de2f8a871c8742f413552951455538c64aa656da32c7959b95129c5",
+      "record_scope": "original-native-static identity index; raw records retained locally; reproduce using linked report and artifact hash",
+      "integration_document": "04-analysis-integration/20261108-native-player-exchange.md"
+    },
+    {
+      "evidence_id": "ev_63254faf36537195f9247adf0b9205696963af96c70ff26aa3d7702e694588d0",
+      "record_scope": "original-native-static identity index; raw records retained locally; reproduce using linked report and artifact hash",
+      "integration_document": "04-analysis-integration/20261108-native-player-exchange.md"
+    },
+    {
+      "evidence_id": "ev_893f78e53bc27588864f3723658789810c6c0ce518a62a957fe6ae0f811c354f",
+      "record_scope": "original-native-static identity index; raw records retained locally; reproduce using linked report and artifact hash",
+      "integration_document": "04-analysis-integration/20261108-native-player-exchange.md"
+    },
+    {
+      "evidence_id": "ev_ef71e95a2558b68d6bcaf5af320446e4d645c6908cb5572ab3147c54efd10ad1",
+      "record_scope": "original-native-static identity index; raw records retained locally; reproduce using linked report and artifact hash",
+      "integration_document": "04-analysis-integration/20261108-native-player-exchange.md"
+    },
+    {
+      "evidence_id": "ev_8b20c98de5e6c79619b119a3c3d2c41e1da524e2a88084b1d8154955e3aad1f9",
+      "record_scope": "original-native-static identity index; raw records retained locally; reproduce using linked report and artifact hash",
+      "integration_document": "04-analysis-integration/20261108-native-player-exchange.md"
     }
   ]
 }

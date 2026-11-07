@@ -1,0 +1,353 @@
+{
+  "schema_version": 1,
+  "analysis_id": "native-player-exchange-20261108",
+  "artifact": {
+    "name": "Asgard.exe",
+    "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+  },
+  "status": "observed-static; two-native-Client GUI pending",
+  "c2s": {
+    "opcode": "0x4A",
+    "writer": "0x5725f0",
+    "common_peer_field": "receiver-view peerRef, not exchangeId or revision",
+    "types": [
+      {
+        "type": 0,
+        "meaning": "request",
+        "fields": [
+          [
+            "peerRef",
+            "BEu32"
+          ]
+        ],
+        "producer": "0x464040"
+      },
+      {
+        "type": 1,
+        "meaning": "offer item initial intent",
+        "fields": [
+          [
+            "peerRef",
+            "BEu32"
+          ],
+          [
+            "inventoryKind",
+            "u8"
+          ],
+          [
+            "bagSlot",
+            "u8"
+          ]
+        ],
+        "producer": "0x463b10/0x463c90"
+      },
+      {
+        "type": 2,
+        "meaning": "offer quantity response",
+        "fields": [
+          [
+            "peerRef",
+            "BEu32"
+          ],
+          [
+            "inventoryKind",
+            "u8"
+          ],
+          [
+            "bagSlot",
+            "u8"
+          ],
+          [
+            "quantity",
+            "u8"
+          ]
+        ],
+        "producer": "0x4641a0"
+      },
+      {
+        "type": 3,
+        "meaning": "absolute money offer",
+        "fields": [
+          [
+            "peerRef",
+            "BEu32"
+          ],
+          [
+            "gold",
+            "BEu32"
+          ]
+        ],
+        "producer": "0x463eb0"
+      },
+      {
+        "type": 4,
+        "meaning": "decline/cancel",
+        "fields": [
+          [
+            "peerRef",
+            "BEu32"
+          ]
+        ],
+        "producers": [
+          "0x4b7a20 decline",
+          "0x465070 cancel"
+        ]
+      },
+      {
+        "type": 5,
+        "meaning": "confirm own offer",
+        "fields": [
+          [
+            "peerRef",
+            "BEu32"
+          ]
+        ],
+        "producer": "0x4650f6"
+      }
+    ]
+  },
+  "acceptance": {
+    "requester": "C4A0 retained pending packet in ExchangeDialog+0x70; no immediate local UI open",
+    "s420_requester": "pending exists ->0x464d70 opens window and releases pending",
+    "s420_recipient": "no pending ->0x4b8f30 Agreement mode1 if no busy UI",
+    "recipient_accept": "0x4b7a20(1) opens local Exchange UI; no immediate accept packet",
+    "server_acceptance_rule": "first authenticated offer/money/confirm may establish accepted context, server-designed",
+    "timer": "EDwf100ms rotates spinner only; no ack",
+    "native_prompt_timeout": "mode1 not assigned party APct10s timer",
+    "existing_ui_reset": "S420 not safe unready/reset; busy path may emit C4A4"
+  },
+  "s2c": {
+    "opcode": "0x42",
+    "reader": "0x57e9f0",
+    "reader_table": "0x57ec0c",
+    "ui_handler": "0x465130",
+    "map_handler": "0x4b8f30",
+    "types": [
+      {
+        "type": 0,
+        "meaning": "open/invite based on local pending state",
+        "fields": [
+          [
+            "peerRef",
+            "BEu32"
+          ],
+          [
+            "peerName",
+            "string8"
+          ],
+          [
+            "badge",
+            "u8"
+          ]
+        ]
+      },
+      {
+        "type": 1,
+        "meaning": "quantity prompt to owner of existing bag entry",
+        "fields": [
+          [
+            "inventoryKind",
+            "u8"
+          ],
+          [
+            "bagSlot",
+            "u8"
+          ]
+        ],
+        "requires_existing_client_inventory_entry": true
+      },
+      {
+        "type": 2,
+        "meaning": "append offered item",
+        "fields": [
+          [
+            "side",
+            "u8"
+          ],
+          [
+            "field0",
+            "u8"
+          ],
+          [
+            "field1",
+            "u8"
+          ],
+          [
+            "icon",
+            "BEu16"
+          ],
+          [
+            "red",
+            "u8"
+          ],
+          [
+            "green",
+            "u8"
+          ],
+          [
+            "blue",
+            "u8"
+          ],
+          [
+            "useKind",
+            "u8"
+          ],
+          [
+            "quantity",
+            "BEu16"
+          ],
+          [
+            "name",
+            "string8"
+          ],
+          [
+            "helpKey",
+            "string8"
+          ],
+          [
+            "helpMode",
+            "u8"
+          ],
+          [
+            "visualFlag",
+            "u8"
+          ],
+          [
+            "extraCount",
+            "u8"
+          ],
+          [
+            "extraPairs",
+            "count*(string8 key,string8 value)"
+          ]
+        ]
+      },
+      {
+        "type": 3,
+        "meaning": "overwrite money",
+        "fields": [
+          [
+            "side",
+            "u8"
+          ],
+          [
+            "gold",
+            "BEu32"
+          ]
+        ]
+      },
+      {
+        "type": 4,
+        "meaning": "wait or cancel status",
+        "fields": [
+          [
+            "status",
+            "u8"
+          ],
+          [
+            "text",
+            "string8"
+          ]
+        ],
+        "status0": "waiting; disable confirm/money/ownGrid; not unready",
+        "status_nonzero": "close exchange",
+        "text_display": "0x430080 ->0x42fa90 history, no Script"
+      },
+      {
+        "type": 5,
+        "meaning": "participant confirmed",
+        "fields": [
+          [
+            "side",
+            "u8"
+          ],
+          [
+            "text",
+            "string8"
+          ]
+        ],
+        "both_sides": "MessagePane text then close",
+        "not_database_authority": true
+      }
+    ]
+  },
+  "view_sides": {
+    "0": "own control6 grid / control8 money",
+    "1": "peer control5 grid / control7 money",
+    "constructor": "0x463df0 pushes0/1 to0x463870"
+  },
+  "badge": {
+    "renderer": "0x4640e0",
+    "zero": "name only",
+    "nonzero": "[number]name and color thresholds31/51/71/91",
+    "is_role_flag": false,
+    "original_character_level_semantics": "not independently proved",
+    "server_authoritative_level_badge": "reconstruction display choice"
+  },
+  "item_grid": {
+    "receiver": "0x465520",
+    "slot_base": 1,
+    "max_rows": 9,
+    "semantics": "append-only counter, no replace/delete/dedup",
+    "first_two_after_side": "reader fields, not used for grid positioning; original business meaning unknown",
+    "safe_echo_kind_slot": "server subset choice, not automatic inventory mutation",
+    "help_mode0": "HelpString lookup mode2",
+    "help_mode_nonzero": "HelpString lookup mode1",
+    "empty_help_key": "still invokes metadata lookup",
+    "safe_visual_flag": 0,
+    "safe_extra_count": 0,
+    "inventory_update": "explicit S0F/S10 after authoritative state; do not rely on S422",
+    "oversize_rows": "native counter is not safely bounded by receiver; never send >9"
+  },
+  "inventory": {
+    "selected_kind": 1,
+    "bag_slots": "positive valid kind1 slot",
+    "offer_slots": "separate grid1..9, not bag slot",
+    "quantity_wire_max": 255,
+    "known_safe_stacks": "current stack20/clothing1",
+    "zero_quantity": "not treated as transfer; cancellation/business semantics not separately proven"
+  },
+  "money": {
+    "gold_is_absolute": true,
+    "producer_refs": "only direct incoming0x465095 to0x463eb0",
+    "native_send_sequence": "OK/control1 ->C4A3 current gold ->C4A5 confirm",
+    "no_separate_onchange_producer_found": true,
+    "after_ok": "money control8 disabled; OK/control1 remains enabled until S424wait/S425own-confirmed"
+  },
+  "server_designed_native_constraints": {
+    "append_each_source_item_once": true,
+    "change_or_remove_existing_item": "cancel and reopen until a proper native reset is established",
+    "monotonic_improvement": "confirmed party outgoing locked; unconfirmed counterparty may only improve their incoming assets without revoking ready; both must eventually confirm",
+    "commit_before_both_s425": true,
+    "first_recipient_blind_confirm": "when first action C3/C5 establishes accepted context, publish current offer and require second OK; do not send disabling ready/wait ack before review",
+    "same_value_c3": "NoChange preserving review/ready state"
+  },
+  "close": {
+    "native": "0x464c80",
+    "clears": [
+      "peerRef",
+      "peerGold",
+      "grid counters",
+      "Trading state"
+    ],
+    "pending_prompt": "MapPane S424 closes Agreement; may emit echo C4A4",
+    "server_cancel_must_be_idempotent": true
+  },
+  "separate_c17_s6e": {
+    "client_opcode": "0x17",
+    "server_opcode": "0x6E",
+    "observations": [
+      "0x4bf4c0 HumanFlags0x2000 /UserObject states ->C17type0x80 selfRef",
+      "0x54e260/0x54f1c0 TradeDialog.cpp UI0x1F mode0/1/2"
+    ],
+    "not_implemented_as_player_exchange": true,
+    "npc_barter_identity": "not established by this bounded review"
+  },
+  "evidence_ids": [
+    "ev_41439e6c3de2f8a871c8742f413552951455538c64aa656da32c7959b95129c5",
+    "ev_63254faf36537195f9247adf0b9205696963af96c70ff26aa3d7702e694588d0",
+    "ev_893f78e53bc27588864f3723658789810c6c0ce518a62a957fe6ae0f811c354f",
+    "ev_ef71e95a2558b68d6bcaf5af320446e4d645c6908cb5572ab3147c54efd10ad1",
+    "ev_8b20c98de5e6c79619b119a3c3d2c41e1da524e2a88084b1d8154955e3aad1f9"
+  ]
+}
