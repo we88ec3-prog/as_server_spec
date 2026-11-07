@@ -1,5 +1,7 @@
 # 共享地圖玩家互見、外觀與真實移動歷史
 
+後續增量：[已提交戰鬥事件與多人旁觀](20261108-committed-combat-observation.md)現已接上逐次普攻／技能／怪物受擊投遞；本頁結尾「戰鬥待接」為此前743項回歸時的歷史範圍。原生GUI仍待驗收。
+
 日期：2026-11-08。需求來源為使用者已核准的[ADR-007多人共用地圖](../02-server-planning/shared-map-multiplayer-contract.md)及持續完成Server的指示。原件收發格式見[REA遠端玩家生命週期](20261108-native-remote-player-lifecycle.md)。引用分配、快照、歷史容量與重同步策略是Server重建設計，不宣稱原服採相同架構。
 
 ## 世界身份與唯讀觀察

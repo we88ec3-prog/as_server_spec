@@ -197,7 +197,7 @@
   },
   "s13": {
     "source_and_target_refs": "must use receiver-view known actor refs, not fake self",
-    "handler": "0x4f1dc0 registry lookup",
+    "handler": "0x4f2620 registry lookup; corrects earlier0x4f1dc0 attribution",
     "damage_display": "observer and UI-option branches exist; universal spectator-number display not claimed",
     "authoritative_hp": "separate server transaction"
   },

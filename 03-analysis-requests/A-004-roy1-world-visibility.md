@@ -72,3 +72,6 @@ objdump -D -M intel --start-address=0x4f17c0 --stop-address=0x4f1b55 Asgard.exe
 objdump -D -M intel --start-address=0x4eac30 --stop-address=0x4eac65 Asgard.exe
 python3 tools/a004_visibility_model.py
 ```
+# 2026-11-08 後續實作與證據
+
+[已提交戰鬥旁觀契約](../04-analysis-integration/20261108-committed-combat-observation.md)補精確租約／生命代次、逐接收者有效物件、15秒有界游標及重同步。新增[REA S13原生旁觀條件](../04-analysis-integration/20261108-native-observed-combat.md)，真正handler4F2620，不能以4F1DC0當S13入口。第三方Human傷害數字與行走中動作有限制，原生GUI仍未驗收。此增量不完成整個A-004。

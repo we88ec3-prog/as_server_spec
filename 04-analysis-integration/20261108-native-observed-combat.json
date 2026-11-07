@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "analysis_id": "native-observed-combat-20261108",
+  "artifact": {
+    "name": "Asgard.exe",
+    "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+  },
+  "status": "observed-static; multiplayer GUI pending",
+  "s13_entry": {
+    "correct": "0x4f2620",
+    "dispatch": "0x4f4994 JMP0x4f2620",
+    "not_s13": "0x4f1dc0",
+    "correction": "Earlier remote-player report entry corrected; do not transfer other-handler Graphics.Effect gate to S13."
+  },
+  "preconditions": {
+    "ordinary_profile": "existing S13 flags bit0 damage extension, no packed-coordinate flags",
+    "target_secondary_registry": "0x4f2647 calls0x4ea240; nonzero suppresses packet",
+    "source_and_target_lookup": "0x4f266c/0x4f2692 ->LivingObject cast",
+    "missing_nonzero_target": "may emit C0C resync",
+    "selected_subset": "only deliver to a receiver that knows valid source and target actor refs",
+    "self_spoofing_forbidden": true
+  },
+  "projection_chain": {
+    "source": "0x4f288f..0x4f28b0 source virtual+8: Human0x47bc20/Monster0x4d6c60",
+    "target": "0x4f29ff ->0x4a4b00 ->0x4b6850"
+  },
+  "number_gate": {
+    "amount_field": "S13 extension Field5",
+    "damage_flag": "bit0 extension present",
+    "control_ref": {
+      "getter": "0x50d290",
+      "ui": 32,
+      "member_offset": "0x50",
+      "class": "ProtectorDialog TargetControlPane",
+      "not_ordinary_mouse_selection": true,
+      "source_functions": [
+        "0x50d310",
+        "0x50d3c0",
+        "0x50d460"
+      ]
+    },
+    "ordered_conditions": [
+      {
+        "condition": "sourceRef == self",
+        "damage_style": 0,
+        "non_damage_style": 3
+      },
+      {
+        "condition": "target actor == self actor",
+        "damage_style": 1,
+        "non_damage_style": 4
+      },
+      {
+        "condition": "Protector controlRef == sourceRef",
+        "damage_style": 0,
+        "non_damage_style": 3
+      },
+      {
+        "condition": "Protector controlRef == selfRef",
+        "damage_style": 1,
+        "non_damage_style": 4
+      },
+      {
+        "condition": "target matches Monster type-key",
+        "damage_style": 2,
+        "non_damage_style": 5
+      },
+      {
+        "condition": "otherwise remote Human target",
+        "damage_style": null,
+        "non_damage_style": null
+      }
+    ],
+    "monster_type_key": "0x9200e8",
+    "human_type_key": "0x66e3f0",
+    "common_parent": "0x91fbd8",
+    "type_test": "0x5130c0 follows parent pointers",
+    "forced_third_party_human_number_flag": "not found in selected native path",
+    "examples_without_protector_control": [
+      "A attacks MonsterM: C can reach style2",
+      "MonsterM attacks remote HumanB: C does not create a number; B reaches style1"
+    ]
+  },
+  "sound": {
+    "extension_field": "Field3",
+    "chain": "0x4b6850 tail ->0x53d420 ->0x53d250",
+    "numeric_gate_independent": true,
+    "limitations": [
+      "sound manager enabled",
+      "valid same-version sample ID/resource",
+      "volume/settings",
+      "GUI/audio acceptance pending"
+    ]
+  },
+  "effect4006": {
+    "kind": "reconstructed generic finite effect, original skill binding unknown",
+    "archive": "Effect4.dat",
+    "archive_sha256": "5cac55442e8504786bf9e8b7be73eed2a1cd05a65970739e1fdf24df0f7e58dc",
+    "member": "Effect04006.eff",
+    "slot": 7,
+    "offset": 11711203,
+    "bytes": 1976,
+    "sha256": "2729bf0f3b4a5399c4bf7831329bf8126167960ab3824c088d47fce7ed842107",
+    "graph": "0->1; no references/back-edge",
+    "image_key": 4002,
+    "duration": 1600,
+    "own_sound_node": false,
+    "runner": "0x458bc0 allocates a fresh runner on eligible call, no native event-id dedup",
+    "cleanup": "0x459680 duration+1 ERke ->0x459bd0 ->0x459b60 ->0x4b9ce0; queued actions and images empty ->runner release",
+    "server_policy": "one S13 per committed hit per eligible receiver; repeated packet produces repeated presentation",
+    "area_hits": "independent hit packets may create overlapping independent finite runners",
+    "do_not_guess_server_effect_timeout": true
+  },
+  "s1a": {
+    "air_swing_motion": 4,
+    "idle_motion": 0,
+    "requires_target": false,
+    "requires_existing_actor": true,
+    "handler": "0x4f1c60 ->Human0x47ace0",
+    "busy_gate": "0x47a440 ->0x476880 ->0x474f00 movement-action classifier",
+    "busy_action_ranges": [
+      [
+        8,
+        23
+      ],
+      [
+        40,
+        55
+      ],
+      [
+        714,
+        729
+      ]
+    ],
+    "human_flag4": "blocks actions",
+    "human_flag0x1000": "only0,1,2,0x52 allowed",
+    "resource_recovery": "not represented by this animation; authoritative resource change is separate"
+  },
+  "death": {
+    "monster_to_remote_human": "same ordinary S13 refs/extension profile, remote target number gate still applies",
+    "motion": 3,
+    "ordinary_human_action": "direction+64",
+    "moving_remote_can_reject_s1a_death": true,
+    "designed_safe_projection": "when needed S33 rebase at committed death pose, then S13 hit, then S1A motion3; retain before S0E",
+    "not_original_server_timing": true,
+    "unknown": [
+      "costume-specific death action availability beyond reviewed assets",
+      "all old queued presentation edge cases",
+      "full original death/resurrection business"
+    ]
+  },
+  "evidence_ids": [
+    "ev_6ce9df8ff8aa84f01e3ef667016faa175bd633a08ce9ccc1e7ac42b3de4c841d",
+    "ev_86770bc3a4d75c53bda0aeabf85486f01391fec2f5f29b3e37334b5f39b089f8",
+    "ev_b47e644d438bcff3e901b90f36283fe379c0f3936f0d1ede450ed39fc66a363a",
+    "ev_5a98c7ee53d01ebcb9204fbe4d37bc4c389d77f9b4b16c3687bf6035d7adfa12",
+    "ev_2ae26713d8609f17f5b0736a4aca0206c3759155893146ac018ad15bb18147e1"
+  ]
+}

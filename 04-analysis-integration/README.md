@@ -1,5 +1,7 @@
 # 分析結果整合
 
+最新戰鬥增量：[共同交易、游標與生命代次契約](20261108-committed-combat-observation.md)、[原生S13旁觀顯示限制](20261108-native-observed-combat.md)。補齊上輪多人互見之後的逐次戰鬥呈現；保留原生GUI與PvP等未完成範圍。
+
 最新多人增量：[原生遠端Human](20261108-native-remote-player-lifecycle.md)與[唯讀共享玩家／移動歷史](20261108-shared-player-visibility-and-motion.md)。S33互見、S64真路徑、外觀與租約回收已接；原生GUI與完整旁觀戰鬥事件另待完成。
 
 [2026-11-02 五城官方地理交叉核對](20261102-official-town-geography-corroboration.md)：五張官方村落圖與本地導覽／MAP預覽相符，新增SHA／座標佐證與獨立路線檢查；原服出生映射仍分開驗收。

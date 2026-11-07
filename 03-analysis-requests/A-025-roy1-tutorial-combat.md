@@ -80,3 +80,6 @@ python3 tools/a025_tutorial_combat_model.py
 ## A-004 / roy1 更正（2026-10-31）
 
 原版 `SDieObjects` 真正 constructor 是 `0x57e1b0`，在 `0x57e1c9` 將 opcode **0x5F** 傳 `0x578730`；reader `0x57e260` 仍是 BE u32 object_ref。先前把 factory `push0x1e` 誤當 opcode，已更正成 **S5F**（另有 S0E RemoveObjects）。死亡通知本身仍非原服 quest completion 證據。參照 [A-004](../03-analysis-requests/A-004-roy1-world-visibility.md)。
+# 2026-11-08 多人戰鬥呈現增量
+
+[共同交易與旁觀事件](../04-analysis-integration/20261108-committed-combat-observation.md)已串接普攻、技能、空揮、NPC MISS、恢復及怪物傷害，不因旁觀重扣血／資源或再發獎。怪物致命呈現逐連線從S13完成TCP寫入起算屍體延遲。原生handler與第三方數字限制見[REA報告](../04-analysis-integration/20261108-native-observed-combat.md)。原服完整戰鬥公式、技能對應、新手任務與原生雙Client GUI仍待補證，不將A-025標為完成。

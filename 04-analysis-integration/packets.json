@@ -2710,8 +2710,8 @@
       "system": "SYS-COMBAT",
       "profile": "TW-seed0-local-v0.1",
       "layout": "BE u32 opaque1,BE u32 opaque2,u8 motion,BE u16 effectSelector,BE u16 animationParameter,u8 flags [14B fixed fields]; flags&0x08/0x10 reinterpret the corresponding existing u32 as two u16 without extra bytes; flags&0x01 adds u8,3xBE u16,u8,2xBE u32 [16B]; mandatory trailing u8 on BOTH branches, total15B/31B. Corrected2026-11-02 from original reader0x57DE90. Effects are not authoritative HP transactions.",
-      "client_entry": "SDamageEffectPacket ctor 0x57DDE0/push0x13; parser 0x57DE90; bit flags at 0x57DECC,0x57DEF6,0x57DF1B",
-      "state_precondition": "Combat event projection, but original packet ordering/receiver UI not completely proven",
+      "client_entry": "SDamageEffectPacket ctor 0x57DDE0/push0x13; parser 0x57DE90; bit flags at 0x57DECC,0x57DEF6,0x57DF1B; handler 0x4F2620 via dispatch0x4F4994 (not0x4F1DC0)",
+      "state_precondition": "Committed combat projection onto per-receiver known living source/target references; retired target gate can discard entire packet; native observer numeric/motion conditions remain",
       "related_packets": [
         "PKT-C13",
         "PKT-S08",
@@ -2725,7 +2725,9 @@
       ],
       "evidence_ids": [
         "A009-E05",
-        "A009-E08"
+        "A009-E08",
+        "ev_6ce9df8ff8aa84f01e3ef667016faa175bd633a08ce9ccc1e7ac42b3de4c841d",
+        "ev_86770bc3a4d75c53bda0aeabf85486f01391fec2f5f29b3e37334b5f39b089f8"
       ],
       "manual_validation": "native-client-not-run",
       "requirements": [
@@ -2733,11 +2735,13 @@
       ],
       "analysis_request": "A-009",
       "contract_reference": "task_a/roy2/A-009-analysis.md",
+      "observer_contract": "04-analysis-integration/20261108-committed-combat-observation.md",
+      "observer_native_evidence": "04-analysis-integration/20261108-native-observed-combat.json",
       "native_probe": "task_a/roy2/a009_native_probe.py",
       "synthetic_test": "task_a/roy2/test_a009_combat.py",
       "unknowns": [
-        "Exact attacker/target meaning of opaque fields needs handler XREF",
-        "Miss/crit, original damage formula and update ordering unknown"
+        "Normal non-packed source/target refs are confirmed; packed-coordinate and alternate branches are not broadened to observer fallback",
+        "Original crit/formula and full ordering remain unknown; remote Human target numeric display and busy Human motions are gated; native multi-Client GUI not-run"
       ]
     },
     {

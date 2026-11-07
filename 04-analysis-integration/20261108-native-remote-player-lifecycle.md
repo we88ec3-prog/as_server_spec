@@ -59,7 +59,7 @@ S0E body為 `ref:BEu32`。既有handler4F1DA0→4BA0C0→4B9CE0執行移除；4B
 
 ## 攻擊、特效、死亡與復活投影
 
-- S13既有combat body可引用remote Human作來源／目標。4F1DC0先分別查兩端registry，Human實際執行與數字／特效亦引用物件；先投影所需actor再發戰鬥事件。不可用self1假冒其他玩家。
+- S13既有combat body可引用remote Human作來源／目標。4F2620先分別查兩端registry，Human實際執行與數字／特效亦引用物件；先投影所需actor再發戰鬥事件。不可用self1假冒其他玩家。
 - 命中數字的觀察者分支與Client顯示option有額外條件；不能僅以wire相同宣告每個旁觀者都會顯示同一數字。權威HP仍由Server維護。
 - S1A body為 `ref:BEu32, motion:u8, animationParameter:BEu16, tail:u8`。4F1C60對找到的Human走virtual+44→47ACE0→475240；motion3在普通Human flags0子集映射direction+64（墓碑素材），不是只有self可用。
 - 旁觀者可在remote S33之後再S1A motion3呈現已死亡者；活著者可S1A motion0。HP0、復活時機／位置與權限是Server政策；動畫包不替代資料交易。

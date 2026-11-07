@@ -1,6 +1,6 @@
 # Client / Server雙向處理矩陣
 
-2026-11-08：[多人Human原件補證](20261108-native-remote-player-lifecycle.md)確認S33非self會建立／重建Human，S64才建立移動路徑，S06只確認已有節點。Server依[共享玩家契約](20261108-shared-player-visibility-and-motion.md)使用真實提交歷史、S11與S0E；組隊引用沿同一角色ID。原生多Client與旁觀攻擊／技能逐次呈現仍未完成。
+2026-11-08：[多人Human原件補證](20261108-native-remote-player-lifecycle.md)確認S33非self會建立／重建Human，S64才建立移動路徑，S06只確認已有節點。Server依[共享玩家契約](20261108-shared-player-visibility-and-motion.md)使用真實提交歷史、S11與S0E；組隊引用沿同一角色ID。後續[旁觀戰鬥事件](20261108-committed-combat-observation.md)已接逐次攻擊／技能；原生多Client GUI仍未驗收。
 
 2026-11-08：[聊天原生格式](20261108-native-chat-and-whisper.md)補證C0E kind0普通文字、C19 kind0角色密語／`!!`隊伍及S0A type18 plain history。kind2仍是技能動作，kind1 C19拒收通知不能廣播；公會`!1..3`未有權限模型不授權。附近範圍、密語私密性、隊伍成員及有界精確連線收件依[投遞契約](20261108-world-chat-routing-and-delivery.md)，GUI待測。
 
@@ -95,3 +95,6 @@ Roy2 `ab2525bbe7f36d5cec89f35189e2d776ea5a8942` 補充 C4D BEu16 實際 Client p
 真實 S03 transfer callback `0x4A8370`：**C10** ctor `0x4A8415`／enqueue `0x4A8446`，再 **C25** ctor `0x4A8478`／enqueue `0x4A84F3`；另一次轉服 `0x52FAD0` 同樣為 `0x52FB8C` C10、Region3 `0x52FC4B` C25，**之間不等 S02**。Region!=3 的 0x52FAD0 path 可以只有 C10。**C10 raw token 才是 Server 的權威轉服驗證資料；合成 `C25 body=01` 不是原版 region3 Client 的 C25。**
 
 來源：[A-031 native binary 報告](../task_a/roy2/A-031-analysis.md)、[CT-110 offline 與 CT-108 native](../05-conformance/A-031-native-world-entry-test-plan.md)。35 PE VA＋CBillingInfoPacket RTTI 及 20 synthetic decoded-body tests 均有證，**不是** Native Client runtime TCP/成功進 World 證據；首個 S2C／S02錯誤／MAP初次入圖仍未確認。
+# 2026-11-08 旁觀戰鬥處理補充
+
+S13正確原生handler為 **0x4F2620**，前輪遠端玩家報告的4F1DC0已勘誤。Server按[已提交戰鬥投遞契約](20261108-committed-combat-observation.md)以每接收者有效Human／Monster引用發出S13／S1A，不能以self1替代第三人。原生退場目標會整包忽略；數字style的旁觀Monster fallback、Protector控制對象與聲音gate分開，見[REA旁觀報告](20261108-native-observed-combat.md)。本增量不新增opcode或改既有15／31byte格式。
