@@ -1,8 +1,10 @@
 # Asgard Server Specification
 
-[Server開發追蹤 Excel](06-development-tracking/README.md)：功能總表及29份功能明細，按分析、實作、自動測試與遊戲實測分欄。2026-11-07新手流程暫緩。
+[Server開發追蹤 Excel](06-development-tracking/README.md)：功能總表及33份功能明細，按分析、實作、自動測試與遊戲實測分欄。2026-11-07新手流程暫緩。
 
 技能／普通攻擊新增[Web深入分析工作台](03-analysis-requests/web-skill-review/README.md)：已先盤點A-009／010／025等既有成果，列8個子任務及ChatGPT／Claude共用提示詞、結果契約；不重複建立正式A編號。
+
+2026-11-07：[角色成長／七職業重建技能／持有裝備整合](04-analysis-integration/20261107-career-support-and-playable-integration.md)。能力窗診斷副本由使用者確認數值／懸停通過；預言者／阿修羅是職業名稱，本版Client支援待確認。
 
 版本：0.1.0-draft · 日期：2026-10-30
 

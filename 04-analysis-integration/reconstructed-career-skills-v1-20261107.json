@@ -1,0 +1,1008 @@
+{
+  "schema_version": 1,
+  "revision": "reconstructed-career-skills-v1",
+  "scope": "seven-profession close-range noncast prototype v1",
+  "native_gui": "not-run",
+  "rules": {
+    "max_targets": 8,
+    "attack_radius_chebyshev_tiles": 1,
+    "empty_target_cost": 0,
+    "empty_target_practice": 0,
+    "empty_target_cooldown_started": false,
+    "full_hp_recovery_cost": 0,
+    "default_kill_experience": 50,
+    "damage": "min(target_hp, rank.power + floor(ability / scaling_divisor)); zero divisor adds no ability bonus",
+    "recovery": "min(max_hp-current_hp, rank.power)",
+    "grant": "matching authoritative career and minimum character level; no skill-book purchase implemented",
+    "rank": "matching required level and cumulative successful-use thresholds; not original proficiency formula"
+  },
+  "skills": [
+    {
+      "key": "warrior.heavy-strike",
+      "required_career": "Warrior",
+      "command_text": "重建重擊",
+      "effect": "FacingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 1,
+          "required_successful_uses": 0,
+          "mp_cost": 0,
+          "sp_cost": 10,
+          "power": 6,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 2,
+          "required_level": 5,
+          "required_successful_uses": 10,
+          "mp_cost": 0,
+          "sp_cost": 13,
+          "power": 9,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 3,
+          "required_level": 10,
+          "required_successful_uses": 30,
+          "mp_cost": 0,
+          "sp_cost": 16,
+          "power": 12,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "warrior.sweep",
+      "required_career": "Warrior",
+      "command_text": "重建迴旋斬",
+      "effect": "SurroundingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 3,
+          "required_successful_uses": 0,
+          "mp_cost": 0,
+          "sp_cost": 15,
+          "power": 4,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 2,
+          "required_level": 8,
+          "required_successful_uses": 10,
+          "mp_cost": 0,
+          "sp_cost": 18,
+          "power": 7,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 3,
+          "required_level": 15,
+          "required_successful_uses": 30,
+          "mp_cost": 0,
+          "sp_cost": 21,
+          "power": 10,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "warrior.second-wind",
+      "required_career": "Warrior",
+      "command_text": "重建調息",
+      "effect": "SelfRecovery",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 2,
+          "required_successful_uses": 0,
+          "mp_cost": 5,
+          "sp_cost": 0,
+          "power": 15,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 2,
+          "required_level": 7,
+          "required_successful_uses": 10,
+          "mp_cost": 6,
+          "sp_cost": 0,
+          "power": 22,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 3,
+          "required_level": 12,
+          "required_successful_uses": 30,
+          "mp_cost": 7,
+          "sp_cost": 0,
+          "power": 30,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "thief.strike",
+      "required_career": "Thief",
+      "command_text": "重建迅擊",
+      "effect": "FacingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 1,
+          "required_successful_uses": 0,
+          "mp_cost": 0,
+          "sp_cost": 8,
+          "power": 5,
+          "scaling_ability": "Dexterity",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 2,
+          "required_level": 5,
+          "required_successful_uses": 10,
+          "mp_cost": 0,
+          "sp_cost": 11,
+          "power": 8,
+          "scaling_ability": "Dexterity",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 3,
+          "required_level": 10,
+          "required_successful_uses": 30,
+          "mp_cost": 0,
+          "sp_cost": 14,
+          "power": 11,
+          "scaling_ability": "Dexterity",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "thief.sweep",
+      "required_career": "Thief",
+      "command_text": "重建迴旋刺",
+      "effect": "SurroundingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 3,
+          "required_successful_uses": 0,
+          "mp_cost": 0,
+          "sp_cost": 12,
+          "power": 3,
+          "scaling_ability": "Dexterity",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 2,
+          "required_level": 8,
+          "required_successful_uses": 10,
+          "mp_cost": 0,
+          "sp_cost": 15,
+          "power": 6,
+          "scaling_ability": "Dexterity",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 3,
+          "required_level": 15,
+          "required_successful_uses": 30,
+          "mp_cost": 0,
+          "sp_cost": 18,
+          "power": 9,
+          "scaling_ability": "Dexterity",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "thief.recovery",
+      "required_career": "Thief",
+      "command_text": "重建匿息",
+      "effect": "SelfRecovery",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 2,
+          "required_successful_uses": 0,
+          "mp_cost": 6,
+          "sp_cost": 0,
+          "power": 12,
+          "scaling_ability": "Dexterity",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 2,
+          "required_level": 7,
+          "required_successful_uses": 10,
+          "mp_cost": 7,
+          "sp_cost": 0,
+          "power": 19,
+          "scaling_ability": "Dexterity",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 3,
+          "required_level": 12,
+          "required_successful_uses": 30,
+          "mp_cost": 8,
+          "sp_cost": 0,
+          "power": 27,
+          "scaling_ability": "Dexterity",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "mage.strike",
+      "required_career": "Mage",
+      "command_text": "重建法擊",
+      "effect": "FacingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 1,
+          "required_successful_uses": 0,
+          "mp_cost": 8,
+          "sp_cost": 0,
+          "power": 7,
+          "scaling_ability": "Intelligence",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 2,
+          "required_level": 5,
+          "required_successful_uses": 10,
+          "mp_cost": 9,
+          "sp_cost": 0,
+          "power": 10,
+          "scaling_ability": "Intelligence",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 3,
+          "required_level": 10,
+          "required_successful_uses": 30,
+          "mp_cost": 10,
+          "sp_cost": 0,
+          "power": 13,
+          "scaling_ability": "Intelligence",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "mage.sweep",
+      "required_career": "Mage",
+      "command_text": "重建法環",
+      "effect": "SurroundingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 3,
+          "required_successful_uses": 0,
+          "mp_cost": 12,
+          "sp_cost": 0,
+          "power": 5,
+          "scaling_ability": "Intelligence",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 2,
+          "required_level": 8,
+          "required_successful_uses": 10,
+          "mp_cost": 13,
+          "sp_cost": 0,
+          "power": 8,
+          "scaling_ability": "Intelligence",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 3,
+          "required_level": 15,
+          "required_successful_uses": 30,
+          "mp_cost": 14,
+          "sp_cost": 0,
+          "power": 11,
+          "scaling_ability": "Intelligence",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "mage.recovery",
+      "required_career": "Mage",
+      "command_text": "重建冥想",
+      "effect": "SelfRecovery",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 2,
+          "required_successful_uses": 0,
+          "mp_cost": 5,
+          "sp_cost": 0,
+          "power": 12,
+          "scaling_ability": "Intelligence",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 2,
+          "required_level": 7,
+          "required_successful_uses": 10,
+          "mp_cost": 6,
+          "sp_cost": 0,
+          "power": 19,
+          "scaling_ability": "Intelligence",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 3,
+          "required_level": 12,
+          "required_successful_uses": 30,
+          "mp_cost": 7,
+          "sp_cost": 0,
+          "power": 27,
+          "scaling_ability": "Intelligence",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "cleric.strike",
+      "required_career": "Cleric",
+      "command_text": "重建祈擊",
+      "effect": "FacingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 1,
+          "required_successful_uses": 0,
+          "mp_cost": 6,
+          "sp_cost": 0,
+          "power": 4,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 2,
+          "required_level": 5,
+          "required_successful_uses": 10,
+          "mp_cost": 7,
+          "sp_cost": 0,
+          "power": 7,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 3,
+          "required_level": 10,
+          "required_successful_uses": 30,
+          "mp_cost": 8,
+          "sp_cost": 0,
+          "power": 10,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "cleric.sweep",
+      "required_career": "Cleric",
+      "command_text": "重建聖環",
+      "effect": "SurroundingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 3,
+          "required_successful_uses": 0,
+          "mp_cost": 10,
+          "sp_cost": 0,
+          "power": 3,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 2,
+          "required_level": 8,
+          "required_successful_uses": 10,
+          "mp_cost": 11,
+          "sp_cost": 0,
+          "power": 6,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 3,
+          "required_level": 15,
+          "required_successful_uses": 30,
+          "mp_cost": 12,
+          "sp_cost": 0,
+          "power": 9,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "cleric.recovery",
+      "required_career": "Cleric",
+      "command_text": "重建療傷",
+      "effect": "SelfRecovery",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 2,
+          "required_successful_uses": 0,
+          "mp_cost": 4,
+          "sp_cost": 0,
+          "power": 22,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 2,
+          "required_level": 7,
+          "required_successful_uses": 10,
+          "mp_cost": 5,
+          "sp_cost": 0,
+          "power": 29,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 3,
+          "required_level": 12,
+          "required_successful_uses": 30,
+          "mp_cost": 6,
+          "sp_cost": 0,
+          "power": 37,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "monk.strike",
+      "required_career": "Monk",
+      "command_text": "重建崩拳",
+      "effect": "FacingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 1,
+          "required_successful_uses": 0,
+          "mp_cost": 0,
+          "sp_cost": 7,
+          "power": 6,
+          "scaling_ability": "Constitution",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 2,
+          "required_level": 5,
+          "required_successful_uses": 10,
+          "mp_cost": 0,
+          "sp_cost": 10,
+          "power": 9,
+          "scaling_ability": "Constitution",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 3,
+          "required_level": 10,
+          "required_successful_uses": 30,
+          "mp_cost": 0,
+          "sp_cost": 13,
+          "power": 12,
+          "scaling_ability": "Constitution",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "monk.sweep",
+      "required_career": "Monk",
+      "command_text": "重建旋風拳",
+      "effect": "SurroundingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 3,
+          "required_successful_uses": 0,
+          "mp_cost": 0,
+          "sp_cost": 13,
+          "power": 4,
+          "scaling_ability": "Constitution",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 2,
+          "required_level": 8,
+          "required_successful_uses": 10,
+          "mp_cost": 0,
+          "sp_cost": 16,
+          "power": 7,
+          "scaling_ability": "Constitution",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 3,
+          "required_level": 15,
+          "required_successful_uses": 30,
+          "mp_cost": 0,
+          "sp_cost": 19,
+          "power": 10,
+          "scaling_ability": "Constitution",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "monk.recovery",
+      "required_career": "Monk",
+      "command_text": "重建吐納",
+      "effect": "SelfRecovery",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 2,
+          "required_successful_uses": 0,
+          "mp_cost": 3,
+          "sp_cost": 0,
+          "power": 18,
+          "scaling_ability": "Constitution",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 2,
+          "required_level": 7,
+          "required_successful_uses": 10,
+          "mp_cost": 4,
+          "sp_cost": 0,
+          "power": 25,
+          "scaling_ability": "Constitution",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 3,
+          "required_level": 12,
+          "required_successful_uses": 30,
+          "mp_cost": 5,
+          "sp_cost": 0,
+          "power": 33,
+          "scaling_ability": "Constitution",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "knight.strike",
+      "required_career": "Knight",
+      "command_text": "重建騎擊",
+      "effect": "FacingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 1,
+          "required_successful_uses": 0,
+          "mp_cost": 2,
+          "sp_cost": 8,
+          "power": 7,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 3,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 2,
+          "required_level": 5,
+          "required_successful_uses": 10,
+          "mp_cost": 3,
+          "sp_cost": 11,
+          "power": 10,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 3,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 3,
+          "required_level": 10,
+          "required_successful_uses": 30,
+          "mp_cost": 4,
+          "sp_cost": 14,
+          "power": 13,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 3,
+          "cooldown_ms": 1000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "knight.sweep",
+      "required_career": "Knight",
+      "command_text": "重建橫掃",
+      "effect": "SurroundingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 3,
+          "required_successful_uses": 0,
+          "mp_cost": 3,
+          "sp_cost": 12,
+          "power": 5,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 3,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 2,
+          "required_level": 8,
+          "required_successful_uses": 10,
+          "mp_cost": 4,
+          "sp_cost": 15,
+          "power": 8,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 3,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 3,
+          "required_level": 15,
+          "required_successful_uses": 30,
+          "mp_cost": 5,
+          "sp_cost": 18,
+          "power": 11,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 3,
+          "cooldown_ms": 1800
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "knight.recovery",
+      "required_career": "Knight",
+      "command_text": "重建整備",
+      "effect": "SelfRecovery",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 2,
+          "required_successful_uses": 0,
+          "mp_cost": 5,
+          "sp_cost": 0,
+          "power": 16,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 2,
+          "required_level": 7,
+          "required_successful_uses": 10,
+          "mp_cost": 6,
+          "sp_cost": 0,
+          "power": 23,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 3,
+          "required_level": 12,
+          "required_successful_uses": 30,
+          "mp_cost": 7,
+          "sp_cost": 0,
+          "power": 31,
+          "scaling_ability": "Strength",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "bard.strike",
+      "required_career": "Bard",
+      "command_text": "重建音擊",
+      "effect": "FacingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 1,
+          "required_successful_uses": 0,
+          "mp_cost": 5,
+          "sp_cost": 3,
+          "power": 5,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 2,
+          "required_level": 5,
+          "required_successful_uses": 10,
+          "mp_cost": 6,
+          "sp_cost": 6,
+          "power": 8,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        },
+        {
+          "rank": 3,
+          "required_level": 10,
+          "required_successful_uses": 30,
+          "mp_cost": 7,
+          "sp_cost": 9,
+          "power": 11,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "bard.sweep",
+      "required_career": "Bard",
+      "command_text": "重建音波",
+      "effect": "SurroundingStrike",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 3,
+          "required_successful_uses": 0,
+          "mp_cost": 8,
+          "sp_cost": 5,
+          "power": 4,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 2,
+          "required_level": 8,
+          "required_successful_uses": 10,
+          "mp_cost": 9,
+          "sp_cost": 8,
+          "power": 7,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        },
+        {
+          "rank": 3,
+          "required_level": 15,
+          "required_successful_uses": 30,
+          "mp_cost": 10,
+          "sp_cost": 11,
+          "power": 10,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 4,
+          "cooldown_ms": 1800
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    },
+    {
+      "key": "bard.recovery",
+      "required_career": "Bard",
+      "command_text": "重建休息",
+      "effect": "SelfRecovery",
+      "native_kind": 1,
+      "native_slot": "assigned-per-character; 2..80; slot1 reserved for intrinsic basic attack",
+      "icon_frame": 18,
+      "use_mode": 5,
+      "cast_value": 0,
+      "ranks": [
+        {
+          "rank": 1,
+          "required_level": 2,
+          "required_successful_uses": 0,
+          "mp_cost": 4,
+          "sp_cost": 0,
+          "power": 20,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 2,
+          "required_level": 7,
+          "required_successful_uses": 10,
+          "mp_cost": 5,
+          "sp_cost": 0,
+          "power": 27,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        },
+        {
+          "rank": 3,
+          "required_level": 12,
+          "required_successful_uses": 30,
+          "mp_cost": 6,
+          "sp_cost": 0,
+          "power": 35,
+          "scaling_ability": "Wisdom",
+          "scaling_divisor": 0,
+          "cooldown_ms": 5000
+        }
+      ],
+      "provenance": "server-designed-reconstruction; not recovered original skill content"
+    }
+  ]
+}

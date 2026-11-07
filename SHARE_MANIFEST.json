@@ -13,7 +13,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "5cffb29bbe2cab15752acfc376030e661dc38ebeba80fbc215bb619ec0b69136"
+      "sha256": "5d624113bcd6ee350b60dcd8ccf464ae476f33c0cea410b28f3d231708618457"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -453,7 +453,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "ffa437d821681a9c44316d7c18c22a6de6a0ffc50d20cf72492ff0a1e016c9d5"
+      "sha256": "23a1c61c8c5c8c556f9e6454a581c5b6abec0c01c4152d312719daba79bfa5e8"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -760,6 +760,26 @@
       "sha256": "a7f1516ad92b8274a1d187c5095bfb9144cdbb0165336b736331c69a059529bc"
     },
     {
+      "path": "04-analysis-integration/20261107-career-support-and-playable-integration.md",
+      "sha256": "55eefc5f40b9b756a56fd9718f5fad07856ca73c9f4625bd1ed5c76ae8442d9f"
+    },
+    {
+      "path": "04-analysis-integration/20261107-character-growth-authority.md",
+      "sha256": "52f1290b251090e80d2dec2d50babcf860da03b8dedbd98c87a5d491cd6a50c9"
+    },
+    {
+      "path": "04-analysis-integration/20261107-native-inventory-equipment-subset.md",
+      "sha256": "9edcbb788470e7de2b2da72ffd510ff2a7cb89025828af460ebe30c6bfe9d8b0"
+    },
+    {
+      "path": "04-analysis-integration/20261107-owned-inventory-equipment.md",
+      "sha256": "c35a0c0d45b790d3cce04c00d86706c5ee488391ad185c9e1196e1813e2ad9be"
+    },
+    {
+      "path": "04-analysis-integration/20261107-reconstructed-career-skills-v1.md",
+      "sha256": "11b78d953393b3e22d427a75384a673ee497b82da3f28b2da4ff404154c47f9f"
+    },
+    {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
       "sha256": "1cf33e6c48bffa7bdff9d748ca2060a7bf866d19c0fcaf8112187ffdc03e6942"
     },
@@ -1044,8 +1064,16 @@
       "sha256": "d41974002859b49c19d9d57fb45e90a17aea19e8c7bcfe88b971ec40a662665d"
     },
     {
+      "path": "04-analysis-integration/reconstructed-career-skills-v1-20261107.json",
+      "sha256": "8013fe1552311250b98e68ef9b98d1f2d3908203e12825edda9c75855674f14e"
+    },
+    {
       "path": "04-analysis-integration/resource-formats.md",
       "sha256": "bb9cf7c402c57637e00b408be69b537b1b620517a6eb5afd86387855d825b927"
+    },
+    {
+      "path": "04-analysis-integration/reviewed-career-labels-20261107.json",
+      "sha256": "6a81d98c647ee096f3d10d65645f5797b321eff988a1ea549714716f31f6faa1"
     },
     {
       "path": "04-analysis-integration/reviewed-career-town-geography-20261102.json",
@@ -1165,7 +1193,7 @@
     },
     {
       "path": "05-conformance/A-008-stats-test-plan.md",
-      "sha256": "ad7b36ee3b137602b43aa89bfac2416295cdff4ef942b11047bbb6a34d49cd76"
+      "sha256": "b95d40c8f6cc33319dc73dc41ebadd7e4ac83d0ade1dea987e57ddc35506d226"
     },
     {
       "path": "05-conformance/A-009-combat-test-plan.md",
@@ -1305,11 +1333,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "dc551ad314b08a493bd90aeb5c783ff36bad782ee97c4d5d9cb0e4b3e6a7ce8a"
+      "sha256": "dd67d1c43dc587d298dedaa499ec81c6628907c21b88e27a10306e57d078b2a8"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "05fea67ffafd05fa9370bce38c3d2a34718c7ba3d8cc0779c80e480334d9096d"
+      "sha256": "f8e9ea1f261f49fac2bafe2e5e7bfe61294332ecafb2b9b7d77605ec772a1d50"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1317,7 +1345,7 @@
     },
     {
       "path": "06-development-tracking/details/F02_角色能力與成長.xlsx",
-      "sha256": "404726f2822fd808e40bd3502660c3e4788149d3cb35c63dc70727483f6272ce"
+      "sha256": "62897378b05185cb11e21c160ba7f62367f4ccdde5d19946be8ebe66c443335f"
     },
     {
       "path": "06-development-tracking/details/F03_新手任務流程.xlsx",
@@ -1337,31 +1365,31 @@
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
-      "sha256": "3658a0b4f25d8cef7306ab712ac12a79e7ca31a812378b4e7e545e3171cb82dd"
+      "sha256": "e9173e73de2465353834eb44be181e4471183dbf11a49e712e86395aa645e0ae"
     },
     {
       "path": "06-development-tracking/details/F08_戰士技能.xlsx",
-      "sha256": "4d12fbf27a2e0c2733df7ace92938fe6b72e0d4f5d994976756e77acde49bbfa"
+      "sha256": "b6d0fca238a41aa11dc92d2ff0c8ddb1b2b7dcc5117dc46faacadb61e541b3c2"
     },
     {
       "path": "06-development-tracking/details/F09_魔法師技能.xlsx",
-      "sha256": "f8a4c5f0572b72a96dd648ff8cbcb770a0719e73f8fcdc2252372ffd87b690e6"
+      "sha256": "33b50a9048a062e1a654f843065ca2e3794e25669bb463e305dbd31241e2d9be"
     },
     {
       "path": "06-development-tracking/details/F10_聖職者技能.xlsx",
-      "sha256": "e4d50dbf5e067c867b008df1f3838f5b0d59674845119aaa439f0f8b16420eab"
+      "sha256": "8d422c923c964a7bb2fafe7d4480ed39fe86a0a8ece4015cc3e715c51de409f4"
     },
     {
       "path": "06-development-tracking/details/F11_盜賊技能.xlsx",
-      "sha256": "f14e8d0b630e38f9f30ac12dac110a69a715b0fff63f80a10d98db8fe0fc12e2"
+      "sha256": "072dd8fc87977c10c341b2b4f701406f9a1b977f07f1c31657b03fcbf9a0d5f6"
     },
     {
       "path": "06-development-tracking/details/F12_武道家技能.xlsx",
-      "sha256": "8fb95a03efb1eaf6f3ec40d50bd548572773ac655e6e4431016a5ddb8052f43b"
+      "sha256": "ea720afd481d72da2c8bf69890b485b111c39468c628683725c6b7825a6b09ba"
     },
     {
       "path": "06-development-tracking/details/F13_背包裝備與獨立衣色.xlsx",
-      "sha256": "229cd859953869ab3432a2b68ad2d51e3142a2fa6c687511b7bfd7d0b57126b5"
+      "sha256": "3c4da10b485969d3e69bdb32f5ba7e57c16e3a55860e4e1d6bb1de8f5a8df4d7"
     },
     {
       "path": "06-development-tracking/details/F14_銀行與倉庫.xlsx",
@@ -1437,7 +1465,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "215f2b3553e360ee54c6475400cab584391ec8339e863a382576ead1268f04c3"
+      "sha256": "46d09929e92d47753535477604f37aa3ae26f9237cc882ec2be948a7bd397e41"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -1461,7 +1489,7 @@
     },
     {
       "path": "task_a/roy2/A-008-analysis.md",
-      "sha256": "09322f39d6b1e262c9e569f7b38effc3fa739235fb46a58b7755681261292b06"
+      "sha256": "c56ec3b816d522de773ead50e2e824363c580a944f9374b50c03c2d8f099ec9e"
     },
     {
       "path": "task_a/roy2/A-009-analysis.md",

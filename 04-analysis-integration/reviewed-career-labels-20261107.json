@@ -1,0 +1,37 @@
+{
+  "source": "shipped-artifact-resource-text",
+  "archive": "Basic.dat",
+  "archive_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+  "member": "BasicString.txt",
+  "member_sha256": "fa92f7a3cf544ff9e141d98620943b362e2d3dcc6e327878a818ebaa6ac3123b",
+  "member_span": [
+    190844,
+    205654
+  ],
+  "encoding": "utf-16-le-bom",
+  "labels": {
+    "440": "平民",
+    "441": "戰士",
+    "442": "盜賊",
+    "443": "魔法師",
+    "444": "聖職者",
+    "445": "武道家",
+    "446": "吟遊詩人",
+    "447": "騎士",
+    "448": "預言者",
+    "449": "阿修羅",
+    "455": "平民",
+    "456": "戰士",
+    "457": "盜賊",
+    "458": "魔法師",
+    "459": "聖職者",
+    "460": "武道家",
+    "461": "吟遊詩人",
+    "462": "騎士",
+    "463": "請輸入金額"
+  },
+  "limitations": [
+    "Text presence does not prove selectable career, native class code, skills or original transfer requirements.",
+    "Prophet/Asura support in this Client remains pending."
+  ]
+}

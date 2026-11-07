@@ -11,9 +11,11 @@
 - 測試 S08 的 0x40/0x20/0x10/0x08/0x200 旗標合併與原生順序、61B full 段、32-bit BE/16-bit BE、最大255 bytes 長度及 count、缺少/多出 bytes 拒絕、C47 5 個一熱位元。
 - 可重跑離線結果 PASS；**native_client_validation=not-run**，CT 向量可保留 planned，禁止聲稱 GUI 已通過。
 
+2026-11-07補記：使用者已確認診斷副本數值正常、職業／稱號滑過不當機；加點、經驗條及未修改原版EXE仍待驗。見[本輪整合](../04-analysis-integration/20261107-career-support-and-playable-integration.md)。
+
 ## CT-062：Native Client E2E（需有連線可用的相容 Server 時再跑）
 1. 成功完成登入 C03/S03/C10、S15/S04 及世界初始化，在狀態窗打開前後收 S08 flags 0x40+0x20，錄製 decoded body（遮蔽帳號和敏感資料）、畫面數值與初始化前後變化。
-2. 針對 UI id 0x13..0x17 逐一按下；Client 必發 C47 opcode 0x47、一個 byte，依序 01、02、04、08、10。觀察 S08 是否回覆、何時刷新。**不可預設所有按鍵都有獨立 ACK**。
+2. 針對 UI id 0x13..0x17 逐一按下；Client 必發 C47 opcode 0x47、一個 byte，依序 01、10、04、08、02（2026-11-07以原件jump table更正；STR/CON/INT/WIS/DEX）。觀察 S08 是否回覆、何時刷新。**不可預設所有按鍵都有獨立 ACK**。
 3. Server 測試（designed）：餘額不足、未登入、無權限、非法 one-hot 值、重送、不同角色 session、加點上限。確保不重複扣點、拒絕不發獎，原版 UI 錯誤碼未知。
 4. S08 以 0x20 更新四組 current，覆蓋 0、max、max+1、0xffffffff。對照 native GUI 的無號 clamp/數值顯示；不能認定超限值是原服允許值。
 5. 模擬減血至 0、復活、BUFF 及裝備變更。比對 S08 與另行 S5F/技能/裝備包的事件次序、可見性及重登值，不把 S08 結束視為死亡。

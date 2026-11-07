@@ -20,7 +20,7 @@ RTTI → CompleteObjectLocator → vtable 的分析依原件指標反向定位�
 
 | Trigger | C→S | S→C | Native Client effect / 不可超推 |
 |---|---|---|---|
-| 狀態視窗 ability 控件事件，UI id 0x13..0x17；0x53FD60 檢查 id 範圍 | C47，一個 u8：依序 0x01、0x02、0x04、0x08、0x10；0x53FDAE 建構，0x53FDEC 交送至 0x5788A0 | S08 是已證狀態通知路徑，但**未證每個 C47 有即時且一對一 S08 ACK** | Server 必須決定能否加點；Client 傳的是選項位元而不是加點後所有值 |
+| 狀態視窗 ability 控件事件，UI id 0x13..0x17；0x53FD60 檢查 id 範圍 | C47，一個 u8：依序 0x01、0x10、0x04、0x08、0x02（2026-11-07原件jump table更正）；0x53FDAE 建構，0x53FDEC 交送至 0x5788A0 | S08 是已證狀態通知路徑，但**未證每個 C47 有即時且一對一 S08 ACK** | Server 必須決定能否加點；Client 傳的是選項位元而不是加點後所有值 |
 | 原生 World/Status 物件收到 S08 | 未由 S08 本身必然發 C 封包 | S08 的 BE u16 flags 與條件資料 | 0x540660 判 opcode==8 → 0x53F8A0 將欄位複製進 Status singleton 0x66D1C8 → 0x540050 UI refresh |
 | HP/其他 resource 數值更新 | 傷害與技能發起路徑由 A-009/A-010 負責，不能直接稱作 C47 | S08 flags 0x40 基礎最大值、flags 0x20 四組目前值 | 0x53F8A0 會把目前值超過其最大值的欄位在 Client 顯示狀態中截頂；**Server 原版公式、何時死亡並未由此證明** |
 | 查看狀態視窗／經驗條 | 尚未證每次開窗都會送封包，避免虛構 C opcode | Client 可收到 S08 | StatusDialog/ExpBarDialog 已證存在，**各 GUI 標籤與經驗顯示單位仍須 UI resource / callback XREF** |
