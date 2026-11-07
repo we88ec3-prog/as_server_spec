@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[怪物追擊、玩家受傷與原子復活](04-analysis-integration/20261108-monster-ai-and-atomic-character-revival.md)，以及[原生步進／墓碑證據](04-analysis-integration/20261108-native-monster-steps-player-death-and-respawn.md)。共用節拍、碰撞路徑、離線租約清理、死亡禁移動與同圖復活已接線；被動反擊、傷害與5秒復活是重建政策。原生GUI尚待驗收，F02／F06及總表已同步；完整多人引用與全地圖怪物仍未完成。
+
 2026-11-08：[藥水、清單色差及實機回報](04-analysis-integration/20261108-consumables-color-and-manual-acceptance.md)。新增HP／MP藥水、堆疊合併、原子使用及v1→v2保留資料升級，653項回歸及真TCP通過。使用者已確認前輪衣裝買賣／銀行／排序／施法／特效結束／MP定時恢復；新藥水與禮服清單配色另列待測。
 
 2026-11-08：[使用者指定暫行每分鐘恢復50%](04-analysis-integration/20261108-temporary-online-resource-recovery.md)，可調間隔與比例，不復活、不補BP、不累積離線回復；627項回歸通過，原生等待回復GUI待測。[特效預覽與原版對應缺口](04-analysis-integration/20261108-effect-preview-and-original-skill-binding-limits.md)另列，未將通用有限特效冒稱原版技能特效。

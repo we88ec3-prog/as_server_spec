@@ -876,6 +876,10 @@
       "sha256": "cc0b28502d1cbe88a52c59f3955ce6a911a01a526f1b0fd0eb5d0f5531145c14"
     },
     {
+      "path": "04-analysis-integration/20261108-monster-ai-and-atomic-character-revival.md",
+      "sha256": "2214595e01b77a4649619ff6c6bad6afc1e1f58c70454561711713e3a0d1cced"
+    },
+    {
       "path": "04-analysis-integration/20261108-native-bank-currency-ui-contract.json",
       "sha256": "3737ea9d4a276cf4daf6f99655d3f94877629e09673985f59360ca0a65eec336"
     },
@@ -894,6 +898,14 @@
     {
       "path": "04-analysis-integration/20261108-native-effect-lifecycle-correction.md",
       "sha256": "71677fb57b32c35a2b5b11228ac4d0cd5981d87c55fa94ea2ad6e7cc7318c496"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-monster-steps-player-death-and-respawn.json",
+      "sha256": "9f3e92735f619e2d58e41773d4d152c8b180d62680d8d25b4da54ccd553d145d"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-monster-steps-player-death-and-respawn.md",
+      "sha256": "528ab2eccfd618ac8031a65b3238b07c8504f796a0c1d3824154eb2095f29aab"
     },
     {
       "path": "04-analysis-integration/20261108-native-shop-and-bank-items-contract.json",
@@ -1509,11 +1521,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "31f00129ff11bf55a183afc9acbe868e6c05a4db7b82c37007b82f2e94d400db"
+      "sha256": "c2442ffbe96e55c19ec9680e1308300aa88a1fe5a0b0651fc5a196ae0cbb090a"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "83450109cbe4bfcfc077c5d06a7df3c7669667792d31375aba22e405ce05532e"
+      "sha256": "9f20c6ac791944b395b712a69b2eb47d7ee387be9b06bfee5c15b4db251ea7e7"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1521,7 +1533,7 @@
     },
     {
       "path": "06-development-tracking/details/F02_角色能力與成長.xlsx",
-      "sha256": "fc4e594fc06f1668847bb6a5cb41a518bf6f4f4940548f6790599aaa81c77513"
+      "sha256": "ca9821a6654bb5b5af9d6852067065ad1a0ca23e3ecf4b6db28c8b9f77c4ea6e"
     },
     {
       "path": "06-development-tracking/details/F03_新手任務流程.xlsx",
@@ -1537,7 +1549,7 @@
     },
     {
       "path": "06-development-tracking/details/F06_怪物與戰鬥.xlsx",
-      "sha256": "e11c69a21fbfcff8eae0715eba46967a817244d7027f07bc8362aadee25b41c7"
+      "sha256": "bfa18b398d1b366a549d1868afe72608495dc59d7f8ecc1eb2e22ed92547a0ce"
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
@@ -1657,7 +1669,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "cc26677c8b4f06e78e6832d59e6f31b03e93b5e2957d52915b55a44b8586eac6"
+      "sha256": "36bf953f3aa4bee17bfe43ca9804036d2ff17c1a9453f5b4e8205b60e76118e7"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
