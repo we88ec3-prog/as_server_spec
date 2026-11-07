@@ -72,3 +72,4 @@ python3 tools/a007_inventory_contract.py
 ```
 
 檔案/完整 DAT bytes 不提交，僅交付位址/精簡特徵/合成 fixture。
+2026-11-07後續原件補證與開發：新增[C3A欄位更新／C1F卸裝的正面路徑](../04-analysis-integration/20261107-equipped-click-and-native-takeoff.md)，不再只以C1E作待查入口。原始封包／原服完整物品規則與新補子集的驗收範圍仍分開。

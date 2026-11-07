@@ -13,7 +13,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "845f0e05a02e3a0097f5a9a62e0733f08e36db908be84606f942cecffeda80f7"
+      "sha256": "d477c022f92d0f593a6dd39a31738bb3606c5d00f5bed0d9b3b00ff3c7f605b3"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -329,7 +329,7 @@
     },
     {
       "path": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
-      "sha256": "1d0b5e26b1bef6c967b529a2aa76e4c814abd309a1d27c86ea66b4c6eed18786"
+      "sha256": "80aebe6c43d088f9418b8f1619a77131406f7fa58a716d8019313ff1fdfb7322"
     },
     {
       "path": "03-analysis-requests/A-011-map-monster-placement-followup.md",
@@ -461,7 +461,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "acf8664ba517336bea9cb7d3ba24f304eab79bb7ec6b9cb45950d36a4b052dba"
+      "sha256": "4f9f784276f5f67b814de70902da341d98fae10e4297d4dbcd0f0e73a0f48e4a"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -768,8 +768,24 @@
       "sha256": "52f1290b251090e80d2dec2d50babcf860da03b8dedbd98c87a5d491cd6a50c9"
     },
     {
+      "path": "04-analysis-integration/20261107-clothing-attack-action-presence.json",
+      "sha256": "2cc898efd52abf8e3728bc007ccf5552c40901c9f2d25f14362d6589e5ea00f9"
+    },
+    {
+      "path": "04-analysis-integration/20261107-clothing-attack-action-presence.md",
+      "sha256": "1e00debb80aafad56bdbc2242daf5de2f4ae34386c6d2f0d3915f835ab1b8220"
+    },
+    {
+      "path": "04-analysis-integration/20261107-equipped-click-and-native-takeoff.md",
+      "sha256": "f9895ff9e7445356f7f30e7a28c03cd5943c77dac3c186cc13a0342c74df56d1"
+    },
+    {
+      "path": "04-analysis-integration/20261107-equipped-click-incident.md",
+      "sha256": "b177cf6ce1da10e3ee60c3536f105205f8fc1124b6b8aa949456128f66fdbf8b"
+    },
+    {
       "path": "04-analysis-integration/20261107-native-inventory-equipment-subset.md",
-      "sha256": "9edcbb788470e7de2b2da72ffd510ff2a7cb89025828af460ebe30c6bfe9d8b0"
+      "sha256": "3b77b4f1bec50d4a7f46927ed0ecb95595d7d7b23ae099e4097c4fe5fc75a140"
     },
     {
       "path": "04-analysis-integration/20261107-owned-inventory-equipment.md",
@@ -950,6 +966,10 @@
     {
       "path": "04-analysis-integration/content-resource-catalog.json",
       "sha256": "1b18f69ba4700b8ae0884f08d5af11751e0361699285b657301938127c2debad"
+    },
+    {
+      "path": "04-analysis-integration/equipped-click-takeoff-wire-20261107.json",
+      "sha256": "613db4ecda5bb5470f54e9b1c4f49e7053aa93a00330d5ad91a1362e73d9e6ea"
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
@@ -1357,7 +1377,7 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "0733783ff62a87e52842af68f647b1d9432eba6520d0dc17df19c92b7fc12d6c"
+      "sha256": "63751ddbb9d80c576d9fd48c891548b08a9f801e5988d89d29e2737d3cb20d5c"
     },
     {
       "path": "06-development-tracking/README.md",
@@ -1413,7 +1433,7 @@
     },
     {
       "path": "06-development-tracking/details/F13_背包裝備與獨立衣色.xlsx",
-      "sha256": "3c4da10b485969d3e69bdb32f5ba7e57c16e3a55860e4e1d6bb1de8f5a8df4d7"
+      "sha256": "bd12aa24be083d8509a1b24cd112352d54619b934a21861a585c8ba935a2624a"
     },
     {
       "path": "06-development-tracking/details/F14_銀行與倉庫.xlsx",
@@ -1489,7 +1509,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "b2ed4d545c0184137bca7e19c07004d856c8ab5e52460e66c5417392df56b43e"
+      "sha256": "3950dc99428bbeac3f63813be21348fcddc88c07a4004ea2fa6f171e1bc79e1d"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

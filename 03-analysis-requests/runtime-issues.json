@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-01",
+  "updated_on": "2026-11-07",
   "purpose": "Sanitized local feedback; status is scoped to the recorded runtime, not a declaration that every server version has the same defect.",
   "spec_baseline_before_integration": "6b935906dbfa8db118aa058c73e880d6409bbf90",
   "implementation_review": {
@@ -421,6 +421,26 @@
       "report": "04-analysis-integration/20261101-recruiter-invisible-motion.md",
       "native_client_validation": "not-run",
       "next_action": "Complete school/job/town chain before requesting the next human test."
+    },
+    {
+      "id": "RI-014",
+      "title": "點選身上裝備斷線；要求原生卸裝並釐清泳裝／禮服缺攻擊動作",
+      "priority": "P1",
+      "status": "implemented-awaiting-native-retest",
+      "source": "2026-11-07 user report; user requirement and observed failure are separate from native static evidence and Server policy.",
+      "analysis_requests": [
+        "A-007"
+      ],
+      "current_facts": [
+        "Two sanitized metadata events show C3A length1 rejected as unknown opcode and socket closed.",
+        "REA proves C3A CUpdatePartPacket and C1F CTakeOffPacket are separate; player C1F subset is slot,0,0,0.",
+        "C3A now keeps the valid World connection without mutating inventory; C1F atomically moves owned equipment back to a free bag slot.",
+        "479 regression tests and isolated Warrior HTTP/TCP passed; native GUI gestures/presentation pending.",
+        "Both sexes clothing1/2 first-object actions24..31 and56..63 are empty; original combat restriction remains unknown."
+      ],
+      "report": "04-analysis-integration/20261107-equipped-click-and-native-takeoff.md",
+      "native_client_validation": "pending",
+      "next_action": "Native retest equipped click, takeoff, rewear and relogin; preserve Client/Server on failure."
     }
   ],
   "latest_direct_increment": {

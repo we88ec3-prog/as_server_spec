@@ -59,3 +59,5 @@ S38 handler `0x4f1220` 在 reader 的 Boolean 為true時由 `0x45d160` 取得格
 原始EXE SHA256為`db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`。本輪重跑既有A-007的15個SHA鎖定原件signature錨點，並核對上表新增9個handler／容器配對錨點，全部通過。
 
 初版隔離Protocol測試106項通過、0失敗；追加移除helper後僅重跑InventoryWireTests類別17項，全部通過。測例涵蓋C1C九種尾長、無效／未知類型、C1E長度、S0F/S37獨立offset向量、CP950 255B邊界、每個截斷位置、尾隨bytes、未支援mode／附加描述拒絕、S10/S38原始值保存與固定清除向量。這是Server codec／合成驗證，**沒有因此把背包、卸裝或物品說明視窗記為原版Client實機通過**。
+
+2026-11-07後續：已由實際C3A斷線與REA補證[裝備欄更新／C1F卸裝](20261107-equipped-click-and-native-takeoff.md)。C1E仍不當作卸裝；新增C1F四u8玩家子集，原生手勢與畫面驗收另列。

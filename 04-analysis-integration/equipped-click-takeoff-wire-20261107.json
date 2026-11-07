@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "source": "REA shipped-artifact static plus redacted local packet metadata; not native GUI accepted",
+  "C3A": {
+    "class": "CUpdatePartPacket",
+    "constructor": "0x577490",
+    "opcode_anchor": {
+      "address": "0x5774a9",
+      "hex": "6a3a"
+    },
+    "writer_anchor": {
+      "address": "0x577540",
+      "hex": "0fb6411850e8b635eeffc3"
+    },
+    "wire": [
+      "u8 equipment-part/slot"
+    ],
+    "server_scope": "recognized shape/no mutation/no invented response; valid owned World remains connected",
+    "response_layout": "unverified"
+  },
+  "C1F": {
+    "class": "CTakeOffPacket",
+    "constructor": "0x5757d0",
+    "opcode_anchor": {
+      "address": "0x5757e9",
+      "hex": "6a1f"
+    },
+    "writer": "0x575880",
+    "wire": [
+      "u8 slot",
+      "u8 field1",
+      "u8 field2",
+      "u8 equipment_set"
+    ],
+    "player_subset": "slot,0,0,0",
+    "other_observed": "ProtectorEquipDialog sets last byte1; not enabled for player inventory",
+    "source_handler": "0x45c2a0 case2",
+    "gesture": "native event case2; exact mouse gesture not yet independently traced"
+  },
+  "C1E": "unchanged unknown UI semantics; not used as takeoff",
+  "evidence_ids": {
+    "equip_control": "ev_9bf6e5b8df3d058a30880d84ed65caefb480636153edff7a980a617cb104c161",
+    "C3A_ctor": "ev_6568db20137b0b8b5176db02ca4d67afbaaaa4de43311b580e943aa71803ee8d",
+    "C3A_bytes": "ev_8b9d5521fa7ee8dd10de9098c03016b7166e82ba5453053efa6af3198b358ecf",
+    "C3A_RTTI": "ev_c90694e6cc3df857413390000e97997987b062bf1cf845ae51ca03c4c318e82c",
+    "C1F_ctor": "ev_3f4f8826aa905d872dec33801007f514dc6a30fb8b3c92413f0b12b8df3a2063",
+    "C1F_writer": "ev_2d00a30086dd1fdb8beb2a834859b28938b2db021dc0d9086b706ce2bea8abb9",
+    "C1F_writer_bytes": "ev_720cd448aa2f0059106302d2f8b7d3c8cde267201cdcbc9ab20cb9284d2c2431",
+    "protector_sender": "ev_9ef6e228f71b9c33e73901f3f0b1af841d8fa0856319e312949e95be6be4a6ea"
+  },
+  "native_gui": "not-run",
+  "tests": {
+    "dotnet_total": 479,
+    "dotnet_failed": 0,
+    "takeoff_store_class": 11,
+    "tcp": "Warrior real loopback C3A, takeoff, empty replay, rewear, unsupported set, hair/tint and relogin"
+  }
+}
