@@ -1,0 +1,228 @@
+{
+  "schema": "asgard.native-bank-currency-contract.v1",
+  "date": "2026-11-08",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "evidence_kind": "Shipped Script bounded zlib/UTF16 XML, exact CP950 text CRC; native script bridge and status projection retained/static verified. No GUI acceptance.",
+  "entry": {
+    "script": "Merchant",
+    "sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+    "functions": [
+      "Main"
+    ],
+    "strict_cp950_crc32": "e9b389cf"
+  },
+  "dependencies": [
+    {
+      "script": "nSuBanker01",
+      "sha256": "c6df4370e01ce826e339460870f16d9b3f799486c37137ee5a73cc5292760f1b",
+      "strict_cp950_crc32": "3a506b26",
+      "functions": [
+        "DoesBuy",
+        "DoesSell",
+        "DoesRepair",
+        "DoesBank",
+        "DoesIdentify",
+        "DoesTalk",
+        "BuildMuttering",
+        "LoadBuyMessage",
+        "LoadSellMessage",
+        "LoadRepairMessage",
+        "LoadDGMessage",
+        "LoadWGMessage",
+        "LoadDIMessage",
+        "LoadWIMessage",
+        "LoadIdentifyMessage",
+        "LoadTalkMessage",
+        "MerchantTalk"
+      ]
+    },
+    {
+      "script": "MerchantDialog",
+      "sha256": "ed194a77a669cbd8f83fbbd01bb08ed0f800b122695cc204a3a12f002f945095",
+      "functions": [
+        "MerchantDialog_Create",
+        "MerchantDialogProc"
+      ],
+      "strict_cp950_crc32": "9267d99d"
+    },
+    {
+      "script": "MerchantBankDialog",
+      "sha256": "13573352cf84d905da953be4ea551a97ba8431e3fa1e1154f05bbddd50f0ec7a",
+      "functions": [
+        "MerchantBank",
+        "MerchantBankDialogProc",
+        "MerchantBankDialog"
+      ],
+      "strict_cp950_crc32": "1e576517"
+    },
+    {
+      "script": "MerchantBankDGDialog",
+      "sha256": "a6ce2545f5ee0bd3402bfa8cb06ca8466d9b60818500e081d27670cfc4332cc4",
+      "functions": [
+        "MerchantBankDepositGoldDialog",
+        "MerchantBankDepositGoldNumberDialog",
+        "MerchantBankDepositGoldNumberDialogProc",
+        "MerchantBankDepositGoldNumberDialogAdjust"
+      ],
+      "strict_cp950_crc32": "812ccab0"
+    },
+    {
+      "script": "MerchantBankWGDialog",
+      "sha256": "8cbbbdde071efd4c8dc02325e61c25ece1fe445798f623da3e0163c4433afc7f",
+      "functions": [
+        "MerchantBankWithdrawGoldDialog",
+        "MerchantBankWithdrawGoldNumberDialog",
+        "MerchantBankWithdrawGoldNumberDialogProc",
+        "MerchantBankWithdrawGoldNumberDialogAdjust"
+      ],
+      "strict_cp950_crc32": "35bb8dae"
+    },
+    {
+      "script": "ItemsDialog",
+      "sha256": "ae0c5b8c954dba8ea59990cd27554b36ab5e1b95b2e2e8bc8c9f277a042c2edc",
+      "strict_cp950_crc32": "ffc38cd1",
+      "functions": [
+        "ItemDialog_Create",
+        "ItemDialogProc",
+        "dummyToolTipProc"
+      ]
+    }
+  ],
+  "initial_parameters": {
+    "TILE": "verified Portrait tile decimal",
+    "MNAME": "席茲 or configured role label",
+    "GREETING": "short trusted introduction",
+    "UGOLD": "authoritative wallet decimal",
+    "UBAL": "authoritative bank balance decimal",
+    "UAGOLD": "maxWallet-wallet decimal",
+    "UABAL": "maxBank-bank decimal",
+    "UCOLOR": "validated native colour string"
+  },
+  "initial_forbidden_parameters": [
+    "TYPE",
+    "Quest01",
+    "Quest04",
+    "STEP"
+  ],
+  "transitions": [
+    {
+      "trigger": "Merchant main BANK",
+      "client_reply": {
+        "TYPE": "BANK"
+      },
+      "client_local": "Disposes merchant menu; calls MerchantBank, opens local four-entry bank menu without waiting."
+    },
+    {
+      "trigger": "bank menu DEPOSITGOLD/WITHDRAWGOLD",
+      "client_reply": {
+        "TYPE": "BANK if retained in same runner",
+        "STATE": "DEPOSITGOLD or WITHDRAWGOLD"
+      },
+      "client_local": "Disables bank menu and waits for Server."
+    },
+    {
+      "trigger": "Server opens amount screen",
+      "S44_parameters_add": {
+        "TYPE": "BANK",
+        "STATE": "DEPOSITGOLD or WITHDRAWGOLD"
+      },
+      "client_local": "Merchant Main creates a fresh empty ClientReply; MerchantBankDialog dispatches currency function; ItemsDialog parent plus amount child."
+    },
+    {
+      "trigger": "valid amount confirmed",
+      "client_reply": {
+        "STATE": "DEPOSITGOLD or WITHDRAWGOLD",
+        "U": "canonical positive decimal amount"
+      },
+      "client_local": "Optimistically changes UserGold/UserBalance and parent GOLD, disposes amount child, sends reply; parent remains."
+    },
+    {
+      "trigger": "amount child Cancel",
+      "client_reply": null,
+      "client_local": "Disposes amount child only."
+    },
+    {
+      "trigger": "parent ItemsDialog Cancel",
+      "client_reply": {
+        "STATE": "ABORT"
+      },
+      "client_local": "ResetValues, SendReply, ShowInventory(false), dialog.Dispose, client.Dispose."
+    }
+  ],
+  "TYPE_rule": "ServerParam.TYPE is not automatically copied to ClientReply. Final amount and ABORT replies may legally omit TYPE; classify by trusted Server runner context, validate TYPE=BANK when present.",
+  "bank_menu_item_branches": {
+    "DEPOSIT": "item deposit; not currency",
+    "WITHDRAW": "item withdrawal; not currency",
+    "support": "Not part of this minimal currency implementation. Never dispatch TYPE=BANK STATE=DEPOSIT/WITHDRAW without item dependencies/authority. Reject with clear unavailable response and no mutation, not a fake empty bank."
+  },
+  "currency_closure": {
+    "Main": "Merchant builds globals and BuildMuttering; no TYPE => Does* =>MerchantDialog_Create; BANK callback ->MerchantBank.",
+    "deposit": "TYPE=BANK STATE=DEPOSITGOLD ->MerchantBankDepositGoldDialog ->LoadDGMessage +ItemDialog_Create +amount callbacks.",
+    "withdraw": "TYPE=BANK STATE=WITHDRAWGOLD ->MerchantBankWithdrawGoldDialog ->LoadWGMessage +ItemDialog_Create +amount callbacks.",
+    "dependencies_excluded": [
+      "Dialog (legacy incomplete and incompatible ItemDialog signature)",
+      "MerchantWGDialog (duplicate alternate withdrawal definitions)",
+      "MerchantBankDIDialog",
+      "MerchantBankWIDialog"
+    ],
+    "note": "Closed reachable currency paths, not all static symbols of MerchantBankDialog. No Quest flags or arbitrary TYPE values."
+  },
+  "wire": {
+    "S44_start": "u8(1),u8(0),string8 main,BEu32 context,BEu32 textCRC,u8 dependencyCount,(string8 dependency,BEu32 crc)*count,BEu16 parameterCount,(string8 key,string8 value)*count",
+    "C6C_reply": "u8(1),string8 main,BEu32 context,BEu16 pairCount,(string8 key,string8 value)*count",
+    "C6C_dispose": "u8(4),string8 main,BEu32 context",
+    "C6C_no_reply_cleanup": "u8(2),string8 main,BEu32 context, conditional on replied flag",
+    "string_encoding": "CP950 encoded byte length u8, no NUL; not native UTF16 buffer width",
+    "script_update": "Never use S44 cache deletion or deliberately bad CRC as an ACK."
+  },
+  "wallet_projection": {
+    "S08": "flag0x10 trailingBEu32 ->Status+0x48c, inventory money display. Full0x78 corrected bodyoffset90; standalone0x10 offset14.",
+    "bank": "S44 UBAL; no claim of a separate native bank-balance S08 field.",
+    "reference": "20261108-native-status-u24-and-hud-correction.md"
+  },
+  "server_design": {
+    "policy_revision": "development-economy-v1",
+    "caps": 1000000000,
+    "initial_balances": 0,
+    "fee": 0,
+    "attribution": "Explicit reconstructed Server policy, not original limits or prices.",
+    "authority": [
+      "Bind context to owner/current lease/map/NPC interaction admission and expected wallet revision.",
+      "Accept only expected step and canonical positive decimalU within policy cap. Ignore all claimed resulting balances.",
+      "Single durable transaction moves funds between wallet/bank, conserving total and rejecting insufficient funds/overflow.",
+      "Context one-shot operation identity plus receipt prevents repeated C6C from moving funds again; wire has no native nonce.",
+      "On commit or refusal read fresh authority, close/replace stale view and send S08 wallet plus freshS44 snapshot. Never reapply historical receiptState.",
+      "Disposal closes only its matching context; late cleanup from old runner cannot erase a newer one."
+    ]
+  },
+  "shop_followup": {
+    "status": "static parameter schema only; not current playable acceptance",
+    "entry": "Merchant TYPE=BUY with nSuPotion01 +ItemsDialog +MerchantBuyDialog plus verified metadata helper dependency",
+    "extra_parameters": [
+      "EMPTYSLOT",
+      "EMPTYWEIGHT",
+      "ITEMCOUNT"
+    ],
+    "per_row_parameter_prefixes": [
+      "T",
+      "N",
+      "L",
+      "P",
+      "G",
+      "C",
+      "W",
+      "K",
+      "R",
+      "O",
+      "E",
+      "U"
+    ],
+    "suffix": "client.Int2Str(i), unpadded decimal index; original for-loop endpoint semantics still need interpreter/runtime confirmation.",
+    "reply": "I=row index,U=quantity; TYPE may be absent on fresh runner.",
+    "limits": [
+      "GetStringFromMetaData(HelpString,K,1) dependency not closed in this increment.",
+      "Original items/prices/bundle policy unknown.",
+      "Do not route script-buy replies to C39/S2F solely by Merchant class name."
+    ]
+  }
+}

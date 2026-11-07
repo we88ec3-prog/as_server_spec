@@ -1,5 +1,7 @@
 # 原生角色能力初始化與持久狀態
 
+**2026-11-08更正**：[S08原件u24與HUD假滿根因](20261108-native-status-u24-and-hud-correction.md)取代本頁舊full61B基線。色彩欄為3bytes，full60B；Current62、錢包90、Title99。能力窗曾通過的懸停測試不等於資源條數值正確，新增GUI複驗。
+
 本輪依[能力窗當機回報](20261102-personal-account-admin-and-status-window.md)補上 Server 已確認缺少的 S08 投影。**已完成狀態初始化實作與 Server 驗證；尚未證實滑過職業／稱號不再當機。**原件與診斷副本沒有因本輪變更而改寫。
 
 ## Client 證據與欄位來源

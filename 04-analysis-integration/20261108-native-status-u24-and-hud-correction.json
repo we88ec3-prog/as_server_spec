@@ -1,0 +1,300 @@
+{
+  "schema": "asgard.native-status-u24-correction.v1",
+  "date": "2026-11-08",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "supersedes": "Older statements that S08 flag0x40 block is61 bytes or colour groups field isBEu32. Correct block60; fieldBEu24.",
+  "colour_reader": {
+    "function": "0x45ae30",
+    "call_va": "0x586e8d",
+    "bytes": 3,
+    "wire_offset_in_full_78": 50,
+    "native_cursor_increment": 3,
+    "evidence_id": "ev_b8e7f02c21be404ec7ae5820dab5dc973ce23b34ed6bbf3da65dbe55fcdfa8bf"
+  },
+  "full_block_calls": [
+    {
+      "call_va": "0x586da2",
+      "reader": "0x0045aff0",
+      "width": 1,
+      "body_offset": 2,
+      "evidence_id": "ev_3ded2aec2d61d48dbb990b3c4e751ad16f641447f2e35da68f213ab07152f3d3"
+    },
+    {
+      "call_va": "0x586da9",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 3,
+      "evidence_id": "ev_b784a2b29cbbb1cba758ebd5af3a4a573f4498af8dd9349161cfdae3521c59c9"
+    },
+    {
+      "call_va": "0x586db3",
+      "reader": "0x0045aeb0",
+      "width": 4,
+      "body_offset": 4,
+      "evidence_id": "ev_3cd4c43f7db241fa54c564c80da2d9d45fa730b832c8fe47d38f8da6446e5b66"
+    },
+    {
+      "call_va": "0x586dbd",
+      "reader": "0x0045aeb0",
+      "width": 4,
+      "body_offset": 8,
+      "evidence_id": "ev_b98931966ae1f6a534cf6aae9c01c2890c739dc1c79b91797b41452d0bf97997"
+    },
+    {
+      "call_va": "0x586dc7",
+      "reader": "0x0045aeb0",
+      "width": 4,
+      "body_offset": 12,
+      "evidence_id": "ev_db8cf504d535efaf01aa29741f50dde2cf1135e641e0732a8774748d56c800cf"
+    },
+    {
+      "call_va": "0x586dd1",
+      "reader": "0x0045aeb0",
+      "width": 4,
+      "body_offset": 16,
+      "evidence_id": "ev_5c3a41b5f5cfa3d011b23c5f4d8df14d75a374418bae446c549bdd9fdebf0a90"
+    },
+    {
+      "call_va": "0x586ddb",
+      "reader": "0x0045ade0",
+      "width": 2,
+      "body_offset": 20,
+      "evidence_id": "ev_7715e4e3c8e0e91ea668cac1b4115823f637c10bec6bb9cdc0a3db21d211180c"
+    },
+    {
+      "call_va": "0x586de6",
+      "reader": "0x0045ade0",
+      "width": 2,
+      "body_offset": 22,
+      "evidence_id": "ev_e28afab1b43c76ffce49fd4841f4fad19e46d596f8633773d693ac8a9acaf88a"
+    },
+    {
+      "call_va": "0x586df1",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 24,
+      "evidence_id": "ev_1ed0353dcf299763ae534cc789bcc0983cd6d17682d34dcabc557d61e9c01a79"
+    },
+    {
+      "call_va": "0x586dfb",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 25,
+      "evidence_id": "ev_375c6a306eff8cfbc4dc540c681096125a30cde5949a82bfa29202efdd7e3c8a"
+    },
+    {
+      "call_va": "0x586e09",
+      "reader": "0x0045ade0",
+      "width": 2,
+      "body_offset": 26,
+      "evidence_id": "ev_a908b63890dbd9e26e93e8f48c003809255c69faa39fefe5d96f10b1adc45e50"
+    },
+    {
+      "call_va": "0x586e14",
+      "reader": "0x0045ade0",
+      "width": 2,
+      "body_offset": 28,
+      "evidence_id": "ev_d7790e3cd437e119ff62a457de4c49751a32bd93e5a162c6a378e66315419619"
+    },
+    {
+      "call_va": "0x586e1f",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 30,
+      "evidence_id": "ev_ef73df19b827fd8fc86e7bc93928a1a0a3ec9622ff7d0a00a5d725b70fa0872c"
+    },
+    {
+      "call_va": "0x586e29",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 31,
+      "evidence_id": "ev_f9eacafcdec8eae0fe86dd453bdc5159bd72168c7e9bf243fc748aa3e08813fc"
+    },
+    {
+      "call_va": "0x586e33",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 32,
+      "evidence_id": "ev_fb5181c66185e09d6ea8112703057d357c5248ebcc3b2e426b60c13940f0fa73"
+    },
+    {
+      "call_va": "0x586e3d",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 33,
+      "evidence_id": "ev_c048ace978ca6f8aee2e146d6d510258ca11c0f35161a233c0c494e65ffb42ca"
+    },
+    {
+      "call_va": "0x586e47",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 34,
+      "evidence_id": "ev_b3869976d62b775b3f2ad1065f2f032b081af1f5ddf82f0406875e379d59a725"
+    },
+    {
+      "call_va": "0x586e51",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 35,
+      "evidence_id": "ev_3fa6493072b9d87f98c4f3377f4955da5753000bfd4215de3ba91e1b7fd0741b"
+    },
+    {
+      "call_va": "0x586e5b",
+      "reader": "0x0045aeb0",
+      "width": 4,
+      "body_offset": 36,
+      "evidence_id": "ev_19b943068e1e52367dc302f47578eb122a3a82d3875a8bd3fcf13946f9eba5ec"
+    },
+    {
+      "call_va": "0x586e65",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 40,
+      "evidence_id": "ev_b8baa7d46ab2aecb75456edd34ead8621cfcb1e5ed9ab6fd94d4711b1ae8c771"
+    },
+    {
+      "call_va": "0x586e6f",
+      "reader": "0x0045aeb0",
+      "width": 4,
+      "body_offset": 41,
+      "evidence_id": "ev_ff9052494f5b7eec56bbf7298ee81b34d657ae68a93f08a1123e7f9b0bbbac4b"
+    },
+    {
+      "call_va": "0x586e79",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 45,
+      "evidence_id": "ev_8310c8b0084478f26d8348aeb3b014412696a20c9abb8ce877431ed2e4209bf6"
+    },
+    {
+      "call_va": "0x586e83",
+      "reader": "0x0045aeb0",
+      "width": 4,
+      "body_offset": 46,
+      "evidence_id": "ev_4823f0deadb840d3eaa4b1e0c0b63765bfbfd8ddcea29ee15e37ee85764a780f"
+    },
+    {
+      "call_va": "0x586e8d",
+      "reader": "0x0045ae30",
+      "width": 3,
+      "body_offset": 50,
+      "evidence_id": "ev_0bbc13e3907e2d4a9a9ff99dc22fc45ad81116fa42f7311f20e8972ab241da06"
+    },
+    {
+      "call_va": "0x586e97",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 53,
+      "evidence_id": "ev_eb37396f60d6e6ac9341ca0922b34ddcab8907f0cebeaf0ca63d45a095da48cf"
+    },
+    {
+      "call_va": "0x586ea6",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 54,
+      "evidence_id": "ev_eda3b1b6c3dba49404836076c253a59db073326680f2cc89aa78f5bfd8f905e3"
+    },
+    {
+      "call_va": "0x586eb0",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 55,
+      "evidence_id": "ev_cd2d5119e99e8749da5edf3dca3d3cfaf79f9b3a3a77c895cfba215b777ac63f"
+    },
+    {
+      "call_va": "0x586eba",
+      "reader": "0x0045ade0",
+      "width": 2,
+      "body_offset": 56,
+      "evidence_id": "ev_f9c00c913f5ff14cb8fc90e1cee190dbffe0d1e8ad833ffb3c8f3fff61abf1b2"
+    },
+    {
+      "call_va": "0x586ec5",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 58,
+      "evidence_id": "ev_3904f7128243aa7a597e105f946b805240bb02117c5521da9c2f1325a1cb1caa"
+    },
+    {
+      "call_va": "0x586ecf",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 59,
+      "evidence_id": "ev_740e795da4ee0d0a8d9c1a0f25c160061bd8157de04f49b16ce7d94915dd3fbe"
+    },
+    {
+      "call_va": "0x586ed9",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 60,
+      "evidence_id": "ev_455a9a432afc1559fcfccb8a96e260f9e4987ff6f29697c666e3892195c6cba2"
+    },
+    {
+      "call_va": "0x586ee3",
+      "reader": "0x0045adb0",
+      "width": 1,
+      "body_offset": 61,
+      "evidence_id": "ev_9ee7d175864a465f0a12f21140f3503a02ddad2575fc99e5627533acabdf09d2"
+    }
+  ],
+  "full_78_body_offsets": {
+    "flags": 0,
+    "full_block": 2,
+    "full_block_bytes": 60,
+    "current_hp": 62,
+    "current_mp": 66,
+    "current_sp": 70,
+    "current_bp": 74,
+    "experience": 78,
+    "four_u16_progress": [
+      82,
+      84,
+      86,
+      88
+    ],
+    "wallet": 90,
+    "five_bytes_title_flags": 94,
+    "title_string8": 99
+  },
+  "minimal_bodies": {
+    "flags40": 62,
+    "flags20": 18,
+    "flags10": 18,
+    "flags78": "99+encodedString8Bytes(title)"
+  },
+  "native_views": {
+    "parser": "0x586d40 writes subobject locals; complete packet offsets are +12 relative to parser ECX view.",
+    "hud_forwarder": "0x474c30 event+0x14 packet, checks packet+8 opcode8, adjusts this-8, jumps474590.",
+    "hud": "HitManaStaminaDialog GUIresource7;0x474590 reads fullPacket+0x30 full flag, max+0x38/3c/40/44;current flag+0x7c, currents+0x80/84/88/8c.",
+    "hud_controls": "bar controls0..3;number text controls4..7. Current values clamp against max via433f20;433ed0 max setter only clamps downward.",
+    "status": "0x53f8a0 copies max toStatus+420/428/430/438,current+478/47c/498/480,with upper clamp.",
+    "wallet": "flag10 trailingu32 parser-local+9c/fullPacket+a8 ->Status+48c;Inventory UI48aead/48aec3 formats control20 and gates money-drag control21;464bb5 limits money edit using samevalue."
+  },
+  "wrong_writer_demonstration": {
+    "kind": "synthetic mathematical reproduction, not a recorded packet",
+    "extra_byte": "One zero colour byte precedes the true current block.",
+    "authoritative_currents": [
+      120,
+      2,
+      100,
+      0
+    ],
+    "misread_currents": [
+      0,
+      2013265920,
+      33554432,
+      1677721600
+    ],
+    "visible_with_maxima_120_110_110_0": [
+      0,
+      110,
+      110,
+      0
+    ]
+  },
+  "bounds": [
+    "HUD clamp can conceal malformed values; does not authorize resources or free refill.",
+    "No original Server economy caps/formulas inferred.",
+    "Native GUI acceptance after correction remains separate."
+  ]
+}

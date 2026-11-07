@@ -611,6 +611,12 @@
         "delivery": "public-git-self-contained-jobs",
         "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
         "local_attachment_required": false
+      },
+      "u24_hud_correction_20261108": {
+        "report": "04-analysis-integration/20261108-native-status-u24-and-hud-correction.md",
+        "contract": "04-analysis-integration/20261108-native-status-u24-and-hud-correction.json",
+        "supersedes": "full61/u32-colour; corrected full60/u24-colour, Current62 Wallet90 Title99",
+        "native_gui": "pending"
       }
     },
     {
@@ -977,6 +983,11 @@
         "catalog": "04-analysis-integration/five-town-npc-catalog-v1-20261107.json",
         "scope": "33 guide-supported reconstructed roles; full original rosters/services not recovered",
         "native_gui": "pending"
+      },
+      "visible_dialogue_policy_20261108": {
+        "report": "04-analysis-integration/20261108-visible-npc-dialogue-policy.md",
+        "origin": "explicit user requirement, not original range evidence",
+        "native_gui": "pending"
       }
     },
     {
@@ -1124,7 +1135,18 @@
         "CT-089"
       ],
       "last_analysis_date": "2026-10-31",
-      "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md"
+      "latest_cross_branch_review": "04-analysis-integration/merge-review-roy1-roy2-20261031.md",
+      "bank_currency_followup_20261108": {
+        "native": "04-analysis-integration/20261108-native-bank-currency-ui-contract.md",
+        "authority": "04-analysis-integration/20261108-wallet-bank-authority.md",
+        "integration": "04-analysis-integration/20261108-bank-spell-and-hud-increment.md",
+        "native_gui": "pending",
+        "open": [
+          "item storage",
+          "shops",
+          "original fees and limits"
+        ]
+      }
     },
     {
       "id": "A-014",

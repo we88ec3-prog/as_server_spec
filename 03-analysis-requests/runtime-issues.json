@@ -447,7 +447,7 @@
       "id": "RI-015",
       "title": "Adjacent shortcut first-hit report and requested ranged magic/effects",
       "priority": "P1",
-      "status": "awaiting-native-retest",
+      "status": "implemented-awaiting-native-retest",
       "source": "User reports adjacent skill damage only after basic attack; later suggests MP/SP shortage is possible. Ranged magic is a new request, not a report about an already available spell.",
       "analysis_requests": [
         "A-009",
@@ -458,11 +458,15 @@
         "Some recorded actions were Air;24 later Mage attempts had MP2 and insufficient resources.",
         "Mode2 six-byte C65 target intent is independently proven; Mage single/area ranged reconstruction and reviewed generic effect4000 implemented.",
         "496 full regression checks passed. Isolated Mage TCP also verified four-tile skill, exact target, effect4000 and admin resource refill projected via S08.",
-        "Five towns now contain33 guide-supported NPC roles, with original bindings and reconstruction provenance distinguished; original full roster and transaction services remain incomplete."
+        "Five towns now contain33 guide-supported NPC roles, with original bindings and reconstruction provenance distinguished; original full roster and transaction services remain incomplete.",
+        "User screenshot identifies top HUD MP/SP110/110 while authority is MP2/SP100. Native colour reader is u24; prior writer used u32 and shifted current values by one byte.",
+        "Corrected native cursor reproduces prior false-full HUD and projects true resources; Mage now uses Spell kind0 with issued kind/slot authority.",
+        "561 full regressions passed, plus10 focused bank cases. Native HUD, Spell and visible-NPC retest remains pending."
       ],
       "report": "04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md",
       "native_client_validation": "pending",
-      "next_action": "Concentrated GUI retest with enough MP/SP; separately record adjacent first hit, mode2 remote selection, effect visibility and resource refill. Continue remaining NPC services and skill systems without claiming completion."
+      "next_action": "Restart updated isolated Server, compare true HUD and Web resources, refill explicitly and rebind spells from Spell; retest first hit without assuming native success.",
+      "correction_report": "04-analysis-integration/20261108-native-status-u24-and-hud-correction.md"
     }
   ],
   "latest_direct_increment": {

@@ -13,7 +13,7 @@
     },
     {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "e47a9e6932ab0c0f19e6faa30b0de07627b7075346ff42d779e199949da74120"
+      "sha256": "f41ce3f595543a710cca6c4d28bd08e20dec9a8a311bc98a0d3c8c8cfff0ef01"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -453,7 +453,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "e817daa4d617fc70f5c5a50e14dd48d5ff9aa80edc9dbd07787de8b11bd2b060"
+      "sha256": "0bcd080817b457732601e449fdce2a4022591e46bf41c5c680c9c462b659c296"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -461,7 +461,7 @@
     },
     {
       "path": "03-analysis-requests/runtime-issues.json",
-      "sha256": "a2bb5e848abf636477a56cae0c79157d4f78eedf735ea6811f93cf8d3e58ba05"
+      "sha256": "24627ca0dd0648cbabf0b91bf4b752006d16655907616476f1618f9b23fbd9d4"
     },
     {
       "path": "03-analysis-requests/tutorial-map-identification-status-20261101.md",
@@ -737,7 +737,7 @@
     },
     {
       "path": "04-analysis-integration/20261102-native-status-initialization.md",
-      "sha256": "c2bd2dd21214423b71651003dc109d83c8c337cdfa5669fa23fa93309035ba0d"
+      "sha256": "4f4187e80b31cf31da6517c10ceb8ec2f446710c5f6dfa87577c7eaa727cf120"
     },
     {
       "path": "04-analysis-integration/20261102-occupation-rank-badge.md",
@@ -789,7 +789,7 @@
     },
     {
       "path": "04-analysis-integration/20261107-five-town-npc-subsets.md",
-      "sha256": "23e20cae9c659b6552d71d8de05b6f91387afb6100b8bd3b75487b9287f08501"
+      "sha256": "83412f7fa6f3458692e3f9702f5a492420e15d2b01451b9739ad0e09018833af"
     },
     {
       "path": "04-analysis-integration/20261107-native-inventory-equipment-subset.md",
@@ -817,7 +817,7 @@
     },
     {
       "path": "04-analysis-integration/20261107-suomi-npc-configuration.md",
-      "sha256": "a41998f78d5d0d93a68e29ba774196a5c00f5f5c83d59ee8ff1db2b356c81f56"
+      "sha256": "25bf81ed33cae1fb232c13d96b242f5796f392e638e901c78a30e2a63b88b743"
     },
     {
       "path": "04-analysis-integration/20261107-suomi-placement-review.json",
@@ -837,7 +837,35 @@
     },
     {
       "path": "04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md",
-      "sha256": "1dcbc4f163436fe55579713cff5bfb61f34a3bb8d020c859a1eb87f6d0dae823"
+      "sha256": "2b1b517583f4ce754184e7cf9069de43047033ef66459868ce9715bb8e48cbcd"
+    },
+    {
+      "path": "04-analysis-integration/20261108-bank-spell-and-hud-increment.md",
+      "sha256": "db01482943c9b7573de60391e2e8acc35abfa14cd0cfcb09d1c45864117fb5fc"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-bank-currency-ui-contract.json",
+      "sha256": "3737ea9d4a276cf4daf6f99655d3f94877629e09673985f59360ca0a65eec336"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-bank-currency-ui-contract.md",
+      "sha256": "54b8f91c8fccd6a1eb0f2a2e5ca4c9615ba7f0639ade1748a43c10ddbf955474"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-status-u24-and-hud-correction.json",
+      "sha256": "6ca8d2c4f0b8b4fa31d4507aaf2e96d69d590f82258f33f999f929bc21fef38b"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-status-u24-and-hud-correction.md",
+      "sha256": "4efefe13c65180faf1d5004f003d8ff5a1efc254c1ca0a4b498488504151ddaa"
+    },
+    {
+      "path": "04-analysis-integration/20261108-visible-npc-dialogue-policy.md",
+      "sha256": "70b4dd00c89cbb26be62936d276e478b831cd5b531c8c171b99d2bb0115ad696"
+    },
+    {
+      "path": "04-analysis-integration/20261108-wallet-bank-authority.md",
+      "sha256": "8f08cbfc9a73a883f27206a97a503015959e6ed75f22696694ff706161375c79"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -1405,7 +1433,7 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "8f83578221de755cb4646ad03e75948c06f43845a3bc182a0dbf22e75c4ec68e"
+      "sha256": "c3dd1c9903a6ec2fbe0e5739a249e95f76b0e935ae73f63175be17a1813bf568"
     },
     {
       "path": "06-development-tracking/README.md",
@@ -1417,7 +1445,7 @@
     },
     {
       "path": "06-development-tracking/details/F02_角色能力與成長.xlsx",
-      "sha256": "62897378b05185cb11e21c160ba7f62367f4ccdde5d19946be8ebe66c443335f"
+      "sha256": "d832260731a904086f49d4d4a335d1f741903d4158ea9dedf170c9ae03b6a2a8"
     },
     {
       "path": "06-development-tracking/details/F03_新手任務流程.xlsx",
@@ -1429,7 +1457,7 @@
     },
     {
       "path": "06-development-tracking/details/F05_NPC與互動基礎.xlsx",
-      "sha256": "9dd2ea897511c08457e0ae4ac1bf37e71ce0b7485f54f32c304e01d78cfe9335"
+      "sha256": "08075e641847f341f4cf087fb80e01000b76dc29b7ae9ec1e87cb02cb4d398c0"
     },
     {
       "path": "06-development-tracking/details/F06_怪物與戰鬥.xlsx",
@@ -1437,7 +1465,7 @@
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
-      "sha256": "2501143c25e98dcdd97ec56e7381cad6d30d3c737b02364b4f0d01909c7b6618"
+      "sha256": "aacf645c2110f7169959cfd5e3398e7b37c6ecc8f0c3a3881b7c02979b7367cf"
     },
     {
       "path": "06-development-tracking/details/F08_戰士技能.xlsx",
@@ -1445,7 +1473,7 @@
     },
     {
       "path": "06-development-tracking/details/F09_魔法師技能.xlsx",
-      "sha256": "3e97c2170b22691e28a70392a40cee27f2fe5f5fbd97f88556f6d915c4295778"
+      "sha256": "d81f4cc6455fa02ac14dcf516bd60b4a4979546c66f1098d81adbdc63da710ab"
     },
     {
       "path": "06-development-tracking/details/F10_聖職者技能.xlsx",
@@ -1465,7 +1493,7 @@
     },
     {
       "path": "06-development-tracking/details/F14_銀行與倉庫.xlsx",
-      "sha256": "7cdeba5acd9085620e6f0aff1d5161d5bec385959ff97344c5ebdaa77714ffb2"
+      "sha256": "1e0ab3024fbc6213f6e0eb4d0b343ed894ff1312e75c98bad6789112f804f2a7"
     },
     {
       "path": "06-development-tracking/details/F15_商店與貨幣.xlsx",
@@ -1493,23 +1521,23 @@
     },
     {
       "path": "06-development-tracking/details/F21_米魯里斯城鎮與NPC.xlsx",
-      "sha256": "2edf3940cdf8122b4f65857484ee3d0113b3de9781e8018c785e8ff3bae30829"
+      "sha256": "61f596555d58baae74ede8f7b1a40d3ce471f2cf7a4581e8f70aeb4ded34d65e"
     },
     {
       "path": "06-development-tracking/details/F22_路爾斯城鎮與NPC.xlsx",
-      "sha256": "c8cef3dc2a52375eb01a5f78810470d6eb2ee926af673a1aa3a9eb2c66f01538"
+      "sha256": "d218f32389ad21459a7b0ed9a69f90d49be830140e4bc1fc8f2885a5fe276752"
     },
     {
       "path": "06-development-tracking/details/F23_斯歐米城鎮與NPC.xlsx",
-      "sha256": "4274478b56044c34cd7d1056bac8830e36f1064fc80ac103654a5250eb87e0c5"
+      "sha256": "91a29c40a4efca006e2e3ecd392154edabe40f5c7a9bcf23d267325a6c25feb3"
     },
     {
       "path": "06-development-tracking/details/F24_魔界村城鎮與NPC.xlsx",
-      "sha256": "17083bb2fd7dc45d8a6029e4cd30e48f542a7b126a203764d7bb2a359d4a59fd"
+      "sha256": "d5906ed4f8e059fdbbf3e67cdc5d7f32ea5d105c1e549c1e1d953adf9552769b"
     },
     {
       "path": "06-development-tracking/details/F25_海賊村城鎮與NPC.xlsx",
-      "sha256": "c6b4c2f8591c1705e85313c9e2f291e198f1509c3cd4196600b206e8968d730e"
+      "sha256": "c2222d651413941e9eae87170d08cd9593631ae762afe9c31746bff97ea5cfa7"
     },
     {
       "path": "06-development-tracking/details/F26_音樂音效與Client相容.xlsx",
@@ -1517,7 +1545,7 @@
     },
     {
       "path": "06-development-tracking/details/F27_Web管理與測試回報.xlsx",
-      "sha256": "22ac5a075f51a7d76efb3d2fd0abb93f6ae1f022408baa26de17c3dad88e119f"
+      "sha256": "3a5036eb62fe719da818ae4181710e4ce603307655f3e052e96e30af2d9165de"
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
@@ -1537,7 +1565,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "ca60cb5f566ea65598d4b4f453ecb20dfe40769a95bd672fc26e5bb3a1655bd7"
+      "sha256": "c2556b0219b43e6041a4e40e8ec22cf1cde43f2bf2a121ea42416f3f9c7aa682"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",
@@ -1561,7 +1589,7 @@
     },
     {
       "path": "task_a/roy2/A-008-analysis.md",
-      "sha256": "c56ec3b816d522de773ead50e2e824363c580a944f9374b50c03c2d8f099ec9e"
+      "sha256": "a12c5d6da6459c8f4b94c414f0346f2b1df5a98b68b7345e1dc6e70d7216a26b"
     },
     {
       "path": "task_a/roy2/A-009-analysis.md",

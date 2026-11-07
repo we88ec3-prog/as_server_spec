@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[可見NPC、Spell分類、資源HUD與銀行增量](04-analysis-integration/20261108-bank-spell-and-hud-increment.md)。S08原件補證更正為u24色彩／full60B，修正上方MP／SP假滿；五類NPC可見即可交談，銀行接貨幣存提款。GUI待驗，物品倉庫及商店未完成。
+
 2026-11-07：[指定目標遠程法術與技能拒絕診斷](04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md)、[原生target／Effect4000證據](04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.md)、[Web測試資源補滿](04-analysis-integration/20261107-development-resource-refill.md)。相鄰格首擊回報仍待GUI複驗，不將新增遠程功能冒稱原問題已解。
 
 2026-11-07：[五城33個導覽來源NPC配置](04-analysis-integration/20261107-five-town-npc-subsets.md)。新增四城27角色TCP走訪1010步通過；完整原服名單、精確位置外觀、交易服務與GUI另列待辦。
