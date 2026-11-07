@@ -13,3 +13,14 @@
 - 不以 wire u32 width 推定原服金額上限；上限與價格為明示 designed profile，待原版 UI/資源確認後再調整。背包 S0F/S10/S37 通知屬相依 A-007，不能在 DB commit 前先回傳肯定成功。
 
 **CT**：CT-087 native byte-signature + synthetic PASS；CT-088 商店/Exchange 原 Client 實機/錯誤碼 planned；CT-089 雙人交易/取消/斷線/重送 planned。研究 A013 integrated/partial，native Client not-run。實測偏差回開 A/DEV，不把 unknown 填 0。
+
+
+## 2026-11-08 補證：具體買賣與銀行物品走 Script
+
+本輪由原件 Merchant／ItemsDialog 及銀行 DI/WI 腳本確認另一條可用閉環：S44 啟動清單，C6C 回傳當次列索引 I 與數量 U。它不依賴先猜定 C39/S2F 或 C4A/S42 的經濟語意。上文「倉庫待驗證」保留為那些未完成封包族的研究狀態，不能再解讀成所有銀行物品入口都未確認。
+
+- [原生 Script 清單、依賴、數量與回覆契約](20261108-native-shop-and-bank-items-contract.md)。
+- [物品保存、買賣、資產一致性與可信價格](20261108-vault-shop-authority.md)。
+- [服裝圖示來源與重建對應界線](20261108-shop-item-visual-sources.md)。
+
+原生 ABI 已補證，Server 交易與持久化有獨立測試；GUI 實測仍分開記錄。原服完整商品、價目、倉庫容量與玩家間交易仍未還原。

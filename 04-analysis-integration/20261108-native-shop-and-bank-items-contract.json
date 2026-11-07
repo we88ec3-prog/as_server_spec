@@ -1,0 +1,209 @@
+{
+  "contract_id": "native-shop-bank-items-20261108",
+  "authority": "shipped-artifact-static-analysis",
+  "gui_acceptance": "pending",
+  "executable_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "scripts": [
+    {
+      "name": "Merchant",
+      "sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+      "strict_cp950_crc32": "e9b389cf"
+    },
+    {
+      "name": "MerchantBankDGDialog",
+      "sha256": "a6ce2545f5ee0bd3402bfa8cb06ca8466d9b60818500e081d27670cfc4332cc4",
+      "strict_cp950_crc32": "812ccab0"
+    },
+    {
+      "name": "MerchantBankDialog",
+      "sha256": "13573352cf84d905da953be4ea551a97ba8431e3fa1e1154f05bbddd50f0ec7a",
+      "strict_cp950_crc32": "1e576517"
+    },
+    {
+      "name": "MerchantBankDIDialog",
+      "sha256": "68b6668662bece3b429f339b7e22098756eebc4d51430ccd7deb927cd2a1b79f",
+      "strict_cp950_crc32": "fb465da6"
+    },
+    {
+      "name": "MerchantBankWGDialog",
+      "sha256": "8cbbbdde071efd4c8dc02325e61c25ece1fe445798f623da3e0163c4433afc7f",
+      "strict_cp950_crc32": "35bb8dae"
+    },
+    {
+      "name": "MerchantBankWIDialog",
+      "sha256": "a749b62a29c79e08be5da33be2fe85526276af6148ceceba788107e9a3486943",
+      "strict_cp950_crc32": "5cf147f0"
+    },
+    {
+      "name": "MerchantBuyDialog",
+      "sha256": "a7f39daea25ccf4855440b732c8786f40cb07518450ea73f0e08df65e3abaaa7",
+      "strict_cp950_crc32": "09777f7f"
+    },
+    {
+      "name": "MerchantDialog",
+      "sha256": "ed194a77a669cbd8f83fbbd01bb08ed0f800b122695cc204a3a12f002f945095",
+      "strict_cp950_crc32": "9267d99d"
+    },
+    {
+      "name": "MerchantSellDialog",
+      "sha256": "71ec52041b1585f48a6bc9ca5df1130427a77c874f5bf2a8d99ded3669a3e5f9",
+      "strict_cp950_crc32": "c8fb2920"
+    },
+    {
+      "name": "ItemsDialog",
+      "sha256": "ae0c5b8c954dba8ea59990cd27554b36ab5e1b95b2e2e8bc8c9f277a042c2edc",
+      "strict_cp950_crc32": "ffc38cd1"
+    },
+    {
+      "name": "nSuBanker01",
+      "sha256": "c6df4370e01ce826e339460870f16d9b3f799486c37137ee5a73cc5292760f1b",
+      "strict_cp950_crc32": "3a506b26"
+    },
+    {
+      "name": "nSuAllMarket01",
+      "sha256": "3d39ddc059cf56e4d26a097d91bb218acec8b658e798ae3fa6df0228465d62db",
+      "strict_cp950_crc32": "8126c3c3"
+    }
+  ],
+  "shop": {
+    "main": "Merchant",
+    "dependencies": [
+      "nSuAllMarket01",
+      "MerchantDialog",
+      "ItemsDialog",
+      "MerchantBuyDialog",
+      "MerchantSellDialog"
+    ],
+    "modes": [
+      {
+        "TYPE": "BUY"
+      },
+      {
+        "TYPE": "SELL"
+      }
+    ]
+  },
+  "bank": {
+    "main": "Merchant",
+    "dependencies": [
+      "nSuBanker01",
+      "MerchantDialog",
+      "MerchantBankDialog",
+      "MerchantBankDGDialog",
+      "MerchantBankWGDialog",
+      "ItemsDialog",
+      "MerchantBankDIDialog",
+      "MerchantBankWIDialog"
+    ],
+    "modes": [
+      {
+        "TYPE": "BANK",
+        "STATE": "DEPOSIT"
+      },
+      {
+        "TYPE": "BANK",
+        "STATE": "WITHDRAW"
+      }
+    ],
+    "native_quantity_control": "one-unit-per-doubleclick"
+  },
+  "base_parameters": [
+    "TILE",
+    "MNAME",
+    "GREETING",
+    "UGOLD",
+    "UBAL",
+    "UAGOLD",
+    "UABAL",
+    "UCOLOR"
+  ],
+  "list_parameters": [
+    "EMPTYSLOT",
+    "EMPTYWEIGHT",
+    "ITEMCOUNT"
+  ],
+  "bank_list_parameters": [
+    "EMPTYDEPOSITSLOT"
+  ],
+  "rows": {
+    "index_start": 0,
+    "index_end_exclusive": "ITEMCOUNT",
+    "empty_list_allowed": true,
+    "common": {
+      "T": "icon selector",
+      "N": "name",
+      "L": "level display",
+      "P": "price display; BUY unit cost",
+      "G": "gender display",
+      "C": "class display",
+      "W": "weight integer string",
+      "K": "HelpString metadata key",
+      "R": "color",
+      "O": "layer",
+      "E": "effect",
+      "U": "bundle quantity"
+    },
+    "sell": {
+      "V": "unit sell value"
+    },
+    "deposit": {
+      "S": "inventory slot",
+      "A": "availability; 0 allowed",
+      "F": "flat transaction fee"
+    },
+    "withdraw": {
+      "I": "ATTRIB stored but not read by reviewed ItemsDialog path",
+      "A": "read but not assigned AVAIL",
+      "F": "flat transaction fee"
+    }
+  },
+  "final_item_reply": [
+    "I",
+    "U"
+  ],
+  "abort_reply": {
+    "STATE": "ABORT"
+  },
+  "server_policy_required": [
+    "trusted runner context binds row identity and revision",
+    "one-shot operations and replay receipt",
+    "atomic item and currency transaction",
+    "authority refresh after commit or refusal",
+    "capacity and stack rules are reconstruction policy"
+  ],
+  "native_locations": {
+    "simkin_for": "0x598310",
+    "script_global_dispatcher": "0x525130",
+    "metadata_binding": "0x526c58",
+    "metadata_lookup": "0x4ceea0",
+    "metadata_lazy_load": "0x4ced90",
+    "inventory_description_binding": "0x52710f",
+    "inventory_description": "0x489740",
+    "script_item_category0": "0x45cbf8",
+    "item_library": "0x491330",
+    "legacy_item_library": "0x490f20"
+  },
+  "icon_candidates": [
+    {
+      "icon": 33348,
+      "hex": "0x8244",
+      "object": 580,
+      "frame": 0,
+      "observed_visual": "red bottle"
+    },
+    {
+      "icon": 33354,
+      "hex": "0x824a",
+      "object": 586,
+      "frame": 0,
+      "observed_visual": "blue bottle"
+    }
+  ],
+  "unknown": [
+    "original item definitions, potion effects and stack limits",
+    "original shop prices and stocks",
+    "bank arbitrary-quantity GUI in unchanged scripts",
+    "metadata availability on uncorrected original Client",
+    "native GUI acceptance for this increment"
+  ]
+}

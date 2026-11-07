@@ -36,7 +36,7 @@ Client 的 `ActionEntry+0x80a` 確實用於 `abs(dx)<=range && abs(dy)<=range`�
 
 `.eff` 內部是 **little endian**：loader 明確呼叫 `0x45ada0(0)`，`0x45ade0` 在該模式直接讀原生u16。網路 wire 的 BE不可套用到這份資源。type2 節點的 imageKey 經 `0x459680→0x44ffb0→0x44cc60/0x44eec0` 映射到 library15+imageKey/1000、member0、object=imageKey%1000。EffectSelector與imageKey即使數值相同，仍是不同欄位。
 
-本輪最小候選 **EffectSelector4000**：
+當時的最小候選 **EffectSelector4000**（2026-11-08 已撤回一次性使用建議，見下方更正）：
 
 |項目|原件與檢查|
 |---|---|
@@ -46,7 +46,7 @@ Client 的 `ActionEntry+0x80a` 確實用於 `abs(dx)<=range && abs(dy)<=range`�
 |圖片member|slot0 `effect04.ypf`，offset4216，11702972 bytes，SHA `e5c9d3990b9b40012812eb466ee630da58473db9ff44700d754fd1ed9aa4c867`|
 |imageKey4000|object0，共12 physical frames、1 action、1 state；全部52 objects的有界metadata掃描恰好到data base35618，所有影格channel範圍均在member內|
 
-這可作 **Development通用特效候選**，仍需實機確認可見形狀、方向、附著／飛行與時序。沒有命名為原版火球、補血或buff，也沒有由此推導傷害／治療公式。來源 S13 EffectSelector 可進入此原生 runner；S13 擴充中的接收者效果是另一投影通道，需分開驗收。
+**2026-11-08 更正：4000 不是有限一次性特效。** 使用者確認它持續附著並重複堆疊；原件 type2 的100%回指 node0，會再次執行 CreateEffectsAction。12個 physical frames 只能證明圖片數量，不能證明整個 runner 有限。改採無回邊的4006候選，完整生命週期與限制見 [特效生命週期更正](20261108-native-effect-lifecycle-correction.md)。不得將舊靜態候選或TCP投影成功當作原生消失驗收。沒有命名為原版火球、補血或buff，也沒有由此推導傷害／治療公式。
 
 另外1001、2001、3000也完成version9 runner結構與對應YPF object metadata核對，機讀檔保留精選資料；這三者含type7節點，本輪未完成其音效依賴鏈，不能與4000一樣視為最小封閉候選。selector1的資源是version7，本輪version9 reader明確拒絕，不冒稱全ID均支援。
 

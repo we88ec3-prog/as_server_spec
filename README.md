@@ -1,6 +1,8 @@
 # Asgard Server Specification
 
-2026-11-08：[可見NPC、Spell分類、資源HUD與銀行增量](04-analysis-integration/20261108-bank-spell-and-hud-increment.md)。S08原件補證更正為u24色彩／full60B，修正上方MP／SP假滿；五類NPC可見即可交談，銀行接貨幣存提款。GUI待驗，物品倉庫及商店未完成。
+2026-11-08：[本輪實作與實機回報](04-analysis-integration/20261108-items-shops-ordering-and-client-feedback.md)、[物品保管與商店交易](04-analysis-integration/20261108-vault-shop-authority.md)及[原生清單契約](04-analysis-integration/20261108-native-shop-and-bank-items-contract.md)。背包／保管庫持久化、同交易買賣、舊視窗防重與重啟保存已接線；商品先限兩件明示重建衣裝，原生GUI待測。 同輪補[排序持久化](04-analysis-integration/20261108-slot-order-persistence.md)，並依新回報更正[4000循環／4006有限特效](04-analysis-integration/20261108-native-effect-lifecycle-correction.md)。
+
+2026-11-08：[可見NPC、Spell分類、資源HUD與銀行增量](04-analysis-integration/20261108-bank-spell-and-hud-increment.md)。S08原件補證更正為u24色彩／full60B，修正上方MP／SP假滿；五類NPC可見即可交談，銀行接貨幣存提款。該增量後的最新實作及實測範圍見上方。
 
 2026-11-07：[指定目標遠程法術與技能拒絕診斷](04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md)、[原生target／Effect4000證據](04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.md)、[Web測試資源補滿](04-analysis-integration/20261107-development-resource-refill.md)。相鄰格首擊回報仍待GUI複驗，不將新增遠程功能冒稱原問題已解。
 

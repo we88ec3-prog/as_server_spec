@@ -25,7 +25,7 @@
 
 ## 特效與未完成的buff
 
-本輪只啟用完整靜態閉包已審的通用EffectSelector **4000**，投影到兩項指定目標法術的S13。啟動核對原始Effect4.dat SHA；可明示停用SkillEffectsEnabled。素材、EXE均不修改。這是重建綁定，不能命名為原版火球或原版對應法術；形狀、附著／飛行與時序仍待GUI。
+原增量啟用通用EffectSelector **4000**；**2026-11-08 GUI回報確認會持續堆疊，原件補證發現100%回指，撤回其一次性安全判斷。** 修正採無回邊4006候選，見 [生命週期更正](20261108-native-effect-lifecycle-correction.md)，尚須GUI確認按原件1600ms時序消失。啟動仍核對原始Effect4.dat SHA，可明示停用SkillEffectsEnabled。素材、EXE均不修改；這是重建綁定，不能命名為原版火球或原版對應法術。
 
 1001／2001／3000雖已核對runner與YPF metadata，音效依賴未閉合，本輪不啟用。角色攻擊動作、傷害數字、命中／死亡聲沿已審子集；它們不等於魔法特效。回血是立即HP恢復，滿HP無變更，不是持續buff。詠唱C4D／S52／C56、lasting狀態計時、buff／歌曲的原生圖示與效果仍列未完成。
 

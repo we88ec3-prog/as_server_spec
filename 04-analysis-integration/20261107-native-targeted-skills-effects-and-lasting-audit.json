@@ -684,5 +684,11 @@
       "sha256": "a2d8d286888500010b7d076325cdfde1520c6fcb2f76477802e939423a8d52bc"
     }
   ],
-  "not_implemented": "No skill/store/Host/Client changes or GUI success claimed by this audit."
+  "not_implemented": "No skill/store/Host/Client changes or GUI success claimed by this audit.",
+  "lifecycle_correction_20261108": {
+    "selector4000": "rejected for one-shot use; 100 percent back edge recreates effect",
+    "replacement_selector": 4006,
+    "contract": "20261108-native-effect-lifecycle-correction.json",
+    "gui_acceptance": "pending"
+  }
 }

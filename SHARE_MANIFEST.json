@@ -12,8 +12,12 @@
       "sha256": "b8eac2827364979ffbe53e41964df7e06880501dd8ec286b96bec8d01b17a23b"
     },
     {
+      "path": ".gitignore",
+      "sha256": "5a5160243598851d6c44f503e924a14180dad494b02f34039e38b5e0102e64d8"
+    },
+    {
       "path": "00-governance/CHANGELOG.md",
-      "sha256": "f41ce3f595543a710cca6c4d28bd08e20dec9a8a311bc98a0d3c8c8cfff0ef01"
+      "sha256": "0739429184f3246f882a1c3fcff115f7d83fd69f3c00f5b9b34c7ce2e524818d"
     },
     {
       "path": "00-governance/ai-analysis-handoff.md",
@@ -797,11 +801,11 @@
     },
     {
       "path": "04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.json",
-      "sha256": "99b8aca2b6a94c860f357d7339b09c175ed885d1246efea18b1935c430e9e7e5"
+      "sha256": "c1431e140d1b85976adc909394f0a43cf6b64c6b9dc3da6f82c7f5ffa6f649e4"
     },
     {
       "path": "04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.md",
-      "sha256": "5fcf24104d46d1256e2f7aa7e28a83adb4cc1b57ad5815f9642386864b8261c2"
+      "sha256": "cf62a0f3ae56b7b7d45e4a049ad866f50e387bfb16c5ac444139da32432dd044"
     },
     {
       "path": "04-analysis-integration/20261107-owned-inventory-equipment.md",
@@ -837,11 +841,15 @@
     },
     {
       "path": "04-analysis-integration/20261107-targeted-magic-and-skill-feedback.md",
-      "sha256": "2b1b517583f4ce754184e7cf9069de43047033ef66459868ce9715bb8e48cbcd"
+      "sha256": "d03063261f3a9f985d82e5a61a7d30d77410049aac620c8f6ae8e4538a03574b"
     },
     {
       "path": "04-analysis-integration/20261108-bank-spell-and-hud-increment.md",
       "sha256": "db01482943c9b7573de60391e2e8acc35abfa14cd0cfcb09d1c45864117fb5fc"
+    },
+    {
+      "path": "04-analysis-integration/20261108-items-shops-ordering-and-client-feedback.md",
+      "sha256": "05e7c332ec8ae45f1004d0a8862226e86d66145b6359508193e84b77c61be420"
     },
     {
       "path": "04-analysis-integration/20261108-native-bank-currency-ui-contract.json",
@@ -852,12 +860,44 @@
       "sha256": "54b8f91c8fccd6a1eb0f2a2e5ca4c9615ba7f0639ade1748a43c10ddbf955474"
     },
     {
+      "path": "04-analysis-integration/20261108-native-effect-lifecycle-correction.json",
+      "sha256": "53606c3010553253fcc6321636b8f69edfc8f8e00d183e2a335004108bd74d62"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-effect-lifecycle-correction.md",
+      "sha256": "71677fb57b32c35a2b5b11228ac4d0cd5981d87c55fa94ea2ad6e7cc7318c496"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-shop-and-bank-items-contract.json",
+      "sha256": "c675eadfba8e2162eb2a021b78a7e10e40df01badc898563dc7c5ca4653b2419"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-shop-and-bank-items-contract.md",
+      "sha256": "cc68f6172d8be215239f49301626daf0c631a1271a1ae388e2aa88db3154d40f"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-slot-reorder-contract.md",
+      "sha256": "ba66f3a7add2b99fbdf0581e42b89324e4c7efffc3cd5dc8e71226172954950a"
+    },
+    {
       "path": "04-analysis-integration/20261108-native-status-u24-and-hud-correction.json",
       "sha256": "6ca8d2c4f0b8b4fa31d4507aaf2e96d69d590f82258f33f999f929bc21fef38b"
     },
     {
       "path": "04-analysis-integration/20261108-native-status-u24-and-hud-correction.md",
       "sha256": "4efefe13c65180faf1d5004f003d8ff5a1efc254c1ca0a4b498488504151ddaa"
+    },
+    {
+      "path": "04-analysis-integration/20261108-shop-item-visual-sources.md",
+      "sha256": "2b3b372bc5ec68f376972a1cfa2d6a44a6217aff55cc1097a52ff6525d616d89"
+    },
+    {
+      "path": "04-analysis-integration/20261108-slot-order-persistence.md",
+      "sha256": "2ad8a4b387e9f78bb04345b08358ab73d8536af786ebf33fceae57bf24f32347"
+    },
+    {
+      "path": "04-analysis-integration/20261108-vault-shop-authority.md",
+      "sha256": "0690dbc3c4371fbc6f3bdc4756ebbde3bc2be6153f281a9159570ea5b106fced"
     },
     {
       "path": "04-analysis-integration/20261108-visible-npc-dialogue-policy.md",
@@ -905,7 +945,7 @@
     },
     {
       "path": "04-analysis-integration/A-013-economy-contract.md",
-      "sha256": "5064fdb02c3afe55b98433a1bb92dc6557dfb413a9c8fdd1f53b2bb61c118265"
+      "sha256": "8eab685a2a5bb3f1a3a2640c1c5b5c551682a5cf9ae9ec56855248bc1a371b7c"
     },
     {
       "path": "04-analysis-integration/A-016-idempotency-recovery.md",
@@ -1220,6 +1260,10 @@
       "sha256": "11e8b04817f6534695b18687e5aa61b1bff447220a3105ce96582f2f258e0a89"
     },
     {
+      "path": "04-analysis-integration/shop-clothing-presentation-sources-20261108.json",
+      "sha256": "2b45e00650c5e89b704848afa15a60bd0147a1cad35d90ff58d6fdf12e3b18d3"
+    },
+    {
       "path": "04-analysis-integration/suomi-npc-catalog-v1-20261107.json",
       "sha256": "7c191bf43a9ad2189b25adb26bc6e5da4d8205e282ddbb672fd2c353ef97ee50"
     },
@@ -1433,11 +1477,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "c3dd1c9903a6ec2fbe0e5739a249e95f76b0e935ae73f63175be17a1813bf568"
+      "sha256": "538a35f6da0ff986f55edcd1efc1c10b4ff7f5f9e5ab3d1aca97e1e462b327ca"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "55b6faebfed5b6025be0ba84698001b32f791a27b96e165cdd253726330d9f50"
+      "sha256": "41358bbfe66412d0608f22ddb4fb0dd6a241e23e9f550f6ab4df8d5f965bce9c"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1489,15 +1533,15 @@
     },
     {
       "path": "06-development-tracking/details/F13_背包裝備與獨立衣色.xlsx",
-      "sha256": "e3409a0d965b48dcb37fa62cb85de92711fc0422c0e725ff6a6df96381a3f3c6"
+      "sha256": "bb71c11a3e887d37d099267efbcf75b27645280f65e3fd534fff28b6b96bc346"
     },
     {
       "path": "06-development-tracking/details/F14_銀行與倉庫.xlsx",
-      "sha256": "1e0ab3024fbc6213f6e0eb4d0b343ed894ff1312e75c98bad6789112f804f2a7"
+      "sha256": "d53179b8e8c937c0991f035739dfb42d4e53bd7d5ef6379ddcd324db248a6819"
     },
     {
       "path": "06-development-tracking/details/F15_商店與貨幣.xlsx",
-      "sha256": "78c6f81c641c17901dba23cd49f4d3836b37165715bc2e8aca76855151af4955"
+      "sha256": "4a1df41ca4cbfb6f9891a1ce0f20173c997096d04c8c9cdaef0819860c0e5003"
     },
     {
       "path": "06-development-tracking/details/F16_任務與劇情系統.xlsx",
@@ -1556,6 +1600,22 @@
       "sha256": "0b2f700be2fcbe296dc457d435f2473d8d8d7e006b7f959263afcff254bdce35"
     },
     {
+      "path": "06-development-tracking/details/F30_吟遊詩人技能.xlsx",
+      "sha256": "cd5579ce206608917cee0308913ea2e6f7952b44ecae82b13adf9f4fab5bfd6c"
+    },
+    {
+      "path": "06-development-tracking/details/F31_騎士技能.xlsx",
+      "sha256": "0fe16aeef2f0a4714d4f320d6fb9bc20b27787c28f3985c9d1687f3b2252eef6"
+    },
+    {
+      "path": "06-development-tracking/details/F32_預言者支援確認.xlsx",
+      "sha256": "76308eb0900f5edafef2d2f69667573c03ec788abd2689c4077aa824484cefc6"
+    },
+    {
+      "path": "06-development-tracking/details/F33_阿修羅支援確認.xlsx",
+      "sha256": "50386677d671de3bc83923ac51517aeaad6d34381286127b65e7fa6026cb76af"
+    },
+    {
       "path": "06-development-tracking/initial-source-20261107.json",
       "sha256": "ecd6b62df0217e17155059933ef131bd78bab8ef4feb8c1684166283b916b174"
     },
@@ -1565,7 +1625,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "c2556b0219b43e6041a4e40e8ec22cf1cde43f2bf2a121ea42416f3f9c7aa682"
+      "sha256": "ac5a38567a1b69c115c93ae7e2bd6ea96dce3dad318279db505bc6b0bf948a09"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

@@ -1,0 +1,561 @@
+{
+  "contract_id": "native-effect-lifecycle-correction-20261108",
+  "authority": "shipped-artifact-static-plus-user-observation",
+  "original_executable_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "user_observation": "Effect4000 persists and stacks after repeated casts",
+  "gui_acceptance_4006": "pending",
+  "effect4000": {
+    "selector": 4000,
+    "slot": 1,
+    "offset": 11707188,
+    "bytes": 1979,
+    "sha256": "85f197f104e3716fff798aaa4205d193a977963d194f48a0af57d2aa2edc9bac",
+    "cycles": true,
+    "types": [
+      0,
+      2
+    ],
+    "edges": [
+      [
+        1,
+        0,
+        100
+      ],
+      [
+        0,
+        1,
+        100
+      ]
+    ],
+    "decoded": {
+      "version": 9,
+      "flags_raw": 0,
+      "nodes": [
+        {
+          "type": 0,
+          "offset": 6,
+          "references": [],
+          "control_byte": 0,
+          "raw_selectors": [
+            1,
+            1
+          ],
+          "raw_short40": 0,
+          "raw_bytes44_4c": [
+            0,
+            0,
+            0
+          ],
+          "raw_short50": 0,
+          "raw_bytes54_5c": [
+            0,
+            0,
+            0
+          ],
+          "raw_short60": 1,
+          "bytes": 56
+        },
+        {
+          "type": 2,
+          "offset": 62,
+          "raw_fields": [
+            4000,
+            0,
+            1920,
+            0
+          ],
+          "references": [
+            [
+              0,
+              100
+            ]
+          ],
+          "bytes": 1917
+        }
+      ],
+      "exact_end": 1979
+    }
+  },
+  "finite_replacement": {
+    "selector": 4006,
+    "slot": 7,
+    "offset": 11711203,
+    "bytes": 1976,
+    "sha256": "2729bf0f3b4a5399c4bf7831329bf8126167960ab3824c088d47fce7ed842107",
+    "cycles": false,
+    "types": [
+      0,
+      2
+    ],
+    "edges": [
+      [
+        0,
+        1,
+        100
+      ]
+    ],
+    "decoded": {
+      "version": 9,
+      "flags_raw": 0,
+      "nodes": [
+        {
+          "type": 0,
+          "offset": 6,
+          "references": [],
+          "control_byte": 0,
+          "raw_selectors": [
+            1,
+            1
+          ],
+          "raw_short40": 0,
+          "raw_bytes44_4c": [
+            0,
+            0,
+            0
+          ],
+          "raw_short50": 0,
+          "raw_bytes54_5c": [
+            0,
+            0,
+            0
+          ],
+          "raw_short60": 1,
+          "bytes": 56
+        },
+        {
+          "type": 2,
+          "offset": 62,
+          "raw_fields": [
+            4002,
+            0,
+            1600,
+            0
+          ],
+          "references": [],
+          "bytes": 1914
+        }
+      ],
+      "exact_end": 1976
+    }
+  },
+  "image_binding": {
+    "bank": 4,
+    "archive": "Effect4.dat",
+    "archive_sha256": "5cac55442e8504786bf9e8b7be73eed2a1cd05a65970739e1fdf24df0f7e58dc",
+    "member_slot": 0,
+    "member_name": "effect04.ypf",
+    "member_sha256": "e5c9d3990b9b40012812eb466ee630da58473db9ff44700d754fd1ed9aa4c867",
+    "member_offset": 4216,
+    "member_bytes": 11702972,
+    "data_base": 35618,
+    "metadata_end": 35618,
+    "objects": 52,
+    "needed_objects": [
+      {
+        "object": 2,
+        "frames": 10,
+        "flags_set": [
+          5
+        ],
+        "actions": 1,
+        "states": 1,
+        "links": 0
+      }
+    ]
+  },
+  "native_chain": {
+    "human_s13": "0x47bc20",
+    "cleanup_suppression_zero": "0x47bc9a",
+    "runner_constructor": "0x458bc0",
+    "image_spawn_and_expiry": "0x459680",
+    "runner_event_dispatch": "0x459bd0",
+    "image_index_remove": "0x459b60",
+    "world_image_remove": "0x4b9ce0",
+    "runner_release": "0x41b890",
+    "runner_destructor": "0x459420"
+  },
+  "server_fix": "replace reconstructed S13 effect selector 4000 with 4006; keep original archive hash binding and explicit disable option",
+  "not_proven": [
+    "dedicated packet to cancel one existing S13 runner",
+    "original spell to effect mapping",
+    "new candidate visual GUI acceptance"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_0aa30b24eb707298eb3b098aebf9d15ca9a7a95f0717e6facbfc97c809dd026f",
+      "operation": "batch_decompile"
+    },
+    {
+      "evidence_id": "ev_8d886e2e012162a8aae6a66210e2d6489579d62c87877d5600501e6b65639c20",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_1c830aaa9dfad7127671c6fdf086673798495befc0b7584c1739d620f4906368",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_463996b50d8dee18d6f3c4bac1f950f107e982842d4023ce668d1c901683722b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_3a412eeb412c3c20b4258af1dd672d94a33bc6d4e6c91351e79bd32de60aace9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_6832b42036b5d13c8486a293d53120aa12525907dc693db2261d5ec24ac772ed",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_9ed1832429bb11358f5ef89c24ff76b43893411fbcb13be3d273d6980f803b14",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_09e455f4b2cf7ec9ab3907e00a6904a6daff2cb3094d18a50387454fb97624ca",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_3b1dc2fbfd5d76c72903b7a4eb161eab31070d9178610257394c498f41e66c08",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e3efcb34e124715752cb74740d5d1dfa599a1ca4ce2d19ae875d9bb143eabf4a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_7e5575a1e020785008c5b23154e6500c8a8f6747390d0bfd7348f78198de8300",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_7fe34bfe82577122d6700eeccbe4029a9e020e397e99ac44dce37b6c116a8af7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_3451fbcc97cc8d8f7657634483480be981be199f90f9dda4a64c66e8ddcc6af6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_91a614857088ac55cce354a53a4b5f812081c7c27533bec6fe4cd6be0998c3f0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_b8dc1843a120cf9ebeaa9add0e2fc6f45debfc90a7b44daaa2a23d354494663e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_209facc93b594dcf326ed3cbb787a589eb9c1bd3e3adbdec18e2cc71d80147f0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_f556947c040fc67e7e95670bb8c25f59dbaa8fff86c1106ca8023b4fdc913115",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_af2997fb5f5db9fc4f1bc415610e2441d2ec328c0a4d6afff7dc0838a426dcdf",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_dfa790f111612d2f724543cb07d5cd0fbd0efb4620b12d9074233677789bc591",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_9bad6f42bf589e974d172917f1669ba11c19c5c2f740e357db798099fcafd1a2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_665e32db68854a2fca9095ebcad86a9b73282d8c100275fc52d9575ab9c93bd0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_a86b7a13d599f107e6c6fdcf3f1d707649d6faa5dcca411d7d04fb82f3aebabb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_7616837e3ead3575d8431a307485a2e3f7b8d141675c5d6949c88e206f655a8b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_5ad74e52715c36fcb0f79918a46715f527ba39988a019e1a1c36824562378ef0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_d49e26f9443216f27676cf3f3b3ee471683de3251b103b2a0cfb49a98b14917b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_cf219fe0ffd2a64f709fef1e5f9cb2a18581ded84994bcd6e891a0bcb9bbee22",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_098aeab044005dacae5c9246876f072c9ce480382ce1017856aa1a46a8982189",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_ad6a37f1b1685a4f58a48aaca5060a417a373cf441696c89a58d4f026ebaf7c7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_86382c0b21b32e1719234f67941b5af1fa3d44338e011da9f7a54160c50b32bc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_667539969f2d0ab2bb8c549db697a1c028609dde4c04ddc2665e7044888abdf9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_142c1e34cf0bb1fef5be764139411f777bac6c02b872e203a2cbd0f5de651061",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_fd204abaa1e7aa636d6897a6a313a4b6266d515d8ce3f62ef8cb598138f94705",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_2ff465bc14e3ec6258e08d260ba60fb88de8a820bc590c171faff4a706fddf3e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_b6bf6cfda32d993369c3a0ec86792ea67ea402bc35c2434d9cf0d51c8d12e69c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_bf28f242e24a6b77ab2e75501d8f9d44a5ee72f0e2893423810141ef46651cc5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_760e3e4bdf91ba799df846fe8a85fa7b31aaa8b162b882311e693bc8fa67bf97",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_50849f6e139926c289ac8337a53eb2f0adf8c88b6bdf5b5339f1c6462b1e341f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_9b2cde41a34835be61fe7fb7ebda3dd1c120bf27dd335d569400c8fb1f7a9ec1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_164efbb26b41bf0649ed7cc1572778c64d0303e16776beb8575e3453c99c607c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_9becf2de4fe76df6b74e50c94c45d16bf51fe6f85fdf0cfe8d6950523f8dc403",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_5549db8ed063a4c4ef430bd4a57eb3dd1f2fee92fedf23a152880f9e434bb58f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_99f0e899b3b12a6d524ea9b69e556a11a7eb3303c5d64e3b164bce8c692f9c0f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_f391f919a00720650a79c6382af8b839f77cc8a157ba7d2f892da4d2ed2e378d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_2c7bb8843eb7e83fd0d0ff2cd0d5edd630d91a22d314f358f14870d6c570f09a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_19fd3a95e3a7115d3c0d6d59532bea00bd56024e47a6db3e659129f122868a58",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_01556d8274291429011b9c1e46f6630690251e20d7814048fc0e3a40b6ecb706",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_879f02e8903179951be5ba707cd3bdf6de9fa8f5e3d054da5fa7f02425161e05",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_01eb0d866929b6146f9184d1bd7d1437a6296e70f587b2324a8f442217a0b072",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_b0c06316a04fb911e975291bb2fd8b5361f9c5984c1e88f1cb1b4c62c9a6beb6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_4da0749070731fc4c550e91b7e6c1217168659c26cd196713b3d6f8a44bf7d3b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_28391bc52c7a459644188684e36fb965794dc6a6f46c865dae25129b1910add1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_60c43def22d03ba54fbfbbff07cf1b1b7b4851d01de58fba01c1a214b9b09050",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e11aa64110205046fa14e7804faa982a04ded4f498b4e81f4589966ad7abd4f2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_8b330bb8745a0019f9c36b37c4d85d12dc2350c1aefd8ec055526c923fe53198",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_ccb8fe0e48b92cb5c276dec82d90d5926c855355062e2d8582901cf1a885c912",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_1877ccfffe22a5dc4bebea5d2e05b052942f699243a37559d4814a2ddd03e655",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_55b3dfb4f3d01adc63c3ecf54b65a950dd916c92f8fa6b3f671c5ed57e176511",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_6181b666edcc1613e53206206b94682b5c465c3ff136c14c1a72947965979818",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_fc62fb2bf92854cdc807ee7e8aa4b70e9512eed7b9c6e5afea396b01b2950e2d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_b9b6b48978bc3eb6fcb46eb1d651277686d038e34d75913b53c522ba85a19697",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_2db0b1bc327e74d9be11b9f53dfd58e9490e36ea95a2ed74326a5cffaa5f8950",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_d6699b3bb2c07555679b27fb5e616e7f10638f24bada12ff24a0c47f022befd5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_00e8fc79db51f70bd800c5dbd4686e6fce2e99d893a373945d3809b5b5f9076f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_bf4441da84654f26b85a24789c5a536e57ef30d7053628d91a7b571fde56b87b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_07c4c53c9ff39f4f06aeb80f475b923287c840492db56d226ee5348de4b82b4a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_a40368d1a1f6e1bbe8241ae57e26d73a2d27ce19c171ca9a75b5d7b6dde29cda",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e6c4ccc28adae588f437deeef07ef5dd9bed82c017107d13e0fede085c9df641",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_0cf96eba7ed225013a926dc9c3a79093d789c2884d6ec148c68e57b640da7725",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_ce5abc2bd4e69b774587f6235153ccfe5e37539078d1ef9334a87c08f52e8b20",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_97e192ccc12f2390387bb09e9c299e238d973996b7ac09d93e6f855da2fe713e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_f8413d01c85b0674eb9e00a197291c9069ebf67797a553e53def34d931e64fbf",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_f37869c3690b1bef47ff10fc7dcadbfc1179284e0b1e9ed2618b5d2d127adc48",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_7fb03580424763fe0eb7a3b4103f248f00086617259d40823ca79bc83f725b05",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_fd1fcaeaf830369f1e32e2833520f027323364a3e451743de033447deca5f738",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_bfd92c8eb3807cb2c5f6aceb4cd46e1e9a6ece7a875ec150efa1878e9994786b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_97e8abf04b7b38107be243071fafceb34cbaba602f554bfb4104dfa782ccf01e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_1ef76562a10d3fea7fa609e2e60c9bf984620281219136b7deeca0747b81da40",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e91bececbabbd4596b877743db2c3448120a1d3297602d545900c72d968530f4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_5e0fffd87eacbec6a99f15007a3a2f1ff9f982d9ede9105d9c8c13b079308cb9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_0fad5001b1a90db203d62997ce82a65d2a374f8eaaaade9f40cd9dfbee60f52f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e3c21d912690d4b1b428a20f94078dbbeeb20e770bc3be94568cbdae42ccd72e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_1b74eb9687e4294c2872e957493c64f286c0c784321fb9fb071aae947c1e9cff",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_b86a66303175d7e687038e6bc025f2deb6023c819633789d266aa28d3a7ff25d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_f7b5d2725215321e147e5db4a217b417e7eb8bffe9b4cdaa866913b905bf5240",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_30028ffa1c5f8f3922d5f9116de65727676f77c15387b5f08dd2aa46182deddb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e44778527d54e3ecfc2c2cc12d762586aabf44cdca8c54f0f67ffa145756005a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_72204eef1fc695fe4bb8387005d4fce3451997d0491a99a0f2577041951d8a6a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_ed88e12049b380c5c3470d6b592a9c76d7606a567f1882ad44cd591b6f7259dd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_5524e76c6d3be9699c55c547bdb20bb687d508df4d78bfb779ec169eb50a9df1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_51627fd3f76390ac49baac5896abed590ad4770f294860a1dc7f14a765f3fb66",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_63f8d0d40d582b4bc23b266cfbca03aec55ba80e752539a893d99112aced58c4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_3d137a5f94e918cc7ec5fd34efd3c024583a5c826b4a8e6d2afd899f4228bcd1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_6a4a790e213e658bd7f5272f9d33d3f7e7f001fc5c52dc22ea4be00d458aaa4b",
+      "operation": "batch_decompile"
+    },
+    {
+      "evidence_id": "ev_83b06e33e8bc05d077444ff2e2c43c6a826f72597828e45b0af0dc4454d591d5",
+      "operation": "batch_decompile"
+    }
+  ]
+}

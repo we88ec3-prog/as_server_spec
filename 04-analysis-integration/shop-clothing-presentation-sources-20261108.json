@@ -1,0 +1,99 @@
+{
+  "archive_sha256": "b80cfdd28b4331bf4012210756bf46196c37d43de1240d70df3cb6480e920dee",
+  "candidates": [
+    {
+      "member": "item.tw.ypf",
+      "member_sha256": "55ea3a483931ea3ec5e91410f43f1aa07e90a1efb2780414722b0f361822badb",
+      "object": 121,
+      "frame": 0,
+      "icon_id": 32889,
+      "metadata": {
+        "object": 121,
+        "physical_frame": 0,
+        "bounds": [
+          0,
+          5,
+          30,
+          27
+        ],
+        "flags": 5
+      }
+    },
+    {
+      "member": "item.tw.ypf",
+      "member_sha256": "55ea3a483931ea3ec5e91410f43f1aa07e90a1efb2780414722b0f361822badb",
+      "object": 242,
+      "frame": 0,
+      "icon_id": 33010,
+      "metadata": {
+        "object": 242,
+        "physical_frame": 0,
+        "bounds": [
+          -31,
+          -11,
+          -1,
+          13
+        ],
+        "flags": 4
+      }
+    },
+    {
+      "member": "pitem.tw.ypf",
+      "member_sha256": "fc7768fdb082077fab8cb36a9686f53e40c68c4215c74c53dde5cab21a109064",
+      "object": 121,
+      "frame": 0,
+      "icon_id": 32889,
+      "metadata": {
+        "object": 121,
+        "physical_frame": 0,
+        "bounds": [
+          10,
+          2,
+          73,
+          48
+        ],
+        "flags": 5
+      }
+    },
+    {
+      "member": "pitem.tw.ypf",
+      "member_sha256": "fc7768fdb082077fab8cb36a9686f53e40c68c4215c74c53dde5cab21a109064",
+      "object": 242,
+      "frame": 0,
+      "icon_id": 33010,
+      "metadata": {
+        "object": 242,
+        "physical_frame": 0,
+        "bounds": [
+          -67,
+          -22,
+          1,
+          24
+        ],
+        "flags": 4
+      }
+    }
+  ],
+  "scope": "Read-only original resources; designed representative inventory/shop/vault icons, not original item-to-clothing bindings.",
+  "record_id": "SHOP-CLOTHING-PRESENTATION-SOURCES-20261108",
+  "presentation_overrides": [
+    {
+      "definition_id": "development.beach-outfit",
+      "icon_id": 32889,
+      "object": 121,
+      "frame": 0,
+      "description": "red outfit representative icon"
+    },
+    {
+      "definition_id": "development.formal-outfit",
+      "icon_id": 33010,
+      "object": 242,
+      "frame": 0,
+      "description": "white robe representative icon"
+    }
+  ],
+  "persistent_definition_change": false,
+  "catalog_migration": false,
+  "original_item_binding": "unknown",
+  "native_gui": "not-run"
+}
