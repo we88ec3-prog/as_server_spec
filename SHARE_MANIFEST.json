@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "c6287e95686e72aaa2d94aa80a625e020985d226a967771c906a1aa5b8cdc4e8"
+      "sha256": "b7ef37300f563d0a11e6f0cef5c96cd037fea5ba60d5672faa0e392bf048d156"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -892,6 +892,14 @@
       "sha256": "54b8f91c8fccd6a1eb0f2a2e5ca4c9615ba7f0639ade1748a43c10ddbf955474"
     },
     {
+      "path": "04-analysis-integration/20261108-native-chat-and-whisper.json",
+      "sha256": "e0e62b7cf6f9ed5c344ae9522743d241fdb4d51268797bbc43138cd71be93739"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-chat-and-whisper.md",
+      "sha256": "3c158f9a41d6801f1d3605dbcce4f5ada7d1d01eee090b10624a340f9f3d0359"
+    },
+    {
       "path": "04-analysis-integration/20261108-native-consumable-use-and-stack-projection.md",
       "sha256": "1d84a86902e572fc58e86cba0e5d8a9e08a45a8f2c5daba3169c709c59f45016"
     },
@@ -974,6 +982,10 @@
     {
       "path": "04-analysis-integration/20261108-wallet-bank-authority.md",
       "sha256": "8f08cbfc9a73a883f27206a97a503015959e6ed75f22696694ff706161375c79"
+    },
+    {
+      "path": "04-analysis-integration/20261108-world-chat-routing-and-delivery.md",
+      "sha256": "6342494c906702303e69a65ce27cf6371d31178b6a3e075c29cc37b28c7049b4"
     },
     {
       "path": "04-analysis-integration/A-001-A-023-merge-verification.md",
@@ -1085,7 +1097,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "5eab53bcf233d81b0afaeea7912961fa3855f0b4aea1baaac10d82b2333744f7"
+      "sha256": "b13a26ef2d7017bdbd9bd3e9b16aa959245d45a1df1c208bd04d9d17ee37198c"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -1249,11 +1261,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "347515cac63a66b15f5298d4d0bea0a99ee8d8a0985941f2631164310d34f37d"
+      "sha256": "e244c8942a0676648416963c21ce065e78f8a8aa562bf4ca087ded6a6712fc45"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "20731d7bd517615817b8e2debc88fcf128b9678311a8758588a79c35461e6d8e"
+      "sha256": "345e22bbaa6a7dcf19f77d01d0462236e28e612a5ddfd060406818a2cc9f1a63"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1545,11 +1557,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "89948267cec19a1b5c525c857e4e27df4938ff752064065691455cc411a32a3c"
+      "sha256": "ed4d3dd3c7bc766a7b49b5e0af466fc0f302979be171c094c30a78ef956f2b07"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "8dcda592e8fc7b9a00fea5fcd45f9a902143c11506e83aa7b9f6a9dc38fdd746"
+      "sha256": "17a9c52af2aa0dd500210262a41eb5789adeff5bce99a5be45c6520113fff662"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1617,7 +1629,7 @@
     },
     {
       "path": "06-development-tracking/details/F17_聊天好友與組隊.xlsx",
-      "sha256": "d4c5f04d37d50e45e40ac9922c28c6cabb1390ca1bc0ed46c8e520c261670939"
+      "sha256": "cb92c65de757c0a37d3c536ec81210fe59771b111b566d9d002180ac05b7109a"
     },
     {
       "path": "06-development-tracking/details/F18_玩家交易與郵件.xlsx",
@@ -1693,7 +1705,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "10016fef8f0cc2ab6b2e1cd11cc0b6565328ae81612ae4109f2bc720fab986a0"
+      "sha256": "7a53ea9d869ad7739c9116bc14c85e03eae9c1e027a2e166fb258a6126e7d849"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

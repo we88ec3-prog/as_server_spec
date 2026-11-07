@@ -1,5 +1,7 @@
 # Client / Server雙向處理矩陣
 
+2026-11-08：[聊天原生格式](20261108-native-chat-and-whisper.md)補證C0E kind0普通文字、C19 kind0角色密語／`!!`隊伍及S0A type18 plain history。kind2仍是技能動作，kind1 C19拒收通知不能廣播；公會`!1..3`未有權限模型不授權。附近範圍、密語私密性、隊伍成員及有界精確連線收件依[投遞契約](20261108-world-chat-routing-and-delivery.md)，GUI待測。
+
 2026-11-08：[組隊增量](20261108-native-party-membership.md)確認 C2E0/1邀請／同意與S3A名單；新增成員不去重、self自建，必須差分投影。普通C0E kind0承載明示Server `/party`命令，回饋S0A type17採BEu16 CP950位元組數。管理權限與[正式R-033結算](20261108-party-membership-and-authoritative-rewards.md)分別描述；不使用C12未知分支假造入隊。
 
 2026-11-08：[地面操作原生增量](20261108-native-ground-drop-pickup-and-object-resync.md)已確認 C08=`kind,slot,quantity`、C07=`BEu32 ItemObject ref`；C0C 是缺失物件重同步，不能當拾取。地面 S07 kind3／S0E、已見能力及資產 CAS 見[保管交易契約](20261108-ground-item-custody-and-monster-loot.md)，GUI 尚待驗收。

@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[普通聊天／密語／隊伍投遞契約](04-analysis-integration/20261108-world-chat-routing-and-delivery.md)與[REA原生聊天顯示／頻道證據](04-analysis-integration/20261108-native-chat-and-whisper.md)。附近範圍、在線密語、跨圖隊聊、限流與精確連線有界收件已接線；採S0A18追加原生聊天歷史。原生GUI、拒收／黑名單、好友與公會功能另列待完成，F17與總表同步。
+
 2026-11-08：[正式組隊與最高隊伍傷害獎勵](04-analysis-integration/20261108-party-membership-and-authoritative-rewards.md)，[原生邀請／名單與結果提示證據](04-analysis-integration/20261108-native-party-membership.md)。同意入隊、13人成員、隊長管理、全員完整EXP與各自獨立掉寶已接線，取代先前solo／最後一擊流程；離線與跨圖凍結成員可補領，不重抽／不重發。管理採明示`/party`Server新命令，遠端角色外觀與原生GUI仍待完成／實測；F17／F06／F19及總表已同步。
 
 2026-11-08：[地面保管、拾取競爭與私人掉落](04-analysis-integration/20261108-ground-item-custody-and-monster-loot.md)及[REA原生入口勘誤](04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.md)。C08數量來源已證，真正拾取為C07，C0C只重同步；地面與背包圖源分開。持久保管／堆疊／競爭／重啟及普攻／技能私人掉落已接線，GUI仍待測；正式隊伍歸屬與全員EXP仍未完成，F13／F06及總表已同步。

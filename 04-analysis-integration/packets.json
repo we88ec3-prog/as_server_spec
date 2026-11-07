@@ -1388,7 +1388,7 @@
       "name": "Message",
       "system": "SYS-AUTH",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 type,string16 CP950 message; TW string16 uses BEu16 encoded-byte length, no NUL. Reviewed type17 is a 3000ms MapPane notice, not Login S02.",
+      "layout": "u8 type,string16 CP950 message; TW string16 uses BEu16 encoded-byte length, no NUL. Type17/0x11 is a 3000ms MapPane notice; type18/0x12 appends plain actor-free chat history. Neither is Login S02.",
       "client_entry": "documented profile; exact per-branch entry pending A-020",
       "state_precondition": "see profile-login.md",
       "related_packets": [],
@@ -1409,6 +1409,7 @@
       },
       "a014_party_increment": "04-analysis-integration/20261108-native-party-membership.md",
       "type17_gui_validation": "not-run; exact bytes and no-game-UI-rebuild handler verified-static",
+      "a014_chat_increment": "04-analysis-integration/20261108-native-chat-and-whisper.md",
       "evidence_ids": [
         "ev_a014_20261031_asgard_social_static"
       ]
@@ -1526,14 +1527,14 @@
       "name": "C0E",
       "system": "SYS-SOCIAL",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 kind + string8 CP950 text; ordinary ChatInputDialog Enter mode-1 emits kind0. ActionInventory kind2 is separate. Other group/guild channels remain unproven.",
+      "layout": "u8 kind + string8 CP950 text; ordinary ChatInputDialog Enter mode -1 emits kind0. ActionInventory kind2 is separate. Party/guild UI uses C19 destinations, not invented C0E kinds.",
       "client_entry": "0x575070 writer; ordinary chat Enter0x42dfd1/0x42e012/0x42e04b/0x42e17e",
       "a014_party_increment": "04-analysis-integration/20261108-native-party-membership.md",
       "layout_status": "partial",
       "evidence_kinds": [
         "observed-static"
       ],
-      "manual_validation": "original Client E2E not-run; channel/action mappings unknown",
+      "manual_validation": "original Client E2E not-run; unreviewed variants remain partial; reviewed mappings are linked in increment reports",
       "requirements": [
         "R-015"
       ],
@@ -1542,11 +1543,11 @@
       ],
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
-        "C0E type→group/guild mapping",
+        "unreviewed C0E kinds; ordinary party/guild UI uses C19 destinations",
         "C12 and C2E operations outside the reviewed invitation subset",
         "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
-        "native guild wire class/semantics",
-        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
+        "guild membership/permissions and original error behavior",
+        "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
       "related_packets": []
     },
@@ -1557,13 +1558,14 @@
       "name": "C19",
       "system": "SYS-SOCIAL",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "u8 type + string8 target + string8 text",
+      "layout": "u8 kind + string8 CP950 target + string8 CP950 text; kind0 authored whisper, target !! is party, !1/!2/!3 are guild modes. Kind1 is Client blocked-name notification, not authored chat.",
       "client_entry": "0x5782d0",
+      "a014_chat_increment": "04-analysis-integration/20261108-native-chat-and-whisper.md",
       "layout_status": "partial",
       "evidence_kinds": [
         "observed-static"
       ],
-      "manual_validation": "original Client E2E not-run; channel/action mappings unknown",
+      "manual_validation": "original Client E2E not-run; unreviewed variants remain partial; reviewed mappings are linked in increment reports",
       "requirements": [
         "R-015"
       ],
@@ -1572,11 +1574,11 @@
       ],
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
-        "C0E type→group/guild mapping",
+        "unreviewed C0E kinds; ordinary party/guild UI uses C19 destinations",
         "C12 and C2E operations outside the reviewed invitation subset",
         "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
-        "native guild wire class/semantics",
-        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
+        "guild membership/permissions and original error behavior",
+        "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
       "related_packets": []
     },
@@ -1594,7 +1596,7 @@
       "evidence_kinds": [
         "observed-static"
       ],
-      "manual_validation": "original Client E2E not-run; channel/action mappings unknown",
+      "manual_validation": "original Client E2E not-run; unreviewed variants remain partial; reviewed mappings are linked in increment reports",
       "requirements": [
         "R-015"
       ],
@@ -1603,11 +1605,11 @@
       ],
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
-        "C0E type→group/guild mapping",
+        "unreviewed C0E kinds; ordinary party/guild UI uses C19 destinations",
         "C12 and C2E operations outside the reviewed invitation subset",
         "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
-        "native guild wire class/semantics",
-        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
+        "guild membership/permissions and original error behavior",
+        "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
       "related_packets": []
     },
@@ -1625,7 +1627,7 @@
       "evidence_kinds": [
         "observed-static"
       ],
-      "manual_validation": "original Client E2E not-run; channel/action mappings unknown",
+      "manual_validation": "original Client E2E not-run; unreviewed variants remain partial; reviewed mappings are linked in increment reports",
       "requirements": [
         "R-015"
       ],
@@ -1634,11 +1636,11 @@
       ],
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
-        "C0E type→group/guild mapping",
+        "unreviewed C0E kinds; ordinary party/guild UI uses C19 destinations",
         "C12 and C2E operations outside the reviewed invitation subset",
         "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
-        "native guild wire class/semantics",
-        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
+        "guild membership/permissions and original error behavior",
+        "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
       "related_packets": []
     },
@@ -1655,7 +1657,7 @@
       "evidence_kinds": [
         "observed-static"
       ],
-      "manual_validation": "original Client E2E not-run; channel/action mappings unknown",
+      "manual_validation": "original Client E2E not-run; unreviewed variants remain partial; reviewed mappings are linked in increment reports",
       "requirements": [
         "R-015"
       ],
@@ -1664,11 +1666,11 @@
       ],
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
-        "C0E type→group/guild mapping",
+        "unreviewed C0E kinds; ordinary party/guild UI uses C19 destinations",
         "C12 and C2E operations outside the reviewed invitation subset",
         "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
-        "native guild wire class/semantics",
-        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
+        "guild membership/permissions and original error behavior",
+        "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
       "related_packets": []
     },
@@ -1685,7 +1687,7 @@
       "evidence_kinds": [
         "observed-static"
       ],
-      "manual_validation": "original Client E2E not-run; channel/action mappings unknown",
+      "manual_validation": "original Client E2E not-run; unreviewed variants remain partial; reviewed mappings are linked in increment reports",
       "requirements": [
         "R-015"
       ],
@@ -1694,11 +1696,11 @@
       ],
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
-        "C0E type→group/guild mapping",
+        "unreviewed C0E kinds; ordinary party/guild UI uses C19 destinations",
         "C12 and C2E operations outside the reviewed invitation subset",
         "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
-        "native guild wire class/semantics",
-        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
+        "guild membership/permissions and original error behavior",
+        "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
       "related_packets": []
     },
@@ -1716,7 +1718,7 @@
       "evidence_kinds": [
         "observed-static"
       ],
-      "manual_validation": "original Client E2E not-run; channel/action mappings unknown",
+      "manual_validation": "original Client E2E not-run; unreviewed variants remain partial; reviewed mappings are linked in increment reports",
       "requirements": [
         "R-015"
       ],
@@ -1725,11 +1727,11 @@
       ],
       "analysis_document": "task_a/roy2/A-014-analysis.md",
       "unknowns": [
-        "C0E type→group/guild mapping",
+        "unreviewed C0E kinds; ordinary party/guild UI uses C19 destinations",
         "C12 and C2E operations outside the reviewed invitation subset",
         "S58 and S3A finding-group list variants; ordinary S3A roster is covered by the 20261108 increment",
-        "native guild wire class/semantics",
-        "unreviewed S0A/S0D variants beyond the selected type17 notice and type0 speech"
+        "guild membership/permissions and original error behavior",
+        "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
       "related_packets": []
     },
