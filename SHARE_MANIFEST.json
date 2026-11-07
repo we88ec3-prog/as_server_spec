@@ -273,7 +273,7 @@
     },
     {
       "path": "02-server-planning/shared-map-multiplayer-contract.md",
-      "sha256": "0c68688a7bcc5c4c9abf8f6cedc68ca0ade45cdc5acc37b0ce7cabd043945379"
+      "sha256": "56660c48cd0c03462c0e85244af638a85b71411d0834137e9bff6bbffdfcbb69"
     },
     {
       "path": "02-server-planning/social-contract.md",
@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "b7ef37300f563d0a11e6f0cef5c96cd037fea5ba60d5672faa0e392bf048d156"
+      "sha256": "447f4afb5b14db210a14f4bdeae3d0936d01205771fa929d5dbca04602240969"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -936,6 +936,14 @@
       "sha256": "95ce94856710eaf4e58a03825575fab30d17ae7b7d141f4201103fa8ef77e01e"
     },
     {
+      "path": "04-analysis-integration/20261108-native-remote-player-lifecycle.json",
+      "sha256": "7b21d1aad3573f362973ca26268aed7ab40de32669eabf490e53f441e2beaaea"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-remote-player-lifecycle.md",
+      "sha256": "1aa7082d340ff73ed66f7250fbb39cc97d033059d3d2c558c758fa61ba4107b4"
+    },
+    {
       "path": "04-analysis-integration/20261108-native-shop-and-bank-items-contract.json",
       "sha256": "be129fc32be3e807b81c8431c4c1ff5523dcec151fa18c395aeaebb70450aa2b"
     },
@@ -958,6 +966,10 @@
     {
       "path": "04-analysis-integration/20261108-party-membership-and-authoritative-rewards.md",
       "sha256": "402b53631e353ee866aa09d5c3c99b14f6f5d720966b0b086e0b2dffdcbc08c7"
+    },
+    {
+      "path": "04-analysis-integration/20261108-shared-player-visibility-and-motion.md",
+      "sha256": "f1c08b6174194a5e18fdfc02543aac0c7993f5efb9924123dd8fbc2f97f68773"
     },
     {
       "path": "04-analysis-integration/20261108-shop-item-visual-sources.md",
@@ -1097,7 +1109,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "b13a26ef2d7017bdbd9bd3e9b16aa959245d45a1df1c208bd04d9d17ee37198c"
+      "sha256": "3bf74a601daca4db9f0515e472d53033aabfa372dd59553e662d841dc2406e6c"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -1261,11 +1273,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "e244c8942a0676648416963c21ce065e78f8a8aa562bf4ca087ded6a6712fc45"
+      "sha256": "d9fc6e5d9735892a63d1bc4e3b6f00872e7c281d94dcd6b6d660ffff531249e4"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "345e22bbaa6a7dcf19f77d01d0462236e28e612a5ddfd060406818a2cc9f1a63"
+      "sha256": "5c7499d1e2d5f85925db92121db3ceae9404c17cee9920ad07bb4f302d50e366"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1557,11 +1569,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "ed4d3dd3c7bc766a7b49b5e0af466fc0f302979be171c094c30a78ef956f2b07"
+      "sha256": "8c0c8500dc408647a90afaa851474e18d70cd05ee188aae425d337c4a7320f7f"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "17a9c52af2aa0dd500210262a41eb5789adeff5bce99a5be45c6520113fff662"
+      "sha256": "a0fb17a5f216a5c9f71ebe5b8f61571b57194fe4479e5cbaa510579405d6b419"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1577,7 +1589,7 @@
     },
     {
       "path": "06-development-tracking/details/F04_世界地圖與傳送.xlsx",
-      "sha256": "77bf34bec711063cbb891a3b301f4a46bb4d3e2e84d5c548767f46f06537e747"
+      "sha256": "c167af5cfac4fc263507a52288e005d140e9699a00e7172feedb28d1367dc82d"
     },
     {
       "path": "06-development-tracking/details/F05_NPC與互動基礎.xlsx",
@@ -1629,7 +1641,7 @@
     },
     {
       "path": "06-development-tracking/details/F17_聊天好友與組隊.xlsx",
-      "sha256": "cb92c65de757c0a37d3c536ec81210fe59771b111b566d9d002180ac05b7109a"
+      "sha256": "e70f8f1c1791a34e72c8ef4a48e879b805ebcd6fbaa6fae8c28187925f00267d"
     },
     {
       "path": "06-development-tracking/details/F18_玩家交易與郵件.xlsx",
@@ -1705,7 +1717,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "7a53ea9d869ad7739c9116bc14c85e03eae9c1e027a2e166fb258a6126e7d849"
+      "sha256": "df6b78a19a331d5fa5055da1a38a0bb89c45621130ab0790b98728142adb6941"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

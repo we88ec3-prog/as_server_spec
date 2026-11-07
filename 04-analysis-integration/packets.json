@@ -1104,7 +1104,9 @@
       "a006_analysis": "task_a/roy2/A-006-analysis.md",
       "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
       "visibility_scope": "other human with 32-bit object_ref, native AOI/ID lifetime unknown",
-      "native_client_validation": "not-run"
+      "native_client_validation": "not-run",
+      "a004_shared_player_increment": "04-analysis-integration/20261108-native-remote-player-lifecycle.md",
+      "remote_human_note": "4F31A0 non-self removes existing ref then constructs HumanObject; same-ref refresh rebuilds animation. S05 is self, and S05 clothing flag0x1000 must not be copied into S33 HumanFlags."
     },
     {
       "id": "PKT-S37",
@@ -2063,9 +2065,14 @@
       "layout": "Exactly BEu32 ItemObject reference; no quantity, position or persistent item ID. Native interaction requires abs(dx)<2 and abs(dy)<2.",
       "client_entry": "0x496880 ItemObject sender; 0x5728e0 CGet ctor opcode07; writer bytes at0x572990 invoke BEu32 helper0x45ac40",
       "profile": "TW-seed0-local-v0.1",
-      "requirements": ["R-008", "R-017"],
+      "requirements": [
+        "R-008",
+        "R-017"
+      ],
       "layout_status": "observed-static",
-      "evidence_kinds": ["observed-static"],
+      "evidence_kinds": [
+        "observed-static"
+      ],
       "evidence_ids": [
         "ev_c0617139400b744464d07a744bd79c720a08a0facbd3b0fa10f9740c1209b5bb",
         "ev_5edafb04e130c6137678058da6162bda579172c1fdd80167f28a185b10ca4fd1"
@@ -2410,7 +2417,9 @@
       "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
       "native_client_validation": "not-run",
       "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
-      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire.",
+      "a004_shared_player_increment": "04-analysis-integration/20261108-native-remote-player-lifecycle.md",
+      "human_path_note": "Non-self Human: startXY, heading, count, direction-high-nibble/run-low-nibble bytes, endpointXY/endHeading. Designed safe subset<=11 bytes, direction0..7/run1..15. Start!=end requires nonempty path; start==end selects correction and ignores a closed loop. No endpoint-only invented path."
     },
     {
       "id": "PKT-S0E",
@@ -2475,7 +2484,8 @@
       "a024_completion_note": "Original NPC/object S2C message discovered. S07 nonempty 1..14 now decoded separately; receiver-to-model dispatch / native E2E still unverified.",
       "native_client_validation": "not-run",
       "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
-      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire."
+      "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire.",
+      "a004_shared_player_increment": "04-analysis-integration/20261108-native-remote-player-lifecycle.md"
     },
     {
       "id": "PKT-C43",
@@ -2526,7 +2536,7 @@
       "name": "MoveHumanAck",
       "system": "SYS-WORLD",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u32 opaque actor candidate, BE u16 field_a, BE u16 field_b; native callback identity/coords not fully proven",
+      "layout": "BEu32 Human ref, BEu16 x, BEu16 y; confirms a node of an existing remote Human path, not an instruction to begin walking",
       "client_entry": "0x583220 ctor / 0x5832D0 parser",
       "state_precondition": "In-world visible human object; inferred from class, actual handler state unknown",
       "related_packets": [
@@ -2562,7 +2572,8 @@
         "Original client on-screen two-player join/move/turn/leave/disconnect E2E not-run",
         "S33 nonzero flags and conditionally present appearance/name fields not covered by fixed-profile helper",
         "Original Server AOI boundary/heartbeat/visibility radius and relog policy cannot be deduced from Client; belongs DEV/CT"
-      ]
+      ],
+      "a004_shared_player_increment": "04-analysis-integration/20261108-native-remote-player-lifecycle.md"
     },
     {
       "id": "PKT-S11",
@@ -2964,7 +2975,8 @@
         "R-007"
       ],
       "native_client_validation": "not-run",
-      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md"
+      "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
+      "a004_shared_player_increment": "04-analysis-integration/20261108-native-remote-player-lifecycle.md"
     },
     {
       "id": "PKT-C4A",

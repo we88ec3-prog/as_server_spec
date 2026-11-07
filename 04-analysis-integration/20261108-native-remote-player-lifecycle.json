@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "analysis_id": "native-remote-player-lifecycle-20261108",
+  "artifact": {
+    "name": "Asgard.exe",
+    "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+  },
+  "status": "observed-static; complete native multiplayer GUI pending",
+  "server_policy_not_original": [
+    "AOI",
+    "lease rules",
+    "stable ref allocation",
+    "polling cadence",
+    "authoritative step buffering and rebase",
+    "death/respawn policy"
+  ],
+  "s33": {
+    "opcode": "0x33",
+    "reader": "0x585570",
+    "handler": "0x4f31a0",
+    "format_reference": "appearance.md flags0,42+CP950 name byte count",
+    "remote_branch": [
+      "compare ref against local self ref",
+      "0x4ba090 remove existing ref",
+      "0x47c1d0 construct HumanObject",
+      "0x4b6450 add to map"
+    ],
+    "supports_nonself_ref": true,
+    "repeated_ref": "remove then reconstruct; resets visual/path state",
+    "appearance_fields_shared_with_self": true,
+    "clothing_color": {
+      "body_offset": 30,
+      "bytes": 3,
+      "unconditional": true
+    },
+    "supported_flags": 0,
+    "unsafe_to_copy_s05_control_flags": true
+  },
+  "s05": {
+    "opcode": "0x05",
+    "local_user_constructor": "0x556e30",
+    "sets_self_global": "DAT_0066d0d4",
+    "not_remote_spawn": true
+  },
+  "s06": {
+    "opcode": "0x06",
+    "fields": [
+      [
+        "ref",
+        "BEu32"
+      ],
+      [
+        "x",
+        "BEu16"
+      ],
+      [
+        "y",
+        "BEu16"
+      ]
+    ],
+    "reader": "0x5832d0",
+    "handler": "0x4f16e0",
+    "human_handler": "0x47a2f0",
+    "purpose": "acknowledge existing path nodes matching XY",
+    "starts_new_path": false,
+    "moves_empty_path": false,
+    "excludes_self": true
+  },
+  "s64": {
+    "opcode": "0x64",
+    "fields": [
+      [
+        "ref",
+        "BEu32"
+      ],
+      [
+        "startX",
+        "BEu16"
+      ],
+      [
+        "startY",
+        "BEu16"
+      ],
+      [
+        "headerHeading",
+        "u8"
+      ],
+      [
+        "count",
+        "u8"
+      ],
+      [
+        "path",
+        "count*u8"
+      ],
+      [
+        "endX",
+        "BEu16"
+      ],
+      [
+        "endY",
+        "BEu16"
+      ],
+      [
+        "endHeading",
+        "u8"
+      ]
+    ],
+    "reader": "0x5835e0",
+    "handler": "0x4f1750",
+    "path_builder": "0x47c9c0",
+    "human_step_executor": "0x47c2d0",
+    "excludes_self": true,
+    "run_byte": {
+      "direction": "high nibble, allowed0..7",
+      "run_count": "low nibble, require1..15",
+      "zero_run_count": "native still advances once; reject"
+    },
+    "safe_run_byte_limit": 11,
+    "limit_basis": "serializer+0x23..0x2d before fixed endX+0x2e/endY+0x30",
+    "one_step_body_bytes": 16,
+    "one_step_path": "(direction<<4)|1",
+    "requires_path_endpoint_matches_expanded_runs": true,
+    "forbidden": [
+      "start!=end with count0",
+      "direction>=8",
+      "runCount0"
+    ],
+    "closed_loop": "start==end takes correction branch and ignores runs; segment into distinct endpoints",
+    "header_heading_used": "start==end correction branch",
+    "end_heading_used": "packet endpoint matches local current coordinate correction branch",
+    "normal_path_heading": "derived from next node",
+    "first_last_heading_fill": "consistent server subset, not complete original field naming",
+    "path_confirmation": "run endpoint nodes marked confirmed; S06 not needed to initialize path"
+  },
+  "s0c": {
+    "opcode": "0x0C",
+    "not_selected_for_empty_human_path": true,
+    "reason": "Human virtual+0x40 reads an existing path; Monster one-step behavior is not interchangeable"
+  },
+  "s11": {
+    "opcode": "0x11",
+    "fields": [
+      [
+        "ref",
+        "BEu32"
+      ],
+      [
+        "direction",
+        "u8"
+      ]
+    ],
+    "handler": "0x4f15e0 ->0x4b7f70",
+    "remote": "virtual+0x3c",
+    "unknown_ref": "may trigger C0C resync"
+  },
+  "s0e": {
+    "opcode": "0x0E",
+    "fields": [
+      [
+        "ref",
+        "BEu32"
+      ]
+    ],
+    "handler": "0x4f1da0 ->0x4ba0c0 ->0x4b9ce0",
+    "remote": "unbind/remove/release",
+    "self": "local UserObject is protected from destructor path"
+  },
+  "s1a": {
+    "opcode": "0x1A",
+    "fields": [
+      [
+        "ref",
+        "BEu32"
+      ],
+      [
+        "motion",
+        "u8"
+      ],
+      [
+        "animationParameter",
+        "BEu16"
+      ],
+      [
+        "tail",
+        "u8"
+      ]
+    ],
+    "handler": "0x4f1c60 ->Human virtual+0x44 ->0x47ace0",
+    "action_mapping": "0x475240",
+    "ordinary_human_death_motion": 3,
+    "death_action": "direction+64",
+    "idle_motion": 0,
+    "flag_0x1000": "permits only motion0,1,2,0x52, rejects3/4",
+    "remote_dead_entry": "S33 then S1A motion3",
+    "remote_respawn_projection": "S33 then S1A motion0; business policy server-designed"
+  },
+  "s13": {
+    "source_and_target_refs": "must use receiver-view known actor refs, not fake self",
+    "handler": "0x4f1dc0 registry lookup",
+    "damage_display": "observer and UI-option branches exist; universal spectator-number display not claimed",
+    "authoritative_hp": "separate server transaction"
+  },
+  "unknown": [
+    "full arbitrary S33 flags",
+    "all S64 correction edge cases beyond selected subset",
+    "original AOI and movement cadence",
+    "original multiplayer death/respawn business rules",
+    "full spectator damage-number preference rules"
+  ],
+  "evidence_ids": [
+    "ev_ccd4f1da50bfc3836d862897d296206d2af984c788e000813c41db6ccd93939c",
+    "ev_fa057509d446517238e1b2a40ba8d6bb5670712820674b02868c9d1e5e85d291",
+    "ev_53132371d1c6d10c6955a94ee6f9a51de314ee26835bc63916e25f4609eab0bc",
+    "ev_f8ebc969e8af720ced6f87c73dbacd2f4feb4be5f77a83dec7597acc1e1e491d",
+    "ev_ee44bb22353e646e180c6e2d2d7304189b3f4345347adb80281b92040e780a39",
+    "ev_fd32db4da92dc8f1ad95d1cadad69c0eadef030828cc3eea248358aaa0beb347",
+    "ev_84984a1a327bb910b4469af4d68655f61a2fd5ec8018164a2c45febef2d4c317"
+  ]
+}

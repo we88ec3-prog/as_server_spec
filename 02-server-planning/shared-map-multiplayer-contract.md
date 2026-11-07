@@ -1,5 +1,7 @@
 # ADR-007 — 多人進同一張地圖、共享 NPC 與怪物（2026-10-31）
 
+2026-11-08實作增量：[共享玩家互見與移動](../04-analysis-integration/20261108-shared-player-visibility-and-motion.md)已接線，沿用原NPC／怪物共享權威與R-033獎勵。原生Human wire見[補證](../04-analysis-integration/20261108-native-remote-player-lifecycle.md)。以下2026-10-31狀態保留歷史；本輪沒有完成所有共享戰鬥事件、跨Host catalog pin或CT-055原生GUI，不能把玩家互見套用全ADR驗收。
+
 **決策來源：使用者明確選擇「多人進同一地圖」。** 此決策適用新手教學及一般共用世界地圖；**不使用每個角色各自隔離的場景作正式模式**。這是新 Server 的 designed 規則，不聲稱原服的所有分流/副本政策已知。
 
 ## 玩家看到的行為

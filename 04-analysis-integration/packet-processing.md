@@ -1,5 +1,7 @@
 # Client / Server雙向處理矩陣
 
+2026-11-08：[多人Human原件補證](20261108-native-remote-player-lifecycle.md)確認S33非self會建立／重建Human，S64才建立移動路徑，S06只確認已有節點。Server依[共享玩家契約](20261108-shared-player-visibility-and-motion.md)使用真實提交歷史、S11與S0E；組隊引用沿同一角色ID。原生多Client與旁觀攻擊／技能逐次呈現仍未完成。
+
 2026-11-08：[聊天原生格式](20261108-native-chat-and-whisper.md)補證C0E kind0普通文字、C19 kind0角色密語／`!!`隊伍及S0A type18 plain history。kind2仍是技能動作，kind1 C19拒收通知不能廣播；公會`!1..3`未有權限模型不授權。附近範圍、密語私密性、隊伍成員及有界精確連線收件依[投遞契約](20261108-world-chat-routing-and-delivery.md)，GUI待測。
 
 2026-11-08：[組隊增量](20261108-native-party-membership.md)確認 C2E0/1邀請／同意與S3A名單；新增成員不去重、self自建，必須差分投影。普通C0E kind0承載明示Server `/party`命令，回饋S0A type17採BEu16 CP950位元組數。管理權限與[正式R-033結算](20261108-party-membership-and-authoritative-rewards.md)分別描述；不使用C12未知分支假造入隊。

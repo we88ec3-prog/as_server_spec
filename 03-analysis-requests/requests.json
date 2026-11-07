@@ -249,7 +249,14 @@
         "03-analysis-requests/A-004-roy1-world-visibility.md"
       ],
       "registry_lookup_static": "Roy1 xref: DrawObjects handler 0x4F17C0 via 0x4EAC30 MapPane map at +0x94, u32 object_ref from S07/S0E/S5F; native callback and ID reuse policy still unverified.",
-      "source_incremental_commit": "c4d42ac0d45339b5abe93633864a56db6fc3ddfa"
+      "source_incremental_commit": "c4d42ac0d45339b5abe93633864a56db6fc3ddfa",
+      "shared_player_increment_20261108": {
+        "native_report": "04-analysis-integration/20261108-native-remote-player-lifecycle.md",
+        "server_contract": "04-analysis-integration/20261108-shared-player-visibility-and-motion.md",
+        "scope": "remote S33 Human spawn/rebuild; S64 genuine path runs; S06 only confirms prior nodes; S11 turn; S0E remove; S1A Human death",
+        "original_client_gui": "not-run",
+        "remaining": "native multi-Client visual acceptance, full observed combat presentation, nonzero S33 variants and cross-Host catalog pin"
+      }
     },
     {
       "id": "A-005",
