@@ -1,5 +1,7 @@
 # A-007 / roy1 — 背包、裝備、數量與移除的原生 Client BIN-first 分析
 
+2026-11-08補證：[地面物品契約](../04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.md)已釐清C08=kind／slot／quantity三u8；真正拾取是C07 Get的BEu32 object ref，**C0C是missing-object重同步請求，不能當拾取授權**。以下2026-10-31 unknown保留歷史時間點，不代表這些欄位仍未解析；新增GUI結果另列，未由靜態補證宣稱完成。
+
 2026-10-31；既有分支 `task_a/roy1`；原始 `Asgard.exe` 3,235,840 bytes PE32 x86，SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，ImageBase 0x400000；Evidence `ev_a007_20261031_inventory_lifecycle_static`。目標 R-008/R-017，關聯 A-004/006/008/013/015/016。結論：A-007 `integrated / handoff_status=partial / native_client_validation=not-run`；可開發 **type-specific codec、inventory/equipment safety skeleton、持久唯一 ledger**；完整原版經濟與物品 business semantics 仍未證實，不得把測試衣櫃當真正式資產模型。
 
 ## 原始 Client 已證 C2S 欄位與行為

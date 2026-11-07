@@ -1,5 +1,7 @@
 # 背包與裝備：已知分支
 
+2026-11-08 增量：[地面保管與交易](20261108-ground-item-custody-and-monster-loot.md)、[C08／C07／C0C 勘誤及獨立地面圖源](20261108-native-ground-drop-pickup-and-object-resync.md)。真正拾取為 C07，C0C 僅重同步。新版已有唯一實例與背包／裝備／銀行／地面保管；下列原型文字保留歷史語境，不表示目前仍以免費衣櫃代替正式物品。
+
 S0F（parser 0x57a3f0）：種類u8、格位u8、圖示u16、RGB3、旗標u8、使用類型u8、另一旗標u8、附加標籤string8、名稱string8、描述string8、三旗標u8（第三為數量模式）、模式0時u16數量、u8旗標、u8附加描述數；每個描述分支仍須補完整欄位。本profile種類1、使用類型5、數量模式0／數量1、附加描述數0。
 
 種類0在已查路徑被忽略；種類1進UserInventory。ItemListPane 0x4932c0在使用類型5及合法性檢查成功時送C1C：01 slot 00 05。其他使用類型的對話及後續包屬A-007範圍。

@@ -333,7 +333,7 @@
     },
     {
       "path": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
-      "sha256": "80aebe6c43d088f9418b8f1619a77131406f7fa58a716d8019313ff1fdfb7322"
+      "sha256": "7774d01fe0091a4ad46a7b06cd93af7b8eca68f0469119807f9cfb21ef4d7c3a"
     },
     {
       "path": "03-analysis-requests/A-011-map-monster-placement-followup.md",
@@ -864,6 +864,10 @@
       "sha256": "37cbb0f536497c402b60a758435adc15fd6062e6e91667b1458df8ac666a9d8c"
     },
     {
+      "path": "04-analysis-integration/20261108-ground-item-custody-and-monster-loot.md",
+      "sha256": "8576963a48c2d79faaf968a11b08978a0d3a33f09630e61dfbcbafd680ae10f9"
+    },
+    {
       "path": "04-analysis-integration/20261108-items-shops-ordering-and-client-feedback.md",
       "sha256": "05e7c332ec8ae45f1004d0a8862226e86d66145b6359508193e84b77c61be420"
     },
@@ -898,6 +902,14 @@
     {
       "path": "04-analysis-integration/20261108-native-effect-lifecycle-correction.md",
       "sha256": "71677fb57b32c35a2b5b11228ac4d0cd5981d87c55fa94ea2ad6e7cc7318c496"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.json",
+      "sha256": "1cebae8a7e11ae9ede8eb57ebf9254cb28917e0f81c3cdd364d44e4704146868"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.md",
+      "sha256": "926b15d373742a2a8f63c41194561bab515c9991d69c6250e14e76631ec29fa8"
     },
     {
       "path": "04-analysis-integration/20261108-native-monster-steps-player-death-and-respawn.json",
@@ -1061,7 +1073,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "763205ae858ecd79719cc3082f5bf5e7d5f4189dae6bd08c5206eebf4bc8d316"
+      "sha256": "191df9f394eb1eae55e0cb99b34b4e40f9ef10320980c50b0de286d0c2faf484"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -1133,7 +1145,7 @@
     },
     {
       "path": "04-analysis-integration/items.md",
-      "sha256": "f7615f76468131a51bd1232df5359ba3125341a27fdb63acecc2c19cbaea4a9b"
+      "sha256": "4cca781a2aab055b3ded788c0ffa846de1bd3e7f7eba862a0ae08bd64f6f0de3"
     },
     {
       "path": "04-analysis-integration/local-account-entry-observations-20261031.md",
@@ -1225,11 +1237,11 @@
     },
     {
       "path": "04-analysis-integration/packet-processing.md",
-      "sha256": "c8a68273cd034803a0d792dd7e4735e95fcebc26ae344d6e8fc571ee49328220"
+      "sha256": "a27b08b0a1f1e35bff95f75b268c1b3796fdc17c91c9a4f75a18ddcc8940b865"
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "414b51ddaa61032d53eda1d8a62f9a9f3294411874c410049169c6a6d07f7ff1"
+      "sha256": "fbed340085b8e13581c3709893d01e3540c520c6229b4ccb4c4e503aff0307ef"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1521,11 +1533,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "c2442ffbe96e55c19ec9680e1308300aa88a1fe5a0b0651fc5a196ae0cbb090a"
+      "sha256": "71774f6a4b3df70df45bf59bfb148fdfecdc7106634e367525cce94ff57158c4"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "9f20c6ac791944b395b712a69b2eb47d7ee387be9b06bfee5c15b4db251ea7e7"
+      "sha256": "b8b6013d34698674d9a6fa79a46c71374dcfd8fe573a34e6dea3724062fc65c9"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1549,7 +1561,7 @@
     },
     {
       "path": "06-development-tracking/details/F06_怪物與戰鬥.xlsx",
-      "sha256": "bfa18b398d1b366a549d1868afe72608495dc59d7f8ecc1eb2e22ed92547a0ce"
+      "sha256": "29dd3934edacff5832d7b047c495269690dfb69086ae544c5c145237c08d4537"
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
@@ -1577,7 +1589,7 @@
     },
     {
       "path": "06-development-tracking/details/F13_背包裝備與獨立衣色.xlsx",
-      "sha256": "0155678ec9f69cf9ac2c82f480973bbc0aa26ef725569e990821fc23172f0643"
+      "sha256": "2584b8119522b09182244e9333678c4f6b5f56354acf54efe1dfb26ef524cad8"
     },
     {
       "path": "06-development-tracking/details/F14_銀行與倉庫.xlsx",
@@ -1669,7 +1681,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "36bf953f3aa4bee17bfe43ca9804036d2ff17c1a9453f5b4e8205b60e76118e7"
+      "sha256": "81713a60df09b237c02a2339c2ebc658683e51719a474e61d567ee2c823d919b"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

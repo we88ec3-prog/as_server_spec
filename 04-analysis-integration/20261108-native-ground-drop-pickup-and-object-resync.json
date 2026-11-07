@@ -1,0 +1,677 @@
+{
+  "contract_id": "native-ground-drop-pickup-and-object-resync-20261108",
+  "original_executable_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "native_gui_acceptance": "pending",
+  "c08_drop": {
+    "opcode": 8,
+    "body": [
+      "u8 kind",
+      "u8 bagSlot",
+      "u8 quantity"
+    ],
+    "supported_kind": 1,
+    "sender": "0x4471c0",
+    "quantity_ui": "0x447290",
+    "writer": "0x571ff0"
+  },
+  "c07_pickup": {
+    "opcode": 7,
+    "body": [
+      "BEu32 objectRef"
+    ],
+    "item_sender": "0x496880",
+    "constructor": "0x5728e0",
+    "writer": "0x572990",
+    "writer_bytes": "8b411850e8a782eeffc3",
+    "nearby_native_interaction": "0x4bf370 checks abs(dx)<2 and abs(dy)<2",
+    "no_quantity_or_xy": true
+  },
+  "c0c": {
+    "purpose": "missing-object resynchronization request; not asset pickup authority",
+    "producer": "0x46d230",
+    "throttle": "0x4edae0"
+  },
+  "s07_ground": {
+    "count": "BEu16",
+    "row": [
+      "BEu16 x",
+      "BEu16 y",
+      "u8 kind3",
+      "BEu32 objectRef",
+      "BEu16 groundVisualId",
+      "u8 tail0",
+      "u8 tail1",
+      "u8 tail2",
+      "u8 tail3",
+      "u8 tail4",
+      "string8 name"
+    ],
+    "safe_tail": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "constructor": "0x496540",
+    "quantity_field": "not established; do not repurpose opaque tail",
+    "zero_tail_visibility_audit": {
+      "constructor": "0x496540",
+      "tail0_storage": "+0x230",
+      "tail1_storage": "+0x22e",
+      "ground_draw": "0x4967b0",
+      "ground_draw_reads_tail_fields": false,
+      "uses_tail_as_rgb_or_alpha": false,
+      "merchant_layer_tint_path_applies": false,
+      "fixed_draw_parameter": "0xffff8001",
+      "other_tail_semantics": "unknown",
+      "native_gui_acceptance": "pending",
+      "evidence_id": "ev_22559f89a062d7f6b9e3cc35217050d3de4737e5021cbfeed9d061411d7179d5"
+    }
+  },
+  "s0e_remove": {
+    "opcode": 14,
+    "body": [
+      "BEu32 objectRef"
+    ],
+    "handler_chain": [
+      "0x4f1da0",
+      "0x4ba0c0",
+      "0x4b9ce0"
+    ],
+    "s5f_for_ground_pickup": false
+  },
+  "ground_visual_source": {
+    "archive": "Icon.dat",
+    "archive_sha256": "b80cfdd28b4331bf4012210756bf46196c37d43de1240d70df3cb6480e920dee",
+    "member_slot": 0,
+    "member_name": "ditem.tw.ypf",
+    "member_offset": 292,
+    "member_bytes": 612470,
+    "member_sha256": "716aeec66fc4102d5690e07781b079c93f0229943bc43b2ea439891403f1eeb9",
+    "layout": {
+      "object_count": 1,
+      "decoded_objects": 1,
+      "metadata_end": 12424,
+      "data_base": 12424
+    },
+    "frame_count": 388,
+    "scope": "Offline directRGB565 primary channel with original mask. Object0 physical frames, not item definitions. Nominal45x40 header exceeded by some stored bounds; guarded128x128, all channel spans bounded.",
+    "selected": [
+      {
+        "object": 0,
+        "physical_frame": 121,
+        "bounds": [
+          -11,
+          -13,
+          13,
+          16
+        ],
+        "flags": 4,
+        "icon": "0x8079",
+        "status": "decoded"
+      },
+      {
+        "object": 0,
+        "physical_frame": 242,
+        "bounds": [
+          -12,
+          -11,
+          14,
+          17
+        ],
+        "flags": 4,
+        "icon": "0x80f2",
+        "status": "decoded"
+      },
+      {
+        "physical_frame": 580,
+        "icon": "0x8244",
+        "status": "outside-frame-count"
+      },
+      {
+        "physical_frame": 586,
+        "icon": "0x824a",
+        "status": "outside-frame-count"
+      }
+    ]
+  },
+  "unknown": [
+    "original item definitions and bag-to-ground mapping",
+    "original ownership, expiry and pickup permission rules",
+    "dedicated original success or refusal messages",
+    "native GUI acceptance"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_eb65ff0878cc62de5858f321d55fd3835a49e9dae6eff1ff0a0083136c63bc50",
+      "operation": "batch_decompile"
+    },
+    {
+      "evidence_id": "ev_33479e05d8958af04e6fedee4c5d6eeabb8361c4325d2b470c980493e8557567",
+      "operation": "batch_decompile"
+    },
+    {
+      "evidence_id": "ev_c0617139400b744464d07a744bd79c720a08a0facbd3b0fa10f9740c1209b5bb",
+      "operation": "batch_decompile"
+    },
+    {
+      "evidence_id": "ev_19604dacc1d59c9b920e1cb3e706f3df3d388791a2b1d4cfecd41b7ce185e314",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_a5e2c1ae090916047f85413b30ea6fc6aa20400ef9f21aa51ab410ef6c0cc6f3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_1dad900f13bdaf7572372edbacedf3884f462d605ce76e1c3f5a6a6354c3becd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_72b2e5b7269be79b381d547b1d3af99ade3090d0aa92773651c62fc511670a70",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e4fecd90a3251137adf0451a391627e6280fe3cdd76101152114c5ec3999b506",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_6ee816cdd39f9deed5d3087f09b9dfddf4fcdc007516eeb88905ad3048296c1f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_ff8b4bae1775fd9bf4bfde007dafbd2bae1a85df922e87a5b56b51ef798f4a6b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_75d41b59017952bca23e4ecdd2fc374bfb374f508b921886861b2ad089b5bb1a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_de913f93343989480b6f42091946b871534775f553489d454a54451837b0e489",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_5959ad5c88e5b84ea69350b25b31840f46643df54d65187d3add5283a95ba529",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_1f7307b7760ab367875d02cdfa1a0f4a703415f83379f755b003dadc9f2e3500",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e54c125313e6e8960d328e47e7288e8241fbfb8d57d87969b05c0bc944a68db6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_ec3cc4e5015c30f88949ffd06658b865012f1bc3854490a52b78de025bb9ba33",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_4e77cf25013d4ec2f8a53b3dbf205a86cde95a9f5cb5bf0eea6835845b67dc22",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_5317a9948b087bd24e0322706edb150b07ad741cd0fe58513b5e0fb4e4e4eed6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_23dd7021d7b3e545d8435fdb0ed1725bc268354f10d11967e0d639ca35be37c9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_a4704eb32d1e4c8b159a111b72cb1adbffc26526af5d7d512b3d90ec0d9614b8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_43f936b8eca8bdf751f37906255dc5e8fb0464a7cc3962d8dea7637a948592d3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_6a97d97567c46736a13b458c0474e96aebd0ea21c8573c2159d8e4b9fd6cb86f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_a26dd95c04f43a907b20730b1256e141e23828f99c44dcf75ce630ca49b81d9a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_9dca6c39051b58a8f284610a6c1c11c1204e34c2cb31a596d3622884f0c381ff",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e24e64e98d2c561969677254ebb9bd6fed009e70157965d69ca4753ec4a0f0ad",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_27b57191f5db4f3b2299b36e4503817ef50f497d31fe15ac11dbe72596448e4c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_1c19288787767548e64c56a9197e91f97b14d46163b3408f1e66f5d452d0585f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_bcb229ec39059bcc3dca474543e3436430532ac4f13c521e1c308cc78c8a481c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_769e1751a3b46917f8e034629ea1932050e21dc5d54ce3e00aff2edefd40764c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e896772997074b67acd990be5785b8d296b091396336041a69f6142532e2f661",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_2c5b10d1ea753634df22061c02a07a3f65bef17acd8d2ff678c963ed4c99b68a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_4494782c470383dedfe96f53724c6980eaa7421bd5c020dd21e451e6b67ab4dc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_f9f6310aa7761f5dd01d886344b1e911369074d8750bacf2dcce20c59bf90054",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_5661fe3aff241cc990351d05c4359edb5cb1e274d338e01aa8e9fd9ca3bcba1f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_ecda40d7ab06bd28a14c7d170932ff00972517ad9cd3db2240f5e0b307e9b65d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_a21d22855f501498add4e6a5567f17479f1bae118b0363917d3cfbe9437cb113",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e6054177c268d3440331a21e15b6e58c9b986b650e2f59e557f461a58aa9a9f9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_208be76afb50ecfaeb11a9dd0ce392f06c8da02e486d10c0d6418489c37f13b7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_43e4c990acf2005ea8d8c31b0c74cbb7f9bacf36319c2424210ceed755c5f2e5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_50dff3cf45f7b5945c906f98737686a8198667a622f0493d7ad6f2a73907e879",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_6c9f5f0cf6bb041b6baf2d57a71eff77148bcad59bb1197ee303dc15cbbdd0fc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_58e4731f1a6d0c9d3f4bec5075a6271e03cbc4ad81fa3c7a132ecb1cb8607919",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_6471eb8ccf20788772e0d7437c8b1ffa550c376ace4c25a2cfd5feb639c7a9f2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_e041ce8243299237e448b3205b4e18b36fcbcfddfa1df0252bfd1c3b861bd60c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_a7561eeb7c61d23374cfc7dc9baf81375a54f71d4c06dbdf6a899a7b91547b0a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_f8de2551692469e282f173bd8abcc0c23aa3dfbbf66049bb21bd6b4ae9d22f23",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_adf38e5e4910e64f7ed285a3871ffff853deb066d7338f0aae357a3719ec121c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_3825c739d9ea54234715c93ede3259990618da379bfd2181e27dc4feb488a702",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_d395c7d9c4983620d2753ddf2b965cc753f59bc39fe857c79d4cb43917aabca9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_0624ef0a89848f1fd6a45f388be9c0fe142faa21a87669664d624f438a302f4b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_73f6eea9ffe8b35b26fbea37c3ffa715f6f0ee2d992b0a0b073a168eb86b1b96",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_718fc9259ce9b4f3417a1842003c9c0f6bad2625e93c7eb76a0d0f0f89fadbfa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_3b251eca557e5f097e6e34811bd2bebaa99d4cb892c71a0cb33f7e7cc7b114f0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_f050f53814a88c38a1d4edf34b274052accc554ae40c09360885dbf3fdd8513c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_cb892e6baa83648c679be8ac578d694d91f920a58d2b04a6eda05d3c21b7c80d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_0dce8db5d622b0b852b02bc8f20692ff84868c2ed7091354a6a343c60415758d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_8ffb984c4454bf24c1ff05f94c03ffbfea62e457eae5f9c81d0fa2594e409d8a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_b7a21dbc696074a631597ae6514fa3ef6469c4ef0c5564b1040cb678f3fcc2e1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_d9a620467337993320b03c75c84a66dd1374b280e11a4eeb506e6f26aa6ce664",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_86cca1dfb6e4407657e93a596db2f24fcb681fea02fc790e30807d10d5629c8d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_862f62a4a2455b707ec3fc927f15fb3f84e42e0dcaf18641f3af0f54e0469c97",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "evidence_id": "ev_85ff8511226d90fe74126c7798b0b84d3cadb1f54c5127c2bb52121a168b28ab",
+      "operation": "batch_decompile"
+    },
+    {
+      "evidence_id": "ev_5edafb04e130c6137678058da6162bda579172c1fdd80167f28a185b10ca4fd1",
+      "operation": "search_bytes"
+    },
+    {
+      "evidence_id": "ev_fca96630db24b056b83afee757b54fd46aef893b2cea59a0d41e0a0eaa459047",
+      "operation": "batch_decompile"
+    },
+    {
+      "evidence_id": "ev_6bb2a812609fdc009552158f809883ed4fecf1673cdcc355228b479ac63ad9b2",
+      "operation": "batch_decompile"
+    }
+  ],
+  "selected_reconstructed_ground_bindings": {
+    "scope": "Reconstructed visual binding selected by analyst from bounded original preview. Not original item mapping or native GUI acceptance. Ground and hit-test are distinct members.",
+    "archive_sha256": "b80cfdd28b4331bf4012210756bf46196c37d43de1240d70df3cb6480e920dee",
+    "ground_member_sha256": "716aeec66fc4102d5690e07781b079c93f0229943bc43b2ea439891403f1eeb9",
+    "hit_test_member_sha256": "55ea3a483931ea3ec5e91410f43f1aa07e90a1efb2780414722b0f361822badb",
+    "ground_layout": {
+      "object_count": 1,
+      "decoded_objects": 1,
+      "metadata_end": 12424,
+      "data_base": 12424
+    },
+    "ground_frame_count": 388,
+    "hit_test_objects_scanned": {
+      "object_count": 1046,
+      "decoded_objects": 216,
+      "metadata_end": 19002,
+      "data_base": 91535
+    },
+    "bindings": [
+      {
+        "reconstructed_item": "hp-potion",
+        "ground_visual_id": 32793,
+        "hex": "0x8019",
+        "ground": {
+          "object": 0,
+          "physical_frame": 25,
+          "bounds": [
+            -10,
+            -7,
+            11,
+            14
+          ],
+          "flags": 4
+        },
+        "hit_test": {
+          "object": 25,
+          "physical_frame": 0,
+          "bounds": [
+            1,
+            4,
+            30,
+            25
+          ],
+          "flags": 4
+        },
+        "bounds_intersection": [
+          1,
+          4,
+          11,
+          14
+        ],
+        "bounds_have_positive_intersection": true,
+        "ground_nonzero_alpha_pixels": 330,
+        "hit_test_nonzero_alpha_pixels": 285,
+        "opaque_pixel_intersection_count": 85
+      },
+      {
+        "reconstructed_item": "mp-potion",
+        "ground_visual_id": 32791,
+        "hex": "0x8017",
+        "ground": {
+          "object": 0,
+          "physical_frame": 23,
+          "bounds": [
+            -11,
+            -7,
+            10,
+            14
+          ],
+          "flags": 4
+        },
+        "hit_test": {
+          "object": 23,
+          "physical_frame": 0,
+          "bounds": [
+            0,
+            4,
+            30,
+            29
+          ],
+          "flags": 4
+        },
+        "bounds_intersection": [
+          0,
+          4,
+          10,
+          14
+        ],
+        "bounds_have_positive_intersection": true,
+        "ground_nonzero_alpha_pixels": 330,
+        "hit_test_nonzero_alpha_pixels": 486,
+        "opaque_pixel_intersection_count": 61
+      },
+      {
+        "reconstructed_item": "beach-outfit",
+        "ground_visual_id": 32983,
+        "hex": "0x80d7",
+        "ground": {
+          "object": 0,
+          "physical_frame": 215,
+          "bounds": [
+            -6,
+            -12,
+            13,
+            15
+          ],
+          "flags": 4
+        },
+        "hit_test": {
+          "object": 215,
+          "physical_frame": 0,
+          "bounds": [
+            1,
+            6,
+            30,
+            26
+          ],
+          "flags": 5
+        },
+        "bounds_intersection": [
+          1,
+          6,
+          13,
+          15
+        ],
+        "bounds_have_positive_intersection": true,
+        "ground_nonzero_alpha_pixels": 436,
+        "hit_test_nonzero_alpha_pixels": 451,
+        "opaque_pixel_intersection_count": 69
+      },
+      {
+        "reconstructed_item": "formal-outfit",
+        "ground_visual_id": 32983,
+        "hex": "0x80d7",
+        "ground": {
+          "object": 0,
+          "physical_frame": 215,
+          "bounds": [
+            -6,
+            -12,
+            13,
+            15
+          ],
+          "flags": 4
+        },
+        "hit_test": {
+          "object": 215,
+          "physical_frame": 0,
+          "bounds": [
+            1,
+            6,
+            30,
+            26
+          ],
+          "flags": 5
+        },
+        "bounds_intersection": [
+          1,
+          6,
+          13,
+          15
+        ],
+        "bounds_have_positive_intersection": true,
+        "ground_nonzero_alpha_pixels": 436,
+        "hit_test_nonzero_alpha_pixels": 451,
+        "opaque_pixel_intersection_count": 69
+      }
+    ],
+    "mapping_authority": "Server reconstruction design, not original item mapping",
+    "selected_source_frames": [
+      25,
+      23,
+      215
+    ]
+  },
+  "rejected_ground_candidates": [
+    {
+      "reconstructed_item": "formal-outfit",
+      "ground_visual_id": 32810,
+      "hex": "0x802a",
+      "ground": {
+        "object": 0,
+        "physical_frame": 42,
+        "bounds": [
+          -9,
+          -15,
+          16,
+          14
+        ],
+        "flags": 4
+      },
+      "hit_test": {
+        "object": 42,
+        "physical_frame": 0,
+        "bounds": [
+          0,
+          1,
+          30,
+          30
+        ],
+        "flags": 4
+      },
+      "bounds_intersection": [
+        0,
+        1,
+        16,
+        14
+      ],
+      "bounds_have_positive_intersection": true,
+      "ground_nonzero_alpha_pixels": 581,
+      "hit_test_nonzero_alpha_pixels": 742,
+      "opaque_pixel_intersection_count": 131,
+      "rejection_reason": "Offline enlargement resembles helmet or neck guard; not selected for clothing"
+    },
+    {
+      "reconstructed_item": "formal-candidate34",
+      "ground_visual_id": 32802,
+      "hex": "0x8022",
+      "ground": {
+        "object": 0,
+        "physical_frame": 34,
+        "bounds": [
+          -10,
+          -6,
+          14,
+          11
+        ],
+        "flags": 4
+      },
+      "hit_test": {
+        "object": 34,
+        "physical_frame": 0,
+        "bounds": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "flags": 12,
+        "empty": true
+      },
+      "bounds_intersection": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bounds_have_positive_intersection": false,
+      "ground_nonzero_alpha_pixels": 337,
+      "hit_test_nonzero_alpha_pixels": 0,
+      "opaque_pixel_intersection_count": 0,
+      "rejection_reason": "member1 hit-test object34 empty with zero bounds and alpha; no pixel intersection"
+    }
+  ],
+  "same_ref_s07_refresh": {
+    "kind": 3,
+    "handler": "0x4f17c0",
+    "preclear_helper": "0x4ba090",
+    "registry_lookup": "0x4eac30",
+    "existing_object_remove": "0x4b9ce0",
+    "new_item_constructor": "0x496540",
+    "common_constructor": "0x46e1d0",
+    "new_registration": "0x4b6450",
+    "semantics": "remove existing projection then construct replacement with freshly decoded name",
+    "requires_explicit_preceding_s0e": false,
+    "authority_limit": "only current valid map/life/visibility ref; never resurrect expired or claimed assets",
+    "gui_acceptance": "pending",
+    "evidence_id": "ev_6bb2a812609fdc009552158f809883ed4fecf1673cdcc355228b479ac63ad9b2",
+    "name_copy": "46e1d0 copies at most255 UTF16 units and terminates buffer at+22a"
+  }
+}

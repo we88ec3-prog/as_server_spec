@@ -1,5 +1,7 @@
 # Client / Server雙向處理矩陣
 
+2026-11-08：[地面操作原生增量](20261108-native-ground-drop-pickup-and-object-resync.md)已確認 C08=`kind,slot,quantity`、C07=`BEu32 ItemObject ref`；C0C 是缺失物件重同步，不能當拾取。地面 S07 kind3／S0E、已見能力及資產 CAS 見[保管交易契約](20261108-ground-item-custody-and-monster-loot.md)，GUI 尚待驗收。
+
 C2S：Client serializer → wire → Server解碼／狀態驗證 → Domain命令 → 必要回覆。S2C：Server投影 → wire → Client parser → handler → UI／世界狀態。表中client_entry不是Server函式，不要求各Server具有同名方法。
 
 |ID|方向/opcode|名稱|系統|body或分支|Client入口|前置狀態|相關封包|完整度|

@@ -2047,50 +2047,73 @@
       "a026_analysis": "03-analysis-requests/A-026-roy1-tutorial-completion.md"
     },
     {
+      "id": "PKT-C07",
+      "direction": "C2S",
+      "opcode": "0x07",
+      "name": "Get",
+      "system": "SYS-ITEM",
+      "layout": "Exactly BEu32 ItemObject reference; no quantity, position or persistent item ID. Native interaction requires abs(dx)<2 and abs(dy)<2.",
+      "client_entry": "0x496880 ItemObject sender; 0x5728e0 CGet ctor opcode07; writer bytes at0x572990 invoke BEu32 helper0x45ac40",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": ["R-008", "R-017"],
+      "layout_status": "observed-static",
+      "evidence_kinds": ["observed-static"],
+      "evidence_ids": [
+        "ev_c0617139400b744464d07a744bd79c720a08a0facbd3b0fa10f9740c1209b5bb",
+        "ev_5edafb04e130c6137678058da6162bda579172c1fdd80167f28a185b10ca4fd1"
+      ],
+      "native_client_validation": "not-run",
+      "a007_increment": "04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.md"
+    },
+    {
       "id": "PKT-C08",
       "direction": "C2S",
       "opcode": "0x08",
       "name": "Drop",
       "system": "SYS-ITEM",
-      "layout": "3×u8 exactly, fields semantic roles (slot/count/location) UNKNOWN; do not grant World drop based on guesses",
-      "client_entry": "0x571f40 constructor push 0x08 at 0x571f59; 0x571ff0 writer",
+      "layout": "Exactly u8 kind,u8 bagSlot,u8 quantity; supported ordinary bag kind1. No Client drop position or durable instance ID. Quantity0/over-owned requires Server rejection.",
+      "client_entry": "0x447290 quantity dialog; 0x4471c0 sender obtains kind/slot; 0x571f40 constructor push0x08; 0x571ff0 writer",
       "profile": "TW-seed0-local-v0.1",
       "requirements": [
         "R-008",
         "R-017"
       ],
-      "layout_status": "partial",
+      "layout_status": "observed-static",
       "evidence_kinds": [
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a007_20261031_inventory_lifecycle_static"
+        "ev_a007_20261031_inventory_lifecycle_static",
+        "ev_eb65ff0878cc62de5858f321d55fd3835a49e9dae6eff1ff0a0083136c63bc50"
       ],
       "native_client_validation": "not-run",
-      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "a007_increment": "04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.md"
     },
     {
       "id": "PKT-C0C",
       "direction": "C2S",
       "opcode": "0x0c",
       "name": "PutRequest",
-      "system": "SYS-ITEM",
-      "layout": "u32 BE opaque object reference; not proven persistent inventory instance ID or final pickup acceptance",
-      "client_entry": "0x574a40 ctor push 0x0c at 0x574a59; 0x574af0 writer",
+      "system": "SYS-WORLD",
+      "layout": "Exactly BEu32 missing object reference. Requests authorized re-projection; NOT item pickup or asset transfer.",
+      "client_entry": "0x46d230 producer via0x4edae0 missing-object throttle; 0x574a40 ctor push0x0c; 0x574af0 writer",
       "profile": "TW-seed0-local-v0.1",
       "requirements": [
         "R-008",
         "R-017"
       ],
-      "layout_status": "partial",
+      "layout_status": "observed-static",
       "evidence_kinds": [
         "observed-static"
       ],
       "evidence_ids": [
-        "ev_a007_20261031_inventory_lifecycle_static"
+        "ev_a007_20261031_inventory_lifecycle_static",
+        "ev_fca96630db24b056b83afee757b54fd46aef893b2cea59a0d41e0a0eaa459047"
       ],
       "native_client_validation": "not-run",
-      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md"
+      "a007_report": "03-analysis-requests/A-007-roy1-inventory-lifecycle.md",
+      "a007_increment": "04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.md"
     },
     {
       "id": "PKT-S10",

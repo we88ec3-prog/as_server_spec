@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[地面保管、拾取競爭與私人掉落](04-analysis-integration/20261108-ground-item-custody-and-monster-loot.md)及[REA原生入口勘誤](04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.md)。C08數量來源已證，真正拾取為C07，C0C只重同步；地面與背包圖源分開。持久保管／堆疊／競爭／重啟及普攻／技能私人掉落已接線，GUI仍待測；正式隊伍歸屬與全員EXP仍未完成，F13／F06及總表已同步。
+
 2026-11-08：[怪物追擊、玩家受傷與原子復活](04-analysis-integration/20261108-monster-ai-and-atomic-character-revival.md)，以及[原生步進／墓碑證據](04-analysis-integration/20261108-native-monster-steps-player-death-and-respawn.md)。共用節拍、碰撞路徑、離線租約清理、死亡禁移動與同圖復活已接線；被動反擊、傷害與5秒復活是重建政策。原生GUI尚待驗收，F02／F06及總表已同步；完整多人引用與全地圖怪物仍未完成。
 
 2026-11-08：[藥水、清單色差及實機回報](04-analysis-integration/20261108-consumables-color-and-manual-acceptance.md)。新增HP／MP藥水、堆疊合併、原子使用及v1→v2保留資料升級，653項回歸及真TCP通過。使用者已確認前輪衣裝買賣／銀行／排序／施法／特效結束／MP定時恢復；新藥水與禮服清單配色另列待測。

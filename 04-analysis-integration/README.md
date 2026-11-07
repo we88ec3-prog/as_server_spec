@@ -18,7 +18,7 @@
 2. **情境契約**：多個封包的先後、前置狀態、成功／失敗／取消／斷線與重送。
 3. **遊戲系統規則**：資料模型、公式、時間、權限、資料一致性，以及哪些是原生證據或自訂規則。
 
-packets.json以profile+direction+opcode作識別，不用opcode單獨索引。登錄34個目前相關入口，**不宣稱已包含全部126個RTTI候選或完整登入／戰鬥協定**。partial項目是分析入口，不是足夠實作的規範。補完前先連到A並禁止宣告完整相容。
+packets.json以profile+direction+opcode作識別，不用opcode單獨索引。2026-11-08已登錄85個相關入口，**不宣稱已涵蓋完整原版協定**。partial項目是分析入口，不是足夠實作的規範。補完前先連到A並禁止宣告完整相容。最新地面增量見[C07拾取／C08丟棄／C0C物件重同步](20261108-native-ground-drop-pickup-and-object-resync.md)。
 
 每個完整封包頁應含：body offset／型別／byte序／長度單位／編碼／條件式欄位／未知值、方向與允許狀態、原生serializer/parser/handler、Server應收發之語意、Client效果、錯誤分支、Evidence ID、CT與SCN、支援profile、限制及版本變更。
 
