@@ -277,7 +277,7 @@
     },
     {
       "path": "02-server-planning/social-contract.md",
-      "sha256": "860ebdc31a338e06dcd5e6d1b69c4a96aa34ee3d4cd1bd4919d6a970fad2324b"
+      "sha256": "1ecec9c570ac3200077f7e8e7e04c374deeda14211e5b9316fd6acd7b506f4f1"
     },
     {
       "path": "02-server-planning/systems.json",
@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "fc3760fca677919c18a56e8a1cc4f3085c929687a73f726ecbe5f1a5ca628d03"
+      "sha256": "4ff01bf524b8f546a92518496de929c87635365ad77786a14371676a30c4c12c"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -1044,12 +1044,16 @@
       "sha256": "db97a9881896e9bdc3d5536c789d182d2b01e792c302c6546d562a8875674c98"
     },
     {
+      "path": "04-analysis-integration/20261108-playable-text-mail-commands.md",
+      "sha256": "f198d8517cd1ec9932e908470470df868f6fc27f88474c8b7cd808b044418c04"
+    },
+    {
       "path": "04-analysis-integration/20261108-player-exchange-authority.md",
       "sha256": "b6e1cb11d5d26b2c10c929a08a434f668ccef6b4ff8b15c3b5290dd40d729154"
     },
     {
       "path": "04-analysis-integration/20261108-player-mail-authority.md",
-      "sha256": "d9da8362502819ae7d0b56c88efc980edc02823d1f883371d3e56bb2c0101cbd"
+      "sha256": "b11fee7b52aebbc0cb80ea264cb0c3704a0654729c89d071f2f5547b19d8dc02"
     },
     {
       "path": "04-analysis-integration/20261108-quest-world-objectives.md",
@@ -1381,7 +1385,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "fde6a59767309991743cc580219df5c78114f7eb2067c68b5f62d4f018b302b6"
+      "sha256": "52122a2d81480af1bc3180a09a7392dc19156c9a5311238ff47aa8b62aab489d"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1673,11 +1677,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "0e8c49c4e4e7b5720ef4c56fbe68871024865427ad2db891eb6f2503781d4062"
+      "sha256": "d056e850b34ef8feceb71b1dc651e430dbc1d7d7d0ef8f0e5ad30c84900be747"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "1711995fde897e60f6e9c01a82b5b4a13c1115d1dc852d084b2b755781eaea05"
+      "sha256": "bd60770a8d5cbf4ac3a1e1c7191d6e27fee7fdb733a6ef456fb3febd486a37cc"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1749,7 +1753,7 @@
     },
     {
       "path": "06-development-tracking/details/F18_玩家交易與郵件.xlsx",
-      "sha256": "3bc48b4c735dc22b013b471095e0b10198f7e959afc3d333cb6e717dbfd636c6"
+      "sha256": "294892f3f5d1c27b9f715e690645faf2a7c4a85e61186f4cfefb53067432a6ef"
     },
     {
       "path": "06-development-tracking/details/F19_掉落製作與物品來源.xlsx",
@@ -1821,7 +1825,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "57fa6ad373f86f4e5da24496c72f8f5395952e7437d556f7e3602048283ecb8e"
+      "sha256": "e9713877158798744dd5386e53170b7ed01e6dd0ad16a51900324e2de2854f76"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

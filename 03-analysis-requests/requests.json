@@ -1445,6 +1445,20 @@
           "mutual consent and presence push",
           "guild and NMCO compatibility"
         ]
+      },
+      "server_mail_command_increment": {
+        "contract": "04-analysis-integration/20261108-playable-text-mail-commands.md",
+        "attribution": "Server-authored alternative command interface, not NMCO compatibility",
+        "scope": [
+          "bounded connection draft and chunked body",
+          "owned durable inbox sequence read/delete",
+          "stable list cursor",
+          "private summary notification",
+          "new-send bidirectional ignore policy"
+        ],
+        "native_nmco": "not-connected",
+        "native_gui": "not-run",
+        "new_native_evidence_ids": []
       }
     },
     {
@@ -1624,6 +1638,20 @@
         "delivery": "public-git-self-contained-jobs",
         "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
         "local_attachment_required": false
+      },
+      "server_mail_command_increment": {
+        "contract": "04-analysis-integration/20261108-playable-text-mail-commands.md",
+        "attribution": "Server-authored alternative command interface, not NMCO compatibility",
+        "scope": [
+          "bounded connection draft and chunked body",
+          "owned durable inbox sequence read/delete",
+          "stable list cursor",
+          "private summary notification",
+          "new-send bidirectional ignore policy"
+        ],
+        "native_nmco": "not-connected",
+        "native_gui": "not-run",
+        "new_native_evidence_ids": []
       }
     },
     {

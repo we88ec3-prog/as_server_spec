@@ -1,5 +1,7 @@
 # A-014：社交聊天／密語／隊伍／公會 Server 契約（2026-10-31）
 
+2026-11-08後續：[可操作文字郵件](../04-analysis-integration/20261108-playable-text-mail-commands.md)接替代/mail入口、離線投遞、私人讀刪與摘要提醒；仍非NMCO或原生MailBoxDialog相容，附件與費用未完成。
+
 2026-11-08後續：[Server好友名單與查詢式在線狀態](../04-analysis-integration/20261108-friends-and-query-presence.md)接單向收藏、私人命令與目前租約presence；[聊天拒收](../04-analysis-integration/20261108-chat-ignore-and-native-blacklist-boundary.md)已接三頻道。兩者為明示重建政策，原生FriendDialog／名單同步及完整公會仍待完成。下列日期段落保留當時範圍。
 
 2026-11-08郵件補正：[原生MailBox走NMCO3 Note SDK](../04-analysis-integration/20261108-native-mail.md)，C12／S58相關線索是撰寫地址簿，不能當寄信／讀刪協定。[Server文字郵件內核](../04-analysis-integration/20261108-player-mail-authority.md)未接原生或替代入口，與遊戲創角E-MAIL欄分開。下列歷史未知應依增量報告閱讀，不能推定整個A-014已完成。
