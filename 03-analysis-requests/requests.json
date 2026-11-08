@@ -1410,6 +1410,24 @@
           "attachment/fee capability not established",
           "architecture scope decision before user-facing mail entry"
         ]
+      },
+      "server_chat_ignore_increment": {
+        "contract": "04-analysis-integration/20261108-chat-ignore-and-native-blacklist-boundary.md",
+        "attribution": "Server reconstruction policy; native C19kind1 remains passive",
+        "native_evidence_id": "ev_60edda16e06fb99a5f9936a430f47fc69509714c9b2b86adeb3fa6b895d62635",
+        "implemented_scope": [
+          "persistent per-character list",
+          "private command management",
+          "local/party per-recipient filter",
+          "bidirectional whisper refusal",
+          "queued incoming purge"
+        ],
+        "native_gui": "not-run",
+        "unknowns": [
+          "native local list editing/storage/synchronization",
+          "friends and guild membership",
+          "other invitation/contact policies"
+        ]
       }
     },
     {

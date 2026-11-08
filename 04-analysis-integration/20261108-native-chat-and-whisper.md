@@ -76,3 +76,5 @@ Server可嚴格解析C0E kind0、C19 kind0。target!!依當下權威party取得�
 - `ev_7831105879b610b5bca559b7584b0b628e667adb9d4102d6b75e20fa628861fd`：45B890 string16按encoded-byte count讀取／轉碼，沿用既有TW network模式BE證據。
 
 完整逐指令與可攜快照留在分析暫存；本頁不公開原件、完整偽碼或私有Server。
+
+後續：[Server拒收與原生黑名單邊界](20261108-chat-ignore-and-native-blacklist-boundary.md)補上持久化拒收；本頁未完成項保留當輪歷史，未把原生本機名單同步宣告完成。

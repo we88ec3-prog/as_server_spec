@@ -1447,7 +1447,14 @@
       "a014_chat_increment": "04-analysis-integration/20261108-native-chat-and-whisper.md",
       "evidence_ids": [
         "ev_a014_20261031_asgard_social_static"
-      ]
+      ],
+      "server_chat_ignore_policy": {
+        "contract": "04-analysis-integration/20261108-chat-ignore-and-native-blacklist-boundary.md",
+        "wire_changed": false,
+        "native_evidence_id": "ev_60edda16e06fb99a5f9936a430f47fc69509714c9b2b86adeb3fa6b895d62635",
+        "boundary": "C0Ekind0 /ignore is an explicit Server command, not native list synchronization; C19kind1 remains a passive notice; S0A18 history is filtered server-side; system notices unaffected",
+        "native_gui": "not-run"
+      }
     },
     {
       "id": "PKT-S44",
@@ -1610,6 +1617,13 @@
         "kind": 2,
         "report": "04-analysis-integration/20261108-native-player-targeting.md",
         "targeted_cast": "text prelude contains no target; do not resolve targeted damage/healing until matching C65"
+      },
+      "server_chat_ignore_policy": {
+        "contract": "04-analysis-integration/20261108-chat-ignore-and-native-blacklist-boundary.md",
+        "wire_changed": false,
+        "native_evidence_id": "ev_60edda16e06fb99a5f9936a430f47fc69509714c9b2b86adeb3fa6b895d62635",
+        "boundary": "C0Ekind0 /ignore is an explicit Server command, not native list synchronization; C19kind1 remains a passive notice; S0A18 history is filtered server-side; system notices unaffected",
+        "native_gui": "not-run"
       }
     },
     {
@@ -1641,7 +1655,14 @@
         "guild membership/permissions and original error behavior",
         "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
-      "related_packets": []
+      "related_packets": [],
+      "server_chat_ignore_policy": {
+        "contract": "04-analysis-integration/20261108-chat-ignore-and-native-blacklist-boundary.md",
+        "wire_changed": false,
+        "native_evidence_id": "ev_60edda16e06fb99a5f9936a430f47fc69509714c9b2b86adeb3fa6b895d62635",
+        "boundary": "C0Ekind0 /ignore is an explicit Server command, not native list synchronization; C19kind1 remains a passive notice; S0A18 history is filtered server-side; system notices unaffected",
+        "native_gui": "not-run"
+      }
     },
     {
       "id": "PKT-C2E",

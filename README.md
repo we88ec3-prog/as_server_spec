@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[聊天拒收與原生黑名單邊界](04-analysis-integration/20261108-chat-ignore-and-native-blacklist-boundary.md)。Server `/ignore` 可管理持久100人名單、三頻道投遞及舊queue清除，系統提示不受影響。REA確認C19kind1只是本機20格名單命中通知；不冒稱原生名單同步，GUI、好友與公會仍待完成。
+
 2026-11-08：[可重複任務、UTC重置與領獎歷史](04-analysis-integration/20261108-repeat-quests-and-completion-history.md)。成功領獎後固定冷卻／每日整點、次數上限、新輪目標重設與原子歷史已接線；五城旅館循環補給為可選Server重建政策。舊一次性任務JSON保留，原生GUI與原服任務規則仍待驗證。
 
 2026-11-08：[指定治療與Skill／Spell獨立位置](04-analysis-integration/20261108-targeted-healing-and-skill-inventories.md)、[原生Human／自身目標及Field2限制](04-analysis-integration/20261108-native-player-targeting.md)。新增聖職Spell治癒30HP／MP6／1500ms，兩庫同號與排序／舊資料保存；Server驗證已投影目標租約、生命、位置、同隊及距離／原生0x10施法阻擋。原生GUI仍待測，原版名稱／數值／復活未核對。
