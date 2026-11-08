@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "4ff01bf524b8f546a92518496de929c87635365ad77786a14371676a30c4c12c"
+      "sha256": "f42fdb65a45123b4b6116b90e2492b279509197d70d8cb1b3b65ea08abcce71f"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -902,6 +902,10 @@
     {
       "path": "04-analysis-integration/20261108-monster-ai-and-atomic-character-revival.md",
       "sha256": "2214595e01b77a4649619ff6c6bad6afc1e1f58c70454561711713e3a0d1cced"
+    },
+    {
+      "path": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
+      "sha256": "c5d7416ee1f34f56a8ed592f37619d68edf0c5b2413676bcda75e1fa243b3394"
     },
     {
       "path": "04-analysis-integration/20261108-native-bank-currency-ui-contract.json",
@@ -1401,7 +1405,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "5ef87c0dd6244a3b2baeaadc77d5ad6e507d83b39fcefecc55d757ecacddd173"
+      "sha256": "a9e40380d690c9e46963c91d52b7d870e3cbd9e6bcc9ee92d970b70a6a0036a3"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1693,11 +1697,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "b0f22f120cfb30e4bf09858f55fa7d303d0004130f57b7e9b36f07a96ea8e490"
+      "sha256": "9f0003dd073c38269cd6c30f3742c705ae2a34c8dc021365d9f0963371241599"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "cdb9add3b63267868ed8de3652a5cea4eaba9647159834fb92b285a5d50a3081"
+      "sha256": "be4c7ccdd55c684ee9323088ebde659bea269d2ca4c4287ff33572a02cfe76aa"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1721,11 +1725,11 @@
     },
     {
       "path": "06-development-tracking/details/F06_怪物與戰鬥.xlsx",
-      "sha256": "92f0b5db44e171a766ca2218cb4c4fa9258a55b0ae01f4697cab0bc6f8924948"
+      "sha256": "14917ae7654459817024a95e9caf4315db2dcbe27d03bb8cb6002081cd4f2cdd"
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
-      "sha256": "e74705f86d1de1e3b05508791d831c47ddf2fd0fc025926c216af83debbbbfb0"
+      "sha256": "ffec3a1a2c9dc33a0ce0412f273329f0bb0877d14bf442e5f5c4b44c3a210c5b"
     },
     {
       "path": "06-development-tracking/details/F08_戰士技能.xlsx",
@@ -1733,7 +1737,7 @@
     },
     {
       "path": "06-development-tracking/details/F09_魔法師技能.xlsx",
-      "sha256": "36672e7d08c40509cf43b6065570fffef9ac04bfc94c8956cc345c4cd72fdfbd"
+      "sha256": "4e17f7f64b2aca445b0173b534fe95b57208872caac57cc80ab707f39f91aa4d"
     },
     {
       "path": "06-development-tracking/details/F10_聖職者技能.xlsx",
@@ -1741,7 +1745,7 @@
     },
     {
       "path": "06-development-tracking/details/F11_盜賊技能.xlsx",
-      "sha256": "852db1037dcd2ba78182fd380b74e0b46692285cbaef409d7bb58cbd7704cce2"
+      "sha256": "df9f0882b6a105b6e34c3cc348cfd8c40c499508d46c6509748cefeb88510c95"
     },
     {
       "path": "06-development-tracking/details/F12_武道家技能.xlsx",
@@ -1809,7 +1813,7 @@
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
-      "sha256": "1c7baf3c9fae64e616ba8648eb1521cdb0f49dfe39c143ee00a770d302b8bd2d"
+      "sha256": "d1a690ef4c8b9be22bd0b43225fbc81ed5cf30bea3f25a62856ee8538ce74d35"
     },
     {
       "path": "06-development-tracking/details/F29_分析規格與驗收維護.xlsx",
@@ -1817,7 +1821,7 @@
     },
     {
       "path": "06-development-tracking/details/F30_吟遊詩人技能.xlsx",
-      "sha256": "ad1f129234b8d1b098f3ae70075bf50bde4696f92b2b56778ba73f0d3b6de98e"
+      "sha256": "523e485485704951005c2fb13a5df68130f638bca834ed9aa232432860010b16"
     },
     {
       "path": "06-development-tracking/details/F31_騎士技能.xlsx",
@@ -1841,7 +1845,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "0eec3c79ec25994b3ef6b6733cd2ffb1e72e6d622608e3e254ef980ac4f36812"
+      "sha256": "a2c10dee30bcd46e83ab1752780b6c491289c4d04b9c2207a8d5fa5c9932c0c2"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

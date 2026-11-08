@@ -969,7 +969,9 @@
           "all dead-actor hit-test states and resurrection targeting",
           "C4D/C56/S52 cast lifecycle"
         ]
-      }
+      },
+      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
+      "monster_debuff_boundary": "使用者要求技能生效；v8三種減益為Server重建政策，1057項.NET及三職業雙peer九組TCP通過，原版具名素材／抗性／解除與GUI未核，不關閉A-010。"
     },
     {
       "id": "A-011",

@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[減速／衰弱／定身與怪物AI](04-analysis-integration/20261108-monster-debuffs-and-ai.md)。v8共37項技能，三種減益實際作用、同類刷新與原子扣費已接線；1057項.NET與三職業雙Client九組TCP通過。原版素材、解除／召喚與GUI仍待完成。
+
 2026-11-08：[灼傷／毒擊與原子跳傷結算](04-analysis-integration/20261108-periodic-monster-skills.md)、[REA無來源S13跳傷呈現](04-analysis-integration/20261108-native-periodic-damage-presentation.md)。v7新增Spell灼傷與Skill毒擊，單次成本、定時傷害／刷新／取消及一次獎勵已接線；1038項.NET與三Client四組TCP通過。原版具名火毒特效、其他減益與GUI仍待驗收。
 
 2026-11-08：[公會會員管理與三種原生聊天](04-analysis-integration/20261108-guild-membership-and-native-chat.md)。/guild建立／邀請同意／名單公告／權限／解散與保存已接線，C19 !1/!2/!3按各類會員跨圖投遞；1021項.NET與三Client六組TCP通過。會員政策為重建設計，原生GuildListDialog、公會戰／會館等未完成。
