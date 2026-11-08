@@ -481,7 +481,17 @@
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
-        "ev_a007_20261031_inventory_lifecycle_static"
+        "ev_a007_20261031_inventory_lifecycle_static",
+        "ev_e42c827e77bac120c18a94f6d5d9332b0a8822ed959b4b52cc4a42362dbd1ba8",
+        "ev_665137ff85c1f94cc59975d0903340007a8988b5957d6810eaae77fde7573d6b",
+        "ev_1fe26d8d8feef68e7b462078126c5ab36d8b5a6a5963c4cab31f22cef8b4b3a2",
+        "ev_5b4f78e743ba0074109d06e4e6397ac46cdeb17b860a39f5df05abe57c72d0b0",
+        "ev_b593d234bf8fdaa8c91adeffa80f07dd617108480cf4733160af10b30e717f2c",
+        "ev_da06a83689eb41ef909eefb7e2c10bfa0b4e769cf0e3bcdf842a44dd1877f665",
+        "ev_f7deffc343e939aeed757180f46c06bbe524e26ad39965d25a8d913c714309ec",
+        "ev_3b395169ce7e746dd909f21639df382c8ae5e4a2dd6e12ab974fc87fbfe424cc",
+        "ev_b118117203086dd4d55a256b9bf2dd864ec6b3be54c9050cb056332767be44dd",
+        "ev_f9f2d8e3068c925687632acd4699994b957a22b88537738db68e2e61ee717634"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -516,7 +526,7 @@
         "Official world drop, merchant/bank/trade item transfers A-013 incomplete",
         "Original Client manual item pickup/use/equip/unequip/fullbag/CRC reconnect E2E not run"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-08",
       "source_branch": "task_a/roy1",
       "source_commit": "258f5ba2dd845314a43ddb428aafad26a0533ca0",
       "merge_evidence_scope": "observed-static and synthetic-tests are integrated by packet/result subset; original Client E2E remains not-run",
@@ -531,6 +541,17 @@
         "delivery": "public-git-self-contained-jobs",
         "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
         "local_attachment_required": false
+      },
+      "equipment_stats_increment": {
+        "native_contract": "04-analysis-integration/20261108-native-equipment-stats.md",
+        "implementation_contract": "04-analysis-integration/20261108-equipment-stat-bonuses.md",
+        "native": "Signed AC/MC/AAR/SAR byte and DAM/HIT word plus unsigned current/max weight mapped through original skin controls and Status receiver",
+        "implementation": "Only armor slot2 reconstructed abilities, outgoing flat damage and incoming reduction; old items unchanged; native GUI not-run",
+        "unknowns": [
+          "original item template authority and numeric formulas",
+          "weapons/accessories and all-slot requirements",
+          "original weight behavior and RESIST wire source"
+        ]
       }
     },
     {
@@ -553,7 +574,17 @@
         "A008-E05",
         "A008-E06",
         "A008-E07",
-        "A008-E08"
+        "A008-E08",
+        "ev_e42c827e77bac120c18a94f6d5d9332b0a8822ed959b4b52cc4a42362dbd1ba8",
+        "ev_665137ff85c1f94cc59975d0903340007a8988b5957d6810eaae77fde7573d6b",
+        "ev_1fe26d8d8feef68e7b462078126c5ab36d8b5a6a5963c4cab31f22cef8b4b3a2",
+        "ev_5b4f78e743ba0074109d06e4e6397ac46cdeb17b860a39f5df05abe57c72d0b0",
+        "ev_b593d234bf8fdaa8c91adeffa80f07dd617108480cf4733160af10b30e717f2c",
+        "ev_da06a83689eb41ef909eefb7e2c10bfa0b4e769cf0e3bcdf842a44dd1877f665",
+        "ev_f7deffc343e939aeed757180f46c06bbe524e26ad39965d25a8d913c714309ec",
+        "ev_3b395169ce7e746dd909f21639df382c8ae5e4a2dd6e12ab974fc87fbfe424cc",
+        "ev_b118117203086dd4d55a256b9bf2dd864ec6b3be54c9050cb056332767be44dd",
+        "ev_f9f2d8e3068c925687632acd4699994b957a22b88537738db68e2e61ee717634"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "ready",
@@ -624,6 +655,18 @@
         "contract": "04-analysis-integration/20261108-native-status-u24-and-hud-correction.json",
         "supersedes": "full61/u32-colour; corrected full60/u24-colour, Current62 Wallet90 Title99",
         "native_gui": "pending"
+      },
+      "last_analysis_date": "2026-11-08",
+      "equipment_stats_increment": {
+        "native_contract": "04-analysis-integration/20261108-native-equipment-stats.md",
+        "implementation_contract": "04-analysis-integration/20261108-equipment-stat-bonuses.md",
+        "native": "Signed AC/MC/AAR/SAR byte and DAM/HIT word plus unsigned current/max weight mapped through original skin controls and Status receiver",
+        "implementation": "Only armor slot2 reconstructed abilities, outgoing flat damage and incoming reduction; old items unchanged; native GUI not-run",
+        "unknowns": [
+          "original item template authority and numeric formulas",
+          "weapons/accessories and all-slot requirements",
+          "original weight behavior and RESIST wire source"
+        ]
       }
     },
     {

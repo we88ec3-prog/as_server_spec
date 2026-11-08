@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "df9c8d403dde1ce31faf485128d823924cf4455c58e351fbb4fe01c8d6d3b812"
+      "sha256": "46564863d0218bcf6e0960005fc6f576961ab150347cbfb18aa64c9fa60b3241"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -868,6 +868,10 @@
       "sha256": "37cbb0f536497c402b60a758435adc15fd6062e6e91667b1458df8ac666a9d8c"
     },
     {
+      "path": "04-analysis-integration/20261108-equipment-stat-bonuses.md",
+      "sha256": "72fd8d7c372cb336daec1f5624bfcfcebe42e161f8fdb88be2400a83b0835085"
+    },
+    {
       "path": "04-analysis-integration/20261108-ground-item-custody-and-monster-loot.md",
       "sha256": "27c10a60d7b17fa8baf7a3c61c0f687ba12a9baad22753dbb03a8985e1f72d5d"
     },
@@ -914,6 +918,14 @@
     {
       "path": "04-analysis-integration/20261108-native-effect-lifecycle-correction.md",
       "sha256": "71677fb57b32c35a2b5b11228ac4d0cd5981d87c55fa94ea2ad6e7cc7318c496"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-equipment-stats.json",
+      "sha256": "85bce888f508dac88d093450f40daa43c58e612feec02d4add9a568f5a176273"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-equipment-stats.md",
+      "sha256": "a4617ed6a96713fd1bd2a020e50597f060142ce4a8d5694e4affe97e8cd30712"
     },
     {
       "path": "04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.json",
@@ -1221,7 +1233,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "fb3a9ad51b0b4a81f8846cf5c288b1de1011801c6dd07707232eec6114d08e08"
+      "sha256": "b66d96b59dbc3cd54a670dba16624c05cfda6d660f58fa14e54ab04a5e46c2e6"
     },
     {
       "path": "04-analysis-integration/feedback-native-20261102.json",
@@ -1341,7 +1353,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "0fb2bd04b696250c575af52fd0cd117e81cc8b56d091efe1338a8c5294a8b3cf"
+      "sha256": "97f849007b94202784b901250df1945685b42185927ce37ff451c86216756755"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1633,11 +1645,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "df5dcb8bf2dfdfd2ec700be7282e735ea52e0cc2782fbd2c1434c807e75ab096"
+      "sha256": "733e297cb6d11ab47a73ae124c6e795c07e8f954ac42287a7574f2c2b9ad6f5d"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "55eaca61c20aead51ac2f5689e3c3e7f04a82e2bf6c84db937c1caa971db5b34"
+      "sha256": "faca968b9cacac645c93ab7a5910af681a4e37b82481537504bdaa8fc05e13e7"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1661,7 +1673,7 @@
     },
     {
       "path": "06-development-tracking/details/F06_怪物與戰鬥.xlsx",
-      "sha256": "c58fac0d4655b1be022022b7fc903981afcde74aa10d02625d8db21a181ab10f"
+      "sha256": "92f0b5db44e171a766ca2218cb4c4fa9258a55b0ae01f4697cab0bc6f8924948"
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
@@ -1689,7 +1701,7 @@
     },
     {
       "path": "06-development-tracking/details/F13_背包裝備與獨立衣色.xlsx",
-      "sha256": "2584b8119522b09182244e9333678c4f6b5f56354acf54efe1dfb26ef524cad8"
+      "sha256": "7b6e3b37b41debdefd8c3dce4ff49a89f2a880a6ed54fa0892878ef813bffda7"
     },
     {
       "path": "06-development-tracking/details/F14_銀行與倉庫.xlsx",
@@ -1749,7 +1761,7 @@
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
-      "sha256": "b624e0eb4ad80e5fe8de01f7c3bd0636f6d8b7b39e0b3d7a12530536aa45c092"
+      "sha256": "2c7292348587fa9b70ed4c47c1a8d15581edbb1098687cb20815035e681981a6"
     },
     {
       "path": "06-development-tracking/details/F29_分析規格與驗收維護.xlsx",

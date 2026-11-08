@@ -2640,7 +2640,7 @@
       "name": "Status",
       "system": "SYS-STATS",
       "profile": "TW-seed0-local-v0.1",
-      "layout": "BE u16 flags; if 0x40: skip u8,u8,4xBE u32,2xBE u16,2xu8,2xBE u16,6xu8,BE u32,u8,BE u32,u8,2xBE u32,3xu8,BE u16,4xu8 (61 B); if 0x20: 4xBE u32 (16 B); if 0x10: BE u32,4xBE u16,BE u32 (16 B); if 0x08: 5xu8,string8 bytes; if 0x0200: u8 count + count xu8; bits 0/1/7/8 are boolean only. Groups are in 0x40,0x20,0x10,0x08,0x200 order. Visible HP/MP/SP/BP, five ability and reputation mapping recovered in the 20261102 supplement; original numeric formulas remain unknown.",
+      "layout": "BEu16 flags, groups in 0x40/0x20/0x10/0x08/0x200 order. Full 0x40 is exactly60 bytes: reserved u8, level u8,4xBEu32 resource maxima, BEi16 DAM/HIT, i8 SAR/AAR, BEu16 current/max weight, u8 STR/INT/WIS/CON/DEX,3x(i8 reputation+BEu32 reputation experience),u24 colour,u8 points,i8 AC/MC,BEu16 reserved,4xu8 layout. 0x20:4xBEu32 current resources. 0x10:BEu32 EXP,4xBEu16 progress,BEu32 wallet. 0x08:5xu8,string8. 0x200:u8 count+count bytes. Full-body current starts62,wallet90. Original numeric formulas remain unknown; see linked contracts.",
       "client_entry": "0x586CD0 SStatusPacket ctor (push8); 0x586D40 parser; 0x53F8A0 status receiver; 0x540660 UI event opcode8",
       "state_precondition": "Valid authenticated World status receiver; exact original Server dispatch timing unknown",
       "related_packets": [
@@ -2660,7 +2660,17 @@
         "A008-E03",
         "A008-E04",
         "A008-E07",
-        "A008-E08"
+        "A008-E08",
+        "ev_e42c827e77bac120c18a94f6d5d9332b0a8822ed959b4b52cc4a42362dbd1ba8",
+        "ev_665137ff85c1f94cc59975d0903340007a8988b5957d6810eaae77fde7573d6b",
+        "ev_1fe26d8d8feef68e7b462078126c5ab36d8b5a6a5963c4cab31f22cef8b4b3a2",
+        "ev_5b4f78e743ba0074109d06e4e6397ac46cdeb17b860a39f5df05abe57c72d0b0",
+        "ev_b593d234bf8fdaa8c91adeffa80f07dd617108480cf4733160af10b30e717f2c",
+        "ev_da06a83689eb41ef909eefb7e2c10bfa0b4e769cf0e3bcdf842a44dd1877f665",
+        "ev_f7deffc343e939aeed757180f46c06bbe524e26ad39965d25a8d913c714309ec",
+        "ev_3b395169ce7e746dd909f21639df382c8ae5e4a2dd6e12ab974fc87fbfe424cc",
+        "ev_b118117203086dd4d55a256b9bf2dd864ec6b3be54c9050cb056332767be44dd",
+        "ev_f9f2d8e3068c925687632acd4699994b957a22b88537738db68e2e61ee717634"
       ],
       "manual_validation": "native-client-not-run",
       "requirements": [
@@ -2675,7 +2685,113 @@
         "Client actual GUI and first-login full/partial packet ordering not runtime tested"
       ],
       "status_initialization_contract": "04-analysis-integration/20261102-native-status-initialization.md",
-      "server_validation": "Persistent baseline, 384 .NET tests, five-career actual-content TCP; native hover GUI pending."
+      "server_validation": "Persistent baseline, 384 .NET tests, five-career actual-content TCP; native hover GUI pending.",
+      "equipment_stats_contract": "04-analysis-integration/20261108-native-equipment-stats.md",
+      "equipment_implementation_contract": "04-analysis-integration/20261108-equipment-stat-bonuses.md",
+      "equipment_fields": {
+        "required_flag": "0x40",
+        "offset_basis": "zero-based decoded body including BEu16 flags; full block first",
+        "fields": [
+          {
+            "name": "damage",
+            "label": "DAM",
+            "control": 23,
+            "bodyOffset": 20,
+            "width": 2,
+            "signedDisplay": true,
+            "readerLocalOffset": "0x3e",
+            "fullPacketOffset": "0x4a",
+            "statusOffset": "0x43e",
+            "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+          },
+          {
+            "name": "hit",
+            "label": "Hit",
+            "control": 24,
+            "bodyOffset": 22,
+            "width": 2,
+            "signedDisplay": true,
+            "readerLocalOffset": "0x3c",
+            "fullPacketOffset": "0x48",
+            "statusOffset": "0x440",
+            "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+          },
+          {
+            "name": "nativeSAR",
+            "label": "SAR",
+            "control": 22,
+            "bodyOffset": 24,
+            "width": 1,
+            "signedDisplay": true,
+            "readerLocalOffset": "0x69",
+            "fullPacketOffset": "0x75",
+            "statusOffset": "0x46d",
+            "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+          },
+          {
+            "name": "nativeAAR",
+            "label": "AAR",
+            "control": 21,
+            "bodyOffset": 25,
+            "width": 1,
+            "signedDisplay": true,
+            "readerLocalOffset": "0x68",
+            "fullPacketOffset": "0x74",
+            "statusOffset": "0x46c",
+            "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+          },
+          {
+            "name": "currentWeight",
+            "label": "WEIGHT",
+            "control": 31,
+            "bodyOffset": 26,
+            "width": 2,
+            "signedDisplay": false,
+            "readerLocalOffset": "0x42",
+            "fullPacketOffset": "0x4e",
+            "statusOffset": "0x444",
+            "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+          },
+          {
+            "name": "maximumWeight",
+            "label": "WEIGHT",
+            "control": 31,
+            "bodyOffset": 28,
+            "width": 2,
+            "signedDisplay": false,
+            "readerLocalOffset": "0x44",
+            "fullPacketOffset": "0x50",
+            "statusOffset": "0x446",
+            "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+          },
+          {
+            "name": "nativeAC",
+            "label": "Ac",
+            "control": 19,
+            "bodyOffset": 54,
+            "width": 1,
+            "signedDisplay": true,
+            "readerLocalOffset": "0x66",
+            "fullPacketOffset": "0x72",
+            "statusOffset": "0x46a",
+            "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+          },
+          {
+            "name": "nativeMC",
+            "label": "Mc",
+            "control": 20,
+            "bodyOffset": 55,
+            "width": 1,
+            "signedDisplay": true,
+            "readerLocalOffset": "0x67",
+            "fullPacketOffset": "0x73",
+            "statusOffset": "0x46b",
+            "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+          }
+        ],
+        "resist": "Status+442 is zero-initialized by reader; no inserted wire byte",
+        "current_implementation": "effective equipped five abilities only; AC/MC/AAR/SAR/DAM/HIT/weight remain zero, original formulas unknown"
+      }
     },
     {
       "id": "PKT-C47",

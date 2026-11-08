@@ -1,0 +1,1829 @@
+{
+  "revision": "20261108-native-equipment-stats-v1",
+  "artifact": {
+    "name": "Asgard.exe",
+    "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+  },
+  "nativeGui": "not_run",
+  "s08": {
+    "requiredFlag": 64,
+    "fullBlockBytes": 60,
+    "bodyOffsetsIncludeFlags": true,
+    "reader": "0x586d40",
+    "statusUpdate": "0x53f8a0",
+    "inventoryUpdate": "0x48aba0",
+    "statusDialogUpdate": "0x540050",
+    "fields": [
+      {
+        "name": "damage",
+        "label": "DAM",
+        "control": 23,
+        "bodyOffset": 20,
+        "width": 2,
+        "signedDisplay": true,
+        "readerLocalOffset": "0x3e",
+        "fullPacketOffset": "0x4a",
+        "statusOffset": "0x43e",
+        "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+      },
+      {
+        "name": "hit",
+        "label": "Hit",
+        "control": 24,
+        "bodyOffset": 22,
+        "width": 2,
+        "signedDisplay": true,
+        "readerLocalOffset": "0x3c",
+        "fullPacketOffset": "0x48",
+        "statusOffset": "0x440",
+        "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+      },
+      {
+        "name": "nativeSAR",
+        "label": "SAR",
+        "control": 22,
+        "bodyOffset": 24,
+        "width": 1,
+        "signedDisplay": true,
+        "readerLocalOffset": "0x69",
+        "fullPacketOffset": "0x75",
+        "statusOffset": "0x46d",
+        "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+      },
+      {
+        "name": "nativeAAR",
+        "label": "AAR",
+        "control": 21,
+        "bodyOffset": 25,
+        "width": 1,
+        "signedDisplay": true,
+        "readerLocalOffset": "0x68",
+        "fullPacketOffset": "0x74",
+        "statusOffset": "0x46c",
+        "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+      },
+      {
+        "name": "currentWeight",
+        "label": "WEIGHT",
+        "control": 31,
+        "bodyOffset": 26,
+        "width": 2,
+        "signedDisplay": false,
+        "readerLocalOffset": "0x42",
+        "fullPacketOffset": "0x4e",
+        "statusOffset": "0x444",
+        "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+      },
+      {
+        "name": "maximumWeight",
+        "label": "WEIGHT",
+        "control": 31,
+        "bodyOffset": 28,
+        "width": 2,
+        "signedDisplay": false,
+        "readerLocalOffset": "0x44",
+        "fullPacketOffset": "0x50",
+        "statusOffset": "0x446",
+        "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+      },
+      {
+        "name": "nativeAC",
+        "label": "Ac",
+        "control": 19,
+        "bodyOffset": 54,
+        "width": 1,
+        "signedDisplay": true,
+        "readerLocalOffset": "0x66",
+        "fullPacketOffset": "0x72",
+        "statusOffset": "0x46a",
+        "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+      },
+      {
+        "name": "nativeMC",
+        "label": "Mc",
+        "control": 20,
+        "bodyOffset": 55,
+        "width": 1,
+        "signedDisplay": true,
+        "readerLocalOffset": "0x67",
+        "fullPacketOffset": "0x73",
+        "statusOffset": "0x46b",
+        "semanticLimit": "native_label_and_numeric_projection_only_original_formula_unknown"
+      }
+    ],
+    "abilityTotalBytes": {
+      "Strength": 30,
+      "Intelligence": 31,
+      "Wisdom": 32,
+      "Constitution": 33,
+      "Dexterity": 34
+    },
+    "resist": {
+      "control": 30,
+      "statusOffset": "0x442",
+      "readerLocalOffset": "0x40",
+      "readerValue": 0,
+      "wireField": false
+    },
+    "formula": "Client direct Server totals; no equipment-stat calculation in this chain"
+  },
+  "skin": {
+    "archive": "Skins/Default.skn",
+    "size": 67966545,
+    "sha256": "95be44549794b04eb96a926a18bdd6e056691e0e8939dd535e82ffcfab2a469f",
+    "member": {
+      "name": "skin.tbl",
+      "index": 47,
+      "offset": 67953440,
+      "size": 13105,
+      "sha256": "eff367461f76f5a44969dee779c9d491f9b0c943a587df2d815bea0bb14a9ca0",
+      "version": 1,
+      "parseEnd": 13105
+    },
+    "dialog": 4,
+    "dialogName": "Inventory"
+  },
+  "equipmentScope": {
+    "enabledSlot": 2,
+    "otherSlots": "not_enabled_by_this_contract",
+    "originalStatsTemplate": "not_located",
+    "metadata": {
+      "lookup": "0x4ceea0",
+      "namespace": [
+        "Metainfo",
+        "HelpString"
+      ],
+      "rowAccess": "0x4ced90",
+      "blobParser": "0x4cebc0",
+      "localOriginalItemStatsFilename": null
+    }
+  },
+  "unknown": [
+    "original equipment requirements and bonuses",
+    "original AC/DAM/HIT combat formula and direction",
+    "other equipment slot full behavior",
+    "native GUI acceptance"
+  ],
+  "evidence": [
+    {
+      "label": "equipment_status_chain",
+      "id": "ev_e42c827e77bac120c18a94f6d5d9332b0a8822ed959b4b52cc4a42362dbd1ba8",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_ui_strings",
+      "id": "ev_b863fec20bfbb963879868213abefed666480f34b5a9c700be38f7f0ed089031",
+      "operation": "search_strings"
+    },
+    {
+      "label": "equipment_ui_stringrefs",
+      "id": "ev_ca71399f6cbb2167a18f419295273810063fb73b2cbed14d393ba7b471cbba20",
+      "operation": "xrefs"
+    },
+    {
+      "label": "equipment_status_refs",
+      "id": "ev_5a0cc4d4699da507a1cde25c2ed106385006bf39917eb37eaa978e1b1e0eb802",
+      "operation": "xrefs"
+    },
+    {
+      "label": "equipment_inventory_ui",
+      "id": "ev_0b298f9be3d4ccb010d13d1331e460a211365476384b254d1802b1e968709e17",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_43d6e493715d0f209a8e9ed6c6413d179bbc9237d8ef4476a4c66eedb0cf69a2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3e5c8ae5e1a9d895d16c622409944fdae3f8958f4a81dcf03b39f6b0892b617a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_2135252af91a48bc303e37596b486f3987e0e1dfb73860d465be92a2ab5f6139",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_b0c266acc4592310b9c5c1fe4960911c613dae6b190584fd37d18b4e59525d83",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_946b422ea5085e08d303944707dc510264da862582968ec326d9d0b4d4ab41da",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_901d86084e9f999ff55c2bd9751916f748720b5b5f51a16c2de70632af861ffd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_e20965da33b7c06f7d06a4e597475a0ebb9704ed16d08efa6104ae2ea02d7f55",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_655c69ce9b22a2f49a3967dd10cc0b3c995f9dcfcc407a8a120cad14ef9a94a1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3f821f1d2506fb9ddecf0cd5c265b5a383df7e9dd80d582f7ec3f46e7b8dc559",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_a594d783076a01e00f6ce32676341102f89b809f210f954670abd3b8c6a5d402",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_ec914381c9da9a001dbb3c2ca959fdbace7e27527d28c55d675111d75dd0e530",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_cdb00a241e757edfc92bd25ca94b8d24e461bb06773a74af268f144b5dc2bead",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_41c4ffe4bc7973c6e34185ccc01a0e6e496942d30923bb7c855cbc59570392fd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_4919192a14d1c1c4df3640ce9b78abca506d03b0278aaacd9c6f414db1517745",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_f56f6f971ad1d4cb94519dc502e12edfa6c50e74e612f86447e813fb09ef9b6c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_5b4f78e743ba0074109d06e4e6397ac46cdeb17b860a39f5df05abe57c72d0b0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_e80612f148452796a11728b16e79010422139f350ac887bfd2a0db399c15033b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_fdb9c1f4f7cc144f12bac628b0bec8a8303f8b68b595e2ab92ad9b35839aa2e1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_a6f57564f575a9890a4a41271136eb765565d0eb4297e09848fce613120e69f5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3e7af39741689aad4c0f329cf591bab2829b111944493e685e040927ddf478d0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_191d793c287e26be5c2f53d36bb9dab190e42f3a165bf3836ff14d35453eaf34",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_6f451de9f15029b2ba5e6a9a975bb73be6df8e3cd05d77af6938bcd688024d10",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_a74d104fe0e2b05b5e9fef281f9484939239ff5e68b3ef20fa4ed0b798e8000b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_24f918f0424620ae8000dc5776ab0b6d1042d7d05c200a96857b231fb46bc3b6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_92eb9c74455a0cffd7dc5e0cfd9a5aa253dd7b349c02947761781d9acf988502",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_d0906c4741339e0b5ff19b4092718eae7147887d319095a805e1ffb70fc3d9e0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_a59da6a06de7fef2ec32ce5cb7f4d1cfc6caf546d7d17d92632f7061dc5b4285",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_6399f4e9754105a6c4ddb3f8f8fa9275f89763f112bc0321062736b2615a6af3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_ec1f1dc25dee8a9a5fd25cf106c029a40a99087e303e9c20d6c8e666fb7446aa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_ee8435f4a8302304987a9ff95f715a76861d2362f82e0ee3d9a235b65b1535f9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_1a5b678abe950e4282f34898f2088e12906d06979d57a7317e444b5783bf5c71",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_fc1a4ba8787278991c02f5949ceaf5033e671445923907ba2868cecf1ed90a9c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_9f933957b82987acf6ae9b48d957b6fd5cbcb029f38e6cb8f3d72d0c7a94f52f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_0d4aa082575805d6755b130a55007bbff94168ab1860f2670fbbb5e847a39658",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_1468b96223fa37d3836a303c5e2b62c6de221426422a32ad079d1b913ad7b4e6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_929a2b27ad179d3a31d073ec4a1405f27fa6b45ac9ac9aa4f81e0ee7437b868d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_39545d7215293792da20687ad0e22509d14957e5dba5f636925aa3c10938a085",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3656b94d8a4dce187c9190256de79eeac1784a0c8bedab0c1073c6a10a6089ad",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_e15ee9ab89d976769c77c2d2736cb942559201b2483e830c318371b1667c6ff8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_785475893e39d081f91d5ed6a2d6ac6d8e232e961a1832e8f2eb9a9b3d7f21df",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_5535628b0c4207bcb1e420bf9cb6cff74e84199cfc06766ee63a1bc250d423ce",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_325c6f2c73c64e4e51a8ff18d3cb5d1f7ff6e1c2d140b3c79ab7cb828b6e99de",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_f84471a521725d0b57592f5a17dc061d8178ea64aebc31460ec1c23772f62d48",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_8b05e82ee485b83943de985dcb53049e1ddc1ef2a2f79d41d53a50bc459260f6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_404e527fcb89ec3e33be3d35a96f0ddddefecd09261233b1af8eb3730dbd325e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_0f0c5aa751793b705c3ff9acffc471d01ce737afb05e776a9fdc7627f1d4bbab",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_a522d9a2c2317cc4354b282b74e5a67ec9d86c3818b4d72b851201ce1391dd7d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_596885b941faac269c9cf63c612cbe22ea83631421749d4eae78e57958408f67",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_79328d0afa6f2329c196b01f04a1cb61fcbad55a47572dcf069c1f73ed432780",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_925330caaae511a35f2e517020bc5c28419142d29c3b441d63bcc068b7b51eca",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_007526337860b168996790aa3f069d0572085e0ae9521f35eecefed802c8b716",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_e9082f2186c23d03714004ead2902ec1083d4103dec2a149d1134c07d4baae40",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_040b7778dc14092424cc6987c0e4380958d067c01586ea323e484ee9e784cd91",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_955a348dd971579f6db9e2c3b1a318d74a527b558487545054ffa3b20d1906fa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_09f45353c9fc0723a3719174eeda41a43c8e2614b934b782111983b013823b8d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_1a110dc6282b70c9949eb1fc20a95d9a38a0c19d3eb0f159ea90f6f81ac7e255",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_86003aed04854b38c53e5c1e2acdbd27d2dc2b0983fef0fd65a0aeed854c1fee",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_39575741258d1cf60024720ec97083e63ce407735fbe1a095c1bf98509d27b46",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_1833c761dd2cb06f04a53d664080769deaa10b956d81aaa4de1497fb6669316a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_7fbd7bc2d1b8f6c50a1f4729e1ceb3b3a103beb605ae7cb53c63e0b56b50fb25",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_811a1c63639009094b2d0d31a8eb42be74fed53afe69040dae98d93292029481",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_b96938bd329dd28502ffeed6222094bf917e634626a7105fd810510bcf428697",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_703a018ae71631215d414ff975af4116e4e1d80322b0e181541982901c48e2e8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_a3f01c3d96f199b45de208d968367e79bafe30d34dcf0f1695f3f3fc9f0de8b3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_04fdd1c4e9324b24fb85fa74c00c6d0b9b3cffffb9b78a22b6d073511d9d0de0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_1e66bb4a46ff3f6eb55bac61da317b9f0218c364a808be5e1400f5390f7de555",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_cced2aad9df02a9568f34f4d2fc57ef498a3a9ca47528b56a0105bd16fab10a8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_7ea0aefe6a30c8aa9406d7a70ec79198e40ffeb8d213f5dcdf91de24ead1ba7f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_31a448a9b5bd5810bcaa420f2f30f45326ef9087182e93806a62b36bcea11197",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_b84f1246bd43531000e0338c5349f7bfbf1050611e86480c381dd40148b135b2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_d833ad6678ced0e3f725dfad0e29a2c337af8357204de95eecbc31019bbf3ce6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_91c3cc3e2d210a3f32ba1b1094b82957194c492d923d435fe995af0b4ce5608b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_cc1849833d670cf53cf6cde4c32f1005defa083c6c6631b1c4658917714a56e2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_b2428dd829eefa52396c06921e0cb57735969efa4cdd58d89bf99a18c1f50161",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_6a2ca5ee3287774177583ce6e0a07ca9af41df4e20c8ea291ad4ead6d73e3de7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_c59c164dc0a5b977d7ea5d285980f127e01b88ccb74f59b8fecf58852d2803d3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_0ebe3aed32fd2e6e31f7b1f589e47065da8fd99bc0b36e1458e3aa0b0e764fd0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_dfe9b91e51a94c4685887e9bf72892d6582a272e2283ded53155949487593e1d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_af238a451e408bcdfa24736ad0bb679cb4a70557e8b3cf4ae3d8f9729687552f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_b593d234bf8fdaa8c91adeffa80f07dd617108480cf4733160af10b30e717f2c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_962c84aa6ccbadc107138723116438d5bb99e6c2d72782ad6ae19669a4f16312",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3c667c88ab5604bb9ef5e3bcafcaabef8ebd47596ccadd95b0b392e6676e347a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_4ee58b22b4c06b687cd4d2cdee8f8eb6fff59ecfa670edb4d8613df5cd31a534",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_f75763cea167b5c32645de274df2c7490b4f600b8d4fcfe56d595085bc21ee68",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3e5c51bd0004716ca756df474d9ce4fa75316f90cf9b3fa904e0f790f823ffe2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_d7bf1221f333936a7a321c1972444adbe26dbced3697f92574062639e830c40c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3d4e0b49c2a13616a7a41fb8fe5686f7c640f156322e31ca976356128dd3c4bb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_e20247d3d32ba453dbb16b82accce9f8e52ed920bf5ffc24a8029bf9099b9fa4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_956875a4dde02f3a113c64827768cf076a8bba00df60509a07a408abeae5d2b6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_5eafc440a025138f1adebed0e737122bc01608c524210324fb3e7f78455d60b1",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_be7b8f376b68dfd27a05fa633af1509901ad9cd4f5da00bcb87edceb8298717d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_bd4ff27ec7fa4e341e5d7b9ff2d8bdaeeb72821af86f9f0be34ba214647afbc8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_760bff907a6cb42b3ba006722f9e7cabd7ab3a6dc2f13e5b5852b26713cb7bf9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_9d767d9fc48861df916f13fad56bfc88223b7a0e6d475ebad8e269ebfa793334",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_bb6d939efcd4875f8f95396402a656d65da0c3ed4e97847f28245f33d11b1bc6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_da06a83689eb41ef909eefb7e2c10bfa0b4e769cf0e3bcdf842a44dd1877f665",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_086cea9df134a01a8f1cd271d2b7462c58b9758af43850e8d12d558b153e535c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_a00afab9c594b7f350753e1bdee1f77d2e24d16588282b23a75d1a407d0bf706",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_c6a9a3090618d015a69a58e03bd38a923cbe89577aa5e5965a534fc084236c8a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_2418baed1df5c070b91bb2b9d6ab4d725e5b38cf240b1e26ab933816e561a453",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_a851d4118e8ad7c7674563cf74c1eb92bfb66cdbe592811c1c643328461c19f8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3b5943f6ace59f572ca695bd0fc80e609de31cdc958be6b940d25f6560e66156",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_d4077e41d9c949558091c30a0289370185663cf1ccbd82b9bdcf7eba80858488",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_333f50fa9e1cc4908599372bbed1b1b2fb9afbf62a24090c555b07f4fe05c11b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3590a30de2651035b772cee2158f878d355189649107f273e1eb2a12ec41676c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_07b7d669c171e35c108052369e62a029b30ec8c3d3efa3aa52d8ed1345525d1f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_94ad4ee21d7af7d7203cbe3aa2ada304cf7471eaac1eef595caefc3ca47eb321",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_a7127500ece1782578bc86db420e01cdaadd6f8c1a6fcd12254a98c5731f5bc9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_d4aec84b887f53a3ee716c581486807ba8c9477f937ac2df72131ea9a171b389",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_440e6aa9552a5c2250a166dc2fb107200df1442abe25162fc444edd695527c55",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_85c39a0d1eebc5948f94b4bf7c6cfa20465ab15e299c5a0f87c5fdf73e74c70f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_8f0c3d927c5c8ba77e4143c0b83d8712535c3e1710a4172fdc3c7ffe8760aab0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_d12daf4c888f98d886d5c6a0bc68e1d983a9f76d5d5fb3f51340c67356f744d3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_56134743b0e86d8548ed3fdb4b50c036816b4caf8a173f35994de1b44b2602c5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_f406e6cdabec9073eeb78b6a0dba7e56a3745456cad5d2767c408e5b86ffc9c4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_c3a51b47317abd06911e37340f3157c8e02486128d8ecd9980022defef9ad02e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_0b04a77f66bb4bf68bd43c8b29872ea6905f618fe42ac1d2eee6b6b34333417f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_915c3a8cc38b3b48c6ac47746e60e81964c5a9ed0f7a4b21a170f618bf882edb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_f24df8e41888e5010d60121704b82d81a157e0beaa8adbcfad904f83a3a783d0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_936d1c140493b72d96ae8f459e773803db38fb15a144857fe91543a3a524f007",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_221a416be5463608b0141bfcd41681ac2c14f57e4180bba599f5e81055f6695f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_6c720fcedada8808c498fc4378a7e3c6ca01068b7974a495d3bace3372720e28",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_d1c3d2eb5f467dd608d91e97f0828d8832ed373f83a1fda37dedc87314cc537e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_218856a4dab2ea1d501c5b91d28fb463ac30badeb0d5bc66db9f910da1adeef7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_b2aa75b359fce1f94d7aa05a1459f107766f45e87def618a7577bde70415b504",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_e94bf27e755785f9ba955795db5f99add6540b4a937dc12dc0196df9fe70a664",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_06d4983d612a4a2583c7aaf003b41e562f1c2e1c1794cb36dd57919b8f38b3c4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_02a18b893473b19f7ee3dd8716771cbf245f1402603e459944808ced6900624e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_1513be972b84459679c776f79627f01df34e50ecf761035da29e31dc5e04f072",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_6a9afb4b8b42e8ff5f941ac3716d7660319f8dde25abc98839a72b520ad3361c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_11f39548e51bfa87678cb2a3f42db6c05c7d094563a2d23fd748c5c9d3bb17ba",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_b1f8cb124aea1af9ebd38fa576ed62191df3559c53e8342a32ca03a7345a1670",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_25eb3655932b82040b922de9b6a51ce01bb698f261db76c272bd3b04070e791b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_23f514bb3211738c42a62cecd4eb6a518bc493e000ec1faf8342b9a2f05293e8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_874ebb5740bb49798c2a4d1398b76efa092cd8f0211d6e56cc01d146bdb7011f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_46b4301ab15e7ddba24aedd2fc688c8e8ffb9c6544d52fe1d2a4afa33ad1bc77",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_5ffb40638389461f548ad5ba18971ba494f857767d0d6330e35dd6b432e7edef",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_1a6c8a9ddbd5b36685faa9e9308e1c670cf1a852a53d6356164d47344f6c53f4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_853539644e064782b0bf97ab43d271efcc8150fc9700fd5ac99e43cf6c3516dc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_35e77d230cd7870d0f8f445ff97a0317871e0e6660ad5d1f986a84b6bdd67fbc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_b9c9d2a070101236279d19588398a5151564cd2b454689b76dc6368d4aeb17c2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_7cb757c7e12ce15b347cb5b5c4243a550a6f6b6a519fb91cbd36c28819adf46e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_234016915f52c3e02dcb881aed05a96fc828fb4c62771c28ce20512a0a6db366",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_3e75b1deee7d39e0eacb5720fa36271933a653a3a1ba3073106b9ec520040fc8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_82b9d485f22f4ccc35ec23a877f0c1757b5275d204f845e7afff657c16028dcc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_c890c8d1ec47da2f7e21a6cb2de8db9fc1ba2f571d6a72e34e83e2a00452a2e8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_9f9b1b2846713c6e4310186b5954c8d9389f2e471ee940d8848ef72baf286a0f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_7aef2f76d031691a6c022b1a0a9a1b36e6470cdcbe3a59e0944ad5e74d32c58c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_84f228b33cfd806db64d1f957a19558e49a1f078dc0b0552377d879213eaa4a6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_7a2669fc94842dedbdbdc0ebb6d57fae2ac5aeb58c318037939e613aa2982595",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_f7b5c7c4be9cc3046eb479302963d6ffd01d9d3a01320389fd5d48a5e4b13afd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_287b9e724f3e3630d001b36a930600317be503a5eded792faf066241b55500df",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_f6a7270d7ca1a4c308929cc567b2c94a53e110557894f02aa9b6aed70f2c90fa",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_d1541c0fedef9574686303ba66a744c4d722bb0346bc83ee6ce135e1465367ef",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_dd0a3c2bd1274f640f0eed33e6b6017e8cdd67d13dfd3a8bcc400c66c9aa1344",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_34b406ac657f6a7aad2db8e2876541484da85bb8df02d506f47f7792038b79ee",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_4e756e29b107835d5a1925f3cbe22d2b719a4ed75c97a42d15877d5f9301badb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_2218851e659398a51cb0c32bdff447b8fb40591079a9fe426bbd07b3a1f64319",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_93ced2920080abea42b38f9b7f4d72cb9bdd512d791d6ddabc3ccb60473d909e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_e3e8b5abae471e7cc1db2431dda9036d16a60c8b444b14144ccf1aab7c4b9ee7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_59586ddf37d99e36fb6635c16dec0046c7b1e9225c41b9bbc36275d3ee3f8f5c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_0db83e0a9dd44c27755d552be91be7cb84ab60d78dfb906bab9b8c1ac7171ade",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_744f576afcbe2f31278833f892f2c4175602b5574bee3c015d902534ef06c3e2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_c66e56d9646c8f4aabafdd5d3e8177df73bda4aaa7696a71b01ec92890444f69",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_8d57881f465e298d763c84c2cd87eeb220f705950d29204c01902b2707e1b62a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_5549c345fd1eff4cc6b6bbf2459aa2c2b816704e2ac6d76cacae3bb67864056c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_71c5a147d0bb5b9b245c8b58024e950902c4b0be60e8f59dae467cc954c65182",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_4934f2411900f34e45ad8328ad6883576f9fb5f9b918c6863041aba541fd2704",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_2482c6b4b62e1aff255df8880bf995b44bb79315a7d908868c40229a6e49c3a8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_e5a5bbd30afa55cf86fe49c779e20d2bb6236a8b277bb674700891f0463473ac",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_e0a84a4a8340263643eb9cb89840cd98b437f2aef597af95e6c941a2930e4768",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_633794922f8f92f521e7cdfe843fd94c02a45aef8ad82c69f798e8cbb0a3ae2f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_abe026220fbef1f4911ced596db99d0a2e3f1687b16069c69b95e9c5b37f9698",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_2b651bdb149802a46c93182a577119bc9189e3dcc30f934c19c070457e5ef1d0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_741b6acff194c73029dc4fdcfd67e7fb698239b713fccbcb994724e5e79be574",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_94c60739e5ac1988d04b1776c6e32a9f1eb24ad1cf7aa843d433508d80027f77",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_be6dfd4b54d8a3d34aa3569c05d0531a776f387437dc515f279f7d350849047c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_4c0c7d507ce2bafe690b94be93594b5ac78fc5ff0b05d0efad1d5b1793bf0c55",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_06c96a2a7b52d621efdaf3fcc788eed87ca8d4905f8f912a23436395f34e5f8e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_95e634c0e2ee8e0230e9fb642a23bc505275d93b718c31481798119c956e3f95",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_fab77be3097b5b323b762c238bb9d6835583494b66ecd9ded599a969109fbb87",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_78e2373d7772c4703f23e2233c9b41c1e570c7e3c35f6cc9e2e57ae19baff2a6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_6a5c2603b0937825f17a65426665f0a922e23a2e84b976a71ba58fddce41e4e9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_7fc5cbd3c98c34fe0c714bac09a2cb6ecb0b11cb0db3094249f114dc75fc3c0b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_dd80d0d9b647322f988843e44817fed6ff843e6d04802b9359cf8f31e291a12f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_42a847c3918f384eafb2417e8f1179eec18f9902a2f171bd193d4dc3bdb143b0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_instructions",
+      "id": "ev_fd68e786d3d8e0b8b24b65aae2ee05db9b17055a7e526221c90b30b0df155582",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inv_update_context",
+      "id": "ev_3f821f1d2506fb9ddecf0cd5c265b5a383df7e9dd80d582f7ec3f46e7b8dc559",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inv_update_bytes",
+      "id": "ev_4b58446fd741b71e6a5d35ef728b114b2f23d94d75512fc73703a5beadc1643f",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "equipment_inventory_construct",
+      "id": "ev_25c2e55b6648cf643420ef213f458be0308407ce5547c8456c8c9368180bcc63",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_inventory_layout",
+      "id": "ev_c44a4bc1eac02810ea3dec550dbcbdc28855553dc0d5f818ce3483e21ea1d955",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_ui_callback_bytes",
+      "id": "ev_0939a873958e5211aa947fb9e664fae4d3d2edcacbfb80846bf401022c68bdaf",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_685770d24e55c84b699996f70557856f7179efadbf4e53d2cb5539383fa1049a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_81d2bc2be5eb3143503d8c2f8f7395868a7d8651e740476ff391d389fa1f7fcb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_e95d8ac229f1c96867835230b522eac0e73313f9582c0660a440aed98e7581dc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_f4776e83ad19bd46d2df81226cda48f9e05a23c302bd90058106226425f38c56",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_77b69aa4536983f2f4f7aeffdee93542eebffae2d7262889aa0227606cf1b442",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_5e7022919c05d1e5d36f60f849c65bcf996a069c35ef5bbd81cf186e8cc95c23",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_1f09133305eeca4b35ce6b687148856988cb782b4e54c227dee701c49a0756c8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_9eb0ec9a8870a707e2ad4e5744cd43902487d34fe128bc555de280674f59e0d3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_add68e9236e808fad970ae92a9b339fb203027a84f47a64e7f6796d245496d38",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_1e9a3053e79e99803ee4e1936ba3f11608adce95adb1873d5b069c788549a97e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_2fb2748a9ce778ff7b8b3ef8fd907127ed2fcf9def8ff58e20640de595ec5d0f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_5b3e0987676bab5a412b5a84693b06ebd61096bca0cad5b97e8a94e057bf8ed2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_5ba80860b9ccd71db56acf547849736b4d830f46e6bc0b868e677649b3eebc7f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_cb9df50ecbb50c35c752b1736fa51b9be5eb05095603ed58db94d8e2df7a6757",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_5980cf1fdbe28ac6f4721f59087f7fc94d8ce494fc75de81539aab808d08b0f6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_31c5528e8d9e6baaace9cc04a97483904116dc349944ffecda2f43dd97d1561b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_f91e46442d6126d1e509e38c29f4e59d69d44a35cd225a46c0d7d62660cf5c1e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_6b550fb9594870ce781246f7fd3498a3874490c8b9aef6fe02d357bc8b0794c0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_aec361aff1145cf067f91de7c0e877e9906a45642a5ea42e5644ea74e4744033",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_80455507758a6936bb46eab8a85f2117ff8357e579f6ca4984b4b593e3db80c7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_26a415c5d92455b8b6ef48547b5d53b67c62f1780648522adbc3f89b0e6d11de",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_5d544ee6bfe37494ddedb765b9add9195c9321e9aa12268d1b214075e64f2f52",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_1e4f84436d4b44ac99f1cb1059821c80786585e77034d39b26b270a720762991",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_5e15ff903e02bde2b520c996d07cb831a794f1bdb38fa22bca58bcaf6f2a8ff0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_6dd4dab8cf242a02270a5e8de3ec57ae0ec048ec0ced9ee197f21359600ae66b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_aac6789aa3047c375592fe7dd363aa7dad50bba7310da90b8baacc8e15be7750",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_c668a15d775bdbbeacf9dd5d5f37b72882c1db4333c881f73f2f23a1a78b4e85",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_f36b1c71d6f68c2c35f6b4d35e6f26f1cbf1925e8cda271c981df60e6fa55775",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_3ebb80cbf6bd1d4b33cb90c8275a82a3b219afdcd828171cd250c88981c4995f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_98a09980d696ce0f48596ea67853c4bbfe373c6bb8118076bc39b963b6e4c0b0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_49d645d7cfaec38c84592cb7c2b61a68d1763f436b366c638e688d74a7bb2218",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_bd516dfa65a40d3fd809a90fbe749743e270e7b1d9c873afc6bc99289cd9ea0b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_51143ad1aacd13746a94131d8e06bdd07e8cb067345a11d78c1de44e1d6300b3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_2f98d5b6137df1af3707ccd916cf2d8d01e70d2239475a1619019f9cde1b371f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_176acbbf537178f25217673b2025d53e3cc3443580f369bbda016a49797dff94",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_create_instructions",
+      "id": "ev_77cf5f5da490fcc575e50dfb769fe9be9e1cdbc396cf31c6edf83401651d6ad7",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_ui_metadata_source",
+      "id": "ev_33ccb17674ba0bc28e00673a365fd54c345567e55886ccd6d86666b7b316a230",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_skin_strings",
+      "id": "ev_21ceef4b7afdb22f772e43fcd6a87ebf40f8c9e3293efa481c48441c6bf8c245",
+      "operation": "search_strings"
+    },
+    {
+      "label": "equipment_status_formula",
+      "id": "ev_0c68d76e98a2c3abd96158a6d38b19eab113cf6dac8176fd8715360616dd4443",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_skin_pathrefs",
+      "id": "ev_b769e87a849c81b155cf501986d28cbcdca95f66940e77531b9f800c9fddd9c0",
+      "operation": "xrefs"
+    },
+    {
+      "label": "equipment_skin_load",
+      "id": "ev_1fe26d8d8feef68e7b462078126c5ab36d8b5a6a5963c4cab31f22cef8b4b3a2",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_skin_table_load",
+      "id": "ev_665137ff85c1f94cc59975d0903340007a8988b5957d6810eaae77fde7573d6b",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_format_strings",
+      "id": "ev_c2d5a9f1a2a47b55a536949c596743fc7554a17a4ec9c967c68bde2f99d4d954",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "equipment_format_strings",
+      "id": "ev_a8d356820602941abedd0b01f7cdbac187c5ee285515c5316ed9087aa55c7cd0",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "equipment_format_strings",
+      "id": "ev_5fe2ccad6fed9867a8d6804258ba7c51c2bebe3864389367605e5ddb4f5d9271",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_df624b8a35aa1c51ec24dbd5f79a034eb2eae42fd3d16e1b5afaa9f5af98450c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_e9e0e27dfb8642684ae1c8f249b2445c8ae993cb4812b5a699cf992dc823fcd0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_b75d4071402277ba3408120b358d67885e6e7e090cbbba9f94e4cfd9000f5772",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_23eded1facc435609aa241dfed2b36cd42f7bdd238e8b36a5391938eb9d35f10",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_b9801e2a07f44debc6a7aa274e16a7b136c8e36634bbc19554157555ba7fc310",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_65a661e749f43fe72dcbcf9200adadc94ac13b7742e03726f4cd4a4eaa3fad3c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_d85fa5ca1d1cf3e3162c9cf74708f4b9e780c1df7edb58f2bba4e6b975db6beb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_dcc22ff019cbe6862b41f4bceeab74e2475dc48698e6aaea7467af06e34cf26b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_2a682f45b87c2ae523004ed956085b63df36fa6c5db5930d4c88adeda2e0d6d9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_f3e551d12ee51719c821465112815f6d3e4f02e48919136ff096d6db8b053b3b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_54566934e415cca058099578fe73f9975580e352e7bc51336308ada557b4da1e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_c6db99a816b9036ff52e486665fb4a46986ea34c5487ff68e537910ff3ad9bd4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_0dd4b21485d13bb8783c2becafceace9564af4c2134a611e54ecffff293ed981",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_4f4e9f08523e9d596189b406d84e08ae78705c215d8e713d561c2041c1a418d0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_0625b454842d211052399dea87a17e37c860d3af3a95526500547636cbc968cd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_027c5ff5088d75d9209d09e5318ad2239652f7af2b2edbd60e351b26281539b0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_ccdc705fe2557d2a67e5432b651ce4debd61a4b9774b830e0842829c66df7d64",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_4b4cd0f32d16e9c0d6f864e2502571c21a6e9d19ae4d7c9c0fa602b436842470",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_1522b1d3b66cde493f88b25d666695f2ee528a071f6fd24c54c4dde8da1b9860",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_28a0797294e3f399293a95329973f3988773ba99759b48d7579ab219c48b5d00",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_9a7cf0b14eed8b6d69881b92e3cf24cd3ccf2f266a2ebb03042445349347547f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_e513f8228bd03ea7453319aa804d742c90dc06522d5a9c66b504298cffadc1e8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_35a6268e3decb94124548740c1e2d0aa593ab13cf592ef79e0093b5da1b5ecca",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_c3dd144e811d81f3924db08cc1fd1dde58f69d4341a2d34d5c902b02be6e0aab",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_68d187c7132882e99d11292b503428ddecce4ab0c304cf95de90e85d36ba9dc8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_8383518fcf70435a92492874b503ab6341bf181740c032fb156e20307739b7d2",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_60a42a9811b1b163d2b798496fef577888d5c18f79cc871737560867035912b0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_1f1f1d518c1ff7053d529748dec9a29093f4239c8317171d546700fdc0d8f331",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_42f84a69234ee66d1fa361c50ff1495ea8e23f19a4bcee62546ea1c0ff184f4a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_b698af9750e266542e38a1a1ffadb5737da5e1fd5a501cef331642694df0c751",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_f7deffc343e939aeed757180f46c06bbe524e26ad39965d25a8d913c714309ec",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_cd0b8667c9fd30d8edc12b96f4873a9e5aeb840053ed11ad23429b900f4b6bf0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_3b395169ce7e746dd909f21639df382c8ae5e4a2dd6e12ab974fc87fbfe424cc",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_d2168cf55ec35a24fd0e3cd4360b86ac517a9ee461d563a878273970a22fc6be",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_e6f85015db83012902257997d76eae5ce719b03cd76518f2b0023e58f7b8fbac",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_d70abb2f4166dfba18ca3dbbd3c5e8467a0ec2b3a82dafeda91a7d1a2a7aebb4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_8cddc6b35e9f4061e4da00b8c7a4717c5e08dae1bbc526e9c025df1e9e931d04",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_d18ddd332e167e099ce1de733d73718c121b78ff28e9f682becc3179afeab6b3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_fbb37ed386c487920c603a1accb8a3ae6bac48a0b9eacab345e8b71270d0a401",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_1930361603278ba4df66fb2cffd8a6c35f3a51497db0235dbe25d2cc3623523c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_7fbd2aa1d8c3086ed4fc5d5c1b396c8664ba99a80ab7a2f90b2b15bb926a46be",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_44864e745179103c2ae45f6652924c9483b9bc420570b9a7a38329911401e1ab",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_3b1ce9a9c9a2883b23bbb9e2fba8e15066d090aebbb233ea86995b81428d80d5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_04a13ed33727e05035961c240c4e9d034010f283a64ede38f1181d65eed65697",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_3162582a203930fad1e7b98145f9411c324d9949973286eaf7322b2228826f89",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_3ed4a56d0df2da47f6859addcb6d4ed742dbb91d4722567faeb89758ae31ec88",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_6539f9a64fcdaef0c0bc7a1ca98743a3c5d0b00cb3cce4ed61ae7f03f65d7b1c",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_df6f1359b8227470e806a5a5ecf09f53bc0e7ebe2c73a52596490bb7bdb25437",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_07739818218ca60779d3c8c0259b802f56411d2ee9ad81dd7642c6382fc75d74",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_9a838855302b79a0987380a85a668304da149fb3497c8db76b3a48bd9678cdeb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_d0bc77c0c77739a7f47bd2a3fc2771c47ff06d627cea952970d2691421645cd0",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_c81362020891457c0cbf451f78cbe6be2b5e06b6a1cf9711c486d6ccf91f0351",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_57f698568e222ea5e78b7358d5873c8c81757ec567546fe97e8096d1ac48c525",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_bed90b92a803a9703641f409b43a2f259904737f78fdc462bc855ea5135b6219",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_cbe24408df314b630d57fec365e9f6c427816a0ae5c687a769d9ebbdb4a0d3ad",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_7ac888663434ff0d5d94464cce6a41059d7c76ab0e97a701182dbee60a2c38a6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_0f782672ca531fc6280af437e41a3817664b80f493444043daceb660659e3267",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_b1b9a9211ab629f1251f1d6ccbf67c64d2372f6385762ee65180a62376daa584",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_35523457a3436d6681fb157291b1ec604f091523d3a1f705bd7e9dd175ab5b42",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_fd89b9138b29fc0097c14ea7d2d863c13ed6e56798fc89240e0fe5cc0102d6b4",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_f66de582e4a395dbf368dab3fc28b0eda37f3b78dcdc438153b99d787c639e02",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_6a0df1b0ac07de784f80c4d24b2775695c642f8fb331bb09f9492747cb5ebd4f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_af58af2ef7b91b58c79d37a1c4791b959d5743327c3dde2998144d15d140d07d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_d8c4849c8594c81fb14e08c2862080f47544c29991f3bc3e82987cae61c89662",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_0f5c5260acb0d660656ec7dd324a3b6003c275d3cc464ecf09156d277434f94d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_77dab9d7eb7ae52c80f2b55bb97b57fcc3efaf8d57aa490c9b2b003a8815f611",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_9f67a1904e608f83cda9e15722c24dcbb0a12e9cd53569e9fea7f4c095009670",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_de8d495dc835da60c7a62d990fac29334236435059d673a92604ccf587664be8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_18acc49117fc9e3b12fc1555e1cab810ab501365262a927d7f2c7af2a751ab2e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_f6c2bea310b0060f42113e166d9672c21ee1aaf09b6f681b757a0b4d442b9ee6",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_1cf249931699526b3761e971afe14501908189442d2d4fdbfe65acfb2f832989",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_ac022811b964caad1ab135970a17f878c8cd6f9f137a277b9b54168fbeef24d8",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_dee85207420d3b7d79c3c442774c374cb7fa73e0ded092a45a49f679d0ac5f53",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_3782377bebe3f509f5da4fb81320276cf418b7870c41c29aad3310f028c40663",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_8982589a66300578c9ff97293076daa2d372546c390195ee12a3be193d1b3fff",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_16143a2c50779dbf50672778666871ed510bd0f32acd00f7544fdaf8d61a382b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_c61387f51d1d37649bfbb259edb5950f11e0721f49e723c5811395587c18ec1d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_95cf5b91edbc5d56a11563f7b28d025e6ea08bab09db81acb00cbe1c62ede708",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_90bf22fb5294db2f89ad76a9287b7717abe3d5dd1013332568eb3b6cf326db4f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_8396a4b86100c5e676ab1737219bd7e2295de27b0b4db629b437967e8a0ba39a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_de488598d57a81dbd32f7176f13cb29377784707cbdd912dcb60db4d19a58748",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_8c2c04cc9799e4507681dabd3ee094b004b3220ef275932702419271494de227",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_7dbf75e2bd48bd04a23c276330b30aecdc39efd2423e56e13bb908454f83c70d",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_b12d625a6c50472f34e328fd4e55ce94d7a182684a8582cbcb3af2d0dac8d76a",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_69cce48b649edfb7697f8673cef30545d50897da9053678d656ac4069cf1e04b",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_inventory_update_tail",
+      "id": "ev_47541357af6b744b0c9b0c4e25f954d576ad0614c13711010ea9caa0ef4504b3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "equipment_weight_format",
+      "id": "ev_6a548574bfad5186aa24fcd5ade4801727a0f898304866ca58641529deb512a1",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "equipment_item_metadata_lookup",
+      "id": "ev_47c3591c2379e55c40c4662c2b987ff1266343b83cadae04528df2a563784e46",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_metadata_boundary",
+      "id": "ev_b118117203086dd4d55a256b9bf2dd864ec6b3be54c9050cb056332767be44dd",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "equipment_metadata_loader",
+      "id": "ev_f9f2d8e3068c925687632acd4699994b957a22b88537738db68e2e61ee717634",
+      "operation": "batch_decompile"
+    }
+  ]
+}

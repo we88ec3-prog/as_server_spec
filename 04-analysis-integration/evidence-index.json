@@ -4725,6 +4725,66 @@
       "record_scope": "original-native-static identity index; reproduce with linked artifact SHA and addresses; raw retained locally",
       "operation": "batch_decompile",
       "integration_document": "04-analysis-integration/20261108-native-player-targeting.md"
+    },
+    {
+      "evidence_id": "ev_e42c827e77bac120c18a94f6d5d9332b0a8822ed959b4b52cc4a42362dbd1ba8",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_5b4f78e743ba0074109d06e4e6397ac46cdeb17b860a39f5df05abe57c72d0b0",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "inspect_native_instruction",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_b593d234bf8fdaa8c91adeffa80f07dd617108480cf4733160af10b30e717f2c",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "inspect_native_instruction",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_da06a83689eb41ef909eefb7e2c10bfa0b4e769cf0e3bcdf842a44dd1877f665",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "inspect_native_instruction",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_1fe26d8d8feef68e7b462078126c5ab36d8b5a6a5963c4cab31f22cef8b4b3a2",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_665137ff85c1f94cc59975d0903340007a8988b5957d6810eaae77fde7573d6b",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_f7deffc343e939aeed757180f46c06bbe524e26ad39965d25a8d913c714309ec",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "inspect_native_instruction",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_3b395169ce7e746dd909f21639df382c8ae5e4a2dd6e12ab974fc87fbfe424cc",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "inspect_native_instruction",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_b118117203086dd4d55a256b9bf2dd864ec6b3be54c9050cb056332767be44dd",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_f9f2d8e3068c925687632acd4699994b957a22b88537738db68e2e61ee717634",
+      "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
     }
   ]
 }
