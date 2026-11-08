@@ -86,3 +86,8 @@ objdump -D -M intel --start-address=0x5715f0 --stop-address=0x5716a1 Asgard.exe
 python3 tools/a016_recovery_model.py
 
 原始 EXE、MAP/DAT 資產、帳號/token 與巨大 dump 不入 Git；缺少原服 trace 不可由此填造原服交易/獎勵/CRC 錯誤碼。
+
+
+## 指定復活與自動復活競爭
+
+詳見[指定復活契約](../04-analysis-integration/20261108-targeted-resurrection.md)。Server重建：來源與目標完整租約按角色ID排序鎖定後再鎖隊伍，重新核已投影死亡隊友憑證、同圖／六格／視線；MP20、10秒冷卻、熟練、原地30%HP／生命+1與收據同交易。自動復活或另一施法者先勝不扣費，舊生命事件不得重演；C0E前導不結算，C65不新增nonce。新增11項領域／資料／Host測試及三Client五組TCP，原生墓碑選取、指定特效／音效與Pg競態另驗。此增量不將整體A-010或A-016標已完成。

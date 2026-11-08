@@ -67,3 +67,6 @@ Human token並非只靠名字猜：Human constructor47C1D0建立MI class vtable�
 原始多函式Evidence／精確leaf指令及同版字串精選在私有workspace/anal-roy-temp/targeted-healing-native-20261108。公開JSON保留更多Evidence IDs。
 
 待GUI集中確認：同場景兩個已投影玩家，施法者MP足額，非滿血隊友第一次滑鼠指定便收到C65真ref與實際補血；自身點選、快捷列再選人；越界／非隊友／死亡／已離線ref不扣費且不斷線；目標移出AOI後拒絕，重新可見再可用。每次新按鍵產生的新治療不可被內容hash吞掉。網路fixture通過與原生GUI通過分開記錄。
+
+
+後續[指定復活分析與契約](20261108-targeted-resurrection.md)補0x479FD0原始bytes與provider未建立procedure的界線。仍未證墓碑GUI能送C65；不能用一般Human入口或Server合成通過替代死亡選取驗收。

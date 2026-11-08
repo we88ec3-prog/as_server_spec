@@ -353,7 +353,7 @@
     },
     {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "sha256": "d4069165b56341272e0fe58879b797f89372ac6852a787505c0b6cb06e7e5047"
+      "sha256": "8bc6a34544522e0fe33cfb5b41195ae6c35c57e567d22b4984bd4a4aee9705af"
     },
     {
       "path": "03-analysis-requests/A-017-roy1-admin-audit.md",
@@ -425,7 +425,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "72258c834d88cdee77c652bfe3ef5bf2e19f72bd1864ac5727194381b606e3e5"
+      "sha256": "a8210939f23aeb3b466046f5593e4386f9c31f35dc3230855e45bd2cd6e1f535"
     },
     {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
@@ -997,7 +997,7 @@
     },
     {
       "path": "04-analysis-integration/20261108-native-player-targeting.md",
-      "sha256": "f86258fbfad5fca66010e877046fea9d008f4fd396a6e9332dd0e2e7ee218c21"
+      "sha256": "a9c5dfec3db1345b38ac57ecf5ace74076f352ac7875c4a169144e4bbdbc9a0a"
     },
     {
       "path": "04-analysis-integration/20261108-native-remote-player-lifecycle.json",
@@ -1081,7 +1081,11 @@
     },
     {
       "path": "04-analysis-integration/20261108-targeted-healing-and-skill-inventories.md",
-      "sha256": "26f916f999dd88fce656933aa9fb620c002f675df7d6c457f4066e5ad881726c"
+      "sha256": "8d190b89cce912caa2d18714e6824aac0a177de41efa5067a066c8815ab6d975"
+    },
+    {
+      "path": "04-analysis-integration/20261108-targeted-resurrection.md",
+      "sha256": "a93efe7b91cb585daca1e7cc8e8d78153233cfcaf334622944a557cd4167e444"
     },
     {
       "path": "04-analysis-integration/20261108-temporary-online-resource-recovery.md",
@@ -1385,7 +1389,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "52122a2d81480af1bc3180a09a7392dc19156c9a5311238ff47aa8b62aab489d"
+      "sha256": "0c75e7bccd6343fab331f68923dd31f78a1a9dd33474c6d0f9d9bf21328eea94"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1545,7 +1549,7 @@
     },
     {
       "path": "05-conformance/A-010-skill-cast-lifecycle-test-plan.md",
-      "sha256": "69afddbf2019e7d9becd3c9f1dd1122d491f97c769327b1cde7c521d3b2a45fc"
+      "sha256": "37f78d0b111e59382eea1ffa4609a6ef162e4df09f17a4decb74c812c0bb5909"
     },
     {
       "path": "05-conformance/A-011-npc-resource-click-animation-test-plan.md",
@@ -1677,11 +1681,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "d056e850b34ef8feceb71b1dc651e430dbc1d7d7d0ef8f0e5ad30c84900be747"
+      "sha256": "faca704950b0a9ebf67aa16f8bff017af5d55137af85062c8a387d030dfa043c"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "bd60770a8d5cbf4ac3a1e1c7191d6e27fee7fdb733a6ef456fb3febd486a37cc"
+      "sha256": "d8f2b8a14c7c0646072deb78a6b11fb04f475c8462afdf6f826ff777ca11b2a3"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1689,7 +1693,7 @@
     },
     {
       "path": "06-development-tracking/details/F02_角色能力與成長.xlsx",
-      "sha256": "ca9821a6654bb5b5af9d6852067065ad1a0ca23e3ecf4b6db28c8b9f77c4ea6e"
+      "sha256": "b0d947878a157bc6265d752f95595f35ca214a35bc66d2bf091873bedf60e26c"
     },
     {
       "path": "06-development-tracking/details/F03_新手任務流程.xlsx",
@@ -1709,7 +1713,7 @@
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
-      "sha256": "10465ae87532b9f7f26211e1a25a0515c43415926172b048ff940a1a295c1d1c"
+      "sha256": "d8b3fc2d48a27b49b73b065feb63896b3714c9730806aec90c70ac5e1af3d720"
     },
     {
       "path": "06-development-tracking/details/F08_戰士技能.xlsx",
@@ -1721,7 +1725,7 @@
     },
     {
       "path": "06-development-tracking/details/F10_聖職者技能.xlsx",
-      "sha256": "289a85f0d1b507951f40388624a319a57ceafcd8eddb46a1dbd7f3a974ce7dc8"
+      "sha256": "88af15f52b3d71e60247834849a5fec43ea5bc54f907b9154eb58eb591388d6d"
     },
     {
       "path": "06-development-tracking/details/F11_盜賊技能.xlsx",
@@ -1825,7 +1829,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "e9713877158798744dd5386e53170b7ed01e6dd0ad16a51900324e2de2854f76"
+      "sha256": "f1e9520a7d0cb65758d28cf176f8f21d6a837fcdb69fe7dfaee107a6bf0d1123"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

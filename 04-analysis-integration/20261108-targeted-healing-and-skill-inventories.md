@@ -1,5 +1,7 @@
 # 指定治療與獨立Skill／Spell位置
 
+後續：[指定復活v6](20261108-targeted-resurrection.md)追加獨立法術；本頁治癒／群療仍不復活，歷史v5測試與數值保留。
+
 ## 來源與本輪內容
 
 使用者要求各職業提供實際有效的重建技能，魔法放Spell、操作清單位置不能斷線；程式私有，可獨立開發的規格公開。原件[Human／自身目標入口](20261108-native-player-targeting.md)已補證：既有S62 mode2、CastValue0、Field2=0能選Human，C0E文字前導後送六byte C65。本輪未改Client或素材，原生GUI仍待測。

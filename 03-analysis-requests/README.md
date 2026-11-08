@@ -137,3 +137,8 @@ Roy1 沒有新待合入提交；Roy2 A-010 離線 CI metadata 已增量轉入主
 ## 2026-11-01 不需 WinDbg 的三張正式分析派工單
 
 使用者明確要求根據 Windows WER、原件 EXE／修改版 Preview byte diff 和兩批 TCP JSONL 先派分析。**沿用原有 A-028(Roy2)／A-031(Roy2)／A-020(Roy1)**，不要重開 A 編號、不要重設已整合的靜態子成果。已建立 GitHub [#7](https://github.com/we88ec3-prog/as_server_spec/issues/7)、[#8](https://github.com/we88ec3-prog/as_server_spec/issues/8)、[#9](https://github.com/we88ec3-prog/as_server_spec/issues/9)，登記 `queued/awaiting-claim`，**沒有假稱 GitHub 個人已接受指派**。原件仍是 SHA 鎖定 `Asgard.exe`；修改版 `Asgard-main-menu-preview.exe` 只能作 `modified-preview-debug-only`。見 [派工與完整交付規範](dispatch-20261101-preview-crash-and-world-entry.md)。分析角色不改 Server 或遊戲執行檔，不新增 Branch。
+
+
+## A-010技能與A-016生命恢復增量
+
+詳見[指定復活契約](../04-analysis-integration/20261108-targeted-resurrection.md)。Server重建：來源與目標完整租約按角色ID排序鎖定後再鎖隊伍，重新核已投影死亡隊友憑證、同圖／六格／視線；MP20、10秒冷卻、熟練、原地30%HP／生命+1與收據同交易。自動復活或另一施法者先勝不扣費，舊生命事件不得重演；C0E前導不結算，C65不新增nonce。新增11項領域／資料／Host測試及三Client五組TCP，原生墓碑選取、指定特效／音效與Pg競態另驗。此增量不將整體A-010或A-016標已完成。

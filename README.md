@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[聖職者指定隊友復活](04-analysis-integration/20261108-targeted-resurrection.md)。新增Spell0、MP20／10秒／原地30%HP，目標復活與來源成本同交易，生命代次驅動本人／旁觀重建；既有自動復活保留。原生墓碑點選、特定動畫音效仍待驗收，數值為Server重建設計。
+
 2026-11-08：[可操作Server文字郵件](04-analysis-integration/20261108-playable-text-mail-commands.md)。/mail支援分段草稿、離線投遞、私人列表／分頁讀刪與未讀提醒；新寄件遵守雙方拒收。原生NMCO信箱、附件與寄件備份匣仍未完成，不修改Client。
 
 2026-11-08：[Server好友名單與查詢式在線狀態](04-analysis-integration/20261108-friends-and-query-presence.md)。新增私人 `/friend add／remove／list`、單向100人保存及跨圖當前連線狀態；雙方任一拒收則不顯示可聯絡。明示Server重建政策，原生FriendDialog／同步、互邀與主動通知仍待補。

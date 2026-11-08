@@ -29,3 +29,8 @@ python -m unittest discover -s task_a/roy2 -p 'test_a010_skill_codec.py' -v
 7. 交付原始輸入畫面、去識別 decoded packet + time order、資源檔 SHA（若取得）、相關 EXE VA，驗證成功/失敗/取消/逾時/重連每類情境。不能把僅合成範例標 native PASS。
 
 **結案界線**：CT-095 native-static/offline subset 可用，CT-096 **planned/not-run**。原版 skill taxonomy/cooldown/MP/stack/expire 仍 unknown，A-010 靜態研究交付 `integrated/partial`。
+
+
+## 2026-11-08指定復活新增覆蓋
+
+詳見[指定復活契約](../04-analysis-integration/20261108-targeted-resurrection.md)。Server重建：來源與目標完整租約按角色ID排序鎖定後再鎖隊伍，重新核已投影死亡隊友憑證、同圖／六格／視線；MP20、10秒冷卻、熟練、原地30%HP／生命+1與收據同交易。自動復活或另一施法者先勝不扣費，舊生命事件不得重演；C0E前導不結算，C65不新增nonce。新增11項領域／資料／Host測試及三Client五組TCP，原生墓碑選取、指定特效／音效與Pg競態另驗。此增量不將整體A-010或A-016標已完成。

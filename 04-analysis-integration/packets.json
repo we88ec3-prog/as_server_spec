@@ -860,7 +860,9 @@
       "a026_completion_boundary": "No standalone original tutorial-completion or reward semantics; ScriptClose only lifecycle, generic map loading != tutorial graduation",
       "a026_report": "03-analysis-requests/A-026-roy1-tutorial-completion.md",
       "a006_analysis": "task_a/roy2/A-006-analysis.md",
-      "a006_note": "4×BE u16 x,y,vx,vy; (8,9) maps to (400,300) in 912×672 48×32 pane(-56,-36) projected profile; native GUI not-run"
+      "a006_note": "4×BE u16 x,y,vx,vy; (8,9) maps to (400,300) in 912×672 48×32 pane(-56,-36) projected profile; native GUI not-run",
+      "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
     },
     {
       "id": "PKT-S05",
@@ -891,7 +893,9 @@
         "A006-E07",
         "A006-E08"
       ],
-      "a006_analysis": "task_a/roy2/A-006-analysis.md"
+      "a006_analysis": "task_a/roy2/A-006-analysis.md",
+      "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
     },
     {
       "id": "PKT-S0B",
@@ -1112,7 +1116,9 @@
       "visibility_scope": "other human with 32-bit object_ref, native AOI/ID lifetime unknown",
       "native_client_validation": "not-run",
       "a004_shared_player_increment": "04-analysis-integration/20261108-native-remote-player-lifecycle.md",
-      "remote_human_note": "4F31A0 non-self removes existing ref then constructs HumanObject; same-ref refresh rebuilds animation. S05 is self, and S05 clothing flag0x1000 must not be copied into S33 HumanFlags."
+      "remote_human_note": "4F31A0 non-self removes existing ref then constructs HumanObject; same-ref refresh rebuilds animation. S05 is self, and S05 clothing flag0x1000 must not be copied into S33 HumanFlags.",
+      "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
     },
     {
       "id": "PKT-S37",
@@ -1650,7 +1656,9 @@
         "boundary": "/mail is explicit C0Ekind0 Server commands with private S0A17/18 text. C12 selectors retain address-book compatibility notice, not send/read/delete mail or S58 inbox rows.",
         "native_gui": "not-run",
         "native_nmco": "not-connected"
-      }
+      },
+      "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
     },
     {
       "id": "PKT-C19",
@@ -2899,7 +2907,9 @@
         ],
         "resist": "Status+442 is zero-initialized by reader; no inserted wire byte",
         "current_implementation": "effective equipped five abilities only; AC/MC/AAR/SAR/DAM/HIT/weight remain zero, original formulas unknown"
-      }
+      },
+      "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
     },
     {
       "id": "PKT-C47",
@@ -3122,7 +3132,9 @@
       },
       "additional_systems": [
         "SYS-SKILL"
-      ]
+      ],
+      "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
     },
     {
       "id": "PKT-S63",
@@ -3235,7 +3247,9 @@
       ],
       "native_client_validation": "not-run",
       "a004_report": "03-analysis-requests/A-004-roy1-world-visibility.md",
-      "a004_shared_player_increment": "04-analysis-integration/20261108-native-remote-player-lifecycle.md"
+      "a004_shared_player_increment": "04-analysis-integration/20261108-native-remote-player-lifecycle.md",
+      "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
     },
     {
       "id": "PKT-C4A",
@@ -3603,7 +3617,9 @@
       "unknowns": [
         "Original skill content and complete nonzero CastValue lifecycle",
         "All dead-actor mouse selection states and resurrection targeting"
-      ]
+      ],
+      "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
     }
   ]
 }
