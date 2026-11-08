@@ -1,0 +1,371 @@
+{
+  "revision": "20261108-native-player-targeting-v1",
+  "artifact": {
+    "name": "Asgard.exe",
+    "sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145"
+  },
+  "scope": {
+    "immutableStatic": true,
+    "nativeGui": "not_run",
+    "privateServerChanges": false
+  },
+  "decision": {
+    "nativeHumanTarget": "supported-static",
+    "minimalRow": {
+      "Field0": 2,
+      "UseFlags": 0,
+      "Field2": 0,
+      "CastValue": 0
+    },
+    "selfTarget": "explicit_native_heading8_branch",
+    "partyEligibility": "Server policy, not native producer guarantee",
+    "deadTarget": "not fully proven; current healing policy must require alive"
+  },
+  "s62Field": {
+    "wireOffset": 6,
+    "implementationName": "Field2",
+    "readerLocalOffset": 30,
+    "fullPacketOffset": 42,
+    "constructorParameter": 5,
+    "actionEntryOffset": 9,
+    "equalityEnablingGate": 1
+  },
+  "harmfulHumanGate": {
+    "procedure": "0x46d970",
+    "condition": [
+      "entry+9==1",
+      "selected IsKindOf 0x66e3f0",
+      "Human+0x2ad !=1",
+      "(MapState+0x550 &1)==0",
+      "singleton0x66d0c8+0x7c ==0"
+    ],
+    "noticeBasicStringKey": 477,
+    "exactStateSemantics": "partial; no guessed PK/ALT flag names"
+  },
+  "targetSelection": {
+    "entry": "0x4bee70",
+    "hitTest": "0x4bd530",
+    "mask": 6,
+    "humanMask": 2,
+    "monsterMask": 4,
+    "visitor": "0x4bdc50",
+    "choose": "0x4bde20",
+    "registryLookup": "0x4eac30",
+    "selectionSetter": "0x4b8be0",
+    "humanTypeToken": "0x66e3f0",
+    "typeGetter": {
+      "address": "0x479e90",
+      "bytes": "b8f0e36600c3"
+    }
+  },
+  "c65": {
+    "mode": 2,
+    "fields": [
+      "u8 kind",
+      "u8 slot",
+      "BEu32 targetRef"
+    ],
+    "bodyLength": 6,
+    "writer": "0x577aa0",
+    "producer": "0x46d970",
+    "dispatch": "0x401ed0",
+    "textPreamble": "C0E no target; do not resolve twice"
+  },
+  "boundedGates": {
+    "range": "abs(dx/dy)<=entry+80a (reader default100)",
+    "line": "0x4b4bb0 tile byte+6 bit0x10",
+    "humanPickability": {
+      "procedure": "0x479fd0",
+      "condition": "reject if GameObject+27c bit2 && !GameObject+2a0 bit2",
+      "meaning": "unknown_not_assumed_death"
+    },
+    "targetCleanupGate": "0x4ba410 -> registry map+124 membership ->0x4ba310 cleanup before send"
+  },
+  "serverPolicies": [
+    "same active world lease/life/map and currently projected ref",
+    "self or same current party, alive",
+    "atomic costs and healing with cooldown",
+    "no PvP enabling or Client patch required"
+  ],
+  "unknown": [
+    "original healing spell names/formulas/costs",
+    "full meaning of harmful-player gate state fields",
+    "all dead/ghost/removed Human hit-test cases",
+    "GUI acceptance"
+  ],
+  "evidence": [
+    {
+      "label": "healing_gate",
+      "id": "ev_07d38f67d4f29686682de6fbf93c7157774b9ad9bb995b2519f2af9ccd310567",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_helpers",
+      "id": "ev_30542abfc76c3162fc9a22c03cb02050bd57fad79ff136f20983c539505193ef",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_global",
+      "id": "ev_e5c20c13776a924c7760cafe7608d12034d94d58ce463177400076e351028838",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_gate_assembly",
+      "id": "ev_e895eb772628c29544b578d0e649d25cce7bb4b7ecfeca9ce3afbc9bcce5fb68",
+      "operation": "procedure_assembly"
+    },
+    {
+      "label": "healing_gate_xrefs",
+      "id": "ev_89b20ff292c06ad8621c5f8d7cfbd7f4a43bc35e9042b06737c81b351b1852f2",
+      "operation": "xrefs"
+    },
+    {
+      "label": "healing_gate_xrefs",
+      "id": "ev_c56e5b807997a714649a1023dfe6bb457b880c7b2398f615e1ac6465adcc961e",
+      "operation": "xrefs"
+    },
+    {
+      "label": "healing_gate_xrefs",
+      "id": "ev_bd7aa4afa37aea93f2075c060ba82ac59cda37a880fca7eae6515306a88926b2",
+      "operation": "xrefs"
+    },
+    {
+      "label": "healing_human_type",
+      "id": "ev_4513d7f00e8446a57f051c80c43f9dc112c50b68837949800256f943d52a291f",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_type_init_bytes",
+      "id": "ev_049e5a151f4cd6a5cb98a34debc0f4bb4bdf53db0e173c7b9cca7e2282ac52ca",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_singleton_refs",
+      "id": "ev_9b6b766a58d9f04114ad4bcef7be22418e818e67224c341862133c8007f03bb0",
+      "operation": "xrefs"
+    },
+    {
+      "label": "healing_singleton_refs",
+      "id": "ev_d50db638fd7aad84900e1863fb7402c0912cfed9173d4b39b8f1493683c27abc",
+      "operation": "xrefs"
+    },
+    {
+      "label": "healing_iskind_assembly",
+      "id": "ev_abddb0ad08edbf6ab54669be67898714d22073bfe93a03b389a96110edf7955e",
+      "operation": "procedure_assembly"
+    },
+    {
+      "label": "healing_type_name_bytes",
+      "id": "ev_e56e03d1be17f308ec4b06de7344ebf645b547bc2081aff859eeb9c13ca98370",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_singleton_class",
+      "id": "ev_03a2c6f90deea3ab49dc4f3582b8f64e4f9aa4d3f9c56aaff416190faffebb52",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_ui_producer_refs",
+      "id": "ev_6e1267c92a2dc4c720d15d44565098b9a14a08f140f27e1656ba97087975c5f1",
+      "operation": "procedure_references"
+    },
+    {
+      "label": "healing_click",
+      "id": "ev_d94ca396835c122aa3e3a8ca24bbe92497dc428fca4aaa8c17d66f3e46a13ae0",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_pick_path",
+      "id": "ev_8b60b6747048b9ff82abca0248ee3cddee7d4ae7fa5023ad922d06413cdc566f",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_pick_vtable",
+      "id": "ev_e79e24823e71d4d9367ca9768e3e209d5f536b185c5edefd6c8d1ef41fdc4aa6",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_pick_execute",
+      "id": "ev_907e3c360fe169e1f5f2a0d123457e0f1b005caf4a608183c95be78df3e0cfec",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_human_id_vtable",
+      "id": "ev_521da92bc5b2fb3862130085bfdb2c905e9a63af165eda181ed947a2223cb833",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_pick_vtabletail",
+      "id": "ev_c0687fb7e22eb271742d663fa01767bcda8a20ceac1a53219c956a43e857e9e6",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_human_classgate",
+      "id": "ev_bf27c3937b9b08f4b8e6af2763c3090a8cae9bbfc64618d441b12a1dfef5705d",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_type_getter",
+      "id": "ev_83f68dd04b0540d8d20b74e368c58aa63f4d5e514dbab19a16ec767d67e152ad",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_pick_filter",
+      "id": "ev_79d4ec59a62e444f1ad463be538890a1d36210a68f0563e566517634daf2b9e7",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_pick_filter_assembly",
+      "id": "ev_b5eaf879df3c372ca92237f53aa1b65ceb5755d819256faeffee184f84d0e767",
+      "operation": "procedure_assembly"
+    },
+    {
+      "label": "healing_human_primary_vtable",
+      "id": "ev_67140733096bf5336e2babb8a6fa6142a18043b8385c84bbab4bca00a2584c9e",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_human_ctorasm",
+      "id": "ev_d77172b13872c69359ffc6e1eb19c9064326314a1ae89ac5bc173ad7e3b78bba",
+      "operation": "procedure_assembly"
+    },
+    {
+      "label": "healing_actor_base",
+      "id": "ev_cb4d3fe48a4456b4e2b43ae8bc704faa21e3db4d2f2b7238f828500f086f1971",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_human_actor_vtable",
+      "id": "ev_a238f65ee0e22d9f691397b1a2d0ffd302c1dccfeeb7a42d24e2206262ae7378",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_human_registry_asm",
+      "id": "ev_d836fc003be7dad01e704655c0465ca408dd84ced10a273c9f28d068e526b814",
+      "operation": "procedure_assembly"
+    },
+    {
+      "label": "healing_human_pickable",
+      "id": "ev_11189fb201809b57aa4b2be4244c91e38fe7d1a91e1f383f8e9c900881544486",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_human_type_leaf",
+      "id": "ev_d958b20c5b5bde4a6ec5310a433bccbd5ff20d14c3fb9cad621c165ad5f3ae74",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_leaf_0x479fc0",
+      "id": "ev_a636c5cf25e44c40b3d1d1e816159357bed8d187a28d2b521981d5d518e2e961",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_leaf_0x479fd0",
+      "id": "ev_664dcdbd48a375454159c6ecf54718d56bbca3edb9f2b1bbb7a303c80d5a2760",
+      "operation": "read_bytes"
+    },
+    {
+      "label": "healing_pickable_instructions",
+      "id": "ev_f21ef92dbbc3799bf944d83d7f6944ea971e340b2903624f4b3da673bd6372cd",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_pickable_instructions",
+      "id": "ev_30605f74fe960d5bc9952ebf613e88785f8d4c0c255ed99490550d7a8e8539c3",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_pickable_instructions",
+      "id": "ev_c7ab36f00c8e03215d7b0db4c7eae48f47b3386bd579d70562b10009241efe5e",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_pickable_instructions",
+      "id": "ev_ed05e6c42281516546bdaa4f4da86ccd984467bf2940514c860da917e57328a9",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_pickable_instructions",
+      "id": "ev_c63975577488346a2dd173bd1276e72ffade7aa590066cd194af9f39ffb06d57",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_pickable_instructions",
+      "id": "ev_6cd3916ac50b28c048d4c06f18bcb57f1cd3240654d3c17bf9dee10ecbe97f69",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_pickable_instructions",
+      "id": "ev_43a8c9fb1a7550856a2fd1dd34b0a8724a6d7528f7341905dbfdd8c449a36286",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_pickable_instructions",
+      "id": "ev_2ba2d13c662e9dd7ac83cd953f8aaa717c3a3c590f1a1d8a11febfcb702538bb",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_pickable_tail",
+      "id": "ev_108d33279199cbe226e5d6bd1ca5dd55e8f8a3f348e38cb8490ef5a5599a53b5",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_pickable_tail",
+      "id": "ev_40d7627fcfbf0eec8618100c562fdaa0fc752b57d23b7c76754c514cfef6363f",
+      "operation": "inspect_native_instruction"
+    },
+    {
+      "label": "healing_human_flags_producer",
+      "id": "ev_cfb4db0c76f29f1855e1d4cb90acbdc7b4456e38291f9be9d35673cda4a67603",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_death_limits",
+      "id": "ev_53f9991f76c9e6d4aea54bbd02bd4868b874efc85fbc311ad96f0d751f729603",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_payload_send",
+      "id": "ev_cc99f5017130a3bdf85319ab7152f53ef2da60eedf69491f625f188c7fe733ed",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_send_block_gate",
+      "id": "ev_1fef72a3f6365e772af37a94e9624e648d17cf6e5c117a15799457ea168284d5",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_send_block_helpers",
+      "id": "ev_2d33134c3104f432c01c632b86924bf90f97a6065fc66c555118200ece5291ad",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_removal_path",
+      "id": "ev_977879228bd8e1629f9be4afb3980f83b369b73c6653b98f07f76dce316c8e58",
+      "operation": "batch_decompile"
+    },
+    {
+      "label": "healing_removal_refs",
+      "id": "ev_f926dfef07d79aeda59c7f47e01beb1b8d705f02a81790e327dbb64ca6b59cc5",
+      "operation": "procedure_references"
+    }
+  ],
+  "s62ModeField": {
+    "wireOffset": 4,
+    "implementationName": "Field0",
+    "readerLocalOffset": 28,
+    "fullPacketOffset": 40,
+    "constructorParameter": 3,
+    "actionEntryOffset": 7,
+    "mode": 2
+  },
+  "s62UseFlagsField": {
+    "wireOffset": 5,
+    "implementationName": "UseFlags",
+    "readerLocalOffset": 29,
+    "fullPacketOffset": 41,
+    "constructorParameter": 4,
+    "actionEntryOffset": 8,
+    "meaning": "not_target_mode"
+  }
+}

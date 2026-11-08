@@ -1551,7 +1551,12 @@
         "guild membership/permissions and original error behavior",
         "unreviewed S0A/S0D variants beyond type17 notice, type18 plain history and type0 speech"
       ],
-      "related_packets": []
+      "related_packets": [],
+      "skill_action_boundary": {
+        "kind": 2,
+        "report": "04-analysis-integration/20261108-native-player-targeting.md",
+        "targeted_cast": "text prelude contains no target; do not resolve targeted damage/healing until matching C65"
+      }
     },
     {
       "id": "PKT-C19",
@@ -2846,7 +2851,9 @@
         "PKT-S07",
         "PKT-S0C",
         "PKT-S0E",
-        "PKT-C43"
+        "PKT-C43",
+        "PKT-C0E",
+        "PKT-C65"
       ],
       "layout_status": "observed-static-native-fields; object-type-usage-unknown",
       "evidence_kinds": [
@@ -2855,13 +2862,16 @@
       ],
       "evidence_ids": [
         "A024-E15",
-        "A024-E18"
+        "A024-E18",
+        "ev_07d38f67d4f29686682de6fbf93c7157774b9ad9bb995b2519f2af9ccd310567",
+        "ev_d94ca396835c122aa3e3a8ca24bbe92497dc428fca4aaa8c17d66f3e46a13ae0"
       ],
       "manual_validation": "native-client-not-run",
       "requirements": [
         "R-012",
         "R-027",
-        "R-029"
+        "R-029",
+        "R-011"
       ],
       "analysis_request": "A-024",
       "contract_reference": "task_a/roy2/A-024-analysis.md",
@@ -2871,6 +2881,23 @@
       "unknowns": [
         "Client GUI/world-object callback not fully traced",
         "Native E2E not-run; original Server NPC policies unknown"
+      ],
+      "skill_usage": {
+        "analysis_request": "A-010",
+        "native_contract": "04-analysis-integration/20261108-native-player-targeting.md",
+        "implementation_contract": "04-analysis-integration/20261108-targeted-healing-and-skill-inventories.md",
+        "prefix": "u8 kind,u8 slot,BEu16 icon,u8 Field0,u8 UseFlags,u8 Field2",
+        "minimal_targeting": {
+          "Field0": 2,
+          "UseFlags": 0,
+          "Field2": 0,
+          "CastValue": 0
+        },
+        "inventory": "kind0 Spell and kind1 Skill use independent slots; source Skill inventory retains basic attack",
+        "unknowns": "original per-spell classification and NPC applicability are separate; native GUI not-run"
+      },
+      "additional_systems": [
+        "SYS-SKILL"
       ]
     },
     {
@@ -3319,6 +3346,40 @@
       "analysis_document": "04-analysis-integration/20261101-c44-play-disconnect.md",
       "server_behavior": "Native-trial authenticated WorldReady parses request; does not change authority/position or fabricate an object-detail response. Stale/zero/self target does not close the socket.",
       "remaining": "native object-detail response unimplemented; after-fix GUI retest pending"
+    },
+    {
+      "id": "PKT-C65",
+      "direction": "C2S",
+      "opcode": "0x65",
+      "name": "UseAction",
+      "system": "SYS-SKILL",
+      "profile": "TW-seed0-local-v0.1",
+      "requirements": [
+        "R-011"
+      ],
+      "layout": "mode2 decoded body exactly u8 kind,u8 issuedSlot,BEu32 targetRef (6 bytes). Mode is from the Server-issued S62 row, not an extra wire byte.",
+      "client_entry": "0x46D970 target producer ->0x4B8D70/0x4B76D0 ->0x401ED0 CastValue0 ->writer0x577AA0",
+      "evidence_ids": [
+        "ev_07d38f67d4f29686682de6fbf93c7157774b9ad9bb995b2519f2af9ccd310567",
+        "ev_d94ca396835c122aa3e3a8ca24bbe92497dc428fca4aaa8c17d66f3e46a13ae0",
+        "ev_b5eaf879df3c372ca92237f53aa1b65ceb5755d819256faeffee184f84d0e767",
+        "ev_cc99f5017130a3bdf85319ab7152f53ef2da60eedf69491f625f188c7fe733ed",
+        "ev_30542abfc76c3162fc9a22c03cb02050bd57fad79ff136f20983c539505193ef"
+      ],
+      "related_packets": [
+        "PKT-S62",
+        "PKT-C0E"
+      ],
+      "layout_status": "observed-static-original-client-non-GUI",
+      "native_client_validation": "not-run",
+      "analysis_request": "A-010",
+      "contract_reference": "04-analysis-integration/20261108-native-player-targeting.md",
+      "implementation_contract": "04-analysis-integration/20261108-targeted-healing-and-skill-inventories.md",
+      "authority_boundary": "C65 carries a numeric object reference only. Host must resolve an issued view; Server rechecks skill kind/slot, exact owner/lease/life/pose, map/range/line, living same-party or self, resources and cooldown. C0E prelude is not a second cast.",
+      "unknowns": [
+        "Original skill content and complete nonzero CastValue lifecycle",
+        "All dead-actor mouse selection states and resurrection targeting"
+      ]
     }
   ]
 }

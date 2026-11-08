@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "053d46b6e3aefff2f448137514d61b1c981f9e764f6cd31b0c038af78735f45f"
+      "sha256": "df9c8d403dde1ce31faf485128d823924cf4455c58e351fbb4fe01c8d6d3b812"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -805,7 +805,7 @@
     },
     {
       "path": "04-analysis-integration/20261107-native-targeted-skills-effects-and-lasting-audit.md",
-      "sha256": "0d048985911a4ef194a38b680528c038209d19cf913d673cadc35d7aa9272fb8"
+      "sha256": "dee9008f57cc9bec716ea6366180e87bc122b9ec278f98270c5efc3b06a62acc"
     },
     {
       "path": "04-analysis-integration/20261107-owned-inventory-equipment.md",
@@ -972,6 +972,14 @@
       "sha256": "56d7d554958fdc1f29bbc395c48764f7f29075311037f4adba42854c620049b4"
     },
     {
+      "path": "04-analysis-integration/20261108-native-player-targeting.json",
+      "sha256": "a2ae88f27f1d1e7869c79fc7d064a361d65b634e2b2ab707f923eb86b5c351e1"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-player-targeting.md",
+      "sha256": "f86258fbfad5fca66010e877046fea9d008f4fd396a6e9332dd0e2e7ee218c21"
+    },
+    {
       "path": "04-analysis-integration/20261108-native-remote-player-lifecycle.json",
       "sha256": "764a81b955b209d99e03f74f772d7260489f3b71b1a027d4b092dab79465206b"
     },
@@ -1005,7 +1013,7 @@
     },
     {
       "path": "04-analysis-integration/20261108-party-support-skills.md",
-      "sha256": "0509a50a2b1236419817a7ad0c68151e00da106b44da17246a9ad1ce26cc4e65"
+      "sha256": "db97a9881896e9bdc3d5536c789d182d2b01e792c302c6546d562a8875674c98"
     },
     {
       "path": "04-analysis-integration/20261108-player-exchange-authority.md",
@@ -1030,6 +1038,10 @@
     {
       "path": "04-analysis-integration/20261108-slot-order-persistence.md",
       "sha256": "2ad8a4b387e9f78bb04345b08358ab73d8536af786ebf33fceae57bf24f32347"
+    },
+    {
+      "path": "04-analysis-integration/20261108-targeted-healing-and-skill-inventories.md",
+      "sha256": "26f916f999dd88fce656933aa9fb620c002f675df7d6c457f4066e5ad881726c"
     },
     {
       "path": "04-analysis-integration/20261108-temporary-online-resource-recovery.md",
@@ -1161,7 +1173,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "a48b42dde334e6124475de9585b0ae7b004d3d0c168915aa4633934d4980fe8f"
+      "sha256": "94394374ac150931758f706016942a88ff0458fdd6d543548ce77e4f766d75aa"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -1209,7 +1221,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "3db2f15ad6daddcf759d0bb1705e12d4af5b88289e6c0f0648340f51cf88a83b"
+      "sha256": "fb3a9ad51b0b4a81f8846cf5c288b1de1011801c6dd07707232eec6114d08e08"
     },
     {
       "path": "04-analysis-integration/feedback-native-20261102.json",
@@ -1329,7 +1341,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "e35cb7eb80b5f4ad6d526ac0a71f94d1f75698699678715744b41a4a665146e2"
+      "sha256": "0fb2bd04b696250c575af52fd0cd117e81cc8b56d091efe1338a8c5294a8b3cf"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1621,11 +1633,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "034a0e4d24a8b6af2f1f7a18b300c719872e89d4d553a01966efb16b5fafec3c"
+      "sha256": "df5dcb8bf2dfdfd2ec700be7282e735ea52e0cc2782fbd2c1434c807e75ab096"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "0667a41a8f71d405ff25e73f988a17f265b7612aec923e960fcd5fbac31407fe"
+      "sha256": "55eaca61c20aead51ac2f5689e3c3e7f04a82e2bf6c84db937c1caa971db5b34"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1653,7 +1665,7 @@
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
-      "sha256": "5436be7de3d90b461d67295f2fe6dccae6854aece70bc168efec73b526837150"
+      "sha256": "10465ae87532b9f7f26211e1a25a0515c43415926172b048ff940a1a295c1d1c"
     },
     {
       "path": "06-development-tracking/details/F08_戰士技能.xlsx",
@@ -1665,7 +1677,7 @@
     },
     {
       "path": "06-development-tracking/details/F10_聖職者技能.xlsx",
-      "sha256": "f7bd831ebe80775f47fd645e0ae71c041e5e50d12b90cb3d45d70376c83315d0"
+      "sha256": "289a85f0d1b507951f40388624a319a57ceafcd8eddb46a1dbd7f3a974ce7dc8"
     },
     {
       "path": "06-development-tracking/details/F11_盜賊技能.xlsx",
@@ -1737,7 +1749,7 @@
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
-      "sha256": "5cbbe5f7efdf5f21fec3e5700489537bb6330bc5e1d829802627c4e8f91e2b13"
+      "sha256": "b624e0eb4ad80e5fe8de01f7c3bd0636f6d8b7b39e0b3d7a12530536aa45c092"
     },
     {
       "path": "06-development-tracking/details/F29_分析規格與驗收維護.xlsx",
@@ -1769,7 +1781,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "72aa7d0fe3cc7353dba46a9c285746966af204f11c4173d1ef8c4976eac9ee79"
+      "sha256": "12c7fc60a95dc3cc28af7f235f7e58ba6e7ffef2eda0ad6f084f884d5f78c703"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[指定治療與Skill／Spell獨立位置](04-analysis-integration/20261108-targeted-healing-and-skill-inventories.md)、[原生Human／自身目標及Field2限制](04-analysis-integration/20261108-native-player-targeting.md)。新增聖職Spell治癒30HP／MP6／1500ms，兩庫同號與排序／舊資料保存；Server驗證已投影目標租約、生命、位置、同隊及距離／原生0x10施法阻擋。原生GUI仍待測，原版名稱／數值／復活未核對。
+
 2026-11-08：[隊伍合奏與群療](04-analysis-integration/20261108-party-support-skills.md)。附近同隊全能力+2／30秒與群療20HP已接線；自身／隊伍分槽、先後序列、持久投遞、生命代次及回滾受權威控制。完整回歸866項通過，雙人原格式投影有覆蓋，原生GUI仍待測；原版名稱／數值未核對。
 
 2026-11-08：[七職業自身增益第一版](04-analysis-integration/20261108-reconstructed-self-buffs.md)。新增一槽30秒能力加成，實際影響技能傷害，接上MP、刷新、到期、死亡、重登與原生S2C／S2D；數值為重建設計，原生GUI待測。此增量接續下方先前「buff待開發」紀錄，未宣稱多來源／減益完成。

@@ -1,5 +1,7 @@
 # 隊伍合奏與群體治療
 
+後續增量：[指定治療與雙庫位置](20261108-targeted-healing-and-skill-inventories.md)另增Spell治癒與技能庫升級標記。本文保留隊伍範圍支援的第一版契約及65→67輔助表歷史；新版本為68。
+
 ## 來源與交付邊界
 
 使用者要求持續完成Server、七職業技能先提供可調整的重建版並實際生效。本增量接續[自身增益](20261108-reconstructed-self-buffs.md)及[隊伍權威](20261108-party-membership-and-authoritative-rewards.md)，使用已證S62技能入口、S08能力／資源及[S2C／S2D持續圖示](20261108-native-lasting-effects.md)。**下列技能名稱、MP、冷卻、範圍、數值與投遞政策均為Server重建設計，非原服技能還原。** 沒有新增猜測C2S opcode、改EXE或素材。

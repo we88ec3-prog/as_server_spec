@@ -4695,6 +4695,36 @@
       "record_scope": "original-native-static identity index; raw retained locally; reproduce using linked artifact hash and report",
       "operation": "batch_decompile",
       "integration_document": "04-analysis-integration/20261108-native-lasting-effects.md"
+    },
+    {
+      "evidence_id": "ev_07d38f67d4f29686682de6fbf93c7157774b9ad9bb995b2519f2af9ccd310567",
+      "record_scope": "original-native-static identity index; reproduce with linked artifact SHA and addresses; raw retained locally",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-player-targeting.md"
+    },
+    {
+      "evidence_id": "ev_d94ca396835c122aa3e3a8ca24bbe92497dc428fca4aaa8c17d66f3e46a13ae0",
+      "record_scope": "original-native-static identity index; reproduce with linked artifact SHA and addresses; raw retained locally",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-player-targeting.md"
+    },
+    {
+      "evidence_id": "ev_b5eaf879df3c372ca92237f53aa1b65ceb5755d819256faeffee184f84d0e767",
+      "record_scope": "original-native-static identity index; reproduce with linked artifact SHA and addresses; raw retained locally",
+      "operation": "procedure_assembly",
+      "integration_document": "04-analysis-integration/20261108-native-player-targeting.md"
+    },
+    {
+      "evidence_id": "ev_cc99f5017130a3bdf85319ab7152f53ef2da60eedf69491f625f188c7fe733ed",
+      "record_scope": "original-native-static identity index; reproduce with linked artifact SHA and addresses; raw retained locally",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-player-targeting.md"
+    },
+    {
+      "evidence_id": "ev_30542abfc76c3162fc9a22c03cb02050bd57fad79ff136f20983c539505193ef",
+      "record_scope": "original-native-static identity index; reproduce with linked artifact SHA and addresses; raw retained locally",
+      "operation": "batch_decompile",
+      "integration_document": "04-analysis-integration/20261108-native-player-targeting.md"
     }
   ]
 }

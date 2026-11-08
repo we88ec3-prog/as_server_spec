@@ -1,5 +1,7 @@
 # 原生指定目標技能、特效與持續狀態盤點
 
+2026-11-08後續補證：[Human／自身目標與S62 Field2限制](20261108-native-player-targeting.md)已釐清本文保留的玩家目標缺口；Server指定治療另見[實作契約](20261108-targeted-healing-and-skill-inventories.md)。原版死者選取與技能數值仍未完成，本文保留歷史證據範圍。
+
 2026-11-07。延續 A-009／A-010 與 web skill review 的 A010-D01..D06，先讀既有成果，再以同版原始 EXE 和資源補證。原件 SHA 及精選 metadata 見 [JSON](20261107-native-targeted-skills-effects-and-lasting-audit.json)。本輪不修改技能實作或 Client；靜態可讀／素材存在與實機可用分開記錄。
 
 ## 可直接交開發的指定目標入口

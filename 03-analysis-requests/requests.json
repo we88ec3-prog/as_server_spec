@@ -758,7 +758,12 @@
         "ev_9bef2d3de5c0688c3fc529646610697f1e587675d4f428c55553448ce9bc5acc",
         "ev_e7d4f18a14d738febe76be049aebe3b216b82564eb1760486d6b618db254f412",
         "ev_c3cd535ba2335299e752995e5aaa5a6ad0c9cd24237619ceb1580e99c2d91cbf",
-        "ev_6267b36cd8d4ff7069121d1f262efef08c5c12b7b6f3e23ddab51c2b5ca392c3"
+        "ev_6267b36cd8d4ff7069121d1f262efef08c5c12b7b6f3e23ddab51c2b5ca392c3",
+        "ev_07d38f67d4f29686682de6fbf93c7157774b9ad9bb995b2519f2af9ccd310567",
+        "ev_d94ca396835c122aa3e3a8ca24bbe92497dc428fca4aaa8c17d66f3e46a13ae0",
+        "ev_b5eaf879df3c372ca92237f53aa1b65ceb5755d819256faeffee184f84d0e767",
+        "ev_cc99f5017130a3bdf85319ab7152f53ef2da60eedf69491f625f188c7fe733ed",
+        "ev_30542abfc76c3162fc9a22c03cb02050bd57fad79ff136f20983c539505193ef"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -795,7 +800,9 @@
         "trigger": "Original Client selected spell object, callsite 0x402034..0x402052 creates/sends C4D from selected word [ebx+0x80E]; C56 serializer exists but its complete UI producer is unproven.",
         "client_sends": [
           "PKT-C4D",
-          "PKT-C56"
+          "PKT-C56",
+          "PKT-C0E",
+          "PKT-C65"
         ],
         "client_receives": [
           "PKT-S52",
@@ -804,15 +811,16 @@
           "PKT-S2D",
           "PKT-S13",
           "PKT-S08",
-          "PKT-S07"
+          "PKT-S07",
+          "PKT-S62"
         ],
-        "client_reaction": "S52, S48, S2C, S2D have original native reader fields. SkillSpellDialog, LastingSpellDialog, LastingSpellInventory RTTI exist. Reader→UI callback, animation, expiration timer and spell-success status semantics not yet traced end-to-end.",
+        "client_reaction": "Original S62 mode2/Cast0 creates object-target C65 after C0E prelude; Human/self static branches and lasting add/remove/timer established by 20261108 reports. Native GUI, original per-spell mechanics and C4D/C56/S52 handshake remain unverified.",
         "evidence": "task_a/roy2/A-010-analysis.md",
         "unknowns": [
-          "Original skill IDs and category mapping: single-target, AOE, healing, buff, summon, target selection and GUI state transition.",
-          "Actual C56 action producer and C4D/C56 sequencing; S52 state/status enum meanings and S48 cancellation trigger.",
-          "LastingSpell S2C field identity, duration/stack/expiration, S2D matching, render callback and original UI countdown.",
-          "Original Server cooldown, HP/MP consumption, damage/buff value, AOE radius and quest authority absent from static Client; native CT-096 not-run."
+          "Original spell IDs/names/mechanics and per-skill category/asset mapping.",
+          "Actual C56 action producer and complete C4D/C56/S52/S48 cast/cancel handshake.",
+          "Original duration/stack/dispel policy and GUI acceptance; native CT-096 remains not-run.",
+          "Full dead-actor selection and original resurrection requirements."
         ]
       },
       "remaining_unknowns": [
@@ -820,7 +828,7 @@
         "No verified original official skills definition filename/skill IDs, individual spell categories, range, MP cost, cooldown, effect duration, stacking, summoned owner/AI",
         "Native original Client GUI/world combat casts and effect expiry trace not-run; CT-096 planned"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-08",
       "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
       "native_static_result": "Roy2 reported original Asgard.exe SHA and 25 native PE anchors + six RTTI PASS",
       "offline_test_result": "Roy2 GitHub Actions run 41193941400: 19 synthetic A010 tests PASS; GUI E2E not-run",
@@ -876,14 +884,36 @@
       "lasting_increment": {
         "date": "2026-11-08",
         "report": "04-analysis-integration/20261108-native-lasting-effects.md",
-        "status": "native-static-contract-ready; gameplay implementation pending; GUI not-run",
+        "status": "native-static-contract-ready; reconstructed self/party gameplay implemented; original-GUI-not-run",
         "seconds_fields": [
           "remainingSeconds",
           "totalSeconds"
         ],
         "identity": "nonzero key; duplicate add ignored; refresh remove then add",
         "expiry": "last10seconds blink does not remove; Server must sendS2D",
-        "icons": "family0 skill319frames; family1 spell371frames; physical frame1 generic candidate, no original spell binding"
+        "icons": "family0 skill319frames; family1 spell371frames; physical frame1 generic candidate, no original spell binding",
+        "implementation_contracts": [
+          "04-analysis-integration/20261108-reconstructed-self-buffs.md",
+          "04-analysis-integration/20261108-party-support-skills.md"
+        ]
+      },
+      "player_targeting_increment": {
+        "report": "04-analysis-integration/20261108-native-player-targeting.md",
+        "implementation_contract": "04-analysis-integration/20261108-targeted-healing-and-skill-inventories.md",
+        "minimal_row": {
+          "Field0": 2,
+          "UseFlags": 0,
+          "Field2": 0,
+          "CastValue": 0
+        },
+        "native_targets": "mode2 Human and self branches observed statically; Field2=0 skips harmful-player ALT gate",
+        "server_boundary": "Only issued Human capability with exact current lease/life/pose; self or same-party living target; numeric C65 ref alone insufficient",
+        "native_gui": "not-run",
+        "unknowns": [
+          "original per-skill taxonomy/name/value mapping",
+          "all dead-actor hit-test states and resurrection targeting",
+          "C4D/C56/S52 cast lifecycle"
+        ]
       }
     },
     {

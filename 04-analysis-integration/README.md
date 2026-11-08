@@ -1,5 +1,7 @@
 # 分析結果整合
 
+最新指定技能：[Human與自身的原件選取鏈](20261108-native-player-targeting.md)及[指定治療／雙庫排序／一次備份契約](20261108-targeted-healing-and-skill-inventories.md)。C0E不是第二次治療，C65數字ref必須解析為已投影的權威能力憑證；原版死者選取、復活及GUI仍待補。
+
 最新隊伍技能：[合奏、群療與收件人交易](20261108-party-support-skills.md)。同隊六格資格凍結、雙槽與持久全域先後序列、MP及投遞同交易，原生GUI與原版技能數值仍待核對。
 
 最新技能增量：[七職業自身buff權威與投影](20261108-reconstructed-self-buffs.md)，接續原生lasting證據，已實作有效能力與技能傷害、刷新、到期、死亡及重登期限。七職業各一項重建內容，原生GUI與多來源疊加仍待完成。
