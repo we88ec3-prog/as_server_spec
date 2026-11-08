@@ -277,7 +277,7 @@
     },
     {
       "path": "02-server-planning/social-contract.md",
-      "sha256": "1ecec9c570ac3200077f7e8e7e04c374deeda14211e5b9316fd6acd7b506f4f1"
+      "sha256": "029fe068bb9e429f964d80d444c9226807f2b8a7563670889c21bd3bae3461eb"
     },
     {
       "path": "02-server-planning/systems.json",
@@ -353,7 +353,7 @@
     },
     {
       "path": "03-analysis-requests/A-016-roy1-replay-recovery.md",
-      "sha256": "8bc6a34544522e0fe33cfb5b41195ae6c35c57e567d22b4984bd4a4aee9705af"
+      "sha256": "b5a09f4a4422ecdd59037cd2938b8f8976bc4a5902c4a1c1df50bc8a37774267"
     },
     {
       "path": "03-analysis-requests/A-017-roy1-admin-audit.md",
@@ -425,7 +425,7 @@
     },
     {
       "path": "03-analysis-requests/README.md",
-      "sha256": "a8210939f23aeb3b466046f5593e4386f9c31f35dc3230855e45bd2cd6e1f535"
+      "sha256": "9a6e438878bd7aa805c22530c1a6e8f5095cf03d789792c9dd710cc4e19be52b"
     },
     {
       "path": "03-analysis-requests/client-io-handoff-standard.md",
@@ -884,6 +884,10 @@
       "sha256": "27c10a60d7b17fa8baf7a3c61c0f687ba12a9baad22753dbb03a8985e1f72d5d"
     },
     {
+      "path": "04-analysis-integration/20261108-guild-membership-and-native-chat.md",
+      "sha256": "11656a3c549e9bc966b4c7ca8a99289e556294f240f16af2c094db1ecc71d86b"
+    },
+    {
       "path": "04-analysis-integration/20261108-items-shops-ordering-and-client-feedback.md",
       "sha256": "05e7c332ec8ae45f1004d0a8862226e86d66145b6359508193e84b77c61be420"
     },
@@ -913,7 +917,7 @@
     },
     {
       "path": "04-analysis-integration/20261108-native-chat-and-whisper.md",
-      "sha256": "1046bb31e3c27671758d95195fd407d081d66e591c2e5c9ed6f41195812f7639"
+      "sha256": "404a3f883bdd8d66d20396fab45dda695279394ca6ee0daf6b6ee55bf256a754"
     },
     {
       "path": "04-analysis-integration/20261108-native-consumable-use-and-stack-projection.md",
@@ -1389,7 +1393,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "0c75e7bccd6343fab331f68923dd31f78a1a9dd33474c6d0f9d9bf21328eea94"
+      "sha256": "2925633198add2156be2b06b9868839d8412f1306e11fb5947f0371c02a1bd8e"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1557,7 +1561,7 @@
     },
     {
       "path": "05-conformance/A-014-social-test-plan.md",
-      "sha256": "919c44175516cbb7e6c14bbcafb6dc78c02d54a586f5a79ab322d214e1e1bc92"
+      "sha256": "c8824c34fff0a5774447fb6ffbd4e7f9cba97d628fe75061a59cc6c5fd58f7c5"
     },
     {
       "path": "05-conformance/A-015-content-test-plan.md",
@@ -1681,11 +1685,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "faca704950b0a9ebf67aa16f8bff017af5d55137af85062c8a387d030dfa043c"
+      "sha256": "1e244d78ba0625fcbfc931d83ff6751b2f800bbc302ad0f625e38ac6c0fa8f05"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "d8f2b8a14c7c0646072deb78a6b11fb04f475c8462afdf6f826ff777ca11b2a3"
+      "sha256": "941fb0f0458028b8842f3f3cba25d6f99434e28b663efe6412e861a0f6e362eb"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1753,7 +1757,7 @@
     },
     {
       "path": "06-development-tracking/details/F17_聊天好友與組隊.xlsx",
-      "sha256": "67dc883762bdaf7b3c77e7e26d88f5241be5acb55a0550df4810eddc02319efc"
+      "sha256": "97c645d98cc1f7405cce90b985cc63101802e61c96dda95b2a18a5b68a786e8e"
     },
     {
       "path": "06-development-tracking/details/F18_玩家交易與郵件.xlsx",
@@ -1797,7 +1801,7 @@
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
-      "sha256": "97d8e192d759f42c67bea8328abc4ae3c67520fca6292213ca3e8bbae73cff5d"
+      "sha256": "41dcea28f7b18106a202b14a89823863dfed6e9abad0aa08c8eec43c4900666e"
     },
     {
       "path": "06-development-tracking/details/F29_分析規格與驗收維護.xlsx",
@@ -1829,7 +1833,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "f1e9520a7d0cb65758d28cf176f8f21d6a837fcdb69fe7dfaee107a6bf0d1123"
+      "sha256": "154d546f3cb8eb8b7fdb8a24e66c8d274be233322de4fc3b2d4d024515b8b766"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

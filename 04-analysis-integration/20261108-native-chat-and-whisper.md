@@ -1,5 +1,7 @@
 # 原生聊天、密語與隊伍頻道（2026-11-08）
 
+後續：[公會會員與頻道路由](20261108-guild-membership-and-native-chat.md)已接Server重建會員及三種C19標記；下文保留當時尚未接線的歷史範圍，原生GuildListDialog／完整原服規則仍未知。
+
 ## 來源與界線
 
 這是 A-014 與 [原生組隊增量](20261108-native-party-membership.md) 的補證。原 EXE SHA-256：`db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`；Ghidra 12.1.4，原件唯讀，沒有啟動／附掛使用者 Client。下列為解密後 body，opcode 不含在 body；台灣 profile 的 string8 是 u8 **CP950編碼後byte數**，string16 是 BEu16 編碼後byte數，均不含尾NUL。

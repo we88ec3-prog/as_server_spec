@@ -35,3 +35,8 @@
 
 
 **CT-049** 專門追原版群組／公會頻道 Client E2E、S0D 真實類型及成員清單回覆。CT-047/048 的合成 codec/security 成功不能代替 CT-049；Native Client 驗收仍 `not-run`。
+
+
+## 2026-11-08公會會員與頻道增量
+
+詳[可獨立實作的公會契約](../04-analysis-integration/20261108-guild-membership-and-native-chat.md)：明示/guild管理、每類一會／100人／60秒精確租約邀請、會長權限／CAS、四表保存與升級備份，以及原生!1/!2/!3聊天。會員身份綁queue，離會重入不復活舊訊息。新增16項資料／Host及三Client六組TCP通過，全回歸1021項。名稱對照及輸入標記沿既有REA，三類可同時加入及會員政策為Server設計；未完成GuildListDialog、公會戰／會館／倉庫／官階，不把A-014或CT-049標完成。

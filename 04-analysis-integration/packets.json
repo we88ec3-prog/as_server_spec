@@ -1473,7 +1473,9 @@
         "boundary": "/mail is explicit C0Ekind0 Server commands with private S0A17/18 text. C12 selectors retain address-book compatibility notice, not send/read/delete mail or S58 inbox rows.",
         "native_gui": "not-run",
         "native_nmco": "not-connected"
-      }
+      },
+      "guild_membership_contract": "04-analysis-integration/20261108-guild-membership-and-native-chat.md",
+      "guild_validation": "Server /guild commands and native C19 !1/!2/!3 routing synthetic/TCP passed; original GuildListDialog/GUI not-run; no changed wire layout"
     },
     {
       "id": "PKT-S44",
@@ -1658,7 +1660,9 @@
         "native_nmco": "not-connected"
       },
       "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
-      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged",
+      "guild_membership_contract": "04-analysis-integration/20261108-guild-membership-and-native-chat.md",
+      "guild_validation": "Server /guild commands and native C19 !1/!2/!3 routing synthetic/TCP passed; original GuildListDialog/GUI not-run; no changed wire layout"
     },
     {
       "id": "PKT-C19",
@@ -1696,7 +1700,9 @@
         "native_evidence_id": "ev_60edda16e06fb99a5f9936a430f47fc69509714c9b2b86adeb3fa6b895d62635",
         "boundary": "C0Ekind0 /ignore is an explicit Server command, not native list synchronization; C19kind1 remains a passive notice; S0A18 history is filtered server-side; system notices unaffected",
         "native_gui": "not-run"
-      }
+      },
+      "guild_membership_contract": "04-analysis-integration/20261108-guild-membership-and-native-chat.md",
+      "guild_validation": "Server /guild commands and native C19 !1/!2/!3 routing synthetic/TCP passed; original GuildListDialog/GUI not-run; no changed wire layout"
     },
     {
       "id": "PKT-C2E",

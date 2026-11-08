@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[公會會員管理與三種原生聊天](04-analysis-integration/20261108-guild-membership-and-native-chat.md)。/guild建立／邀請同意／名單公告／權限／解散與保存已接線，C19 !1/!2/!3按各類會員跨圖投遞；1021項.NET與三Client六組TCP通過。會員政策為重建設計，原生GuildListDialog、公會戰／會館等未完成。
+
 2026-11-08：[聖職者指定隊友復活](04-analysis-integration/20261108-targeted-resurrection.md)。新增Spell0、MP20／10秒／原地30%HP，目標復活與來源成本同交易，生命代次驅動本人／旁觀重建；既有自動復活保留。原生墓碑點選、特定動畫音效仍待驗收，數值為Server重建設計。
 
 2026-11-08：[可操作Server文字郵件](04-analysis-integration/20261108-playable-text-mail-commands.md)。/mail支援分段草稿、離線投遞、私人列表／分頁讀刪與未讀提醒；新寄件遵守雙方拒收。原生NMCO信箱、附件與寄件備份匣仍未完成，不修改Client。
