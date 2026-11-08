@@ -1310,7 +1310,13 @@
         "A023-E14",
         "A023-E16",
         "ev_a020_20261031_asgard_prelogin_branch_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_cb9fae76509bd4ffa248f653d781ec6c1d9251e4ae1c96392b7e43c2aba71c52",
+        "ev_c401e6ffc5154151aa851abb1f0319e927d966cebe50c892c0384f0ef225d100",
+        "ev_66d7a0d5a6b9c659c2141fece7535036c69277229dc1cde7b2473d8a399b1947",
+        "ev_4b996827af5f1223e5fcc48e0cad8fb5bad26232f0aaa2409431b088c6524eef",
+        "ev_9a787ea4c7979a2613ada40688897136c0294d3db4d3d6374ae72102ecec93be",
+        "ev_b3e310605487e1abb7bdadcbde96afbddc5a8399e25f6ca124362e719459caf5"
       ],
       "notes": "subtype0 requests missing Script; SendReply emits subtype1; explicit client.Dispose emits subtype4 then generic cleanup emits subtype2 unless replied. These are script lifecycle, not proof of quest completion.",
       "contract_reference": "task_a/roy2/A-023-script-entry-contract.md",
@@ -1327,7 +1333,15 @@
         "original_client_validation": "not-run",
         "diagnostic_client_validation": "pending"
       },
-      "world_state_precondition": "WorldReady, active committed world lease, issued Born context; initial login C6C03 remains separate"
+      "world_state_precondition": "WorldReady, active committed world lease, issued Born context; initial login C6C03 remains separate",
+      "town_quest_reconstruction": {
+        "native_contract": "04-analysis-integration/20261108-native-town-quest-dialog.md",
+        "implementation_contract": "04-analysis-integration/20261108-town-quests-and-atomic-rewards.md",
+        "native_gui": "not-run",
+        "attribution": "S44/C6C reader/writer native; new script and action semantics Server-authored reconstruction",
+        "resource": "only fresh allowlisted ServerTownQuest namespace; selectors1,1 +string8 name +BEu16 compressedLength +zlib(strictCP950 XML); no on-disk UTF16 wrapper or cache-delete",
+        "reply": "exact three pairs TYPE=TOWNQUEST,QUESTKEY=issued key,ACTION=issued ACCEPT/CLAIM/ABANDON/CANCEL; context lease/NPC/pose/revision fenced; Dispose never grants"
+      }
     },
     {
       "id": "PKT-S18",
@@ -1441,7 +1455,13 @@
         "A023-E15",
         "A023-E17",
         "ev_a020_20261031_asgard_prelogin_branch_static",
-        "ev_a026_20261031_born_merchant_exit_bin_static"
+        "ev_a026_20261031_born_merchant_exit_bin_static",
+        "ev_cb9fae76509bd4ffa248f653d781ec6c1d9251e4ae1c96392b7e43c2aba71c52",
+        "ev_c401e6ffc5154151aa851abb1f0319e927d966cebe50c892c0384f0ef225d100",
+        "ev_66d7a0d5a6b9c659c2141fece7535036c69277229dc1cde7b2473d8a399b1947",
+        "ev_4b996827af5f1223e5fcc48e0cad8fb5bad26232f0aaa2409431b088c6524eef",
+        "ev_9a787ea4c7979a2613ada40688897136c0294d3db4d3d6374ae72102ecec93be",
+        "ev_b3e310605487e1abb7bdadcbde96afbddc5a8399e25f6ca124362e719459caf5"
       ],
       "manual_validation": "not-run; never use subtype3 as no-op ACK; test in disposable sandbox",
       "requirements": [
@@ -1461,6 +1481,14 @@
         "automated_validation": "260 Server tests and real loopback creation/Born/movement/relogin smoke passed",
         "original_client_validation": "not-run",
         "diagnostic_client_validation": "pending"
+      },
+      "town_quest_reconstruction": {
+        "native_contract": "04-analysis-integration/20261108-native-town-quest-dialog.md",
+        "implementation_contract": "04-analysis-integration/20261108-town-quests-and-atomic-rewards.md",
+        "native_gui": "not-run",
+        "attribution": "S44/C6C reader/writer native; new script and action semantics Server-authored reconstruction",
+        "resource": "only fresh allowlisted ServerTownQuest namespace; selectors1,1 +string8 name +BEu16 compressedLength +zlib(strictCP950 XML); no on-disk UTF16 wrapper or cache-delete",
+        "reply": "exact three pairs TYPE=TOWNQUEST,QUESTKEY=issued key,ACTION=issued ACCEPT/CLAIM/ABANDON/CANCEL; context lease/NPC/pose/revision fenced; Dispose never grants"
       }
     },
     {

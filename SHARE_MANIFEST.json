@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "46564863d0218bcf6e0960005fc6f576961ab150347cbfb18aa64c9fa60b3241"
+      "sha256": "3f9927530e0e65e7a245ddf88a5159d615922a6fa631ee5d2d8169cff5453cc0"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -1020,6 +1020,14 @@
       "sha256": "4efefe13c65180faf1d5004f003d8ff5a1efc254c1ca0a4b498488504151ddaa"
     },
     {
+      "path": "04-analysis-integration/20261108-native-town-quest-dialog.json",
+      "sha256": "03f61926b8a10daf7a30b2279492cab92ff719a2b6423f3197e453181c56f25f"
+    },
+    {
+      "path": "04-analysis-integration/20261108-native-town-quest-dialog.md",
+      "sha256": "fd8aaad6142b2cc013d071bbebd7607b8127d1cb4dca52dd7c5ed00bf616ae9d"
+    },
+    {
       "path": "04-analysis-integration/20261108-party-membership-and-authoritative-rewards.md",
       "sha256": "402b53631e353ee866aa09d5c3c99b14f6f5d720966b0b086e0b2dffdcbc08c7"
     },
@@ -1058,6 +1066,10 @@
     {
       "path": "04-analysis-integration/20261108-temporary-online-resource-recovery.md",
       "sha256": "3b8de3c53cd4fdde0c02ba688b9c7b0b8437da8ec658893152668f541e4c79c0"
+    },
+    {
+      "path": "04-analysis-integration/20261108-town-quests-and-atomic-rewards.md",
+      "sha256": "386c18d4a6cac61fa3072d076a62d796815d79286c57e10eeddfe8ff164e1ce8"
     },
     {
       "path": "04-analysis-integration/20261108-vault-shop-authority.md",
@@ -1233,7 +1245,7 @@
     },
     {
       "path": "04-analysis-integration/evidence-index.json",
-      "sha256": "b66d96b59dbc3cd54a670dba16624c05cfda6d660f58fa14e54ab04a5e46c2e6"
+      "sha256": "4d23535563a238734af4c05192c1e89a2147b74d7e932d1cc603eaf2cd35a271"
     },
     {
       "path": "04-analysis-integration/feedback-native-20261102.json",
@@ -1353,7 +1365,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "97f849007b94202784b901250df1945685b42185927ce37ff451c86216756755"
+      "sha256": "38bae3b44407fc2ff9447e2efafb53c3e232ed86923473ce68e38955b8497340"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1645,11 +1657,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "733e297cb6d11ab47a73ae124c6e795c07e8f954ac42287a7574f2c2b9ad6f5d"
+      "sha256": "b7519d8a19f11e152cf59bbac5d13a3d21cd6de6596a7e380eab4ffc8678b550"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "faca968b9cacac645c93ab7a5910af681a4e37b82481537504bdaa8fc05e13e7"
+      "sha256": "6e187eb73fd33f1dd8c68b4cedc30351d95843a5da887120d00fdfc3d4361215"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1713,7 +1725,7 @@
     },
     {
       "path": "06-development-tracking/details/F16_任務與劇情系統.xlsx",
-      "sha256": "0f4e5cfbf122ea5e6021aaf4289572d9eebf0620a271433af4e8c3b2aa0bd95e"
+      "sha256": "4d34da790f77cb54f2b2f1265f310300f1ea9100267ec192e5bf70b43feb812a"
     },
     {
       "path": "06-development-tracking/details/F17_聊天好友與組隊.xlsx",
@@ -1733,23 +1745,23 @@
     },
     {
       "path": "06-development-tracking/details/F21_米魯里斯城鎮與NPC.xlsx",
-      "sha256": "61f596555d58baae74ede8f7b1a40d3ce471f2cf7a4581e8f70aeb4ded34d65e"
+      "sha256": "b78a017d9c6359940178e1de26f376d498ce135e70ce0b435ac6df27a41bb0af"
     },
     {
       "path": "06-development-tracking/details/F22_路爾斯城鎮與NPC.xlsx",
-      "sha256": "d218f32389ad21459a7b0ed9a69f90d49be830140e4bc1fc8f2885a5fe276752"
+      "sha256": "80486b3734133bbe87fca566298dbe17e31484405a3623d4573701313ef1c778"
     },
     {
       "path": "06-development-tracking/details/F23_斯歐米城鎮與NPC.xlsx",
-      "sha256": "91a29c40a4efca006e2e3ecd392154edabe40f5c7a9bcf23d267325a6c25feb3"
+      "sha256": "82d9761f98f84faecd3aad2612560d64044deb9d5add1cf714a807704ce1079f"
     },
     {
       "path": "06-development-tracking/details/F24_魔界村城鎮與NPC.xlsx",
-      "sha256": "d5906ed4f8e059fdbbf3e67cdc5d7f32ea5d105c1e549c1e1d953adf9552769b"
+      "sha256": "4233853a42593de2bf932b2859b66f038a0ada2ecacf099c5c5a58bb88e221eb"
     },
     {
       "path": "06-development-tracking/details/F25_海賊村城鎮與NPC.xlsx",
-      "sha256": "c2222d651413941e9eae87170d08cd9593631ae762afe9c31746bff97ea5cfa7"
+      "sha256": "cc38eec3a9f297148e035cfc45aa590a3b5a2820cf3b9fd02f70d310849df7b0"
     },
     {
       "path": "06-development-tracking/details/F26_音樂音效與Client相容.xlsx",
@@ -1761,7 +1773,7 @@
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
-      "sha256": "2c7292348587fa9b70ed4c47c1a8d15581edbb1098687cb20815035e681981a6"
+      "sha256": "0e6bf4c34db7c42c20e3808274d21dc59e37f3ea182d43f990cc5c8082afb231"
     },
     {
       "path": "06-development-tracking/details/F29_分析規格與驗收維護.xlsx",

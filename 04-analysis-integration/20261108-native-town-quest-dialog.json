@@ -1,0 +1,339 @@
+{
+  "revision": "20261108-native-town-quest-dialog-v1",
+  "client_sha256": "db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145",
+  "attribution": {
+    "originalScripts": "bounded observed artifact analysis",
+    "customUi": "Server-authored reconstruction draft",
+    "gui": "not-run",
+    "simkinExecution": "not-run",
+    "reaSessionThisRound": "not-opened; reused published matching evidence"
+  },
+  "decode": {
+    "outer": "zlib cap1MiB EOF/no-tail",
+    "header": "BEu16version1 +BEu32UTF16codeunits",
+    "text": "UTF16LE XML",
+    "crc": "strictCP950 original XML including CRLF"
+  },
+  "fixedQuest04": {
+    "main": "Merchant",
+    "dependencies": [
+      "MerchantDialog",
+      "nSuInn01",
+      "Quest04",
+      "QuestDialog",
+      "QuestSelDialog"
+    ],
+    "sourceIdentities": [
+      {
+        "script": "Merchant",
+        "sha256": "6888021cc8d12d9ae25d64bffd8316f7a87802f924091c2d06527f10ab08f350",
+        "bytes": 1603,
+        "decodedBytes": 7856,
+        "utf16Units": 3925,
+        "strictCp950Crc": "e9b389cf",
+        "functions": [
+          "Main"
+        ],
+        "serverKeys": []
+      },
+      {
+        "script": "MerchantDialog",
+        "sha256": "ed194a77a669cbd8f83fbbd01bb08ed0f800b122695cc204a3a12f002f945095",
+        "bytes": 2455,
+        "decodedBytes": 18782,
+        "utf16Units": 9388,
+        "strictCp950Crc": "9267d99d",
+        "functions": [
+          "MerchantDialog_Create",
+          "MerchantDialogProc"
+        ],
+        "serverKeys": []
+      },
+      {
+        "script": "nSuInn01",
+        "sha256": "59fa9643abc3cea4a5ef4ad014b4fd0a0b0d229a46ef559cf87372bcef595b31",
+        "bytes": 840,
+        "decodedBytes": 7032,
+        "utf16Units": 3513,
+        "strictCp950Crc": "bef22702",
+        "functions": [
+          "DoesBuy",
+          "DoesSell",
+          "DoesRepair",
+          "DoesBank",
+          "DoesIdentify",
+          "DoesTalk",
+          "BuildMuttering",
+          "LoadBuyMessage",
+          "LoadSellMessage",
+          "LoadRepairMessage",
+          "LoadDGMessage",
+          "LoadWGMessage",
+          "LoadDIMessage",
+          "LoadWIMessage",
+          "LoadIdentifyMessage",
+          "LoadTalkMessage",
+          "MerchantTalk"
+        ],
+        "serverKeys": [
+          "Quest01",
+          "Quest04"
+        ]
+      },
+      {
+        "script": "Quest04",
+        "sha256": "73364cfdf4414ebd0da1e72f6edf1bce3a7e5d68e0f5198e1f6aaaa464dd248f",
+        "bytes": 1476,
+        "decodedBytes": 10672,
+        "utf16Units": 5333,
+        "strictCp950Crc": "df339db5",
+        "functions": [
+          "Quest04",
+          "Quest04_1Proc",
+          "Quest04_2",
+          "Quest04_2Proc",
+          "Quest04_3",
+          "Quest04_3Proc",
+          "Quest04_Accept",
+          "Quest04_AcceptProc",
+          "Quest04_Refuse",
+          "Quest04_RefuseProc",
+          "Quest04_Doing",
+          "Quest04_DoingProc",
+          "Quest04_Finish",
+          "Quest04_FinishProc",
+          "Quest04_Already",
+          "Quest04_AlreadyProc",
+          "Quest04_Limit",
+          "Quest04_LimitProc"
+        ],
+        "serverKeys": [
+          "Quest04"
+        ]
+      },
+      {
+        "script": "QuestDialog",
+        "sha256": "13f068d8053ea7e7b0231357c318bc6effae867888b94305820fe483a17a02dc",
+        "bytes": 1938,
+        "decodedBytes": 9304,
+        "utf16Units": 4649,
+        "strictCp950Crc": "d4844b07",
+        "functions": [
+          "QuestDialog_Create",
+          "QuestDialogAdjust"
+        ],
+        "serverKeys": []
+      },
+      {
+        "script": "QuestSelDialog",
+        "sha256": "06868b472cf874e08077ef29ee42edd9c0d4aa1cef304699658b091a4b1c8366",
+        "bytes": 1522,
+        "decodedBytes": 7184,
+        "utf16Units": 3589,
+        "strictCp950Crc": "c64e29a3",
+        "functions": [
+          "QuestSelDialog_Create"
+        ],
+        "serverKeys": []
+      }
+    ],
+    "requiredBaseParameters": [
+      "TILE",
+      "MNAME",
+      "GREETING",
+      "UGOLD",
+      "UBAL",
+      "UAGOLD",
+      "UABAL",
+      "UCOLOR"
+    ],
+    "selectorKey": "Quest04",
+    "states": [
+      "NOT",
+      "DOING",
+      "FINISH",
+      "ALREADY",
+      "LIMIT"
+    ],
+    "mustNotProvide": [
+      "Quest01",
+      "TYPE"
+    ],
+    "replyPrefix": {
+      "TYPE": "TALK"
+    },
+    "replyIntent": {
+      "questKey": "Quest04",
+      "questValue": "T",
+      "stateKey": "Quest04State",
+      "states": [
+        "ACCEPT",
+        "REFUSE",
+        "CONTINUE",
+        "FINISH",
+        "ALREADY",
+        "LIMIT"
+      ]
+    },
+    "finishCancel": {
+      "04": "1"
+    },
+    "originalText": "fixed defeat-Pot quest, not arbitrary Server text",
+    "originalRewardRules": "unknown"
+  },
+  "customUi": {
+    "attribution": "Server-authored reconstruction draft, not original Client script or GUI tested",
+    "script_name": "ServerTownQuest_20261108_v1",
+    "xml_sha256": "2f0e846df49d33d3faa16afdd6a94a49781b9afa3ff223d8313f2d98c2599aad",
+    "cp950_bytes": 2072,
+    "text_crc32": "8085da9d",
+    "compressed_length": 751,
+    "decoded_update_body_bytes": 783,
+    "dependency_scripts": [],
+    "main_params": [
+      "TITLE",
+      "TEXT",
+      "MNAME",
+      "CAN_ACCEPT",
+      "CAN_CLAIM",
+      "CAN_ABANDON",
+      "ACCEPT_LABEL",
+      "CLAIM_LABEL",
+      "ABANDON_LABEL",
+      "QUESTKEY"
+    ],
+    "nativeApis": [
+      "CreateDialog",
+      "CreateImage",
+      "SetFrame",
+      "PrependControl",
+      "CreateStaticText",
+      "CreateTextButton",
+      "CreateImageButton",
+      "AppendControl",
+      "Register",
+      "CreateParams",
+      "SendReply",
+      "Dispose"
+    ],
+    "reply": {
+      "TYPE": "TOWNQUEST",
+      "QUESTKEY": "issued quest key",
+      "ACTION": [
+        "ACCEPT",
+        "CLAIM",
+        "ABANDON",
+        "CANCEL"
+      ]
+    },
+    "lifecycle": [
+      "C6C1 reply",
+      "C6C4 dispose"
+    ],
+    "s44Update": {
+      "selectors": [
+        1,
+        1
+      ],
+      "fields": [
+        "string8 name",
+        "BEu16 compressedLength",
+        "zlib(CP950 XML)"
+      ],
+      "notOriginalDatContainer": true
+    },
+    "s44Start": {
+      "selectors": [
+        1,
+        0
+      ],
+      "textCrc": "8085da9d",
+      "dependencyCount": 0,
+      "requiresNonzeroContext": true
+    },
+    "clientCacheWrites": "new unique allowlisted name only; no overwrite of original scripts or cache-delete opcode",
+    "enablement": "requires isolated native execution/GUI test"
+  },
+  "directAssets": {
+    "archive": "Script.dat",
+    "sha256": "5307cdc9e8f7f66c55085f29b2718774d4fd7de74c4a92c0c6b70c4f8e0753e0",
+    "member": {
+      "index": 4,
+      "name": "QuestFrame.ypf",
+      "name_hex": "51756573744672616d652e797066",
+      "offset": 556084,
+      "size": 179316
+    },
+    "member_sha256": "3b136160fb57f8d04661c344f90165cfd3e02c8f10248d4b4cf261d0706cc4d9"
+  },
+  "boundedScan": {
+    "source_dat_count": 316,
+    "function_count": 2499,
+    "failures": [
+      {
+        "script": "NDW",
+        "error": "not well-formed (invalid token): line 1, column 0"
+      }
+    ],
+    "missing_helper_definitions": {
+      "MerchantDialog_Prepare": [],
+      "Point_GetX": [
+        "Point"
+      ],
+      "Point_GetY": [
+        "Point"
+      ],
+      "IndexedName_Compose": [
+        "IndexedName"
+      ],
+      "IndexedName_Decompose": [
+        "IndexedName"
+      ],
+      "Max": [
+        "MinMax"
+      ]
+    },
+    "main_generic_candidates": [
+      {
+        "script": "SortsDialog",
+        "keys": [
+          "SortCount",
+          "TellerTile",
+          "Narration"
+        ],
+        "sha256": "a27b61fe7d379215f4b0cdb427224d6900081c2da553b89b8c24d09914e761c3"
+      },
+      {
+        "script": "TasksDialog",
+        "keys": [
+          "TaskCount",
+          "TellerTile",
+          "Narration"
+        ],
+        "sha256": "459addc8bec5fd336a2b3eb8ebd32f57ceac0617c21e40b542a7ff07b92a4a39"
+      },
+      {
+        "script": "TextInput",
+        "keys": [
+          "Narration",
+          "TellerTile",
+          "Narration"
+        ],
+        "sha256": "934bf4823096f81680a2bd7760669e47a79ea12ec4c246c21a428519af4462ca"
+      }
+    ]
+  },
+  "unknown": [
+    "native quest log opcode",
+    "full original quest conditions/rewards/NPC bindings",
+    "custom draft actual Simkin execution and GUI clipping"
+  ],
+  "evidenceIds": [
+    "ev_cb9fae76509bd4ffa248f653d781ec6c1d9251e4ae1c96392b7e43c2aba71c52",
+    "ev_c401e6ffc5154151aa851abb1f0319e927d966cebe50c892c0384f0ef225d100",
+    "ev_66d7a0d5a6b9c659c2141fece7535036c69277229dc1cde7b2473d8a399b1947",
+    "ev_4b996827af5f1223e5fcc48e0cad8fb5bad26232f0aaa2409431b088c6524eef",
+    "ev_9a787ea4c7979a2613ada40688897136c0294d3db4d3d6374ae72102ecec93be",
+    "ev_b3e310605487e1abb7bdadcbde96afbddc5a8399e25f6ca124362e719459caf5"
+  ]
+}

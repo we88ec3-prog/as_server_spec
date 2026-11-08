@@ -1098,7 +1098,13 @@
       "status": "integrated",
       "assignee": "roy1",
       "evidence_ids": [
-        "ev_a012_20261031_script_reply_choice_client_static"
+        "ev_a012_20261031_script_reply_choice_client_static",
+        "ev_cb9fae76509bd4ffa248f653d781ec6c1d9251e4ae1c96392b7e43c2aba71c52",
+        "ev_c401e6ffc5154151aa851abb1f0319e927d966cebe50c892c0384f0ef225d100",
+        "ev_66d7a0d5a6b9c659c2141fece7535036c69277229dc1cde7b2473d8a399b1947",
+        "ev_4b996827af5f1223e5fcc48e0cad8fb5bad26232f0aaa2409431b088c6524eef",
+        "ev_9a787ea4c7979a2613ada40688897136c0294d3db4d3d6374ae72102ecec93be",
+        "ev_b3e310605487e1abb7bdadcbde96afbddc5a8399e25f6ca124362e719459caf5"
       ],
       "completion_policy": "A-EVIDENCE-HANDOFF-v1",
       "handoff_status": "partial",
@@ -1131,7 +1137,7 @@
         "CT-093",
         "CT-094"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-08",
       "remaining_unknowns": [
         "Native NPC click target->script binding and Dialog GUI option trigger for all scripts",
         "Official quest step IDs, progress requirements, acceptance/denial outcome and quest UI updates",
@@ -1159,7 +1165,19 @@
         ]
       },
       "additional_sync_review": "04-analysis-integration/merge-review-roy1-roy2-new-quest-skill-20261031.md",
-      "admission_refuse_policy": "R-034 STATE=REFUSE means no Server domain mutation, repeat click dialog available; verify original ScriptReply client UI and candidate nNewJoin01 binding only."
+      "admission_refuse_policy": "R-034 STATE=REFUSE means no Server domain mutation, repeat click dialog available; verify original ScriptReply client UI and candidate nNewJoin01 binding only.",
+      "town_quest_increment": {
+        "native_contract": "04-analysis-integration/20261108-native-town-quest-dialog.md",
+        "implementation_contract": "04-analysis-integration/20261108-town-quests-and-atomic-rewards.md",
+        "evidence_scope": "reused same-SHA A023 native evidence plus bounded original Script scan; new UI is Server-authored",
+        "server_scope": "versioned kill/delivery objectives, accept/abandon, immutable baselines, atomic item/Gold/EXP/completion, five-town reconstructed supplies",
+        "ui_scope": "new allowlisted ServerTownQuest name; bounded S44(1,1) CP950 XML plus S44(1,0), C6C3-pair actions; opt-in review only",
+        "unknowns": [
+          "actual custom Simkin execution and GUI layout",
+          "original quest log wire and original reward/rule/NPC bindings",
+          "repeat/move/talk goals and active-definition upgrades"
+        ]
+      }
     },
     {
       "id": "A-013",
@@ -1913,7 +1931,13 @@
         "A023-E15",
         "A023-E16",
         "A023-E17",
-        "A023-E18"
+        "A023-E18",
+        "ev_cb9fae76509bd4ffa248f653d781ec6c1d9251e4ae1c96392b7e43c2aba71c52",
+        "ev_c401e6ffc5154151aa851abb1f0319e927d966cebe50c892c0384f0ef225d100",
+        "ev_66d7a0d5a6b9c659c2141fece7535036c69277229dc1cde7b2473d8a399b1947",
+        "ev_4b996827af5f1223e5fcc48e0cad8fb5bad26232f0aaa2409431b088c6524eef",
+        "ev_9a787ea4c7979a2613ada40688897136c0294d3db4d3d6374ae72102ecec93be",
+        "ev_b3e310605487e1abb7bdadcbde96afbddc5a8399e25f6ca124362e719459caf5"
       ],
       "dependencies": [
         "A-011",
@@ -1942,7 +1966,7 @@
         "CT-034",
         "CT-035"
       ],
-      "last_analysis_date": "2026-10-31",
+      "last_analysis_date": "2026-11-08",
       "dependency_report": "task_a/roy2/entry-dependency-verification.json",
       "client_script_entry_contract_ready": true,
       "evidence_boundary": {
@@ -1985,6 +2009,18 @@
         "delivery": "public-git-self-contained-jobs",
         "input_index": "03-analysis-requests/web-skill-review/INPUT_INDEX.json",
         "local_attachment_required": false
+      },
+      "town_quest_increment": {
+        "native_contract": "04-analysis-integration/20261108-native-town-quest-dialog.md",
+        "implementation_contract": "04-analysis-integration/20261108-town-quests-and-atomic-rewards.md",
+        "evidence_scope": "reused same-SHA A023 native evidence plus bounded original Script scan; new UI is Server-authored",
+        "server_scope": "versioned kill/delivery objectives, accept/abandon, immutable baselines, atomic item/Gold/EXP/completion, five-town reconstructed supplies",
+        "ui_scope": "new allowlisted ServerTownQuest name; bounded S44(1,1) CP950 XML plus S44(1,0), C6C3-pair actions; opt-in review only",
+        "unknowns": [
+          "actual custom Simkin execution and GUI layout",
+          "original quest log wire and original reward/rule/NPC bindings",
+          "repeat/move/talk goals and active-definition upgrades"
+        ]
       }
     },
     {

@@ -4785,6 +4785,42 @@
       "record_scope": "original-native-static identity index; artifact SHA and exact addresses in linked contract; raw retained locally",
       "operation": "batch_decompile",
       "integration_document": "04-analysis-integration/20261108-native-equipment-stats.md"
+    },
+    {
+      "evidence_id": "ev_cb9fae76509bd4ffa248f653d781ec6c1d9251e4ae1c96392b7e43c2aba71c52",
+      "record_scope": "reused original native A023 matching artifact SHA; does not prove new Server-authored UI GUI execution",
+      "operation": "retained-native-static-reference",
+      "integration_document": "04-analysis-integration/20261108-native-town-quest-dialog.md"
+    },
+    {
+      "evidence_id": "ev_c401e6ffc5154151aa851abb1f0319e927d966cebe50c892c0384f0ef225d100",
+      "record_scope": "reused original native A023 matching artifact SHA; does not prove new Server-authored UI GUI execution",
+      "operation": "retained-native-static-reference",
+      "integration_document": "04-analysis-integration/20261108-native-town-quest-dialog.md"
+    },
+    {
+      "evidence_id": "ev_66d7a0d5a6b9c659c2141fece7535036c69277229dc1cde7b2473d8a399b1947",
+      "record_scope": "reused original native A023 matching artifact SHA; does not prove new Server-authored UI GUI execution",
+      "operation": "retained-native-static-reference",
+      "integration_document": "04-analysis-integration/20261108-native-town-quest-dialog.md"
+    },
+    {
+      "evidence_id": "ev_4b996827af5f1223e5fcc48e0cad8fb5bad26232f0aaa2409431b088c6524eef",
+      "record_scope": "reused original native A023 matching artifact SHA; does not prove new Server-authored UI GUI execution",
+      "operation": "retained-native-static-reference",
+      "integration_document": "04-analysis-integration/20261108-native-town-quest-dialog.md"
+    },
+    {
+      "evidence_id": "ev_9a787ea4c7979a2613ada40688897136c0294d3db4d3d6374ae72102ecec93be",
+      "record_scope": "reused original native A023 matching artifact SHA; does not prove new Server-authored UI GUI execution",
+      "operation": "retained-native-static-reference",
+      "integration_document": "04-analysis-integration/20261108-native-town-quest-dialog.md"
+    },
+    {
+      "evidence_id": "ev_b3e310605487e1abb7bdadcbde96afbddc5a8399e25f6ca124362e719459caf5",
+      "record_scope": "reused original native A023 matching artifact SHA; does not prove new Server-authored UI GUI execution",
+      "operation": "retained-native-static-reference",
+      "integration_document": "04-analysis-integration/20261108-native-town-quest-dialog.md"
     }
   ]
 }
