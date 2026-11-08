@@ -1353,6 +1353,13 @@
         "wire_changed": false,
         "attribution": "Server reconstruction policy, not a recovered native quest completion message",
         "boundary": "C33 may contribute only through committed world movement; C6C4 requires current issued NPC/script/context/activation/life and advances flags, never rewards; C6C2 is cleanup only"
+      },
+      "repeat_quest_policy": {
+        "contract": "04-analysis-integration/20261108-repeat-quests-and-completion-history.md",
+        "wire_changed": false,
+        "attribution": "Server reconstruction, same custom quest Script template and CRC",
+        "boundary": "S44 adds only parameter text/capabilities; C6C existing actions require issued context and Server-owned quest revision; no Client completion count or clock authority",
+        "native_gui": "not-run"
       }
     },
     {
@@ -1501,6 +1508,13 @@
         "attribution": "S44/C6C reader/writer native; new script and action semantics Server-authored reconstruction",
         "resource": "only fresh allowlisted ServerTownQuest namespace; selectors1,1 +string8 name +BEu16 compressedLength +zlib(strictCP950 XML); no on-disk UTF16 wrapper or cache-delete",
         "reply": "exact three pairs TYPE=TOWNQUEST,QUESTKEY=issued key,ACTION=issued ACCEPT/CLAIM/ABANDON/CANCEL; context lease/NPC/pose/revision fenced; Dispose never grants"
+      },
+      "repeat_quest_policy": {
+        "contract": "04-analysis-integration/20261108-repeat-quests-and-completion-history.md",
+        "wire_changed": false,
+        "attribution": "Server reconstruction, same custom quest Script template and CRC",
+        "boundary": "S44 adds only parameter text/capabilities; C6C existing actions require issued context and Server-owned quest revision; no Client completion count or clock authority",
+        "native_gui": "not-run"
       }
     },
     {

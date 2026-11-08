@@ -1201,6 +1201,24 @@
           "reply-branch/sequence and repeat policies",
           "native custom UI execution and rendering"
         ]
+      },
+      "server_repeat_quest_increment": {
+        "contract": "04-analysis-integration/20261108-repeat-quests-and-completion-history.md",
+        "attribution": "Server reconstruction policy; not recovered original daily quest semantics",
+        "policies": [
+          "claim-based bounded cooldown",
+          "strict next UTC reset hour",
+          "maximum successful completions",
+          "fresh cycle objectives",
+          "atomic owned completion history"
+        ],
+        "native_gui": "not-run",
+        "remaining": [
+          "original quest rules and journal",
+          "reply branches and ordered objectives",
+          "definition migration",
+          "history admin and archival"
+        ]
       }
     },
     {

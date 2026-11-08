@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "7a7ec08d1c8289de320a9cbf8dc6eb3576ea49a42c17046f53200ea0f204a6ab"
+      "sha256": "eadc0ec1ed8c8a35f1e4103449427c6dbac3c07af72557d228a63178fa54792b"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -1045,11 +1045,15 @@
     },
     {
       "path": "04-analysis-integration/20261108-quest-world-objectives.md",
-      "sha256": "8aa79f5ab999b0f11120c007b4c78098de8fb42304d5098f51f1a6281a95db94"
+      "sha256": "9c1181cf9bb20329c07eb2c4a127d667867b73936ca12427318bbe3f52474641"
     },
     {
       "path": "04-analysis-integration/20261108-reconstructed-self-buffs.md",
       "sha256": "ca2ce8b3bcaae63c52f62a502bf288a7106cbf98aeaa801c1e29a986edebab96"
+    },
+    {
+      "path": "04-analysis-integration/20261108-repeat-quests-and-completion-history.md",
+      "sha256": "74247092dd61ccd00615ee26217a62a12e29644d8a9a8cebe06deb852583264b"
     },
     {
       "path": "04-analysis-integration/20261108-shared-player-visibility-and-motion.md",
@@ -1369,7 +1373,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "b2d6e3a8e9c62578975c6f12a13b830750bbc8bde86a6769b2b228cd60f51233"
+      "sha256": "483eb10008e4a1f126093d9418148a3ee1e171119fb3d9d765b4dd2f9602049f"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1661,11 +1665,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "c05093086b64fc833e4034789193765c0fd5c9429623d34443598f131ddcefa5"
+      "sha256": "cd8f1757d1e175c68bd3bfde50a5bf0830c884cfebc0a81560455fd9c44acefe"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "b587ff9f65bc93644d364dd5739a518ed3600a0c122ea24990a5fcfa8232a52f"
+      "sha256": "411fcc40155d77a3e69625501c8ab431cf51f5a574d0823db2d1c8fd9a90b5c5"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1729,7 +1733,7 @@
     },
     {
       "path": "06-development-tracking/details/F16_任務與劇情系統.xlsx",
-      "sha256": "7320e719603e97658ed9726d1f96f1de66e799d88fad81d251332125aa749c2c"
+      "sha256": "6e69f7b1d9b31812d8da52427d72554f4f86c7e517c6c281ba538e237e7118d9"
     },
     {
       "path": "06-development-tracking/details/F17_聊天好友與組隊.xlsx",
@@ -1777,7 +1781,7 @@
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
-      "sha256": "50d167515ab433c5e97a7511926675555f54b7f78e545e053f1dfcf6fe254cee"
+      "sha256": "02aba5f7b9829088a18d6bcb8aac93e7f954007a06f89ab933a580506e62fb06"
     },
     {
       "path": "06-development-tracking/details/F29_分析規格與驗收維護.xlsx",
@@ -1809,7 +1813,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "12c7fc60a95dc3cc28af7f235f7e58ba6e7ffef2eda0ad6f084f884d5f78c703"
+      "sha256": "68444074a44a032dd075a5b12e1b7d59ce32d045fc8e975bff13510be00577df"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

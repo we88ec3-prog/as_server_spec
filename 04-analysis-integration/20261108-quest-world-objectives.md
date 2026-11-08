@@ -60,3 +60,5 @@ QuestDefinition新增可選 `Visits`、`Talks`。null時不序列化，因此舊
 最終950項.NET回歸通過（0失敗／0略過），另3項Python啟動器fixture通過。這些是Domain／Store／Protocol／Host合成測試，本輪未跑真實TCP或原生Simkin／GUI，也未把前輪TCP結果移作本輪驗收。
 
 原生GUI、原服任務條件／名稱／獎勵、完整任務日誌、對話分支及順序、日常重複、計數型多次互動與既有active definition升版遷移仍未完成。這輪補上世界目標，不代表整個任務系統或全部Server已完成。
+
+後續：[重複任務與領獎歷史](20261108-repeat-quests-and-completion-history.md)已新增兩種時程與新輪重設；上方未完成項保留為本報告當輪歷史。
