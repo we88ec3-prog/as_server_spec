@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[隊伍合奏與群療](04-analysis-integration/20261108-party-support-skills.md)。附近同隊全能力+2／30秒與群療20HP已接線；自身／隊伍分槽、先後序列、持久投遞、生命代次及回滾受權威控制。完整回歸866項通過，雙人原格式投影有覆蓋，原生GUI仍待測；原版名稱／數值未核對。
+
 2026-11-08：[七職業自身增益第一版](04-analysis-integration/20261108-reconstructed-self-buffs.md)。新增一槽30秒能力加成，實際影響技能傷害，接上MP、刷新、到期、死亡、重登與原生S2C／S2D；數值為重建設計，原生GUI待測。此增量接續下方先前「buff待開發」紀錄，未宣稱多來源／減益完成。
 
 2026-11-08：[原生郵件依賴NMCO3](04-analysis-integration/20261108-native-mail.md)、[未接線的文字郵件內核](04-analysis-integration/20261108-player-mail-authority.md)。C12只是地址簿，不是假郵件協定；資料層15項及地址簿邊界通過，全回歸818項。原生／替代寄件入口均尚未接線，附件未證。同輪補[持續效果圖示／秒數／移除](04-analysis-integration/20261108-native-lasting-effects.md)，實際buff遊戲功能仍待開發，總表／F18／F07保留未完成狀態。

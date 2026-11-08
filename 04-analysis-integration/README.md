@@ -1,5 +1,7 @@
 # 分析結果整合
 
+最新隊伍技能：[合奏、群療與收件人交易](20261108-party-support-skills.md)。同隊六格資格凍結、雙槽與持久全域先後序列、MP及投遞同交易，原生GUI與原版技能數值仍待核對。
+
 最新技能增量：[七職業自身buff權威與投影](20261108-reconstructed-self-buffs.md)，接續原生lasting證據，已實作有效能力與技能傷害、刷新、到期、死亡及重登期限。七職業各一項重建內容，原生GUI與多來源疊加仍待完成。
 
 最新郵件研究：[原生MailBox是外部NMCO3 SDK](20261108-native-mail.md)，不能把C12地址簿或本地Note ABI當遊戲郵件wire。[獨立文字內核](20261108-player-mail-authority.md)已備妥資料與權限，但沒有寄件入口，原生仍未相容。另補[lasting效果的秒數、刷新及主動移除](20261108-native-lasting-effects.md)，這是原件契約，尚未代表buff數值／持久化已實作。
