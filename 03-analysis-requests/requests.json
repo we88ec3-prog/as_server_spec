@@ -391,6 +391,18 @@
         "observed_scope": "Basic bank0 slot24 Portals.tbl entrance rows and cursor/minimap consumers; 2840 rows validated against 494 MAP geometries",
         "remaining_unknown": "Original destination map/arrival pairs and tutorial room route; do not infer from nearby map IDs or 8-neighbour groups",
         "native_gui": "not-run-this-increment"
+      },
+      "server_world_objective_increment": {
+        "contract": "04-analysis-integration/20261108-quest-world-objectives.md",
+        "attribution": "Server reconstruction design; no new claim of original quest semantics",
+        "world_scope": "committed changed-XY steps or explicitly allowed non-Admin committed transfers; exact map rectangle, no read/relog backfill",
+        "dialogue_scope": "issued context captures current activation IDs and life; verified NPC window Dispose advances flags only, cancel may count; never automatically rewards",
+        "original_native_gui": "not-run",
+        "unknowns": [
+          "original quest objectives/rewards/NPC rules and quest-log wire",
+          "reply-branch/sequence and repeat policies",
+          "native custom UI execution and rendering"
+        ]
       }
     },
     {
@@ -1176,6 +1188,18 @@
           "actual custom Simkin execution and GUI layout",
           "original quest log wire and original reward/rule/NPC bindings",
           "repeat/move/talk goals and active-definition upgrades"
+        ]
+      },
+      "server_world_objective_increment": {
+        "contract": "04-analysis-integration/20261108-quest-world-objectives.md",
+        "attribution": "Server reconstruction design; no new claim of original quest semantics",
+        "world_scope": "committed changed-XY steps or explicitly allowed non-Admin committed transfers; exact map rectangle, no read/relog backfill",
+        "dialogue_scope": "issued context captures current activation IDs and life; verified NPC window Dispose advances flags only, cancel may count; never automatically rewards",
+        "original_native_gui": "not-run",
+        "unknowns": [
+          "original quest objectives/rewards/NPC rules and quest-log wire",
+          "reply-branch/sequence and repeat policies",
+          "native custom UI execution and rendering"
         ]
       }
     },

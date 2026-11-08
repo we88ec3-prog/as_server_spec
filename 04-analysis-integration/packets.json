@@ -542,6 +542,12 @@
         "predicate": "destEffective bit0 block, src bit3+dir byte block, actor lookup==1 block, dynamic overlay add/remove",
         "native_gui": "not-run",
         "warning": "C33 direction not yet proven equivalent to all local-path helper directions"
+      },
+      "quest_world_objective_policy": {
+        "contract": "04-analysis-integration/20261108-quest-world-objectives.md",
+        "wire_changed": false,
+        "attribution": "Server reconstruction policy, not a recovered native quest completion message",
+        "boundary": "C33 may contribute only through committed world movement; C6C4 requires current issued NPC/script/context/activation/life and advances flags, never rewards; C6C2 is cleanup only"
       }
     },
     {
@@ -1341,6 +1347,12 @@
         "attribution": "S44/C6C reader/writer native; new script and action semantics Server-authored reconstruction",
         "resource": "only fresh allowlisted ServerTownQuest namespace; selectors1,1 +string8 name +BEu16 compressedLength +zlib(strictCP950 XML); no on-disk UTF16 wrapper or cache-delete",
         "reply": "exact three pairs TYPE=TOWNQUEST,QUESTKEY=issued key,ACTION=issued ACCEPT/CLAIM/ABANDON/CANCEL; context lease/NPC/pose/revision fenced; Dispose never grants"
+      },
+      "quest_world_objective_policy": {
+        "contract": "04-analysis-integration/20261108-quest-world-objectives.md",
+        "wire_changed": false,
+        "attribution": "Server reconstruction policy, not a recovered native quest completion message",
+        "boundary": "C33 may contribute only through committed world movement; C6C4 requires current issued NPC/script/context/activation/life and advances flags, never rewards; C6C2 is cleanup only"
       }
     },
     {
