@@ -733,7 +733,7 @@
     },
     {
       "path": "04-analysis-integration/20261102-native-portals-and-route-authority.md",
-      "sha256": "493cff32c4d48ebe16f7e8607c419e7f9f56b9e4ecfe2ad26749f061120751df"
+      "sha256": "52a2a4872aba1857225e79079c7cf8233b811ed9d5f925e7fedfc5da1f9f8d93"
     },
     {
       "path": "04-analysis-integration/20261102-native-shortcut-followup-and-npc-miss.md",
@@ -1134,6 +1134,14 @@
     {
       "path": "04-analysis-integration/20261108-visible-npc-dialogue-policy.md",
       "sha256": "70b4dd00c89cbb26be62936d276e478b831cd5b531c8c171b99d2bb0115ad696"
+    },
+    {
+      "path": "04-analysis-integration/20261108-walking-map-gates.json",
+      "sha256": "25f12011bf167b51bba1a90c6ca2c7f08838e82115e0409da1e4a7b496fb16e2"
+    },
+    {
+      "path": "04-analysis-integration/20261108-walking-map-gates.md",
+      "sha256": "751988af72066201577cdfe8d3ebbf5fd26a3301fc430e08cb2290be9b269d01"
     },
     {
       "path": "04-analysis-integration/20261108-wallet-bank-authority.md",
@@ -1713,11 +1721,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "b5b13107ae435019cfbd59e924c97583f67e7eaeece2bf537b7791a1a572ee9c"
+      "sha256": "a4fffa81a9c40a14d7e7b2c71c773ca2259c6963683ec58bd21931a4dc6b15a9"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "9951c33f1c281a71453baa65c444c4f418eaeb3ccff353cda079dabe39425fc8"
+      "sha256": "b3994653114a49b3519192cd358de838cbfa0110bf3c5b6b755b13e16c1ba5de"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1733,7 +1741,7 @@
     },
     {
       "path": "06-development-tracking/details/F04_世界地圖與傳送.xlsx",
-      "sha256": "c167af5cfac4fc263507a52288e005d140e9699a00e7172feedb28d1367dc82d"
+      "sha256": "a3e50a62833fc1915ea001da6d222d6559961d9b8f45d466c2c1f5bbe6a4c838"
     },
     {
       "path": "06-development-tracking/details/F05_NPC與互動基礎.xlsx",
@@ -1829,7 +1837,7 @@
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
-      "sha256": "d6374fc15a690e92e1280f6db0ff2a03ac7ef67721878ea5fd2d1304944ad9ba"
+      "sha256": "942b2affedb2313aaddb2d6d6aa28c2cc97f98fe69b0321b5d255c9354a12811"
     },
     {
       "path": "06-development-tracking/details/F29_分析規格與驗收維護.xlsx",
@@ -1861,7 +1869,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "ab00408cc4b659e6b1d55a1f48c574bb38501baa87d520819dff5805a64d0fe3"
+      "sha256": "d86ef3534fb25d8bb7b0cc66ff04f9a48b8cc45bc1813d934fc41a346c2a7a71"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

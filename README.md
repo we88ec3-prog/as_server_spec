@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[步行入口與五城重建路由](04-analysis-integration/20261108-walking-map-gates.md)。12格原生入口接五城單向重建環，C33觸發／S0B先行／C35確認後才保存目的地。1150項全回歸、20項聚焦測試（含另加3項Host情境）、7項Python及三組TCP通過；原服目的地與原生GUI仍未核。
+
 2026-11-08：[十六槽裝備與多件加成](04-analysis-integration/20261108-sixteen-slot-equipment.md)。REA確認槽位key；v4新增武器／盾／飾品、雙手互斥、飾品選槽與S08 DAM／AC，1089項.NET回歸及商店／銀行／重登TCP四組通過。原版持握模型與GUI仍待核。
 
 2026-11-08：[角色衰弱與指定淨化](04-analysis-integration/20261108-player-weakness-and-cleanse.md)。v9共38技能，可選怪物命中衰弱實際降低普攻／技能傷害，聖職者Spell可淨化自身／隊友；1072項.NET、4項啟動器及雙Client四組TCP通過。原版素材與GUI另待核。

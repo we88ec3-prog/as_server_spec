@@ -1,0 +1,137 @@
+{
+  "schema": "asgard-walking-map-gates-reviewed-v1",
+  "provenance": "Server reconstruction; native Portals.tbl proves source coordinates only",
+  "native_destinations_recovered": false,
+  "basic_sha256": "0da379bf6dcc58be8ff3e4865fe8fe4859ae531f4aaef386196be56123082b96",
+  "portals_member_sha256": "b63c4f07765271baf83c9a5104fafe21070e2e3ca7926aec23c17eda84047d00",
+  "rules": [
+    {
+      "Key": "town-ring-1",
+      "Revision": "reconstructed-town-ring-v1",
+      "SourceMapRef": 1,
+      "SourceMapRevision": "map-sha256-e2c329ad88a9b44c2760d5a996f187e68b7a5b90419f087a2471fabc03490f00",
+      "Tiles": [
+        {
+          "X": 76,
+          "Y": 94
+        }
+      ],
+      "DestinationMapRef": 2001,
+      "DestinationMapRevision": "map-sha256-bc220a638c7e710016af65acc83de2f6255e1b690bfb9ef477871589b56c865f",
+      "ArrivalX": 114,
+      "ArrivalY": 97,
+      "Facing": 0,
+      "Label": "重建：前往路爾斯",
+      "RoutingOrigin": "server-reconstruction",
+      "RequiredLevel": 1
+    },
+    {
+      "Key": "town-ring-2001",
+      "Revision": "reconstructed-town-ring-v1",
+      "SourceMapRef": 2001,
+      "SourceMapRevision": "map-sha256-bc220a638c7e710016af65acc83de2f6255e1b690bfb9ef477871589b56c865f",
+      "Tiles": [
+        {
+          "X": 114,
+          "Y": 96
+        }
+      ],
+      "DestinationMapRef": 4001,
+      "DestinationMapRevision": "map-sha256-3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "ArrivalX": 183,
+      "ArrivalY": 15,
+      "Facing": 0,
+      "Label": "重建：前往斯歐米",
+      "RoutingOrigin": "server-reconstruction",
+      "RequiredLevel": 1
+    },
+    {
+      "Key": "town-ring-4001",
+      "Revision": "reconstructed-town-ring-v1",
+      "SourceMapRef": 4001,
+      "SourceMapRevision": "map-sha256-3693a92d5af494b21f13bf688bbc417a1c10f78eeba4abc7d08513c3b9e1f1f4",
+      "Tiles": [
+        {
+          "X": 183,
+          "Y": 13
+        },
+        {
+          "X": 183,
+          "Y": 14
+        },
+        {
+          "X": 184,
+          "Y": 14
+        },
+        {
+          "X": 184,
+          "Y": 15
+        },
+        {
+          "X": 185,
+          "Y": 15
+        }
+      ],
+      "DestinationMapRef": 6001,
+      "DestinationMapRevision": "map-sha256-d17336536d711135260990cea39dfedb7d6fea63189aa04e9f752b1cd71a309d",
+      "ArrivalX": 98,
+      "ArrivalY": 91,
+      "Facing": 0,
+      "Label": "重建：前往魔界村",
+      "RoutingOrigin": "server-reconstruction",
+      "RequiredLevel": 1
+    },
+    {
+      "Key": "town-ring-6001",
+      "Revision": "reconstructed-town-ring-v1",
+      "SourceMapRef": 6001,
+      "SourceMapRevision": "map-sha256-d17336536d711135260990cea39dfedb7d6fea63189aa04e9f752b1cd71a309d",
+      "Tiles": [
+        {
+          "X": 98,
+          "Y": 90
+        }
+      ],
+      "DestinationMapRef": 7001,
+      "DestinationMapRevision": "map-sha256-ac30779fac09dd3de4f9ddd5c1321737cf23b7e219280ab634fe52c196c45c3a",
+      "ArrivalX": 146,
+      "ArrivalY": 138,
+      "Facing": 1,
+      "Label": "重建：前往海賊村",
+      "RoutingOrigin": "server-reconstruction",
+      "RequiredLevel": 1
+    },
+    {
+      "Key": "town-ring-7001",
+      "Revision": "reconstructed-town-ring-v1",
+      "SourceMapRef": 7001,
+      "SourceMapRevision": "map-sha256-ac30779fac09dd3de4f9ddd5c1321737cf23b7e219280ab634fe52c196c45c3a",
+      "Tiles": [
+        {
+          "X": 147,
+          "Y": 138
+        },
+        {
+          "X": 147,
+          "Y": 139
+        },
+        {
+          "X": 148,
+          "Y": 138
+        },
+        {
+          "X": 148,
+          "Y": 139
+        }
+      ],
+      "DestinationMapRef": 1,
+      "DestinationMapRevision": "map-sha256-e2c329ad88a9b44c2760d5a996f187e68b7a5b90419f087a2471fabc03490f00",
+      "ArrivalX": 75,
+      "ArrivalY": 94,
+      "Facing": 1,
+      "Label": "重建：前往米魯里斯",
+      "RoutingOrigin": "server-reconstruction",
+      "RequiredLevel": 1
+    }
+  ]
+}
