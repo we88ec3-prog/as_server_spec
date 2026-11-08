@@ -1,5 +1,7 @@
 # 裝備能力與S08戰鬥數值投影
 
+2026-11-08後續：[十六槽裝備增量](20261108-sixteen-slot-equipment.md)已補原生key映射、多槽交易及DAM／AC投影；本頁保留原分析時間點，舊slot2限制不代表目前只開衣服。原版模型與新槽GUI仍未驗收。
+
 2026-11-08，延續A-007／A-008。原件Asgard.exe SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，Ghidra12.1.4。僅靜態分析原件及有界讀取同版skin；未改／執行Client，未改私有Server。本輪原生GUI未測。
 
 ## 已證欄位，並非從縮寫猜位置

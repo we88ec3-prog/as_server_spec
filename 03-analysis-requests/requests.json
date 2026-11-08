@@ -564,7 +564,9 @@
           "weapons/accessories and all-slot requirements",
           "original weight behavior and RESIST wire source"
         ]
-      }
+      },
+      "multi_slot_equipment_contract": "04-analysis-integration/20261108-sixteen-slot-equipment.md",
+      "multi_slot_equipment_boundary": "REA／skin核16槽key，v4多槽與彙總為Server重建設計；持握模型、完整物品模板／需求／原生GUI未完成，不關閉分析任務。"
     },
     {
       "id": "A-008",
@@ -679,7 +681,9 @@
           "weapons/accessories and all-slot requirements",
           "original weight behavior and RESIST wire source"
         ]
-      }
+      },
+      "multi_slot_equipment_contract": "04-analysis-integration/20261108-sixteen-slot-equipment.md",
+      "multi_slot_equipment_boundary": "REA／skin核16槽key，v4多槽與彙總為Server重建設計；持握模型、完整物品模板／需求／原生GUI未完成，不關閉分析任務。"
     },
     {
       "id": "A-009",

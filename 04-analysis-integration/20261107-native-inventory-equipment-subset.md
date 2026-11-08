@@ -1,5 +1,7 @@
 # 本版 Client 的物品訊息與裝備封包子集
 
+2026-11-08後續：[十六槽裝備增量](20261108-sixteen-slot-equipment.md)已補原生key映射、多槽交易及DAM／AC投影；本頁保留原分析時間點，舊slot2限制不代表目前只開衣服。原版模型與新槽GUI仍未驗收。
+
 2026-11-07。使用者要求將裝備列入開發，並詢問主程式是否已有裝備／道具訊息。本輪沿用 [A-007](../03-analysis-requests/A-007-roy1-inventory-lifecycle.md) 與 [既有原型欄位](items.md)，把可直接交付的封包子集接到新 Server Protocol。私有實作與測試不放入本庫。
 
 ## Client 中已知的訊息

@@ -2923,7 +2923,8 @@
         "current_implementation": "effective equipped five abilities only; AC/MC/AAR/SAR/DAM/HIT/weight remain zero, original formulas unknown"
       },
       "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
-      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged",
+      "multi_slot_equipment_contract": "04-analysis-integration/20261108-sixteen-slot-equipment.md"
     },
     {
       "id": "PKT-C47",
