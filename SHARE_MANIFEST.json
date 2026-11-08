@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "f42fdb65a45123b4b6116b90e2492b279509197d70d8cb1b3b65ea08abcce71f"
+      "sha256": "cce956da922b9f1945189bc777b73ad34ce54be347f209b65766c8a4476f4a2b"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -1072,6 +1072,10 @@
       "sha256": "b11fee7b52aebbc0cb80ea264cb0c3704a0654729c89d071f2f5547b19d8dc02"
     },
     {
+      "path": "04-analysis-integration/20261108-player-weakness-and-cleanse.md",
+      "sha256": "8c23692dce4986d56b7b00619a90c68bb69e7e151d445de1444d9ac519892338"
+    },
+    {
       "path": "04-analysis-integration/20261108-quest-world-objectives.md",
       "sha256": "9c1181cf9bb20329c07eb2c4a127d667867b73936ca12427318bbe3f52474641"
     },
@@ -1405,7 +1409,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "a9e40380d690c9e46963c91d52b7d870e3cbd9e6bcc9ee92d970b70a6a0036a3"
+      "sha256": "c26d2bb61bb4f596364926b261340a819281f8cf5cf57f59d92646217e91313a"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1697,11 +1701,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "9f0003dd073c38269cd6c30f3742c705ae2a34c8dc021365d9f0963371241599"
+      "sha256": "0ba3d33f0d6a761fe41bb0d236d1a2469b731e676ea888b234a4b77bbef296a3"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "be4c7ccdd55c684ee9323088ebde659bea269d2ca4c4287ff33572a02cfe76aa"
+      "sha256": "bce306da75f86db66994cfb3a84e60a58baf8a13a00aff88fac821bd82b089d1"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1709,7 +1713,7 @@
     },
     {
       "path": "06-development-tracking/details/F02_角色能力與成長.xlsx",
-      "sha256": "b0d947878a157bc6265d752f95595f35ca214a35bc66d2bf091873bedf60e26c"
+      "sha256": "9855e5eafaf26dab3be1be9018c10ffb0b833d73a1a4e56df9afba970911ce47"
     },
     {
       "path": "06-development-tracking/details/F03_新手任務流程.xlsx",
@@ -1725,11 +1729,11 @@
     },
     {
       "path": "06-development-tracking/details/F06_怪物與戰鬥.xlsx",
-      "sha256": "14917ae7654459817024a95e9caf4315db2dcbe27d03bb8cb6002081cd4f2cdd"
+      "sha256": "119af218185ffa71fb0862bbd35e9f844332593aceb5faa7bb507c02721e1eb0"
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
-      "sha256": "ffec3a1a2c9dc33a0ce0412f273329f0bb0877d14bf442e5f5c4b44c3a210c5b"
+      "sha256": "43722b229387f79450bf40454a1d76a4224caf00de8b099c1b409d3bc7db1c1c"
     },
     {
       "path": "06-development-tracking/details/F08_戰士技能.xlsx",
@@ -1741,7 +1745,7 @@
     },
     {
       "path": "06-development-tracking/details/F10_聖職者技能.xlsx",
-      "sha256": "88af15f52b3d71e60247834849a5fec43ea5bc54f907b9154eb58eb591388d6d"
+      "sha256": "e46b381d013f150c39880c3fbce212312eccc9b3645558cd39257792e88fb006"
     },
     {
       "path": "06-development-tracking/details/F11_盜賊技能.xlsx",
@@ -1845,7 +1849,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "a2c10dee30bcd46e83ab1752780b6c491289c4d04b9c2207a8d5fa5c9932c0c2"
+      "sha256": "84c3b0b39d45a0f49b676a84268f8a8816ee5cc2d83056119d5b62041f2c04df"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

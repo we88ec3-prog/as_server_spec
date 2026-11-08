@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[角色衰弱與指定淨化](04-analysis-integration/20261108-player-weakness-and-cleanse.md)。v9共38技能，可選怪物命中衰弱實際降低普攻／技能傷害，聖職者Spell可淨化自身／隊友；1072項.NET、4項啟動器及雙Client四組TCP通過。原版素材與GUI另待核。
+
 2026-11-08：[減速／衰弱／定身與怪物AI](04-analysis-integration/20261108-monster-debuffs-and-ai.md)。v8共37項技能，三種減益實際作用、同類刷新與原子扣費已接線；1057項.NET與三職業雙Client九組TCP通過。原版素材、解除／召喚與GUI仍待完成。
 
 2026-11-08：[灼傷／毒擊與原子跳傷結算](04-analysis-integration/20261108-periodic-monster-skills.md)、[REA無來源S13跳傷呈現](04-analysis-integration/20261108-native-periodic-damage-presentation.md)。v7新增Spell灼傷與Skill毒擊，單次成本、定時傷害／刷新／取消及一次獎勵已接線；1038項.NET與三Client四組TCP通過。原版具名火毒特效、其他減益與GUI仍待驗收。

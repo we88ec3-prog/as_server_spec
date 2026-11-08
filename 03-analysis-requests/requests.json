@@ -971,7 +971,9 @@
         ]
       },
       "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
-      "monster_debuff_boundary": "使用者要求技能生效；v8三種減益為Server重建政策，1057項.NET及三職業雙peer九組TCP通過，原版具名素材／抗性／解除與GUI未核，不關閉A-010。"
+      "monster_debuff_boundary": "使用者要求技能生效；v8三種減益為Server重建政策，1057項.NET及三職業雙peer九組TCP通過，原版具名素材／抗性／解除與GUI未核，不關閉A-010。",
+      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md",
+      "player_ailment_boundary": "角色衰弱與指定淨化為Server重建政策；1072項.NET、4項啟動器及雙peer四組TCP通過。未還原原版狀態技能／圖示／抗性，不關閉A-010。"
     },
     {
       "id": "A-011",

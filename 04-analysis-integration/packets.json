@@ -1665,7 +1665,8 @@
       "guild_validation": "Server /guild commands and native C19 !1/!2/!3 routing synthetic/TCP passed; original GuildListDialog/GUI not-run; no changed wire layout",
       "periodic_damage_contract": "04-analysis-integration/20261108-periodic-monster-skills.md",
       "periodic_damage_validation": "reconstruction Mage/Thief single-cost periodic monster damage; source0/motion0/selector0 S13 static/Host/TCP subset passed; original GUI and named original assets not-run; wire layouts unchanged",
-      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md"
+      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
+      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md"
     },
     {
       "id": "PKT-C19",
@@ -2448,7 +2449,8 @@
       "a004_world_registry": "Roy1 S07 original handler 0x4F17C0; lookup at 0x4EAC30 with u32 object_ref. Removal/Death callbacks not both semantically proven; epoch not present in native wire.",
       "periodic_damage_contract": "04-analysis-integration/20261108-periodic-monster-skills.md",
       "periodic_damage_validation": "reconstruction Mage/Thief single-cost periodic monster damage; source0/motion0/selector0 S13 static/Host/TCP subset passed; original GUI and named original assets not-run; wire layouts unchanged",
-      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md"
+      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
+      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md"
     },
     {
       "id": "PKT-S0C",
@@ -3000,7 +3002,8 @@
       ],
       "periodic_damage_contract": "04-analysis-integration/20261108-periodic-monster-skills.md",
       "periodic_damage_validation": "reconstruction Mage/Thief single-cost periodic monster damage; source0/motion0/selector0 S13 static/Host/TCP subset passed; original GUI and named original assets not-run; wire layouts unchanged",
-      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md"
+      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
+      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md"
     },
     {
       "id": "PKT-S34",
@@ -3152,7 +3155,8 @@
       "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged",
       "periodic_damage_contract": "04-analysis-integration/20261108-periodic-monster-skills.md",
       "periodic_damage_validation": "reconstruction Mage/Thief single-cost periodic monster damage; source0/motion0/selector0 S13 static/Host/TCP subset passed; original GUI and named original assets not-run; wire layouts unchanged",
-      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md"
+      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
+      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md"
     },
     {
       "id": "PKT-S63",
@@ -3640,7 +3644,8 @@
       "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged",
       "periodic_damage_contract": "04-analysis-integration/20261108-periodic-monster-skills.md",
       "periodic_damage_validation": "reconstruction Mage/Thief single-cost periodic monster damage; source0/motion0/selector0 S13 static/Host/TCP subset passed; original GUI and named original assets not-run; wire layouts unchanged",
-      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md"
+      "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
+      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md"
     }
   ]
 }
