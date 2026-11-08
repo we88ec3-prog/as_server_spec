@@ -1428,6 +1428,23 @@
           "friends and guild membership",
           "other invitation/contact policies"
         ]
+      },
+      "server_friend_list_increment": {
+        "contract": "04-analysis-integration/20261108-friends-and-query-presence.md",
+        "attribution": "Server reconstruction policy, not native FriendDialog protocol",
+        "scope": [
+          "one-way persistent 100-entry list",
+          "private add/remove/list commands",
+          "query-time current loaded lease presence",
+          "bidirectional ignore masking"
+        ],
+        "native_gui": "not-run",
+        "new_native_evidence_ids": [],
+        "remaining": [
+          "native friend/address-book synchronization",
+          "mutual consent and presence push",
+          "guild and NMCO compatibility"
+        ]
       }
     },
     {

@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[Server好友名單與查詢式在線狀態](04-analysis-integration/20261108-friends-and-query-presence.md)。新增私人 `/friend add／remove／list`、單向100人保存及跨圖當前連線狀態；雙方任一拒收則不顯示可聯絡。明示Server重建政策，原生FriendDialog／同步、互邀與主動通知仍待補。
+
 2026-11-08：[聊天拒收與原生黑名單邊界](04-analysis-integration/20261108-chat-ignore-and-native-blacklist-boundary.md)。Server `/ignore` 可管理持久100人名單、三頻道投遞及舊queue清除，系統提示不受影響。REA確認C19kind1只是本機20格名單命中通知；不冒稱原生名單同步，GUI、好友與公會仍待完成。
 
 2026-11-08：[可重複任務、UTC重置與領獎歷史](04-analysis-integration/20261108-repeat-quests-and-completion-history.md)。成功領獎後固定冷卻／每日整點、次數上限、新輪目標重設與原子歷史已接線；五城旅館循環補給為可選Server重建政策。舊一次性任務JSON保留，原生GUI與原服任務規則仍待驗證。

@@ -1454,6 +1454,12 @@
         "native_evidence_id": "ev_60edda16e06fb99a5f9936a430f47fc69509714c9b2b86adeb3fa6b895d62635",
         "boundary": "C0Ekind0 /ignore is an explicit Server command, not native list synchronization; C19kind1 remains a passive notice; S0A18 history is filtered server-side; system notices unaffected",
         "native_gui": "not-run"
+      },
+      "server_friend_list_policy": {
+        "contract": "04-analysis-integration/20261108-friends-and-query-presence.md",
+        "wire_changed": false,
+        "attribution": "explicit Server /friend commands over C0Ekind0 and private S0A17/18 responses; not original friend wire",
+        "native_gui": "not-run"
       }
     },
     {
@@ -1623,6 +1629,12 @@
         "wire_changed": false,
         "native_evidence_id": "ev_60edda16e06fb99a5f9936a430f47fc69509714c9b2b86adeb3fa6b895d62635",
         "boundary": "C0Ekind0 /ignore is an explicit Server command, not native list synchronization; C19kind1 remains a passive notice; S0A18 history is filtered server-side; system notices unaffected",
+        "native_gui": "not-run"
+      },
+      "server_friend_list_policy": {
+        "contract": "04-analysis-integration/20261108-friends-and-query-presence.md",
+        "wire_changed": false,
+        "attribution": "explicit Server /friend commands over C0Ekind0 and private S0A17/18 responses; not original friend wire",
         "native_gui": "not-run"
       }
     },
