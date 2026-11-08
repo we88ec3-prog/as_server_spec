@@ -457,7 +457,7 @@
     },
     {
       "path": "03-analysis-requests/requests.json",
-      "sha256": "d4d7f1cbad736c4076d2e0672812d601f125428a7101ec15b40447f4b4f699a8"
+      "sha256": "2866a38df07511f52cb82ffd65b98c2d4163890f74dd0dca0e914485810cdc53"
     },
     {
       "path": "03-analysis-requests/roy123-remaining-playable-blockers-20261101.md",
@@ -856,6 +856,10 @@
       "sha256": "38e6041072f1eee3f411d9eb4ac6edfe564feb702cf00e6d663e051033b0ea9c"
     },
     {
+      "path": "04-analysis-integration/20261108-consensual-player-duels.md",
+      "sha256": "70afbce80519fa0fc15f1f4bb9feac5e5f3ecd7cbde276328f106b75a49b9e04"
+    },
+    {
       "path": "04-analysis-integration/20261108-consumable-stack-and-upgrade.md",
       "sha256": "01063a686bdbb5c94b1a8ef06ccb34a389c6f505f1429acfc43008fa06563eb1"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "path": "04-analysis-integration/20261108-native-player-targeting.md",
-      "sha256": "a9c5dfec3db1345b38ac57ecf5ace74076f352ac7875c4a169144e4bbdbc9a0a"
+      "sha256": "914e2996ffeb3bd3b4e63a646ca221a401682b41f633e41cece1f59facd60485"
     },
     {
       "path": "04-analysis-integration/20261108-native-remote-player-lifecycle.json",
@@ -1417,7 +1421,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "4d474ccaf9758ed7e6f29124b89fc8f4ce623dd33891eafa516dc935d75fcfb9"
+      "sha256": "20f540954693e34c7f59bda9f0581a1af90eb5e9594a4637ccdb3fdf67417761"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1709,7 +1713,7 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "6216bef36a75035d6e4f04586e44ba703a52bbd6c2a179cea19e81c87c49e5d0"
+      "sha256": "b5b13107ae435019cfbd59e924c97583f67e7eaeece2bf537b7791a1a572ee9c"
     },
     {
       "path": "06-development-tracking/README.md",
@@ -1793,7 +1797,7 @@
     },
     {
       "path": "06-development-tracking/details/F20_公會與PvP範圍.xlsx",
-      "sha256": "51b949144475f2491618d9daf81b5ee9ab5908d5f9228cba63e005ecdf5ee821"
+      "sha256": "0ef5a84aaba03555670a6b8f5d945bf69ea9f57ae30a9e21096a91e54f859ee6"
     },
     {
       "path": "06-development-tracking/details/F21_米魯里斯城鎮與NPC.xlsx",
@@ -1825,7 +1829,7 @@
     },
     {
       "path": "06-development-tracking/details/F28_資料保存營運與多人世界.xlsx",
-      "sha256": "b97c422fa3724c86f77b96539ee326511336a78ca89e463484a9fcd4f75f0abd"
+      "sha256": "d6374fc15a690e92e1280f6db0ff2a03ac7ef67721878ea5fd2d1304944ad9ba"
     },
     {
       "path": "06-development-tracking/details/F29_分析規格與驗收維護.xlsx",

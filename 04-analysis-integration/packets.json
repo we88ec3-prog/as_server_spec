@@ -1479,7 +1479,9 @@
         "native_nmco": "not-connected"
       },
       "guild_membership_contract": "04-analysis-integration/20261108-guild-membership-and-native-chat.md",
-      "guild_validation": "Server /guild commands and native C19 !1/!2/!3 routing synthetic/TCP passed; original GuildListDialog/GUI not-run; no changed wire layout"
+      "guild_validation": "Server /guild commands and native C19 !1/!2/!3 routing synthetic/TCP passed; original GuildListDialog/GUI not-run; no changed wire layout",
+      "consensual_duel_contract": "04-analysis-integration/20261108-consensual-player-duels.md",
+      "consensual_duel_validation": "Server reconstruction consent and nonlethal policy; existing wire layout unchanged; native duel GUI not-run"
     },
     {
       "id": "PKT-S44",
@@ -1670,7 +1672,9 @@
       "periodic_damage_contract": "04-analysis-integration/20261108-periodic-monster-skills.md",
       "periodic_damage_validation": "reconstruction Mage/Thief single-cost periodic monster damage; source0/motion0/selector0 S13 static/Host/TCP subset passed; original GUI and named original assets not-run; wire layouts unchanged",
       "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
-      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md"
+      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md",
+      "consensual_duel_contract": "04-analysis-integration/20261108-consensual-player-duels.md",
+      "consensual_duel_validation": "Server reconstruction consent and nonlethal policy; existing wire layout unchanged; native duel GUI not-run"
     },
     {
       "id": "PKT-C19",
@@ -1927,7 +1931,9 @@
         "client_entry": "0x570A10 ctor; 0x570AC0 writer; caller 0x55709E/0x557A5F",
         "layout_status": "partial",
         "source": "roy2"
-      }
+      },
+      "consensual_duel_contract": "04-analysis-integration/20261108-consensual-player-duels.md",
+      "consensual_duel_validation": "Server reconstruction consent and nonlethal policy; existing wire layout unchanged; native duel GUI not-run"
     },
     {
       "id": "PKT-C4D",
@@ -3008,7 +3014,9 @@
       "periodic_damage_contract": "04-analysis-integration/20261108-periodic-monster-skills.md",
       "periodic_damage_validation": "reconstruction Mage/Thief single-cost periodic monster damage; source0/motion0/selector0 S13 static/Host/TCP subset passed; original GUI and named original assets not-run; wire layouts unchanged",
       "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
-      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md"
+      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md",
+      "consensual_duel_contract": "04-analysis-integration/20261108-consensual-player-duels.md",
+      "consensual_duel_validation": "Server reconstruction consent and nonlethal policy; existing wire layout unchanged; native duel GUI not-run"
     },
     {
       "id": "PKT-S34",
@@ -3650,7 +3658,9 @@
       "periodic_damage_contract": "04-analysis-integration/20261108-periodic-monster-skills.md",
       "periodic_damage_validation": "reconstruction Mage/Thief single-cost periodic monster damage; source0/motion0/selector0 S13 static/Host/TCP subset passed; original GUI and named original assets not-run; wire layouts unchanged",
       "monster_debuff_contract": "04-analysis-integration/20261108-monster-debuffs-and-ai.md",
-      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md"
+      "player_ailment_contract": "04-analysis-integration/20261108-player-weakness-and-cleanse.md",
+      "consensual_duel_contract": "04-analysis-integration/20261108-consensual-player-duels.md",
+      "consensual_duel_validation": "Server reconstruction consent and nonlethal policy; existing wire layout unchanged; native duel GUI not-run"
     }
   ]
 }

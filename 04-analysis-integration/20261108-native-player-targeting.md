@@ -1,5 +1,7 @@
 # 原生玩家指定目標與治療入口
 
+後續Server重建[雙方同意決鬥](20261108-consensual-player-duels.md)沿本頁Human選取入口接直接傷害；本頁原件證據仍不包含原服決鬥UI／同意／PK陣營政策。
+
 2026-11-08，延續A-010指定目標缺口。原始Asgard.exe SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，Ghidra12.1.4。僅靜態讀原件；未操作使用者Client/Server，原生GUI未測。
 
 ## 可實作結論
