@@ -96,3 +96,8 @@ python3 tools/a016_recovery_model.py
 ## 2026-11-08公會會員與頻道增量
 
 詳[可獨立實作的公會契約](../04-analysis-integration/20261108-guild-membership-and-native-chat.md)：明示/guild管理、每類一會／100人／60秒精確租約邀請、會長權限／CAS、四表保存與升級備份，以及原生!1/!2/!3聊天。會員身份綁queue，離會重入不復活舊訊息。新增16項資料／Host及三Client六組TCP通過，全回歸1021項。名稱對照及輸入標記沿既有REA，三類可同時加入及會員政策為Server設計；未完成GuildListDialog、公會戰／會館／倉庫／官階，不把A-014或CT-049標完成。
+
+
+## 2026-11-08持續傷害增量（A-009／A-010／A-016）
+
+[技能與交易契約](../04-analysis-integration/20261108-periodic-monster-skills.md)及[原件無來源呈現](../04-analysis-integration/20261108-native-periodic-damage-presentation.md)：v7新增指定灼傷／毒擊；成本／初擊／定時HP／剩餘次數／死亡獎勵／事件有同交易保護，來源租約／生命／地圖與怪物生命隔離，同類最後來源刷新。來源0、motion0、selector0的S13分支可派生純怪物數字，不能當原服DoT封包或GUI已驗。1038項.NET／17項新增與三peer四組TCP通過。完整減益／解除／召喚、原版技能映射與Pg實例仍待補，不將A-010整體標完成。

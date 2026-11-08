@@ -1,0 +1,37 @@
+# 持續傷害的原生S13無來源呈現
+
+延續[A-009／A-010旁觀戰鬥](20261108-native-observed-combat.md)。本輪問題是：持續傷害不能每次都讓施法者重新揮拳，也不能向看不見施法者的觀察者發未知非零來源ref。只分析原始Client，沒有修改EXE或附掛使用者程式。
+
+原件SHA256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，Ghidra12.1.4、profile digest `3c06738e45e144d5f073edbd3244c6bff46222f389525fe659bc92dca2ccdece`。0x4F2620與0x47BC20在目前provider沒有建立procedure；因此沿既有完整逐指令證據並重查精確instruction，沒有把失敗反編譯當不存在，也沒有新增函式／修補原件。
+
+## 可派生的無來源分支
+
+1. 原S13 handler0x4F2620先找ReferenceB（目標）與ReferenceA（來源）；使用本輪普通非packed、flags bit0擴充傷害子集。
+2. registry0x4EAC30找不到物件會返回0。Server不發出ObjectId0，因此來源ref0在其已投影物件集合中沒有實體。
+3. 目標存在、來源不存在時，0x4F281C／0x4F281E轉到0x4F299F；selector=0經0x4F29A3／0x4F29A6直接到0x4F29FC，再0x4F29FF調目標0x4A4B00。該支線沒有呼叫來源virtual動作setter。
+4. 0x4A4B00在flags bit0時，傳遞原始sourceRef、extension amount、neutral受擊欄與sound至0x4B6850。沿既有Monster type-key fallback可建立數字；不要求來源就是本機玩家。
+5. 只有來源／目標都存在且走Human來源分支時，才會到0x47BC20等來源處理。Human的Motion0會跳過動作setter，但本輪選**無來源0＋motion0＋selector0**，不靠已退場施法者、未知旗標或S1A0重設站立。
+
+因此本輪**Server呈現設計**可使用31byte擴充S13：ReferenceA=0、ReferenceB=已投影且相同生命的Monster、Motion0、EffectSelector0、AnimationParameter100、Flags1；extension只有amount，其他欄為0。這是由Client分支派生的可測子集，不代表已取得原服中毒／灼傷封包，也不稱它是原版DoT opcode。Server內部仍保留真正傷害來源／租約／生命與獎勵歸屬，wire的0不是把信用改給別的玩家。
+
+目標仍必須存在，不能用此法對已離視野或已換生命的物件補打。無來源時不能宣稱數字必定使用本機攻擊顏色；Monster fallback樣式與像素需要GUI驗收。原生人形數字另有守護控制gate，本輪只用於怪物，不擴成PvP／NPC持續傷害。
+
+## 證據索引
+
+|Evidence|內容|
+|---|---|
+|ev_cef66f594ee419b87a5b35b7329a3df02939b155da0f0d7994be7f918e6a6bdd|0x4F2620沒有provider procedure的負結果|
+|ev_518e8440cd580e4026f136bb629accb34d0069a58b937c086b900ae43f81b032|registry查詢未命中返回0|
+|ev_442986127c3110e25d6e5e777479ec12bfbfe1bd710a6514aa3d616255b9548e|0x4F281C來源指標檢查|
+|ev_b9c5ba2da55a535d0f932cca9ee95f05c53b7b82edde859e0325e4c4ad049a53|0x4F281E空來源分支|
+|ev_37edefdafe619f8fa7aa189f4a00db97a1ac9c72afb7c33602029343f3d537c1|0x4F299F讀selector|
+|ev_8f193e9df7a439ca606775ee05500ac78be81a27527e4624998f2a9886f770e7|selector零判斷|
+|ev_a868c75e6e77c4e6dcef102560f73eb1b8767214eff0224a2e49b4280fe84151|0x4F29A6轉目標受擊路徑|
+|ev_42481ae2940afd4fe919fcef7705373a17b486dcf002bc14f8ce29d7d45a529c|0x4F29FF調目標0x4A4B00|
+|ev_b6aed24efd85fe33b02d3357ba1bbc6b698b28f0de2bc9e59b824f0b227712c4|0x4A4B00傳sourceRef及extension至數字／音效路徑|
+|ev_2db0b1bc327e74d9be11b9f53dfd58e9490e36ea95a2ed74326a5cffaa5f8950|Human Motion值檢查|
+|ev_bf4441da84654f26b85a24789c5a536e57ef30d7053628d91a7b571fde56b87b|Human Motion0跳過動作setter|
+
+完整舊逐指令材料位於本地combat-observers-native-20261108，本輪Evidence及關閉快照為anal-roy-temp／periodic-skills-native-20261108系列。公開只收語義、位址及ID，不收原始EXE或流量。
+
+合成向量／Host／三peer TCP可驗封包、數字值、單次投遞與不發來源動作；不能證原件GUI真的沒有動作中斷、數字顏色或已播放原版法術特效。集中GUI待測與Server規則見[持續傷害技能](20261108-periodic-monster-skills.md)。

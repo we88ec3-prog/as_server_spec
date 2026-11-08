@@ -34,3 +34,8 @@ python -m unittest discover -s task_a/roy2 -p 'test_a010_skill_codec.py' -v
 ## 2026-11-08指定復活新增覆蓋
 
 詳見[指定復活契約](../04-analysis-integration/20261108-targeted-resurrection.md)。Server重建：來源與目標完整租約按角色ID排序鎖定後再鎖隊伍，重新核已投影死亡隊友憑證、同圖／六格／視線；MP20、10秒冷卻、熟練、原地30%HP／生命+1與收據同交易。自動復活或另一施法者先勝不扣費，舊生命事件不得重演；C0E前導不結算，C65不新增nonce。新增11項領域／資料／Host測試及三Client五組TCP，原生墓碑選取、指定特效／音效與Pg競態另驗。此增量不將整體A-010或A-016標已完成。
+
+
+## 2026-11-08持續傷害增量（A-009／A-010／A-016）
+
+[技能與交易契約](../04-analysis-integration/20261108-periodic-monster-skills.md)及[原件無來源呈現](../04-analysis-integration/20261108-native-periodic-damage-presentation.md)：v7新增指定灼傷／毒擊；成本／初擊／定時HP／剩餘次數／死亡獎勵／事件有同交易保護，來源租約／生命／地圖與怪物生命隔離，同類最後來源刷新。來源0、motion0、selector0的S13分支可派生純怪物數字，不能當原服DoT封包或GUI已驗。1038項.NET／17項新增與三peer四組TCP通過。完整減益／解除／召喚、原版技能映射與Pg實例仍待補，不將A-010整體標完成。

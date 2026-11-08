@@ -1,5 +1,7 @@
 # 原生戰鬥旁觀者：數字、動作與有限特效（2026-11-08）
 
+後續：[無來源S13的怪物跳傷分支](20261108-native-periodic-damage-presentation.md)已補純數字／不重播來源動作的靜態子集；此為新限定呈現，不把下文先前未採用的fallback誤稱當時已實作。
+
 ## 範圍與入口更正
 
 原件 Asgard.exe SHA-256 `db3df616f68b9f32163abc4b88de9d310562b2ddfe955aaa5ba7fcff729e1145`，Ghidra12.1.4，原件唯讀，未啟動或附掛使用者程式。本頁補多人投影限制，不重定義既有S13 15／31byte body。原生GUI驗收仍待測。
