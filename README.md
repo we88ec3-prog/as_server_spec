@@ -1,5 +1,7 @@
 # Asgard Server Specification
 
+2026-11-08：[七職業自身增益第一版](04-analysis-integration/20261108-reconstructed-self-buffs.md)。新增一槽30秒能力加成，實際影響技能傷害，接上MP、刷新、到期、死亡、重登與原生S2C／S2D；數值為重建設計，原生GUI待測。此增量接續下方先前「buff待開發」紀錄，未宣稱多來源／減益完成。
+
 2026-11-08：[原生郵件依賴NMCO3](04-analysis-integration/20261108-native-mail.md)、[未接線的文字郵件內核](04-analysis-integration/20261108-player-mail-authority.md)。C12只是地址簿，不是假郵件協定；資料層15項及地址簿邊界通過，全回歸818項。原生／替代寄件入口均尚未接線，附件未證。同輪補[持續效果圖示／秒數／移除](04-analysis-integration/20261108-native-lasting-effects.md)，實際buff遊戲功能仍待開發，總表／F18／F07保留未完成狀態。
 
 2026-11-08：[玩家交易與原子資產交換](04-analysis-integration/20261108-player-exchange-authority.md)、[REA原生C4A／S42](04-analysis-integration/20261108-native-player-exchange.md)。邀請、9格道具／部分堆疊、雙向Gold、確認與取消已接線；滿背包對換與生命／租約／版本衝突由同交易保護。原生append-only／沒有accept ack／金額只在OK送出的限制已納規劃；郵件及雙Client GUI仍待完成。

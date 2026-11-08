@@ -1012,6 +1012,10 @@
       "sha256": "d9da8362502819ae7d0b56c88efc980edc02823d1f883371d3e56bb2c0101cbd"
     },
     {
+      "path": "04-analysis-integration/20261108-reconstructed-self-buffs.md",
+      "sha256": "8298286adf170089e5616e887535653a2e11de1f7c36d2a91fb44a20e1411ecb"
+    },
+    {
       "path": "04-analysis-integration/20261108-shared-player-visibility-and-motion.md",
       "sha256": "d5f6c694509d27dc5930bce99fd9b1ef8989f75d51226f3089334ad4070ed6b6"
     },
@@ -1153,7 +1157,7 @@
     },
     {
       "path": "04-analysis-integration/README.md",
-      "sha256": "5b1b7d2f33300f9413931a325a6252d85a774e096ed19b9caacd0e06233def09"
+      "sha256": "6c43b8602e649596d9da6c694f4a5abae287429d106b5755039a9756429e2fe3"
     },
     {
       "path": "04-analysis-integration/a015-map-corpus.json",
@@ -1321,7 +1325,7 @@
     },
     {
       "path": "04-analysis-integration/packets.json",
-      "sha256": "e04fdaf7fc404b8db213cc47d2c5f661324c5473fe6f02a35da7290c8e4fca9e"
+      "sha256": "e35cb7eb80b5f4ad6d526ac0a71f94d1f75698699678715744b41a4a665146e2"
     },
     {
       "path": "04-analysis-integration/postcreate-conditional-autologin-audit-20261101.md",
@@ -1613,11 +1617,11 @@
     },
     {
       "path": "06-development-tracking/00_Server開發總表.xlsx",
-      "sha256": "5ea1af7f1979a07e355fb7987efd5e85edbc3cdb72a9b11102f2700087045462"
+      "sha256": "be6b568d325c28f506a2416f8e6803ceac931c9578778db420ef15dfb2104a15"
     },
     {
       "path": "06-development-tracking/README.md",
-      "sha256": "2108fd3a7bf258c6ec92955e26f2476bff5f0524a6b3142b39dfdbe4c6ce9d6d"
+      "sha256": "60ed5138b5d95e21387c0dbbf29a58d5c038005bcec5301198a05a1f5d15c8c7"
     },
     {
       "path": "06-development-tracking/details/F01_帳號登入與創角.xlsx",
@@ -1645,7 +1649,7 @@
     },
     {
       "path": "06-development-tracking/details/F07_技能共用與持續效果.xlsx",
-      "sha256": "34df0a68b2b4243cfaa7240a6f69f0fce8bce304b681cc7b9e60cc42c96adb33"
+      "sha256": "d7184e5e26ba0117109be14c1215d77768a76aa1072e1966fc296d20589a73b3"
     },
     {
       "path": "06-development-tracking/details/F08_戰士技能.xlsx",
@@ -1761,7 +1765,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "8fb16f66b74bba22262c3b070e20c2bba61b17d9ff7fe6c62b9c0cd446349df7"
+      "sha256": "cabb568c4bb7373d4fdfc54296e6e2d353400c6453283e7875a7977874e4f62d"
     },
     {
       "path": "task_a/roy2/A-004-analysis.md",

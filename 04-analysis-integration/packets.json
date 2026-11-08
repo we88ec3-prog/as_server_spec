@@ -3188,7 +3188,8 @@
         "PKT-S48",
         "PKT-S52"
       ],
-      "a010_boundary": "No confirmed original duration/stack/refresh, u32 values opaque and removal cross-ID unproven",
+      "a010_boundary": "Historical A010 unknowns superseded by 20261108 lasting contract: relative seconds, remove/add refresh and matching identity proven statically. Original spell mapping/balance and native GUI remain unverified.",
+      "reconstruction_contract": "04-analysis-integration/20261108-reconstructed-self-buffs.md",
       "lasting_contract": "04-analysis-integration/20261108-native-lasting-effects.md",
       "receiver_limits": "24 icon cells; duplicate identity ignored; use remove/add to refresh. Last10seconds blink stops decrement and does not self-remove; Server-authoritative expiry sendsS2D. family0 frames0..318; family1 frames0..370; opaque bytes remain0 in reviewed subset."
     },
@@ -3216,7 +3217,8 @@
       "related_packets": [
         "PKT-S2C"
       ],
-      "a010_boundary": "UI callback and correspondence to S2C ID not completely proven",
+      "a010_boundary": "20261108 dispatcher/handler/remove evidence proves same-identity removal; original GUI acceptance remains not-run.",
+      "reconstruction_contract": "04-analysis-integration/20261108-reconstructed-self-buffs.md",
       "lasting_contract": "04-analysis-integration/20261108-native-lasting-effects.md"
     },
     {
