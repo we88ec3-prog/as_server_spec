@@ -895,7 +895,9 @@
       ],
       "a006_analysis": "task_a/roy2/A-006-analysis.md",
       "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
-      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged",
+      "equipment_visual_contract": "04-analysis-integration/20261108-equipped-human-visuals.md",
+      "equipment_visual_validation": "Original static reader/library mapping; Server reconstruction bindings implemented; native equipped-model GUI not-run"
     },
     {
       "id": "PKT-S0B",
@@ -1118,7 +1120,9 @@
       "a004_shared_player_increment": "04-analysis-integration/20261108-native-remote-player-lifecycle.md",
       "remote_human_note": "4F31A0 non-self removes existing ref then constructs HumanObject; same-ref refresh rebuilds animation. S05 is self, and S05 clothing flag0x1000 must not be copied into S33 HumanFlags.",
       "targeted_resurrection_contract": "04-analysis-integration/20261108-targeted-resurrection.md",
-      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged"
+      "targeted_resurrection_validation": "Server reconstruction / synthetic Host and TCP passed; original tombstone GUI not-run; wire layout unchanged",
+      "equipment_visual_contract": "04-analysis-integration/20261108-equipped-human-visuals.md",
+      "equipment_visual_validation": "Original static reader/library mapping; Server reconstruction bindings implemented; native equipped-model GUI not-run"
     },
     {
       "id": "PKT-S37",

@@ -30,3 +30,8 @@ Schema: `ItemTemplate(resource_release,template_id,stack_limit?,equip_slot?,flag
 ## 2026-11-08 消耗品與堆疊增量
 
 本輪補核原生非指定物品使用C1C(kind1,slot,flag0,useKind5)，分開可信Server的穿戴與消耗品政策；不是將所有C1C種類開放成任意資產能力。C30 subtype8與同格S0F／耗盡S10投影已有精選來源。見[原件使用及數量投影](20261108-native-consumable-use-and-stack-projection.md)、[消耗／堆疊／升級權威](20261108-consumable-stack-and-upgrade.md)及[實作與驗收範圍](20261108-consumables-color-and-manual-acceptance.md)。原版完整道具效果、C08丟棄與C0C拾取語意仍未開放；也未把Server可部分拆到空格冒稱已有原生手勢。
+
+
+## 2026-11-08 裝備模型投影增量
+
+[武器／盾牌／頭部Human外觀](20261108-equipped-human-visuals.md)補上S05／S33附件欄位、圖像庫查找、重建物品的顯示綁定及多人一致快照；原始物品模板與全部裝備效果仍未完成，原生畫面待測。

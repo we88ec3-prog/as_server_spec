@@ -1,6 +1,6 @@
 # A-007 / roy1 — 背包、裝備、數量與移除的原生 Client BIN-first 分析
 
-2026-11-08後續：[十六槽裝備增量](../04-analysis-integration/20261108-sixteen-slot-equipment.md)已補原生key映射、多槽交易及DAM／AC投影；本頁保留原分析時間點，舊slot2限制不代表目前只開衣服。原版模型與新槽GUI仍未驗收。
+2026-11-08後續：[十六槽裝備增量](../04-analysis-integration/20261108-sixteen-slot-equipment.md)已補原生key映射、多槽交易及DAM／AC投影；本頁保留原分析時間點，舊slot2限制不代表目前只開衣服。後續[裝備模型投影](../04-analysis-integration/20261108-equipped-human-visuals.md)已接武器／盾／頭部；新外觀原生GUI仍未驗收。
 
 2026-11-08補證：[地面物品契約](../04-analysis-integration/20261108-native-ground-drop-pickup-and-object-resync.md)已釐清C08=kind／slot／quantity三u8；真正拾取是C07 Get的BEu32 object ref，**C0C是missing-object重同步請求，不能當拾取授權**。以下2026-10-31 unknown保留歷史時間點，不代表這些欄位仍未解析；新增GUI結果另列，未由靜態補證宣稱完成。
 

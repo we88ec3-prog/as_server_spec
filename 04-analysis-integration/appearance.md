@@ -1,5 +1,7 @@
 # 外觀profile欄位與螢幕座標
 
+2026-11-08武器／盾牌／頭部接線見[裝備Human外觀](20261108-equipped-human-visuals.md)，以下舊增量保留當時範圍，後續進度以該文件及進度表為準。
+
 職業欄位新增證據與行為契約見[原生職業投影](20261101-native-career-appearance-projection.md)。
 
 2026-11-01開發增量：使用者要求「衣色獨立於髮色」。新 Server 已加入可選 clothing tint 的 S05/S33 編碼；未指定時維持原始色 sentinel，指定時僅改衣色及 S05 的0x1000旗標。拒絕把000000／FF00FF當可精確顯示的自訂色。4個新增測例核對髮色不變、面向／位置保留、S05與S33各自旗標及保留色拒絕；全套279項測試通過。此增量尚未接持久化、衣櫃／裝備交易與Web操作，不能宣稱新Server已可完整換衣染色；原生GUI仍待測。
@@ -17,10 +19,10 @@ body offset不含opcode／ordinal／frame header。此處只規範原型已實�
 |7|u16 BE|clothing_id|
 |9|u8|hair_id|
 |10..12|RGB3|hair_color|
-|13|u8|未知，本profile0|
-|14..16|RGB3|附件相關欄位，本profileffffff，語意待補|
-|17|u8|未知，本profile0|
-|18..20|RGB3|附件相關欄位，本profileffffff，語意待補|
+|13|u8|武器模型編號，0無；已核註冊上限109|
+|14..16|RGB3|附件RGB，目前ffffff|
+|17|u8|盾牌模型編號，0無；已核註冊上限13|
+|18..20|RGB3|附件RGB，目前ffffff|
 |21..24|u32 BE|flags；自訂衣色設0x1000|
 |25..27|RGB3|clothing_color；原始配色sentinel ff00ff|
 |28|u8|尾欄，本profile0|
@@ -38,9 +40,9 @@ body offset不含opcode／ordinal／frame header。此處只規範原型已實�
 |12..13|u16 BE|clothing_id|
 |14|u8|hair_id|
 |15..17|RGB3|hair_color|
-|18|u8|未知，本profile0|
+|18|u8|武器模型編號，0無；見20261108-equipped-human-visuals|
 |19..21|RGB3|附件相關，本profileffffff|
-|22|u8|未知，本profile0|
+|22|u8|盾牌模型編號，0無；見20261108-equipped-human-visuals|
 |23..25|RGB3|附件相關，本profileffffff|
 |26..29|u32 BE|flags，本profile0|
 |30..32|RGB3|clothing_color，獨立於hair_color|
